@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64D9311C-5666-4887-9B5E-71650E9ACC0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KlonsLIB</RootNamespace>
+    <AssemblyName>KlonsLIB</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Output|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=4.7.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\KlonsP\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\KlonsP\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\KlonsP\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\KlonsP\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\KlonsP\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\KlonsP\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.30.5713.22121, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <HintPath>..\Lib\SourceGrid.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\ListBoxDragDropHelper.cs" />
+    <Compile Include="Components\MySplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SpanCell\DataGridViewCellExHelper.cs" />
+    <Compile Include="Components\SpanCell\DataGridViewHelper.cs" />
+    <Compile Include="Components\SpanCell\DataGridViewTextBoxCellEx.cs" />
+    <Compile Include="Components\SpanCell\ISpannedCell.cs" />
+    <Compile Include="Components\TabControlWithoutHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Downloader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyBindingNavigator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyDropDownPropertyEditor.cs" />
+    <Compile Include="Components\MyDataTablePropEditor.cs" />
+    <Compile Include="Components\MyDgvMcCB.cs" />
+    <Compile Include="Components\MyDgvMcComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyDgvMcComboBoxCell.cs" />
+    <Compile Include="Components\MyDgvMcComboBoxColumn.cs" />
+    <Compile Include="Components\MyLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyMcComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyMcFlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyPickRowTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyToolStripPickTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\OrderedPropertyGrid.cs" />
+    <Compile Include="Data\DataSetHelper.cs" />
+    <Compile Include="Data\DetailedConstraintException.cs" />
+    <Compile Include="Data\DetailedConstraintException2.cs" />
+    <Compile Include="Data\ExceptionHelper.cs" />
+    <Compile Include="Data\ISettings.cs" />
+    <Compile Include="Data\JoinView.cs" />
+    <Compile Include="Data\JoinViewRow.cs" />
+    <Compile Include="Data\JoinViewRowPropertyDescriptor.cs" />
+    <Compile Include="Data\KlonsDataModule.cs" />
+    <Compile Include="Data\MyAdapterManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\MyBindingSource.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\MyBindingSource2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\MyBindingSourceToObj.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\SomeExtensions.cs" />
+    <Compile Include="Forms\ColorThemeHelper.cs" />
+    <Compile Include="Forms\Form_Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Error.designer.cs">
+      <DependentUpon>Form_Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_InputBox.designer.cs">
+      <DependentUpon>Form_InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Progress.Designer.cs">
+      <DependentUpon>Form_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ReportViewer.Designer.cs">
+      <DependentUpon>Form_ReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyFormMainBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyMessageBox.Designer.cs">
+      <DependentUpon>MyMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyToolStripRenderer.cs" />
+    <Compile Include="Forms\ReportViewerMessages.cs" />
+    <Compile Include="Forms\MyFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\AssemblyRef1.cs" />
+    <Compile Include="Misc\BindableComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Misc\CikEiro.cs" />
+    <Compile Include="Misc\CollectionEditorOnNewItem.cs" />
+    <Compile Include="Misc\CollectionEditorTypeListProvider.cs" />
+    <Compile Include="Misc\HLSColor.cs" />
+    <Compile Include="Forms\ReportHelper.cs" />
+    <Compile Include="Misc\RelatedDataSourceAttribute.cs" />
+    <Compile Include="Misc\SerializableDictionary.cs" />
+    <Compile Include="Misc\Utils.cs" />
+    <Compile Include="MultivalueDictionary\System.Collections.Generic\Exceptions.cs" />
+    <Compile Include="MultivalueDictionary\System.Collections.Generic\MultiValueDictionary.cs" />
+    <Compile Include="MultivalueDictionary\System.Collections.Generic\SR.cs" />
+    <Compile Include="MultivalueDictionary\Validation\Requires.cs" />
+    <Compile Include="MultivalueDictionary\Validation\ValidatedNotNullAttribute.cs" />
+    <Compile Include="MyData.cs" />
+    <Compile Include="MySourceGrid\BindingControllers.cs" />
+    <Compile Include="MySourceGrid\DataCellController.cs" />
+    <Compile Include="MySourceGrid\Cells\MyComboBoxCell.cs" />
+    <Compile Include="MySourceGrid\Cells\MyGridComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MySourceGrid\GridRows\MyGridRowBase.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowCheckBox.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowComboBoxB.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowComboBoxA.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowComboBoxB2.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowMultiLineTextBox.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowMyEditor.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowPropEditorBase.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowTextBoxA.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowTitleX.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowWithControl.cs" />
+    <Compile Include="MySourceGrid\MyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MySourceGrid\MyGridRowList.cs" />
+    <Compile Include="MySourceGrid\MyGridViewModel.cs" />
+    <Compile Include="MySourceGrid\MarkCurrentRowController.cs" />
+    <Compile Include="MySourceGrid\MyToolTipText.cs" />
+    <Compile Include="MySourceGrid\RowMarkCellController.cs" />
+    <Compile Include="MySourceGrid\RowMarkModel.cs" />
+    <Compile Include="MySourceGrid\SharedControlDef.cs" />
+    <Compile Include="MySourceGrid\ValueMappingB.cs" />
+    <Compile Include="MySourceGrid\ValueMappingA.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Form_Error.resx">
+      <DependentUpon>Form_Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_InputBox.resx">
+      <DependentUpon>Form_InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Progress.resx">
+      <DependentUpon>Form_Progress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ReportViewer.resx">
+      <DependentUpon>Form_ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyMessageBox.resx">
+      <DependentUpon>MyMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Pics\checked2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\Error1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\information1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\Save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\Save2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyUIEditors\MyUIEditors.csproj">
+      <Project>{22800a2a-e830-406f-9ffc-511dca5ea512}</Project>
+      <Name>MyUIEditors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

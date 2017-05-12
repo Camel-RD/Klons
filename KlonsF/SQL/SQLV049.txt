@@ -1,0 +1,144 @@
+﻿/* Alter Procedure... */
+/* Alter (SP_LINKEDDOCS_1) */
+SET TERM ^ ;
+
+ALTER PROCEDURE SP_LINKEDDOCS_1(PSD DATE,
+PED DATE,
+PCLID VARCHAR(15),
+PDOCNR VARCHAR(15))
+ RETURNS(ID INTEGER,
+DETE DATE,
+CLID VARCHAR(15),
+DOCTYP VARCHAR(10),
+DOCST VARCHAR(6),
+DOCNR VARCHAR(15),
+DESCR VARCHAR(80),
+SUMM NUMERIC(15,4),
+PVN NUMERIC(15,4))
+ AS
+begin
+    FOR SELECT
+        opsd.id,
+        opsd.DETE,
+        opsd.clid,
+        opsd.DocTyp,
+        opsd.DocSt,
+        opsd.DocNr,
+        opsd.Descr,
+        CASE WHEN AP1 = 1 OR AP2 = 1
+            THEN -OPSd.Summ
+            ELSE OPSd.Summ
+        END AS Summ,
+        CASE WHEN AP1 = 1 OR AP2 = 1
+            THEN -OPSd.PVN
+            ELSE OPSd.PVN
+        END AS PVN
+    FROM
+    (
+        SELECT 
+            OPSd.id, 
+            MAX(CASE WHEN AcP21_1.AC IS NULL THEN 0 ELSE 1 END) AS AP1,
+            MAX(CASE WHEN AcP21_2.AC IS NULL THEN 0 ELSE 1 END) AS AP2
+        FROM
+            OPS INNER JOIN OPSd ON OPSd.id = OPS.DocId
+            LEFT JOIN AcP21 AS AcP21_1 ON OPS.AC11 = AcP21_1.AC AND AcP21_1.id1 IN ('KA','BA','CN')
+            LEFT JOIN AcP21 AS AcP21_2 ON OPS.AC21 = AcP21_2.AC AND AcP21_2.id1 IN ('KA','BA','CN')
+        WHERE
+            OPSd.DETE BETWEEN :PSD AND :PED AND
+            opsd.ClId = :PCLID AND
+            (:PDOCNR is null OR opsd.DocNr = :PDOCNR)
+        GROUP BY OPSd.id
+    ) AS T1 
+    INNER JOIN OPSd ON T1.id = OPSd.id
+    order by DETE
+    INTO :ID, :DETE, :clid, :doctyp, :docst, :docnr, :descr, :summ, :pvn
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+/* Alter (SP_LINKEDDOCS_2) */
+ALTER PROCEDURE SP_LINKEDDOCS_2(PSD DATE,
+PED DATE,
+PCLID VARCHAR(15),
+PDOCNR VARCHAR(15))
+ RETURNS(ID TYPE OF COLUMN OPS.ID,
+DOCID TYPE OF COLUMN OPS.DOCID,
+DESCR TYPE OF COLUMN OPS.DESCR,
+AC11 TYPE OF COLUMN OPS.AC11,
+AC12 TYPE OF COLUMN OPS.AC12,
+AC13 TYPE OF COLUMN OPS.AC13,
+AC14 TYPE OF COLUMN OPS.AC14,
+AC15 TYPE OF COLUMN OPS.AC15,
+AC21 TYPE OF COLUMN OPS.AC21,
+AC22 TYPE OF COLUMN OPS.AC22,
+AC23 TYPE OF COLUMN OPS.AC23,
+AC24 TYPE OF COLUMN OPS.AC24,
+AC25 TYPE OF COLUMN OPS.AC25,
+SUMMC TYPE OF COLUMN OPS.SUMMC,
+CUR TYPE OF COLUMN OPS.CUR,
+SUMM TYPE OF COLUMN OPS.SUMM,
+QV TYPE OF COLUMN OPS.QV,
+NL TYPE OF COLUMN OPS.NL,
+ZDT TYPE OF COLUMN OPS.ZDT)
+ AS
+begin
+  for select ops.id,
+             ops.docid,
+             ops.descr,
+             ops.ac11,
+             ops.ac12,
+             ops.ac13,
+             ops.ac14,
+             ops.ac15,
+             ops.ac21,
+             ops.ac22,
+             ops.ac23,
+             ops.ac24,
+             ops.ac25,
+             ops.summc,
+             ops.cur,
+             ops.summ,
+             ops.qv,
+             ops.nl,
+             ops.zdt
+
+      FROM OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+      WHERE
+        opsd.DETE BETWEEN :PSD AND :PED AND
+        ClId = :PCLID AND
+        (:PDOCNR is null OR opsd.DocNr = :PDOCNR)
+      ORDER BY OPSd.DETE, OPS.id
+      into :id,
+           :docid,
+           :descr,
+           :ac11,
+           :ac12,
+           :ac13,
+           :ac14,
+           :ac15,
+           :ac21,
+           :ac22,
+           :ac23,
+           :ac24,
+           :ac25,
+           :summc,
+           :cur,
+           :summ,
+           :qv,
+           :nl,
+           :zdt
+  do
+  begin
+    suspend;
+  end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '049'
+WHERE PNAME = 'version';

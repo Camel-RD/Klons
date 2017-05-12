@@ -1,0 +1,68 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_OPSD_INSERT(
+  PID INTEGER,
+  PDETE DATE,
+  PNRX VARCHAR(5),
+  PDOCTYP VARCHAR(10),
+  PDOCST VARCHAR(6),
+  PDOCNR VARCHAR(15),
+  PCLID VARCHAR(15),
+  PCLID2 VARCHAR(15),
+  PDESCR VARCHAR(80),
+  PSUMM NUMERIC(15,4),
+  PPVN NUMERIC(15,4),
+  POPT INTEGER,
+  PZNR INTEGER,
+  PZU VARCHAR(20),
+  PZDT TIMESTAMP,
+  PDT2 DATE,
+  PNL SMALLINT)
+RETURNS (
+  ID TYPE OF COLUMN OPSD.ID,
+  DETE TYPE OF COLUMN OPSD.DETE,
+  NRX TYPE OF COLUMN OPSD.NRX,
+  DOCTYP TYPE OF COLUMN OPSD.DOCTYP,
+  DOCST TYPE OF COLUMN OPSD.DOCST,
+  DOCNR TYPE OF COLUMN OPSD.DOCNR,
+  CLID TYPE OF COLUMN OPSD.CLID,
+  CLID2 TYPE OF COLUMN OPSD.CLID2,
+  DESCR TYPE OF COLUMN OPSD.DESCR,
+  SUMM TYPE OF COLUMN OPSD.SUMM,
+  PVN TYPE OF COLUMN OPSD.PVN,
+  OPT TYPE OF COLUMN OPSD.OPT,
+  ZNR TYPE OF COLUMN OPSD.ZNR,
+  ZU TYPE OF COLUMN OPSD.ZU,
+  ZDT TYPE OF COLUMN OPSD.ZDT,
+  DT2 TYPE OF COLUMN OPSD.DT2,
+  YR TYPE OF COLUMN OPSD.YR,
+  NL TYPE OF COLUMN OPSD.NL)
+AS
+begin
+    INSERT INTO OPSd
+        (id, DETE, NrX, DocTyp, DocSt, DocNr,
+        ClId, ClId2, Descr, Summ, PVN,
+        Opt, ZNR, ZU, ZDt, DT2, NL)
+    VALUES
+        (:pid, :pDete, :pNrX, :pDocTyp, :pDocSt, :pDocNr,
+        :pClId, :pClId2, :pDescr, :pSumm, :pPVN,
+        :pOpt, :pznr, :pZU, current_timestamp(0), :pDT2, 0)
+    RETURNING
+        id, DETE,  nrx, doctyp, docst, docnr,
+        clid, clid2, descr, summ, pvn,
+        opt, znr, zu, zdt, dt2, nl, yr
+    INTO
+        :id, :DETE, :nrx, :doctyp, :docst, :docnr,
+        :clid, :clid2, :descr, :summ, :pvn,
+        :opt, :znr, :zu, :zdt, :dt2, :nl, :yr;
+
+    suspend;
+
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '069'
+WHERE PNAME = 'version';

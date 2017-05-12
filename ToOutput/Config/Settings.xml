@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<KlonsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MasterEntry Name="SIA Pia">
+    <FileName>klons_p.fdb</FileName>
+    <Descr>SIA Pia 2014-</Descr>
+    <ConnStr>FBEmbeded</ConnStr>
+    <Path />
+  </MasterEntry>
+  <LastUserName>Admin</LastUserName>
+  <BaseDBPathX>DB</BaseDBPathX>
+  <BaseConnStr>FBEmbeded</BaseConnStr>
+  <DoVersionCheck>YES</DoVersionCheck>
+  <InWine>NO</InWine>
+  <LastVersionCheckDate>05.10.2016</LastVersionCheckDate>
+  <ColorThemeId>system</ColorThemeId>
+  <FormFontSize>12</FormFontSize>
+  <FormFontName>Microsoft Sans Serif</FormFontName>
+  <FormFontStyle>0</FormFontStyle>
+  <ColumnWidths_Docs>
+    <int>51</int>
+    <int>45</int>
+    <int>85</int>
+    <int>61</int>
+    <int>51</int>
+    <int>103</int>
+    <int>95</int>
+    <int>149</int>
+    <int>80</int>
+    <int>80</int>
+    <int>101</int>
+    <int>45</int>
+    <int>101</int>
+    <int>75</int>
+    <int>160</int>
+    <int>101</int>
+  </ColumnWidths_Docs>
+  <ColumnWidths_Ops>
+    <int>40</int>
+    <int>40</int>
+    <int>59</int>
+    <int>59</int>
+    <int>40</int>
+    <int>59</int>
+    <int>45</int>
+    <int>59</int>
+    <int>59</int>
+    <int>40</int>
+    <int>59</int>
+    <int>45</int>
+    <int>80</int>
+    <int>66</int>
+    <int>80</int>
+    <int>80</int>
+    <int>120</int>
+    <int>75</int>
+  </ColumnWidths_Ops>
+  <ColumnWidths_Dops>
+    <int>45</int>
+    <int>85</int>
+    <int>65</int>
+    <int>45</int>
+    <int>80</int>
+    <int>91</int>
+    <int>131</int>
+    <int>59</int>
+    <int>59</int>
+    <int>80</int>
+    <int>59</int>
+    <int>40</int>
+    <int>59</int>
+    <int>45</int>
+    <int>59</int>
+    <int>40</int>
+    <int>59</int>
+    <int>45</int>
+    <int>101</int>
+  </ColumnWidths_Dops>
+  <ReportZoom>150</ReportZoom>
+  <WindowPos>max</WindowPos>
+</KlonsSettings>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MasterList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TemplateList>
+    <ConnectionStringTemplate Name="FBServer" Template="character set=UTF8;data source=localhost;ReturnRecordsAffected=True;initial catalog={0};user id=AIVARS;password=parole" />
+    <ConnectionStringTemplate Name="FBEmbeded" Template="character set=UTF8;data source=localhost;ReturnRecordsAffected=True;Server Type=1;user id=AIVARS;password=parole;Initial Catalog={0};ClientLibrary=fbembed.dll" />
+  </TemplateList>
+  <ConnectionList>
+    <MasterEntry Name="SIA Pia">
+      <FileName>klonsa_p.fdb</FileName>
+      <Descr>SIA Pia 2014-</Descr>
+      <ConnStr>FBEmbeded</ConnStr>
+      <Path />
+    </MasterEntry>
+    <MasterEntry Name="tukšā datu bāze">
+      <FileName>klonsa00.fdb</FileName>
+      <Descr>tukšā datu bāze</Descr>
+      <ConnStr>FBEmbeded</ConnStr>
+      <Path>@\base</Path>
+    </MasterEntry>
+  </ConnectionList>
+</MasterList>

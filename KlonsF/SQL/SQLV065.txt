@@ -1,0 +1,204 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_LINKEDDOCS_1(
+  PSD DATE,
+  PED DATE,
+  PCLID VARCHAR(15),
+  PDOCNR VARCHAR(15))
+RETURNS (
+  ID INTEGER,
+  DETE DATE,
+  CLID VARCHAR(15),
+  DOCTYP VARCHAR(10),
+  DOCST VARCHAR(6),
+  DOCNR VARCHAR(15),
+  DESCR VARCHAR(80),
+  SUMM NUMERIC(15,4),
+  PVN NUMERIC(15,4))
+AS
+declare variable k integer;
+begin
+    k = GEN_ID("GEN_OPSD_ID",0) + 1;
+
+    FOR SELECT
+        ID,
+        DETE,
+        clid,
+        (DocTyp),
+        DocSt,
+        DocNr,
+        Descr,
+        Summ,
+        PVN
+    FROM
+    (
+        SELECT
+            NULL AS ID,
+            DETE,
+            DOCS0.clid,
+            DOCS0.DocTyp,
+            DOCS0.DocSt,
+            DOCS0.DocNr,
+            DOCS0.Descr,
+            CASE WHEN DOCS0.ac STARTING WITH '2'
+                THEN summ
+                ELSE -summ
+            END AS Summ,
+            CASE WHEN DOCS0.ac STARTING WITH '2'
+                THEN pvn
+                ELSE -pvn
+            END AS PVN
+        FROM DOCS0
+        WHERE
+            DOCS0.ClId = :PCLID AND
+            (:PDOCNR is null OR DOCS0.DocNr = :PDOCNR)
+
+        UNION ALL
+    
+        SELECT
+            opsd.id,
+            opsd.DETE,
+            opsd.clid,
+            opsd.DocTyp,
+            opsd.DocSt,
+            opsd.DocNr,
+            opsd.Descr,
+            CASE WHEN AP1 = 1 OR AP2 = 1
+                THEN -OPSd.Summ
+                ELSE OPSd.Summ
+            END AS Summ,
+            CASE WHEN AP1 = 1 OR AP2 = 1
+                THEN -OPSd.PVN
+                ELSE OPSd.PVN
+            END AS PVN
+        FROM
+        (
+            SELECT 
+                OPSd.id, 
+                MAX(CASE WHEN AcP21_1.AC IS NULL THEN 0 ELSE 1 END) AS AP1,
+                MAX(CASE WHEN AcP21_2.AC IS NULL THEN 0 ELSE 1 END) AS AP2
+            FROM
+                OPS INNER JOIN OPSd ON OPSd.id = OPS.DocId
+                LEFT JOIN AcP21 AS AcP21_1 ON OPS.AC11 = AcP21_1.AC AND AcP21_1.id1 IN ('KA','BA','CN')
+                LEFT JOIN AcP21 AS AcP21_2 ON OPS.AC21 = AcP21_2.AC AND AcP21_2.id1 IN ('KA','BA','CN')
+            WHERE
+                OPSd.DETE BETWEEN :PSD AND :PED AND
+                opsd.ClId = :PCLID AND
+                (:PDOCNR is null OR opsd.DocNr = :PDOCNR)
+            GROUP BY OPSd.id
+        ) AS T1 
+        INNER JOIN OPSd ON T1.id = OPSd.id
+
+    )
+    order by DETE
+
+    INTO :ID, :DETE, :clid, :doctyp, :docst, :docnr, :descr, :summ, :pvn
+    do
+    begin
+        if (ID is null) then
+        begin
+            ID = k;
+            k = k + 1;
+        end
+        suspend;
+    end
+end
+^
+
+ALTER PROCEDURE SP_REP_BAL_12(
+  SDT DATE,
+  EDT DATE,
+  PBALID VARCHAR(10))
+RETURNS (
+  ID TYPE OF COLUMN BALA21.ID,
+  SPID TYPE OF COLUMN BALA21.SPID,
+  BID TYPE OF COLUMN BALA21.BID,
+  S1 TYPE OF COLUMN BALA21.S1,
+  S2 TYPE OF COLUMN BALA21.S2)
+AS
+begin
+    INSERT INTO ttemp_balaC (AC, S1, S2)
+        SELECT T1.AC, T1.S1, T1.S2
+        FROM sp_rep_bal_11(:SDT, :EDT) AS T1;
+
+    INSERT INTO ttemp_BalA21 (bid, S1, S2)
+    SELECT 
+        BalA2.id AS bid,
+        SUM(iif(BalA3.tp = 'Db', T1a.S1, - T1a.S1)) AS s1,
+        SUM(iif(BalA3.tp = 'Db', T1a.S2, - T1a.S2)) AS s2
+    FROM BalA1
+        INNER JOIN BalA2 ON BalA1.balid = BalA2.balid
+        INNER JOIN BalA3 ON BalA2.id = BalA3.id2
+        INNER JOIN ttemp_balaC AS T1a ON T1a.AC LIKE REPLACE(BalA3.ac,'*','%')
+    WHERE
+        BalA1.balid = :pbalid AND
+        BalA2.tp = 'S'
+    GROUP BY BalA2.id;
+
+
+    INSERT INTO ttemp_BalA21 (bid, S1, S2)
+    SELECT 
+        BalA2.id AS bid,
+        SUM(T2.s1) AS s1,
+        SUM(T2.s2) AS s2
+    FROM 
+        BalA1 
+        INNER JOIN BalA2 ON BalA1.balid = BalA2.balid
+        INNER JOIN
+            (
+                SELECT BalA2.nr, ttemp_BalA21.s1, ttemp_BalA21.s2
+                FROM BalA2 INNER JOIN ttemp_BalA21 
+                    ON ttemp_BalA21.bid = BalA2.id
+            ) AS T2
+            ON T2.nr BETWEEN BalA2.nr1 AND BalA2.nr2
+    WHERE
+        BalA1.balid = :pbalid AND
+        BalA2.tp = 'K'
+    GROUP BY BalA2.id;
+
+
+    INSERT INTO ttemp_BalA21 (bid, S1, S2)
+    SELECT 
+        BalA2.id AS bid,
+        SUM(T2.s1) AS s1,
+        SUM(T2.s2) AS s2
+    FROM 
+        BalA1 
+        INNER JOIN BalA2 ON BalA1.balid = BalA2.balid
+        INNER JOIN
+            (
+                SELECT BalA2.nr, ttemp_BalA21.s1, ttemp_BalA21.s2
+                FROM BalA2 INNER JOIN ttemp_BalA21 
+                    ON ttemp_BalA21.bid = BalA2.id
+            ) AS T2
+            ON T2.nr = BalA2.nr1
+    WHERE
+        BalA1.balid = :pbalid AND
+        BalA2.tp = 'V'
+    GROUP BY BalA2.id;
+
+
+    FOR SELECT
+        ttemp_BalA21.bid AS id, -- hack
+        0 AS spid,
+        ttemp_BalA21.bid AS bid,
+        ttemp_BalA21.s1 AS s1,
+        ttemp_BalA21.s2 AS s2
+    FROM ttemp_BalA21
+        INNER JOIN BalA2 ON ttemp_BalA21.bid = BalA2.id
+    ORDER BY BalA2.nr
+
+    into
+        :id, :spid, :bid, :s1, :s2
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '065'
+WHERE PNAME = 'version';

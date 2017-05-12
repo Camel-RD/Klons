@@ -1,0 +1,382 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_REP_PVN_31(
+  PSD DATE,
+  PED DATE,
+  RG1 MONEY,
+  RG2 MONEY)
+RETURNS (
+  DID TYPE OF COLUMN TTEMP_PVN1.DID,
+  CLID TYPE OF COLUMN TTEMP_PVN1.CLID,
+  DOCTYP1 TYPE OF COLUMN TTEMP_PVN1.DOCTYP1,
+  DOCTYP2 TYPE OF COLUMN TTEMP_PVN1.DOCTYP2,
+  DOCTYPC TYPE OF COLUMN TTEMP_PVN1.DOCTYPC,
+  RAC5 TYPE OF COLUMN TTEMP_PVN1.RAC5,
+  SUMM TYPE OF COLUMN TTEMP_PVN1.SUMM,
+  PVN TYPE OF COLUMN TTEMP_PVN1.PVN,
+  SUMMC TYPE OF COLUMN TTEMP_PVN1.SUMMC,
+  CUR TYPE OF COLUMN TTEMP_PVN1.CUR)
+AS
+begin
+-- PVN 1.3. pielikums     (ieņēmumi)
+    FOR SELECT
+        did,
+        T2.Clid,
+        CASE
+            WHEN Summ > :rg1 AND
+                (DocTyp.pvnpaz IS NULL OR
+                    T2.ClId IS NULL OR
+                    Persons.TP3 = 'Nav') THEN 'X'
+            ELSE DocTyp.pvnpaz
+        END AS DocTyp1,
+        DocTyp2, 
+        DocTypC, 
+        RAC5,
+        Summ, 
+        PVN,
+        0.0 AS summc,
+        null AS cur
+    FROM
+    (
+        SELECT 
+            T1.did,
+            MAX(T1.ClId) AS ClId,
+            MAX(T1.DocTyp1) AS DocTyp1,
+            MAX(T1.DocTyp2) AS DocTyp2,
+            MAX(T1.DocTypC) AS DocTypC,
+            MAX(T1.RAC5) AS RAC5,
+            SUM(T1.SummC - T1.SummD) AS Summ,
+            SUM(T1.PVNC - T1.PVND) AS PVN
+        FROM
+        (
+            SELECT 
+                OPSd.id AS did, 
+                OPSd.ClId AS ClId,
+                OPSd.DocTyp AS DocTyp1,
+                AcPVN.pz1 AS DocTyp2,
+                AcPVN.pz4 AS DocTypC,
+                OPS.AC25 AS RAC5,
+                0.00 AS SummD,
+                0.00 AS PVND,
+                0.00 AS SummC,
+                OPS.Summ AS PVNC
+            FROM
+                OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcPVN ON OPS.AC25 = AcPVN.id
+            WHERE
+                (OPSd.Dete BETWEEN :psd AND :ped) AND
+                AcPVN.pz3 IS NOT NULL AND 
+                AcPVN.pz3 IN ('2') 
+
+            UNION ALL
+
+            SELECT 
+                OPSd.id AS did, 
+                OPSd.ClId AS ClId,
+                OPSd.DocTyp AS DocTyp1,
+                AcPVN.pz1 AS DocTyp2,
+                AcPVN.pz4 AS DocTypC,
+                OPS.AC25 AS RAC5,
+                0.00 AS SummD,
+                0.00 AS PVND,
+                OPS.Summ AS SummC,
+                0.00 AS PVNC
+            FROM
+                OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                LEFT JOIN AcPVN ON OPS.AC25 = AcPVN.id
+            WHERE
+                OPSd.Dete BETWEEN :psd AND :ped AND
+                AcPVN.pz3 IS NOT NULL AND 
+                AcPVN.pz3 IN ('1') 
+
+            UNION ALL
+
+            --ATGRIEZTA PRECE
+            SELECT 
+                OPSd.id AS did, 
+                OPSd.ClId AS ClId,
+                OPSd.DocTyp AS DocTyp1,
+                AcPVN.pz1 AS DocTyp2,
+                AcPVN.pz4 AS DocTypC,
+                OPS.AC15 AS RAC5,
+                0.00 AS SummD,
+                OPS.Summ AS PVND,
+                0.00 AS SummC,
+                0.00 AS PVNC
+            FROM
+                OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcPVN ON OPS.AC15 = AcPVN.id
+            WHERE
+                (OPSd.Dete BETWEEN :psd AND :ped) AND
+                AcPVN.pz3 IS NOT NULL AND 
+                AcPVN.pz3 IN ('2') 
+
+            UNION ALL
+
+            SELECT 
+                OPSd.id AS did, 
+                OPSd.ClId AS ClId,
+                OPSd.DocTyp AS DocTyp1,
+                AcPVN.pz1 AS DocTyp2,
+                AcPVN.pz4 AS DocTypC,
+                OPS.AC15 AS RAC5,
+                OPS.Summ AS SummD,
+                0.00 AS PVND,
+                0.00 AS SummC,
+                0.00 AS PVNC
+            FROM
+                OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                LEFT JOIN AcPVN ON OPS.AC15 = AcPVN.id
+            WHERE
+                OPSd.Dete BETWEEN :psd AND :ped AND
+                AcPVN.pz3 IS NOT NULL AND 
+                AcPVN.pz3 IN ('1') 
+
+
+        ) AS T1
+
+        GROUP BY T1.did
+
+    ) AS T2
+        LEFT JOIN Persons ON T2.ClId = Persons.clid
+        LEFT JOIN DocTyp ON T2.DocTyp1 = DocTyp.id
+
+    WHERE 
+        T2.Summ <> 0.00 AND
+        T2.DocTyp2 IS NOT NULL
+
+    into
+        :did, :clid, :doctyp1, :doctyp2, :doctypc,
+        :rac5, :summ, :pvn, :summc, :cur
+    do
+    begin
+        suspend;
+    end
+
+
+end
+^
+
+ALTER PROCEDURE SP_REP_PVN_32(
+  PSD DATE,
+  PED DATE,
+  RG1 MONEY,
+  RG2 MONEY)
+RETURNS (
+  ID TYPE OF COLUMN ROPS1A.ID,
+  SPID TYPE OF COLUMN ROPS1A.SPID,
+  DID TYPE OF COLUMN ROPS1A.DID,
+  DETE TYPE OF COLUMN ROPS1A.DETE,
+  NRX TYPE OF COLUMN ROPS1A.NRX,
+  DOCTYP TYPE OF COLUMN ROPS1A.DOCTYP,
+  DOCTYP1 TYPE OF COLUMN ROPS1A.DOCTYP1,
+  DOCTYP2 TYPE OF COLUMN ROPS1A.DOCTYP2,
+  DOCST TYPE OF COLUMN ROPS1A.DOCST,
+  DOCNR TYPE OF COLUMN ROPS1A.DOCNR,
+  CLID TYPE OF COLUMN ROPS1A.CLID,
+  CLID2 TYPE OF COLUMN ROPS1A.CLID2,
+  NAME TYPE OF COLUMN ROPS1A.NAME,
+  NAME2 TYPE OF COLUMN ROPS1A.NAME2,
+  REGNR TYPE OF COLUMN ROPS1A.REGNR,
+  REGNR2 TYPE OF COLUMN ROPS1A.REGNR2,
+  B0 TYPE OF COLUMN ROPS1A.B0,
+  DESCR TYPE OF COLUMN ROPS1A.DESCR,
+  DESCR2 TYPE OF COLUMN ROPS1A.DESCR2,
+  AC1 TYPE OF COLUMN ROPS1A.AC1,
+  AC2 TYPE OF COLUMN ROPS1A.AC2,
+  SAC1 TYPE OF COLUMN ROPS1A.SAC1,
+  SAC2 TYPE OF COLUMN ROPS1A.SAC2,
+  SUMMC TYPE OF COLUMN ROPS1A.SUMMC,
+  CUR TYPE OF COLUMN ROPS1A.CUR,
+  SUMM TYPE OF COLUMN ROPS1A.SUMM,
+  PVN TYPE OF COLUMN ROPS1A.PVN,
+  RAC TYPE OF COLUMN ROPS1A.RAC,
+  SDB TYPE OF COLUMN ROPS1A.SDB,
+  SCR TYPE OF COLUMN ROPS1A.SCR,
+  RAC2 TYPE OF COLUMN ROPS1A.RAC2,
+  RAC3 TYPE OF COLUMN ROPS1A.RAC3,
+  RAC4 TYPE OF COLUMN ROPS1A.RAC4,
+  RAC5 TYPE OF COLUMN ROPS1A.RAC5,
+  QV TYPE OF COLUMN ROPS1A.QV,
+  ZNR TYPE OF COLUMN ROPS1A.ZNR)
+AS
+begin
+-- PVN 3. pielikums     (ieņēmumi)
+
+    
+    DELETE FROM ttemp_pvn1 WHERE Did IS NOT NULL;
+
+    INSERT INTO ttemp_pvn1(
+        did, clid, doctyp1, doctyp2, doctypc,
+        rac5, summ, pvn, summc, cur)
+    SELECT
+        did, clid, doctyp1, doctyp2, doctypc,
+        rac5, summ, pvn, summc, cur
+    FROM SP_REP_PVN_31(:PSD, :PED, :RG1, :RG2);
+
+
+    INSERT INTO ttemp_pvn2(clid)
+    SELECT TT1.ClId
+    FROM ttemp_pvn1 AS TT1
+    WHERE 
+        TT1.ClId IS NOT NULL AND
+        ABS(TT1.Summ) < :rg1 AND
+        TT1.DocTypC = 0
+    GROUP BY TT1.ClId
+    HAVING SUM(ABS(TT1.Summ)) < :rg1;
+
+
+    FOR SELECT
+        gen_id(GEN_ROPS1A_ID, 1) as ID,
+        current_connection as SPID,
+        T4.did,
+        CASE
+            WHEN OPSd.DT2 IS NULL
+            THEN OPSd.Dete
+            ELSE OPSd.DT2
+            END AS Dete,
+        null AS nrx,
+        null AS DocTyp,
+        T4.DocTyp1 AS DocTyp1,
+        T4.DocTyp2 AS DocTyp2,
+        OPSd.DocSt,
+        OPSd.DocNr,
+        OPSd.clid AS clid,
+        null AS clid2,
+        Persons.Name AS Name,
+        null AS Name2,
+        Persons.PVNRegNr AS RegNr,
+        null AS RegNr2,
+        0.0 AS b0,
+        null AS descr,
+        null AS descr2,
+        null AS AC1,
+        null AS AC2,
+        null AS SAC1,
+        null AS SAC2,
+        0.0 AS SummC,
+        'EUR' AS Cur,
+        T4.Summ AS Summ,
+        T4.PVN AS PVN,
+        null AS RAC,
+        0.0 AS SDb,
+        0.0 AS SCr,
+        null AS RAC2,
+        null AS RAC3,
+        null AS RAC4,
+        null AS RAC5,
+        0.0 AS QV,
+        OPSd.znr AS ZNR
+    
+    FROM
+    (
+        SELECT
+            T3.did,
+            T3.ClId,
+            T3.DocTyp1,
+            T3.DocTyp2,
+            SUM(T3.Summ) AS Summ,
+            SUM(T3.PVN) AS PVN
+        FROM
+        (    
+            SELECT
+                -1 AS did,
+                NULL AS ClId,
+                'X' AS DocTyp1,
+                T2.DocTyp2 AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2
+            WHERE 
+                T2.DocTyp1 = 'X'
+
+            UNION ALL
+
+            SELECT
+                -1 AS did,
+                NULL AS ClId,
+                'T' AS DocTyp1,
+                T2.DocTyp2 AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                (
+                    ABS(T2.Summ) < :rg1 AND 
+                    T2.DocTypC = 0 AND
+                    T21.ClId IS NOT NULL AND
+                    T2.DocTyp1 <> 'X'
+                ) OR (
+                    T2.ClId IS NULL AND
+                    T2.DocTyp1 <> 'X'
+                )
+
+            UNION ALL
+
+            SELECT
+                -1 AS did,
+                T2.ClId AS ClId,
+                'V' AS DocTyp1,
+                T2.DocTyp2 AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                ABS(T2.Summ) < :rg1 AND 
+                T2.DocTypC = 0 AND
+                T2.ClId IS NOT NULL AND
+                T21.ClId IS NULL
+            
+            UNION ALL
+
+            SELECT
+                T2.did AS did,
+                T2.ClId AS ClId,
+                T2.DocTyp1 AS DocTyp1,
+                T2.DocTyp2 AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                (
+                    ABS(T2.Summ) >= :rg1 OR
+                    T2.DocTypC = 1
+                ) AND
+                    T2.DocTyp1 <> 'X' AND
+                    T2.ClId IS NOT NULL
+
+        ) AS T3
+        GROUP BY T3.did, T3.ClId, T3.DocTyp1, T3.DocTyp2
+
+    ) AS T4 
+
+        LEFT JOIN OPSd ON T4.did = OPSd.id
+        LEFT JOIN Persons ON T4.ClId = Persons.ClId
+
+    ORDER BY OPSd.Dete
+
+
+    into
+        :id, :spid, :did, :DETE, :nrx,
+        :doctyp, :doctyp1, :doctyp2, :docst, :docnr,
+        :clid, :clid2, :name, :name2, :regnr, :regnr2,
+        :b0, :descr, :descr2, :ac1, :ac2, :sac1,:sac2,
+        :summc, :cur, :summ, :pvn, :rac, :sdb, :scr,
+        :rac2, :rac3, :rac4, :rac5, :qv, :znr
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '061'
+WHERE PNAME = 'version';

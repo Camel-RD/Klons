@@ -1,0 +1,114 @@
+:TITLE Grâmatvedîbas programma KLONS
+:BASE apraksts.hlp
+1 Par grâmatvedîbas programmu Klons=PargramatvedibasprogrammuKl@apraksts.hlp
+1 Pogrammas installâcija=Pogrammasinstallacija@apraksts.hlp
+1 Kâ to izdarît?=Katoizdarit@apraksts.hlp
+1 Sistçma
+2 Sistçma=Sistema@apraksts.hlp
+2 Pieslçgtâ saimniecîba=FormaPieslegtasaimnieciba@apraksts.hlp
+2 Datu bâzes lietotâji un paroles=FormaDatubazeslietotaji@apraksts.hlp
+2 Datu bâzes
+3 Datu bâzes=FormaDatubazes@apraksts.hlp
+3 Pieslçgt citu datu bâzi=Pieslegtcitudatubazi@apraksts.hlp
+3 Pieslçgt tukðo datu bâzi=Pieslegttuksodatubazi@apraksts.hlp
+3 Izveidot jaunu datu bâzi=Izveidotjaunudatubazi@apraksts.hlp
+3 Dzçst datu bâzi=Dzestdatubazi@apraksts.hlp
+3 Labot datu bâzu sarakstu
+4 Labot datu bâzu sarakstu=Labotdatubazusarakstu@apraksts.hlp
+4 Klona failu sistçma=Klonafailusistema@apraksts.hlp
+2 Pakot datu bâzi=Pakotdatubazi@apraksts.hlp
+2 Sistem Log rîki
+3 Sistem Log rîki=SistemLogriki@apraksts.hlp
+3 Darba reìistrs=Darbaregistrs@apraksts.hlp
+3 System Log reìistrs=FormaSystemLogregistrs@apraksts.hlp
+3 System log parametri=Systemlogparametri@apraksts.hlp
+3 Atjaunot reìistru ar pçdçjiem datiem=Atjaunotregistruarpedejiem@apraksts.hlp
+3 Sakopt reìistru=Sakoptregistru@apraksts.hlp
+1 Kâ strâdâsim?=FormaKastradasim@apraksts.hlp
+2 Reìistrâcija=Registracija@apraksts.hlp
+2 Pakot un labot datu bâzi=Pakotunlabotdatubazi@apraksts.hlp
+1 Operâcijas
+2 Operâcijas=Operacijas@apraksts.hlp
+2 Ierakstu þurnâls
+3 Ierakstu þurnâls=Ierakstuzurnals@apraksts.hlp
+3 Ierakstu filtrçðana=Ierakstufiltresana@apraksts.hlp
+3 Kontçjumu izraksts=Kontejumuizraksts@apraksts.hlp
+3 Konta apgrozijums=Kontaapgrozijums@apraksts.hlp
+2 Dokumetnu þurnâls
+3 Dokumetnu þurnâls=Dokumetnuzurnals@apraksts.hlp
+3 Dokumenta pazîmes=Dokumentapazimes@apraksts.hlp
+3 Kontçjumu pazîmes
+4 Kontçjumu pazîmes=Kontejumupazimes@apraksts.hlp
+4 Bilances konts=Bilanceskonts@apraksts.hlp
+4 Naudas plûsmas pazîme=Naudasplusmaspazime@apraksts.hlp
+4 IIN pazîme=IINpazime@apraksts.hlp
+4 Produkta vai nozares kods=Produktavainozareskods@apraksts.hlp
+4 PVN pazîme
+5 PVN pazîme=PVNpazime@apraksts.hlp
+5 Pilnais PVN kodu saraksts=PilnaisPVNkodusaraksts@apraksts.hlp
+5 PVN palîgkodi=PVNpaligkodi@apraksts.hlp
+3 Datu ievade
+4 Datu ievade=Datievade@apraksts.hlp
+4 Datuma ievade=Datumaievade@apraksts.hlp
+4 Dokumenta summas dalîðana=Dokumentasummasdalisana@apraksts.hlp
+4 Saistîto dokumentu meklçðana=Saistitodokumentumeklesana@apraksts.hlp
+4 Svarîgâkie taustiòi=Svarigakietaustini@apraksts.hlp
+2 Dokumentu filtrçðana=Dokumentufiltresana@apraksts.hlp
+3 Jauna dokumenta veidoðana=Jaunadokumentaveidosana@apraksts.hlp
+3 Dokumenta izdzçðana=Dokumentaizdzesana@apraksts.hlp
+3 Dokumentu kârtoðana=Dokumentukartosana@apraksts.hlp
+3 Dokumentu meklçðana=Dokumentumeklesana@apraksts.hlp
+3 Saraksta kopçðana uz Excel=SarakstakopesanauzExcel@apraksts.hlp
+1 Kontu pazîmes=Kontupazimes@apraksts.hlp
+2 Kontu plâns=Kontuplans@apraksts.hlp
+2 Sâkuma atlikumi=Sakumaatlikumi@apraksts.hlp
+2 Personu saraksts=Personusaraksts@apraksts.hlp
+2 Dokumentu veidi=Dokumentuveidi@apraksts.hlp
+2 PVN pazîmes=FormaPVNpazimes@apraksts.hlp
+2 Pârsummçt dokumentus=Parsummetdokumentus@apraksts.hlp
+2 Pârnumurçt dokumentus=Parnumuretdokumentus@apraksts.hlp
+2 Grâmatojumu korekcijas=Gramatojumukorekcijas@apraksts.hlp
+2 Piezîmes=Piezimes@apraksts.hlp
+2 Ziòas par uzòçmumu=Zinasparuznemumu@apraksts.hlp
+2 Kodu izvçle no saistîtâs tabulas=Koduizvelenosaistîtastabul@apraksts.hlp
+1 Atskaites
+2 Atskaites=Atskaites@apraksts.hlp
+2 PVN atskaites
+3 PVN atskaites=PVNatskaites@apraksts.hlp
+3 PVN deklarâcija=PVNdeklaracija@apraksts.hlp
+3 PVN deklarâcijas pielikums=PVNdeklaracijaspielikums@apraksts.hlp
+3 PVN kopsavilkums=PVNkopsavilkums@apraksts.hlp
+3 PVN þurnâls=PVNzurnals@apraksts.hlp
+3 Kokmateriâlu atskaites=Kokmaterialuatskaites@apraksts.hlp
+3 Summu kontrole=Summukontrole@apraksts.hlp
+1 Avansa norçíins=Avansanorekins@apraksts.hlp
+2 Dokumentu saraksts=Dokumentusaraksts@apraksts.hlp
+2 Konta korespondence=Kontakorespondence@apraksts.hlp
+2 Apgrozijuma pârskati
+3 Apgrozijuma pârskati=Apgrozijumapârskati@apraksts.hlp
+3 Bilances apgrozijuma pârskats=Bilancesapgrozijumaparskats@apraksts.hlp
+3 Apgrozijuma pârskats pa mçneðiem=Apgrozijumaparskatspamenesi@apraksts.hlp
+3 Naudas plûsmas apgrozijuma pârskats=Naudasplusmasapgrozijumapar@apraksts.hlp
+3 Darijuma þurnâla apgrozijuma pârskats=Darijumazurnalaapgrozijumap@apraksts.hlp
+3 Pilnais apgrozijuma pârksats=Pilnaisapgrozijumaparksats@apraksts.hlp
+1 Naudas plûsma=Naudasplusma@apraksts.hlp
+2 Personu pârskats=Personuparskats@apraksts.hlp
+2 Skaidras naudas darijumi=Skaidrasnaudasdarijumi@apraksts.hlp
+2 IIN paziòojumi=IINpazinojumi@apraksts.hlp
+2 Darijumu þurnâls=Darijumuzurnals@apraksts.hlp
+2 Kases grâmata=Kasesgramata@apraksts.hlp
+2 Veidlapu uzskaite
+3 Veidlapu uzskaite=Veidlapuuzskaite@apraksts.hlp
+3 Izlietoto veidlapu kopsavilkums=Izlietotoveidlapukopsavilkum@apraksts.hlp
+3 Veidlapu reìistrs=Veidlapuregistrs@apraksts.hlp
+2 Bilance
+3 Bilance=Bilance@apraksts.hlp
+3 Formulu rakstîðana=Formulurakstisana@apraksts.hlp
+3 Formulu kontrole=Formulukontrole@apraksts.hlp
+1 Kontçjumu piemçri
+2 Kontçjumu piemçri=Kontejumupiemeri@apraksts.hlp
+2 Svarîgâkie kontçjumi=Svarigakiekontejumi@apraksts.hlp
+2 Atgriezta prece=Atgrieztaprece@apraksts.hlp
+2 Dalîti maksâjumi=Dalitimaksajumi@apraksts.hlp
+2 Bartera darijumi=Barteradarijumi@apraksts.hlp
+2 Kokmateriâlu darijumi=Kokmaterialudarijumi@apraksts.hlp

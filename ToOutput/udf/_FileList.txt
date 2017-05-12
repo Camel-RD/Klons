@@ -1,0 +1,7 @@
+***FireBird Embeded
+fbudf.dll
+fbudf.sql
+fbudf.txt
+ib_udf.dll
+ib_udf.sql
+ib_udf2.sql

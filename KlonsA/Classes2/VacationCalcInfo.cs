@@ -1,0 +1,800 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using KlonsA.DataSets;
+using KlonsLIB.Misc;
+using KlonsLIB.Data;
+
+namespace KlonsA.Classes
+{
+    public class VacationCalcInfo
+    {
+        public bool PreparingReport = false;
+        public List<VacationCalcRow> Rows = null;
+        public VacationCalcRow VcrPrev = new VacationCalcRow();
+        public VacationCalcRow VcrPrevCurrent = new VacationCalcRow("A: izmaksāts iepriekš");
+        public VacationCalcRow VcrCurrent = new VacationCalcRow("B: šajā periodā");
+        public VacationCalcRow VcrNext = new VacationCalcRow("C: aprēķināts avansā");
+        public VacationCalcRow VcrCompensation = new VacationCalcRow("D: kompensācija");
+
+        public decimal IINReverse = 0.0M;
+
+        public decimal AdvancePrev = 0.0M;
+
+        public AvPayCalcInfo AvPayCalc = null;
+        public bool IsAvPayCalcDone = false;
+        public decimal AvPayRateHour = 0.0M;
+        public decimal AvPayRateDay = 0.0M;
+        public decimal AvPayRateCalendarDay = 0.0M;
+
+        public VacationCalcInfo(bool filllist)
+        {
+            PreparingReport = filllist;
+            if (PreparingReport)
+                Rows = new List<VacationCalcRow>();
+        }
+
+        public ErrorList CalcVacationDays(SalaryCalcInfo sci)
+        {
+            ErrorList err;
+            if (!sci.SR.IsSingleRow())
+                throw new Exception("Bad call.");
+
+            SetAvPayFrom(sci);
+
+            err = CalcVacationDays2(sci.SR, null);
+            if (err.HasErrors) return err;
+
+            SetAvPayTo(sci);
+            WriteTo(sci.SI);
+
+            return err;
+        }
+
+        public ErrorList CalcVacationDaysT(SalaryCalcTInfo scti)
+        {
+            ErrorList err;
+            var sr = scti.SRS.TotalRow;
+
+            sr.CheckLinkedRows(sr.Row.IDP);
+            SetAvPayFrom(scti);
+
+            if (sr.IsSingleRow())
+            {
+                var lsci = scti.LinkedSCI[0];
+
+                err = CalcVacationDays(lsci);
+                if (err.HasErrors) return err;
+
+                SetAvPayTo(scti);
+                SetAvPayTo(lsci);
+                WriteTo(lsci.SI);
+                WriteTo(scti.TotalSI);
+                if (PreparingReport) scti.LinkedSCI[0].VacationCalc = this;
+                return err;
+            }
+
+            if (sr.Row.XType != ESalarySheetRowType.Total)
+                throw new Exception("Bad call");
+
+            GetAvPayCalc(scti.SRS.TotalRow);
+
+            var vcs = new VacationCalcInfo[scti.LinkedSCI.Length];
+
+            for (int i = 0; i < scti.LinkedSCI.Length; i++)
+            {
+                var vc = new VacationCalcInfo(PreparingReport);
+                vcs[i] = vc;
+                vc.SetAvPayFrom(this);
+            }
+
+            err = CalcVacationDays2(scti.SRS.TotalRow, vcs);
+            if (err.HasErrors) return err;
+
+            SetAvPayTo(scti);
+
+            EnsureExactSum(vcs);
+
+            for (int i = 0; i < scti.LinkedSCI.Length; i++)
+            {
+                var lsci = scti.LinkedSCI[i];
+                var lr = scti.SRS.LinkedRows[i];
+                var vc = vcs[i];
+                lsci.VacationCalc = vc;
+                vc.WriteTo(lsci.SI);
+            }
+
+            WriteTo(scti.TotalSI);
+
+            if (PreparingReport)
+            {
+                var positions = new string[scti.LinkedSCI.Length];
+                for (int i = 0; i < scti.LinkedSCI.Length; i++)
+                {
+                    var lsci = scti.LinkedSCI[i];
+                    positions[i] = lsci.PositionTitle;
+                }
+                PrepareListT(vcs, positions, this);
+            }
+
+            return err;
+        }
+
+        public ErrorList CalcVacationDays(SalarySheetRowInfo sr)
+        {
+            ErrorList error_list;
+            sr.CheckLinkedRows(sr.Row.IDP);
+
+            if (sr.IsSingleRow())
+                return CalcVacationDays2(sr, null);
+            VacationCalcInfo totalvc = null;
+            if (sr.Row.XType == ESalarySheetRowType.Total)
+            {
+                totalvc = this;
+
+                //error_list = CalcVacationDays2(sr, null);
+                //if (error_list.HasErrors) return error_list;
+
+                //--if (PreparingReport) PrepareListB(sr, this);
+
+                //return error_list;
+            }
+            else
+            {
+                totalvc = new VacationCalcInfo(PreparingReport);
+            }
+
+            error_list = totalvc.GetAvPayCalc(sr);
+            if (error_list.HasErrors) return error_list;
+
+            SetAvPayFrom(totalvc);
+
+            VacationCalcInfo[] vcs = null;
+            string[] positions = null;
+
+            var srs = sr.SalarySheetRowSet;
+
+            vcs = new VacationCalcInfo[srs.LinkedRows.Length];
+            positions = new string[srs.LinkedRows.Length];
+
+            for (int i = 0; i < srs.LinkedRows.Length; i++)
+            {
+                var lr = srs.LinkedRows[i];
+                var vc = new VacationCalcInfo(PreparingReport);
+                positions[i] = lr.GetPositionTitle();
+                vc.SetAvPayFrom(this);
+                if (lr == sr)
+                    vcs[i] = this;
+                else
+                    vcs[i] = vc;
+            }
+
+            error_list = totalvc.CalcVacationDays2(srs.TotalRow, vcs);
+            if (error_list.HasErrors) return error_list;
+
+            totalvc.EnsureExactSum(vcs);
+
+            if (PreparingReport) PrepareListT(vcs, positions, totalvc);
+
+            return error_list;
+        }
+
+        private VacationCalcRow AddRepRow(VacationCalcRow pvr, string ptype, string ppos)
+        {
+            var vr = new VacationCalcRow();
+            vr.SetFrom(pvr);
+            vr.Type = ptype;
+            vr.Position = ppos;
+            Rows.Add(vr);
+            return vr;
+        }
+
+        public bool IsSummedTimeRate(SalarySheetRowInfo srs)
+        {
+            var sr = srs.IsSingleRow() ? srs : srs.SalarySheetRowSet.LinkedRows[0];
+            var posr = sr.PositionsR.LinkedPeriods[0].Item1 as KlonsADataSet.POSITIONS_RRow;
+            return posr.XRateType == ESalaryType.Hour;
+        }
+
+        public ErrorList CalcVacationDays2(SalarySheetRowInfo srs, VacationCalcInfo[] vcs)
+        {
+            var error_list = new ErrorList();
+
+            if (vcs != null && srs != srs?.SalarySheetRowSet?.TotalRow)
+                throw new ArgumentException("Bad call.");
+
+            var dt1 = srs.SalarySheet.DT1;
+            var dt2 = srs.SalarySheet.DT2;
+            var mdt1 = srs.SalarySheet.MDT1;
+            var mdt2 = srs.SalarySheet.MDT2;
+
+            var ps = srs.Events.Vacations.LinkedPeriods.Where(
+                d =>
+                {
+                    if (!SomeDataDefs.IsEventPaidVacation(d.EEventId)) return false;
+
+                    var dr_not = (d.Item1 as KlonsADataSet.EVENTSRow);
+                    if (dr_not.IsDATE3Null()) return false;
+
+                    return (d.DateFirst <= dt2 && d.DateLast >= dt1) ||
+                        (dr_not.DATE3 >= dt1 && dr_not.DATE3 <= dt2);
+                }).ToArray();
+
+
+            // kompensācija atlaižot
+            var fire_evs = srs.Events.HireFire.LinkedPeriods
+                .Where(d => d.DateLast >= dt1 && d.DateLast <= dt2)
+                .ToArray();
+
+            if (ps.Length == 0 && fire_evs.Length == 0) return error_list;
+
+            var ps_cur = ps.Where(
+                d =>
+                d.DateFirst <= dt2 && d.DateLast >= dt1
+                ).ToArray();
+
+            var ps_next = ps.Where(
+                d =>
+                {
+                    var dr_not = (d.Item1 as KlonsADataSet.EVENTSRow);
+                    if (dr_not.IsDATE3Null()) return false;
+                    return (d.DateLast > dt2) &&
+                        (dr_not.DATE3 >= dt1 && dr_not.DATE3 <= dt2);
+                }).ToArray();
+
+            var ps_prev = ps_cur.Where(
+                d =>
+                {
+                    var dr_not = (d.Item1 as KlonsADataSet.EVENTSRow);
+                    if (dr_not.IsDATE3Null()) return false;
+                    return dr_not.DATE3 < dt1;
+                }).ToArray();
+
+
+
+            SalaryInfo prevsi = srs.GetPrevRow();
+            if (prevsi != null)
+            {
+                VcrPrev.Pay = prevsi._VACATION_PAY_NEXT;
+                VcrPrev.DNS = prevsi._VACATION_DNS_NEXT;
+                VcrPrev.IIN = prevsi._VACATION_IIN_NEXT;
+                AdvancePrev = prevsi._VACATION_ADVANCE_NEXT;
+
+                if (vcs != null)
+                {
+                    for (int i = 0; i < vcs.Length; i++)
+                    {
+                        var vci = vcs[i];
+                        if (vci == null) continue;
+                        var sr = srs.SalarySheetRowSet.LinkedRows[i];
+                        var prevsi2 = sr.GetPrevRow();
+                        if (prevsi2 == null) continue;
+                        vci.VcrPrev.Pay = prevsi._VACATION_PAY_NEXT;
+                        vci.VcrPrev.DNS = prevsi._VACATION_DNS_NEXT;
+                        vci.VcrPrev.IIN = prevsi._VACATION_IIN_NEXT;
+                        vci.AdvancePrev = prevsi._VACATION_ADVANCE_NEXT;
+                    }
+                }
+            }
+
+            error_list += GetAvPayCalc(srs);
+            if (error_list.HasErrors) return error_list;
+
+            float caldays = 0;
+            VacationCalcRow vt = new VacationCalcRow();
+            VacationCalcRow v = new VacationCalcRow();
+            TimeSheetRowSetList dlrowsetT = null;
+            TimeSheetRowSet dlrowset = null;
+            decimal r = 0.0M;
+
+            decimal _AvPayRate = AvPayRateDay;
+            if (IsSummedTimeRate(srs)) _AvPayRate = AvPayRateCalendarDay;
+            vt.AvPayRate = _AvPayRate;
+
+            caldays = 0;
+            foreach (var pi in ps_prev)
+            {
+                vt.DateStart = pi.DateFirst;
+                vt.DateEnd = pi.DateLast;
+                if (vt.DateStart < dt1) vt.DateStart = dt1;
+                if (vt.DateEnd > dt2) vt.DateEnd = dt2;
+
+                if (dlrowsetT == null) dlrowsetT = srs.GetDLRowSetList();
+                dlrowsetT.CountVacationTime(vt);
+                caldays += (vt.DateEnd - vt.DateStart).Days + 1;
+                VcrPrevCurrent.CalcAndAdd(srs, vt, _AvPayRate);
+
+                if (PreparingReport) AddRepRow(vt, "A", "Kopā");
+
+                if(vcs != null)
+                {
+                    v.DateStart = vt.DateStart;
+                    v.DateEnd = vt.DateEnd;
+
+                    for (int i = 0; i<vcs.Length;i++)
+                    {
+                        var vci = vcs[i];
+                        if (vci == null) continue;
+                        var sr = srs.SalarySheetRowSet.LinkedRows[i];
+                        dlrowset = dlrowsetT[i];
+                        dlrowset.CountVacationTime(v);
+
+                        if (vt.Hours == 0.0f)
+                            r = 1.0M / (decimal)vcs.Length;
+                        else
+                            r = (decimal)(v.Hours / vt.Hours);
+
+                        v.Pay = KlonsData.RoundA(vt.Pay * r, 2);
+                        vci.VcrPrevCurrent.CalcAndAddSpliIINEX(sr, v, r);
+
+                        if (PreparingReport) vci.AddRepRow(vt, "A", sr.GetPositionTitle());
+                    }
+                }
+            }
+
+            caldays = 0;
+            foreach (var pi in ps_cur)
+            {
+                vt.DateStart = pi.DateFirst;
+                vt.DateEnd = pi.DateLast;
+                if (vt.DateStart < dt1) vt.DateStart = dt1;
+                if (vt.DateEnd > dt2) vt.DateEnd = dt2;
+
+                if (dlrowsetT == null) dlrowsetT = srs.GetDLRowSetList();
+                dlrowsetT.CountVacationTime(vt);
+                caldays += (vt.DateEnd - vt.DateStart).Days + 1;
+                VcrCurrent.CalcAndAdd(srs, vt, _AvPayRate);
+
+                if (PreparingReport) AddRepRow(vt, "B", "Kopā");
+
+                if (vcs != null)
+                {
+                    v.DateStart = vt.DateStart;
+                    v.DateEnd = vt.DateEnd;
+
+                    for (int i = 0; i < vcs.Length; i++)
+                    {
+                        var vci = vcs[i];
+                        if (vci == null) continue;
+                        var sr = srs.SalarySheetRowSet.LinkedRows[i];
+
+                        dlrowset = dlrowsetT[i];
+                        dlrowset.CountVacationTime(v);
+
+                        if (vt.Hours == 0.0f)
+                            r = 1.0M / (decimal)vcs.Length;
+                        else
+                            r = (decimal)(v.Hours / vt.Hours);
+
+                        v.Pay = KlonsData.RoundA(vt.Pay * r, 2);
+                        vci.VcrCurrent.CalcAndAddSpliIINEX(sr, v, r);
+
+                        if (PreparingReport) vci.AddRepRow(vt, "B", sr.GetPositionTitle());
+                    }
+                }
+            }
+
+            foreach (var pi in ps_next)
+            {
+                vt.DateStart = dt2.AddDays(1);
+                vt.DateEnd = pi.DateLast;
+                if (vt.DateStart < pi.DateFirst) vt.DateStart = pi.DateFirst;
+                var dtpe = vt.DateStart.LastDayOfMonth();
+                if (vt.DateEnd > dtpe) vt.DateEnd = dtpe;
+
+                while (true)
+                {
+                    int addmt = vt.DateStart.Month - dt1.Month;
+
+                    var nextdlrowsetT = srs.GetDLRowSetList(addmt);
+                    if (nextdlrowsetT.Count == 0) break;
+
+                    nextdlrowsetT.CountVacationTime(vt);
+                    caldays += (vt.DateEnd - vt.DateStart).Days + 1;
+                    VcrNext.CalcAndAdd(srs, vt, _AvPayRate);
+
+                    if (PreparingReport) AddRepRow(vt, "C", "Kopā");
+
+
+                    if (vcs != null)
+                    {
+                        v.DateStart = vt.DateStart;
+                        v.DateEnd = vt.DateEnd;
+
+                        for (int i = 0; i < vcs.Length; i++)
+                        {
+                            var vci = vcs[i];
+                            if (vci == null) continue;
+                            var sr = srs.SalarySheetRowSet.LinkedRows[i];
+
+                            var nextdlrowset = nextdlrowsetT[i];
+                            if(nextdlrowset == null)
+                            {
+                                //error_list.AddPersonError(srs.DR_Person_r.ID, )
+                            }
+                            nextdlrowset.CountVacationTime(v);
+
+                            if (vt.Hours == 0.0f)
+                                r = 1.0M / (decimal)vcs.Length;
+                            else
+                                r = (decimal)(v.Hours / vt.Hours);
+
+                            v.Pay = KlonsData.RoundA(vt.Pay * r, 2);
+                            vci.VcrNext.CalcAndAddSpliIINEX(sr, v, r);
+
+                            if (PreparingReport) vci.AddRepRow(vt, "C", sr.GetPositionTitle());
+                        }
+                    }
+
+                    if (vt.DateEnd == pi.DateLast) break;
+                    vt.DateStart = dtpe.AddDays(1);
+                    vt.DateEnd = pi.DateLast;
+                    dtpe = dtpe.AddDays(1).LastDayOfMonth();
+                    if (vt.DateEnd > dtpe) vt.DateEnd = dtpe;
+                }
+
+            }
+
+            // kompensācija atlaižot
+            vt.Days = 0;
+            foreach (var fe in fire_evs)
+            {
+                var dr_ev = fe.Item2 as KlonsADataSet.EVENTSRow;
+                if (dr_ev == null) continue;
+                vt.Days += dr_ev.DAYS;
+            }
+            if (vt.Days > 0)
+            {
+                error_list += GetAvPayCalc(srs);
+                if (error_list.HasErrors) return error_list;
+
+                vt.DateStart = srs.SalarySheet.DT1;
+                vt.DateEnd = srs.SalarySheet.DT2;
+                caldays = vt.Days;
+                vt.Hours = 0.0f;
+
+                VcrCompensation.CalcAndAddNoIINEX(srs, vt, AvPayRateCalendarDay);
+
+                if (PreparingReport) AddRepRow(vt, "D", "Kopā");
+
+                if (vcs != null)
+                {
+                    v.DateStart = vt.DateStart;
+                    v.DateEnd = vt.DateEnd;
+
+                    for (int i = 0; i < vcs.Length; i++)
+                    {
+                        var vci = vcs[i];
+                        if (vci == null) continue;
+                        var sr = srs.SalarySheetRowSet.LinkedRows[i];
+
+                        vci.VcrCompensation.CalcAndAddSpliIINEX(sr, v, 0.0M);
+
+                        if (PreparingReport) vci.AddRepRow(vt, "D", sr.GetPositionTitle());
+                    }
+                }
+            }
+
+            if (PreparingReport) PrepareRows();
+            return error_list;
+        }
+
+        public void SumTotals(VacationCalcInfo[] vcs, VacationCalcInfo totalvc)
+        {
+            VcrPrevCurrent = new VacationCalcRow("A: izmaksāts iepriekš");
+            VcrCurrent = new VacationCalcRow("B: šajā periodā");
+            VcrNext = new VacationCalcRow("C: aprēķināts avansā");
+            VcrCompensation = new VacationCalcRow("D: kompensācija");
+
+            foreach (var vc in vcs)
+            {
+                VcrPrevCurrent.Add(vc.VcrPrevCurrent);
+                VcrCurrent.Add(vc.VcrCurrent);
+                VcrCompensation.Add(vc.VcrCompensation);
+                VcrNext.Add(vc.VcrNext);
+            }
+
+            VcrPrevCurrent.Days = totalvc.VcrPrevCurrent.Days;
+            VcrCurrent.Days = totalvc.VcrCurrent.Days;
+            VcrCompensation.Days = totalvc.VcrCompensation.Days;
+            VcrNext.Days = totalvc.VcrNext.Days;
+        }
+
+        private void EnsureExactSum(VacationCalcInfo[] vx)
+        {
+            EnsureExactSum(vx, d => d.VcrPrev);
+            EnsureExactSum(vx, d => d.VcrCurrent);
+            EnsureExactSum(vx, d => d.VcrNext);
+            EnsureExactSum(vx, d => d.VcrCompensation);
+        }
+
+        private void EnsureExactSum(VacationCalcInfo[] vx,
+            Func<VacationCalcInfo, VacationCalcRow> fget)
+        {
+            foreach (var vi in vx)
+            {
+                EnsureExactSum(fget(this), vx, fget, d => d.Pay, (d, s) => d.Pay = s);
+                EnsureExactSum(fget(this), vx, fget, d => d.DNS, (d, s) => d.DNS = s);
+                EnsureExactSum(fget(this), vx, fget, d => d.BeforeIINEX, (d, s) => d.BeforeIINEX = s);
+                EnsureExactSum(fget(this), vx, fget, d => d.IINEX, (d, s) => d.IINEX = s);
+                EnsureExactSum(fget(this), vx, fget, d => d.Cash, (d, s) => d.Cash = s);
+            }
+        }
+
+        private void EnsureExactSum(VacationCalcRow v, VacationCalcInfo[] vx,
+            Func<VacationCalcInfo, VacationCalcRow> fgetx,
+            Func<VacationCalcRow, decimal> fget, Action<VacationCalcRow, decimal> fset)
+        {
+            VacationCalcRow v0 = null;
+            decimal s = fget(v);
+            foreach (var vi in vx)
+            {
+                var vj = fgetx(vi);
+                decimal d = fget(vj);
+                s -= d;
+                if (v0 == null && d != 0.0M) v0 = vj;
+            }
+            if (v0 != null) fset(v0, fget(v0) + s);
+        }
+
+        private void PrepareRows()
+        {
+            foreach (var r in Rows)
+            {
+                r.Caption = string.Format("{0}: {1:dd.MM.yyyy} - {2:dd.MM.yyyy}",
+                    r.Type, r.DateStart, r.DateEnd);
+            }
+
+            Rows.Add(new VacationCalcRow());
+            Rows.Add(VcrPrevCurrent);
+            Rows.Add(VcrCurrent);
+            Rows.Add(VcrNext);
+            Rows.Add(VcrCompensation);
+        }
+
+        private void PrepareListB(SalarySheetRowInfo sr, VacationCalcInfo totalvc)
+        {
+            if (totalvc.Rows.Count == 0) return;
+            var rows2 = new List<VacationCalcRow>();
+            var r1 = new VacationCalcRow();
+            r1.Caption = "Kopā";
+            rows2.Add(r1);
+            rows2.AddRange(totalvc.Rows);
+
+            rows2.Add(new VacationCalcRow());
+
+            r1 = new VacationCalcRow();
+            r1.Caption = sr.GetPositionTitle();
+            rows2.Add(r1);
+            rows2.AddRange(Rows);
+            Rows = rows2;
+        }
+
+        private void PrepareListT(VacationCalcInfo[] vcs, string[] positions, VacationCalcInfo totalvc)
+        {
+            if (totalvc.Rows.Count == 0) return;
+
+            var Rows2 = new List<VacationCalcRow>();
+
+            Rows2.Add(new VacationCalcRow() { Caption = "Kopsummas" });
+            Rows2.AddRange(totalvc.Rows);
+
+            var emptyrow = new VacationCalcRow() { };
+            for (int i = 0; i < vcs.Length; i++)
+            {
+                Rows2.Add(emptyrow);
+                Rows2.Add(new VacationCalcRow() { Caption = positions[i] });
+                Rows2.AddRange(vcs[i].Rows);
+            }
+            Rows = Rows2;
+        }
+
+        public void CorrectCash(SalaryInfo si)
+        {
+            decimal totalbeforeiin =
+                si._AMOUNT_BEFORE_SN +
+                si._PLUS_NOSAI +
+                si._PLUS_AUTHORS_FEES -
+                si._DNSN_AMOUNT;
+
+            VcrPrevCurrent.IIN = 0.0M;
+            VcrCurrent.IIN = 0.0M;
+
+            if (totalbeforeiin != 0.0M)
+            {
+                VcrPrevCurrent.IIN = si._IIN_AMOUNT * VcrPrevCurrent.BeforeIINEX / totalbeforeiin;
+                VcrCurrent.IIN = si._IIN_AMOUNT * VcrCurrent.BeforeIINEX / totalbeforeiin;
+            }
+            VcrPrevCurrent.Cash = VcrPrevCurrent.Pay - VcrPrevCurrent.DNS - VcrPrevCurrent.IIN;
+            VcrCurrent.Cash = VcrPrevCurrent.Pay - VcrCurrent.DNS - VcrCurrent.IIN;
+        }
+
+        public void SetAvPayFrom(VacationCalcInfo vc)
+        {
+            if(vc.AvPayCalc != null) AvPayCalc = vc.AvPayCalc;
+            if (IsAvPayCalcDone) return;
+            IsAvPayCalcDone = vc.IsAvPayCalcDone;
+            AvPayRateHour = vc.AvPayRateHour;
+            AvPayRateDay = vc.AvPayRateDay;
+            AvPayRateCalendarDay = vc.AvPayRateCalendarDay;
+        }
+
+        public void SetAvPayFrom(SalaryCalcInfo sc)
+        {
+            if (sc.AvPayCalc != null) AvPayCalc = sc.AvPayCalc;
+            if (IsAvPayCalcDone) return;
+            IsAvPayCalcDone = sc.IsAvPayCalcDone;
+            AvPayRateHour = sc.AvPayRateHour;
+            AvPayRateDay = sc.AvPayRateDay;
+            AvPayRateCalendarDay = sc.AvPayRateCalendarDay;
+        }
+
+        public void SetAvPayTo(SalaryCalcInfo sc)
+        {
+            if (!IsAvPayCalcDone) return;
+            sc.SetAvPayFrom(AvPayCalc, AvPayRateHour, AvPayRateDay, AvPayRateCalendarDay);
+        }
+
+        public void SetAvPayFrom(SalaryCalcTInfo sc)
+        {
+            if (sc.AvPayCalc != null) AvPayCalc = sc.AvPayCalc;
+            if (IsAvPayCalcDone) return;
+            IsAvPayCalcDone = sc.IsAvPayCalcDone;
+            AvPayRateHour = sc.AvPayRateHour;
+            AvPayRateDay = sc.AvPayRateDay;
+            AvPayRateCalendarDay = sc.AvPayRateCalendarDay;
+        }
+
+        public void SetAvPayTo(SalaryCalcTInfo sc)
+        {
+            if (!IsAvPayCalcDone) return;
+            sc.SetAvPayFrom(AvPayCalc, AvPayRateHour, AvPayRateDay, AvPayRateCalendarDay);
+        }
+
+        public ErrorList GetAvPayCalc(SalarySheetRowInfo sr)
+        {
+            if (IsAvPayCalcDone) return new ErrorList();
+            AvPayCalc = new AvPayCalcInfo(PreparingReport);
+            var err = AvPayCalc.CalcList(sr);
+            if (err.HasErrors) return err;
+            IsAvPayCalcDone = true;
+            AvPayRateHour = AvPayCalc.RateHour;
+            AvPayRateDay = AvPayCalc.RateDay;
+            AvPayRateCalendarDay = AvPayCalc.RateCalendarDay;
+            return new ErrorList();
+        }
+
+        public void WriteTo(SalaryInfo si)
+        {
+            si._VACATION_ADVANCE_PREV = AdvancePrev;
+            si._VACATION_CASH_NEXT = VcrNext.Cash;
+            si._VACATION_ADVANCE_CURRENT = 0.0M;
+            si._VACATION_ADVANCE_NEXT = 0.0M;
+
+            si._VACATION_PAY_PREV = VcrPrev.Pay;
+            si._VACATION_DNS_PREV = VcrPrev.DNS;
+            //si._VACATION_DDS_PREV = VcrPrev.DDS;
+            si._VACATION_IIN_PREV = VcrPrev.IIN;
+
+            si._VACATION_DAYS_CURRENT = VcrCurrent.Days + VcrCompensation.Days;
+            si._VACATION_HOURS_CURRENT = VcrCurrent.Hours;
+            si._VACATION_PAY_CURRENT = VcrCurrent.Pay + VcrCompensation.Pay;
+
+            si._VACATION_DAYS_NEXT = VcrNext.Days;
+            si._VACATION_HOURS_NEXT = VcrNext.Hours;
+            si._VACATION_PAY_NEXT = VcrNext.Pay;
+            si._VACATION_DNS_NEXT = VcrNext.DNS;
+            //si._VACATION_DDS_NEXT = VcrNext.DDS;
+            si._VACATION_IIN_NEXT = VcrNext.IIN;
+            si._VACATION_IIN_REDUCE_NEXT = IINReverse;
+
+        }
+
+    }
+
+    public class VacationCalcRow
+    {
+        public bool IsTotal = false;
+        public string Position { get; set; } = "";
+        public string Type { get; set; } = "";
+        public string Caption { get; set; } = "";
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
+        public float Days { get; set; } = 0.0f;
+        public float Hours { get; set; } = 0.0f;
+        public decimal AvPayRate { get; set; } = 0.0M;
+        public decimal Pay { get; set; } = 0.0M;
+        public decimal DNS { get; set; } = 0.0M;
+        public decimal BeforeIINEX { get; set; } = 0.0M;
+        public decimal IINEX { get; set; } = 0.0M;
+        public decimal IIN { get; set; } = 0.0M;
+        public decimal Cash { get; set; } = 0.0M;
+
+        public VacationCalcRow(string caption = "")
+        {
+            Caption = caption;
+        }
+
+        public void SetFrom(VacationCalcRow vr)
+        {
+            IsTotal = vr.IsTotal;
+            Position = vr.Position;
+            this.Type = vr.Type;
+            Caption = vr.Caption;
+            DateStart = vr.DateStart;
+            DateEnd = vr.DateEnd;
+            Days = vr.Days;
+            Hours = vr.Hours;
+            AvPayRate = vr.AvPayRate;
+            Pay = vr.Pay;
+            DNS = vr.DNS;
+            BeforeIINEX = vr.BeforeIINEX;
+            IINEX = vr.IINEX;
+            IIN = vr.IIN;
+            Cash = vr.Cash;
+        }
+
+        public void Add(VacationCalcRow vr)
+        {
+            Days += vr.Days;
+            Hours += vr.Hours;
+            Pay += vr.Pay;
+            DNS += vr.DNS;
+            BeforeIINEX += vr.BeforeIINEX;
+            IINEX += vr.IINEX;
+            IIN += vr.IIN;
+            Cash += vr.Cash;
+        }
+
+        public void CalcAndAdd(SalarySheetRowInfo sr, VacationCalcRow v, 
+            decimal AvPayRateDay)
+        {
+            v.AvPayRate = AvPayRateDay;
+            v.Pay = KlonsData.RoundA(AvPayRateDay * (decimal)v.Days, 2);
+            var pcri = new CalcRInfo();
+            pcri.CalcR(sr, v.DateStart, v.DateEnd);
+            v.DNS = KlonsData.RoundA(pcri.RateDNSN * v.Pay / 100.0M, 2);
+            v.BeforeIINEX = v.Pay - v.DNS;
+            v.IINEX = pcri.ExMax2.SumIINExempts();
+            v.IINEX = Math.Min(v.IINEX, v.BeforeIINEX);
+            var beforeiin = v.Pay - v.DNS - v.IINEX;
+            v.IIN = KlonsData.RoundA(beforeiin * pcri.RateIIN / 100.0M, 2);
+            v.Cash = v.Pay - v.DNS - v.IIN;
+            Add(v);
+        }
+
+        public void CalcAndAddSpliIINEX(SalarySheetRowInfo sr, VacationCalcRow v, decimal r)
+        {
+            //v.Pay = Math.Round(AvPayRateDay * v.Days, 2);
+            var pcri = new CalcRInfo();
+            pcri.CalcR(sr, v.DateStart, v.DateEnd);
+            pcri.ApplyRatio(r, null);
+            v.DNS = KlonsData.RoundA(pcri.RateDNSN * v.Pay / 100.0M, 2);
+            v.BeforeIINEX = v.Pay - v.DNS;
+            v.IINEX = pcri.ExDivided.SumIINExempts();
+            v.IINEX = Math.Min(v.IINEX, v.BeforeIINEX);
+            var beforeiin = v.Pay - v.DNS - v.IINEX;
+            v.IIN = KlonsData.RoundA(beforeiin * pcri.RateIIN / 100.0M, 2);
+            v.Cash = v.Pay - v.DNS - v.IIN;
+            Add(v);
+        }
+
+        public void CalcAndAddNoIINEX(SalarySheetRowInfo sr, VacationCalcRow v,
+            decimal AvPayRateDay)
+        {
+            v.Pay = KlonsData.RoundA(AvPayRateDay * (decimal)v.Days, 2);
+            var pcri = new CalcRInfo();
+            pcri.CalcR(sr, v.DateStart, v.DateEnd);
+            v.DNS = KlonsData.RoundA(pcri.RateDNSN * v.Pay / 100.0M, 2);
+            v.BeforeIINEX = v.Pay - v.DNS;
+            v.IINEX = 0.0M;
+            v.IINEX = Math.Min(v.IINEX, v.BeforeIINEX);
+            var beforeiin = v.Pay - v.DNS - v.IINEX;
+            v.IIN = KlonsData.RoundA(beforeiin * pcri.RateIIN / 100.0M, 2);
+            v.Cash = v.Pay - v.DNS - v.IIN;
+            Add(v);
+        }
+    }
+
+}

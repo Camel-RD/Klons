@@ -1,0 +1,690 @@
+﻿
+ALTER TABLE TREPPVNZ1 DROP CONSTRAINT PK__TREPPVNZ__3213A9294118CF08;
+DROP TRIGGER TRIG_TREPPVNZ1_BI;
+DROP INDEX TREPPVNZ1_ID;
+DROP INDEX TREPPVNZ1_SPID;
+DROP TABLE TREPPVNZ1;
+
+CREATE GENERATOR "GEN_TREPPVNZ1_ID";
+
+CREATE TABLE TREPPVNZ1(
+	ID INTEGER NOT NULL,
+	SPID INTEGER,
+	DID INTEGER,
+	RID INTEGER,
+	DETE DATE,
+	NRX VARCHAR(5) COLLATE UNICODE_CI,
+	DOCTYP VARCHAR(10) COLLATE UNICODE_CI,
+	DOCST VARCHAR(6) COLLATE UNICODE_CI,
+	DOCNR VARCHAR(15) COLLATE UNICODE_CI,
+	DOCSTR VARCHAR(200) COLLATE UNICODE_CI,
+	CLID VARCHAR(15) COLLATE UNICODE_CI,
+	NAME VARCHAR(50) COLLATE UNICODE_CI,
+	REGNR VARCHAR(15) COLLATE UNICODE_CI,
+	DESCR VARCHAR(80) COLLATE UNICODE_CI,
+	AA MONEY,
+	A8 MONEY,
+	A9 MONEY,
+	A10 MONEY,
+	A11 VARCHAR(8) COLLATE UNICODE_CI,
+	A12 MONEY,
+	A13 MONEY,
+	A14 MONEY,
+	A15 MONEY,
+	A16 MONEY,
+	A17 MONEY,
+	A18 MONEY,
+	A19 MONEY,
+	A20 MONEY,
+	A21 MONEY,
+	A22 MONEY,
+	A23 MONEY,
+	A24 MONEY,
+	A25 MONEY,
+	A26 MONEY,
+	A27 MONEY,
+	A28 MONEY,
+	A29 MONEY,
+	A30 MONEY,
+	A31 MONEY
+);
+
+CREATE INDEX TREPPVNZ1_CLID ON TREPPVNZ1(CLID);
+CREATE INDEX TREPPVNZ1_DID ON TREPPVNZ1(DID);
+CREATE INDEX TREPPVNZ1_ID ON TREPPVNZ1(ID);
+CREATE INDEX TREPPVNZ1_SPID ON TREPPVNZ1(SPID);
+ALTER TABLE TREPPVNZ1 ADD CONSTRAINT PK__TREPPVNZ1 PRIMARY KEY (ID);
+
+SET TERM ^ ;
+
+
+CREATE PROCEDURE SP_REP_PVNZ_01(SDT DATE,
+EDT DATE)
+ RETURNS(ID TYPE OF COLUMN TREPPVNZ1.ID,
+SPID TYPE OF COLUMN TREPPVNZ1.SPID,
+DID TYPE OF COLUMN TREPPVNZ1.DID,
+RID TYPE OF COLUMN TREPPVNZ1.RID,
+DETE TYPE OF COLUMN TREPPVNZ1.DETE,
+NRX TYPE OF COLUMN TREPPVNZ1.NRX,
+DOCTYP TYPE OF COLUMN TREPPVNZ1.DOCTYP,
+DOCST TYPE OF COLUMN TREPPVNZ1.DOCST,
+DOCNR TYPE OF COLUMN TREPPVNZ1.DOCNR,
+DOCSTR TYPE OF COLUMN TREPPVNZ1.DOCSTR,
+CLID TYPE OF COLUMN TREPPVNZ1.CLID,
+NAME TYPE OF COLUMN TREPPVNZ1.NAME,
+REGNR TYPE OF COLUMN TREPPVNZ1.REGNR,
+DESCR TYPE OF COLUMN TREPPVNZ1.DESCR,
+AA TYPE OF COLUMN TREPPVNZ1.AA,
+A8 TYPE OF COLUMN TREPPVNZ1.A8,
+A9 TYPE OF COLUMN TREPPVNZ1.A9,
+A10 TYPE OF COLUMN TREPPVNZ1.A10,
+A11 TYPE OF COLUMN TREPPVNZ1.A11,
+A12 TYPE OF COLUMN TREPPVNZ1.A12,
+A13 TYPE OF COLUMN TREPPVNZ1.A13,
+A14 TYPE OF COLUMN TREPPVNZ1.A14,
+A15 TYPE OF COLUMN TREPPVNZ1.A15,
+A16 TYPE OF COLUMN TREPPVNZ1.A16,
+A17 TYPE OF COLUMN TREPPVNZ1.A17,
+A18 TYPE OF COLUMN TREPPVNZ1.A18,
+A19 TYPE OF COLUMN TREPPVNZ1.A19,
+A20 TYPE OF COLUMN TREPPVNZ1.A20,
+A21 TYPE OF COLUMN TREPPVNZ1.A21,
+A22 TYPE OF COLUMN TREPPVNZ1.A22,
+A23 TYPE OF COLUMN TREPPVNZ1.A23,
+A24 TYPE OF COLUMN TREPPVNZ1.A24,
+A25 TYPE OF COLUMN TREPPVNZ1.A25,
+A26 TYPE OF COLUMN TREPPVNZ1.A26,
+A27 TYPE OF COLUMN TREPPVNZ1.A27,
+A28 TYPE OF COLUMN TREPPVNZ1.A28,
+A29 TYPE OF COLUMN TREPPVNZ1.A29,
+A30 TYPE OF COLUMN TREPPVNZ1.A30,
+A31 TYPE OF COLUMN TREPPVNZ1.A31)
+ AS
+declare variable a23a type of column TREPPVNZ1.A23;
+    declare variable xrid integer;
+    declare variable xdt2 date;
+
+begin
+  xrid = 1;
+
+  for select
+        gen_id(GEN_TREPDARZ1_ID, 1) AS id,
+        current_connection AS spid,
+        TD1.ID AS did,
+        0 AS rid,
+        MAX(TD1.Dete) AS Dete,
+        MAX(TD1.ZNR) AS NrX,
+        MAX(DocTyp.id1) AS DocTyp,
+        MAX(TD1.DocSt) AS DocSt,
+        MAX(TD1.DocNr) AS DocNr,
+        NULL AS docstr,
+        MAX(TD1.clid) AS clid,
+        MAX(Persons.name) AS Name,
+        MAX(Persons.pvnregnr) AS RegNr,
+        MAX(TD1.descr) AS Descr,
+        0 AS aa,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 8 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 8 THEN TO1.Summ ELSE 0.00 END
+            ) AS A8,
+        SUM(
+            CASE WHEN TP11.PZ2 = 9 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 9 THEN TO1.Summ ELSE 0.00 END
+            ) AS A9,
+        SUM(
+            CASE WHEN (TP11.PZ2 >= 100) AND (TP11.PZ2 < 110) THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN (TP12.PZ2 >= 100) AND (TP12.PZ2 < 110) THEN TO1.Summ ELSE 0.00 END
+            ) AS A10,
+
+        MAX(
+            CASE WHEN (TP11.PZ2 >= 100) AND (TP11.PZ2 < 110)
+            THEN TP11.PZ1
+            ELSE
+                CASE WHEN (TP12.PZ2 >= 100) AND (TP12.PZ2 < 110) THEN TP12.PZ1 ELSE NULL END
+            END
+            ) AS A11,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 12 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 12 THEN TO1.Summ ELSE 0.00 END
+            ) AS A12,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 13 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 13 THEN TO1.Summ ELSE 0.00 END
+            ) AS A13,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 14 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 14 THEN TO1.Summ ELSE 0.00 END
+            ) AS A14,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 15 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 15 THEN TO1.Summ ELSE 0.00 END
+            ) AS A15,
+        SUM(
+            CASE WHEN TP11.PZ2 = 16 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 16 THEN TO1.Summ ELSE 0.00 END +
+
+            CASE WHEN TP11.PZ2 = 201 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 201 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A16,
+        SUM(
+            CASE WHEN TP11.PZ2 = 17 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 17 THEN TO1.Summ ELSE 0.00 END
+            ) AS A17,
+        SUM(
+            CASE WHEN TP11.PZ2 = 18 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 18 THEN TO1.Summ ELSE 0.00 END
+            ) AS A18,
+        SUM(
+            CASE WHEN TP11.PZ2 = 19 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 19 THEN TO1.Summ ELSE 0.00 END
+            ) AS A19,
+        SUM(
+            CASE WHEN TP11.PZ2 = 20 THEN -TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 20 THEN TO1.Summ ELSE 0.00 END
+            ) AS A20,
+    
+        0 AS a21,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 22 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 22 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A22,
+        SUM(
+            CASE WHEN TP11.PZ2 = 23 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 23 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A23,
+
+
+        SUM(
+            CASE WHEN TO1.AC15 IS NULL AND TO1.AC25 IS NULL THEN TO1.Summ ELSE 0.00 END
+            ) AS A23a,
+
+        SUM(
+            CASE WHEN TP11.PZ2 = 24 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 24 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A24,
+        SUM(
+            CASE WHEN TP11.PZ2 = 25 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 25 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A25,
+        SUM(
+            CASE WHEN TP11.PZ2 = 26 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 26 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A26,
+        SUM(
+            CASE WHEN TP11.PZ2 = 27 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 27 THEN -TO1.Summ ELSE 0.00 END +
+
+            CASE WHEN TP11.PZ2 = 201 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 201 THEN -TO1.Summ ELSE 0.00 END
+
+            ) AS A27,
+        SUM(
+            CASE WHEN TP11.PZ2 = 28 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 28 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A28,
+        SUM(
+            CASE WHEN TP11.PZ2 = 29 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 29 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A29,
+        SUM(
+            CASE WHEN TP11.PZ2 = 30 THEN TO1.Summ ELSE 0.00 END +
+            CASE WHEN TP12.PZ2 = 30 THEN -TO1.Summ ELSE 0.00 END
+            ) AS A30,
+
+        0 AS a31,
+
+        MAX(TD1.DT2) AS DT2
+
+    FROM
+        OPSd AS TD1
+        JOIN OPS AS TO1 ON TD1.id = TO1.DocId
+        LEFT JOIN persons ON TD1.clid = Persons.clid
+        LEFT JOIN doctyp ON TD1.doctyp = doctyp.id
+        LEFT JOIN ACPvN AS TP11 ON TO1.AC15 = TP11.ID
+        LEFT JOIN ACPvN AS TP12 ON TO1.AC25 = TP12.ID
+    WHERE
+        TD1.Dete BETWEEN :sdt AND :edt AND
+        EXISTS
+        (
+            SELECT TO2.ID
+            FROM
+                OPS AS TO2
+                LEFT JOIN ACPvN AS TP21 ON TO2.AC15 = TP21.ID
+                LEFT JOIN ACPvN AS TP22 ON TO2.AC25 = TP22.ID
+            WHERE
+                (TO2.docid = TD1.ID) AND
+                (
+                    (TP21.ID IS NOT NULL) AND (TP21.PZ2 <> 0) OR
+                    (TP22.ID IS NOT NULL) AND (TP22.PZ2 <> 0)
+                )
+        )
+
+    GROUP BY DID
+    ORDER BY Dete, did
+
+    into :id,
+        :spid,
+        :did,
+        :rid,
+        :dete,
+        :nrx,
+        :doctyp,
+        :docst,
+        :docnr,
+        :docstr,
+        :clid,
+        :name,
+        :regnr,
+        :descr,
+        :aa,
+        :a8,
+        :a9,
+        :a10,
+        :a11,
+        :a12,
+        :a13,
+        :a14,
+        :a15,
+        :a16,
+        :a17,
+        :a18,
+        :a19,
+        :a20,
+        :a21,
+        :a22,
+        :a23,
+        :a23a,
+        :a24,
+        :a25,
+        :a26,
+        :a27,
+        :a28,
+        :a29,
+        :a30,
+        :a31,
+        :xdt2
+  do
+  begin
+    rid = xrid;
+    xrid = xrid + 1;
+
+    docstr = DocTyp;
+
+    if (docst is not null)
+    then
+        if (docstr is null)
+        then docstr = docst;
+        else docstr = docstr || ' ' || docst;
+
+    if (docnr is not null)
+    then
+        if (docstr is null)
+        then docstr = docnr;
+        else docstr = docstr || ' ' ||  docnr;
+
+    if (xdt2 is not null)
+    then
+        if (docstr is null)
+        then docstr = xdt2;
+        else docstr = docstr || ', ' ||  xdt2;
+
+
+    if (a27 > 0.0) then
+    begin
+        a23 = a23 + a23a;
+    end
+    else
+    begin
+        a23 = a23 - a23a;
+    end
+
+    a21 = a8 + a9 + a10 + a12 + a13 + a14 +
+            a15 + a16 + a17 + a18 + a19 + a20;
+
+    a31 = a22 + a23 + a24 + a25 + a26 + a27 +
+            a28 + a29 + a30;
+
+    suspend;
+  end
+end
+^
+
+CREATE TRIGGER TRIG_TREPPVNZ1_BI FOR TREPPVNZ1
+ACTIVE BEFORE INSERT POSITION 0 
+AS BEGIN
+      IF(NEW."ID" IS NULL) THEN NEW."ID" = GEN_ID("GEN_TREPPVNZ1_ID",1);
+    END
+^
+
+SET TERM ; ^
+
+GRANT ALL ON TREPPVNZ1 TO AIVARS WITH GRANT OPTION;
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = '101');
+
+UPDATE ACPVN
+SET PZ2 = 9
+WHERE (ID = '102');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = '104');
+
+UPDATE ACPVN
+SET PZ2 = 9
+WHERE (ID = '105');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = '107');
+
+UPDATE ACPVN
+SET PZ2 = 9
+WHERE (ID = '108');
+
+UPDATE ACPVN
+SET PZ2 = 10
+WHERE (ID = '110');
+
+UPDATE ACPVN
+SET PZ2 = 101
+WHERE (ID = '111');
+
+UPDATE ACPVN
+SET PZ2 = 102
+WHERE (ID = '112');
+
+UPDATE ACPVN
+SET PZ2 = 103
+WHERE (ID = '113');
+
+UPDATE ACPVN
+SET PZ2 = 104
+WHERE (ID = '114');
+
+UPDATE ACPVN
+SET PZ2 = 105
+WHERE (ID = '115');
+
+UPDATE ACPVN
+SET PZ2 = 106
+WHERE (ID = '116');
+
+UPDATE ACPVN
+SET PZ1 = '46',
+    PZ2 = 103
+WHERE (ID = '117');
+
+UPDATE ACPVN
+SET PZ2 = 12
+WHERE (ID = '118');
+
+UPDATE ACPVN
+SET PZ2 = 13
+WHERE (ID = '121');
+
+UPDATE ACPVN
+SET PZ2 = 14
+WHERE (ID = '131');
+
+UPDATE ACPVN
+SET PZ2 = 15
+WHERE (ID = '132');
+
+UPDATE ACPVN
+SET PZ2 = 14
+WHERE (ID = '133');
+
+UPDATE ACPVN
+SET PZ2 = 15
+WHERE (ID = '134');
+
+UPDATE ACPVN
+SET PZ2 = 14
+WHERE (ID = '135');
+
+UPDATE ACPVN
+SET PZ2 = 14
+WHERE (ID = '136');
+
+UPDATE ACPVN
+SET PZ2 = 14
+WHERE (ID = '137');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = '201');
+
+UPDATE ACPVN
+SET PZ2 = 17
+WHERE (ID = '202');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = '204');
+
+UPDATE ACPVN
+SET PZ2 = 17
+WHERE (ID = '205');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = '206');
+
+UPDATE ACPVN
+SET PZ2 = 17
+WHERE (ID = '207');
+
+UPDATE ACPVN
+SET PZ2 = 18
+WHERE (ID = '211');
+
+UPDATE ACPVN
+SET PZ2 = 19
+WHERE (ID = '231');
+
+UPDATE ACPVN
+SET PZ2 = 20
+WHERE (ID = '232');
+
+UPDATE ACPVN
+SET PZ2 = 19
+WHERE (ID = '233');
+
+UPDATE ACPVN
+SET PZ2 = 20
+WHERE (ID = '234');
+
+UPDATE ACPVN
+SET PZ2 = 19
+WHERE (ID = '235');
+
+UPDATE ACPVN
+SET PZ2 = 19
+WHERE (ID = '236');
+
+UPDATE ACPVN
+SET PZ2 = 20
+WHERE (ID = '237');
+
+UPDATE ACPVN
+SET PZ2 = 19
+WHERE (ID = '238');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = '301');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = '302');
+
+UPDATE ACPVN
+SET PZ2 = 30
+WHERE (ID = '304');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = '305');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = '306');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = '307');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = '308');
+
+UPDATE ACPVN
+SET PZ2 = 26
+WHERE (ID = '311');
+
+UPDATE ACPVN
+SET PZ2 = 28
+WHERE (ID = '321');
+
+UPDATE ACPVN
+SET PZ2 = 29
+WHERE (ID = '331');
+
+UPDATE ACPVN
+SET PZ2 = 29
+WHERE (ID = '332');
+
+UPDATE ACPVN
+SET PZ2 = 23
+WHERE (ID = '401');
+
+UPDATE ACPVN
+SET PZ2 = 22
+WHERE (ID = '411');
+
+UPDATE ACPVN
+SET PZ2 = 24
+WHERE (ID = '421');
+
+UPDATE ACPVN
+SET PZ2 = 25
+WHERE (ID = '431');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'B01');
+
+UPDATE ACPVN
+SET PZ2 = 23
+WHERE (ID = 'B02');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'B11');
+
+UPDATE ACPVN
+SET PZ2 = 201
+WHERE (ID = 'B12');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'K041');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'K042');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'K043');
+
+UPDATE ACPVN
+SET PZ2 = 12
+WHERE (ID = 'K044');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K046');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'K051');
+
+UPDATE ACPVN
+SET PZ2 = 8
+WHERE (ID = 'K052');
+
+UPDATE ACPVN
+SET PZ2 = 15
+WHERE (ID = 'K053');
+
+UPDATE ACPVN
+SET PZ2 = 16,
+    PZ3 = 0
+WHERE (ID = 'K055');
+
+UPDATE ACPVN
+SET PZ2 = 23
+WHERE (ID = 'K061');
+
+UPDATE ACPVN
+SET PZ2 = 23
+WHERE (ID = 'K062');
+
+UPDATE ACPVN
+SET PZ2 = 23
+WHERE (ID = 'K065');
+
+UPDATE ACPVN
+SET PZ2 = 201
+WHERE (ID = 'K101');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K102');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K103');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K104');
+
+UPDATE ACPVN
+SET PZ2 = 201
+WHERE (ID = 'K105');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K106');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K107');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K108');
+
+UPDATE ACPVN
+SET PZ2 = 16
+WHERE (ID = 'K109');
+
+UPDATE ACPVN
+SET PZ2 = 27
+WHERE (ID = 'K111');
+
+
+UPDATE Params
+SET PVALUE = '055'
+WHERE PNAME = 'version';

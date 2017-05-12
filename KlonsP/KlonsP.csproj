@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64B5FF00-BD0A-4D3F-A5AF-3D7ABA4FB729}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KlonsP</RootNamespace>
+    <AssemblyName>KlonsP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Pics\Icon2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Output|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=5.8.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.30.5716.23041, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\SourceGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes2\DataLoader.cs" />
+    <Compile Include="Classes2\DataTasks.cs" />
+    <Compile Include="Classes2\EventInfo.cs" />
+    <Compile Include="Classes2\EventRepInfo.cs" />
+    <Compile Include="Classes2\ItemInfo.cs" />
+    <Compile Include="Classes2\ItemRepInfo.cs" />
+    <Compile Include="Classes2\MyStyleDefs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes2\Report_Movement.cs" />
+    <Compile Include="Classes2\SomeDataDefs.cs" />
+    <Compile Include="Classes\CompanyData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\DataRowExt.cs" />
+    <Compile Include="Classes\KlonsData.cs" />
+    <Compile Include="Classes\KlonsParams.cs" />
+    <Compile Include="Classes\KlonsSettings.cs" />
+    <Compile Include="Classes\MasterList.cs" />
+    <Compile Include="Classes\MyCollectionBase.cs" />
+    <Compile Include="Classes\MyFormBaseP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\MyXmlDoc.cs" />
+    <Compile Include="Classes\ReportHelper.cs" />
+    <Compile Include="Classes\UpgradeHelper.cs" />
+    <Compile Include="DataSets\KlonsPDataSet.cs">
+      <DependentUpon>KlonsPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\KlonsPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KlonsPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\KlonsPRepDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KlonsPRepDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_ItemMovement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_ItemMovement.Designer.cs">
+      <DependentUpon>FormRep_ItemMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_TaxDeprec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_TaxDeprec.Designer.cs">
+      <DependentUpon>FormRep_TaxDeprec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Cat1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Cat1.Designer.cs">
+      <DependentUpon>Form_Cat1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Events.Designer.cs">
+      <DependentUpon>Form_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Items.Designer.cs">
+      <DependentUpon>Form_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Items_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Items_New.Designer.cs">
+      <DependentUpon>Form_Items_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Items_NewEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Items_NewEvent.Designer.cs">
+      <DependentUpon>Form_Items_NewEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Places.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Places.Designer.cs">
+      <DependentUpon>Form_Places.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Departments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Departments.Designer.cs">
+      <DependentUpon>Form_Departments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_CatT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_CatT.Designer.cs">
+      <DependentUpon>Form_CatT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_CatD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_CatD.Designer.cs">
+      <DependentUpon>Form_CatD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_Movement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_Movement.Designer.cs">
+      <DependentUpon>FormRep_Movement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ReplacePart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ReplacePart.Designer.cs">
+      <DependentUpon>Form_ReplacePart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RepMT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RepMT.Designer.cs">
+      <DependentUpon>Form_RepMT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Search.Designer.cs">
+      <DependentUpon>Form_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TaxDeprecCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TaxDeprecCat.Designer.cs">
+      <DependentUpon>Form_TaxDeprecCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TaxDeprecYR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TaxDeprecYR.Designer.cs">
+      <DependentUpon>Form_TaxDeprecYR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_About.designer.cs">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_CompanyData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_CompanyData.designer.cs">
+      <DependentUpon>Form_CompanyData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_ErrorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_ErrorList.Designer.cs">
+      <DependentUpon>Form_ErrorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Files.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Files.designer.cs">
+      <DependentUpon>Form_Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesList.designer.cs">
+      <DependentUpon>Form_FilesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesNew.designer.cs">
+      <DependentUpon>Form_FilesNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Settings.designer.cs">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_StartUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_StartUp.designer.cs">
+      <DependentUpon>Form_StartUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_UserPSW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_UserPSW.designer.cs">
+      <DependentUpon>Form_UserPSW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Users.designer.cs">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Forms\FormRep_ItemMovement.resx">
+      <DependentUpon>FormRep_ItemMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRep_TaxDeprec.resx">
+      <DependentUpon>FormRep_TaxDeprec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Cat1.resx">
+      <DependentUpon>Form_Cat1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Events.resx">
+      <DependentUpon>Form_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Items.resx">
+      <DependentUpon>Form_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Items_New.resx">
+      <DependentUpon>Form_Items_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Items_NewEvent.resx">
+      <DependentUpon>Form_Items_NewEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Places.resx">
+      <DependentUpon>Form_Places.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Departments.resx">
+      <DependentUpon>Form_Departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_CatT.resx">
+      <DependentUpon>Form_CatT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_CatD.resx">
+      <DependentUpon>Form_CatD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRep_Movement.resx">
+      <DependentUpon>FormRep_Movement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ReplacePart.resx">
+      <DependentUpon>Form_ReplacePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RepMT.resx">
+      <DependentUpon>Form_RepMT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Search.resx">
+      <DependentUpon>Form_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TaxDeprecCat.resx">
+      <DependentUpon>Form_TaxDeprecCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TaxDeprecYR.resx">
+      <DependentUpon>Form_TaxDeprecYR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_About.resx">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_CompanyData.resx">
+      <DependentUpon>Form_CompanyData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_ErrorList.resx">
+      <DependentUpon>Form_ErrorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_Files.resx">
+      <DependentUpon>Form_Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_FilesList.resx">
+      <DependentUpon>Form_FilesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_FilesNew.resx">
+      <DependentUpon>Form_FilesNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_Settings.resx">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_StartUp.resx">
+      <DependentUpon>Form_StartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_UserPSW.resx">
+      <DependentUpon>Form_UserPSW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_Users.resx">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Pics\Icon2.ico" />
+    <Content Include="Reports\ReportP_Kustiba_1.rdlc" />
+    <Content Include="Reports\ReportP_Kustiba_2.rdlc" />
+    <Content Include="Reports\ReportP_Kustiba_3.rdlc" />
+    <Content Include="Reports\ReportP_NodNol_1.rdlc" />
+    <Content Include="Reports\ReportP_Kartina_1.rdlc" />
+    <Content Include="Reports\ReportP_Kartina_2.rdlc" />
+    <Content Include="Reports\ReportP_Kartina_3.rdlc" />
+    <Content Include="Reports\ReportP_Kartina_4.rdlc" />
+    <Content Include="Reports\ReportP_Kartina_2x.rdlc" />
+    <Content Include="Reports\ReportP_NodNolPL_1.rdlc" />
+    <Content Include="Reports\ReportP_NodNolGads_1.rdlc" />
+    <Content Include="Reports\ReportP_NodNolKat_1.rdlc" />
+    <Content Include="Reports\ReportP_NodNolPL_1x.rdlc" />
+    <None Include="DataSets\KlonsPDataSet.xsc">
+      <DependentUpon>KlonsPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\KlonsPDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KlonsPDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\KlonsPDataSet.xss">
+      <DependentUpon>KlonsPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\KlonsPRepDataSet.xsc">
+      <DependentUpon>KlonsPRepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\KlonsPRepDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KlonsPRepDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\KlonsPRepDataSet.xss">
+      <DependentUpon>KlonsPRepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\KlonsP.Classes.EventRepInfo.datasource" />
+    <None Include="Properties\DataSources\KlonsP.Classes.ItemRepInfo.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\Save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataObjectsP\DataObjectsP.csproj">
+      <Project>{47c24432-6e4a-4014-a62d-394de72ee68b}</Project>
+      <Name>DataObjectsP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KlonsLIB\KlonsLIB.csproj">
+      <Project>{64d9311c-5666-4887-9b5e-71650e9acc0c}</Project>
+      <Name>KlonsLIB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyUIEditors\MyUIEditors.csproj">
+      <Project>{22800a2a-e830-406f-9ffc-511dca5ea512}</Project>
+      <Name>MyUIEditors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotyfyProp\NotyfyProp.csproj">
+      <Project>{41cb954f-cc0d-4c69-be2f-76bf5fc8ada2}</Project>
+      <Name>NotyfyProp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\Save2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\information1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\arrow-down-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\arrow-up-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

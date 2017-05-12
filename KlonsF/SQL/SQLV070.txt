@@ -1,0 +1,132 @@
+﻿SET TERM ^ ;
+
+CREATE PROCEDURE SP_OPS_IDK(
+  PK INTEGER)
+RETURNS (
+  NEXTID INTEGER)
+AS
+begin
+    nextid = GEN_ID("GEN_OPS_ID", :PK);
+    suspend;
+end
+^
+
+CREATE PROCEDURE SP_OPSD_IDK(
+  PK INTEGER)
+RETURNS (
+  NEXTID INTEGER)
+AS
+begin
+    nextid = GEN_ID("GEN_OPSD_ID", :PK);
+    suspend;
+end
+^
+
+CREATE PROCEDURE SP_OPSD_GETNEXTNRFORYEARA_K(
+  YR INTEGER,
+  PK INTEGER)
+RETURNS (
+  NEXTNR INTEGER)
+AS
+declare variable K integer;
+begin
+    if (yr < 2010 or (yr > 2030) ) then
+    begin
+        nextnr = -1;
+        exit;
+    end
+    k = yr - 2010;
+
+    if (k < 16) then
+        if (k < 8) then
+            if (k < 4) then
+                nextnr = case k
+                when 0 then gen_id(year00, :pk)
+                when 1 then gen_id(year01, :pk)
+                when 2 then gen_id(year02, :pk)
+                when 3 then gen_id(year03, :pk)
+                end;
+            else
+                nextnr = case k
+                when 4 then gen_id(year04, :pk)
+                when 5 then gen_id(year05, :pk)
+                when 6 then gen_id(year06, :pk)
+                when 7 then gen_id(year07, :pk)
+                end;
+        else
+            if (k < 12) then
+                nextnr = case k
+                when 8 then gen_id(year08, :pk)
+                when 9 then gen_id(year09, :pk)
+                when 10 then gen_id(year10, :pk)
+                when 11 then gen_id(year11, :pk)
+                end;
+            else
+                nextnr = case k
+                when 12 then gen_id(year12, :pk)
+                when 13 then gen_id(year13, :pk)
+                when 14 then gen_id(year14, :pk)
+                when 15 then gen_id(year15, :pk)
+                end;
+    else
+        if (k < 24) then
+            if (k < 20) then
+                nextnr = case k
+                when 16 then gen_id(year16, :pk)
+                when 17 then gen_id(year17, :pk)
+                when 18 then gen_id(year18, :pk)
+                when 19 then gen_id(year19, :pk)
+                end;
+            else
+                nextnr = case k
+                when 20 then gen_id(year20, :pk)
+                when 21 then gen_id(year21, :pk)
+                when 22 then gen_id(year22, :pk)
+                when 23 then gen_id(year23, :pk)
+                end;
+        else
+            if (k < 28) then
+                nextnr = case k
+                when 24 then gen_id(year24, :pk)
+                when 25 then gen_id(year25, :pk)
+                when 26 then gen_id(year26, :pk)
+                when 27 then gen_id(year27, :pk)
+                end;
+            else
+                nextnr = case k
+                when 28 then gen_id(year28, :pk)
+                when 29 then gen_id(year29, :pk)
+                when 30 then gen_id(year30, :pk)
+                when 31 then gen_id(year31, :pk)
+                end;
+
+    suspend;
+
+end
+^
+
+ALTER PROCEDURE SP_OPSD_GETNEXTNRFORYEARA(
+  YR INTEGER)
+RETURNS (
+  NEXTNR INTEGER)
+AS
+begin
+    execute procedure SP_OPSD_GETNEXTNRFORYEARA_K(:yr, 1)
+    returning_values :NEXTNR;
+
+    suspend;
+end
+^
+
+SET TERM ; ^
+
+GRANT EXECUTE ON PROCEDURE SP_OPS_IDK TO AIVARS;
+
+GRANT EXECUTE ON PROCEDURE SP_OPSD_IDK TO AIVARS;
+
+GRANT EXECUTE ON PROCEDURE SP_OPSD_GETNEXTNRFORYEARA_K TO AIVARS;
+
+
+UPDATE Params
+SET PVALUE = '070'
+WHERE PNAME = 'version';

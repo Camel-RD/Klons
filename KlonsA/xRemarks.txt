@@ -1,0 +1,86 @@
+IIN ieturçts
+	maksâjumu saraksti
+	aprçíina lapas - neizmaksâjamajâm summâm
+
+Maksâjumu saraksti
+	ieturçjumi
+	neapliekamie
+	neizmaksâjamâs summas (pensiju fondi, ...)
+
+TODO: 
+	Uzvârda maiòa
+	VSAOI not simple IIN
+	Atvaïinâjuma dienas
+	Slimo atvïinâjumâ
+	GetLastMonth
+
+chack use of calcr.exMax2, calcr.exDivided
+	exDivided in vacationcalc after uso of ApplyRatio
+
+IIN kopsavilkums:
+	Kas jâuzrâda atseviðíâs rindâs?
+		ar darbu nesaistîtie ienâkumi;
+		atðíirîgi papildu atvieglojuma kodi;
+	gada atskaitç râda tikai pçdçjo periodu	
+	* neiekïaut neizmaksâtâs summas
+
+
+Vai atteikties no sagatavçm? - nav tik svarîgi
+	algas, darba tabeles un izmaksu sarakts tad jânorâda darbinieka kartiòâ
+	papildus jâuztaisa forma sarakstu darbinieku apskatei -> 
+		ar rediìçðanas iespçju
+		=> gan, gan, papildus çrtîbai
+
+Divi algas aprçíini vienâ mçnesî:
+	iespçjami ja:
+		vienâ mçnesî atlaists un vçlâk atkal pieòemts;
+		... citu variantu laikam nav
+	Izslçgt tâdu iespçju ...
+
+Pârbaudît getprevmonth-data (atv.apr.), lai nav pirms pieòemðanas
+Vidçjâ alga par pçdçjiem mçneðiem, lai nav pirm pieòemðanas
+
+
+PAYSHEET_R
+	TPAY0 = PAY0 + ADVANCE0 - izmaksâjamâ summa
+	TPAY = PAY + ADVANCE - izmaksâtâ summa
+
+	useris ievada TPAY, PAY un ADVANCE tiek aprçînâts
+
+	kas ir SALARYSHEET_R.ADVANCE?
+		PAY vietâ jâlieto PAYT
+
+		vai tas pârnâk no iepriekðçjâ mçneða
+			
+			AdvancePrev = prevsi._VACATION_ADVANCE_NEXT;
+            si._VACATION_ADVANCE_PREV = AdvancePrev;
+			
+			SI._AMOUNT_BEFORE_SN += ... SI._VACATION_PAY_CURRENT
+
+            SI._VACATION_ADVANCE_NEXT =
+                SI._VACATION_ADVANCE_PREV +
+                SI._VACATION_ADVANCE_CURRENT +
+                SI._VACATION_CASH_NEXT;
+
+Jâuztaisa papildus tabula avansa maksâjumiem, tad
+	algu aprçíinâ var ielikt avansâ izmaksâto
+vai aprçíinât pârmaksu uz izmaksas datumu
+vai algu sarakstâ nerâdît faktiski izmaksâjamo summu
+
+Ieturçjumi no algas = - avanss
+
+Temp SalarySheets 
+	- vienmçr avansa aprçíins
+	- sâkuma datums vienmçr MDT1 (vai HireDT)
+	- beigu datums lielâks par iepriekðçjâ temp sataksta beigu datumu
+	- beigu datums mazâks par MDT2 vai FireDT
+	
+Advance
+	- tekoðais salarysheet nodzçð iepriekðçjâ SH advance
+	- izmaksâjamâ summa ir SUM(_PAY) + SUM(_ADVANCE)
+	- var bût avansâ izmaksâtâ summa un izmaksâjamâ
+	- izmaksâjamâ summa if ar (+)
+	- jâkontrolç, lai nebûtu vienlaikus algas parâds (PAY > 0) 
+		un izmaksâts avansâ (Advance < 0)
+
+

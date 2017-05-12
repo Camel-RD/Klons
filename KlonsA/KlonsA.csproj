@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{658A84BC-A941-4B97-88B0-77AB4F46D646}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KlonsA</RootNamespace>
+    <AssemblyName>KlonsA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Pics\Icon2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Output|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=5.8.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid">
+      <HintPath>..\Lib\SourceGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes2\AvPayCalcInfo.cs" />
+    <Compile Include="Classes2\BonusCalcInfo.cs" />
+    <Compile Include="Classes2\CalcRInfo.cs" />
+    <Compile Include="Classes2\DataLoader.cs" />
+    <Compile Include="Classes2\DateList.cs" />
+    <Compile Include="Classes2\PayListCalcInfo.cs" />
+    <Compile Include="ClassesRep\Report_Events.cs" />
+    <Compile Include="ClassesRep\Report_IINk.cs" />
+    <Compile Include="ClassesRep\Report_PayList.cs" />
+    <Compile Include="ClassesRep\Report_PersonData.cs" />
+    <Compile Include="ClassesRep\Report_TimeSheet2.cs" />
+    <Compile Include="ClassesRep\Report_VacDays.cs" />
+    <Compile Include="ClassesRep\Report_VSAOI1.cs" />
+    <Compile Include="Classes2\TimeSheetRowSet.cs" />
+    <Compile Include="Classes2\TimeSheetRowSetList.cs" />
+    <Compile Include="Classes2\EventsInfo.cs" />
+    <Compile Include="Classes2\PeriodInfo.cs" />
+    <Compile Include="Classes2\SalaryCalcInfo.cs" />
+    <Compile Include="Classes2\SalaryCalcTInfo.cs" />
+    <Compile Include="Classes2\SalaryInfo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassesRep\Report_Salary1.cs" />
+    <Compile Include="ClassesRep\Report_Salary2.cs" />
+    <Compile Include="Classes2\SalarySheetInfo.cs" />
+    <Compile Include="Classes2\SalarySheetRowInfo.cs" />
+    <Compile Include="Classes2\CalendarMonthInfo.cs" />
+    <Compile Include="Classes2\SalarySheetRowSetInfo.cs" />
+    <Compile Include="Classes2\SickDayCalcInfo.cs" />
+    <Compile Include="ClassesRep\Report_TimeSheet1.cs" />
+    <Compile Include="Classes2\VacationCalcInfo.cs" />
+    <Compile Include="Classes2\WorkPayCalcInfo.cs" />
+    <Compile Include="Classes2\WorkPayCalcTInfo.cs" />
+    <Compile Include="Classes\CompanyData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes2\DataTasks.cs" />
+    <Compile Include="Classes2\DLJoinView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\KlonsData.cs" />
+    <Compile Include="Classes\KlonsParams.cs" />
+    <Compile Include="Classes\KlonsSettings.cs" />
+    <Compile Include="Classes\MasterList.cs" />
+    <Compile Include="Classes\MyCollectionBase.cs" />
+    <Compile Include="Classes\MyFormBaseA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes2\MyStyleDefs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\MyXmlDoc.cs" />
+    <Compile Include="Classes\ReportHelper.cs" />
+    <Compile Include="Classes2\SomeDataDefs.cs" />
+    <Compile Include="Classes\UpgradeHelper.cs" />
+    <Compile Include="DataSets\KlonsADataSet.cs">
+      <DependentUpon>KlonsADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\KlonsADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KlonsADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\KlonsARepDataSet.cs">
+      <DependentUpon>KlonsARepDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_IINK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_IINK.Designer.cs">
+      <DependentUpon>FormRep_IINK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_VacDays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_VacDays.Designer.cs">
+      <DependentUpon>FormRep_VacDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_VSAOI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_VSAOI.Designer.cs">
+      <DependentUpon>FormRep_VSAOI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRep_Zinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRep_Zinas.Designer.cs">
+      <DependentUpon>FormRep_Zinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Banks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Banks.Designer.cs">
+      <DependentUpon>Form_Banks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventTypes2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventTypes2.Designer.cs">
+      <DependentUpon>Form_EventTypes2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_FizPersons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_FizPersons.Designer.cs">
+      <DependentUpon>Form_FizPersons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_FpPayLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_FpPayLists.Designer.cs">
+      <DependentUpon>Form_FpPayLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_IncomeCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_IncomeCodes.Designer.cs">
+      <DependentUpon>Form_IncomeCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PayCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PayCalc.Designer.cs">
+      <DependentUpon>Form_PayCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Stats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Stats.Designer.cs">
+      <DependentUpon>Form_Stats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheetsNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheetsNew.Designer.cs">
+      <DependentUpon>Form_TimeSheetsNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheetsNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheetsNew.Designer.cs">
+      <DependentUpon>Form_SalarySheetsNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PayLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PayLists.Designer.cs">
+      <DependentUpon>Form_PayLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PayListNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PayListNew.Designer.cs">
+      <DependentUpon>Form_PayListNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PayListsTempl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PayListsTempl.Designer.cs">
+      <DependentUpon>Form_PayListsTempl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Events.Designer.cs">
+      <DependentUpon>Form_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PersonNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PersonNew.Designer.cs">
+      <DependentUpon>Form_PersonNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PersonNewPos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PersonNewPos.Designer.cs">
+      <DependentUpon>Form_PersonNewPos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PieceWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PieceWork.Designer.cs">
+      <DependentUpon>Form_PieceWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PieceWorkCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PieceWorkCatalog.Designer.cs">
+      <DependentUpon>Form_PieceWorkCatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PieceWorkCatStruct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PieceWorkCatStruct.Designer.cs">
+      <DependentUpon>Form_PieceWorkCatStruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SickDaysCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SickDaysCalc.Designer.cs">
+      <DependentUpon>Form_SickDaysCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AvPayCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AvPayCalc.Designer.cs">
+      <DependentUpon>Form_AvPayCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheet.Designer.cs">
+      <DependentUpon>Form_SalarySheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheets.Designer.cs">
+      <DependentUpon>Form_SalarySheets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_DataLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_DataLoad.Designer.cs">
+      <DependentUpon>Form_DataLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheetNewRow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheetNewRow.Designer.cs">
+      <DependentUpon>Form_SalarySheetNewRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheetEditt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheetEditt.Designer.cs">
+      <DependentUpon>Form_TimeSheetEditt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheetTempl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SalarySheetTempl.Designer.cs">
+      <DependentUpon>Form_SalarySheetTempl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Persons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Persons.Designer.cs">
+      <DependentUpon>Form_Persons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheets.Designer.cs">
+      <DependentUpon>Form_TimeSheets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheetTempl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheetTempl.Designer.cs">
+      <DependentUpon>Form_TimeSheetTempl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PersonsR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PersonsR.Designer.cs">
+      <DependentUpon>Form_PersonsR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSheet.Designer.cs">
+      <DependentUpon>Form_TimeSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Plan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Plan.Designer.cs">
+      <DependentUpon>Form_Plan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PlanList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PlanList.Designer.cs">
+      <DependentUpon>Form_PlanList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PastData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PastData.Designer.cs">
+      <DependentUpon>Form_PastData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_VacationCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_VacationCalc.Designer.cs">
+      <DependentUpon>Form_VacationCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_WorkPayCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_WorkPayCalc.Designer.cs">
+      <DependentUpon>Form_WorkPayCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ZinuKodi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ZinuKodi.Designer.cs">
+      <DependentUpon>Form_ZinuKodi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_About.Designer.cs">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_CompanyData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_CompanyData.designer.cs">
+      <DependentUpon>Form_CompanyData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_ErrorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_ErrorList.Designer.cs">
+      <DependentUpon>Form_ErrorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Files.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Files.Designer.cs">
+      <DependentUpon>Form_Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesList.Designer.cs">
+      <DependentUpon>Form_FilesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_FilesNew.Designer.cs">
+      <DependentUpon>Form_FilesNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Rates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Rates.Designer.cs">
+      <DependentUpon>Form_Rates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\KlonsARepDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KlonsARepDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Settings.Designer.cs">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_StartUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_StartUp.Designer.cs">
+      <DependentUpon>Form_StartUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Professions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Professions.Designer.cs">
+      <DependentUpon>Form_Professions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Departments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Departments.Designer.cs">
+      <DependentUpon>Form_Departments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Holidays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Holidays.Designer.cs">
+      <DependentUpon>Form_Holidays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TeritorialCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TeritorialCodes.Designer.cs">
+      <DependentUpon>Form_TeritorialCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_UserPSW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_UserPSW.Designer.cs">
+      <DependentUpon>Form_UserPSW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_sys\Form_Users.Designer.cs">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Pics\Icon1.ico" />
+    <None Include="Pics\Icon2.ico" />
+    <Content Include="Reports\ReportA_IIN_10.rdlc" />
+    <Content Include="Reports\ReportA_IIN_11.rdlc" />
+    <Content Include="Reports\ReportA_DarbaLaiks_2.rdlc" />
+    <Content Include="Reports\ReportA_Kartite_1.rdlc" />
+    <Content Include="Reports\ReportA_Kartite_1a.rdlc" />
+    <Content Include="Reports\ReportA_Kartite_1b.rdlc" />
+    <Content Include="Reports\ReportA_Kartite_1c.rdlc" />
+    <Content Include="Reports\ReportA_MaksSar_1a.rdlc" />
+    <None Include="Resources\Image11.png" />
+    <None Include="Resources\Image1.png" />
+    <None Include="Resources\klonsa.ico" />
+    <EmbeddedResource Include="Forms\FormRep_VacDays.resx">
+      <DependentUpon>FormRep_VacDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PayCalc.resx">
+      <DependentUpon>Form_PayCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Stats.resx">
+      <DependentUpon>Form_Stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_About.resx">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_Files.resx">
+      <DependentUpon>Form_Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_FilesList.resx">
+      <DependentUpon>Form_FilesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_StartUp.resx">
+      <DependentUpon>Form_StartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_Users.resx">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Reports\ReportA_MaksSar_2a.rdlc" />
+    <Content Include="Reports\ReportA_AlgasLapa_2.rdlc" />
+    <EmbeddedResource Include="Reports\ReportA_MaksSar_2.rdlc" />
+    <EmbeddedResource Include="Reports\ReportA_MaksSar_1.rdlc" />
+    <None Include="Properties\DataSources\KlonsA.Classes.RepRowPayList.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.RepRowPayListRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.RepRowPerson.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.RepRowPersonRatesChange.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.RepRowPersonStatusChange.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.RepRowPosition.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow2.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow2a.datasource" />
+    <None Include="xRemarks.txt" />
+    <EmbeddedResource Include="Forms\FormRep_IINK.resx">
+      <DependentUpon>FormRep_IINK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRep_VSAOI.resx">
+      <DependentUpon>FormRep_VSAOI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRep_Zinas.resx">
+      <DependentUpon>FormRep_Zinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Banks.resx">
+      <DependentUpon>Form_Banks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventTypes2.resx">
+      <DependentUpon>Form_EventTypes2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_FizPersons.resx">
+      <DependentUpon>Form_FizPersons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_FpPayLists.resx">
+      <DependentUpon>Form_FpPayLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_IncomeCodes.resx">
+      <DependentUpon>Form_IncomeCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TimeSheetsNew.resx">
+      <DependentUpon>Form_TimeSheetsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SalarySheetsNew.resx">
+      <DependentUpon>Form_SalarySheetsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PayLists.resx">
+      <DependentUpon>Form_PayLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PayListNew.resx">
+      <DependentUpon>Form_PayListNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PayListsTempl.resx">
+      <DependentUpon>Form_PayListsTempl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Events.resx">
+      <DependentUpon>Form_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PersonNew.resx">
+      <DependentUpon>Form_PersonNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PersonNewPos.resx">
+      <DependentUpon>Form_PersonNewPos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PieceWork.resx">
+      <DependentUpon>Form_PieceWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PieceWorkCatalog.resx">
+      <DependentUpon>Form_PieceWorkCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PieceWorkCatStruct.resx">
+      <DependentUpon>Form_PieceWorkCatStruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SickDaysCalc.resx">
+      <DependentUpon>Form_SickDaysCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AvPayCalc.resx">
+      <DependentUpon>Form_AvPayCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SalarySheet.resx">
+      <DependentUpon>Form_SalarySheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SalarySheets.resx">
+      <DependentUpon>Form_SalarySheets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_DataLoad.resx">
+      <DependentUpon>Form_DataLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SalarySheetNewRow.resx">
+      <DependentUpon>Form_SalarySheetNewRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TimeSheetEditt.resx">
+      <DependentUpon>Form_TimeSheetEditt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SalarySheetTempl.resx">
+      <DependentUpon>Form_SalarySheetTempl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Persons.resx">
+      <DependentUpon>Form_Persons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TimeSheets.resx">
+      <DependentUpon>Form_TimeSheets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TimeSheetTempl.resx">
+      <DependentUpon>Form_TimeSheetTempl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PersonsR.resx">
+      <DependentUpon>Form_PersonsR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TimeSheet.resx">
+      <DependentUpon>Form_TimeSheet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Plan.resx">
+      <DependentUpon>Form_Plan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PlanList.resx">
+      <DependentUpon>Form_PlanList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Rates.resx">
+      <DependentUpon>Form_Rates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PastData.resx">
+      <DependentUpon>Form_PastData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_VacationCalc.resx">
+      <DependentUpon>Form_VacationCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_WorkPayCalc.resx">
+      <DependentUpon>Form_WorkPayCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ZinuKodi.resx">
+      <DependentUpon>Form_ZinuKodi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_CompanyData.resx">
+      <DependentUpon>Form_CompanyData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_ErrorList.resx">
+      <DependentUpon>Form_ErrorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_sys\Form_Settings.resx">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Professions.resx">
+      <DependentUpon>Form_Professions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Departments.resx">
+      <DependentUpon>Form_Departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Holidays.resx">
+      <DependentUpon>Form_Holidays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TeritorialCodes.resx">
+      <DependentUpon>Form_TeritorialCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Pics\open.png" />
+    <None Include="Pics\delete.png" />
+    <None Include="Pics\new.png" />
+    <Content Include="Reports\ReportA_VidIzp_1.rdlc" />
+    <Content Include="Reports\ReportA_SlimibasNauda_1.rdlc" />
+    <Content Include="Reports\ReportA_AprIzklasts_1.rdlc" />
+    <Content Include="Reports\ReportA_AlgasLapa_1.rdlc" />
+    <Content Include="Reports\ReportA_DarbaLaiks_1.rdlc" />
+    <Content Include="Reports\ReportA_Zinas.rdlc" />
+    <Content Include="Reports\ReportA_VSAOI_1.rdlc" />
+    <Content Include="Reports\ReportA_IINK.rdlc" />
+    <Content Include="Reports\ReportA_IINK2.rdlc" />
+    <None Include="DataSets\KlonsADataSet.xsc">
+      <DependentUpon>KlonsADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\KlonsADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>KlonsADataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\KlonsADataSet.xss">
+      <DependentUpon>KlonsADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\KlonsARepDataSet.xsc">
+      <DependentUpon>KlonsARepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\KlonsARepDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KlonsARepDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\KlonsARepDataSet.xss">
+      <DependentUpon>KlonsARepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\KlonsA.Classes.AvPayCalcRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.BonusCalcRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.CalcRRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.EventsReportRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.IINReportRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.SalaryCalcRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.SalaryRepRow2.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.SickDayCalcRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow1.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.VacationCalcRow.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.VSAOIReportRow1.datasource" />
+    <None Include="Properties\DataSources\KlonsA.Classes.WorkPayCalcRow1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataObjectsA\DataObjectsA.csproj">
+      <Project>{a39fd67d-1412-4c50-a522-66a063c7c06f}</Project>
+      <Name>DataObjectsA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KlonsLIB\KlonsLIB.csproj">
+      <Project>{64d9311c-5666-4887-9b5e-71650e9acc0c}</Project>
+      <Name>KlonsLIB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyUIEditors\MyUIEditors.csproj">
+      <Project>{22800a2a-e830-406f-9ffc-511dca5ea512}</Project>
+      <Name>MyUIEditors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotyfyProp\NotyfyProp.csproj">
+      <Project>{41cb954f-cc0d-4c69-be2f-76bf5fc8ada2}</Project>
+      <Name>NotyfyProp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Pics\Save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\Save2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

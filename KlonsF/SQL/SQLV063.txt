@@ -1,0 +1,16 @@
+﻿UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('B02', 'saņemtie būvniecības pakalpojumi', 0, 'R3', 23, 0, 8, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D01', 'Pārdota prece (mobīlie telefoni, planšetdatori, klēpjdatori, ...)', 0, '41.1', 8, 21, 1, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D02', 'Saņemta prece (mobīlie telefoni, planšetdatori, klēpjdatori, ...)', 0, 'R4', 23, 0, 8, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D11', 'PVN par pārdoto (mobīlie telefoni, planšetdatori, klēpjdatori, ...)', 1, '41.1', 8, 22, 2, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D12', 'PVN par saņemto (mobīlie telefoni, planšetdatori, klēpjdatori, ...)', 1, 'R4', 201, 0, 5, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('K071', 'Saņemtie pakalpojumi no apliekamām personām', 0, 'R1', 23, 0, 8, 1, 0);
+
+UPDATE Params
+SET PVALUE = '063'
+WHERE PNAME = 'version';

@@ -1,0 +1,142 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_VWOPS_FILTER_OR(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPS.ID,
+DOCID TYPE OF COLUMN OPS.DOCID,
+DETE TYPE OF COLUMN OPSD.DETE,
+NRX TYPE OF COLUMN OPSD.NRX,
+ZNR TYPE OF COLUMN OPSD.ZNR,
+DOCTYP TYPE OF COLUMN OPSD.DOCTYP,
+DOCST TYPE OF COLUMN OPSD.DOCST,
+DOCNR TYPE OF COLUMN OPSD.DOCNR,
+DOCTYP2 TYPE OF COLUMN DOCTYP.ID1,
+CLID TYPE OF COLUMN OPSD.CLID,
+NAME TYPE OF COLUMN PERSONS.NAME,
+REGNR TYPE OF COLUMN PERSONS.REGNR,
+CLID2 TYPE OF COLUMN OPSD.CLID2,
+NAME2 TYPE OF COLUMN PERSONS.NAME,
+REGNR2 TYPE OF COLUMN PERSONS.REGNR,
+DESCR TYPE OF COLUMN OPSD.DESCR,
+AC11 TYPE OF COLUMN OPS.AC11,
+AC12 TYPE OF COLUMN OPS.AC12,
+AC13 TYPE OF COLUMN OPS.AC13,
+AC14 TYPE OF COLUMN OPS.AC14,
+AC15 TYPE OF COLUMN OPS.AC15,
+AC21 TYPE OF COLUMN OPS.AC21,
+AC22 TYPE OF COLUMN OPS.AC22,
+AC23 TYPE OF COLUMN OPS.AC23,
+AC24 TYPE OF COLUMN OPS.AC24,
+AC25 TYPE OF COLUMN OPS.AC25,
+SUMMC TYPE OF COLUMN OPS.SUMMC,
+CUR TYPE OF COLUMN OPS.CUR,
+SUMM TYPE OF COLUMN OPS.SUMM,
+QV TYPE OF COLUMN OPS.QV,
+DESCR2 TYPE OF COLUMN OPS.DESCR)
+ AS
+begin
+
+    for select
+        ops.id,
+        ops.docid,
+        opsd.DETE,
+        opsd.nrx,
+        opsd.znr,
+        opsd.doctyp,
+        opsd.docst,
+        opsd.docnr,
+        DOCTYP.id1 as DOCTYP2,
+        opsd.clid,
+        persons.name,
+        persons.regnr,
+        opsd.clid2,
+        Persons2.name as NAME2,
+        Persons2.regnr AS regnr2,
+        opsd.descr,
+
+        ops.ac11,
+        ops.ac12,
+        ops.ac13,
+        ops.ac14,
+        ops.ac15,
+        ops.ac21,
+        ops.ac22,
+        ops.ac23,
+        ops.ac24,
+        ops.ac25,
+        ops.summc,
+        ops.cur,
+        ops.summ,
+        ops.qv,
+        ops.descr AS descr2
+
+    FROM
+        OPSd JOIN OPS ON OPSd.id = OPS.DocId
+        LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+        LEFT JOIN Persons ON OPSd.ClId = Persons.ClId
+        LEFT JOIN Persons AS Persons2 ON OPSd.ClId2 = Persons2.ClId
+
+    WHERE
+        (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+        (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+        (:pclid IS NULL OR opsd.ClId = :pclid OR ClId2 = :pclid) AND
+        (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+        (
+            :PDOCGR IS NULL OR EXISTS(
+                SELECT DTA.ID
+                FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+            )
+        ) AND
+        (
+            (
+                (:pac11 IS NULL OR OPS.AC11 LIKE :pac11) AND
+                (:pac12 IS NULL OR OPS.AC12 LIKE :pac12) AND
+                (:pac13 IS NULL OR OPS.AC13 LIKE :pac13) AND
+                (:pac14 IS NULL OR OPS.AC14 LIKE :pac14) AND
+                (:pac15 IS NULL OR OPS.AC15 LIKE :pac15)
+            )
+            OR
+            (
+                (:pac21 IS NULL OR OPS.AC21 LIKE :pac21) AND
+                (:pac22 IS NULL OR OPS.AC22 LIKE :pac22) AND
+                (:pac23 IS NULL OR OPS.AC23 LIKE :pac23) AND
+                (:pac24 IS NULL OR OPS.AC24 LIKE :pac24) AND
+                (:pac25 IS NULL OR OPS.AC25 LIKE :pac25)
+            )
+        )
+        ORDER BY DETE, opsd.id, ops.id
+        into
+            :ID, :docid, :DETE, :nrx, :znr,
+            :doctyp, :docst, :docnr, :doctyp2,
+            :clid, :name, :regnr,
+            :clid2, :name2, :regnr2,
+            :descr,
+            :ac11, :ac12, :ac13, :ac14, :ac15,
+            :ac21, :ac22, :ac23, :ac24, :ac25,
+            :summc, :cur, :summ, :qv, :descr2
+        do
+        begin
+            suspend;
+        end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '058'
+WHERE PNAME = 'version';

@@ -1,0 +1,1316 @@
+﻿SET TERM !! ;
+
+EXECUTE BLOCK AS BEGIN
+    if (exists(select 1 from rdb$indices where rdb$index_name = 'PK__DOCTYPB')) then
+    begin
+        execute statement 'ALTER TABLE DOCTYPB DROP CONSTRAINT PK__DOCTYPB__CONSTR;';
+        execute statement 'ALTER TABLE DOCTYPB ADD CONSTRAINT PK__DOCTYPB__CONSTR PRIMARY KEY (IDA, ID);';
+    end
+    if (exists(select 1 from rdb$indices where rdb$index_name = 'PK__DOCTYPB__3F7124AC62BA4E30')) then
+    begin
+        execute statement 'ALTER TABLE DOCTYPB DROP CONSTRAINT PK__DOCTYPB__3F7124AC62BA4E30;';
+        execute statement 'ALTER TABLE DOCTYPB ADD CONSTRAINT PK__DOCTYPB__CONSTR PRIMARY KEY (IDA, ID);';
+    end
+END!!
+
+SET TERM ; !!
+
+/* Alter Procedure... */
+/* Alter (SP_OPS_FILTER_AND) */
+SET TERM ^ ;
+
+ALTER PROCEDURE SP_OPS_FILTER_AND(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPS.ID,
+DOCID TYPE OF COLUMN OPS.DOCID,
+DESCR TYPE OF COLUMN OPS.DESCR,
+AC11 TYPE OF COLUMN OPS.AC11,
+AC12 TYPE OF COLUMN OPS.AC12,
+AC13 TYPE OF COLUMN OPS.AC13,
+AC14 TYPE OF COLUMN OPS.AC14,
+AC15 TYPE OF COLUMN OPS.AC15,
+AC21 TYPE OF COLUMN OPS.AC21,
+AC22 TYPE OF COLUMN OPS.AC22,
+AC23 TYPE OF COLUMN OPS.AC23,
+AC24 TYPE OF COLUMN OPS.AC24,
+AC25 TYPE OF COLUMN OPS.AC25,
+SUMMC TYPE OF COLUMN OPS.SUMMC,
+CUR TYPE OF COLUMN OPS.CUR,
+SUMM TYPE OF COLUMN OPS.SUMM,
+QV TYPE OF COLUMN OPS.QV,
+NL TYPE OF COLUMN OPS.NL,
+ZDT TYPE OF COLUMN OPS.ZDT)
+ AS
+begin
+    if
+    (
+        pac11 is null and
+        pac12 is null and
+        pac13 is null and
+        pac14 is null and
+        pac15 is null and
+        pac21 is null and
+        pac22 is null and
+        pac23 is null and
+        pac24 is null and
+        pac25 is null
+
+    )
+    then begin
+        for select ops.id,
+                 ops.docid,
+                 ops.descr,
+                 ops.ac11,
+                 ops.ac12,
+                 ops.ac13,
+                 ops.ac14,
+                 ops.ac15,
+                 ops.ac21,
+                 ops.ac22,
+                 ops.ac23,
+                 ops.ac24,
+                 ops.ac25,
+                 ops.summc,
+                 ops.cur,
+                 ops.summ,
+                 ops.qv,
+                 ops.nl,
+                 ops.zdt
+        
+          FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+          WHERE
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext)  AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            )
+
+          ORDER BY OPSd.DETE, OPSd.id, OPS.id
+          into :id,
+               :docid,
+               :descr,
+               :ac11,
+               :ac12,
+               :ac13,
+               :ac14,
+               :ac15,
+               :ac21,
+               :ac22,
+               :ac23,
+               :ac24,
+               :ac25,
+               :summc,
+               :cur,
+               :summ,
+               :qv,
+               :nl,
+               :zdt
+        do
+        begin
+            suspend;
+        end
+    end
+
+    else begin
+
+        for select ops.id,
+                 ops.docid,
+                 ops.descr,
+                 ops.ac11,
+                 ops.ac12,
+                 ops.ac13,
+                 ops.ac14,
+                 ops.ac15,
+                 ops.ac21,
+                 ops.ac22,
+                 ops.ac23,
+                 ops.ac24,
+                 ops.ac25,
+                 ops.summc,
+                 ops.cur,
+                 ops.summ,
+                 ops.qv,
+                 ops.nl,
+                 ops.zdt
+        
+          FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+          WHERE
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            ) AND
+            EXISTS
+            (
+                
+                SELECT NULL
+                FROM OPS o1
+                WHERE
+                (
+                    (o1.DocId = OPSd.id) AND
+                    (
+                        (
+                            (:pac11 IS NULL OR o1.AC11 LIKE :pac11) AND
+                            (:pac12 IS NULL OR o1.AC12 LIKE :pac12) AND
+                            (:pac13 IS NULL OR o1.AC13 LIKE :pac13) AND
+                            (:pac14 IS NULL OR o1.AC14 LIKE :pac14) AND
+                            (:pac15 IS NULL OR o1.AC15 LIKE :pac15)
+                        )
+                        AND
+                        (
+                            (:pac21 IS NULL OR o1.AC21 LIKE :pac21) AND
+                            (:pac22 IS NULL OR o1.AC22 LIKE :pac22) AND
+                            (:pac23 IS NULL OR o1.AC23 LIKE :pac23) AND
+                            (:pac24 IS NULL OR o1.AC24 LIKE :pac24) AND
+                            (:pac25 IS NULL OR o1.AC25 LIKE :pac25)
+                        )
+                    )
+                )
+            )
+
+          ORDER BY OPSd.DETE, OPSd.id, OPS.id
+          into :id,
+               :docid,
+               :descr,
+               :ac11,
+               :ac12,
+               :ac13,
+               :ac14,
+               :ac15,
+               :ac21,
+               :ac22,
+               :ac23,
+               :ac24,
+               :ac25,
+               :summc,
+               :cur,
+               :summ,
+               :qv,
+               :nl,
+               :zdt
+        do
+        begin
+            suspend;
+        end
+
+    end
+end
+^
+
+/* Alter (SP_OPS_FILTER_OR) */
+ALTER PROCEDURE SP_OPS_FILTER_OR(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPS.ID,
+DOCID TYPE OF COLUMN OPS.DOCID,
+DESCR TYPE OF COLUMN OPS.DESCR,
+AC11 TYPE OF COLUMN OPS.AC11,
+AC12 TYPE OF COLUMN OPS.AC12,
+AC13 TYPE OF COLUMN OPS.AC13,
+AC14 TYPE OF COLUMN OPS.AC14,
+AC15 TYPE OF COLUMN OPS.AC15,
+AC21 TYPE OF COLUMN OPS.AC21,
+AC22 TYPE OF COLUMN OPS.AC22,
+AC23 TYPE OF COLUMN OPS.AC23,
+AC24 TYPE OF COLUMN OPS.AC24,
+AC25 TYPE OF COLUMN OPS.AC25,
+SUMMC TYPE OF COLUMN OPS.SUMMC,
+CUR TYPE OF COLUMN OPS.CUR,
+SUMM TYPE OF COLUMN OPS.SUMM,
+QV TYPE OF COLUMN OPS.QV,
+NL TYPE OF COLUMN OPS.NL,
+ZDT TYPE OF COLUMN OPS.ZDT)
+ AS
+begin
+    if
+    (
+        pac11 is null and
+        pac12 is null and
+        pac13 is null and
+        pac14 is null and
+        pac15 is null and
+        pac21 is null and
+        pac22 is null and
+        pac23 is null and
+        pac24 is null and
+        pac25 is null
+
+    )
+    then begin
+        for select ops.id,
+                 ops.docid,
+                 ops.descr,
+                 ops.ac11,
+                 ops.ac12,
+                 ops.ac13,
+                 ops.ac14,
+                 ops.ac15,
+                 ops.ac21,
+                 ops.ac22,
+                 ops.ac23,
+                 ops.ac24,
+                 ops.ac25,
+                 ops.summc,
+                 ops.cur,
+                 ops.summ,
+                 ops.qv,
+                 ops.nl,
+                 ops.zdt
+        
+          FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+          WHERE
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            )
+
+          ORDER BY OPSd.DETE, OPSd.id, OPS.id
+          into :id,
+               :docid,
+               :descr,
+               :ac11,
+               :ac12,
+               :ac13,
+               :ac14,
+               :ac15,
+               :ac21,
+               :ac22,
+               :ac23,
+               :ac24,
+               :ac25,
+               :summc,
+               :cur,
+               :summ,
+               :qv,
+               :nl,
+               :zdt
+        do
+        begin
+            suspend;
+        end
+    end
+
+    else begin
+
+        for select ops.id,
+                 ops.docid,
+                 ops.descr,
+                 ops.ac11,
+                 ops.ac12,
+                 ops.ac13,
+                 ops.ac14,
+                 ops.ac15,
+                 ops.ac21,
+                 ops.ac22,
+                 ops.ac23,
+                 ops.ac24,
+                 ops.ac25,
+                 ops.summc,
+                 ops.cur,
+                 ops.summ,
+                 ops.qv,
+                 ops.nl,
+                 ops.zdt
+        
+          FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+          WHERE
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            ) AND
+            EXISTS
+            (
+                
+                SELECT NULL
+                FROM OPS o1
+                WHERE
+                (
+                    (o1.DocId = OPSd.id) AND
+                    (
+                        (
+                            (:pac11 IS NULL OR o1.AC11 LIKE :pac11) AND
+                            (:pac12 IS NULL OR o1.AC12 LIKE :pac12) AND
+                            (:pac13 IS NULL OR o1.AC13 LIKE :pac13) AND
+                            (:pac14 IS NULL OR o1.AC14 LIKE :pac14) AND
+                            (:pac15 IS NULL OR o1.AC15 LIKE :pac15)
+                        )
+                        OR
+                        (
+                            (:pac21 IS NULL OR o1.AC21 LIKE :pac21) AND
+                            (:pac22 IS NULL OR o1.AC22 LIKE :pac22) AND
+                            (:pac23 IS NULL OR o1.AC23 LIKE :pac23) AND
+                            (:pac24 IS NULL OR o1.AC24 LIKE :pac24) AND
+                            (:pac25 IS NULL OR o1.AC25 LIKE :pac25)
+                        )
+                    )
+                )
+            )
+
+          ORDER BY OPSd.DETE, OPSd.id, OPS.id
+          into :id,
+               :docid,
+               :descr,
+               :ac11,
+               :ac12,
+               :ac13,
+               :ac14,
+               :ac15,
+               :ac21,
+               :ac22,
+               :ac23,
+               :ac24,
+               :ac25,
+               :summc,
+               :cur,
+               :summ,
+               :qv,
+               :nl,
+               :zdt
+        do
+        begin
+            suspend;
+        end
+
+    end
+end
+^
+
+/* Alter (SP_OPSD_FILTER_AND) */
+ALTER PROCEDURE SP_OPSD_FILTER_AND(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPSD.ID,
+DETE TYPE OF COLUMN OPSD.DETE,
+NRX TYPE OF COLUMN OPSD.NRX,
+DOCTYP TYPE OF COLUMN OPSD.DOCTYP,
+DOCST TYPE OF COLUMN OPSD.DOCST,
+DOCNR TYPE OF COLUMN OPSD.DOCNR,
+CLID TYPE OF COLUMN OPSD.CLID,
+CLID2 TYPE OF COLUMN OPSD.CLID2,
+DESCR TYPE OF COLUMN OPSD.DESCR,
+SUMM TYPE OF COLUMN OPSD.SUMM,
+PVN TYPE OF COLUMN OPSD.PVN,
+OPT TYPE OF COLUMN OPSD.OPT,
+ZNR TYPE OF COLUMN OPSD.ZNR,
+ZU TYPE OF COLUMN OPSD.ZU,
+ZDT TYPE OF COLUMN OPSD.ZDT,
+DT2 TYPE OF COLUMN OPSD.DT2,
+YR TYPE OF COLUMN OPSD.YR,
+NL TYPE OF COLUMN OPSD.NL)
+ AS
+begin
+    if
+    (
+        pac11 is null and
+        pac12 is null and
+        pac13 is null and
+        pac14 is null and
+        pac15 is null and
+        pac21 is null and
+        pac22 is null and
+        pac23 is null and
+        pac24 is null and
+        pac25 is null
+
+    )
+    then begin
+        for select
+            id, DETE,  nrx, doctyp, docst, docnr,
+            clid, clid2, descr, summ, pvn,
+            opt, znr, zu, zdt, dt2, nl, yr
+        from opsd
+        where
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            )
+
+        ORDER BY DETE, id
+        into
+            :id, :DETE, :nrx, :doctyp, :docst, :docnr,
+            :clid, :clid2, :descr, :summ, :pvn,
+            :opt, :znr, :zu, :zdt, :dt2, :nl, :yr
+        do
+        begin
+            suspend;
+        end
+    end
+    else begin
+        for select
+            id, DETE,  nrx, doctyp, docst, docnr,
+            clid, clid2, descr, summ, pvn,
+            opt, znr, zu, zdt, dt2, nl, yr
+        from opsd
+        where
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            ) AND
+            EXISTS
+            (
+                SELECT NULL
+                FROM OPS o1
+                WHERE
+                (
+                    (o1.DocId = OPSd.id) AND
+                    (
+                        (
+                            (:pac11 IS NULL OR o1.AC11 LIKE :pac11) AND
+                            (:pac12 IS NULL OR o1.AC12 LIKE :pac12) AND
+                            (:pac13 IS NULL OR o1.AC13 LIKE :pac13) AND
+                            (:pac14 IS NULL OR o1.AC14 LIKE :pac14) AND
+                            (:pac15 IS NULL OR o1.AC15 LIKE :pac15)
+                        )
+                        AND
+                        (
+                            (:pac21 IS NULL OR o1.AC21 LIKE :pac21) AND
+                            (:pac22 IS NULL OR o1.AC22 LIKE :pac22) AND
+                            (:pac23 IS NULL OR o1.AC23 LIKE :pac23) AND
+                            (:pac24 IS NULL OR o1.AC24 LIKE :pac24) AND
+                            (:pac25 IS NULL OR o1.AC25 LIKE :pac25)
+                        )
+                    )
+                )
+            )
+        ORDER BY DETE, opsd.id
+        into
+            :id, :DETE, :nrx, :doctyp, :docst, :docnr,
+            :clid, :clid2, :descr, :summ, :pvn,
+            :opt, :znr, :zu, :zdt, :dt2, :nl, :yr
+        do
+        begin
+            suspend;
+        end
+    end
+end
+^
+
+/* Alter (SP_OPSD_FILTER_OR) */
+ALTER PROCEDURE SP_OPSD_FILTER_OR(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPSD.ID,
+DETE TYPE OF COLUMN OPSD.DETE,
+NRX TYPE OF COLUMN OPSD.NRX,
+DOCTYP TYPE OF COLUMN OPSD.DOCTYP,
+DOCST TYPE OF COLUMN OPSD.DOCST,
+DOCNR TYPE OF COLUMN OPSD.DOCNR,
+CLID TYPE OF COLUMN OPSD.CLID,
+CLID2 TYPE OF COLUMN OPSD.CLID2,
+DESCR TYPE OF COLUMN OPSD.DESCR,
+SUMM TYPE OF COLUMN OPSD.SUMM,
+PVN TYPE OF COLUMN OPSD.PVN,
+OPT TYPE OF COLUMN OPSD.OPT,
+ZNR TYPE OF COLUMN OPSD.ZNR,
+ZU TYPE OF COLUMN OPSD.ZU,
+ZDT TYPE OF COLUMN OPSD.ZDT,
+DT2 TYPE OF COLUMN OPSD.DT2,
+YR TYPE OF COLUMN OPSD.YR,
+NL TYPE OF COLUMN OPSD.NL)
+ AS
+begin
+    if
+    (
+        pac11 is null and
+        pac12 is null and
+        pac13 is null and
+        pac14 is null and
+        pac15 is null and
+        pac21 is null and
+        pac22 is null and
+        pac23 is null and
+        pac24 is null and
+        pac25 is null
+
+    )
+    then begin
+        for select
+            id, DETE,  nrx, doctyp, docst, docnr,
+            clid, clid2, descr, summ, pvn,
+            opt, znr, zu, zdt, dt2, nl, yr
+        from opsd
+        where
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            )
+        ORDER BY DETE, id
+        into
+            :id, :DETE, :nrx, :doctyp, :docst, :docnr,
+            :clid, :clid2, :descr, :summ, :pvn,
+            :opt, :znr, :zu, :zdt, :dt2, :nl, :yr
+        do
+        begin
+            suspend;
+        end
+    end
+    else begin
+        for select
+            id, DETE,  nrx, doctyp, docst, docnr,
+            clid, clid2, descr, summ, pvn,
+            opt, znr, zu, zdt, dt2, nl, yr
+        from opsd
+        where
+            (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+            (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+            (:pclid IS NULL OR ClId = :pclid OR ClId2 = :pclid) AND
+            (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            ) AND
+            EXISTS
+            (
+                SELECT NULL
+                FROM OPS o1
+                WHERE
+                (
+                    (o1.DocId = OPSd.id) AND
+                    (
+                        (
+                            (:pac11 IS NULL OR o1.AC11 LIKE :pac11) AND
+                            (:pac12 IS NULL OR o1.AC12 LIKE :pac12) AND
+                            (:pac13 IS NULL OR o1.AC13 LIKE :pac13) AND
+                            (:pac14 IS NULL OR o1.AC14 LIKE :pac14) AND
+                            (:pac15 IS NULL OR o1.AC15 LIKE :pac15)
+                        )
+                        OR
+                        (
+                            (:pac21 IS NULL OR o1.AC21 LIKE :pac21) AND
+                            (:pac22 IS NULL OR o1.AC22 LIKE :pac22) AND
+                            (:pac23 IS NULL OR o1.AC23 LIKE :pac23) AND
+                            (:pac24 IS NULL OR o1.AC24 LIKE :pac24) AND
+                            (:pac25 IS NULL OR o1.AC25 LIKE :pac25)
+                        )
+                    )
+                )
+            )
+        ORDER BY DETE, opsd.id
+        into
+            :id, :DETE, :nrx, :doctyp, :docst, :docnr,
+            :clid, :clid2, :descr, :summ, :pvn,
+            :opt, :znr, :zu, :zdt, :dt2, :nl, :yr
+        do
+        begin
+            suspend;
+        end
+    end
+end
+^
+
+/* Alter (SP_VWOPS_FILTER_AND) */
+ALTER PROCEDURE SP_VWOPS_FILTER_AND(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPS.ID,
+DOCID TYPE OF COLUMN OPS.DOCID,
+DETE TYPE OF COLUMN OPSD.DETE,
+NRX TYPE OF COLUMN OPSD.NRX,
+ZNR TYPE OF COLUMN OPSD.ZNR,
+DOCTYP TYPE OF COLUMN OPSD.DOCTYP,
+DOCST TYPE OF COLUMN OPSD.DOCST,
+DOCNR TYPE OF COLUMN OPSD.DOCNR,
+DOCTYP2 TYPE OF COLUMN DOCTYP.ID1,
+CLID TYPE OF COLUMN OPSD.CLID,
+NAME TYPE OF COLUMN PERSONS.NAME,
+REGNR TYPE OF COLUMN PERSONS.REGNR,
+CLID2 TYPE OF COLUMN OPSD.CLID2,
+NAME2 TYPE OF COLUMN PERSONS.NAME,
+REGNR2 TYPE OF COLUMN PERSONS.REGNR,
+DESCR TYPE OF COLUMN OPSD.DESCR,
+AC11 TYPE OF COLUMN OPS.AC11,
+AC12 TYPE OF COLUMN OPS.AC12,
+AC13 TYPE OF COLUMN OPS.AC13,
+AC14 TYPE OF COLUMN OPS.AC14,
+AC15 TYPE OF COLUMN OPS.AC15,
+AC21 TYPE OF COLUMN OPS.AC21,
+AC22 TYPE OF COLUMN OPS.AC22,
+AC23 TYPE OF COLUMN OPS.AC23,
+AC24 TYPE OF COLUMN OPS.AC24,
+AC25 TYPE OF COLUMN OPS.AC25,
+SUMMC TYPE OF COLUMN OPS.SUMMC,
+CUR TYPE OF COLUMN OPS.CUR,
+SUMM TYPE OF COLUMN OPS.SUMM,
+QV TYPE OF COLUMN OPS.QV,
+DESCR2 TYPE OF COLUMN OPS.DESCR)
+ AS
+begin
+
+    for select
+        ops.id,
+        ops.docid,
+        opsd.DETE,
+        opsd.nrx,
+        opsd.znr,
+        opsd.doctyp,
+        opsd.docst,
+        opsd.docnr,
+        DOCTYP.id1 as DOCTYP2,
+        opsd.clid,
+        persons.name,
+        persons.regnr,
+        opsd.clid2,
+        Persons2.name as NAME2,
+        Persons2.regnr AS regnr2,
+        opsd.descr,
+
+        ops.ac11,
+        ops.ac12,
+        ops.ac13,
+        ops.ac14,
+        ops.ac15,
+        ops.ac21,
+        ops.ac22,
+        ops.ac23,
+        ops.ac24,
+        ops.ac25,
+        ops.summc,
+        ops.cur,
+        ops.summ,
+        ops.qv,
+        ops.descr AS descr2
+
+    FROM
+        OPSd JOIN OPS ON OPSd.id = OPS.DocId
+        LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+        LEFT JOIN Persons ON OPSd.ClId = Persons.ClId
+        LEFT JOIN Persons AS Persons2 ON OPSd.ClId2 = Persons2.ClId
+
+    WHERE
+        (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+        (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+        (:pclid IS NULL OR opsd.ClId = :pclid OR ClId2 = :pclid) AND
+        (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+        (
+            :PDOCGR IS NULL OR EXISTS(
+                SELECT DTA.ID
+                FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+            )
+        )
+        AND
+        (
+            (:pac11 IS NULL OR OPS.AC11 LIKE :pac11) AND
+            (:pac12 IS NULL OR OPS.AC12 LIKE :pac12) AND
+            (:pac13 IS NULL OR OPS.AC13 LIKE :pac13) AND
+            (:pac14 IS NULL OR OPS.AC14 LIKE :pac14) AND
+            (:pac15 IS NULL OR OPS.AC15 LIKE :pac15)
+        )
+        AND
+        (
+            (:pac21 IS NULL OR OPS.AC21 LIKE :pac21) AND
+            (:pac22 IS NULL OR OPS.AC22 LIKE :pac22) AND
+            (:pac23 IS NULL OR OPS.AC23 LIKE :pac23) AND
+            (:pac24 IS NULL OR OPS.AC24 LIKE :pac24) AND
+            (:pac25 IS NULL OR OPS.AC25 LIKE :pac25)
+        )
+        ORDER BY DETE, opsd.id, ops.id
+        into
+            :ID, :docid, :DETE, :nrx, :znr,
+            :doctyp, :docst, :docnr, :doctyp2,
+            :clid, :name, :regnr,
+            :clid2, :name2, :regnr2,
+            :descr,
+            :ac11, :ac12, :ac13, :ac14, :ac15,
+            :ac21, :ac22, :ac23, :ac24, :ac25,
+            :summc, :cur, :summ, :qv, :descr2
+        do
+        begin
+            suspend;
+        end
+end
+^
+
+/* Alter (SP_VWOPS_FILTER_OR) */
+ALTER PROCEDURE SP_VWOPS_FILTER_OR(PDATE1 DATE,
+PDATE2 DATE,
+PTEXT VARCHAR(50),
+PCLID VARCHAR(15),
+PAC11 VARCHAR(8),
+PAC12 VARCHAR(8),
+PAC13 VARCHAR(5),
+PAC14 VARCHAR(8),
+PAC15 VARCHAR(5),
+PAC21 VARCHAR(8),
+PAC22 VARCHAR(8),
+PAC23 VARCHAR(5),
+PAC24 VARCHAR(8),
+PAC25 VARCHAR(5),
+PDOCGR VARCHAR(10))
+ RETURNS(ID TYPE OF COLUMN OPS.ID,
+DOCID TYPE OF COLUMN OPS.DOCID,
+DETE TYPE OF COLUMN OPSD.DETE,
+NRX TYPE OF COLUMN OPSD.NRX,
+ZNR TYPE OF COLUMN OPSD.ZNR,
+DOCTYP TYPE OF COLUMN OPSD.DOCTYP,
+DOCST TYPE OF COLUMN OPSD.DOCST,
+DOCNR TYPE OF COLUMN OPSD.DOCNR,
+DOCTYP2 TYPE OF COLUMN DOCTYP.ID1,
+CLID TYPE OF COLUMN OPSD.CLID,
+NAME TYPE OF COLUMN PERSONS.NAME,
+REGNR TYPE OF COLUMN PERSONS.REGNR,
+CLID2 TYPE OF COLUMN OPSD.CLID2,
+NAME2 TYPE OF COLUMN PERSONS.NAME,
+REGNR2 TYPE OF COLUMN PERSONS.REGNR,
+DESCR TYPE OF COLUMN OPSD.DESCR,
+AC11 TYPE OF COLUMN OPS.AC11,
+AC12 TYPE OF COLUMN OPS.AC12,
+AC13 TYPE OF COLUMN OPS.AC13,
+AC14 TYPE OF COLUMN OPS.AC14,
+AC15 TYPE OF COLUMN OPS.AC15,
+AC21 TYPE OF COLUMN OPS.AC21,
+AC22 TYPE OF COLUMN OPS.AC22,
+AC23 TYPE OF COLUMN OPS.AC23,
+AC24 TYPE OF COLUMN OPS.AC24,
+AC25 TYPE OF COLUMN OPS.AC25,
+SUMMC TYPE OF COLUMN OPS.SUMMC,
+CUR TYPE OF COLUMN OPS.CUR,
+SUMM TYPE OF COLUMN OPS.SUMM,
+QV TYPE OF COLUMN OPS.QV,
+DESCR2 TYPE OF COLUMN OPS.DESCR)
+ AS
+begin
+
+    for select
+        ops.id,
+        ops.docid,
+        opsd.DETE,
+        opsd.nrx,
+        opsd.znr,
+        opsd.doctyp,
+        opsd.docst,
+        opsd.docnr,
+        DOCTYP.id1 as DOCTYP2,
+        opsd.clid,
+        persons.name,
+        persons.regnr,
+        opsd.clid2,
+        Persons2.name as NAME2,
+        Persons2.regnr AS regnr2,
+        opsd.descr,
+
+        ops.ac11,
+        ops.ac12,
+        ops.ac13,
+        ops.ac14,
+        ops.ac15,
+        ops.ac21,
+        ops.ac22,
+        ops.ac23,
+        ops.ac24,
+        ops.ac25,
+        ops.summc,
+        ops.cur,
+        ops.summ,
+        ops.qv,
+        ops.descr AS descr2
+
+    FROM
+        OPSd JOIN OPS ON OPSd.id = OPS.DocId
+        LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+        LEFT JOIN Persons ON OPSd.ClId = Persons.ClId
+        LEFT JOIN Persons AS Persons2 ON OPSd.ClId2 = Persons2.ClId
+
+    WHERE
+        (:pdate1 IS NULL OR opsd.DETE >= :pdate1) AND
+        (:pdate2 IS NULL OR opsd.DETE <= :pdate2) AND
+        (:pclid IS NULL OR opsd.ClId = :pclid OR ClId2 = :pclid) AND
+        (:ptext IS NULL OR OPSd.Descr LIKE :ptext) AND
+        (
+            :PDOCGR IS NULL OR EXISTS(
+                SELECT DTA.ID
+                FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+            )
+        ) AND
+        (
+            (:pac11 IS NULL OR OPS.AC11 LIKE :pac11) AND
+            (:pac12 IS NULL OR OPS.AC12 LIKE :pac12) AND
+            (:pac13 IS NULL OR OPS.AC13 LIKE :pac13) AND
+            (:pac14 IS NULL OR OPS.AC14 LIKE :pac14) AND
+            (:pac15 IS NULL OR OPS.AC15 LIKE :pac15)
+        )
+        OR
+        (
+            (:pac21 IS NULL OR OPS.AC21 LIKE :pac21) AND
+            (:pac22 IS NULL OR OPS.AC22 LIKE :pac22) AND
+            (:pac23 IS NULL OR OPS.AC23 LIKE :pac23) AND
+            (:pac24 IS NULL OR OPS.AC24 LIKE :pac24) AND
+            (:pac25 IS NULL OR OPS.AC25 LIKE :pac25)
+        )
+        ORDER BY DETE, opsd.id, ops.id
+        into
+            :ID, :docid, :DETE, :nrx, :znr,
+            :doctyp, :docst, :docnr, :doctyp2,
+            :clid, :name, :regnr,
+            :clid2, :name2, :regnr2,
+            :descr,
+            :ac11, :ac12, :ac13, :ac14, :ac15,
+            :ac21, :ac22, :ac23, :ac24, :ac25,
+            :summc, :cur, :summ, :qv, :descr2
+        do
+        begin
+            suspend;
+        end
+end
+^
+
+ALTER PROCEDURE SP_REP_DOKS_11(
+	PDATE1 date,
+    PDATE2 date,
+    PTEXT varchar(50),
+    PCLID varchar(15),
+    PAC11 varchar(8),
+    PAC12 varchar(8),
+    PAC13 varchar(5),
+    PAC14 varchar(8),
+    PAC15 varchar(5),
+    PAC21 varchar(8),
+    PAC22 varchar(8),
+    PAC23 varchar(5),
+    PAC24 varchar(8),
+    PAC25 varchar(5),
+    PDOCGR varchar(10),
+    PANDOR varchar(3))
+returns (
+    ID type of column ROPS1A.ID,
+    SPID type of column ROPS1A.SPID,
+    DID type of column ROPS1A.DID,
+    DETE type of column ROPS1A.DETE,
+    NRX type of column ROPS1A.NRX,
+    DOCTYP type of column ROPS1A.DOCTYP,
+    DOCTYP1 type of column ROPS1A.DOCTYP1,
+    DOCTYP2 type of column ROPS1A.DOCTYP2,
+    DOCST type of column ROPS1A.DOCST,
+    DOCNR type of column ROPS1A.DOCNR,
+    CLID type of column ROPS1A.CLID,
+    CLID2 type of column ROPS1A.CLID2,
+    NAME type of column ROPS1A.NAME,
+    NAME2 type of column ROPS1A.NAME2,
+    REGNR type of column ROPS1A.REGNR,
+    REGNR2 type of column ROPS1A.REGNR2,
+    B0 type of column ROPS1A.B0,
+    DESCR type of column ROPS1A.DESCR,
+    DESCR2 type of column ROPS1A.DESCR2,
+    AC1 type of column ROPS1A.AC1,
+    AC2 type of column ROPS1A.AC2,
+    SAC1 type of column ROPS1A.SAC1,
+    SAC2 type of column ROPS1A.SAC2,
+    SUMMC type of column ROPS1A.SUMMC,
+    CUR type of column ROPS1A.CUR,
+    SUMM type of column ROPS1A.SUMM,
+    PVN type of column ROPS1A.PVN,
+    RAC type of column ROPS1A.RAC,
+    SDB type of column ROPS1A.SDB,
+    SCR type of column ROPS1A.SCR,
+    RAC2 type of column ROPS1A.RAC2,
+    RAC3 type of column ROPS1A.RAC3,
+    RAC4 type of column ROPS1A.RAC4,
+    RAC5 type of column ROPS1A.RAC5,
+    QV type of column ROPS1A.QV,
+    ZNR type of column ROPS1A.ZNR)
+AS
+begin
+    IF
+    (
+        :PAC11 IS NULL AND 
+        :PAC12 IS NULL AND 
+        :PAC13 IS NULL AND 
+        :PAC14 IS NULL AND
+        :PAC15 IS NULL AND
+        :PAC21 IS NULL AND 
+        :PAC22 IS NULL AND 
+        :PAC23 IS NULL AND 
+        :PAC24 IS NULL AND
+        :PAC25 IS NULL
+    ) THEN
+    BEGIN
+        FOR SELECT
+            gen_id(GEN_ROPS1A_ID, 1) as id,
+            current_connection as spid,
+            OPSd.id AS did, 
+            OPSd.Dete AS Dete,
+            OPSd.NrX AS NrX,
+            OPSd.DocTyp AS DocTyp,
+            DocTyp.id1 AS DocTyp1, 
+            null as DocTyp2,
+            OPSd.DocSt AS DocSt,
+            OPSd.DocNr AS DocNr,
+            OPSd.ClId AS Clid,
+            OPSd.ClId2 AS Clid2,
+            Persons.Name AS Name, 
+            Persons2.Name AS Name2, 
+            Persons.RegNr AS RegNr,
+            Persons2.RegNr AS RegNr2,
+            0 AS b0, 
+            OPSd.Descr AS Descr,
+            null AS Descr2,
+            null AS AC1,
+            null AS AC2,
+            null AS SAC1,
+            null AS SAC2,
+            0 AS SummC,
+            null AS Cur,
+            OPSd.Summ AS Summ,
+            OPSd.PVN AS PVN,
+            null AS Rac,
+            0 AS Sdb,
+            0 AS SCr,
+            null AS Rac2,
+            null AS Rac3,
+            null AS Rac4,
+            null AS Rac5,
+            0 AS qv,
+            OPSd.ZNR AS ZNR
+
+        FROM OPSd
+            LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+            LEFT JOIN Persons ON OPSd.ClId = Persons.ClId
+            LEFT JOIN Persons AS Persons2 ON OPSd.ClId2 = Persons2.ClId        
+        WHERE 
+        (
+            (:PDATE1 IS NULL OR Dete >= :PDATE1) AND
+            (:PDATE2 IS NULL OR Dete <= :PDATE2) AND
+            (:PCLID IS NULL OR OPSd.ClId = :PCLID OR ClId2 = :pclid) AND
+            (:PTEXT IS NULL OR OPSd.Descr LIKE :PTEXT) AND
+            (
+                :PDOCGR IS NULL OR EXISTS(
+                    SELECT DTA.ID
+                    FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                    WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                )
+            )
+        )
+        ORDER BY Dete, did
+        into
+            :id, :spid, :did, :DETE, :nrx,
+            :doctyp, :doctyp1, :doctyp2, :docst, :docnr,
+            :clid, :clid2, :name, :name2, :regnr, :regnr2,
+            :b0, :descr, :descr2, :ac1, :ac2, :sac1,:sac2,
+            :summc, :cur, :summ, :pvn, :rac, :sdb, :scr,
+            :rac2, :rac3, :rac4, :rac5, :qv, :znr
+        do
+        begin
+            suspend;
+        end
+
+    END
+    ELSE
+    BEGIN
+        IF (pandor = 'AND') THEN
+        BEGIN
+            FOR SELECT
+                gen_id(GEN_ROPS1A_ID, 1) as id,
+                current_connection as spid,
+                OPSd.id AS did, 
+                OPSd.Dete AS Dete,
+                OPSd.NrX AS NrX,
+                OPSd.DocTyp AS DocTyp,
+                DocTyp.id1 AS DocTyp1, 
+                null as DocTyp2,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                OPSd.ClId AS Clid,
+                OPSd.ClId2 AS Clid2,
+                Persons.Name AS Name, 
+                Persons2.Name AS Name2, 
+                Persons.RegNr AS RegNr,
+                Persons2.RegNr AS RegNr2,
+                0 AS b0, 
+                OPSd.Descr AS Descr,
+                null AS Descr2,
+                null AS AC1,
+                null AS AC2,
+                null AS SAC1,
+                null AS SAC2,
+                0 AS SummC,
+                null AS Cur,
+                OPSd.Summ AS Summ,
+                OPSd.PVN AS PVN,
+                null AS Rac,
+                0 AS Sdb,
+                0 AS SCr,
+                null AS Rac2,
+                null AS Rac3,
+                null AS Rac4,
+                null AS Rac5,
+                0 AS qv,
+                OPSd.ZNR AS ZNR
+            FROM OPSd
+                LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+                LEFT JOIN Persons ON OPSd.ClId = Persons.ClId
+                LEFT JOIN Persons AS Persons2 ON OPSd.ClId2 = Persons2.ClId        
+            WHERE 
+            (
+                (:PDATE1 IS NULL OR Dete >= :PDATE1) AND
+                (:PDATE2 IS NULL OR Dete <= :PDATE2) AND
+                (:PCLID IS NULL OR OPSd.ClId = :PCLID OR ClId2 = :pclid) AND
+                (:PTEXT IS NULL OR OPSd.Descr LIKE :PTEXT)  AND
+                (
+                    :PDOCGR IS NULL OR EXISTS(
+                        SELECT DTA.ID
+                        FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                        WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                    )
+                )
+                AND
+
+                EXISTS     
+                (
+                    SELECT NULL
+                    FROM OPS
+                    WHERE
+                    (
+                        (OPS.DocId = OPSd.id) AND
+                        (:PAC11 IS NULL OR AC11 LIKE :PAC11) AND
+                        (:PAC12 IS NULL OR AC12 LIKE :PAC12) AND
+                        (:PAC13 IS NULL OR AC13 LIKE :PAC13) AND
+                        (:PAC14 IS NULL OR AC14 LIKE :PAC14) AND
+                        (:PAC15 IS NULL OR AC15 LIKE :PAC15) AND
+
+                        (:PAC21 IS NULL OR AC21 LIKE :PAC21) AND
+                        (:PAC22 IS NULL OR AC22 LIKE :PAC22) AND
+                        (:PAC23 IS NULL OR AC23 LIKE :PAC23) AND
+                        (:PAC24 IS NULL OR AC24 LIKE :PAC24) AND
+                        (:PAC25 IS NULL OR AC25 LIKE :PAC25)
+                    )
+                )
+            )
+            ORDER BY Dete, did
+            into
+                :id, :spid, :did, :DETE, :nrx,
+                :doctyp, :doctyp1, :doctyp2, :docst, :docnr,
+                :clid, :clid2, :name, :name2, :regnr, :regnr2,
+                :b0, :descr, :descr2, :ac1, :ac2, :sac1,:sac2,
+                :summc, :cur, :summ, :pvn, :rac, :sdb, :scr,
+                :rac2, :rac3, :rac4, :rac5, :qv, :znr
+            do
+            begin
+                suspend;
+            end
+
+        END --ppandor = 'AND'
+        ELSE
+        BEGIN
+            FOR SELECT
+                gen_id(GEN_ROPS1A_ID, 1) as id,
+                current_connection as spid,
+                OPSd.id AS did, 
+                OPSd.Dete AS Dete,
+                OPSd.NrX AS NrX,
+                OPSd.DocTyp AS DocTyp,
+                DocTyp.id1 AS DocTyp1, 
+                null as DocTyp2,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                OPSd.ClId AS Clid,
+                OPSd.ClId2 AS Clid2,
+                Persons.Name AS Name, 
+                Persons2.Name AS Name2, 
+                Persons.RegNr AS RegNr,
+                Persons2.RegNr AS RegNr2,
+                0 AS b0, 
+                OPSd.Descr AS Descr,
+                null AS Descr2,
+                null AS AC1,
+                null AS AC2,
+                null AS SAC1,
+                null AS SAC2,
+                0 AS SummC,
+                null AS Cur,
+                OPSd.Summ AS Summ,
+                OPSd.PVN AS PVN,
+                null AS Rac,
+                0 AS Sdb,
+                0 AS SCr,
+                null AS Rac2,
+                null AS Rac3,
+                null AS Rac4,
+                null AS Rac5,
+                0 AS qv,
+                OPSd.ZNR AS ZNR
+            FROM OPSd
+                LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+                LEFT JOIN Persons ON OPSd.ClId = Persons.ClId
+                LEFT JOIN Persons AS Persons2 ON OPSd.ClId2 = Persons2.ClId        
+
+            WHERE 
+            (
+                (:PDATE1 IS NULL OR Dete >= :PDATE1) AND
+                (:PDATE2 IS NULL OR Dete <= :PDATE2) AND
+                (:PCLID IS NULL OR OPSd.ClId = :PCLID OR ClId2 = :pclid) AND
+                (:PTEXT IS NULL OR OPSd.Descr LIKE :PTEXT) AND
+                (
+                    :PDOCGR IS NULL OR EXISTS(
+                        SELECT DTA.ID
+                        FROM doctypb AS DTB inner join doctypa AS DTA on DTB.ida = DTA.id
+                        WHERE DTB.ID = OPSD.doctyp AND DTA.ID = :PDOCGR
+                    )
+                )
+                AND
+
+                EXISTS     
+                (
+                    SELECT NULL
+                    FROM OPS
+                    WHERE
+                    (
+                        (OPS.DocId = OPSd.id) AND
+                        (
+                            (
+                                (:PAC11 IS NULL OR AC11 LIKE :PAC11) AND
+                                (:PAC12 IS NULL OR AC12 LIKE :PAC12) AND
+                                (:PAC13 IS NULL OR AC13 LIKE :PAC13) AND
+                                (:PAC14 IS NULL OR AC14 LIKE :PAC14) AND
+                                (:PAC15 IS NULL OR AC15 LIKE :PAC15)
+                            )
+                            OR
+                            (
+                                (:PAC21 IS NULL OR AC21 LIKE :PAC21) AND
+                                (:PAC22 IS NULL OR AC22 LIKE :PAC22) AND
+                                (:PAC23 IS NULL OR AC23 LIKE :PAC23) AND
+                                (:PAC24 IS NULL OR AC24 LIKE :PAC24) AND
+                                (:PAC25 IS NULL OR AC25 LIKE :PAC25)
+                            )
+                        )
+                    )
+                )
+            )
+            ORDER BY Dete, did
+            into
+                :id, :spid, :did, :DETE, :nrx,
+                :doctyp, :doctyp1, :doctyp2, :docst, :docnr,
+                :clid, :clid2, :name, :name2, :regnr, :regnr2,
+                :b0, :descr, :descr2, :ac1, :ac2, :sac1,:sac2,
+                :summc, :cur, :summ, :pvn, :rac, :sdb, :scr,
+                :rac2, :rac3, :rac4, :rac5, :qv, :znr
+            do
+            begin
+                suspend;
+            end
+
+        END
+    END
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '048'
+WHERE PNAME = 'version';

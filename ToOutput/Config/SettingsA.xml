@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<KlonsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MasterEntry Name="SIA Pia">
+    <FileName>klonsa_p.fdb</FileName>
+    <Descr>SIA Pia 2014-</Descr>
+    <ConnStr>FBEmbeded</ConnStr>
+    <Path />
+  </MasterEntry>
+  <LastUserName>Admin</LastUserName>
+  <BaseDBPathX>DB</BaseDBPathX>
+  <BaseConnStr>FBEmbeded</BaseConnStr>
+  <DoVersionCheck>YES</DoVersionCheck>
+  <LastVersionCheckDate>20.01.2015</LastVersionCheckDate>
+  <ColorThemeId>system</ColorThemeId>
+  <FormFontSize>12</FormFontSize>
+  <FormFontName>Microsoft Sans Serif</FormFontName>
+  <FormFontStyle>0</FormFontStyle>
+  <ShowPersonList>true</ShowPersonList>
+  <ShowPayDataPanel>true</ShowPayDataPanel>
+  <ShowPayLists>true</ShowPayLists>
+  <ShowFpPayDataPanel>true</ShowFpPayDataPanel>
+  <ShowFpPayLists>true</ShowFpPayLists>
+  <ColumnWidths_Docs />
+  <ReportZoom>150</ReportZoom>
+  <WindowPos>max</WindowPos>
+</KlonsSettings>

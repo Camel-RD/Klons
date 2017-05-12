@@ -1,0 +1,123 @@
+﻿/* Alter Procedure... */
+/* Alter (SP_REP_APGR_01_CLID) */
+SET TERM ^ ;
+
+ALTER PROCEDURE SP_REP_APGR_01_CLID(SDT DATE,
+EDT DATE,
+PAC VARCHAR(8),
+PCLID VARCHAR(15))
+ RETURNS(ID TYPE OF COLUMN ROPS2A.ID,
+SPID TYPE OF COLUMN ROPS2A.SPID,
+AC TYPE OF COLUMN ROPS2A.AC,
+RAC TYPE OF COLUMN ROPS2A.RAC,
+NAME TYPE OF COLUMN ROPS2A.NAME,
+B0 TYPE OF COLUMN ROPS2A.B0,
+SDB TYPE OF COLUMN ROPS2A.SDB,
+SCR TYPE OF COLUMN ROPS2A.SCR,
+TDB TYPE OF COLUMN ROPS2A.TDB,
+TCR TYPE OF COLUMN ROPS2A.TCR,
+CLID TYPE OF COLUMN ROPS2A.CLID,
+NAME1 TYPE OF COLUMN ROPS2A.NAME1,
+REGNR TYPE OF COLUMN ROPS2A.REGNR,
+RNAME TYPE OF COLUMN ROPS2A.RNAME)
+ AS
+begin
+    FOR SELECT
+        gen_id(GEN_ROPS2A_ID, 1) as ID,
+        current_connection as SPID,
+        :PAC as AC,
+        null as RAC,
+        acp21.name as NAME,
+        0 as b0,
+        coalesce(T2.ADb, 0.00) as sdb,
+        coalesce(T2.ACr, 0.00) as scr,
+        coalesce(T2.BDb, 0.00) as tdb,
+        coalesce(T2.BCr, 0.00) as tcr,
+        :pclid as clid,
+        Persons.Name as name1,
+        Persons.regnr as regnr,
+        null as rname
+    FROM
+    (
+        SELECT SUM(SDb) AS ADb, SUM(SCr) AS ACr, SUM(TDb) AS BDb, SUM(TCr) AS BCr
+        FROM
+        (
+            SELECT 
+                OPS.AC11 AS AC,
+                CASE
+                    WHEN OPSd.Dete < :sdt THEN OPS.Summ
+                    ELSE 0.00
+                END as SDb,
+                0.00 as SCr,
+                CASE
+                    WHEN OPSd.Dete >= :sdt THEN OPS.Summ
+                    ELSE 0.00
+                END as TDb,
+                0.00 as TCr
+
+            FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+            WHERE
+                OPSd.Dete <= :edt AND
+                OPS.AC11 LIKE :pac AND
+                OPSd.clid = :pclid
+
+
+            UNION ALL
+
+            SELECT 
+                OPS.AC21 AS AC,
+                0.00 as SDb,
+                CASE
+                    WHEN OPSd.Dete < :sdt THEN OPS.Summ
+                    ELSE 0.00
+                END as SCr,
+                0.00 as TDb,
+                CASE
+                    WHEN OPSd.Dete >= :sdt THEN OPS.Summ
+                    ELSE 0.00
+                END as TCr
+
+            FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+            WHERE
+                OPSd.Dete <= :edt AND
+                OPS.AC21 LIKE :pac AND
+                OPSd.clid = :pclid
+
+            UNION ALL
+
+            SELECT 
+                Bal0.AC11 AS AC,
+                Bal0.SummD AS SDb,
+                Bal0.SummC AS SCr,
+                0.00 AS TDb,
+                0.00 AS TCr
+            FROM Bal0
+            WHERE
+                Bal0.AC11 LIKE :pac AND
+                Bal0.ClId = :pclid
+
+        ) AS T1
+
+    ) AS T2
+    LEFT JOIN AcP21 ON :pac = AcP21.AC
+    LEFT JOIN Persons ON :pclid = Persons.ClId
+
+    INTO
+        :id, :spid, :ac, :rac, :name,
+        :b0,
+        :sdb, :scr, :tdb, :tcr,
+        :clid, :name1, :regnr, :rname
+
+    do
+    begin
+        suspend;
+    end
+
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '042'
+WHERE PNAME = 'version';

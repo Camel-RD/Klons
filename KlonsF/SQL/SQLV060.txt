@@ -1,0 +1,106 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_LINKEDDOCS_1(
+  PSD DATE,
+  PED DATE,
+  PCLID VARCHAR(15),
+  PDOCNR VARCHAR(15))
+RETURNS (
+  ID INTEGER,
+  DETE DATE,
+  CLID VARCHAR(15),
+  DOCTYP VARCHAR(10),
+  DOCST VARCHAR(6),
+  DOCNR VARCHAR(15),
+  DESCR VARCHAR(80),
+  SUMM NUMERIC(15,4),
+  PVN NUMERIC(15,4))
+AS
+declare variable k integer;
+begin
+    k = GEN_ID("GEN_OPSD_ID",0) + 1;
+
+    FOR SELECT
+        ID,
+        DETE,
+        clid,
+        (DocTyp),
+        DocSt,
+        DocNr,
+        Descr,
+        summ,
+        PVN
+    FROM
+    (
+        SELECT
+            NULL AS ID,
+            DETE,
+            DOCS0.clid,
+            DOCS0.DocTyp,
+            DOCS0.DocSt,
+            DOCS0.DocNr,
+            DOCS0.Descr,
+            DOCS0.summ,
+            DOCS0.PVN
+        FROM DOCS0
+        WHERE
+            DOCS0.ClId = :PCLID AND
+            (:PDOCNR is null OR DOCS0.DocNr = :PDOCNR)
+
+        UNION ALL
+    
+        SELECT
+            opsd.id,
+            opsd.DETE,
+            opsd.clid,
+            opsd.DocTyp,
+            opsd.DocSt,
+            opsd.DocNr,
+            opsd.Descr,
+            CASE WHEN AP1 = 1 OR AP2 = 1
+                THEN -OPSd.Summ
+                ELSE OPSd.Summ
+            END AS Summ,
+            CASE WHEN AP1 = 1 OR AP2 = 1
+                THEN -OPSd.PVN
+                ELSE OPSd.PVN
+            END AS PVN
+        FROM
+        (
+            SELECT 
+                OPSd.id, 
+                MAX(CASE WHEN AcP21_1.AC IS NULL THEN 0 ELSE 1 END) AS AP1,
+                MAX(CASE WHEN AcP21_2.AC IS NULL THEN 0 ELSE 1 END) AS AP2
+            FROM
+                OPS INNER JOIN OPSd ON OPSd.id = OPS.DocId
+                LEFT JOIN AcP21 AS AcP21_1 ON OPS.AC11 = AcP21_1.AC AND AcP21_1.id1 IN ('KA','BA','CN')
+                LEFT JOIN AcP21 AS AcP21_2 ON OPS.AC21 = AcP21_2.AC AND AcP21_2.id1 IN ('KA','BA','CN')
+            WHERE
+                OPSd.DETE BETWEEN :PSD AND :PED AND
+                opsd.ClId = :PCLID AND
+                (:PDOCNR is null OR opsd.DocNr = :PDOCNR)
+            GROUP BY OPSd.id
+        ) AS T1 
+        INNER JOIN OPSd ON T1.id = OPSd.id
+
+    )
+    order by DETE
+
+    INTO :ID, :DETE, :clid, :doctyp, :docst, :docnr, :descr, :summ, :pvn
+    do
+    begin
+        if (ID is null) then
+        begin
+            ID = k;
+            k = k + 1;
+        end
+        suspend;
+    end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '060'
+WHERE PNAME = 'version';

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A39FD67D-1412-4C50-A522-66A063C7C06F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataObjectsA</RootNamespace>
+    <AssemblyName>DataObjectsA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Output|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AamatsData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BonusData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CompanyData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FpPaylistsRowData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IWorkTimeData.cs" />
+    <Compile Include="LikmesData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PayListRowData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PersonsRData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaryData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NotyfyProp\NotyfyProp.csproj">
+      <Project>{41cb954f-cc0d-4c69-be2f-76bf5fc8ada2}</Project>
+      <Name>NotyfyProp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)\..\Afterthought.Amender/Afterthought.Amender.exe "$(TargetPath)" $(TargetDir)NotyfyProp.dll"
+if $(ConfigurationName) == Output (
+	copy "$(TargetPath)" "$(ProjectDir)\..\KlonsA\obj\$(ConfigurationName)\$(TargetFileName)"
+) ELSE (
+	copy "$(TargetPath)" "$(ProjectDir)\..\KlonsA\obj\$(ConfigurationName)\$(TargetFileName)"
+	copy "$(TargetPath)" "$(ProjectDir)\..\KlonsA\bin\$(ConfigurationName)\$(TargetFileName)"
+	copy "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)\..\KlonsA\bin\$(ConfigurationName)\$(TargetName).pdb"
+)
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
