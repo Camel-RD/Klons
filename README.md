@@ -1,1 +1,1 @@
-Maza grâmatvedîbas programma
+Maza grÄmatvedÄ«bas programma
