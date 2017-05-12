@@ -1,0 +1,1 @@
+Maza grâmatvedîbas programma
