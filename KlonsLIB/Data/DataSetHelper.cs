@@ -5,7 +5,6 @@ using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 using KlonsLIB.Misc;
 
