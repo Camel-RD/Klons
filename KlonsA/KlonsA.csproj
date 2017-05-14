@@ -588,7 +588,6 @@
     <None Include="Properties\DataSources\KlonsA.Classes.RepRowPosition.datasource" />
     <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow2.datasource" />
     <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow2a.datasource" />
-    <None Include="xRemarks.txt" />
     <EmbeddedResource Include="Forms\FormRep_IINK.resx">
       <DependentUpon>FormRep_IINK.cs</DependentUpon>
     </EmbeddedResource>
