@@ -641,8 +641,6 @@ namespace KlonsA.Forms
                 if (dr.XKind1 == EKind1.Fact)
                 {
                     var daycodefact = dr.DxFact[daynr - 1];
-                    daycode = (short)daycodefact;
-
                     if (SomeDataDefs.IsDayVacation(daycodefact))
                         cell.Style = myStyleDefs1.Vacation;
                     else if (SomeDataDefs.IsSickDay(daycodefact))
@@ -657,11 +655,12 @@ namespace KlonsA.Forms
                 else if (dr.XKind1 == EKind1.PlanIndividualDay || dr.XKind1 == EKind1.PlanGroupDay)
                 {
                     var daycodeplan = dr.DxPlan[daynr - 1];
-                    daycode = (short)daycodeplan;
                     if (daycodeplan == EDayPlanId.BD)
                         cell.Style = myStyleDefs1.FreeDay;
                     else if (daycodeplan == EDayPlanId.SD || daycodeplan == EDayPlanId.DDSD || daycodeplan == EDayPlanId.SDDD)
                         cell.Style = myStyleDefs1.HolyDay;
+                    else
+                        cell.Style = dgvLapa.DefaultCellStyle;
                 }
                 else if (dr.XKind1 == EKind1.FactNight || dr.XKind1 == EKind1.FactOvertime)
                 {

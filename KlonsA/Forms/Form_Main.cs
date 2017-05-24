@@ -430,6 +430,11 @@ namespace KlonsA
             ShowForm(typeof(FormRep_IINK));
         }
 
+        private void kopsavilkumsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(FormRep_Aggregate));
+        }
+
         private void parProgrammuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fm = new Form_About();

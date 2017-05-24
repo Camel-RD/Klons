@@ -31,7 +31,13 @@ namespace KlonsA.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_PersonsR));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem1 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem2 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem3 = new KlonsLIB.Components.MyMcComboBox.MyItem();
@@ -40,12 +46,6 @@ namespace KlonsA.Forms
             KlonsLIB.Components.MyMcComboBox.MyItem myItem6 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem7 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem8 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bnavNav = new KlonsLIB.Components.MyBindingNavigator();
             this.bsPersonsR = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.bsPersons = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -133,11 +133,35 @@ namespace KlonsA.Forms
             this.bsPapildSummaNo = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsPapildSummas = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.dgvPapildSummas = new KlonsLIB.Components.MyDataGridView();
+            this.dgcPSIDA = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcPSDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPSDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPSDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPSIDSV2 = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
+            this.dgcPSRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPSRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcPSIDNO = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcPSIsPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcPSIsInAvpay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcPSID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsNotikumuVeidi = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsAmati2 = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.bsNotikumi = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.dgvNotikumi = new KlonsLIB.Components.MyDataGridView();
+            this.dgcNotIDN = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcNotIDN2 = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
             this.bsNotikumuVeidi2 = new KlonsLIB.Data.MyBindingSource(this.components);
+            this.dgcNotIDA = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
+            this.dgcNotDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotDT3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotDocNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotSCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotOcc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNotIDP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.lbArrow1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -182,30 +206,6 @@ namespace KlonsA.Forms
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.darbiniekaKartīteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgcNotIDN = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcNotIDN2 = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
-            this.dgcNotIDA = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
-            this.dgcNotDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotDT3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotDocNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotSCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotOcc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNotIDP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPSIDA = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPSDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPSDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPSDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPSIDSV2 = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
-            this.dgcPSRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPSRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPSIDNO = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPSIsPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgcPSIsInAvpay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgcPSID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bnavNav)).BeginInit();
             this.bnavNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPersonsR)).BeginInit();
@@ -401,6 +401,61 @@ namespace KlonsA.Forms
             this.bsAmati.Name2 = "bsAmati";
             this.bsAmati.Sort = "ID";
             this.bsAmati.CurrentChanged += new System.EventHandler(this.bsAmati_CurrentChanged);
+            // 
+            // PersonsRData1
+            // 
+            this.PersonsRData1._ADDRESS = null;
+            this.PersonsRData1._ADVANCE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.PersonsRData1._APGAD_SK = ((short)(0));
+            this.PersonsRData1._BANK_ACC = null;
+            this.PersonsRData1._BANK_ID = null;
+            this.PersonsRData1._BIRTH_DATE = new System.DateTime(((long)(0)));
+            this.PersonsRData1._CITY = null;
+            this.PersonsRData1._COMMENTS = null;
+            this.PersonsRData1._COUNTRY = null;
+            this.PersonsRData1._EDIT_DATE = new System.DateTime(((long)(0)));
+            this.PersonsRData1._EMAIL = null;
+            this.PersonsRData1._FNAME = null;
+            this.PersonsRData1._GENDER = ((short)(0));
+            this.PersonsRData1._ID = 0;
+            this.PersonsRData1._IDP = 0;
+            this.PersonsRData1._IIN0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.PersonsRData1._INVALID = ((short)(0));
+            this.PersonsRData1._LNAME = null;
+            this.PersonsRData1._NAME_ACCUSATIVE = null;
+            this.PersonsRData1._NAME_DATIVE = null;
+            this.PersonsRData1._NOT_OSA = ((short)(0));
+            this.PersonsRData1._PASSPORT_DATE = null;
+            this.PersonsRData1._PASSPORT_ISSUER = null;
+            this.PersonsRData1._PASSPORT_NO = null;
+            this.PersonsRData1._PAY0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.PersonsRData1._PENSIONER = ((short)(0));
+            this.PersonsRData1._PERSON_CODE = null;
+            this.PersonsRData1._PHONE = null;
+            this.PersonsRData1._POSTAL_CODE = null;
+            this.PersonsRData1._PRET = ((short)(0));
+            this.PersonsRData1._PRISONER = ((short)(0));
+            this.PersonsRData1._PRISONER_SP = ((short)(0));
+            this.PersonsRData1._REPRES = ((short)(0));
+            this.PersonsRData1._STATE = null;
+            this.PersonsRData1._TAXDOC_ISSUER = null;
+            this.PersonsRData1._TAXDOC_NO = null;
+            this.PersonsRData1._TAXDOC_SERIAL = null;
+            this.PersonsRData1._TAXREG_NO = null;
+            this.PersonsRData1._TERRITORIAL_CODE = null;
+            this.PersonsRData1._VACATION_DAYS = 0F;
             // 
             // rwPamatdati
             // 
@@ -795,9 +850,81 @@ namespace KlonsA.Forms
             // 
             // shedPersonsText
             // 
+            this.shedPersonsText.DataMember = null;
             this.shedPersonsText.Name = "shedPersonsText";
             this.shedPersonsText.RowTitle = null;
             this.shedPersonsText.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
+            // 
+            // AmatsRData1
+            // 
+            this.AmatsRData1._ADVAMCE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._ADVANCE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._EDIT_DATE = new System.DateTime(((long)(0)));
+            this.AmatsRData1._ID = 0;
+            this.AmatsRData1._IDDEP = null;
+            this.AmatsRData1._IDP = 0;
+            this.AmatsRData1._IIN0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._NORMAL_DAY_HOURS = 0;
+            this.AmatsRData1._NORMAL_WEEK_HOURS = 0;
+            this.AmatsRData1._OCCUPATION_CODE = null;
+            this.AmatsRData1._PAY0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE_HOLIDAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE_HOLIDAY_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE_HOLIDAY_NIGHT_TYPE = ((short)(0));
+            this.AmatsRData1._RATE_HOLIDAY_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE_HOLIDAY_OVERTIME_TYPE = ((short)(0));
+            this.AmatsRData1._RATE_HOLIDAY_TYPE = ((short)(0));
+            this.AmatsRData1._RATE_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE_NIGHT_TYPE = ((short)(0));
+            this.AmatsRData1._RATE_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.AmatsRData1._RATE_OVERTIME_TYPE = ((short)(0));
+            this.AmatsRData1._SALARY_TYPE = ((short)(0));
+            this.AmatsRData1._SIXDAYWEEK = ((short)(0));
+            this.AmatsRData1._TITLE = null;
+            this.AmatsRData1._TITLE_ACCUSATIVE = null;
+            this.AmatsRData1._TITLE_DATIVE = null;
+            this.AmatsRData1._USED = ((short)(1));
             // 
             // rwAmatiT2
             // 
@@ -890,7 +1017,8 @@ namespace KlonsA.Forms
         "0;mēneša",
         "1;dienas",
         "2;stundas",
-        "3;gabaldarbs"};
+        "3;summētais",
+        "4;gabaldarbs"};
             this.rwAmatiSalarytype.Name = "rwAmatiSalarytype";
             this.rwAmatiSalarytype.RowTitle = "Aprēķina veids";
             this.rwAmatiSalarytype.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.ShortInt;
@@ -937,14 +1065,12 @@ namespace KlonsA.Forms
             // 
             // shrwAmariDecimal
             // 
-            this.shrwAmariDecimal.DataMember = null;
             this.shrwAmariDecimal.Name = "shrwAmariDecimal";
             this.shrwAmariDecimal.RowTitle = null;
             this.shrwAmariDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // shrwAmatiRateType
             // 
-            this.shrwAmatiRateType.DataMember = null;
             this.shrwAmatiRateType.ListStrings = new string[] {
         "0;%",
         "1;€"};
@@ -1123,6 +1249,123 @@ namespace KlonsA.Forms
             this.dgvPapildSummas.Enter += new System.EventHandler(this.dgvPapildSummas_Enter);
             this.dgvPapildSummas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPapildSummas_KeyDown);
             // 
+            // dgcPSIDA
+            // 
+            this.dgcPSIDA.DataPropertyName = "IDA";
+            this.dgcPSIDA.DataSource = this.bsAmatiPS;
+            this.dgcPSIDA.DisplayMember = "TITLE";
+            this.dgcPSIDA.DisplayStyleForCurrentCellOnly = true;
+            this.dgcPSIDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcPSIDA.HeaderText = "amats";
+            this.dgcPSIDA.Name = "dgcPSIDA";
+            this.dgcPSIDA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPSIDA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPSIDA.ValueMember = "ID";
+            this.dgcPSIDA.Width = 150;
+            // 
+            // dgcPSDate1
+            // 
+            this.dgcPSDate1.DataPropertyName = "DATE1";
+            dataGridViewCellStyle2.Format = "dd.MM.yyyy";
+            this.dgcPSDate1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcPSDate1.HeaderText = "dat. no";
+            this.dgcPSDate1.Name = "dgcPSDate1";
+            this.dgcPSDate1.Width = 85;
+            // 
+            // dgcPSDate2
+            // 
+            this.dgcPSDate2.DataPropertyName = "DATE2";
+            dataGridViewCellStyle3.Format = "dd.MM.yyyy";
+            this.dgcPSDate2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcPSDate2.HeaderText = "dat. līdz";
+            this.dgcPSDate2.Name = "dgcPSDate2";
+            this.dgcPSDate2.Width = 85;
+            // 
+            // dgcPSDescr
+            // 
+            this.dgcPSDescr.DataPropertyName = "DESCR";
+            this.dgcPSDescr.HeaderText = "apraksts";
+            this.dgcPSDescr.Name = "dgcPSDescr";
+            this.dgcPSDescr.Width = 200;
+            // 
+            // dgcPSIDSV2
+            // 
+            this.dgcPSIDSV2.ColumnNames = new string[] {
+        "DESCR2",
+        "DESCR"};
+            this.dgcPSIDSV2.ColumnWidths = "100;270";
+            this.dgcPSIDSV2.DataPropertyName = "IDSV";
+            this.dgcPSIDSV2.DataSource = this.bsPapildSummasVeids;
+            this.dgcPSIDSV2.DisplayMember = "DESCR2";
+            this.dgcPSIDSV2.DisplayStyleForCurrentCellOnly = true;
+            this.dgcPSIDSV2.DropDownStyle = KlonsLIB.Components.MyDgvMcComboBox.CustomDropDownStyle.DropDownListSimple;
+            this.dgcPSIDSV2.HeaderText = "piem. veids";
+            this.dgcPSIDSV2.MaxDropDownItems = 15;
+            this.dgcPSIDSV2.Name = "dgcPSIDSV2";
+            this.dgcPSIDSV2.ToolTipText = "piemaksas veids";
+            this.dgcPSIDSV2.ValueMember = "ID";
+            this.dgcPSIDSV2.Width = 120;
+            // 
+            // dgcPSRate
+            // 
+            this.dgcPSRate.DataPropertyName = "RATE";
+            this.dgcPSRate.HeaderText = "likme";
+            this.dgcPSRate.Name = "dgcPSRate";
+            // 
+            // dgcPSRateType
+            // 
+            this.dgcPSRateType.DataPropertyName = "RATE_TYPE";
+            this.dgcPSRateType.DisplayStyleForCurrentCellOnly = true;
+            this.dgcPSRateType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcPSRateType.HeaderText = "%/€";
+            this.dgcPSRateType.Name = "dgcPSRateType";
+            this.dgcPSRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPSRateType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPSRateType.Width = 60;
+            // 
+            // dgcPSIDNO
+            // 
+            this.dgcPSIDNO.DataPropertyName = "IDNO";
+            this.dgcPSIDNO.DataSource = this.bsPapildSummaNo;
+            this.dgcPSIDNO.DisplayMember = "DESCR";
+            this.dgcPSIDNO.DisplayStyleForCurrentCellOnly = true;
+            this.dgcPSIDNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcPSIDNO.HeaderText = "aprēķina no";
+            this.dgcPSIDNO.Name = "dgcPSIDNO";
+            this.dgcPSIDNO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPSIDNO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPSIDNO.ValueMember = "ID";
+            this.dgcPSIDNO.Width = 200;
+            // 
+            // dgcPSIsPaid
+            // 
+            this.dgcPSIsPaid.DataPropertyName = "IS_PAID";
+            this.dgcPSIsPaid.FalseValue = "0";
+            this.dgcPSIsPaid.HeaderText = "izm.";
+            this.dgcPSIsPaid.Name = "dgcPSIsPaid";
+            this.dgcPSIsPaid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPSIsPaid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPSIsPaid.ToolTipText = "Izmaksājama piemaksa";
+            this.dgcPSIsPaid.TrueValue = "1";
+            this.dgcPSIsPaid.Width = 40;
+            // 
+            // dgcPSIsInAvpay
+            // 
+            this.dgcPSIsInAvpay.DataPropertyName = "IS_INAVPAY";
+            this.dgcPSIsInAvpay.FalseValue = "0";
+            this.dgcPSIsInAvpay.HeaderText = "ir VI";
+            this.dgcPSIsInAvpay.Name = "dgcPSIsInAvpay";
+            this.dgcPSIsInAvpay.ToolTipText = "Iekļaut vidējās izpeļņas aprēķinā";
+            this.dgcPSIsInAvpay.TrueValue = "1";
+            this.dgcPSIsInAvpay.Width = 40;
+            // 
+            // dgcPSID
+            // 
+            this.dgcPSID.DataPropertyName = "ID";
+            this.dgcPSID.HeaderText = "ID";
+            this.dgcPSID.Name = "dgcPSID";
+            this.dgcPSID.Visible = false;
+            // 
             // bsNotikumuVeidi
             // 
             this.bsNotikumuVeidi.DataMember = "EVENT_TYPES";
@@ -1188,11 +1431,148 @@ namespace KlonsA.Forms
             this.dgvNotikumi.Enter += new System.EventHandler(this.dgvNotikumi_Enter);
             this.dgvNotikumi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvNotikumi_KeyDown);
             // 
+            // dgcNotIDN
+            // 
+            this.dgcNotIDN.DataPropertyName = "IDN";
+            this.dgcNotIDN.DataSource = this.bsNotikumuVeidi;
+            this.dgcNotIDN.DisplayMember = "DESCR";
+            this.dgcNotIDN.DisplayStyleForCurrentCellOnly = true;
+            this.dgcNotIDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcNotIDN.HeaderText = "notikums";
+            this.dgcNotIDN.MaxDropDownItems = 15;
+            this.dgcNotIDN.Name = "dgcNotIDN";
+            this.dgcNotIDN.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcNotIDN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcNotIDN.ValueMember = "ID";
+            this.dgcNotIDN.Width = 150;
+            // 
+            // dgcNotIDN2
+            // 
+            this.dgcNotIDN2.ColumnNames = new string[] {
+        "TAG",
+        "DESCR"};
+            this.dgcNotIDN2.ColumnWidths = "100;200";
+            this.dgcNotIDN2.DataPropertyName = "IDN2";
+            this.dgcNotIDN2.DataSource = this.bsNotikumuVeidi2;
+            this.dgcNotIDN2.DisplayMember = "DESCR";
+            this.dgcNotIDN2.DisplayStyleForCurrentCellOnly = true;
+            this.dgcNotIDN2.DropDownWidth = 300;
+            this.dgcNotIDN2.HeaderText = "cits notikums";
+            this.dgcNotIDN2.MaxDropDownItems = 15;
+            this.dgcNotIDN2.Name = "dgcNotIDN2";
+            this.dgcNotIDN2.NullToDBNull = true;
+            this.dgcNotIDN2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcNotIDN2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcNotIDN2.ValueMember = "ID";
+            this.dgcNotIDN2.Width = 150;
+            // 
             // bsNotikumuVeidi2
             // 
             this.bsNotikumuVeidi2.DataMember = "EVENT_TYPES2";
             this.bsNotikumuVeidi2.MyDataSource = "KlonsData";
             this.bsNotikumuVeidi2.Sort = "TAG";
+            // 
+            // dgcNotIDA
+            // 
+            this.dgcNotIDA.ColumnNames = new string[] {
+        "TITLE"};
+            this.dgcNotIDA.ColumnWidths = "150";
+            this.dgcNotIDA.DataPropertyName = "IDA";
+            this.dgcNotIDA.DataSource = this.bsAmati2;
+            this.dgcNotIDA.DisplayMember = "TITLE";
+            this.dgcNotIDA.DisplayStyleForCurrentCellOnly = true;
+            this.dgcNotIDA.DropDownStyle = KlonsLIB.Components.MyDgvMcComboBox.CustomDropDownStyle.DropDownList;
+            this.dgcNotIDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcNotIDA.HeaderText = "amats";
+            this.dgcNotIDA.Name = "dgcNotIDA";
+            this.dgcNotIDA.NullToDBNull = true;
+            this.dgcNotIDA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcNotIDA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcNotIDA.ValueMember = "ID";
+            this.dgcNotIDA.Width = 200;
+            // 
+            // dgcNotDate1
+            // 
+            this.dgcNotDate1.DataPropertyName = "DATE1";
+            dataGridViewCellStyle5.Format = "dd.MM.yyyy";
+            this.dgcNotDate1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgcNotDate1.HeaderText = "dat.no";
+            this.dgcNotDate1.Name = "dgcNotDate1";
+            this.dgcNotDate1.Width = 85;
+            // 
+            // dgcNotDate2
+            // 
+            this.dgcNotDate2.DataPropertyName = "DATE2";
+            dataGridViewCellStyle6.Format = "dd.MM.yyyy";
+            this.dgcNotDate2.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcNotDate2.HeaderText = "dat.līdz";
+            this.dgcNotDate2.Name = "dgcNotDate2";
+            this.dgcNotDate2.Width = 85;
+            // 
+            // dgcNotDT3
+            // 
+            this.dgcNotDT3.DataPropertyName = "DATE3";
+            dataGridViewCellStyle7.Format = "dd.MM.yyyy";
+            this.dgcNotDT3.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcNotDT3.HeaderText = "izm.dat.";
+            this.dgcNotDT3.Name = "dgcNotDT3";
+            this.dgcNotDT3.ToolTipText = "izmaksas datums";
+            this.dgcNotDT3.Width = 85;
+            // 
+            // dgcNotDescr
+            // 
+            this.dgcNotDescr.DataPropertyName = "DESCR";
+            this.dgcNotDescr.HeaderText = "apraksts";
+            this.dgcNotDescr.Name = "dgcNotDescr";
+            this.dgcNotDescr.Width = 200;
+            // 
+            // dgcNotDocNr
+            // 
+            this.dgcNotDocNr.DataPropertyName = "DOCNR";
+            this.dgcNotDocNr.HeaderText = "dok.nr.";
+            this.dgcNotDocNr.Name = "dgcNotDocNr";
+            // 
+            // dgcNotDays
+            // 
+            this.dgcNotDays.DataPropertyName = "DAYS";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "0.###;-0.###;\"\"";
+            this.dgcNotDays.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgcNotDays.HeaderText = "atv.d.";
+            this.dgcNotDays.Name = "dgcNotDays";
+            this.dgcNotDays.ToolTipText = "Atvaļinājuma dienu skaits";
+            this.dgcNotDays.Width = 50;
+            // 
+            // dgcNotSCode
+            // 
+            this.dgcNotSCode.DataPropertyName = "SCODE";
+            this.dgcNotSCode.HeaderText = "kods";
+            this.dgcNotSCode.Name = "dgcNotSCode";
+            this.dgcNotSCode.ToolTipText = "ziņu kods";
+            this.dgcNotSCode.Width = 50;
+            // 
+            // dgcNotOcc
+            // 
+            this.dgcNotOcc.DataPropertyName = "OCCUPATION_CODE";
+            this.dgcNotOcc.HeaderText = "prof.kods";
+            this.dgcNotOcc.Name = "dgcNotOcc";
+            this.dgcNotOcc.ToolTipText = "Profesijas kods";
+            this.dgcNotOcc.Width = 80;
+            // 
+            // dgcNotID
+            // 
+            this.dgcNotID.DataPropertyName = "ID";
+            this.dgcNotID.HeaderText = "ID";
+            this.dgcNotID.Name = "dgcNotID";
+            this.dgcNotID.Visible = false;
+            this.dgcNotID.Width = 50;
+            // 
+            // dgcNotIDP
+            // 
+            this.dgcNotIDP.DataPropertyName = "IDP";
+            this.dgcNotIDP.HeaderText = "IDP";
+            this.dgcNotIDP.Name = "dgcNotIDP";
+            this.dgcNotIDP.Visible = false;
             // 
             // toolStrip1
             // 
@@ -1632,6 +2012,7 @@ namespace KlonsA.Forms
             // 
             // sharedPersonsNoYes
             // 
+            this.sharedPersonsNoYes.DataMember = null;
             this.sharedPersonsNoYes.ListStrings = new string[] {
         "0;nē",
         "1;jā"};
@@ -1641,6 +2022,7 @@ namespace KlonsA.Forms
             // 
             // sharedPersonsDecimal
             // 
+            this.sharedPersonsDecimal.DataMember = null;
             this.sharedPersonsDecimal.Name = "sharedPersonsDecimal";
             this.sharedPersonsDecimal.RowTitle = null;
             this.sharedPersonsDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
@@ -1648,7 +2030,6 @@ namespace KlonsA.Forms
             // shedPersonsTextAllowNull
             // 
             this.shedPersonsTextAllowNull.AllowNull = true;
-            this.shedPersonsTextAllowNull.DataMember = null;
             this.shedPersonsTextAllowNull.Name = "shedPersonsTextAllowNull";
             this.shedPersonsTextAllowNull.RowTitle = null;
             this.shedPersonsTextAllowNull.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
@@ -1767,260 +2148,6 @@ namespace KlonsA.Forms
             this.darbiniekaKartīteToolStripMenuItem.Size = new System.Drawing.Size(444, 30);
             this.darbiniekaKartīteToolStripMenuItem.Text = "Darbinieka kartīte";
             this.darbiniekaKartīteToolStripMenuItem.Click += new System.EventHandler(this.darbiniekaKartīteToolStripMenuItem_Click);
-            // 
-            // dgcNotIDN
-            // 
-            this.dgcNotIDN.DataPropertyName = "IDN";
-            this.dgcNotIDN.DataSource = this.bsNotikumuVeidi;
-            this.dgcNotIDN.DisplayMember = "DESCR";
-            this.dgcNotIDN.DisplayStyleForCurrentCellOnly = true;
-            this.dgcNotIDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcNotIDN.HeaderText = "notikums";
-            this.dgcNotIDN.MaxDropDownItems = 15;
-            this.dgcNotIDN.Name = "dgcNotIDN";
-            this.dgcNotIDN.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcNotIDN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcNotIDN.ValueMember = "ID";
-            this.dgcNotIDN.Width = 150;
-            // 
-            // dgcNotIDN2
-            // 
-            this.dgcNotIDN2.ColumnNames = new string[] {
-        "TAG",
-        "DESCR"};
-            this.dgcNotIDN2.ColumnWidths = "100;200";
-            this.dgcNotIDN2.DataPropertyName = "IDN2";
-            this.dgcNotIDN2.DataSource = this.bsNotikumuVeidi2;
-            this.dgcNotIDN2.DisplayMember = "DESCR";
-            this.dgcNotIDN2.DisplayStyleForCurrentCellOnly = true;
-            this.dgcNotIDN2.DropDownWidth = 300;
-            this.dgcNotIDN2.HeaderText = "cits notikums";
-            this.dgcNotIDN2.MaxDropDownItems = 15;
-            this.dgcNotIDN2.Name = "dgcNotIDN2";
-            this.dgcNotIDN2.NullToDBNull = true;
-            this.dgcNotIDN2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcNotIDN2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcNotIDN2.ValueMember = "ID";
-            this.dgcNotIDN2.Width = 150;
-            // 
-            // dgcNotIDA
-            // 
-            this.dgcNotIDA.ColumnNames = new string[] {
-        "TITLE"};
-            this.dgcNotIDA.ColumnWidths = "150";
-            this.dgcNotIDA.DataPropertyName = "IDA";
-            this.dgcNotIDA.DataSource = this.bsAmati2;
-            this.dgcNotIDA.DisplayMember = "TITLE";
-            this.dgcNotIDA.DisplayStyleForCurrentCellOnly = true;
-            this.dgcNotIDA.DropDownStyle = KlonsLIB.Components.MyDgvMcComboBox.CustomDropDownStyle.DropDownList;
-            this.dgcNotIDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcNotIDA.HeaderText = "amats";
-            this.dgcNotIDA.Name = "dgcNotIDA";
-            this.dgcNotIDA.NullToDBNull = true;
-            this.dgcNotIDA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcNotIDA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcNotIDA.ValueMember = "ID";
-            this.dgcNotIDA.Width = 200;
-            // 
-            // dgcNotDate1
-            // 
-            this.dgcNotDate1.DataPropertyName = "DATE1";
-            dataGridViewCellStyle5.Format = "dd.MM.yyyy";
-            this.dgcNotDate1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcNotDate1.HeaderText = "dat.no";
-            this.dgcNotDate1.Name = "dgcNotDate1";
-            this.dgcNotDate1.Width = 85;
-            // 
-            // dgcNotDate2
-            // 
-            this.dgcNotDate2.DataPropertyName = "DATE2";
-            dataGridViewCellStyle6.Format = "dd.MM.yyyy";
-            this.dgcNotDate2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcNotDate2.HeaderText = "dat.līdz";
-            this.dgcNotDate2.Name = "dgcNotDate2";
-            this.dgcNotDate2.Width = 85;
-            // 
-            // dgcNotDT3
-            // 
-            this.dgcNotDT3.DataPropertyName = "DATE3";
-            dataGridViewCellStyle7.Format = "dd.MM.yyyy";
-            this.dgcNotDT3.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgcNotDT3.HeaderText = "izm.dat.";
-            this.dgcNotDT3.Name = "dgcNotDT3";
-            this.dgcNotDT3.ToolTipText = "izmaksas datums";
-            this.dgcNotDT3.Width = 85;
-            // 
-            // dgcNotDescr
-            // 
-            this.dgcNotDescr.DataPropertyName = "DESCR";
-            this.dgcNotDescr.HeaderText = "apraksts";
-            this.dgcNotDescr.Name = "dgcNotDescr";
-            this.dgcNotDescr.Width = 200;
-            // 
-            // dgcNotDocNr
-            // 
-            this.dgcNotDocNr.DataPropertyName = "DOCNR";
-            this.dgcNotDocNr.HeaderText = "dok.nr.";
-            this.dgcNotDocNr.Name = "dgcNotDocNr";
-            // 
-            // dgcNotDays
-            // 
-            this.dgcNotDays.DataPropertyName = "DAYS";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "0.###;-0.###;\"\"";
-            this.dgcNotDays.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgcNotDays.HeaderText = "atv.d.";
-            this.dgcNotDays.Name = "dgcNotDays";
-            this.dgcNotDays.ToolTipText = "Atvaļinājuma dienu skaits";
-            this.dgcNotDays.Width = 50;
-            // 
-            // dgcNotSCode
-            // 
-            this.dgcNotSCode.DataPropertyName = "SCODE";
-            this.dgcNotSCode.HeaderText = "kods";
-            this.dgcNotSCode.Name = "dgcNotSCode";
-            this.dgcNotSCode.ToolTipText = "ziņu kods";
-            this.dgcNotSCode.Width = 50;
-            // 
-            // dgcNotOcc
-            // 
-            this.dgcNotOcc.DataPropertyName = "OCCUPATION_CODE";
-            this.dgcNotOcc.HeaderText = "prof.kods";
-            this.dgcNotOcc.Name = "dgcNotOcc";
-            this.dgcNotOcc.ToolTipText = "Profesijas kods";
-            this.dgcNotOcc.Width = 80;
-            // 
-            // dgcNotID
-            // 
-            this.dgcNotID.DataPropertyName = "ID";
-            this.dgcNotID.HeaderText = "ID";
-            this.dgcNotID.Name = "dgcNotID";
-            this.dgcNotID.Visible = false;
-            this.dgcNotID.Width = 50;
-            // 
-            // dgcNotIDP
-            // 
-            this.dgcNotIDP.DataPropertyName = "IDP";
-            this.dgcNotIDP.HeaderText = "IDP";
-            this.dgcNotIDP.Name = "dgcNotIDP";
-            this.dgcNotIDP.Visible = false;
-            // 
-            // dgcPSIDA
-            // 
-            this.dgcPSIDA.DataPropertyName = "IDA";
-            this.dgcPSIDA.DataSource = this.bsAmatiPS;
-            this.dgcPSIDA.DisplayMember = "TITLE";
-            this.dgcPSIDA.DisplayStyleForCurrentCellOnly = true;
-            this.dgcPSIDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcPSIDA.HeaderText = "amats";
-            this.dgcPSIDA.Name = "dgcPSIDA";
-            this.dgcPSIDA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPSIDA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPSIDA.ValueMember = "ID";
-            this.dgcPSIDA.Width = 150;
-            // 
-            // dgcPSDate1
-            // 
-            this.dgcPSDate1.DataPropertyName = "DATE1";
-            dataGridViewCellStyle2.Format = "dd.MM.yyyy";
-            this.dgcPSDate1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcPSDate1.HeaderText = "dat. no";
-            this.dgcPSDate1.Name = "dgcPSDate1";
-            this.dgcPSDate1.Width = 85;
-            // 
-            // dgcPSDate2
-            // 
-            this.dgcPSDate2.DataPropertyName = "DATE2";
-            dataGridViewCellStyle3.Format = "dd.MM.yyyy";
-            this.dgcPSDate2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcPSDate2.HeaderText = "dat. līdz";
-            this.dgcPSDate2.Name = "dgcPSDate2";
-            this.dgcPSDate2.Width = 85;
-            // 
-            // dgcPSDescr
-            // 
-            this.dgcPSDescr.DataPropertyName = "DESCR";
-            this.dgcPSDescr.HeaderText = "apraksts";
-            this.dgcPSDescr.Name = "dgcPSDescr";
-            this.dgcPSDescr.Width = 200;
-            // 
-            // dgcPSIDSV2
-            // 
-            this.dgcPSIDSV2.ColumnNames = new string[] {
-        "DESCR2",
-        "DESCR"};
-            this.dgcPSIDSV2.ColumnWidths = "100;270";
-            this.dgcPSIDSV2.DataPropertyName = "IDSV";
-            this.dgcPSIDSV2.DataSource = this.bsPapildSummasVeids;
-            this.dgcPSIDSV2.DisplayMember = "DESCR2";
-            this.dgcPSIDSV2.DisplayStyleForCurrentCellOnly = true;
-            this.dgcPSIDSV2.DropDownStyle = KlonsLIB.Components.MyDgvMcComboBox.CustomDropDownStyle.DropDownListSimple;
-            this.dgcPSIDSV2.HeaderText = "piem. veids";
-            this.dgcPSIDSV2.MaxDropDownItems = 15;
-            this.dgcPSIDSV2.Name = "dgcPSIDSV2";
-            this.dgcPSIDSV2.ToolTipText = "piemaksas veids";
-            this.dgcPSIDSV2.ValueMember = "ID";
-            this.dgcPSIDSV2.Width = 120;
-            // 
-            // dgcPSRate
-            // 
-            this.dgcPSRate.DataPropertyName = "RATE";
-            this.dgcPSRate.HeaderText = "likme";
-            this.dgcPSRate.Name = "dgcPSRate";
-            // 
-            // dgcPSRateType
-            // 
-            this.dgcPSRateType.DataPropertyName = "RATE_TYPE";
-            this.dgcPSRateType.DisplayStyleForCurrentCellOnly = true;
-            this.dgcPSRateType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcPSRateType.HeaderText = "%/€";
-            this.dgcPSRateType.Name = "dgcPSRateType";
-            this.dgcPSRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPSRateType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPSRateType.Width = 60;
-            // 
-            // dgcPSIDNO
-            // 
-            this.dgcPSIDNO.DataPropertyName = "IDNO";
-            this.dgcPSIDNO.DataSource = this.bsPapildSummaNo;
-            this.dgcPSIDNO.DisplayMember = "DESCR";
-            this.dgcPSIDNO.DisplayStyleForCurrentCellOnly = true;
-            this.dgcPSIDNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcPSIDNO.HeaderText = "aprēķina no";
-            this.dgcPSIDNO.Name = "dgcPSIDNO";
-            this.dgcPSIDNO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPSIDNO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPSIDNO.ValueMember = "ID";
-            this.dgcPSIDNO.Width = 200;
-            // 
-            // dgcPSIsPaid
-            // 
-            this.dgcPSIsPaid.DataPropertyName = "IS_PAID";
-            this.dgcPSIsPaid.FalseValue = "0";
-            this.dgcPSIsPaid.HeaderText = "izm.";
-            this.dgcPSIsPaid.Name = "dgcPSIsPaid";
-            this.dgcPSIsPaid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPSIsPaid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPSIsPaid.ToolTipText = "Izmaksājama piemaksa";
-            this.dgcPSIsPaid.TrueValue = "1";
-            this.dgcPSIsPaid.Width = 40;
-            // 
-            // dgcPSIsInAvpay
-            // 
-            this.dgcPSIsInAvpay.DataPropertyName = "IS_INAVPAY";
-            this.dgcPSIsInAvpay.FalseValue = "0";
-            this.dgcPSIsInAvpay.HeaderText = "ir VI";
-            this.dgcPSIsInAvpay.Name = "dgcPSIsInAvpay";
-            this.dgcPSIsInAvpay.ToolTipText = "Iekļaut vidējās izpeļņas aprēķinā";
-            this.dgcPSIsInAvpay.TrueValue = "1";
-            this.dgcPSIsInAvpay.Width = 40;
-            // 
-            // dgcPSID
-            // 
-            this.dgcPSID.DataPropertyName = "ID";
-            this.dgcPSID.HeaderText = "ID";
-            this.dgcPSID.Name = "dgcPSID";
-            this.dgcPSID.Visible = false;
             // 
             // Form_PersonsR
             // 

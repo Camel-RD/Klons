@@ -169,28 +169,34 @@
     <Compile Include="DataSets\KlonsARepDataSet.cs">
       <DependentUpon>KlonsARepDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormRep_IINK.cs">
+    <Compile Include="Forms_rep\FormRep_Aggregate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRep_IINK.Designer.cs">
+    <Compile Include="Forms_rep\FormRep_Aggregate.Designer.cs">
+      <DependentUpon>FormRep_Aggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_rep\FormRep_IINK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_rep\FormRep_IINK.Designer.cs">
       <DependentUpon>FormRep_IINK.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormRep_VacDays.cs">
+    <Compile Include="Forms_rep\FormRep_VacDays.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRep_VacDays.Designer.cs">
+    <Compile Include="Forms_rep\FormRep_VacDays.Designer.cs">
       <DependentUpon>FormRep_VacDays.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormRep_VSAOI.cs">
+    <Compile Include="Forms_rep\FormRep_VSAOI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRep_VSAOI.Designer.cs">
+    <Compile Include="Forms_rep\FormRep_VSAOI.Designer.cs">
       <DependentUpon>FormRep_VSAOI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormRep_Zinas.cs">
+    <Compile Include="Forms_rep\FormRep_Zinas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRep_Zinas.Designer.cs">
+    <Compile Include="Forms_rep\FormRep_Zinas.Designer.cs">
       <DependentUpon>FormRep_Zinas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_Banks.cs">
@@ -552,7 +558,10 @@
     <None Include="Resources\Image11.png" />
     <None Include="Resources\Image1.png" />
     <None Include="Resources\klonsa.ico" />
-    <EmbeddedResource Include="Forms\FormRep_VacDays.resx">
+    <EmbeddedResource Include="Forms_rep\FormRep_Aggregate.resx">
+      <DependentUpon>FormRep_Aggregate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_rep\FormRep_VacDays.resx">
       <DependentUpon>FormRep_VacDays.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_PayCalc.resx">
@@ -578,6 +587,7 @@
     </EmbeddedResource>
     <Content Include="Reports\ReportA_MaksSar_2a.rdlc" />
     <Content Include="Reports\ReportA_AlgasLapa_2.rdlc" />
+    <Content Include="Reports\ReportA_Kopsavilkums_1.rdlc" />
     <EmbeddedResource Include="Reports\ReportA_MaksSar_2.rdlc" />
     <EmbeddedResource Include="Reports\ReportA_MaksSar_1.rdlc" />
     <None Include="Properties\DataSources\KlonsA.Classes.RepRowPayList.datasource" />
@@ -588,13 +598,13 @@
     <None Include="Properties\DataSources\KlonsA.Classes.RepRowPosition.datasource" />
     <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow2.datasource" />
     <None Include="Properties\DataSources\KlonsA.Classes.TimeReportRow2a.datasource" />
-    <EmbeddedResource Include="Forms\FormRep_IINK.resx">
+    <EmbeddedResource Include="Forms_rep\FormRep_IINK.resx">
       <DependentUpon>FormRep_IINK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormRep_VSAOI.resx">
+    <EmbeddedResource Include="Forms_rep\FormRep_VSAOI.resx">
       <DependentUpon>FormRep_VSAOI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormRep_Zinas.resx">
+    <EmbeddedResource Include="Forms_rep\FormRep_Zinas.resx">
       <DependentUpon>FormRep_Zinas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Banks.resx">

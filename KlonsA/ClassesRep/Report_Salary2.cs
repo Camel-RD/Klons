@@ -78,6 +78,87 @@ namespace KlonsA.Classes
             }
             return ret;
         }
+
+        public enum EGroupBy
+        {
+            None,
+            YearAndMonth,
+            Person,
+            PersonAndPosition,
+            Department
+        }
+
+        public static List<SalaryRepRow2> MakeAggregatedReport(DateTime dt1, DateTime dt2,
+            int? idp, int? idam, string iddep, EGroupBy groupby)
+        {
+            var ret = new List<SalaryRepRow2>();
+
+            int retyrmt = 0;
+            int retidp = 0;
+            int retidam = 0;
+            int retiddep = 0;
+
+            switch (groupby)
+            {
+                case EGroupBy.YearAndMonth:
+                    retyrmt = 1;
+                    break;
+                case EGroupBy.Person:
+                    retidp = 1;
+                    break;
+                case EGroupBy.PersonAndPosition:
+                    retidp = 1;
+                    retidam = 1;
+                    break;
+                case EGroupBy.Department:
+                    retiddep = 1;
+                    break;
+            }
+
+            KlonsARepDataSet.SP_REP_AGGREGATEDataTable table = null;
+            var ad = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.SP_REP_AGGREGATETableAdapter();
+            if (retiddep == 1 || iddep != null)
+                table = ad.GetDataBy_SP_REP_AGGREGATE_02(dt1, dt2, iddep, retyrmt, retidp, retidam, retiddep);
+            else
+                table = ad.GetDataBy_SP_REP_AGGREGATE_01(dt1, dt2, idp, idam, retyrmt, retidp, retidam);
+
+            var drs = table.Rows;
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                var dr = table[i];
+                var reprow = new SalaryRepRow2();
+                reprow.SetFrom(dr);
+                reprow.SNR = i + 1;
+
+                switch (groupby)
+                {
+                    case EGroupBy.YearAndMonth:
+                        reprow.Caption = $"{dr.YR} - {dr.MT:00}";
+                        break;
+                    case EGroupBy.Person:
+                        var dr_person = MyData.DataSetKlons.PERSONS.FindByID(dr.IDP);
+                        reprow.Caption = dr_person.YNAME;
+                        break;
+                    case EGroupBy.PersonAndPosition:
+                        dr_person = MyData.DataSetKlons.PERSONS.FindByID(dr.IDP);
+                        var dr_position = MyData.DataSetKlons.POSITIONS.FindByID(dr.IDAM);
+                        reprow.Caption = $"{dr_person.YNAME}, {dr_position.TITLE}";
+                        break;
+                    case EGroupBy.Department:
+                        var dr_dep = MyData.DataSetKlons.DEPARTMENTS.FindByID(dr.IDDEP);
+                        reprow.Caption = dr_dep.DESCR;
+                        break;
+                }
+
+                ret.Add(reprow);
+            }
+
+            ret = ret.OrderBy(d => d.Caption).ToList();
+            return ret;
+        }
+
+
     }
 
     public class SalaryRepRow2
@@ -105,11 +186,13 @@ namespace KlonsA.Classes
         public decimal ExRetaliation { get; set; } = 0.0M;
         public decimal ExNatMovement { get; set; } = 0.0M;
         public decimal ExExpenses { get; set; } = 0.0M;
+        public decimal Ex2 => ExExpenses + ExNatMovement + ExRetaliation + ExInvalidity;
         public decimal IIN { get; set; } = 0.0M;
         public decimal MinusBeforeIIN { get; set; } = 0.0M;
         public decimal MinusAfterIIN { get; set; } = 0.0M;
         public decimal AdvanceOrDebt { get; set; } = 0.0M;
         public decimal Pay { get; set; } = 0.0M;
+        public decimal PayT { get; set; } = 0.0M;
 
         public void SetFrom(SalaryInfo si)
         {
@@ -141,6 +224,36 @@ namespace KlonsA.Classes
             MinusAfterIIN = si._MINUS_AFTER_IIN;
             AdvanceOrDebt = si._ADVANCE;
             Pay = si._PAYT;
+        }
+
+        public void SetFrom(KlonsARepDataSet.SP_REP_AGGREGATERow dr)
+        {
+            WorkDays = dr.WORKDAYS;
+            WorkHours = dr.WORKHOURS;
+            WorkPay = dr.WORKPAY;
+            SickPay = dr.SICKPAY;
+            VacationPay = dr.VACATIONPAY;
+            PlusTaxed = dr.PLUS_TAXED;
+            PlusNotTaxed = dr.PLUS_NOTTAXED;
+            PlusNoSAI = dr.PLUS_NOSAI;
+            PlusAuthorsFees = dr.PLUS_AUTHORS_FEES;
+            TotalPay = dr.TOTALPAY;
+            ForSAI = dr.FORSAI;
+            DDSAI = dr.DDSN_AMOUNT;
+            DNSAI = dr.DNSN_AMOUNT;
+            SAI = DDSAI + DNSAI;
+            UntaxedMinimum = dr.UNTAXED_MINIMUM;
+            ExDependants = dr.IIN_EXEMPT_DEPENDANTS;
+            ExInvalidity = dr.IIN_EXEMPT_INVALIDITY;
+            ExRetaliation = dr.IIN_EXEMPT_RETALIATION;
+            ExNatMovement = dr.IIN_EXEMPT_NATIONAL_MOVEMENT;
+            ExExpenses = dr.IIN_EXEMPT_EXPENSES;
+            IIN = dr.IIN_AMOUNT;
+            MinusBeforeIIN = dr.MINUS_BEFORE_IIN;
+            MinusAfterIIN = dr.MINUS_AFTER_IIN;
+            Pay = dr.PAY;
+            AdvanceOrDebt = dr.ADVANCE;
+            PayT = dr.PAYT;
         }
 
     }

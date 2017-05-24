@@ -190,11 +190,11 @@ namespace KlonsA.Classes
             return vr;
         }
 
-        public bool IsSummedTimeRate(SalarySheetRowInfo srs)
+        public bool IsAggregatedTimeRate(SalarySheetRowInfo srs)
         {
             var sr = srs.IsSingleRow() ? srs : srs.SalarySheetRowSet.LinkedRows[0];
             var posr = sr.PositionsR.LinkedPeriods[0].Item1 as KlonsADataSet.POSITIONS_RRow;
-            return posr.XRateType == ESalaryType.Hour;
+            return posr.XRateType == ESalaryType.Aggregated;
         }
 
         public ErrorList CalcVacationDays2(SalarySheetRowInfo srs, VacationCalcInfo[] vcs)
@@ -289,7 +289,7 @@ namespace KlonsA.Classes
             decimal r = 0.0M;
 
             decimal _AvPayRate = AvPayRateDay;
-            if (IsSummedTimeRate(srs)) _AvPayRate = AvPayRateCalendarDay;
+            if (IsAggregatedTimeRate(srs)) _AvPayRate = AvPayRateCalendarDay;
             vt.AvPayRate = _AvPayRate;
 
             caldays = 0;

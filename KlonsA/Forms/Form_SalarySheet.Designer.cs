@@ -31,6 +31,9 @@ namespace KlonsA.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SalarySheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,7 +43,6 @@ namespace KlonsA.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.salaryData1 = new DataObjectsA.SalaryData();
             this.bsLapas = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsSarR = new KlonsLIB.Data.MyBindingSource2(this.components);
@@ -220,16 +222,6 @@ namespace KlonsA.Forms
             this.grbIsInAvpay = new KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox();
             this.splitContainer2 = new KlonsLIB.Components.MySplitContainer();
             this.dgvLapa = new KlonsLIB.Components.MyDataGridView();
-            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGCsARsALARY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPapildsummas = new KlonsLIB.Components.MyDataGridView();
             this.dgcPsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -259,6 +251,18 @@ namespace KlonsA.Forms
             this.bezAmatiemArParakstiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.miShoeBonusList = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGCsARsALARY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR2)).BeginInit();
@@ -280,6 +284,593 @@ namespace KlonsA.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgvPapildsummas)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // salaryData1
+            // 
+            this.salaryData1._ACCIDENT_DAYS = 0;
+            this.salaryData1._ACCIDENT_PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._ADJUSTED_AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._ADVANCE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AMOUNT_BEFORE_IIN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AMOUNT_BEFORE_IIN_REVERSE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AMOUNT_BEFORE_SN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AMOUNT_BEFORE_SN_REVERSE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AVERAGE_INCOME_DAYS = 0;
+            this.salaryData1._AVERAGE_INCOME_PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AVPAYCALC_CALDAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AVPAYCALC_DAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._AVPAYCALC_HOUR = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._BUSINESS_TRIP_DAYS = 0;
+            this.salaryData1._BUSINESS_TRIP_PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._CALENDAR_DAYS = 0;
+            this.salaryData1._CALENDAR_DAYS_USE = 0;
+            this.salaryData1._COMMENTS = null;
+            this.salaryData1._DDSN_AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._DDSN_AMOUNT_REVERSE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._DNSN_AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._DNSN_AMOUNT_REVERSE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._FACT_AVPAY_FREE_DAYS = 0;
+            this.salaryData1._FACT_AVPAY_FREE_HOURS = 0F;
+            this.salaryData1._FACT_AVPAY_HOLIDAYS_HOURS = 0F;
+            this.salaryData1._FACT_AVPAY_HOLIDAYS_HOURS_OVERT = 0F;
+            this.salaryData1._FACT_AVPAY_HOURS = 0F;
+            this.salaryData1._FACT_AVPAY_HOURS_OVERTIME = 0F;
+            this.salaryData1._FACT_AVPAY_WORK_DAYS = 0;
+            this.salaryData1._FACT_AVPAY_WORKINHOLIDAYS = 0;
+            this.salaryData1._FACT_DAYS = 0;
+            this.salaryData1._FACT_HOLIDAYS_DAYS = 0;
+            this.salaryData1._FACT_HOLIDAYS_HOURS = 0F;
+            this.salaryData1._FACT_HOLIDAYS_HOURS_NIGHT = 0F;
+            this.salaryData1._FACT_HOLIDAYS_HOURS_OVERTIME = 0F;
+            this.salaryData1._FACT_HOURS = 0F;
+            this.salaryData1._FACT_HOURS_NIGHT = 0F;
+            this.salaryData1._FACT_HOURS_OVERTIME = 0F;
+            this.salaryData1._FACT_WORK_DAYS = 0;
+            this.salaryData1._FACT_WORK_HOURS = 0F;
+            this.salaryData1._FACT_WORK_HOURS_NIGHT = 0F;
+            this.salaryData1._FACT_WORK_HOURS_OVERTIME = 0F;
+            this.salaryData1._FNAME = null;
+            this.salaryData1._FORAVPAYCALC_BRUTO = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._FORAVPAYCALC_DAYS = 0;
+            this.salaryData1._FORAVPAYCALC_HOURS = 0F;
+            this.salaryData1._FORAVPAYCALC_PAYOUT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._ID = 0;
+            this.salaryData1._IDAM = null;
+            this.salaryData1._IDP = 0;
+            this.salaryData1._IDS = null;
+            this.salaryData1._IDST = null;
+            this.salaryData1._IDSX = null;
+            this.salaryData1._IIN_AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_AMOUNT_REVERSE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_2 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_20 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_2TP = ((short)(0));
+            this.salaryData1._IIN_EXEMPT_DEPENDANTS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_DEPENDANTS0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_EXPENSES = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_INVALIDITY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_INVALIDITY0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_NATIONAL_MOVEMENT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_NATIONAL_MOVEMENT0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_RETALIATION = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_RETALIATION0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_UNTAXED_MINIMUM = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IIN_EXEMPT_UNTAXED_MINIMUM0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._IS_TEMP = ((short)(0));
+            this.salaryData1._LNAME = null;
+            this.salaryData1._MINUS_AFTER_IIN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._MINUS_BEFORE_IIN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._MONTH_WORKDAYS = 0;
+            this.salaryData1._MONTH_WORKHOURS = 0F;
+            this.salaryData1._PAID_HOLIDAYS = 0;
+            this.salaryData1._PAID_HOLIDAYS_PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PAY_DATE = new System.DateTime(((long)(0)));
+            this.salaryData1._PAY0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PAYT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLAN_DAYS = 0;
+            this.salaryData1._PLAN_HOLIDAYS_DAYS = 0;
+            this.salaryData1._PLAN_HOLIDAYS_HOURS = 0F;
+            this.salaryData1._PLAN_HOLIDAYS_HOURS_NIGHT = 0F;
+            this.salaryData1._PLAN_HOLIDAYS_HOURS_OVERTIME = 0F;
+            this.salaryData1._PLAN_HOURS = 0F;
+            this.salaryData1._PLAN_HOURS_NIGHT = 0F;
+            this.salaryData1._PLAN_HOURS_OVERTIME = 0F;
+            this.salaryData1._PLAN_WORK_DAYS = 0;
+            this.salaryData1._PLAN_WORK_HOURS = 0F;
+            this.salaryData1._PLAN_WORK_HOURS_NIGHT = 0F;
+            this.salaryData1._PLAN_WORK_HOURS_OVERTIME = 0F;
+            this.salaryData1._PLUS_AUTHORS_FEES = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_HI_NOTTAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_HI_TAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_LI_NOTTAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_LI_TAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_NOSAI = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_NOT_PAID = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_NOTTAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_NP_NOSAI = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_NP_NOTTAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_NP_TAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_PF_NOTTAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_PF_TAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._PLUS_TAXED = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._POSITION_TITLE = null;
+            this.salaryData1._R_HR = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_HR_HOLIDAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_HR_HOLIDAY_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_HR_HOLIDAY_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_HR_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_HR_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_HR_TYPE = ((short)(0));
+            this.salaryData1._R_MT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_MT_HOLIDAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_MT_HOLIDAY_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_MT_HOLIDAY_NIGHT_TYPE = ((short)(0));
+            this.salaryData1._R_MT_HOLIDAY_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_MT_HOLIDAY_OVERTIME_TYPE = ((short)(0));
+            this.salaryData1._R_MT_HOLIDAY_TYPE = ((short)(0));
+            this.salaryData1._R_MT_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_MT_NIGHT_TYPE = ((short)(0));
+            this.salaryData1._R_MT_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._R_MT_OVERTIME_TYPE = ((short)(0));
+            this.salaryData1._R_TYPE = ((short)(0));
+            this.salaryData1._RATE_DDSN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._RATE_DNSN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._RATE_IIN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_AVPAY_FREE_DAYS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_AVPAY_HOLIDAYS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_AVPAY_HOLIDAYS_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_AVPAY_WORK_DAYS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_AVPAY_WORK_DAYS_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_DAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_HOLIDAYS_DAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_HOLIDAYS_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_HOLIDAYS_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_OVERTIME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_PAID_HOLIDAYS_DAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_PAID_HOLIDAYS_NIGHT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SALARY_PIECEWORK = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SICKDAYS = 0;
+            this.salaryData1._SICKDAYS_PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SN_AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SN_MAX_AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._SNR = 0;
+            this.salaryData1._TERRITORIAL_CODE = null;
+            this.salaryData1._TOTAL_BEFORE_TAXES = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._URVN_AMAOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_ADVANCE_CURRENT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_ADVANCE_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_ADVANCE_PREV = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_CASH_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_DAYS_CURRENT = 0F;
+            this.salaryData1._VACATION_DAYS_NEXT = 0F;
+            this.salaryData1._VACATION_DDS_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_DDS_PREV = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_DNS_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_DNS_PREV = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_HOURS_CURRENT = 0F;
+            this.salaryData1._VACATION_HOURS_NEXT = 0F;
+            this.salaryData1._VACATION_IIN_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_IIN_PREV = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_IIN_REDUCE_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_PAY_CURRENT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_PAY_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_PAY_PREV = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._WITHHOLD_FROM_PAY = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
             // 
             // bsLapas
             // 
@@ -1296,7 +1887,6 @@ namespace KlonsA.Forms
             // 
             // grtInt
             // 
-            this.grtInt.DataMember = null;
             this.grtInt.Name = "grtInt";
             this.grtInt.ReadOnly = true;
             this.grtInt.RowTitle = null;
@@ -1304,7 +1894,6 @@ namespace KlonsA.Forms
             // 
             // grtInt16
             // 
-            this.grtInt16.DataMember = null;
             this.grtInt16.Name = "grtInt16";
             this.grtInt16.ReadOnly = true;
             this.grtInt16.RowTitle = null;
@@ -1312,7 +1901,6 @@ namespace KlonsA.Forms
             // 
             // grtDouble
             // 
-            this.grtDouble.DataMember = null;
             this.grtDouble.Name = "grtDouble";
             this.grtDouble.ReadOnly = true;
             this.grtDouble.RowTitle = null;
@@ -1320,14 +1908,12 @@ namespace KlonsA.Forms
             // 
             // grDecimal
             // 
-            this.grDecimal.DataMember = null;
             this.grDecimal.Name = "grDecimal";
             this.grDecimal.RowTitle = null;
             this.grDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grString
             // 
-            this.grString.DataMember = null;
             this.grString.Name = "grString";
             this.grString.ReadOnly = true;
             this.grString.RowTitle = null;
@@ -1335,6 +1921,7 @@ namespace KlonsA.Forms
             // 
             // grDecimalProc
             // 
+            this.grDecimalProc.DataMember = null;
             this.grDecimalProc.FormatString = "0.00\\%";
             this.grDecimalProc.Name = "grDecimalProc";
             this.grDecimalProc.ReadOnly = true;
@@ -1343,11 +1930,35 @@ namespace KlonsA.Forms
             // 
             // grSingle
             // 
-            this.grSingle.DataMember = null;
             this.grSingle.Name = "grSingle";
             this.grSingle.ReadOnly = true;
             this.grSingle.RowTitle = null;
             this.grSingle.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Single;
+            // 
+            // bonusData1
+            // 
+            this.bonusData1._AMOUNT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.bonusData1._DESCR = null;
+            this.bonusData1._ID = 0;
+            this.bonusData1._IDA = null;
+            this.bonusData1._IDAP = null;
+            this.bonusData1._IDIE = null;
+            this.bonusData1._IDNO = null;
+            this.bonusData1._IDP = 0;
+            this.bonusData1._IDSV = 1;
+            this.bonusData1._IDSX = 0;
+            this.bonusData1._IS_INAVPAY = ((short)(0));
+            this.bonusData1._IS_PAID = ((short)(0));
+            this.bonusData1._RATE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.bonusData1._RATE_TYPE = ((short)(0));
             // 
             // grbTitle
             // 
@@ -2129,7 +2740,6 @@ namespace KlonsA.Forms
             // 
             // grDecimalReadOnly
             // 
-            this.grDecimalReadOnly.DataMember = null;
             this.grDecimalReadOnly.Name = "grDecimalReadOnly";
             this.grDecimalReadOnly.ReadOnly = true;
             this.grDecimalReadOnly.RowTitle = null;
@@ -2141,7 +2751,7 @@ namespace KlonsA.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(332, 351);
+            this.tabPage2.Size = new System.Drawing.Size(332, 384);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2170,7 +2780,7 @@ namespace KlonsA.Forms
             this.sgrBonus.RowList.Add(this.grbTitle2);
             this.sgrBonus.RowList.Add(this.grbDescr2);
             this.sgrBonus.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.sgrBonus.Size = new System.Drawing.Size(332, 351);
+            this.sgrBonus.Size = new System.Drawing.Size(332, 384);
             this.sgrBonus.TabIndex = 0;
             this.sgrBonus.TabStop = true;
             this.sgrBonus.ToolTipText = "";
@@ -2265,6 +2875,8 @@ namespace KlonsA.Forms
             this.dgcSarSNAmount,
             this.dgcSarIIN,
             this.dgcSarPay,
+            this.dgcSarAdvance,
+            this.dgcSarPayT,
             this.iDDataGridViewTextBoxColumn});
             this.dgvLapa.DataSource = this.bsSarR;
             this.dgvLapa.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2277,113 +2889,6 @@ namespace KlonsA.Forms
             this.dgvLapa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLapa_CellFormatting);
             this.dgvLapa.Enter += new System.EventHandler(this.dgvLapa_Enter);
             // 
-            // dgcSarSnr
-            // 
-            this.dgcSarSnr.DataPropertyName = "SNR";
-            this.dgcSarSnr.Frozen = true;
-            this.dgcSarSnr.HeaderText = "npk.";
-            this.dgcSarSnr.Name = "dgcSarSnr";
-            this.dgcSarSnr.ReadOnly = true;
-            this.dgcSarSnr.Width = 40;
-            // 
-            // dgcSarName
-            // 
-            this.dgcSarName.DataPropertyName = "ZNAME";
-            this.dgcSarName.Frozen = true;
-            this.dgcSarName.HeaderText = "darbineiks";
-            this.dgcSarName.Name = "dgcSarName";
-            this.dgcSarName.ReadOnly = true;
-            this.dgcSarName.Width = 180;
-            // 
-            // dgcSarFactDays
-            // 
-            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcSarFactDays.HeaderText = "dienas";
-            this.dgcSarFactDays.Name = "dgcSarFactDays";
-            this.dgcSarFactDays.ReadOnly = true;
-            this.dgcSarFactDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarFactDays.Width = 60;
-            // 
-            // dgcSarsFactHours
-            // 
-            this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcSarsFactHours.HeaderText = "stundas";
-            this.dgcSarsFactHours.Name = "dgcSarsFactHours";
-            this.dgcSarsFactHours.ReadOnly = true;
-            this.dgcSarsFactHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarsFactHours.Width = 60;
-            // 
-            // DGCsARsALARY
-            // 
-            this.DGCsARsALARY.DataPropertyName = "SALARY";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.DGCsARsALARY.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DGCsARsALARY.HeaderText = "par darbu";
-            this.DGCsARsALARY.Name = "DGCsARsALARY";
-            this.DGCsARsALARY.ReadOnly = true;
-            this.DGCsARsALARY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DGCsARsALARY.Width = 80;
-            // 
-            // dgcSarTotalBeforeTaxes
-            // 
-            this.dgcSarTotalBeforeTaxes.DataPropertyName = "TOTAL_BEFORE_TAXES";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.dgcSarTotalBeforeTaxes.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcSarTotalBeforeTaxes.HeaderText = "ieņ. kopā";
-            this.dgcSarTotalBeforeTaxes.Name = "dgcSarTotalBeforeTaxes";
-            this.dgcSarTotalBeforeTaxes.ReadOnly = true;
-            this.dgcSarTotalBeforeTaxes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarTotalBeforeTaxes.Width = 80;
-            // 
-            // dgcSarSNAmount
-            // 
-            this.dgcSarSNAmount.DataPropertyName = "SN_AMOUNT";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.dgcSarSNAmount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcSarSNAmount.HeaderText = "SI";
-            this.dgcSarSNAmount.Name = "dgcSarSNAmount";
-            this.dgcSarSNAmount.ReadOnly = true;
-            this.dgcSarSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarSNAmount.Width = 80;
-            // 
-            // dgcSarIIN
-            // 
-            this.dgcSarIIN.DataPropertyName = "IIN_AMOUNT";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.dgcSarIIN.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgcSarIIN.HeaderText = "IIN";
-            this.dgcSarIIN.Name = "dgcSarIIN";
-            this.dgcSarIIN.ReadOnly = true;
-            this.dgcSarIIN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarIIN.Width = 80;
-            // 
-            // dgcSarPay
-            // 
-            this.dgcSarPay.DataPropertyName = "PAY";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.dgcSarPay.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgcSarPay.HeaderText = "izmaksai";
-            this.dgcSarPay.Name = "dgcSarPay";
-            this.dgcSarPay.ReadOnly = true;
-            this.dgcSarPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarPay.Width = 80;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
             // dgvPapildsummas
             // 
             this.dgvPapildsummas.AllowUserToAddRows = false;
@@ -2391,14 +2896,14 @@ namespace KlonsA.Forms
             this.dgvPapildsummas.AutoGenerateColumns = false;
             this.dgvPapildsummas.AutoSave = false;
             this.dgvPapildsummas.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPapildsummas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPapildsummas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvPapildsummas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPapildsummas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgcPsDescr,
@@ -2434,10 +2939,10 @@ namespace KlonsA.Forms
             // dgcPsRate
             // 
             this.dgcPsRate.DataPropertyName = "RATE";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.dgcPsRate.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.dgcPsRate.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgcPsRate.HeaderText = "likme";
             this.dgcPsRate.Name = "dgcPsRate";
             this.dgcPsRate.Visible = false;
@@ -2456,9 +2961,9 @@ namespace KlonsA.Forms
             // dgcPsAmount
             // 
             this.dgcPsAmount.DataPropertyName = "AMOUNT";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            this.dgcPsAmount.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.dgcPsAmount.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgcPsAmount.HeaderText = "summa";
             this.dgcPsAmount.Name = "dgcPsAmount";
             this.dgcPsAmount.ReadOnly = true;
@@ -2660,6 +3165,136 @@ namespace KlonsA.Forms
             this.miShoeBonusList.Size = new System.Drawing.Size(402, 30);
             this.miShoeBonusList.Text = "Rādīt piemaksu / atvilkumu sarakstu";
             this.miShoeBonusList.Click += new System.EventHandler(this.miShoeBonusList_Click);
+            // 
+            // dgcSarSnr
+            // 
+            this.dgcSarSnr.DataPropertyName = "SNR";
+            this.dgcSarSnr.Frozen = true;
+            this.dgcSarSnr.HeaderText = "npk.";
+            this.dgcSarSnr.Name = "dgcSarSnr";
+            this.dgcSarSnr.ReadOnly = true;
+            this.dgcSarSnr.Width = 40;
+            // 
+            // dgcSarName
+            // 
+            this.dgcSarName.DataPropertyName = "ZNAME";
+            this.dgcSarName.Frozen = true;
+            this.dgcSarName.HeaderText = "darbineiks";
+            this.dgcSarName.Name = "dgcSarName";
+            this.dgcSarName.ReadOnly = true;
+            this.dgcSarName.Width = 180;
+            // 
+            // dgcSarFactDays
+            // 
+            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcSarFactDays.HeaderText = "dienas";
+            this.dgcSarFactDays.Name = "dgcSarFactDays";
+            this.dgcSarFactDays.ReadOnly = true;
+            this.dgcSarFactDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarFactDays.Width = 60;
+            // 
+            // dgcSarsFactHours
+            // 
+            this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcSarsFactHours.HeaderText = "stundas";
+            this.dgcSarsFactHours.Name = "dgcSarsFactHours";
+            this.dgcSarsFactHours.ReadOnly = true;
+            this.dgcSarsFactHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarsFactHours.Width = 60;
+            // 
+            // DGCsARsALARY
+            // 
+            this.DGCsARsALARY.DataPropertyName = "SALARY";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.DGCsARsALARY.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DGCsARsALARY.HeaderText = "par darbu";
+            this.DGCsARsALARY.Name = "DGCsARsALARY";
+            this.DGCsARsALARY.ReadOnly = true;
+            this.DGCsARsALARY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DGCsARsALARY.Width = 80;
+            // 
+            // dgcSarTotalBeforeTaxes
+            // 
+            this.dgcSarTotalBeforeTaxes.DataPropertyName = "TOTAL_BEFORE_TAXES";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.dgcSarTotalBeforeTaxes.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgcSarTotalBeforeTaxes.HeaderText = "ieņ. kopā";
+            this.dgcSarTotalBeforeTaxes.Name = "dgcSarTotalBeforeTaxes";
+            this.dgcSarTotalBeforeTaxes.ReadOnly = true;
+            this.dgcSarTotalBeforeTaxes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarTotalBeforeTaxes.Width = 80;
+            // 
+            // dgcSarSNAmount
+            // 
+            this.dgcSarSNAmount.DataPropertyName = "SN_AMOUNT";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.dgcSarSNAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcSarSNAmount.HeaderText = "SI";
+            this.dgcSarSNAmount.Name = "dgcSarSNAmount";
+            this.dgcSarSNAmount.ReadOnly = true;
+            this.dgcSarSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarSNAmount.Width = 80;
+            // 
+            // dgcSarIIN
+            // 
+            this.dgcSarIIN.DataPropertyName = "IIN_AMOUNT";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.dgcSarIIN.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcSarIIN.HeaderText = "IIN";
+            this.dgcSarIIN.Name = "dgcSarIIN";
+            this.dgcSarIIN.ReadOnly = true;
+            this.dgcSarIIN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarIIN.Width = 80;
+            // 
+            // dgcSarPay
+            // 
+            this.dgcSarPay.DataPropertyName = "PAY";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            this.dgcSarPay.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgcSarPay.HeaderText = "izmaksai";
+            this.dgcSarPay.Name = "dgcSarPay";
+            this.dgcSarPay.ReadOnly = true;
+            this.dgcSarPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarPay.Width = 80;
+            // 
+            // dgcSarAdvance
+            // 
+            this.dgcSarAdvance.DataPropertyName = "ADVANCE";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarAdvance.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgcSarAdvance.HeaderText = "avansā";
+            this.dgcSarAdvance.Name = "dgcSarAdvance";
+            this.dgcSarAdvance.ReadOnly = true;
+            this.dgcSarAdvance.ToolTipText = "Avansā izmaksājamā summa";
+            this.dgcSarAdvance.Width = 80;
+            // 
+            // dgcSarPayT
+            // 
+            this.dgcSarPayT.DataPropertyName = "PAYT";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            this.dgcSarPayT.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgcSarPayT.HeaderText = "kopā izm.";
+            this.dgcSarPayT.Name = "dgcSarPayT";
+            this.dgcSarPayT.ReadOnly = true;
+            this.dgcSarPayT.Width = 80;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
             // 
             // Form_SalarySheet
             // 
@@ -2895,16 +3530,6 @@ namespace KlonsA.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem miShoeBonusList;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grPlusNPNotTaxed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarSnr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarFactDays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarsFactHours;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DGCsARsALARY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarTotalBeforeTaxes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarSNAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarIIN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox grbIsPaid;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox grbIsInAvpay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsDescr;
@@ -2926,5 +3551,17 @@ namespace KlonsA.Forms
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grCalendarDaysUse;
         private System.Windows.Forms.ToolStripMenuItem arAmatiemBezParakstiemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bezAmatiemArParakstiemToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarSnr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarFactDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarsFactHours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DGCsARsALARY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarTotalBeforeTaxes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarSNAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarIIN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarAdvance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarPayT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
     }
 }

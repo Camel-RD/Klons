@@ -13,6 +13,7 @@ namespace KlonsA.Classes
         Month,
         Day,
         Hour,
+        Aggregated,
         Piece
     }
 

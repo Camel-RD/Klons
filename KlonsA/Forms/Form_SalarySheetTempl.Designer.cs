@@ -58,17 +58,17 @@ namespace KlonsA.Forms
             this.dgcShLId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsShL = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgvShR = new KlonsLIB.Components.MyDataGridView();
-            this.dgcShRSNR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcShRIdP = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsPers = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcShRIdAM = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsAmati = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcShRId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcShRIdS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsShR = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.bsDep2 = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsAmatiF = new KlonsLIB.Data.MyBindingSource(this.components);
             this.myAdapterManager1 = new KlonsLIB.Data.MyAdapterManager();
+            this.dgcShRSNR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcShRIdP = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcShRIdAM = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcShRId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcShRIdS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bnavSh)).BeginInit();
             this.bnavSh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -118,7 +118,7 @@ namespace KlonsA.Forms
             this.bnavSh.Name = "bnavSh";
             this.bnavSh.PositionItem = this.bindingNavigatorPositionItem;
             this.bnavSh.SaveItem = null;
-            this.bnavSh.Size = new System.Drawing.Size(734, 32);
+            this.bnavSh.Size = new System.Drawing.Size(721, 32);
             this.bnavSh.TabIndex = 0;
             this.bnavSh.Text = "myBindingNavigator1";
             this.bnavSh.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavSh_ItemDeleting);
@@ -246,7 +246,7 @@ namespace KlonsA.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvShR);
-            this.splitContainer1.Size = new System.Drawing.Size(734, 409);
+            this.splitContainer1.Size = new System.Drawing.Size(721, 409);
             this.splitContainer1.SplitterDistance = 133;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 1;
@@ -278,7 +278,7 @@ namespace KlonsA.Forms
             this.dgvShL.Location = new System.Drawing.Point(0, 0);
             this.dgvShL.Name = "dgvShL";
             this.dgvShL.RowTemplate.Height = 24;
-            this.dgvShL.Size = new System.Drawing.Size(734, 133);
+            this.dgvShL.Size = new System.Drawing.Size(721, 133);
             this.dgvShL.TabIndex = 0;
             this.dgvShL.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvShL_MyKeyDown);
             this.dgvShL.MyCheckForChanges += new System.EventHandler(this.dgvShL_MyCheckForChanges);
@@ -385,7 +385,7 @@ namespace KlonsA.Forms
             this.dgvShR.Location = new System.Drawing.Point(0, 0);
             this.dgvShR.Name = "dgvShR";
             this.dgvShR.RowTemplate.Height = 24;
-            this.dgvShR.Size = new System.Drawing.Size(734, 270);
+            this.dgvShR.Size = new System.Drawing.Size(721, 270);
             this.dgvShR.TabIndex = 0;
             this.dgvShR.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvShR_MyKeyDown);
             this.dgvShR.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvShR_CellBeginEdit);
@@ -394,6 +394,50 @@ namespace KlonsA.Forms
             this.dgvShR.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvShR_DefaultValuesNeeded);
             this.dgvShR.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvShR_UserDeletingRow);
             this.dgvShR.Enter += new System.EventHandler(this.dgvShR_Enter);
+            // 
+            // bsPers
+            // 
+            this.bsPers.DataMember = "PERSONS";
+            this.bsPers.MyDataSource = "KlonsData";
+            this.bsPers.Name2 = "bsPers";
+            this.bsPers.Sort = "ZNAME";
+            // 
+            // bsAmati
+            // 
+            this.bsAmati.DataMember = "POSITIONS";
+            this.bsAmati.Filter = "USED=1";
+            this.bsAmati.MyDataSource = "KlonsData";
+            this.bsAmati.Sort = "ID";
+            // 
+            // bsShR
+            // 
+            this.bsShR.DataMember = "FK_SALARY_SHEET_TEMPL_R_IDS";
+            this.bsShR.DataSource = this.bsShL;
+            this.bsShR.Name2 = "bsShR";
+            this.bsShR.Sort = "SNR";
+            this.bsShR.UseDataGridView = this.dgvShR;
+            this.bsShR.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsShR_ListChanged);
+            // 
+            // bsDep2
+            // 
+            this.bsDep2.DataMember = "DEPARTMENTS";
+            this.bsDep2.MyDataSource = "KlonsData";
+            this.bsDep2.Name2 = "bsDep2";
+            // 
+            // bsAmatiF
+            // 
+            this.bsAmatiF.DataMember = "POSITIONS";
+            this.bsAmatiF.Filter = "USED=1";
+            this.bsAmatiF.MyDataSource = "KlonsData";
+            this.bsAmatiF.Sort = "ID";
+            // 
+            // myAdapterManager1
+            // 
+            this.myAdapterManager1.MyDataSource = "KlonsData";
+            this.myAdapterManager1.TableNames = new string[] {
+        "SALARY_SHEET_TEMPL",
+        "SALARY_SHEET_TEMPL_R",
+        null};
             // 
             // dgcShRSNR
             // 
@@ -418,13 +462,6 @@ namespace KlonsA.Forms
             this.dgcShRIdP.ValueMember = "ID";
             this.dgcShRIdP.Width = 300;
             // 
-            // bsPers
-            // 
-            this.bsPers.DataMember = "PERSONS";
-            this.bsPers.MyDataSource = "KlonsData";
-            this.bsPers.Name2 = "bsPers";
-            this.bsPers.Sort = "ZNAME";
-            // 
             // dgcShRIdAM
             // 
             this.dgcShRIdAM.DataPropertyName = "IDAM";
@@ -438,14 +475,6 @@ namespace KlonsA.Forms
             this.dgcShRIdAM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcShRIdAM.ValueMember = "ID";
             this.dgcShRIdAM.Width = 200;
-            // 
-            // bsAmati
-            // 
-            this.bsAmati.DataMember = "POSITIONS";
-            this.bsAmati.Filter = "USED=1";
-            this.bsAmati.MyDataSource = "KlonsData";
-            this.bsAmati.Name2 = null;
-            this.bsAmati.Sort = "ID";
             // 
             // dgcShRId
             // 
@@ -463,42 +492,11 @@ namespace KlonsA.Forms
             this.dgcShRIdS.Visible = false;
             this.dgcShRIdS.Width = 40;
             // 
-            // bsShR
-            // 
-            this.bsShR.DataMember = "FK_SALARY_SHEET_TEMPL_R_IDS";
-            this.bsShR.DataSource = this.bsShL;
-            this.bsShR.Name2 = "bsShR";
-            this.bsShR.Sort = "SNR";
-            this.bsShR.UseDataGridView = this.dgvShR;
-            this.bsShR.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsShR_ListChanged);
-            // 
-            // bsDep2
-            // 
-            this.bsDep2.DataMember = "DEPARTMENTS";
-            this.bsDep2.MyDataSource = "KlonsData";
-            this.bsDep2.Name2 = "bsDep2";
-            // 
-            // bsAmatiF
-            // 
-            this.bsAmatiF.DataMember = "POSITIONS";
-            this.bsAmatiF.Filter = "USED=1";
-            this.bsAmatiF.MyDataSource = "KlonsData";
-            this.bsAmatiF.Name2 = null;
-            this.bsAmatiF.Sort = "ID";
-            // 
-            // myAdapterManager1
-            // 
-            this.myAdapterManager1.MyDataSource = "KlonsData";
-            this.myAdapterManager1.TableNames = new string[] {
-        "SALARY_SHEET_TEMPL",
-        "SALARY_SHEET_TEMPL_R",
-        null};
-            // 
             // Form_SalarySheetTempl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 441);
+            this.ClientSize = new System.Drawing.Size(721, 441);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.bnavSh);
             this.Name = "Form_SalarySheetTempl";

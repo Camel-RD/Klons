@@ -172,10 +172,10 @@ namespace KlonsA.Classes
             return new ErrorList();
         }
 
-        public bool IsSummedTimeRate(SalarySheetRowInfo sr)
+        public bool IsAggregatedTimeRate(SalarySheetRowInfo sr)
         {
             var posr = sr.PositionsR.LinkedPeriods[0].Item1 as KlonsADataSet.POSITIONS_RRow;
-            return posr.XRateType == ESalaryType.Hour;
+            return posr.XRateType == ESalaryType.Aggregated;
         }
 
 
@@ -253,7 +253,7 @@ namespace KlonsA.Classes
             if (err.HasErrors) return err;
 
             decimal _AvPayRate = AvPayRateDay;
-            if (IsSummedTimeRate(srs.LinkedRows[0])) _AvPayRate = AvPayRateCalendarDay;
+            if (IsAggregatedTimeRate(srs.LinkedRows[0])) _AvPayRate = AvPayRateCalendarDay;
             TotalRow.AvPayRate = _AvPayRate;
 
             TotalRow.SickDayPay75 = KlonsData.RoundA(_AvPayRate * TotalRow.DaysCount75 * 0.75M, 2);
@@ -336,7 +336,7 @@ namespace KlonsA.Classes
             if (err.HasErrors) return err;
 
             decimal _AvPayRate = AvPayRateDay;
-            if (IsSummedTimeRate(sr)) _AvPayRate = AvPayRateCalendarDay;
+            if (IsAggregatedTimeRate(sr)) _AvPayRate = AvPayRateCalendarDay;
             TotalRow.AvPayRate = _AvPayRate;
 
             if (totalsdci == null)

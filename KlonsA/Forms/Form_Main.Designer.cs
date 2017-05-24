@@ -90,6 +90,8 @@
             this.ziņasParDarbaŅēmējiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ziņojumsParVSAOIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmkopsavilkumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.kopsavilkumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aprakstsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -547,6 +549,8 @@
             // atskaitesToolStripMenuItem
             // 
             this.atskaitesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kopsavilkumsToolStripMenuItem,
+            this.toolStripSeparator12,
             this.ziņasParDarbaŅēmējiemToolStripMenuItem,
             this.ziņojumsParVSAOIToolStripMenuItem,
             this.paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmkopsavilkumsToolStripMenuItem});
@@ -575,6 +579,18 @@
             this.paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmkopsavilkumsToolStripMenuItem.Size = new System.Drawing.Size(617, 30);
             this.paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmkopsavilkumsToolStripMenuItem.Text = "Paziņojums par fiziskajām personām izmaksātajām summām";
             this.paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmkopsavilkumsToolStripMenuItem.Click += new System.EventHandler(this.paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(614, 6);
+            // 
+            // kopsavilkumsToolStripMenuItem
+            // 
+            this.kopsavilkumsToolStripMenuItem.Name = "kopsavilkumsToolStripMenuItem";
+            this.kopsavilkumsToolStripMenuItem.Size = new System.Drawing.Size(617, 30);
+            this.kopsavilkumsToolStripMenuItem.Text = "Kopsavilkums";
+            this.kopsavilkumsToolStripMenuItem.Click += new System.EventHandler(this.kopsavilkumsToolStripMenuItem_Click);
             // 
             // logiToolStripMenuItem
             // 
@@ -721,6 +737,8 @@
         private System.Windows.Forms.ToolStripMenuItem miRepStats;
         private KlonsLIB.Components.ADownloader aDownloader1;
         private System.Windows.Forms.ToolStripMenuItem svarīgākieTaustiņiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripMenuItem kopsavilkumsToolStripMenuItem;
     }
 }
 

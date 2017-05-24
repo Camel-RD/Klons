@@ -353,5 +353,18 @@ namespace KlonsA.Forms
             CheckSave();
         }
 
+        private void RenumRows()
+        {
+            for (int i = 0; i < bsShR.Count; i++)
+            {
+                var dr = (bsShR[i] as DataRowView).Row as KlonsADataSet.PAYLIST_TEMPL_RRow;
+                if (dr.SNR != (short)(i + 1)) dr.SNR = (short)(i + 1);
+            }
+        }
+
+        private void tsbRenum_Click(object sender, EventArgs e)
+        {
+            RenumRows();
+        }
     }
 }

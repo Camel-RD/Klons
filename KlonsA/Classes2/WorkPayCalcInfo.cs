@@ -93,6 +93,11 @@ namespace KlonsA.Classes
                         wt.GetRateDefs(dr_amati_r, TotalRow._MONTH_WORKDAYS, TotalRow._MONTH_WORKHOURS);
                         CalcPayWithHourRate(wt, dr_amati_r);
                         break;
+                    case ESalaryType.Aggregated:
+                        wt.GetRateDefs(dr_amati_r, TotalRow._MONTH_WORKDAYS, TotalRow._MONTH_WORKHOURS);
+                        CalcPayWithoutAvPay(wt, dr_amati_r);
+                        AvPayCalcRequired = true;
+                        break;
                     case ESalaryType.Piece:
                         CalcPayWithoutAvPay(wt, dr_amati_r);
                         AvPayCalcRequired = true;
@@ -227,10 +232,19 @@ namespace KlonsA.Classes
             return err;
         }
 
+        public bool IsAggregatedTimeRate(SalarySheetRowInfo sr)
+        {
+            var posr = sr.PositionsR.LinkedPeriods[0].Item1 as KlonsADataSet.POSITIONS_RRow;
+            return posr.XRateType == ESalaryType.Aggregated;
+        }
+
         public ErrorList DoAvPay(SalarySheetRowInfo sr, SalaryInfo wt, SalaryInfo totalwt = null)
         {
             var err = GatAvPay(sr);
             if (err.HasErrors) return err;
+
+            decimal _AvPayRate = AvPayRateDay;
+            if (IsAggregatedTimeRate(sr)) _AvPayRate = AvPayRateCalendarDay;
 
             if (totalwt == null)
             {
@@ -238,37 +252,39 @@ namespace KlonsA.Classes
                 decimal rateh = wt._R_MT_HOLIDAY / 100.0M;
                 decimal rateho = wt._R_MT_HOLIDAY_OVERTIME / 100.0M;
 
-                wt._SALARY_AVPAY_FREE_DAYS += AvPayRateDay * (decimal)wt.FACT_AVPAY_FREE_DAYS_2;
+                wt._SALARY_AVPAY_FREE_DAYS += _AvPayRate * (decimal)wt.FACT_AVPAY_FREE_DAYS_2;
 
-                wt._SALARY_AVPAY_WORK_DAYS += AvPayRateDay * (decimal)wt.FACT_AVPAY_WORK_DAYS_2;
-                wt._SALARY_AVPAY_WORK_DAYS_OVERTIME += AvPayRateDay * rateo * (decimal)wt.FACT_AVPAY_HOURS_OVERTIME_2;
-                wt._SALARY_AVPAY_HOLIDAYS += AvPayRateDay * rateh * (decimal)wt.FACT_AVPAY_WORKINHOLIDAYS_2;
-                wt._SALARY_AVPAY_HOLIDAYS_OVERTIME += AvPayRateDay * rateho * (decimal)wt.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2;
+                wt._SALARY_AVPAY_WORK_DAYS += _AvPayRate * (decimal)wt.FACT_AVPAY_WORK_DAYS_2;
+                wt._SALARY_AVPAY_WORK_DAYS_OVERTIME += _AvPayRate * rateo * (decimal)wt.FACT_AVPAY_HOURS_OVERTIME_2;
+                wt._SALARY_AVPAY_HOLIDAYS += _AvPayRate * rateh * (decimal)wt.FACT_AVPAY_WORKINHOLIDAYS_2;
+                wt._SALARY_AVPAY_HOLIDAYS_OVERTIME += _AvPayRate * rateho * (decimal)wt.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2;
             }
             else
             {
                 if (wt.FACT_AVPAY_FREE_HOURS_2 > 0.0f)
                     wt._SALARY_AVPAY_FREE_DAYS += 
-                        (decimal)wt.FACT_AVPAY_FREE_DAYS_2 / 
-                        (decimal)totalwt.FACT_AVPAY_FREE_DAYS_2 * 
+                        (decimal)wt.FACT_AVPAY_FREE_HOURS_2 / 
+                        (decimal)totalwt.FACT_AVPAY_FREE_HOURS_2 * 
                         totalwt._SALARY_AVPAY_FREE_DAYS;
 
-                if (wt.FACT_AVPAY_WORK_DAYS_2 > 0.0f)
+                if (wt.FACT_AVPAY_HOURS_2 > 0.0f)
                     wt._SALARY_AVPAY_WORK_DAYS += 
-                        (decimal)wt.FACT_AVPAY_WORK_DAYS_2 / 
-                        (decimal)totalwt.FACT_AVPAY_WORK_DAYS_2 * 
+                        (decimal)wt.FACT_AVPAY_HOURS_2 / 
+                        (decimal)totalwt.FACT_AVPAY_HOURS_2 * 
                         totalwt._SALARY_AVPAY_WORK_DAYS;
+
                 if (wt.FACT_AVPAY_HOURS_OVERTIME_2 > 0.0f)
                     wt._SALARY_AVPAY_WORK_DAYS_OVERTIME += 
                         (decimal)wt.FACT_AVPAY_HOURS_OVERTIME_2 /
                         (decimal)totalwt.FACT_AVPAY_HOURS_OVERTIME_2 * 
                         totalwt._SALARY_AVPAY_WORK_DAYS_OVERTIME;
 
-                if (wt.FACT_AVPAY_WORKINHOLIDAYS_2 > 0.0f)
+                if (wt.FACT_AVPAY_HOLIDAYS_HOURS_2 > 0.0f)
                     wt._SALARY_AVPAY_HOLIDAYS += 
-                        (decimal)wt.FACT_AVPAY_WORKINHOLIDAYS_2 / 
-                        (decimal)totalwt.FACT_AVPAY_WORKINHOLIDAYS_2 * 
+                        (decimal)wt.FACT_AVPAY_HOLIDAYS_HOURS_2 / 
+                        (decimal)totalwt.FACT_AVPAY_HOLIDAYS_HOURS_2 * 
                         totalwt._SALARY_AVPAY_HOLIDAYS;
+
                 if (wt.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2 > 0.0f)
                     wt._SALARY_AVPAY_HOLIDAYS_OVERTIME += 
                         (decimal)wt.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2 / 

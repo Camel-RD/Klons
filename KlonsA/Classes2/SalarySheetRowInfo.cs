@@ -331,11 +331,11 @@ namespace KlonsA.Classes
             */
             if (drs_amats_r.Length <= 1) yield break;
             var tp1 = drs_amats_r[0].XRateType;
-            bool b1 = tp1 == ESalaryType.Hour;
+            bool b1 = tp1 == ESalaryType.Aggregated;
             for (int i = 1; i < drs_amats_r.Length; i++)
             {
                 var tp2 = drs_amats_r[i].XRateType;
-                bool b2 = tp2 == ESalaryType.Hour;
+                bool b2 = tp2 == ESalaryType.Aggregated;
                 if (b1 == b2) continue;
                 var dt = drs_amats_r[i].EDIT_DATE;
                 yield return dt;
