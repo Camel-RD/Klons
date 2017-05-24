@@ -662,6 +662,7 @@ namespace KlonsP.Forms
                 var dr_new_event = table_events.NewITEMS_EVENTSRow();
 
                 dr_new_event.IDIT = dr_new_item.ID;
+                dr_new_event.ITEMSRow = dr_new_item;
                 dr_new_event.XEvent = EEvent.iegeks;
                 dr_new_event.DT = fm.itemsEventsData1.fDT;
                 dr_new_event.DTREG = fm.itemsEventsData1.fDT;
@@ -678,6 +679,7 @@ namespace KlonsP.Forms
             }
             Ignore_ITEMS_EVENTS_ColumnChanged--;
             RecalcItem(dr_new_item);
+            SaveData();
             SelectItem(dr_new_item.ID);
         }
 
