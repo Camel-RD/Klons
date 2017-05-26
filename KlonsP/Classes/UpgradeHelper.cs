@@ -13,7 +13,8 @@ namespace KlonsP.Classes
     {
         public static bool CanUseVeriom(string db_ver, string app_ver)
         {
-            return string.Compare(db_ver, app_ver) <= 0;
+            return string.Compare(db_ver, app_ver) <= 0 &&
+                   string.Compare(db_ver, "007") >= 0;
         }
 
         private static string[] dbversions =

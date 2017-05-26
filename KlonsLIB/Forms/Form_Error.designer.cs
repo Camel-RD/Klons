@@ -43,7 +43,7 @@ namespace KlonsLIB.Forms
             this.tbMsg.BackColor = System.Drawing.SystemColors.Control;
             this.tbMsg.BorderColor = System.Drawing.SystemColors.Control;
             this.tbMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.tbMsg.Location = new System.Drawing.Point(43, 10);
+            this.tbMsg.Location = new System.Drawing.Point(60, 10);
             this.tbMsg.Multiline = true;
             this.tbMsg.Name = "tbMsg";
             this.tbMsg.ReadOnly = true;
@@ -59,14 +59,14 @@ namespace KlonsLIB.Forms
             this.tbDescr.Name = "tbDescr";
             this.tbDescr.ReadOnly = true;
             this.tbDescr.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbDescr.Size = new System.Drawing.Size(482, 186);
+            this.tbDescr.Size = new System.Drawing.Size(507, 186);
             this.tbDescr.TabIndex = 3;
             this.tbDescr.WordWrap = false;
             // 
             // cmClose
             // 
             this.cmClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmClose.Location = new System.Drawing.Point(398, 10);
+            this.cmClose.Location = new System.Drawing.Point(421, 8);
             this.cmClose.Name = "cmClose";
             this.cmClose.Size = new System.Drawing.Size(87, 35);
             this.cmClose.TabIndex = 0;
@@ -76,16 +76,17 @@ namespace KlonsLIB.Forms
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::KlonsLIB.Properties.Resources.Error1;
+            this.pictureBox1.Image = global::KlonsLIB.Properties.Resources.error3;
             this.pictureBox1.Location = new System.Drawing.Point(5, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // cmDetails
             // 
-            this.cmDetails.Location = new System.Drawing.Point(398, 61);
+            this.cmDetails.Location = new System.Drawing.Point(421, 59);
             this.cmDetails.Name = "cmDetails";
             this.cmDetails.Size = new System.Drawing.Size(87, 35);
             this.cmDetails.TabIndex = 1;
@@ -98,7 +99,7 @@ namespace KlonsLIB.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmClose;
-            this.ClientSize = new System.Drawing.Size(492, 310);
+            this.ClientSize = new System.Drawing.Size(514, 310);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmDetails);
             this.Controls.Add(this.cmClose);
