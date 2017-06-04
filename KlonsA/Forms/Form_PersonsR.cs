@@ -626,7 +626,7 @@ namespace KlonsA.Forms
             if (IsLoading || InSwitchingTabs || ActiveControl != mySplitContainer1 || !dgvNotikumi.Focused) return;
             if (e.RowIndex == -1 || dgvNotikumi.NewRowIndex == e.RowIndex) return;
             object oidn = dgvNotikumi.CurrentRow.Cells[dgcNotIDN.Index].Value;
-            if (oidn == null)
+            if (oidn == null || oidn == DBNull.Value)
             {
                 e.Cancel = true;
                 return;
@@ -635,6 +635,8 @@ namespace KlonsA.Forms
             bool b = SomeDataDefs.IsFromToEvent(ev);
             object odt1 = dgvNotikumi[dgcNotDate1.Index, e.RowIndex].Value;
             object odt2 = dgvNotikumi[dgcNotDate2.Index, e.RowIndex].Value;
+            if (odt1 == DBNull.Value) odt1 = null;
+            if (odt2 == DBNull.Value) odt2 = null;
             bool baddates = false;
             if (b)
             {
@@ -668,7 +670,8 @@ namespace KlonsA.Forms
             if (b)
             {
                 object odt3 = dgvNotikumi[dgcNotDT3.Index, e.RowIndex].Value;
-                if (odt3 == null || odt3 == DBNull.Value)
+                if (odt3 == DBNull.Value) odt3 = null;
+                if (odt3 == null)
                 {
                     baddates = true;
                 }

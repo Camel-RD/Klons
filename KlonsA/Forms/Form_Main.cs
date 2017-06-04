@@ -417,21 +417,25 @@ namespace KlonsA
 
         private void ziņasParDarbaŅēmējiemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MyData.ReportHelper.WarnIfHasChanges();
             ShowForm(typeof(FormRep_Zinas));
         }
 
         private void ziņojumsParVSAOIToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MyData.ReportHelper.WarnIfHasChanges();
             ShowForm(typeof(FormRep_VSAOI));
         }
 
         private void paziņojumsParFiziskajāmPersonāmIzmaksātajāmSummāmToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MyData.ReportHelper.WarnIfHasChanges();
             ShowForm(typeof(FormRep_IINK));
         }
 
         private void kopsavilkumsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MyData.ReportHelper.WarnIfHasChanges();
             ShowForm(typeof(FormRep_Aggregate));
         }
 

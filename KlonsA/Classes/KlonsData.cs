@@ -19,7 +19,7 @@ namespace KlonsA.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "010";
+        public string Version = "011";
         
         public string SettingsFileName = GetBasePath() + "\\Config\\SettingsA.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterListA.xml";
@@ -353,6 +353,28 @@ namespace KlonsA.Classes
             File.Copy(fnmbase, fnmnew);
             return;
         }
+
+        public bool KlonsDataHasChangesA()
+        {
+            var ds = DataSetKlons;
+            return DataSetHelper.HasChanges(new DataTable[] {
+                ds.SALARY_SHEETS,
+                ds.SALARY_SHEETS_R,
+                ds.TIMESHEET,
+                ds.TIMESHEET_LISTS,
+                ds.TIMESHEET_LISTS_R,
+                ds.PERSONS,
+                ds.PERSONS_R,
+                ds.PERSONS_FIZ,
+                ds.PAYLISTS,
+                ds.PAYLISTS_R,
+                ds.FP_PAYLISTS,
+                ds.FP_PAYLISTS_R,
+                ds.EVENTS,
+                ds.POSITIONS,
+                ds.POSITIONS_R});
+        }
+
 
         public static double RoundA(double d, int k)
         {

@@ -129,6 +129,7 @@ namespace KlonsA.Forms
             this.bnavSar.Name = "bnavSar";
             this.bnavSar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 2);
             this.bnavSar.PositionItem = this.bindingNavigatorPositionItem;
+            this.bnavSar.SaveItem = null;
             this.bnavSar.Size = new System.Drawing.Size(866, 34);
             this.bnavSar.TabIndex = 4;
             this.bnavSar.Text = "myBindingNavigator1";
@@ -139,13 +140,13 @@ namespace KlonsA.Forms
             this.bsSar.DataMember = "SALARY_SHEETS";
             this.bsSar.Filter = "KIND = 0 AND ISFIRSTMT = FALSE";
             this.bsSar.MyDataSource = "KlonsData";
-            this.bsSar.Name2 = null;
             this.bsSar.Sort = "YR,MT,SNR";
             this.bsSar.UseDataGridView = this.dgvSar;
             this.bsSar.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsSar_ListChanged);
             // 
             // dgvSar
             // 
+            this.dgvSar.AllowUserToAddRows = false;
             this.dgvSar.AllowUserToDeleteRows = false;
             this.dgvSar.AutoGenerateColumns = false;
             this.dgvSar.AutoSave = false;
@@ -263,7 +264,6 @@ namespace KlonsA.Forms
             // 
             this.bsDep.DataMember = "DEPARTMENTS";
             this.bsDep.MyDataSource = "KlonsData";
-            this.bsDep.Name2 = null;
             // 
             // dgcIsTemp
             // 
@@ -394,7 +394,6 @@ namespace KlonsA.Forms
             this.bsPersons.DataMember = "PERSONS";
             this.bsPersons.Filter = "USED = 1";
             this.bsPersons.MyDataSource = "KlonsData";
-            this.bsPersons.Name2 = null;
             this.bsPersons.Sort = "LNAME,FNAME";
             // 
             // bsAmati
@@ -402,14 +401,12 @@ namespace KlonsA.Forms
             this.bsAmati.DataMember = "POSITIONS";
             this.bsAmati.Filter = "USED =1";
             this.bsAmati.MyDataSource = "KlonsData";
-            this.bsAmati.Name2 = null;
             // 
             // bsAmatiF
             // 
             this.bsAmatiF.DataMember = "POSITIONS";
             this.bsAmatiF.Filter = "USED =1";
             this.bsAmatiF.MyDataSource = "KlonsData";
-            this.bsAmatiF.Name2 = null;
             // 
             // myAdapterManager1
             // 

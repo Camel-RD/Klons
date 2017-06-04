@@ -8,19 +8,17 @@ namespace KlonsA.Classes
 
     public class ReportHelperA: KlonsLIB.Forms.ReportHelper
     {
-        public override bool CheckForErrors(Action act)
+        public void WarnIfHasChanges()
         {
-
-            var b1 = DataSetHelper.HasChanges(KlonsData.St.DataSetKlons.SALARY_SHEETS.GetChanges()) ||
-                DataSetHelper.HasChanges(KlonsData.St.DataSetKlons.SALARY_SHEETS_R.GetChanges()) ||
-                DataSetHelper.HasChanges(KlonsData.St.DataSetKlons.TIMESHEET_LISTS.GetChanges()) ||
-                DataSetHelper.HasChanges(KlonsData.St.DataSetKlons.TIMESHEET_LISTS_R.GetChanges());
-
-            if (b1)
+            if (KlonsData.St.KlonsDataHasChangesA())
             {
                 KlonsData.St.MyMainForm.ShowWarning("Iespējams, ka datu tabulās ir nesaglabātas izmaiņas.");
             }
-            
+        }
+
+        public override bool CheckForErrors(Action act)
+        {
+            WarnIfHasChanges();
             try
             {
                 act();

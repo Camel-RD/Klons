@@ -403,6 +403,8 @@ namespace KlonsA.Forms
             {
                 Form_ErrorList.ShowErrorList(MyMainForm, err);
             }
+
+            SaveData();
         }
 
         public void DeleteAlgasR()
@@ -410,6 +412,7 @@ namespace KlonsA.Forms
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
             DataTasks.DeleteSalarySheetRow(dr_lapas_r);
+            SaveData();
         }
 
         private void tsbNew_Click(object sender, EventArgs e)

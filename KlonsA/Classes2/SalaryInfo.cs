@@ -148,8 +148,8 @@ namespace KlonsA.Classes
         public void SumForAvPay()
         {
             _FORAVPAYCALC_BRUTO = SumSalary() - _SALARY_AVPAY_FREE_DAYS;
-            _FORAVPAYCALC_DAYS = _FACT_WORK_DAYS + _FACT_AVPAY_FREE_DAYS;
-            _FORAVPAYCALC_HOURS = _FACT_WORK_HOURS + _FACT_AVPAY_FREE_HOURS;
+            _FORAVPAYCALC_DAYS = _FACT_WORK_DAYS;
+            _FORAVPAYCALC_HOURS = _FACT_WORK_HOURS;
         }
 
         public void GetRateDefs(KlonsADataSet.POSITIONS_RRow dr_amati_r, int calcdays, float calchours)

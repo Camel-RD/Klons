@@ -135,7 +135,7 @@ namespace KlonsA.Classes
             sbruto += si._FORAVPAYCALC_BRUTO;
             sbruto2 += si._TOTAL_BEFORE_TAXES;
             sdays += si._FORAVPAYCALC_DAYS;
-            splandays += si._PLAN_DAYS;
+            splandays += si._PLAN_WORK_DAYS;
             shours += si._FORAVPAYCALC_HOURS;
 
             if (sdays == 0 || shours == 0.0f || sbruto2 == 0.0M)
@@ -187,9 +187,9 @@ namespace KlonsA.Classes
                         drl.Year = yr1;
                         drl.Month = mt1;
                         drl.CalendarDays = si._CALENDAR_DAYS_USE;
-                        drl.DaysPlan = si._PLAN_DAYS;
+                        drl.DaysPlan = si._PLAN_WORK_DAYS;
                         drl.DaysFact = si._FORAVPAYCALC_DAYS;
-                        drl.HoursPlan = si._PLAN_HOURS;
+                        drl.HoursPlan = si._PLAN_WORK_HOURS;
                         drl.HoursFact = si._FORAVPAYCALC_HOURS;
                         drl.Salary = si._FORAVPAYCALC_BRUTO;
                         drl.Salary2 = si._TOTAL_BEFORE_TAXES;

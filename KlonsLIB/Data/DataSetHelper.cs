@@ -290,6 +290,14 @@ namespace KlonsLIB.Data
             return rows != null && rows.Length > 0;
         }
 
+        public static bool HasChanges(DataTable[] tables)
+        {
+            if (tables == null) return false;
+            foreach (var table in tables)
+                if (HasChanges(table)) return true;
+            return false;
+        }
+
         public void CopyFromTo(DataRowView drvfrom, DataRowView drvto)
         {
             if (drvfrom == null || drvto == null) return;

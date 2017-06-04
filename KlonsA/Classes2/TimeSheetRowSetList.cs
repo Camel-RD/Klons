@@ -95,6 +95,7 @@ namespace KlonsA.Classes
             for (i = i1; i <= i2; i++)
             {
                 bool plandayadded = false;
+                bool planworkdayadded = false;
 
                 for (j = 0; j < this.Count; j++)
                 {
@@ -116,10 +117,15 @@ namespace KlonsA.Classes
                     wt._PLAN_HOURS += vp;
                     wt._PLAN_HOURS_NIGHT += vpn;
 
-                    if (!plandayadded)
-                        wt._PLAN_WORK_DAYS++;
-                    wt._PLAN_WORK_HOURS += vp;
-                    wt._PLAN_WORK_HOURS_NIGHT += vpn;
+                    if (SomeDataDefs.IsPlanWorkday(daycodeplan) && 
+                        (SomeDataDefs.IsDayForWork(daycodefact) || daycodefact == EDayFactId.B))
+                    {
+                        if (!planworkdayadded)
+                            wt._PLAN_WORK_DAYS++;
+                        wt._PLAN_WORK_HOURS += vp;
+                        wt._PLAN_WORK_HOURS_NIGHT += vpn;
+                        planworkdayadded = true;
+                    }
 
                     if (daycodeplan == EDayPlanId.DDSD)
                     {

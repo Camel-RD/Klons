@@ -83,10 +83,11 @@ namespace KlonsA.Classes
                 return error_list;
             }
 
+            var dt2 = (new DateTime(yr, mt, 1)).LastDayOfMonth();
+
             var drs_sar = table_sar.WhereX(
                 d =>
-                d.YR == yr &&
-                d.MT == mt);
+                d.DT2 == dt2);
 
             if (drs_sar.Count() > 0)
             {
