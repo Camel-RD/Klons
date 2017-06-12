@@ -40,7 +40,7 @@ namespace KlonsLIB.Data
         private string[] tableNames = new string[1] {null};
         private object[] adapters = new object[1] {null};
 
-        //[Browsable(false)]
+        [Browsable(false)]
         public string[] TableNames
         {
             get
@@ -91,6 +91,7 @@ namespace KlonsLIB.Data
         }
 
 
+        [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataSet MyDataSet
         {
@@ -341,7 +342,7 @@ namespace KlonsLIB.Data
         public MyAdapterManager MyAdapterManager = null;
 
         private static DesignerSerializationVisibilityAttribute atr1 =
-            new DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Visible);
+            new DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden);
 
         private static EditorAttribute attr2 = new EditorAttribute(typeof (MyDropDownPropertyEditor),typeof (UITypeEditor));
         private static DefaultValueAttribute attr3 = new DefaultValueAttribute("");
@@ -422,9 +423,8 @@ namespace KlonsLIB.Data
         public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value,
             Attribute[] attributes)
         {
-            var pr1 = TypeDescriptor.GetProperties(typeof (MyAdapterManager))
+            var pr1 = TypeDescriptor.GetProperties(value as MyAdapterManager, attributes)
                 .Cast<PropertyDescriptor>();
-            pr1 = pr1.Where(p => (p.IsBrowsable || p.Name == "TableNames"));
             var m = context.Instance as MyAdapterManager;
             if (m != null)
             {

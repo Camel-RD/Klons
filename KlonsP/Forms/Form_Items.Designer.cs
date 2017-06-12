@@ -300,6 +300,83 @@
             this.sgrEvents.EditStarting += new System.ComponentModel.CancelEventHandler(this.sgrEvents_EditStarting);
             this.sgrEvents.EditEnded += new System.EventHandler(this.sgrEvents_EditEnded);
             // 
+            // itemsEventsData1
+            // 
+            this.itemsEventsData1.fCAT1 = 0;
+            this.itemsEventsData1.fCATD = 0;
+            this.itemsEventsData1.fCATT = 0;
+            this.itemsEventsData1.fDEPARTMENT = 0;
+            this.itemsEventsData1.fDEPREC_0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fDEPREC_C = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fDESCR = "";
+            this.itemsEventsData1.fDOCNR = "";
+            this.itemsEventsData1.fDT = new System.DateTime(((long)(0)));
+            this.itemsEventsData1.fDTREG = new System.DateTime(((long)(0)));
+            this.itemsEventsData1.fEVENT = 0;
+            this.itemsEventsData1.fID = 0;
+            this.itemsEventsData1.fIDIT = 0;
+            this.itemsEventsData1.fITEM_DATE1 = null;
+            this.itemsEventsData1.fITEM_DATE2 = null;
+            this.itemsEventsData1.fITEM_NAME = null;
+            this.itemsEventsData1.fITEM_REG_NR = null;
+            this.itemsEventsData1.fMT_TOTAL = 0;
+            this.itemsEventsData1.fMT_USED = 0;
+            this.itemsEventsData1.fPLACE = 0;
+            this.itemsEventsData1.fRATE_D = 0F;
+            this.itemsEventsData1.fRATE_D_MT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fSELL_VALUE = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fSNR = 0;
+            this.itemsEventsData1.fTAX_EACH = 0;
+            this.itemsEventsData1.fTAX_RATE = 0F;
+            this.itemsEventsData1.fTAX_VAL = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fTAX_VAL_C = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fTAX_VAL_LEFT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fVALUE_0 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fVALUE_C = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fVALUE_LEFT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.itemsEventsData1.fZDT = null;
+            this.itemsEventsData1.fZU = null;
+            // 
             // grTitleItem
             // 
             this.grTitleItem.Name = "grTitleItem";
@@ -1952,6 +2029,18 @@
             // 
             this.bsFilter.MyDataSource = this.filterData1;
             this.bsFilter.Position = 0;
+            // 
+            // filterData1
+            // 
+            this.filterData1.fCAT1 = null;
+            this.filterData1.fCATD = null;
+            this.filterData1.fCATT = null;
+            this.filterData1.fDATE1 = null;
+            this.filterData1.fDATE2 = null;
+            this.filterData1.fDEPARTMENT = null;
+            this.filterData1.fEVENT = null;
+            this.filterData1.fPLACE = null;
+            this.filterData1.fSTATE = null;
             // 
             // tbDate
             // 
