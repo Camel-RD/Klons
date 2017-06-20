@@ -379,7 +379,7 @@ namespace KlonsA.Forms
             if (bsLapas.Current == null) return;
             var dr_lapa = (bsLapas.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
             int ids = dr_lapa.ID;
-            int snr = bsLapas.Count + 1;
+            int snr = bsSarR.Count + 1;
             int idp, idam;
 
             if(dr_lapa.XKind == ESalarySheetKind.Total)

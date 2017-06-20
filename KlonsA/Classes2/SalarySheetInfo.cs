@@ -78,7 +78,9 @@ namespace KlonsA.Classes
             new_dr_sar.DESCR = dr_sh.DESCR;
             new_dr_sar.DT1 = MDT1;
             new_dr_sar.DT2 = MDT2;
-            
+            new_dr_sar.XKind = ESalarySheetKind.Normal;
+            new_dr_sar.IS_TEMP = (short)((DT2 == DT2.LastDayOfMonth()) ? 0 : 1);
+
             table_sar.Rows.Add(new_dr_sar);
 
             DR_algas_lapa = new_dr_sar;
@@ -92,18 +94,22 @@ namespace KlonsA.Classes
 
         public KlonsADataSet.SALARY_SHEETSRow MakeTotalsSheet()
         {
-            var table_sar = MyData.DataSetKlons.SALARY_SHEETS;
-            var table_sar_r = MyData.DataSetKlons.SALARY_SHEETS_R;
+            return SalarySheetInfo.MakeTotalsSheet(DT1, DT2);
+        }
 
+        public static KlonsADataSet.SALARY_SHEETSRow MakeTotalsSheet(DateTime dt1, DateTime dt2)
+        {
+            var table_sar = MyData.DataSetKlons.SALARY_SHEETS;
             var new_dr_sar = table_sar.NewSALARY_SHEETSRow();
 
-            new_dr_sar.YR = YR;
-            new_dr_sar.MT = MT;
+            new_dr_sar.YR = dt2.Year;
+            new_dr_sar.MT = dt2.Month;
             new_dr_sar.SNR = 0;
             new_dr_sar.DESCR = "KOPĀ";
-            new_dr_sar.DT1 = DT1;
-            new_dr_sar.DT2 = DT2;
-            new_dr_sar.KIND = 1;
+            new_dr_sar.DT1 = dt1;
+            new_dr_sar.DT2 = dt2;
+            new_dr_sar.XKind = ESalarySheetKind.Total;
+            new_dr_sar.IS_TEMP = (short)((dt2 == dt2.LastDayOfMonth()) ? 0 : 1);
 
             table_sar.Rows.Add(new_dr_sar);
 
@@ -151,7 +157,7 @@ namespace KlonsA.Classes
             var er = SetUpLightFromSarRow(dr_lapa);
             if (er != "OK") return new ErrorList("", er);
 
-            var drs_r = dr_lapa.KIND == 1 ?
+            var drs_r = dr_lapa.XKind == ESalarySheetKind.Total ?
                 dr_lapa.GetSALARY_SHEETS_RRowsByFK_SALARY_SHEETS_R_IDST().OrderBy(d => d.SNR) :
                 dr_lapa.GetSALARY_SHEETS_RRowsByFK_SALARY_SHEETS_R_IDS().OrderBy(d => d.SNR);
 
@@ -188,6 +194,13 @@ namespace KlonsA.Classes
                 return;
             }
             TotalsList = MakeTotalsSheet();
+        }
+
+        public static void CheckTotalListForPeriod(DateTime dt1, DateTime dt2)
+        {
+            var dr_total_sar = FindTotalListForPeriod(dt1, dt2);
+            if (dr_total_sar != null) return;
+            MakeTotalsSheet(dt1, dt2);
         }
 
         public ErrorList FillSheet()
@@ -312,20 +325,24 @@ namespace KlonsA.Classes
 
         public KlonsADataSet.SALARY_SHEETSRow FindTotalListForPeriod()
         {
+            return SalarySheetInfo.FindTotalListForPeriod(DT1, DT2);
+        }
+
+        public static KlonsADataSet.SALARY_SHEETSRow FindTotalListForPeriod(DateTime dt1, DateTime dt2)
+        {
             var table_sar = MyData.DataSetKlons.SALARY_SHEETS;
             var drs_sar = table_sar.WhereX(d =>
-                d.KIND == 1 &&
-                d.YR == this.YR &&
-                d.MT == this.MT &&
-                d.DT1 == this.DT1 &&
-                d.DT2 == this.DT2
+                d.XKind == ESalarySheetKind.Total &&
+                d.YR == dt2.Year &&
+                d.MT == dt2.Month &&
+                d.DT1 == dt1 &&
+                d.DT2 == dt2
             ).ToArray();
             if (drs_sar.Length > 1)
                 throw new Exception("More than 1 totals list.");
             if (drs_sar.Length == 0) return null;
             return drs_sar[0];
         }
-
 
         public string GetLikmes()
         {
