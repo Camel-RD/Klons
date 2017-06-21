@@ -86,11 +86,11 @@ namespace KlonsF.DataSets {
         
         private DOCS0DataTable tableDOCS0;
         
-        private global::System.Data.DataRelation relationFK_BAL0_CLID_PERSONS_CLID1;
+        private global::System.Data.DataRelation relationFK_BAL0_AC4_ACP24_IDX1;
         
         private global::System.Data.DataRelation relationFK_BAL0_AC1_ACP21_AC1;
         
-        private global::System.Data.DataRelation relationFK_BAL0_AC4_ACP24_IDX1;
+        private global::System.Data.DataRelation relationFK_BAL0_CLID_PERSONS_CLID1;
         
         private global::System.Data.DataRelation relationFK_BALA2_BALID_BALA1_BALID;
         
@@ -98,27 +98,27 @@ namespace KlonsF.DataSets {
         
         private global::System.Data.DataRelation relationFK_DOCTYPB_IDA_DOCTYPA_ID;
         
-        private global::System.Data.DataRelation relationFK_OPS_AC22_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC21_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC12_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC11_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC24_ACP24_IDX1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC14_ACP24_IDX1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_DOCID_OPSD_ID;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC23_ACP23_IDX1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC13_ACP23_IDX1;
+        private global::System.Data.DataRelation relationFK_OPS_AC25_ACP25_IDX1;
         
         private global::System.Data.DataRelation relationFK_OPS_AC15_ACP25_IDX1;
         
-        private global::System.Data.DataRelation relationFK_OPS_AC25_ACP25_IDX1;
+        private global::System.Data.DataRelation relationFK_OPS_AC13_ACP23_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC23_ACP23_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_DOCID_OPSD_ID;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC14_ACP24_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC24_ACP24_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC11_ACP21_AC1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC12_ACP21_AC1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC21_ACP21_AC1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC22_ACP21_AC1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -948,23 +948,23 @@ namespace KlonsF.DataSets {
                     this.tableDOCS0.InitVars();
                 }
             }
-            this.relationFK_BAL0_CLID_PERSONS_CLID1 = this.Relations["FK_BAL0_CLID_PERSONS_CLID1"];
-            this.relationFK_BAL0_AC1_ACP21_AC1 = this.Relations["FK_BAL0_AC1_ACP21_AC1"];
             this.relationFK_BAL0_AC4_ACP24_IDX1 = this.Relations["FK_BAL0_AC4_ACP24_IDX1"];
+            this.relationFK_BAL0_AC1_ACP21_AC1 = this.Relations["FK_BAL0_AC1_ACP21_AC1"];
+            this.relationFK_BAL0_CLID_PERSONS_CLID1 = this.Relations["FK_BAL0_CLID_PERSONS_CLID1"];
             this.relationFK_BALA2_BALID_BALA1_BALID = this.Relations["FK_BALA2_BALID_BALA1_BALID"];
             this.relationFK_BALA3_ID2_BALA2_ID = this.Relations["FK_BALA3_ID2_BALA2_ID"];
             this.relationFK_DOCTYPB_IDA_DOCTYPA_ID = this.Relations["FK_DOCTYPB_IDA_DOCTYPA_ID"];
-            this.relationFK_OPS_AC22_ACP21_AC1 = this.Relations["FK_OPS_AC22_ACP21_AC1"];
-            this.relationFK_OPS_AC21_ACP21_AC1 = this.Relations["FK_OPS_AC21_ACP21_AC1"];
-            this.relationFK_OPS_AC12_ACP21_AC1 = this.Relations["FK_OPS_AC12_ACP21_AC1"];
-            this.relationFK_OPS_AC11_ACP21_AC1 = this.Relations["FK_OPS_AC11_ACP21_AC1"];
-            this.relationFK_OPS_AC24_ACP24_IDX1 = this.Relations["FK_OPS_AC24_ACP24_IDX1"];
-            this.relationFK_OPS_AC14_ACP24_IDX1 = this.Relations["FK_OPS_AC14_ACP24_IDX1"];
-            this.relationFK_OPS_DOCID_OPSD_ID = this.Relations["FK_OPS_DOCID_OPSD_ID"];
-            this.relationFK_OPS_AC23_ACP23_IDX1 = this.Relations["FK_OPS_AC23_ACP23_IDX1"];
-            this.relationFK_OPS_AC13_ACP23_IDX1 = this.Relations["FK_OPS_AC13_ACP23_IDX1"];
-            this.relationFK_OPS_AC15_ACP25_IDX1 = this.Relations["FK_OPS_AC15_ACP25_IDX1"];
             this.relationFK_OPS_AC25_ACP25_IDX1 = this.Relations["FK_OPS_AC25_ACP25_IDX1"];
+            this.relationFK_OPS_AC15_ACP25_IDX1 = this.Relations["FK_OPS_AC15_ACP25_IDX1"];
+            this.relationFK_OPS_AC13_ACP23_IDX1 = this.Relations["FK_OPS_AC13_ACP23_IDX1"];
+            this.relationFK_OPS_AC23_ACP23_IDX1 = this.Relations["FK_OPS_AC23_ACP23_IDX1"];
+            this.relationFK_OPS_DOCID_OPSD_ID = this.Relations["FK_OPS_DOCID_OPSD_ID"];
+            this.relationFK_OPS_AC14_ACP24_IDX1 = this.Relations["FK_OPS_AC14_ACP24_IDX1"];
+            this.relationFK_OPS_AC24_ACP24_IDX1 = this.Relations["FK_OPS_AC24_ACP24_IDX1"];
+            this.relationFK_OPS_AC11_ACP21_AC1 = this.Relations["FK_OPS_AC11_ACP21_AC1"];
+            this.relationFK_OPS_AC12_ACP21_AC1 = this.Relations["FK_OPS_AC12_ACP21_AC1"];
+            this.relationFK_OPS_AC21_ACP21_AC1 = this.Relations["FK_OPS_AC21_ACP21_AC1"];
+            this.relationFK_OPS_AC22_ACP21_AC1 = this.Relations["FK_OPS_AC22_ACP21_AC1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1038,9 +1038,9 @@ namespace KlonsF.DataSets {
             this.tableDOCS0 = new DOCS0DataTable();
             base.Tables.Add(this.tableDOCS0);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.ClIdColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_AC4_ACP24_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.AC24Column});
             this.tableBal0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1052,9 +1052,9 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_AC4_ACP24_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.AC24Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.ClIdColumn});
             this.tableBal0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1073,13 +1073,6 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCTYPB_IDA_DOCTYPA_ID", new global::System.Data.DataColumn[] {
-                        this.tableDocTypA.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDocTypB.idAColumn});
-            this.tableDocTypB.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCTYPB_ID_DOCTYP_ID", new global::System.Data.DataColumn[] {
                         this.tableDocTyp.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableDocTypB.idColumn});
@@ -1087,65 +1080,16 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC22_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC22Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC21_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC21Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC12_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC12Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC11_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC11Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC24_ACP24_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC24Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC14_ACP24_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC14Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
-                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.DocIdColumn});
-            this.tableOPS.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCTYPB_IDA_DOCTYPA_ID", new global::System.Data.DataColumn[] {
+                        this.tableDocTypA.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDocTypB.idAColumn});
+            this.tableDocTypB.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC23_ACP23_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC23Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC13_ACP23_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC13Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC25_ACP25_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC25Column});
             this.tableOPS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1157,16 +1101,72 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC25_ACP25_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC25Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC13_ACP23_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC13Column});
             this.tableOPS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_CLID2_PERSONS_CLID", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPSd.ClId2Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC23_ACP23_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC23Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
+                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.DocIdColumn});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC14_ACP24_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC14Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC24_ACP24_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC24Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC11_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC11Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC12_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC12Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC21_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC21Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC22_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC22Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_DOCTYP_DOCTYP_ID", new global::System.Data.DataColumn[] {
+                        this.tableDocTyp.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPSd.DocTypColumn});
             this.tableOPSd.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1178,9 +1178,9 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_DOCTYP_DOCTYP_ID", new global::System.Data.DataColumn[] {
-                        this.tableDocTyp.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPSd.DocTypColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_CLID2_PERSONS_CLID", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPSd.ClId2Column});
             this.tableOPSd.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1192,9 +1192,9 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDOCS0.CLIDColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_AC_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDOCS0.ACColumn});
             this.tableDOCS0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1206,25 +1206,25 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_AC_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDOCS0.ACColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDOCS0.CLIDColumn});
             this.tableDOCS0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            this.relationFK_BAL0_CLID_PERSONS_CLID1 = new global::System.Data.DataRelation("FK_BAL0_CLID_PERSONS_CLID1", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.ClIdColumn}, false);
-            this.Relations.Add(this.relationFK_BAL0_CLID_PERSONS_CLID1);
-            this.relationFK_BAL0_AC1_ACP21_AC1 = new global::System.Data.DataRelation("FK_BAL0_AC1_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.AC11Column}, false);
-            this.Relations.Add(this.relationFK_BAL0_AC1_ACP21_AC1);
             this.relationFK_BAL0_AC4_ACP24_IDX1 = new global::System.Data.DataRelation("FK_BAL0_AC4_ACP24_IDX1", new global::System.Data.DataColumn[] {
                         this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
                         this.tableBal0.AC24Column}, false);
             this.Relations.Add(this.relationFK_BAL0_AC4_ACP24_IDX1);
+            this.relationFK_BAL0_AC1_ACP21_AC1 = new global::System.Data.DataRelation("FK_BAL0_AC1_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.AC11Column}, false);
+            this.Relations.Add(this.relationFK_BAL0_AC1_ACP21_AC1);
+            this.relationFK_BAL0_CLID_PERSONS_CLID1 = new global::System.Data.DataRelation("FK_BAL0_CLID_PERSONS_CLID1", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.ClIdColumn}, false);
+            this.Relations.Add(this.relationFK_BAL0_CLID_PERSONS_CLID1);
             this.relationFK_BALA2_BALID_BALA1_BALID = new global::System.Data.DataRelation("FK_BALA2_BALID_BALA1_BALID", new global::System.Data.DataColumn[] {
                         this.tableBalA1.balidColumn}, new global::System.Data.DataColumn[] {
                         this.tableBalA2.balidColumn}, false);
@@ -1237,50 +1237,50 @@ namespace KlonsF.DataSets {
                         this.tableDocTypA.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableDocTypB.idAColumn}, false);
             this.Relations.Add(this.relationFK_DOCTYPB_IDA_DOCTYPA_ID);
-            this.relationFK_OPS_AC22_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC22_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC22Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC22_ACP21_AC1);
-            this.relationFK_OPS_AC21_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC21_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC21Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC21_ACP21_AC1);
-            this.relationFK_OPS_AC12_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC12_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC12Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC12_ACP21_AC1);
-            this.relationFK_OPS_AC11_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC11_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC11Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC11_ACP21_AC1);
-            this.relationFK_OPS_AC24_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC24_ACP24_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC24Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC24_ACP24_IDX1);
-            this.relationFK_OPS_AC14_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC14_ACP24_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC14Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC14_ACP24_IDX1);
-            this.relationFK_OPS_DOCID_OPSD_ID = new global::System.Data.DataRelation("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
-                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.DocIdColumn}, false);
-            this.Relations.Add(this.relationFK_OPS_DOCID_OPSD_ID);
-            this.relationFK_OPS_AC23_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC23_ACP23_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC23Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC23_ACP23_IDX1);
-            this.relationFK_OPS_AC13_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC13_ACP23_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC13Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC13_ACP23_IDX1);
-            this.relationFK_OPS_AC15_ACP25_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC15_ACP25_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC15Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC15_ACP25_IDX1);
             this.relationFK_OPS_AC25_ACP25_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC25_ACP25_IDX1", new global::System.Data.DataColumn[] {
                         this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
                         this.tableOPS.AC25Column}, false);
             this.Relations.Add(this.relationFK_OPS_AC25_ACP25_IDX1);
+            this.relationFK_OPS_AC15_ACP25_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC15_ACP25_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC15Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC15_ACP25_IDX1);
+            this.relationFK_OPS_AC13_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC13_ACP23_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC13Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC13_ACP23_IDX1);
+            this.relationFK_OPS_AC23_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC23_ACP23_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC23Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC23_ACP23_IDX1);
+            this.relationFK_OPS_DOCID_OPSD_ID = new global::System.Data.DataRelation("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
+                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.DocIdColumn}, false);
+            this.Relations.Add(this.relationFK_OPS_DOCID_OPSD_ID);
+            this.relationFK_OPS_AC14_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC14_ACP24_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC14Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC14_ACP24_IDX1);
+            this.relationFK_OPS_AC24_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC24_ACP24_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC24Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC24_ACP24_IDX1);
+            this.relationFK_OPS_AC11_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC11_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC11Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC11_ACP21_AC1);
+            this.relationFK_OPS_AC12_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC12_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC12Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC12_ACP21_AC1);
+            this.relationFK_OPS_AC21_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC21_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC21Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC21_ACP21_AC1);
+            this.relationFK_OPS_AC22_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC22_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC22Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC22_ACP21_AC1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13251,23 +13251,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC22_ACP21_AC1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"] == null)) {
+            public OPSRow[] GetOPSRowsByFK_OPS_AC11_ACP21_AC1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC21_ACP21_AC1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"])));
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"])));
                 }
             }
             
@@ -13284,12 +13273,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC11_ACP21_AC1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"] == null)) {
+            public OPSRow[] GetOPSRowsByFK_OPS_AC21_ACP21_AC1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"])));
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC22_ACP21_AC1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"])));
                 }
             }
             
@@ -13416,23 +13416,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC23_ACP23_IDX1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OPSRow[] GetOPSRowsByFK_OPS_AC13_ACP23_IDX1() {
                 if ((this.Table.ChildRelations["FK_OPS_AC13_ACP23_IDX1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
                     return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC13_ACP23_IDX1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC23_ACP23_IDX1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"])));
                 }
             }
         }
@@ -13548,23 +13548,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC24_ACP24_IDX1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OPSRow[] GetOPSRowsByFK_OPS_AC14_ACP24_IDX1() {
                 if ((this.Table.ChildRelations["FK_OPS_AC14_ACP24_IDX1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
                     return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC14_ACP24_IDX1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC24_ACP24_IDX1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"])));
                 }
             }
             
@@ -13663,23 +13663,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC15_ACP25_IDX1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OPSRow[] GetOPSRowsByFK_OPS_AC25_ACP25_IDX1() {
                 if ((this.Table.ChildRelations["FK_OPS_AC25_ACP25_IDX1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
                     return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC25_ACP25_IDX1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC15_ACP25_IDX1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"])));
                 }
             }
         }
@@ -14178,12 +14178,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PersonsRow PersonsRow {
+            public AcP24Row AcP24Row {
                 get {
-                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"])));
+                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"]);
                 }
             }
             
@@ -14200,12 +14200,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP24Row AcP24Row {
+            public PersonsRow PersonsRow {
                 get {
-                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"])));
+                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"]);
                 }
             }
             
@@ -16909,100 +16909,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC22_ACP21_AC1 {
+            public Acp25Row Acp25RowByFK_OPS_AC25_ACP25_IDX1 {
                 get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"])));
+                    return ((Acp25Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC21_ACP21_AC1 {
-                get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC12_ACP21_AC1 {
-                get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC11_ACP21_AC1 {
-                get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP24Row AcP24RowByFK_OPS_AC24_ACP24_IDX1 {
-                get {
-                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AcP24Row AcP24RowByFK_OPS_AC14_ACP24_IDX1 {
-                get {
-                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OPSdRow OPSdRow {
-                get {
-                    return ((OPSdRow)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Acp23Row Acp23RowByFK_OPS_AC23_ACP23_IDX1 {
-                get {
-                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Acp23Row Acp23RowByFK_OPS_AC13_ACP23_IDX1 {
-                get {
-                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"]);
                 }
             }
             
@@ -17019,12 +16931,100 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Acp25Row Acp25RowByFK_OPS_AC25_ACP25_IDX1 {
+            public Acp23Row Acp23RowByFK_OPS_AC13_ACP23_IDX1 {
                 get {
-                    return ((Acp25Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"])));
+                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Acp23Row Acp23RowByFK_OPS_AC23_ACP23_IDX1 {
+                get {
+                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OPSdRow OPSdRow {
+                get {
+                    return ((OPSdRow)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AcP24Row AcP24RowByFK_OPS_AC14_ACP24_IDX1 {
+                get {
+                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AcP24Row AcP24RowByFK_OPS_AC24_ACP24_IDX1 {
+                get {
+                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC11_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC12_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC21_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC22_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"]);
                 }
             }
             
@@ -35169,207 +35169,207 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""OPS"" WHERE ((""ID"" = @Original_ID) AND (""DOCID"" = @Original_DOCID) AND ((@IsNull_DESCR = 1 AND ""DESCR"" IS NULL) OR (""DESCR"" = @Original_DESCR)) AND (""AC11"" = @Original_AC11) AND ((@IsNull_AC12 = 1 AND ""AC12"" IS NULL) OR (""AC12"" = @Original_AC12)) AND ((@IsNull_AC13 = 1 AND ""AC13"" IS NULL) OR (""AC13"" = @Original_AC13)) AND ((@IsNull_AC14 = 1 AND ""AC14"" IS NULL) OR (""AC14"" = @Original_AC14)) AND ((@IsNull_AC15 = 1 AND ""AC15"" IS NULL) OR (""AC15"" = @Original_AC15)) AND (""AC21"" = @Original_AC21) AND ((@IsNull_AC22 = 1 AND ""AC22"" IS NULL) OR (""AC22"" = @Original_AC22)) AND ((@IsNull_AC23 = 1 AND ""AC23"" IS NULL) OR (""AC23"" = @Original_AC23)) AND ((@IsNull_AC24 = 1 AND ""AC24"" IS NULL) OR (""AC24"" = @Original_AC24)) AND ((@IsNull_AC25 = 1 AND ""AC25"" IS NULL) OR (""AC25"" = @Original_AC25)) AND (""SUMMC"" = @Original_SUMMC) AND (""CUR"" = @Original_CUR) AND (""SUMM"" = @Original_SUMM) AND ((@IsNull_QV = 1 AND ""QV"" IS NULL) OR (""QV"" = @Original_QV)) AND ((@IsNull_NL = 1 AND ""NL"" IS NULL) OR (""NL"" = @Original_NL)) AND ((@IsNull_ZDT = 1 AND ""ZDT"" IS NULL) OR (""ZDT"" = @Original_ZDT)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.CommandText = "SP_OPS_DELETE";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_ID";
+            param.ParameterName = "ORIGINAL_ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "ID";
+            param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_DOCID";
+            param.ParameterName = "ORIGINAL_DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "DOCID";
+            param.SourceColumn = "DocId";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_DESCR";
+            param.ParameterName = "ISNULL_DESCR";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 50;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "DESCR";
+            param.SourceColumn = "Descr";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_DESCR";
+            param.ParameterName = "ORIGINAL_DESCR";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "DESCR";
+            param.SourceColumn = "Descr";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC11";
+            param.ParameterName = "ORIGINAL_AC11";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC11";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC12";
+            param.ParameterName = "ISNULL_AC12";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC12";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC12";
+            param.ParameterName = "ORIGINAL_AC12";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC12";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC13";
+            param.ParameterName = "ISNULL_AC13";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC13";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC13";
+            param.ParameterName = "ORIGINAL_AC13";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC13";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC14";
+            param.ParameterName = "ISNULL_AC14";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC14";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC14";
+            param.ParameterName = "ORIGINAL_AC14";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC14";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC15";
+            param.ParameterName = "ISNULL_AC15";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC15";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC15";
+            param.ParameterName = "ORIGINAL_AC15";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC15";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC21";
+            param.ParameterName = "ORIGINAL_AC21";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC21";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC22";
+            param.ParameterName = "ISNULL_AC22";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC22";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC22";
+            param.ParameterName = "ORIGINAL_AC22";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC22";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC23";
+            param.ParameterName = "ISNULL_AC23";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC23";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC23";
+            param.ParameterName = "ORIGINAL_AC23";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC23";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC24";
+            param.ParameterName = "ISNULL_AC24";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC24";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC24";
+            param.ParameterName = "ORIGINAL_AC24";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC24";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC25";
+            param.ParameterName = "ISNULL_AC25";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC25";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC25";
+            param.ParameterName = "ORIGINAL_AC25";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC25";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_SUMMC";
+            param.ParameterName = "ORIGINAL_SUMMC";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMMC";
+            param.SourceColumn = "SummC";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_CUR";
+            param.ParameterName = "ORIGINAL_CUR";
             param.Size = 3;
             param.IsNullable = true;
-            param.SourceColumn = "CUR";
+            param.SourceColumn = "Cur";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_SUMM";
+            param.ParameterName = "ORIGINAL_SUMM";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMM";
+            param.SourceColumn = "Summ";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_QV";
+            param.ParameterName = "ISNULL_QV";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
@@ -35378,7 +35378,7 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_QV";
+            param.ParameterName = "ORIGINAL_QV";
             param.DbType = global::System.Data.DbType.Single;
             param.Size = 4;
             param.IsNullable = true;
@@ -35386,488 +35386,448 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_NL";
+            param.ParameterName = "ISNULL_ZDT";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "NL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumn = "ZDt";
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_NL";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.Size = 2;
-            param.IsNullable = true;
-            param.SourceColumn = "NL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_ZDT";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
-            param.IsNullable = true;
-            param.SourceColumn = "ZDT";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_ZDT";
+            param.ParameterName = "ORIGINAL_ZDT";
             param.DbType = global::System.Data.DbType.DateTime;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "ZDT";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumn = "ZDt";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""OPS"" (""ID"", ""DOCID"", ""DESCR"", ""AC11"", ""AC12"", ""AC13"", ""AC14"", ""AC15"", ""AC21"", ""AC22"", ""AC23"", ""AC24"", ""AC25"", ""SUMMC"", ""CUR"", ""SUMM"", ""QV"", ""NL"", ""ZDT"") VALUES (@ID, @DOCID, @DESCR, @AC11, @AC12, @AC13, @AC14, @AC15, @AC21, @AC22, @AC23, @AC24, @AC25, @SUMMC, @CUR, @SUMM, @QV, @NL, @ZDT)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.CommandText = "SP_OPS_INSERT";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@ID";
+            param.ParameterName = "PID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "ID";
+            param.SourceColumn = "id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@DOCID";
+            param.ParameterName = "PDOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "DOCID";
+            param.SourceColumn = "DocId";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@DESCR";
+            param.ParameterName = "PDESCR";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "DESCR";
+            param.SourceColumn = "Descr";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC11";
+            param.ParameterName = "PAC11";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC11";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC12";
+            param.ParameterName = "PAC12";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC12";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC13";
+            param.ParameterName = "PAC13";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC13";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC14";
+            param.ParameterName = "PAC14";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC14";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC15";
+            param.ParameterName = "PAC15";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC15";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC21";
+            param.ParameterName = "PAC21";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC21";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC22";
+            param.ParameterName = "PAC22";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC22";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC23";
+            param.ParameterName = "PAC23";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC23";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC24";
+            param.ParameterName = "PAC24";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC24";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC25";
+            param.ParameterName = "PAC25";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC25";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@SUMMC";
+            param.ParameterName = "PSUMMC";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMMC";
+            param.SourceColumn = "SummC";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@CUR";
+            param.ParameterName = "PCUR";
             param.Size = 3;
             param.IsNullable = true;
-            param.SourceColumn = "CUR";
+            param.SourceColumn = "Cur";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@SUMM";
+            param.ParameterName = "PSUMM";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMM";
+            param.SourceColumn = "Summ";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@QV";
+            param.ParameterName = "PQV";
             param.DbType = global::System.Data.DbType.Single;
             param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "QV";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@NL";
+            param.ParameterName = "PNL";
             param.DbType = global::System.Data.DbType.Int16;
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "NL";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@ZDT";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.Size = 8;
-            param.IsNullable = true;
-            param.SourceColumn = "ZDT";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""OPS"" SET ""ID"" = @ID, ""DOCID"" = @DOCID, ""DESCR"" = @DESCR, ""AC11"" = @AC11, ""AC12"" = @AC12, ""AC13"" = @AC13, ""AC14"" = @AC14, ""AC15"" = @AC15, ""AC21"" = @AC21, ""AC22"" = @AC22, ""AC23"" = @AC23, ""AC24"" = @AC24, ""AC25"" = @AC25, ""SUMMC"" = @SUMMC, ""CUR"" = @CUR, ""SUMM"" = @SUMM, ""QV"" = @QV, ""NL"" = @NL, ""ZDT"" = @ZDT WHERE ((""ID"" = @Original_ID) AND (""DOCID"" = @Original_DOCID) AND ((@IsNull_DESCR = 1 AND ""DESCR"" IS NULL) OR (""DESCR"" = @Original_DESCR)) AND (""AC11"" = @Original_AC11) AND ((@IsNull_AC12 = 1 AND ""AC12"" IS NULL) OR (""AC12"" = @Original_AC12)) AND ((@IsNull_AC13 = 1 AND ""AC13"" IS NULL) OR (""AC13"" = @Original_AC13)) AND ((@IsNull_AC14 = 1 AND ""AC14"" IS NULL) OR (""AC14"" = @Original_AC14)) AND ((@IsNull_AC15 = 1 AND ""AC15"" IS NULL) OR (""AC15"" = @Original_AC15)) AND (""AC21"" = @Original_AC21) AND ((@IsNull_AC22 = 1 AND ""AC22"" IS NULL) OR (""AC22"" = @Original_AC22)) AND ((@IsNull_AC23 = 1 AND ""AC23"" IS NULL) OR (""AC23"" = @Original_AC23)) AND ((@IsNull_AC24 = 1 AND ""AC24"" IS NULL) OR (""AC24"" = @Original_AC24)) AND ((@IsNull_AC25 = 1 AND ""AC25"" IS NULL) OR (""AC25"" = @Original_AC25)) AND (""SUMMC"" = @Original_SUMMC) AND (""CUR"" = @Original_CUR) AND (""SUMM"" = @Original_SUMM) AND ((@IsNull_QV = 1 AND ""QV"" IS NULL) OR (""QV"" = @Original_QV)) AND ((@IsNull_NL = 1 AND ""NL"" IS NULL) OR (""NL"" = @Original_NL)) AND ((@IsNull_ZDT = 1 AND ""ZDT"" IS NULL) OR (""ZDT"" = @Original_ZDT)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.CommandText = "SP_OPS_UPDATE";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@ID";
+            param.ParameterName = "PDOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "ID";
+            param.SourceColumn = "DocId";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@DOCID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "DOCID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@DESCR";
+            param.ParameterName = "PDESCR";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "DESCR";
+            param.SourceColumn = "Descr";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC11";
+            param.ParameterName = "PAC11";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC11";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC12";
+            param.ParameterName = "PAC12";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC12";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC13";
+            param.ParameterName = "PAC13";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC13";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC14";
+            param.ParameterName = "PAC14";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC14";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC15";
+            param.ParameterName = "PAC15";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC15";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC21";
+            param.ParameterName = "PAC21";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC21";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC22";
+            param.ParameterName = "PAC22";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC22";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC23";
+            param.ParameterName = "PAC23";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC23";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC24";
+            param.ParameterName = "PAC24";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC24";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@AC25";
+            param.ParameterName = "PAC25";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC25";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@SUMMC";
+            param.ParameterName = "PSUMMC";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMMC";
+            param.SourceColumn = "SummC";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@CUR";
+            param.ParameterName = "PCUR";
             param.Size = 3;
             param.IsNullable = true;
-            param.SourceColumn = "CUR";
+            param.SourceColumn = "Cur";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@SUMM";
+            param.ParameterName = "PSUMM";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMM";
+            param.SourceColumn = "Summ";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@QV";
+            param.ParameterName = "PQV";
             param.DbType = global::System.Data.DbType.Single;
             param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "QV";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@NL";
+            param.ParameterName = "PNL";
             param.DbType = global::System.Data.DbType.Int16;
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "NL";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@ZDT";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.Size = 8;
-            param.IsNullable = true;
-            param.SourceColumn = "ZDT";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_ID";
+            param.ParameterName = "ORIGINAL_ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "ID";
+            param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_DOCID";
+            param.ParameterName = "ORIGINAL_DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "DOCID";
+            param.SourceColumn = "DocId";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_DESCR";
+            param.ParameterName = "ISNULL_DESCR";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 50;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "DESCR";
+            param.SourceColumn = "Descr";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_DESCR";
+            param.ParameterName = "ORIGINAL_DESCR";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "DESCR";
+            param.SourceColumn = "Descr";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC11";
+            param.ParameterName = "ORIGINAL_AC11";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC11";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC12";
+            param.ParameterName = "ISNULL_AC12";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC12";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC12";
+            param.ParameterName = "ORIGINAL_AC12";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC12";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC13";
+            param.ParameterName = "ISNULL_AC13";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC13";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC13";
+            param.ParameterName = "ORIGINAL_AC13";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC13";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC14";
+            param.ParameterName = "ISNULL_AC14";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC14";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC14";
+            param.ParameterName = "ORIGINAL_AC14";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC14";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC15";
+            param.ParameterName = "ISNULL_AC15";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC15";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC15";
+            param.ParameterName = "ORIGINAL_AC15";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC15";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC21";
+            param.ParameterName = "ORIGINAL_AC21";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC21";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC22";
+            param.ParameterName = "ISNULL_AC22";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC22";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC22";
+            param.ParameterName = "ORIGINAL_AC22";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC22";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC23";
+            param.ParameterName = "ISNULL_AC23";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC23";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC23";
+            param.ParameterName = "ORIGINAL_AC23";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC23";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC24";
+            param.ParameterName = "ISNULL_AC24";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC24";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC24";
+            param.ParameterName = "ORIGINAL_AC24";
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "AC24";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_AC25";
+            param.ParameterName = "ISNULL_AC25";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 5;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "AC25";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_AC25";
+            param.ParameterName = "ORIGINAL_AC25";
             param.Size = 5;
             param.IsNullable = true;
             param.SourceColumn = "AC25";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_SUMMC";
+            param.ParameterName = "ORIGINAL_SUMMC";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMMC";
+            param.SourceColumn = "SummC";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_CUR";
+            param.ParameterName = "ORIGINAL_CUR";
             param.Size = 3;
             param.IsNullable = true;
-            param.SourceColumn = "CUR";
+            param.SourceColumn = "Cur";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_SUMM";
+            param.ParameterName = "ORIGINAL_SUMM";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SUMM";
+            param.SourceColumn = "Summ";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_QV";
+            param.ParameterName = "ISNULL_QV";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
@@ -35876,7 +35836,7 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_QV";
+            param.ParameterName = "ORIGINAL_QV";
             param.DbType = global::System.Data.DbType.Single;
             param.Size = 4;
             param.IsNullable = true;
@@ -35884,16 +35844,16 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_NL";
+            param.ParameterName = "ISNULL_NL";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "NL";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_NL";
+            param.ParameterName = "ORIGINAL_NL";
             param.DbType = global::System.Data.DbType.Int16;
             param.Size = 2;
             param.IsNullable = true;
@@ -35901,21 +35861,28 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_ZDT";
+            param.ParameterName = "ISNULL_ZDT";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "ZDT";
+            param.SourceColumn = "ZDt";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_ZDT";
+            param.ParameterName = "ORIGINAL_ZDT";
             param.DbType = global::System.Data.DbType.DateTime;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "ZDT";
+            param.SourceColumn = "ZDt";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = "id";
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
@@ -36729,142 +36696,131 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
-                    int Original_ID, 
-                    int Original_DOCID, 
-                    string Original_DESCR, 
-                    string Original_AC11, 
-                    string Original_AC12, 
-                    string Original_AC13, 
-                    string Original_AC14, 
-                    string Original_AC15, 
-                    string Original_AC21, 
-                    string Original_AC22, 
-                    string Original_AC23, 
-                    string Original_AC24, 
-                    string Original_AC25, 
-                    decimal Original_SUMMC, 
-                    string Original_CUR, 
-                    decimal Original_SUMM, 
-                    global::System.Nullable<float> Original_QV, 
-                    global::System.Nullable<short> Original_NL, 
-                    global::System.Nullable<global::System.DateTime> Original_ZDT) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_DOCID));
-            if ((Original_DESCR == null)) {
+                    int ORIGINAL_ID, 
+                    int ORIGINAL_DOCID, 
+                    string ORIGINAL_DESCR, 
+                    string ORIGINAL_AC11, 
+                    string ORIGINAL_AC12, 
+                    string ORIGINAL_AC13, 
+                    string ORIGINAL_AC14, 
+                    string ORIGINAL_AC15, 
+                    string ORIGINAL_AC21, 
+                    string ORIGINAL_AC22, 
+                    string ORIGINAL_AC23, 
+                    string ORIGINAL_AC24, 
+                    string ORIGINAL_AC25, 
+                    decimal ORIGINAL_SUMMC, 
+                    string ORIGINAL_CUR, 
+                    decimal ORIGINAL_SUMM, 
+                    global::System.Nullable<float> ORIGINAL_QV, 
+                    global::System.Nullable<global::System.DateTime> ORIGINAL_ZDT) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(ORIGINAL_ID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(ORIGINAL_DOCID));
+            if ((ORIGINAL_DESCR == null)) {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_DESCR));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(ORIGINAL_DESCR));
             }
-            if ((Original_AC11 == null)) {
-                throw new global::System.ArgumentNullException("Original_AC11");
+            if ((ORIGINAL_AC11 == null)) {
+                throw new global::System.ArgumentNullException("ORIGINAL_AC11");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_AC11));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(ORIGINAL_AC11));
             }
-            if ((Original_AC12 == null)) {
+            if ((ORIGINAL_AC12 == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_AC12));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(ORIGINAL_AC12));
             }
-            if ((Original_AC13 == null)) {
+            if ((ORIGINAL_AC13 == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_AC13));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(ORIGINAL_AC13));
             }
-            if ((Original_AC14 == null)) {
+            if ((ORIGINAL_AC14 == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_AC14));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(ORIGINAL_AC14));
             }
-            if ((Original_AC15 == null)) {
+            if ((ORIGINAL_AC15 == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_AC15));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(ORIGINAL_AC15));
             }
-            if ((Original_AC21 == null)) {
-                throw new global::System.ArgumentNullException("Original_AC21");
+            if ((ORIGINAL_AC21 == null)) {
+                throw new global::System.ArgumentNullException("ORIGINAL_AC21");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_AC21));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(ORIGINAL_AC21));
             }
-            if ((Original_AC22 == null)) {
+            if ((ORIGINAL_AC22 == null)) {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_AC22));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(ORIGINAL_AC22));
             }
-            if ((Original_AC23 == null)) {
+            if ((ORIGINAL_AC23 == null)) {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_AC23));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(ORIGINAL_AC23));
             }
-            if ((Original_AC24 == null)) {
+            if ((ORIGINAL_AC24 == null)) {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_AC24));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(ORIGINAL_AC24));
             }
-            if ((Original_AC25 == null)) {
+            if ((ORIGINAL_AC25 == null)) {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_AC25));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(ORIGINAL_AC25));
             }
-            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_SUMMC));
-            if ((Original_CUR == null)) {
-                throw new global::System.ArgumentNullException("Original_CUR");
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(ORIGINAL_SUMMC));
+            if ((ORIGINAL_CUR == null)) {
+                throw new global::System.ArgumentNullException("ORIGINAL_CUR");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_CUR));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(ORIGINAL_CUR));
             }
-            this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_SUMM));
-            if ((Original_QV.HasValue == true)) {
+            this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(ORIGINAL_SUMM));
+            if ((ORIGINAL_QV.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((float)(Original_QV.Value));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((float)(ORIGINAL_QV.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((Original_NL.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((short)(Original_NL.Value));
+            if ((ORIGINAL_ZDT.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((System.DateTime)(ORIGINAL_ZDT.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ZDT.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((System.DateTime)(Original_ZDT.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -36887,118 +36843,116 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int ID, 
-                    int DOCID, 
-                    string DESCR, 
-                    string AC11, 
-                    string AC12, 
-                    string AC13, 
-                    string AC14, 
-                    string AC15, 
-                    string AC21, 
-                    string AC22, 
-                    string AC23, 
-                    string AC24, 
-                    string AC25, 
-                    decimal SUMMC, 
-                    string CUR, 
-                    decimal SUMM, 
-                    global::System.Nullable<float> QV, 
-                    global::System.Nullable<short> NL, 
-                    global::System.Nullable<global::System.DateTime> ZDT) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(DOCID));
-            if ((DESCR == null)) {
+                    global::System.Nullable<int> PID, 
+                    int PDOCID, 
+                    string PDESCR, 
+                    string PAC11, 
+                    string PAC12, 
+                    string PAC13, 
+                    string PAC14, 
+                    string PAC15, 
+                    string PAC21, 
+                    string PAC22, 
+                    string PAC23, 
+                    string PAC24, 
+                    string PAC25, 
+                    decimal PSUMMC, 
+                    string PCUR, 
+                    decimal PSUMM, 
+                    global::System.Nullable<float> PQV, 
+                    global::System.Nullable<short> PNL) {
+            if ((PID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PDOCID));
+            if ((PDESCR == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(DESCR));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(PDESCR));
             }
-            if ((AC11 == null)) {
-                throw new global::System.ArgumentNullException("AC11");
+            if ((PAC11 == null)) {
+                throw new global::System.ArgumentNullException("PAC11");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(AC11));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PAC11));
             }
-            if ((AC12 == null)) {
+            if ((PAC12 == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(AC12));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PAC12));
             }
-            if ((AC13 == null)) {
+            if ((PAC13 == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(AC13));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PAC13));
             }
-            if ((AC14 == null)) {
+            if ((PAC14 == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(AC14));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(PAC14));
             }
-            if ((AC15 == null)) {
+            if ((PAC15 == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(AC15));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(PAC15));
             }
-            if ((AC21 == null)) {
-                throw new global::System.ArgumentNullException("AC21");
+            if ((PAC21 == null)) {
+                throw new global::System.ArgumentNullException("PAC21");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(AC21));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(PAC21));
             }
-            if ((AC22 == null)) {
+            if ((PAC22 == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(AC22));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(PAC22));
             }
-            if ((AC23 == null)) {
+            if ((PAC23 == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(AC23));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(PAC23));
             }
-            if ((AC24 == null)) {
+            if ((PAC24 == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(AC24));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(PAC24));
             }
-            if ((AC25 == null)) {
+            if ((PAC25 == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(AC25));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(PAC25));
             }
-            this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(SUMMC));
-            if ((CUR == null)) {
-                throw new global::System.ArgumentNullException("CUR");
+            this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(PSUMMC));
+            if ((PCUR == null)) {
+                throw new global::System.ArgumentNullException("PCUR");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(CUR));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(PCUR));
             }
-            this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(SUMM));
-            if ((QV.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((float)(QV.Value));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(PSUMM));
+            if ((PQV.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((float)(PQV.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((NL.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((short)(NL.Value));
+            if ((PNL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((short)(PNL.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((ZDT.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(ZDT.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -37021,255 +36975,253 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int ID, 
-                    int DOCID, 
-                    string DESCR, 
-                    string AC11, 
-                    string AC12, 
-                    string AC13, 
-                    string AC14, 
-                    string AC15, 
-                    string AC21, 
-                    string AC22, 
-                    string AC23, 
-                    string AC24, 
-                    string AC25, 
-                    decimal SUMMC, 
-                    string CUR, 
-                    decimal SUMM, 
-                    global::System.Nullable<float> QV, 
-                    global::System.Nullable<short> NL, 
-                    global::System.Nullable<global::System.DateTime> ZDT, 
-                    int Original_ID, 
-                    int Original_DOCID, 
-                    string Original_DESCR, 
-                    string Original_AC11, 
-                    string Original_AC12, 
-                    string Original_AC13, 
-                    string Original_AC14, 
-                    string Original_AC15, 
-                    string Original_AC21, 
-                    string Original_AC22, 
-                    string Original_AC23, 
-                    string Original_AC24, 
-                    string Original_AC25, 
-                    decimal Original_SUMMC, 
-                    string Original_CUR, 
-                    decimal Original_SUMM, 
-                    global::System.Nullable<float> Original_QV, 
-                    global::System.Nullable<short> Original_NL, 
-                    global::System.Nullable<global::System.DateTime> Original_ZDT) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(DOCID));
-            if ((DESCR == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                    int PDOCID, 
+                    string PDESCR, 
+                    string PAC11, 
+                    string PAC12, 
+                    string PAC13, 
+                    string PAC14, 
+                    string PAC15, 
+                    string PAC21, 
+                    string PAC22, 
+                    string PAC23, 
+                    string PAC24, 
+                    string PAC25, 
+                    decimal PSUMMC, 
+                    string PCUR, 
+                    decimal PSUMM, 
+                    global::System.Nullable<float> PQV, 
+                    global::System.Nullable<short> PNL, 
+                    int ORIGINAL_ID, 
+                    int ORIGINAL_DOCID, 
+                    string ORIGINAL_DESCR, 
+                    string ORIGINAL_AC11, 
+                    string ORIGINAL_AC12, 
+                    string ORIGINAL_AC13, 
+                    string ORIGINAL_AC14, 
+                    string ORIGINAL_AC15, 
+                    string ORIGINAL_AC21, 
+                    string ORIGINAL_AC22, 
+                    string ORIGINAL_AC23, 
+                    string ORIGINAL_AC24, 
+                    string ORIGINAL_AC25, 
+                    decimal ORIGINAL_SUMMC, 
+                    string ORIGINAL_CUR, 
+                    decimal ORIGINAL_SUMM, 
+                    global::System.Nullable<float> ORIGINAL_QV, 
+                    global::System.Nullable<short> ORIGINAL_NL, 
+                    global::System.Nullable<global::System.DateTime> ORIGINAL_ZDT, 
+                    global::System.Nullable<int> PID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PDOCID));
+            if ((PDESCR == null)) {
+                throw new global::System.ArgumentNullException("PDESCR");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(DESCR));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(PDESCR));
             }
-            if ((AC11 == null)) {
-                throw new global::System.ArgumentNullException("AC11");
+            if ((PAC11 == null)) {
+                throw new global::System.ArgumentNullException("PAC11");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(AC11));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(PAC11));
             }
-            if ((AC12 == null)) {
+            if ((PAC12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PAC12));
+            }
+            if ((PAC13 == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(AC12));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PAC13));
             }
-            if ((AC13 == null)) {
+            if ((PAC14 == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(AC13));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PAC14));
             }
-            if ((AC14 == null)) {
+            if ((PAC15 == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(AC14));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(PAC15));
             }
-            if ((AC15 == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(AC15));
-            }
-            if ((AC21 == null)) {
-                throw new global::System.ArgumentNullException("AC21");
+            if ((PAC21 == null)) {
+                throw new global::System.ArgumentNullException("PAC21");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(AC21));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(PAC21));
             }
-            if ((AC22 == null)) {
+            if ((PAC22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(PAC22));
+            }
+            if ((PAC23 == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(AC22));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(PAC23));
             }
-            if ((AC23 == null)) {
+            if ((PAC24 == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(AC23));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(PAC24));
             }
-            if ((AC24 == null)) {
+            if ((PAC25 == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(AC24));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(PAC25));
             }
-            if ((AC25 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(AC25));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(SUMMC));
-            if ((CUR == null)) {
-                throw new global::System.ArgumentNullException("CUR");
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(PSUMMC));
+            if ((PCUR == null)) {
+                throw new global::System.ArgumentNullException("PCUR");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(CUR));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(PCUR));
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(SUMM));
-            if ((QV.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((float)(QV.Value));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(PSUMM));
+            if ((PQV.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((float)(PQV.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((PNL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((short)(PNL.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((NL.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((short)(NL.Value));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(ORIGINAL_ID));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(ORIGINAL_DOCID));
+            if ((ORIGINAL_DESCR == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(ORIGINAL_DESCR));
             }
-            if ((ZDT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(ZDT.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_DOCID));
-            if ((Original_DESCR == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            if ((ORIGINAL_AC11 == null)) {
+                throw new global::System.ArgumentNullException("ORIGINAL_AC11");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_DESCR));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(ORIGINAL_AC11));
             }
-            if ((Original_AC11 == null)) {
-                throw new global::System.ArgumentNullException("Original_AC11");
+            if ((ORIGINAL_AC12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_AC11));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(ORIGINAL_AC12));
             }
-            if ((Original_AC12 == null)) {
+            if ((ORIGINAL_AC13 == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_AC12));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(ORIGINAL_AC13));
             }
-            if ((Original_AC13 == null)) {
+            if ((ORIGINAL_AC14 == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_AC13));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(ORIGINAL_AC14));
             }
-            if ((Original_AC14 == null)) {
+            if ((ORIGINAL_AC15 == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_AC14));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(ORIGINAL_AC15));
             }
-            if ((Original_AC15 == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_AC15));
-            }
-            if ((Original_AC21 == null)) {
-                throw new global::System.ArgumentNullException("Original_AC21");
+            if ((ORIGINAL_AC21 == null)) {
+                throw new global::System.ArgumentNullException("ORIGINAL_AC21");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_AC21));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(ORIGINAL_AC21));
             }
-            if ((Original_AC22 == null)) {
+            if ((ORIGINAL_AC22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(ORIGINAL_AC22));
+            }
+            if ((ORIGINAL_AC23 == null)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_AC22));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(ORIGINAL_AC23));
             }
-            if ((Original_AC23 == null)) {
+            if ((ORIGINAL_AC24 == null)) {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_AC23));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(ORIGINAL_AC24));
             }
-            if ((Original_AC24 == null)) {
+            if ((ORIGINAL_AC25 == null)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_AC24));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(ORIGINAL_AC25));
             }
-            if ((Original_AC25 == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_AC25));
-            }
-            this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_SUMMC));
-            if ((Original_CUR == null)) {
-                throw new global::System.ArgumentNullException("Original_CUR");
+            this.Adapter.UpdateCommand.Parameters[39].Value = ((decimal)(ORIGINAL_SUMMC));
+            if ((ORIGINAL_CUR == null)) {
+                throw new global::System.ArgumentNullException("ORIGINAL_CUR");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_CUR));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(ORIGINAL_CUR));
             }
-            this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(Original_SUMM));
-            if ((Original_QV.HasValue == true)) {
+            this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(ORIGINAL_SUMM));
+            if ((ORIGINAL_QV.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((float)(ORIGINAL_QV.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((ORIGINAL_NL.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((float)(Original_QV.Value));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((short)(ORIGINAL_NL.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
-            if ((Original_NL.HasValue == true)) {
+            if ((ORIGINAL_ZDT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((short)(Original_NL.Value));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(ORIGINAL_ZDT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
-            if ((Original_ZDT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((System.DateTime)(Original_ZDT.Value));
+            if ((PID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(PID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -37285,6 +37237,50 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int PDOCID, 
+                    string PDESCR, 
+                    string PAC11, 
+                    string PAC12, 
+                    string PAC13, 
+                    string PAC14, 
+                    string PAC15, 
+                    string PAC21, 
+                    string PAC22, 
+                    string PAC23, 
+                    string PAC24, 
+                    string PAC25, 
+                    decimal PSUMMC, 
+                    string PCUR, 
+                    decimal PSUMM, 
+                    global::System.Nullable<float> PQV, 
+                    global::System.Nullable<short> PNL, 
+                    int ORIGINAL_ID, 
+                    int ORIGINAL_DOCID, 
+                    string ORIGINAL_DESCR, 
+                    string ORIGINAL_AC11, 
+                    string ORIGINAL_AC12, 
+                    string ORIGINAL_AC13, 
+                    string ORIGINAL_AC14, 
+                    string ORIGINAL_AC15, 
+                    string ORIGINAL_AC21, 
+                    string ORIGINAL_AC22, 
+                    string ORIGINAL_AC23, 
+                    string ORIGINAL_AC24, 
+                    string ORIGINAL_AC25, 
+                    decimal ORIGINAL_SUMMC, 
+                    string ORIGINAL_CUR, 
+                    decimal ORIGINAL_SUMM, 
+                    global::System.Nullable<float> ORIGINAL_QV, 
+                    global::System.Nullable<short> ORIGINAL_NL, 
+                    global::System.Nullable<global::System.DateTime> ORIGINAL_ZDT) {
+            return this.Update(PDOCID, PDESCR, PAC11, PAC12, PAC13, PAC14, PAC15, PAC21, PAC22, PAC23, PAC24, PAC25, PSUMMC, PCUR, PSUMM, PQV, PNL, ORIGINAL_ID, ORIGINAL_DOCID, ORIGINAL_DESCR, ORIGINAL_AC11, ORIGINAL_AC12, ORIGINAL_AC13, ORIGINAL_AC14, ORIGINAL_AC15, ORIGINAL_AC21, ORIGINAL_AC22, ORIGINAL_AC23, ORIGINAL_AC24, ORIGINAL_AC25, ORIGINAL_SUMMC, ORIGINAL_CUR, ORIGINAL_SUMM, ORIGINAL_QV, ORIGINAL_NL, ORIGINAL_ZDT, ORIGINAL_ID);
         }
     }
     
