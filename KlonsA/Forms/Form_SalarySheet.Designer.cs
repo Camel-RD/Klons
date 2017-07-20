@@ -31,9 +31,6 @@ namespace KlonsA.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SalarySheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,6 +40,9 @@ namespace KlonsA.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.salaryData1 = new DataObjectsA.SalaryData();
             this.bsLapas = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsSarR = new KlonsLIB.Data.MyBindingSource2(this.components);
@@ -222,6 +222,18 @@ namespace KlonsA.Forms
             this.grbIsInAvpay = new KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox();
             this.splitContainer2 = new KlonsLIB.Components.MySplitContainer();
             this.dgvLapa = new KlonsLIB.Components.MyDataGridView();
+            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGCsARsALARY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPapildsummas = new KlonsLIB.Components.MyDataGridView();
             this.dgcPsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -251,18 +263,6 @@ namespace KlonsA.Forms
             this.bezAmatiemArParakstiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.miShoeBonusList = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGCsARsALARY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR2)).BeginInit();
@@ -877,7 +877,7 @@ namespace KlonsA.Forms
             this.bsLapas.DataMember = "SALARY_SHEETS";
             this.bsLapas.Filter = "ISFIRSTMT = FALSE";
             this.bsLapas.MyDataSource = "KlonsData";
-            this.bsLapas.Sort = "yr desc, mt desc,snr";
+            this.bsLapas.Sort = "yr desc, mt desc,snr desc";
             this.bsLapas.CurrentChanged += new System.EventHandler(this.bsLapas_CurrentChanged);
             // 
             // bsSarR
@@ -1887,6 +1887,7 @@ namespace KlonsA.Forms
             // 
             // grtInt
             // 
+            this.grtInt.DataMember = null;
             this.grtInt.Name = "grtInt";
             this.grtInt.ReadOnly = true;
             this.grtInt.RowTitle = null;
@@ -1894,6 +1895,7 @@ namespace KlonsA.Forms
             // 
             // grtInt16
             // 
+            this.grtInt16.DataMember = null;
             this.grtInt16.Name = "grtInt16";
             this.grtInt16.ReadOnly = true;
             this.grtInt16.RowTitle = null;
@@ -1901,6 +1903,7 @@ namespace KlonsA.Forms
             // 
             // grtDouble
             // 
+            this.grtDouble.DataMember = null;
             this.grtDouble.Name = "grtDouble";
             this.grtDouble.ReadOnly = true;
             this.grtDouble.RowTitle = null;
@@ -1908,12 +1911,14 @@ namespace KlonsA.Forms
             // 
             // grDecimal
             // 
+            this.grDecimal.DataMember = null;
             this.grDecimal.Name = "grDecimal";
             this.grDecimal.RowTitle = null;
             this.grDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grString
             // 
+            this.grString.DataMember = null;
             this.grString.Name = "grString";
             this.grString.ReadOnly = true;
             this.grString.RowTitle = null;
@@ -1921,7 +1926,6 @@ namespace KlonsA.Forms
             // 
             // grDecimalProc
             // 
-            this.grDecimalProc.DataMember = null;
             this.grDecimalProc.FormatString = "0.00\\%";
             this.grDecimalProc.Name = "grDecimalProc";
             this.grDecimalProc.ReadOnly = true;
@@ -1930,6 +1934,7 @@ namespace KlonsA.Forms
             // 
             // grSingle
             // 
+            this.grSingle.DataMember = null;
             this.grSingle.Name = "grSingle";
             this.grSingle.ReadOnly = true;
             this.grSingle.RowTitle = null;
@@ -2740,6 +2745,7 @@ namespace KlonsA.Forms
             // 
             // grDecimalReadOnly
             // 
+            this.grDecimalReadOnly.DataMember = null;
             this.grDecimalReadOnly.Name = "grDecimalReadOnly";
             this.grDecimalReadOnly.ReadOnly = true;
             this.grDecimalReadOnly.RowTitle = null;
@@ -2888,6 +2894,136 @@ namespace KlonsA.Forms
             this.dgvLapa.MyCheckForChanges += new System.EventHandler(this.dgvLapa_MyCheckForChanges);
             this.dgvLapa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLapa_CellFormatting);
             this.dgvLapa.Enter += new System.EventHandler(this.dgvLapa_Enter);
+            // 
+            // dgcSarSnr
+            // 
+            this.dgcSarSnr.DataPropertyName = "SNR";
+            this.dgcSarSnr.Frozen = true;
+            this.dgcSarSnr.HeaderText = "npk.";
+            this.dgcSarSnr.Name = "dgcSarSnr";
+            this.dgcSarSnr.ReadOnly = true;
+            this.dgcSarSnr.Width = 40;
+            // 
+            // dgcSarName
+            // 
+            this.dgcSarName.DataPropertyName = "ZNAME";
+            this.dgcSarName.Frozen = true;
+            this.dgcSarName.HeaderText = "darbineiks";
+            this.dgcSarName.Name = "dgcSarName";
+            this.dgcSarName.ReadOnly = true;
+            this.dgcSarName.Width = 180;
+            // 
+            // dgcSarFactDays
+            // 
+            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcSarFactDays.HeaderText = "dienas";
+            this.dgcSarFactDays.Name = "dgcSarFactDays";
+            this.dgcSarFactDays.ReadOnly = true;
+            this.dgcSarFactDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarFactDays.Width = 60;
+            // 
+            // dgcSarsFactHours
+            // 
+            this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcSarsFactHours.HeaderText = "stundas";
+            this.dgcSarsFactHours.Name = "dgcSarsFactHours";
+            this.dgcSarsFactHours.ReadOnly = true;
+            this.dgcSarsFactHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarsFactHours.Width = 60;
+            // 
+            // DGCsARsALARY
+            // 
+            this.DGCsARsALARY.DataPropertyName = "SALARY";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.DGCsARsALARY.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DGCsARsALARY.HeaderText = "par darbu";
+            this.DGCsARsALARY.Name = "DGCsARsALARY";
+            this.DGCsARsALARY.ReadOnly = true;
+            this.DGCsARsALARY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DGCsARsALARY.Width = 80;
+            // 
+            // dgcSarTotalBeforeTaxes
+            // 
+            this.dgcSarTotalBeforeTaxes.DataPropertyName = "TOTAL_BEFORE_TAXES";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.dgcSarTotalBeforeTaxes.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgcSarTotalBeforeTaxes.HeaderText = "ieņ. kopā";
+            this.dgcSarTotalBeforeTaxes.Name = "dgcSarTotalBeforeTaxes";
+            this.dgcSarTotalBeforeTaxes.ReadOnly = true;
+            this.dgcSarTotalBeforeTaxes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarTotalBeforeTaxes.Width = 80;
+            // 
+            // dgcSarSNAmount
+            // 
+            this.dgcSarSNAmount.DataPropertyName = "SN_AMOUNT";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.dgcSarSNAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcSarSNAmount.HeaderText = "SI";
+            this.dgcSarSNAmount.Name = "dgcSarSNAmount";
+            this.dgcSarSNAmount.ReadOnly = true;
+            this.dgcSarSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarSNAmount.Width = 80;
+            // 
+            // dgcSarIIN
+            // 
+            this.dgcSarIIN.DataPropertyName = "IIN_AMOUNT";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.dgcSarIIN.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcSarIIN.HeaderText = "IIN";
+            this.dgcSarIIN.Name = "dgcSarIIN";
+            this.dgcSarIIN.ReadOnly = true;
+            this.dgcSarIIN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarIIN.Width = 80;
+            // 
+            // dgcSarPay
+            // 
+            this.dgcSarPay.DataPropertyName = "PAY";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            this.dgcSarPay.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgcSarPay.HeaderText = "izmaksai";
+            this.dgcSarPay.Name = "dgcSarPay";
+            this.dgcSarPay.ReadOnly = true;
+            this.dgcSarPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarPay.Width = 80;
+            // 
+            // dgcSarAdvance
+            // 
+            this.dgcSarAdvance.DataPropertyName = "ADVANCE";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarAdvance.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgcSarAdvance.HeaderText = "avansā";
+            this.dgcSarAdvance.Name = "dgcSarAdvance";
+            this.dgcSarAdvance.ReadOnly = true;
+            this.dgcSarAdvance.ToolTipText = "Avansā izmaksājamā summa";
+            this.dgcSarAdvance.Width = 80;
+            // 
+            // dgcSarPayT
+            // 
+            this.dgcSarPayT.DataPropertyName = "PAYT";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            this.dgcSarPayT.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgcSarPayT.HeaderText = "kopā izm.";
+            this.dgcSarPayT.Name = "dgcSarPayT";
+            this.dgcSarPayT.ReadOnly = true;
+            this.dgcSarPayT.Width = 80;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
             // 
             // dgvPapildsummas
             // 
@@ -3070,66 +3206,66 @@ namespace KlonsA.Forms
             // pārrēķinātDarbiniekamToolStripMenuItem1
             // 
             this.pārrēķinātDarbiniekamToolStripMenuItem1.Name = "pārrēķinātDarbiniekamToolStripMenuItem1";
-            this.pārrēķinātDarbiniekamToolStripMenuItem1.Size = new System.Drawing.Size(402, 30);
+            this.pārrēķinātDarbiniekamToolStripMenuItem1.Size = new System.Drawing.Size(401, 30);
             this.pārrēķinātDarbiniekamToolStripMenuItem1.Text = "Pārrēķināt darbiniekam";
             this.pārrēķinātDarbiniekamToolStripMenuItem1.Click += new System.EventHandler(this.pārrēķinātDarbiniekamToolStripMenuItem1_Click);
             // 
             // pārrēķinātVisiemToolStripMenuItem
             // 
             this.pārrēķinātVisiemToolStripMenuItem.Name = "pārrēķinātVisiemToolStripMenuItem";
-            this.pārrēķinātVisiemToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.pārrēķinātVisiemToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.pārrēķinātVisiemToolStripMenuItem.Text = "Pārrēķināt sarakstu";
             this.pārrēķinātVisiemToolStripMenuItem.Click += new System.EventHandler(this.pārrēķinātVisiemToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(399, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(398, 6);
             // 
             // vidējāsIzpeļņasAprēķinsToolStripMenuItem
             // 
             this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Name = "vidējāsIzpeļņasAprēķinsToolStripMenuItem";
-            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Text = "Vidējās izpeļņas aprēķins";
             this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.vidējāsIzpeļņasAprēķinsToolStripMenuItem_Click);
             // 
             // slimībasNaudasAprēķinsToolStripMenuItem
             // 
             this.slimībasNaudasAprēķinsToolStripMenuItem.Name = "slimībasNaudasAprēķinsToolStripMenuItem";
-            this.slimībasNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.slimībasNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.slimībasNaudasAprēķinsToolStripMenuItem.Text = "Slimības naudas aprēķins";
             this.slimībasNaudasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.slimībasNaudasAprēķinsToolStripMenuItem_Click);
             // 
             // atvaļinājumaNaudasAprēķinsToolStripMenuItem
             // 
             this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Name = "atvaļinājumaNaudasAprēķinsToolStripMenuItem";
-            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Text = "Atvaļinājuma naudas aprēķins";
             this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.atvaļinājumaNaudasAprēķinsToolStripMenuItem_Click);
             // 
             // darbaSamaksasAprēķinsToolStripMenuItem
             // 
             this.darbaSamaksasAprēķinsToolStripMenuItem.Name = "darbaSamaksasAprēķinsToolStripMenuItem";
-            this.darbaSamaksasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.darbaSamaksasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.darbaSamaksasAprēķinsToolStripMenuItem.Text = "Darba samaksas aprēķins";
             this.darbaSamaksasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.darbaSamaksasAprēķinsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(399, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(398, 6);
             // 
             // aprēķinaIzklāstsToolStripMenuItem
             // 
             this.aprēķinaIzklāstsToolStripMenuItem.Name = "aprēķinaIzklāstsToolStripMenuItem";
-            this.aprēķinaIzklāstsToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.aprēķinaIzklāstsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.aprēķinaIzklāstsToolStripMenuItem.Text = "Aprēķina izklāsts";
             this.aprēķinaIzklāstsToolStripMenuItem.Click += new System.EventHandler(this.aprēķinaIzklāstsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(399, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(398, 6);
             // 
             // algasParēķinaLapaToolStripMenuItem
             // 
@@ -3137,164 +3273,34 @@ namespace KlonsA.Forms
             this.arAmatiemBezParakstiemToolStripMenuItem,
             this.bezAmatiemArParakstiemToolStripMenuItem});
             this.algasParēķinaLapaToolStripMenuItem.Name = "algasParēķinaLapaToolStripMenuItem";
-            this.algasParēķinaLapaToolStripMenuItem.Size = new System.Drawing.Size(402, 30);
+            this.algasParēķinaLapaToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
             this.algasParēķinaLapaToolStripMenuItem.Text = "Algas aprēķina lapa";
             // 
             // arAmatiemBezParakstiemToolStripMenuItem
             // 
             this.arAmatiemBezParakstiemToolStripMenuItem.Name = "arAmatiemBezParakstiemToolStripMenuItem";
-            this.arAmatiemBezParakstiemToolStripMenuItem.Size = new System.Drawing.Size(330, 30);
+            this.arAmatiemBezParakstiemToolStripMenuItem.Size = new System.Drawing.Size(329, 30);
             this.arAmatiemBezParakstiemToolStripMenuItem.Text = "ar amatiem, bez parakstiem";
             this.arAmatiemBezParakstiemToolStripMenuItem.Click += new System.EventHandler(this.arAmatiemBezParakstiemToolStripMenuItem_Click);
             // 
             // bezAmatiemArParakstiemToolStripMenuItem
             // 
             this.bezAmatiemArParakstiemToolStripMenuItem.Name = "bezAmatiemArParakstiemToolStripMenuItem";
-            this.bezAmatiemArParakstiemToolStripMenuItem.Size = new System.Drawing.Size(330, 30);
+            this.bezAmatiemArParakstiemToolStripMenuItem.Size = new System.Drawing.Size(329, 30);
             this.bezAmatiemArParakstiemToolStripMenuItem.Text = "bez amatiem, ar parakstiem";
             this.bezAmatiemArParakstiemToolStripMenuItem.Click += new System.EventHandler(this.bezAmatiemArParakstiemToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(399, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(398, 6);
             // 
             // miShoeBonusList
             // 
             this.miShoeBonusList.Name = "miShoeBonusList";
-            this.miShoeBonusList.Size = new System.Drawing.Size(402, 30);
+            this.miShoeBonusList.Size = new System.Drawing.Size(401, 30);
             this.miShoeBonusList.Text = "Rādīt piemaksu / atvilkumu sarakstu";
             this.miShoeBonusList.Click += new System.EventHandler(this.miShoeBonusList_Click);
-            // 
-            // dgcSarSnr
-            // 
-            this.dgcSarSnr.DataPropertyName = "SNR";
-            this.dgcSarSnr.Frozen = true;
-            this.dgcSarSnr.HeaderText = "npk.";
-            this.dgcSarSnr.Name = "dgcSarSnr";
-            this.dgcSarSnr.ReadOnly = true;
-            this.dgcSarSnr.Width = 40;
-            // 
-            // dgcSarName
-            // 
-            this.dgcSarName.DataPropertyName = "ZNAME";
-            this.dgcSarName.Frozen = true;
-            this.dgcSarName.HeaderText = "darbineiks";
-            this.dgcSarName.Name = "dgcSarName";
-            this.dgcSarName.ReadOnly = true;
-            this.dgcSarName.Width = 180;
-            // 
-            // dgcSarFactDays
-            // 
-            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcSarFactDays.HeaderText = "dienas";
-            this.dgcSarFactDays.Name = "dgcSarFactDays";
-            this.dgcSarFactDays.ReadOnly = true;
-            this.dgcSarFactDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarFactDays.Width = 60;
-            // 
-            // dgcSarsFactHours
-            // 
-            this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcSarsFactHours.HeaderText = "stundas";
-            this.dgcSarsFactHours.Name = "dgcSarsFactHours";
-            this.dgcSarsFactHours.ReadOnly = true;
-            this.dgcSarsFactHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarsFactHours.Width = 60;
-            // 
-            // DGCsARsALARY
-            // 
-            this.DGCsARsALARY.DataPropertyName = "SALARY";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.DGCsARsALARY.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DGCsARsALARY.HeaderText = "par darbu";
-            this.DGCsARsALARY.Name = "DGCsARsALARY";
-            this.DGCsARsALARY.ReadOnly = true;
-            this.DGCsARsALARY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DGCsARsALARY.Width = 80;
-            // 
-            // dgcSarTotalBeforeTaxes
-            // 
-            this.dgcSarTotalBeforeTaxes.DataPropertyName = "TOTAL_BEFORE_TAXES";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.dgcSarTotalBeforeTaxes.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcSarTotalBeforeTaxes.HeaderText = "ieņ. kopā";
-            this.dgcSarTotalBeforeTaxes.Name = "dgcSarTotalBeforeTaxes";
-            this.dgcSarTotalBeforeTaxes.ReadOnly = true;
-            this.dgcSarTotalBeforeTaxes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarTotalBeforeTaxes.Width = 80;
-            // 
-            // dgcSarSNAmount
-            // 
-            this.dgcSarSNAmount.DataPropertyName = "SN_AMOUNT";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.dgcSarSNAmount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcSarSNAmount.HeaderText = "SI";
-            this.dgcSarSNAmount.Name = "dgcSarSNAmount";
-            this.dgcSarSNAmount.ReadOnly = true;
-            this.dgcSarSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarSNAmount.Width = 80;
-            // 
-            // dgcSarIIN
-            // 
-            this.dgcSarIIN.DataPropertyName = "IIN_AMOUNT";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.dgcSarIIN.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgcSarIIN.HeaderText = "IIN";
-            this.dgcSarIIN.Name = "dgcSarIIN";
-            this.dgcSarIIN.ReadOnly = true;
-            this.dgcSarIIN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarIIN.Width = 80;
-            // 
-            // dgcSarPay
-            // 
-            this.dgcSarPay.DataPropertyName = "PAY";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.dgcSarPay.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgcSarPay.HeaderText = "izmaksai";
-            this.dgcSarPay.Name = "dgcSarPay";
-            this.dgcSarPay.ReadOnly = true;
-            this.dgcSarPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarPay.Width = 80;
-            // 
-            // dgcSarAdvance
-            // 
-            this.dgcSarAdvance.DataPropertyName = "ADVANCE";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarAdvance.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgcSarAdvance.HeaderText = "avansā";
-            this.dgcSarAdvance.Name = "dgcSarAdvance";
-            this.dgcSarAdvance.ReadOnly = true;
-            this.dgcSarAdvance.ToolTipText = "Avansā izmaksājamā summa";
-            this.dgcSarAdvance.Width = 80;
-            // 
-            // dgcSarPayT
-            // 
-            this.dgcSarPayT.DataPropertyName = "PAYT";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            this.dgcSarPayT.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgcSarPayT.HeaderText = "kopā izm.";
-            this.dgcSarPayT.Name = "dgcSarPayT";
-            this.dgcSarPayT.ReadOnly = true;
-            this.dgcSarPayT.Width = 80;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
             // 
             // Form_SalarySheet
             // 

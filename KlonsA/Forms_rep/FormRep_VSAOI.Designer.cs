@@ -84,6 +84,7 @@
             this.tbPayDate = new KlonsLIB.Components.MyTextBox();
             this.cmXML = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmXMLv2 = new System.Windows.Forms.Button();
             this.bnRows = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -109,7 +110,7 @@
             this.label1.Location = new System.Drawing.Point(7, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 16);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Gads, mēnesis:";
             // 
             // cbYear
@@ -207,7 +208,7 @@
             this.cbMonth.MaxDropDownItems = 13;
             this.cbMonth.Name = "cbMonth";
             this.cbMonth.Size = new System.Drawing.Size(69, 23);
-            this.cbMonth.TabIndex = 1;
+            this.cbMonth.TabIndex = 2;
             this.cbMonth.ValueMember = "col1";
             // 
             // cmTable
@@ -215,7 +216,7 @@
             this.cmTable.Location = new System.Drawing.Point(16, 38);
             this.cmTable.Name = "cmTable";
             this.cmTable.Size = new System.Drawing.Size(64, 33);
-            this.cmTable.TabIndex = 2;
+            this.cmTable.TabIndex = 3;
             this.cmTable.Text = "Atlasīt";
             this.cmTable.UseVisualStyleBackColor = true;
             this.cmTable.Click += new System.EventHandler(this.cmTable_Click);
@@ -250,7 +251,7 @@
             this.dgvRep.Name = "dgvRep";
             this.dgvRep.RowTemplate.Height = 24;
             this.dgvRep.Size = new System.Drawing.Size(901, 281);
-            this.dgvRep.TabIndex = 3;
+            this.dgvRep.TabIndex = 1;
             // 
             // dgcPK
             // 
@@ -371,84 +372,84 @@
             this.cbTp.Location = new System.Drawing.Point(4, 78);
             this.cbTp.Name = "cbTp";
             this.cbTp.Size = new System.Drawing.Size(894, 23);
-            this.cbTp.TabIndex = 4;
+            this.cbTp.TabIndex = 7;
             this.cbTp.SelectedIndexChanged += new System.EventHandler(this.cbTp_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(530, 32);
+            this.label5.Location = new System.Drawing.Point(564, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 16);
-            this.label5.TabIndex = 22;
+            this.label5.TabIndex = 17;
             this.label5.Text = "Datums:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(278, 32);
+            this.label6.Location = new System.Drawing.Point(312, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 16);
-            this.label6.TabIndex = 21;
+            this.label6.TabIndex = 14;
             this.label6.Text = "Tālruņa numurs:";
             // 
             // tbDate
             // 
             this.tbDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate.IsDate = true;
-            this.tbDate.Location = new System.Drawing.Point(592, 30);
+            this.tbDate.Location = new System.Drawing.Point(626, 30);
             this.tbDate.Name = "tbDate";
             this.tbDate.Size = new System.Drawing.Size(90, 22);
-            this.tbDate.TabIndex = 18;
+            this.tbDate.TabIndex = 12;
             // 
             // tbPhoneNr
             // 
             this.tbPhoneNr.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPhoneNr.Location = new System.Drawing.Point(394, 30);
+            this.tbPhoneNr.Location = new System.Drawing.Point(428, 30);
             this.tbPhoneNr.Name = "tbPhoneNr";
             this.tbPhoneNr.Size = new System.Drawing.Size(105, 22);
-            this.tbPhoneNr.TabIndex = 17;
+            this.tbPhoneNr.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(530, 8);
+            this.label4.Location = new System.Drawing.Point(564, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 16);
-            this.label4.TabIndex = 20;
+            this.label4.TabIndex = 16;
             this.label4.Text = "Amats:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 8);
+            this.label3.Location = new System.Drawing.Point(312, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 16);
-            this.label3.TabIndex = 19;
+            this.label3.TabIndex = 13;
             this.label3.Text = "Vārds, uzvārds:";
             // 
             // tbPosition
             // 
             this.tbPosition.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPosition.Location = new System.Drawing.Point(592, 6);
+            this.tbPosition.Location = new System.Drawing.Point(626, 6);
             this.tbPosition.Name = "tbPosition";
             this.tbPosition.Size = new System.Drawing.Size(126, 22);
-            this.tbPosition.TabIndex = 16;
+            this.tbPosition.TabIndex = 11;
             // 
             // tbName
             // 
             this.tbName.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbName.Location = new System.Drawing.Point(394, 6);
+            this.tbName.Location = new System.Drawing.Point(428, 6);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(126, 22);
-            this.tbName.TabIndex = 15;
+            this.tbName.TabIndex = 8;
             // 
             // cmReport
             // 
             this.cmReport.Location = new System.Drawing.Point(86, 38);
             this.cmReport.Name = "cmReport";
             this.cmReport.Size = new System.Drawing.Size(64, 33);
-            this.cmReport.TabIndex = 2;
+            this.cmReport.TabIndex = 4;
             this.cmReport.Text = "Atskaite";
             this.cmReport.UseVisualStyleBackColor = true;
             this.cmReport.Click += new System.EventHandler(this.cmReport_Click);
@@ -456,26 +457,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(278, 56);
+            this.label2.Location = new System.Drawing.Point(312, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 16);
-            this.label2.TabIndex = 24;
+            this.label2.TabIndex = 15;
             this.label2.Text = "Izmaksas datums:";
             // 
             // tbPayDate
             // 
             this.tbPayDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPayDate.Location = new System.Drawing.Point(410, 54);
+            this.tbPayDate.Location = new System.Drawing.Point(444, 54);
             this.tbPayDate.Name = "tbPayDate";
             this.tbPayDate.Size = new System.Drawing.Size(54, 22);
-            this.tbPayDate.TabIndex = 23;
+            this.tbPayDate.TabIndex = 10;
             // 
             // cmXML
             // 
             this.cmXML.Location = new System.Drawing.Point(156, 38);
             this.cmXML.Name = "cmXML";
             this.cmXML.Size = new System.Drawing.Size(64, 33);
-            this.cmXML.TabIndex = 2;
+            this.cmXML.TabIndex = 5;
             this.cmXML.Text = "XML";
             this.cmXML.UseVisualStyleBackColor = true;
             this.cmXML.Click += new System.EventHandler(this.cmXML_Click);
@@ -494,6 +495,7 @@
             this.panel1.Controls.Add(this.tbDate);
             this.panel1.Controls.Add(this.cmReport);
             this.panel1.Controls.Add(this.tbPhoneNr);
+            this.panel1.Controls.Add(this.cmXMLv2);
             this.panel1.Controls.Add(this.cmXML);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.tbName);
@@ -503,7 +505,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 105);
-            this.panel1.TabIndex = 25;
+            this.panel1.TabIndex = 0;
+            // 
+            // cmXMLv2
+            // 
+            this.cmXMLv2.Location = new System.Drawing.Point(226, 38);
+            this.cmXMLv2.Name = "cmXMLv2";
+            this.cmXMLv2.Size = new System.Drawing.Size(64, 33);
+            this.cmXMLv2.TabIndex = 6;
+            this.cmXMLv2.Text = "XMLv2";
+            this.cmXMLv2.UseVisualStyleBackColor = true;
+            this.cmXMLv2.Click += new System.EventHandler(this.cmXMLv2_Click);
             // 
             // bnRows
             // 
@@ -534,8 +546,9 @@
             this.bnRows.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnRows.Name = "bnRows";
             this.bnRows.PositionItem = this.bindingNavigatorPositionItem;
+            this.bnRows.SaveItem = null;
             this.bnRows.Size = new System.Drawing.Size(901, 32);
-            this.bnRows.TabIndex = 26;
+            this.bnRows.TabIndex = 2;
             this.bnRows.Text = "myBindingNavigator1";
             this.bnRows.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnRows_ItemDeleting);
             // 
@@ -689,5 +702,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcURVN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcHours;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNr;
+        private System.Windows.Forms.Button cmXMLv2;
     }
 }

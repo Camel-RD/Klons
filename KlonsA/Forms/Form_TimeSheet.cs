@@ -376,6 +376,11 @@ namespace KlonsA.Forms
             bool night = dr_sar_r.NIGHT == 1;
             bool overtime = dr_sar_r.OVERTIME == 1;
 
+            int old_snr = snr;
+            int old_idp = idp;
+            int old_idam = idam;
+            int old_idpl = idpl;
+
             bool ret = fm.Execute(false, id, out snr, out idp, out idam, out idpl, out plind, out night, out overtime);
             if (ret == false) return;
 
@@ -386,7 +391,15 @@ namespace KlonsA.Forms
                 return;
             }
 
-            CheckEvents(dr_sar_r.ID);
+            if (old_idp != idp || old_idam != idam || old_idpl != idpl)
+            {
+                CheckEvents(dr_sar_r.ID, true, true);
+            }
+            else
+            {
+                CheckEvents(dr_sar_r.ID);
+            }
+            RefreshRowSet(id);
         }
 
 

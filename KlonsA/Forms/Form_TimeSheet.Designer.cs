@@ -34,10 +34,50 @@ namespace KlonsA.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TimeSheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TimeSheet));
             this.dgvLapa = new KlonsLIB.Components.MyDataGridView();
+            this.dgcIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSNRX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcKind1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcKind2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsLapa2 = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.dlJoinView1 = new KlonsA.Classes.DLJoinView(this.components);
             this.bsLapa = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -79,46 +119,6 @@ namespace KlonsA.Forms
             this.izdrukaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaLapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaKopsummasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgcIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSNRX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcKind1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcKind2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLapa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapa2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapa)).BeginInit();
@@ -222,361 +222,6 @@ namespace KlonsA.Forms
             this.dgvLapa.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvLapa_CellParsing);
             this.dgvLapa.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvLapa_EditingControlShowing);
             this.dgvLapa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLapa_KeyDown);
-            // 
-            // bsLapa2
-            // 
-            this.bsLapa2.DataSource = this.dlJoinView1;
-            // 
-            // dlJoinView1
-            // 
-            this.dlJoinView1.AllowDelete = true;
-            this.dlJoinView1.AllowEdit = true;
-            this.dlJoinView1.AllowNew = false;
-            this.dlJoinView1.AllowSort = true;
-            this.dlJoinView1.FieldList = "!.*,*";
-            this.dlJoinView1.Name = "dlJoinView1";
-            this.dlJoinView1.Sort = "SNRX,IDX,KIND1";
-            // 
-            // bsLapa
-            // 
-            this.bsLapa.AutoSaveOnDelete = true;
-            this.bsLapa.DataMember = "TIMESHEET";
-            this.bsLapa.MyDataSource = "KlonsData";
-            this.bsLapa.UseDataGridView = this.dgvLapa;
-            this.bsLapa.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsLapa_ListChanged);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslPeriod});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(681, 28);
-            this.toolStrip1.TabIndex = 6;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tslPeriod
-            // 
-            this.tslPeriod.Name = "tslPeriod";
-            this.tslPeriod.Size = new System.Drawing.Size(84, 25);
-            this.tslPeriod.Text = "Periods:";
-            // 
-            // bsLapuSar
-            // 
-            this.bsLapuSar.DataMember = "TIMESHEET_LISTS";
-            this.bsLapuSar.Filter = "ISFIRSTMT = FALSE";
-            this.bsLapuSar.MyDataSource = "KlonsData";
-            this.bsLapuSar.Sort = "yr desc, mt desc,snr";
-            this.bsLapuSar.CurrentChanged += new System.EventHandler(this.bsLapuSar_CurrentChanged);
-            // 
-            // cbLapuSar
-            // 
-            this.cbLapuSar._AllowSelection = true;
-            this.cbLapuSar.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cbLapuSar.ColumnNames = new string[] {
-        "ID"};
-            this.cbLapuSar.ColumnWidths = "280";
-            this.cbLapuSar.DataSource = this.bsLapuSar;
-            this.cbLapuSar.DisplayMember = "ID";
-            this.cbLapuSar.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbLapuSar.DropDownHeight = 255;
-            this.cbLapuSar.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownListSimple;
-            this.cbLapuSar.DropDownWidth = 304;
-            this.cbLapuSar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbLapuSar.FormattingEnabled = true;
-            this.cbLapuSar.GridLineColor = System.Drawing.Color.LightGray;
-            this.cbLapuSar.GridLineHorizontal = false;
-            this.cbLapuSar.GridLineVertical = false;
-            this.cbLapuSar.IntegralHeight = false;
-            this.cbLapuSar.Location = new System.Drawing.Point(226, 0);
-            this.cbLapuSar.MaxDropDownItems = 15;
-            this.cbLapuSar.Name = "cbLapuSar";
-            this.cbLapuSar.Size = new System.Drawing.Size(280, 23);
-            this.cbLapuSar.TabIndex = 7;
-            this.cbLapuSar.ValueMember = "ID";
-            this.cbLapuSar.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cbLapuSar_Format);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNew,
-            this.tsbEdit,
-            this.tsbDelete,
-            this.tsbSave});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 323);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(681, 32);
-            this.toolStrip2.TabIndex = 8;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // tsbNew
-            // 
-            this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
-            this.tsbNew.Name = "tsbNew";
-            this.tsbNew.RightToLeftAutoMirrorImage = true;
-            this.tsbNew.Size = new System.Drawing.Size(91, 29);
-            this.tsbNew.Text = "Jauns";
-            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
-            // 
-            // tsbEdit
-            // 
-            this.tsbEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsbEdit.Image")));
-            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(89, 29);
-            this.tsbEdit.Text = "Mainīt";
-            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.RightToLeftAutoMirrorImage = true;
-            this.tsbDelete.Size = new System.Drawing.Size(87, 29);
-            this.tsbDelete.Text = "Dzēst";
-            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
-            // 
-            // tsbSave
-            // 
-            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
-            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(25, 29);
-            this.tsbSave.Text = "toolStripButton1";
-            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
-            // 
-            // myAdapterManager1
-            // 
-            this.myAdapterManager1.MyDataSource = "KlonsData";
-            this.myAdapterManager1.TableNames = new string[] {
-        "TIMESHEET",
-        "TIMESHEET_LISTS",
-        "TIMESHEET_LISTS_R",
-        null};
-            // 
-            // myStyleDefs1
-            // 
-            this.myStyleDefs1.FreeDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(116)))), ((int)(((byte)(197)))));
-            this.myStyleDefs1.FreeDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.HeaderHolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(113)))), ((int)(((byte)(0)))));
-            this.myStyleDefs1.HeaderHolyDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.HeaderWeekEndBack = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
-            this.myStyleDefs1.HeaderWeekEndFore = System.Drawing.Color.White;
-            this.myStyleDefs1.HolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
-            this.myStyleDefs1.HolyDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.SickDayBack = System.Drawing.Color.IndianRed;
-            this.myStyleDefs1.SickDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.VacationBack = System.Drawing.Color.YellowGreen;
-            this.myStyleDefs1.VacationFore = System.Drawing.Color.White;
-            // 
-            // cmsMenuMarkDayFact
-            // 
-            this.cmsMenuMarkDayFact.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.cmsMenuMarkDayFact.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miFactD,
-            this.miFactB,
-            this.miFactK,
-            this.miFactSVVI,
-            this.miFactVI,
-            this.miFactN,
-            this.miFactDS,
-            this.miFactKS});
-            this.cmsMenuMarkDayFact.Name = "cmsMenuMarkDay";
-            this.cmsMenuMarkDayFact.Size = new System.Drawing.Size(482, 244);
-            this.cmsMenuMarkDayFact.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsMenuMarkDayFact_ItemClicked);
-            // 
-            // miFactD
-            // 
-            this.miFactD.Name = "miFactD";
-            this.miFactD.Size = new System.Drawing.Size(481, 30);
-            this.miFactD.Text = "Darba diena";
-            // 
-            // miFactB
-            // 
-            this.miFactB.Name = "miFactB";
-            this.miFactB.Size = new System.Drawing.Size(481, 30);
-            this.miFactB.Text = "B - Brīvdiena";
-            // 
-            // miFactK
-            // 
-            this.miFactK.Name = "miFactK";
-            this.miFactK.Size = new System.Drawing.Size(481, 30);
-            this.miFactK.Text = "K - Komandējums";
-            // 
-            // miFactSVVI
-            // 
-            this.miFactSVVI.Name = "miFactSVVI";
-            this.miFactSVVI.Size = new System.Drawing.Size(481, 30);
-            this.miFactSVVI.Text = "S - Svētku diena ar vidējo izpeļņu";
-            // 
-            // miFactVI
-            // 
-            this.miFactVI.Name = "miFactVI";
-            this.miFactVI.Size = new System.Drawing.Size(481, 30);
-            this.miFactVI.Text = "V - Vidējās izpeļņas diena";
-            // 
-            // miFactN
-            // 
-            this.miFactN.Name = "miFactN";
-            this.miFactN.Size = new System.Drawing.Size(481, 30);
-            this.miFactN.Text = "N - Neattaisnots kavējums";
-            // 
-            // miFactDS
-            // 
-            this.miFactDS.Name = "miFactDS";
-            this.miFactDS.Size = new System.Drawing.Size(481, 30);
-            this.miFactDS.Text = "DS - Darba diena svētku dienā ar piemaksu";
-            // 
-            // miFactKS
-            // 
-            this.miFactKS.Name = "miFactKS";
-            this.miFactKS.Size = new System.Drawing.Size(481, 30);
-            this.miFactKS.Text = "KS - Komandējums svētku dienā ar piemaksu";
-            // 
-            // cmsMenuMarkDayPlan
-            // 
-            this.cmsMenuMarkDayPlan.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.cmsMenuMarkDayPlan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miPlanDD,
-            this.miPlanBD,
-            this.miPlanSD,
-            this.miPlanSDDD,
-            this.miPlanDDSD});
-            this.cmsMenuMarkDayPlan.Name = "cmsMenuMarkDayPlan";
-            this.cmsMenuMarkDayPlan.Size = new System.Drawing.Size(360, 154);
-            this.cmsMenuMarkDayPlan.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsMenuMarkDayPlan_ItemClicked);
-            // 
-            // miPlanDD
-            // 
-            this.miPlanDD.Name = "miPlanDD";
-            this.miPlanDD.Size = new System.Drawing.Size(359, 30);
-            this.miPlanDD.Text = "Darba diena";
-            // 
-            // miPlanBD
-            // 
-            this.miPlanBD.Name = "miPlanBD";
-            this.miPlanBD.Size = new System.Drawing.Size(359, 30);
-            this.miPlanBD.Text = "B - Brīvdiena";
-            // 
-            // miPlanSD
-            // 
-            this.miPlanSD.Name = "miPlanSD";
-            this.miPlanSD.Size = new System.Drawing.Size(359, 30);
-            this.miPlanSD.Text = "S - Svētku diena";
-            // 
-            // miPlanSDDD
-            // 
-            this.miPlanSDDD.Name = "miPlanSDDD";
-            this.miPlanSDDD.Size = new System.Drawing.Size(359, 30);
-            this.miPlanSDDD.Text = "SD - Svētku diena darba dienā";
-            // 
-            // miPlanDDSD
-            // 
-            this.miPlanDDSD.Name = "miPlanDDSD";
-            this.miPlanDDSD.Size = new System.Drawing.Size(359, 30);
-            this.miPlanDDSD.Text = "DS - Darba diena svētku dienā";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(681, 33);
-            this.menuStrip1.TabIndex = 9;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
-            // 
-            // darbaLaikaUzskaitesLapaToolStripMenuItem
-            // 
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.sarakstsToolStripMenuItem,
-            this.darbinieksToolStripMenuItem,
-            this.izdrukaiToolStripMenuItem});
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem.MergeIndex = 2;
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Name = "darbaLaikaUzskaitesLapaToolStripMenuItem";
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Size = new System.Drawing.Size(251, 29);
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Text = "Darba laika uzskaites lapa";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
-            // 
-            // sarakstsToolStripMenuItem
-            // 
-            this.sarakstsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiSheetCheckEvents,
-            this.tsmiSheetFillFact});
-            this.sarakstsToolStripMenuItem.Name = "sarakstsToolStripMenuItem";
-            this.sarakstsToolStripMenuItem.Size = new System.Drawing.Size(184, 30);
-            this.sarakstsToolStripMenuItem.Text = "Saraksts";
-            // 
-            // tsmiSheetCheckEvents
-            // 
-            this.tsmiSheetCheckEvents.Name = "tsmiSheetCheckEvents";
-            this.tsmiSheetCheckEvents.Size = new System.Drawing.Size(420, 30);
-            this.tsmiSheetCheckEvents.Text = "Pārbaudīt notikumus";
-            this.tsmiSheetCheckEvents.Click += new System.EventHandler(this.tsmiSheetCheckEvents_Click);
-            // 
-            // tsmiSheetFillFact
-            // 
-            this.tsmiSheetFillFact.Name = "tsmiSheetFillFact";
-            this.tsmiSheetFillFact.Size = new System.Drawing.Size(420, 30);
-            this.tsmiSheetFillFact.Text = "Aizpildīt nostrādātās stundas no plāna";
-            this.tsmiSheetFillFact.Click += new System.EventHandler(this.tsmiSheetFillFact_Click);
-            // 
-            // darbinieksToolStripMenuItem
-            // 
-            this.darbinieksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiPersonCheckEvents,
-            this.tsmiPersonFillFact});
-            this.darbinieksToolStripMenuItem.Name = "darbinieksToolStripMenuItem";
-            this.darbinieksToolStripMenuItem.Size = new System.Drawing.Size(184, 30);
-            this.darbinieksToolStripMenuItem.Text = "Darbinieks";
-            // 
-            // tsmiPersonCheckEvents
-            // 
-            this.tsmiPersonCheckEvents.Name = "tsmiPersonCheckEvents";
-            this.tsmiPersonCheckEvents.Size = new System.Drawing.Size(340, 30);
-            this.tsmiPersonCheckEvents.Text = "Pārbaudīt notikumus";
-            this.tsmiPersonCheckEvents.Click += new System.EventHandler(this.tsmiPersonCheckEvents_Click);
-            // 
-            // tsmiPersonFillFact
-            // 
-            this.tsmiPersonFillFact.Name = "tsmiPersonFillFact";
-            this.tsmiPersonFillFact.Size = new System.Drawing.Size(340, 30);
-            this.tsmiPersonFillFact.Text = "Aizpildīt nostrādātās stundas";
-            this.tsmiPersonFillFact.Click += new System.EventHandler(this.tsmiPersonFillFact_Click);
-            // 
-            // izdrukaiToolStripMenuItem
-            // 
-            this.izdrukaiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.darbaLaikaLapaToolStripMenuItem,
-            this.darbaLaikaKopsummasToolStripMenuItem});
-            this.izdrukaiToolStripMenuItem.Name = "izdrukaiToolStripMenuItem";
-            this.izdrukaiToolStripMenuItem.Size = new System.Drawing.Size(184, 30);
-            this.izdrukaiToolStripMenuItem.Text = "Izdrukai";
-            // 
-            // darbaLaikaLapaToolStripMenuItem
-            // 
-            this.darbaLaikaLapaToolStripMenuItem.Name = "darbaLaikaLapaToolStripMenuItem";
-            this.darbaLaikaLapaToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.darbaLaikaLapaToolStripMenuItem.Text = "Darba laika lapa";
-            this.darbaLaikaLapaToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaLapaToolStripMenuItem_Click);
-            // 
-            // darbaLaikaKopsummasToolStripMenuItem
-            // 
-            this.darbaLaikaKopsummasToolStripMenuItem.Name = "darbaLaikaKopsummasToolStripMenuItem";
-            this.darbaLaikaKopsummasToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.darbaLaikaKopsummasToolStripMenuItem.Text = "Darba laika kopsummas";
-            this.darbaLaikaKopsummasToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaKopsummasToolStripMenuItem_Click);
             // 
             // dgcIDX
             // 
@@ -916,6 +561,361 @@ namespace KlonsA.Forms
             this.dgcKind2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgcKind2.Visible = false;
             this.dgcKind2.Width = 40;
+            // 
+            // bsLapa2
+            // 
+            this.bsLapa2.DataSource = this.dlJoinView1;
+            // 
+            // dlJoinView1
+            // 
+            this.dlJoinView1.AllowDelete = true;
+            this.dlJoinView1.AllowEdit = true;
+            this.dlJoinView1.AllowNew = false;
+            this.dlJoinView1.AllowSort = true;
+            this.dlJoinView1.FieldList = "!.*,*";
+            this.dlJoinView1.Name = "dlJoinView1";
+            this.dlJoinView1.Sort = "SNRX,IDX,KIND1";
+            // 
+            // bsLapa
+            // 
+            this.bsLapa.AutoSaveOnDelete = true;
+            this.bsLapa.DataMember = "TIMESHEET";
+            this.bsLapa.MyDataSource = "KlonsData";
+            this.bsLapa.UseDataGridView = this.dgvLapa;
+            this.bsLapa.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsLapa_ListChanged);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslPeriod});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(681, 28);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tslPeriod
+            // 
+            this.tslPeriod.Name = "tslPeriod";
+            this.tslPeriod.Size = new System.Drawing.Size(84, 25);
+            this.tslPeriod.Text = "Periods:";
+            // 
+            // bsLapuSar
+            // 
+            this.bsLapuSar.DataMember = "TIMESHEET_LISTS";
+            this.bsLapuSar.Filter = "ISFIRSTMT = FALSE";
+            this.bsLapuSar.MyDataSource = "KlonsData";
+            this.bsLapuSar.Sort = "yr desc, mt desc,snr desc";
+            this.bsLapuSar.CurrentChanged += new System.EventHandler(this.bsLapuSar_CurrentChanged);
+            // 
+            // cbLapuSar
+            // 
+            this.cbLapuSar._AllowSelection = true;
+            this.cbLapuSar.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cbLapuSar.ColumnNames = new string[] {
+        "ID"};
+            this.cbLapuSar.ColumnWidths = "280";
+            this.cbLapuSar.DataSource = this.bsLapuSar;
+            this.cbLapuSar.DisplayMember = "ID";
+            this.cbLapuSar.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLapuSar.DropDownHeight = 255;
+            this.cbLapuSar.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownListSimple;
+            this.cbLapuSar.DropDownWidth = 304;
+            this.cbLapuSar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbLapuSar.FormattingEnabled = true;
+            this.cbLapuSar.GridLineColor = System.Drawing.Color.LightGray;
+            this.cbLapuSar.GridLineHorizontal = false;
+            this.cbLapuSar.GridLineVertical = false;
+            this.cbLapuSar.IntegralHeight = false;
+            this.cbLapuSar.Location = new System.Drawing.Point(226, 0);
+            this.cbLapuSar.MaxDropDownItems = 15;
+            this.cbLapuSar.Name = "cbLapuSar";
+            this.cbLapuSar.Size = new System.Drawing.Size(280, 23);
+            this.cbLapuSar.TabIndex = 7;
+            this.cbLapuSar.ValueMember = "ID";
+            this.cbLapuSar.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cbLapuSar_Format);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNew,
+            this.tsbEdit,
+            this.tsbDelete,
+            this.tsbSave});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 323);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(681, 32);
+            this.toolStrip2.TabIndex = 8;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // tsbNew
+            // 
+            this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.RightToLeftAutoMirrorImage = true;
+            this.tsbNew.Size = new System.Drawing.Size(91, 29);
+            this.tsbNew.Text = "Jauns";
+            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
+            // 
+            // tsbEdit
+            // 
+            this.tsbEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsbEdit.Image")));
+            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEdit.Name = "tsbEdit";
+            this.tsbEdit.Size = new System.Drawing.Size(89, 29);
+            this.tsbEdit.Text = "Mainīt";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.RightToLeftAutoMirrorImage = true;
+            this.tsbDelete.Size = new System.Drawing.Size(87, 29);
+            this.tsbDelete.Text = "Dzēst";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
+            // 
+            // tsbSave
+            // 
+            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
+            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSave.Name = "tsbSave";
+            this.tsbSave.Size = new System.Drawing.Size(25, 29);
+            this.tsbSave.Text = "toolStripButton1";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
+            // 
+            // myAdapterManager1
+            // 
+            this.myAdapterManager1.MyDataSource = "KlonsData";
+            this.myAdapterManager1.TableNames = new string[] {
+        "TIMESHEET",
+        "TIMESHEET_LISTS",
+        "TIMESHEET_LISTS_R",
+        null};
+            // 
+            // myStyleDefs1
+            // 
+            this.myStyleDefs1.FreeDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(116)))), ((int)(((byte)(197)))));
+            this.myStyleDefs1.FreeDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.HeaderHolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(113)))), ((int)(((byte)(0)))));
+            this.myStyleDefs1.HeaderHolyDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.HeaderWeekEndBack = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
+            this.myStyleDefs1.HeaderWeekEndFore = System.Drawing.Color.White;
+            this.myStyleDefs1.HolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
+            this.myStyleDefs1.HolyDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.SickDayBack = System.Drawing.Color.IndianRed;
+            this.myStyleDefs1.SickDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.VacationBack = System.Drawing.Color.YellowGreen;
+            this.myStyleDefs1.VacationFore = System.Drawing.Color.White;
+            // 
+            // cmsMenuMarkDayFact
+            // 
+            this.cmsMenuMarkDayFact.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.cmsMenuMarkDayFact.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miFactD,
+            this.miFactB,
+            this.miFactK,
+            this.miFactSVVI,
+            this.miFactVI,
+            this.miFactN,
+            this.miFactDS,
+            this.miFactKS});
+            this.cmsMenuMarkDayFact.Name = "cmsMenuMarkDay";
+            this.cmsMenuMarkDayFact.Size = new System.Drawing.Size(482, 244);
+            this.cmsMenuMarkDayFact.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsMenuMarkDayFact_ItemClicked);
+            // 
+            // miFactD
+            // 
+            this.miFactD.Name = "miFactD";
+            this.miFactD.Size = new System.Drawing.Size(481, 30);
+            this.miFactD.Text = "Darba diena";
+            // 
+            // miFactB
+            // 
+            this.miFactB.Name = "miFactB";
+            this.miFactB.Size = new System.Drawing.Size(481, 30);
+            this.miFactB.Text = "B - Brīvdiena";
+            // 
+            // miFactK
+            // 
+            this.miFactK.Name = "miFactK";
+            this.miFactK.Size = new System.Drawing.Size(481, 30);
+            this.miFactK.Text = "K - Komandējums";
+            // 
+            // miFactSVVI
+            // 
+            this.miFactSVVI.Name = "miFactSVVI";
+            this.miFactSVVI.Size = new System.Drawing.Size(481, 30);
+            this.miFactSVVI.Text = "S - Svētku diena ar vidējo izpeļņu";
+            // 
+            // miFactVI
+            // 
+            this.miFactVI.Name = "miFactVI";
+            this.miFactVI.Size = new System.Drawing.Size(481, 30);
+            this.miFactVI.Text = "V - Vidējās izpeļņas diena";
+            // 
+            // miFactN
+            // 
+            this.miFactN.Name = "miFactN";
+            this.miFactN.Size = new System.Drawing.Size(481, 30);
+            this.miFactN.Text = "N - Neattaisnots kavējums";
+            // 
+            // miFactDS
+            // 
+            this.miFactDS.Name = "miFactDS";
+            this.miFactDS.Size = new System.Drawing.Size(481, 30);
+            this.miFactDS.Text = "DS - Darba diena svētku dienā ar piemaksu";
+            // 
+            // miFactKS
+            // 
+            this.miFactKS.Name = "miFactKS";
+            this.miFactKS.Size = new System.Drawing.Size(481, 30);
+            this.miFactKS.Text = "KS - Komandējums svētku dienā ar piemaksu";
+            // 
+            // cmsMenuMarkDayPlan
+            // 
+            this.cmsMenuMarkDayPlan.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.cmsMenuMarkDayPlan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miPlanDD,
+            this.miPlanBD,
+            this.miPlanSD,
+            this.miPlanSDDD,
+            this.miPlanDDSD});
+            this.cmsMenuMarkDayPlan.Name = "cmsMenuMarkDayPlan";
+            this.cmsMenuMarkDayPlan.Size = new System.Drawing.Size(352, 154);
+            this.cmsMenuMarkDayPlan.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsMenuMarkDayPlan_ItemClicked);
+            // 
+            // miPlanDD
+            // 
+            this.miPlanDD.Name = "miPlanDD";
+            this.miPlanDD.Size = new System.Drawing.Size(351, 30);
+            this.miPlanDD.Text = "Darba diena";
+            // 
+            // miPlanBD
+            // 
+            this.miPlanBD.Name = "miPlanBD";
+            this.miPlanBD.Size = new System.Drawing.Size(351, 30);
+            this.miPlanBD.Text = "B - Brīvdiena";
+            // 
+            // miPlanSD
+            // 
+            this.miPlanSD.Name = "miPlanSD";
+            this.miPlanSD.Size = new System.Drawing.Size(351, 30);
+            this.miPlanSD.Text = "S - Svētku diena";
+            // 
+            // miPlanSDDD
+            // 
+            this.miPlanSDDD.Name = "miPlanSDDD";
+            this.miPlanSDDD.Size = new System.Drawing.Size(351, 30);
+            this.miPlanSDDD.Text = "SD - Svētku diena darba dienā";
+            // 
+            // miPlanDDSD
+            // 
+            this.miPlanDDSD.Name = "miPlanDDSD";
+            this.miPlanDDSD.Size = new System.Drawing.Size(351, 30);
+            this.miPlanDDSD.Text = "DS - Darba diena svētku dienā";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(681, 33);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
+            // 
+            // darbaLaikaUzskaitesLapaToolStripMenuItem
+            // 
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.sarakstsToolStripMenuItem,
+            this.darbinieksToolStripMenuItem,
+            this.izdrukaiToolStripMenuItem});
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem.MergeIndex = 2;
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Name = "darbaLaikaUzskaitesLapaToolStripMenuItem";
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Size = new System.Drawing.Size(251, 29);
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Text = "Darba laika uzskaites lapa";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
+            // 
+            // sarakstsToolStripMenuItem
+            // 
+            this.sarakstsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSheetCheckEvents,
+            this.tsmiSheetFillFact});
+            this.sarakstsToolStripMenuItem.Name = "sarakstsToolStripMenuItem";
+            this.sarakstsToolStripMenuItem.Size = new System.Drawing.Size(183, 30);
+            this.sarakstsToolStripMenuItem.Text = "Saraksts";
+            // 
+            // tsmiSheetCheckEvents
+            // 
+            this.tsmiSheetCheckEvents.Name = "tsmiSheetCheckEvents";
+            this.tsmiSheetCheckEvents.Size = new System.Drawing.Size(419, 30);
+            this.tsmiSheetCheckEvents.Text = "Pārbaudīt notikumus";
+            this.tsmiSheetCheckEvents.Click += new System.EventHandler(this.tsmiSheetCheckEvents_Click);
+            // 
+            // tsmiSheetFillFact
+            // 
+            this.tsmiSheetFillFact.Name = "tsmiSheetFillFact";
+            this.tsmiSheetFillFact.Size = new System.Drawing.Size(419, 30);
+            this.tsmiSheetFillFact.Text = "Aizpildīt nostrādātās stundas no plāna";
+            this.tsmiSheetFillFact.Click += new System.EventHandler(this.tsmiSheetFillFact_Click);
+            // 
+            // darbinieksToolStripMenuItem
+            // 
+            this.darbinieksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiPersonCheckEvents,
+            this.tsmiPersonFillFact});
+            this.darbinieksToolStripMenuItem.Name = "darbinieksToolStripMenuItem";
+            this.darbinieksToolStripMenuItem.Size = new System.Drawing.Size(183, 30);
+            this.darbinieksToolStripMenuItem.Text = "Darbinieks";
+            // 
+            // tsmiPersonCheckEvents
+            // 
+            this.tsmiPersonCheckEvents.Name = "tsmiPersonCheckEvents";
+            this.tsmiPersonCheckEvents.Size = new System.Drawing.Size(339, 30);
+            this.tsmiPersonCheckEvents.Text = "Pārbaudīt notikumus";
+            this.tsmiPersonCheckEvents.Click += new System.EventHandler(this.tsmiPersonCheckEvents_Click);
+            // 
+            // tsmiPersonFillFact
+            // 
+            this.tsmiPersonFillFact.Name = "tsmiPersonFillFact";
+            this.tsmiPersonFillFact.Size = new System.Drawing.Size(339, 30);
+            this.tsmiPersonFillFact.Text = "Aizpildīt nostrādātās stundas";
+            this.tsmiPersonFillFact.Click += new System.EventHandler(this.tsmiPersonFillFact_Click);
+            // 
+            // izdrukaiToolStripMenuItem
+            // 
+            this.izdrukaiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.darbaLaikaLapaToolStripMenuItem,
+            this.darbaLaikaKopsummasToolStripMenuItem});
+            this.izdrukaiToolStripMenuItem.Name = "izdrukaiToolStripMenuItem";
+            this.izdrukaiToolStripMenuItem.Size = new System.Drawing.Size(183, 30);
+            this.izdrukaiToolStripMenuItem.Text = "Izdrukai";
+            // 
+            // darbaLaikaLapaToolStripMenuItem
+            // 
+            this.darbaLaikaLapaToolStripMenuItem.Name = "darbaLaikaLapaToolStripMenuItem";
+            this.darbaLaikaLapaToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.darbaLaikaLapaToolStripMenuItem.Text = "Darba laika lapa";
+            this.darbaLaikaLapaToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaLapaToolStripMenuItem_Click);
+            // 
+            // darbaLaikaKopsummasToolStripMenuItem
+            // 
+            this.darbaLaikaKopsummasToolStripMenuItem.Name = "darbaLaikaKopsummasToolStripMenuItem";
+            this.darbaLaikaKopsummasToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
+            this.darbaLaikaKopsummasToolStripMenuItem.Text = "Darba laika kopsummas";
+            this.darbaLaikaKopsummasToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaKopsummasToolStripMenuItem_Click);
             // 
             // Form_TimeSheet
             // 

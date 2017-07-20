@@ -229,6 +229,74 @@ namespace KlonsA.Forms
             return xdoc;
         }
 
+        private MyXmlDoc MakeXMLV2()
+        {
+            var xdoc = new MyXmlDoc();
+
+            XmlElement DokDDZv2 = xdoc.CreateElement("DokDDZv2");
+            DokDDZv2.SetAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema"); ;
+            DokDDZv2.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            xdoc.AppendChild(DokDDZv2);
+
+            xdoc.XE(DokDDZv2, "ParskGads", Year);
+            xdoc.XE(DokDDZv2, "ParskMen", Month);
+
+            var s = MyData.Params.CompRegNrPVNx;
+            if (s.Length != 11)
+            {
+                MyMainForm.ShowError("Nekorekts PVN reģ.nr.");
+                return null;
+            }
+
+            xdoc.XE(DokDDZv2, "NmrKods", s);
+
+            xdoc.XE(DokDDZv2, "IzmaksasDatums", PayDay);
+
+            xdoc.XE(DokDDZv2, "Sagatavotajs", tbName.Text);
+            xdoc.XENZ(DokDDZv2, "Talrunis", tbPhoneNr.Text);
+
+            if (ReportData.Rows1.Count == 0) return xdoc;
+
+            xdoc.XE(DokDDZv2, "Ienakumi", ReportData.TotalRow.Income);
+            xdoc.XE(DokDDZv2, "Iemaksas", ReportData.TotalRow.SAI);
+            xdoc.XE(DokDDZv2, "PrecizetieIenakumi", ReportData.TotalRow.IncomeCorrected);
+            xdoc.XE(DokDDZv2, "PrecizetasIemaksas", ReportData.TotalRow.SAICorrected);
+            xdoc.XE(DokDDZv2, "IeturetaisNodoklis", ReportData.TotalRow.IIN);
+            xdoc.XE(DokDDZv2, "RiskaNodeva", ReportData.TotalRow.URVN);
+
+            for (int i = 0; i < 6; i++)
+            {
+                var rows = ReportData.RowsX[i];
+                if (rows.Count == 0) continue;
+                var tab = xdoc.CreateElement("Tab" + (i + 1));
+                DokDDZv2.AppendChild(tab);
+
+                foreach (var row in rows)
+                {
+                    var r = xdoc.CreateElement("R");
+                    tab.AppendChild(r);
+                    xdoc.XE(r, "PersonasKods", row.PK);
+                    xdoc.XE(r, "VardsUzvards", row.Name);
+                    xdoc.XE(r, "Statuss", row.Tp2s);
+                    if (row.Tp != 4)
+                    {
+                        xdoc.XE(r, "Ienakumi", row.Income);
+                        xdoc.XE(r, "Iemaksas", row.SAI);
+                        xdoc.XENZ(r, "PrecizetieIenakumi", row.IncomeCorrected);
+                        xdoc.XENZ(r, "PrecizetasIemaksas", row.SAICorrected);
+
+                    }
+                    xdoc.XENZ(r, "IeturetaisNodoklis", row.IIN);
+                    xdoc.XE(r, "DarbaVeids", "1");
+                    xdoc.XE(r, "RiskaNodevasPazime", row.HasURVN ? "1" : "0");
+                    xdoc.XEIF(row.HasURVN, r, "RiskaNodeva", row.URVN);
+                    xdoc.XE(r, "Stundas", (int)row.Hours);
+                }
+            }
+
+            return xdoc;
+        }
+
         private void DoXML()
         {
             if (!CheckParams()) return;
@@ -238,6 +306,19 @@ namespace KlonsA.Forms
                 ReportRows = new List<VSAOIReportRow1>();
 
             var xdoc = MakeXML();
+            if (xdoc == null) return;
+            xdoc.Save();
+        }
+
+        private void DoXMLv2()
+        {
+            if (!CheckParams()) return;
+            SaveParams();
+
+            if (ReportRows == null)
+                ReportRows = new List<VSAOIReportRow1>();
+
+            var xdoc = MakeXMLV2();
             if (xdoc == null) return;
             xdoc.Save();
         }
@@ -268,10 +349,15 @@ namespace KlonsA.Forms
         {
             DoXML();
         }
+        private void cmXMLv2_Click(object sender, EventArgs e)
+        {
+            DoXMLv2();
+        }
 
         private void bnRows_ItemDeleting(object sender, CancelEventArgs e)
         {
             e.Cancel = !AskCanDelete();
         }
+
     }
 }
