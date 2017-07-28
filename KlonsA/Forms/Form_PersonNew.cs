@@ -110,6 +110,7 @@ namespace KlonsA.Forms
             var dr_pr = tablePersonsR.NewPERSONS_RRow();
 
             dr_pr.IDP = IDP;
+            dr_pr.PERSONSRow = dr_p;
             dr_pr.EDIT_DATE = DateTime.Today;
             dr_pr.FNAME = FName;
             dr_pr.LNAME = LName;
@@ -119,6 +120,7 @@ namespace KlonsA.Forms
             var dr_am = tableAmati.NewPOSITIONSRow();
 
             dr_am.IDP = IDP;
+            dr_am.PERSONSRow = dr_p;
             dr_am.TITLE = PositionTitle;
             dr_am.IDDEP = iddep;
             tableAmati.AddPOSITIONSRow(dr_am);
@@ -126,6 +128,7 @@ namespace KlonsA.Forms
             var dr_amr = tableAmatiR.NewPOSITIONS_RRow();
 
             dr_amr.IDA = dr_am.ID;
+            dr_amr.POSITIONSRow = dr_am;
             dr_amr.EDIT_DATE = DateTime.Today;
             if (!string.IsNullOrEmpty(dr_am.TITLE)) dr_amr.TITLE = dr_am.TITLE;
             if (!string.IsNullOrEmpty(dr_am.IDDEP)) dr_amr.IDDEP = dr_am.IDDEP;

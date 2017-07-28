@@ -879,6 +879,7 @@ namespace KlonsA.Forms
             var dr_am = tableAmati.NewPOSITIONSRow();
 
             dr_am.IDP = drp.ID;
+            dr_am.PERSONSRow = drp;
             dr_am.TITLE = fpn.PositionTitle;
             dr_am.IDDEP = fpn.iddep;
             tableAmati.AddPOSITIONSRow(dr_am);
@@ -886,6 +887,7 @@ namespace KlonsA.Forms
             var dr_amr = tableAmatiR.NewPOSITIONS_RRow();
 
             dr_amr.IDA = dr_am.ID;
+            dr_amr.POSITIONSRow = dr_am;
             dr_amr.EDIT_DATE = DateTime.Today;
             dr_amr.TITLE = dr_am.TITLE;
             dr_amr.IDDEP = dr_am.IDDEP;
