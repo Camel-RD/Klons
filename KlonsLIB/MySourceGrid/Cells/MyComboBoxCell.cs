@@ -56,9 +56,16 @@ namespace KlonsLIB.MySourceGrid.Cells
         {
             if (Control.DropDownStyle != MyMcComboBox.CustomDropDownStyle.DropDownListSimple)
             {
-                Control.Text = key.ToString();
-                if (Control.Text != null)
-                    Control.SelectionStart = Control.Text.Length;
+                if (Control.Focused)
+                {
+                    SendKeys.Send(key.ToString());
+                }
+                else
+                {
+                    Control.Text = key.ToString();
+                    if (Control.Text != null)
+                        Control.SelectionStart = Control.Text.Length;
+                }
             }
         }
 
