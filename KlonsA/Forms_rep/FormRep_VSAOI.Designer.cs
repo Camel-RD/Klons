@@ -57,7 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbYear = new KlonsLIB.Components.MyMcFlatComboBox();
             this.cbMonth = new KlonsLIB.Components.MyMcFlatComboBox();
-            this.cmTable = new System.Windows.Forms.Button();
             this.dgvRep = new KlonsLIB.Components.MyDataGridView();
             this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,12 +78,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbPosition = new KlonsLIB.Components.MyTextBox();
             this.tbName = new KlonsLIB.Components.MyTextBox();
-            this.cmReport = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbPayDate = new KlonsLIB.Components.MyTextBox();
-            this.cmXML = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmXMLv2 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.miTable = new System.Windows.Forms.ToolStripMenuItem();
+            this.miReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miXMLv1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miXMLv2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bnRows = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -100,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRep)).BeginInit();
             this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnRows)).BeginInit();
             this.bnRows.SuspendLayout();
             this.SuspendLayout();
@@ -211,16 +214,6 @@
             this.cbMonth.TabIndex = 2;
             this.cbMonth.ValueMember = "col1";
             // 
-            // cmTable
-            // 
-            this.cmTable.Location = new System.Drawing.Point(16, 38);
-            this.cmTable.Name = "cmTable";
-            this.cmTable.Size = new System.Drawing.Size(64, 33);
-            this.cmTable.TabIndex = 3;
-            this.cmTable.Text = "Atlasīt";
-            this.cmTable.UseVisualStyleBackColor = true;
-            this.cmTable.Click += new System.EventHandler(this.cmTable_Click);
-            // 
             // dgvRep
             // 
             this.dgvRep.AutoGenerateColumns = false;
@@ -247,10 +240,10 @@
             this.dgcNr});
             this.dgvRep.DataSource = this.bsRep;
             this.dgvRep.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRep.Location = new System.Drawing.Point(0, 105);
+            this.dgvRep.Location = new System.Drawing.Point(0, 106);
             this.dgvRep.Name = "dgvRep";
             this.dgvRep.RowTemplate.Height = 24;
-            this.dgvRep.Size = new System.Drawing.Size(901, 281);
+            this.dgvRep.Size = new System.Drawing.Size(901, 280);
             this.dgvRep.TabIndex = 1;
             // 
             // dgcPK
@@ -444,16 +437,6 @@
             this.tbName.Size = new System.Drawing.Size(126, 22);
             this.tbName.TabIndex = 8;
             // 
-            // cmReport
-            // 
-            this.cmReport.Location = new System.Drawing.Point(86, 38);
-            this.cmReport.Name = "cmReport";
-            this.cmReport.Size = new System.Drawing.Size(64, 33);
-            this.cmReport.TabIndex = 4;
-            this.cmReport.Text = "Atskaite";
-            this.cmReport.UseVisualStyleBackColor = true;
-            this.cmReport.Click += new System.EventHandler(this.cmReport_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -471,16 +454,6 @@
             this.tbPayDate.Size = new System.Drawing.Size(54, 22);
             this.tbPayDate.TabIndex = 10;
             // 
-            // cmXML
-            // 
-            this.cmXML.Location = new System.Drawing.Point(156, 38);
-            this.cmXML.Name = "cmXML";
-            this.cmXML.Size = new System.Drawing.Size(64, 33);
-            this.cmXML.TabIndex = 5;
-            this.cmXML.Text = "XML";
-            this.cmXML.UseVisualStyleBackColor = true;
-            this.cmXML.Click += new System.EventHandler(this.cmXML_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.cbTp);
@@ -491,31 +464,70 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.cbMonth);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.cmTable);
             this.panel1.Controls.Add(this.tbDate);
-            this.panel1.Controls.Add(this.cmReport);
             this.panel1.Controls.Add(this.tbPhoneNr);
-            this.panel1.Controls.Add(this.cmXMLv2);
-            this.panel1.Controls.Add(this.cmXML);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.tbName);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbPosition);
+            this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 105);
+            this.panel1.Size = new System.Drawing.Size(901, 106);
             this.panel1.TabIndex = 0;
             // 
-            // cmXMLv2
+            // menuStrip1
             // 
-            this.cmXMLv2.Location = new System.Drawing.Point(226, 38);
-            this.cmXMLv2.Name = "cmXMLv2";
-            this.cmXMLv2.Size = new System.Drawing.Size(64, 33);
-            this.cmXMLv2.TabIndex = 6;
-            this.cmXMLv2.Text = "XMLv2";
-            this.cmXMLv2.UseVisualStyleBackColor = true;
-            this.cmXMLv2.Click += new System.EventHandler(this.cmXMLv2_Click);
+            this.menuStrip1.AllowMerge = false;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miTable,
+            this.miReport,
+            this.xMLToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 39);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(245, 33);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // miTable
+            // 
+            this.miTable.Name = "miTable";
+            this.miTable.Size = new System.Drawing.Size(77, 29);
+            this.miTable.Text = "Atlasīt";
+            this.miTable.Click += new System.EventHandler(this.cmTable_Click);
+            // 
+            // miReport
+            // 
+            this.miReport.Name = "miReport";
+            this.miReport.Size = new System.Drawing.Size(94, 29);
+            this.miReport.Text = "Atskaite";
+            this.miReport.Click += new System.EventHandler(this.cmReport_Click);
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miXMLv1,
+            this.miXMLv2});
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(66, 29);
+            this.xMLToolStripMenuItem.Text = "XML";
+            // 
+            // miXMLv1
+            // 
+            this.miXMLv1.Name = "miXMLv1";
+            this.miXMLv1.Size = new System.Drawing.Size(223, 30);
+            this.miXMLv1.Text = "līdz 01.01.2017";
+            this.miXMLv1.Click += new System.EventHandler(this.cmXML_Click);
+            // 
+            // miXMLv2
+            // 
+            this.miXMLv2.Name = "miXMLv2";
+            this.miXMLv2.Size = new System.Drawing.Size(223, 30);
+            this.miXMLv2.Text = "no 01.01.2017";
+            this.miXMLv2.Click += new System.EventHandler(this.cmXMLv2_Click);
             // 
             // bnRows
             // 
@@ -642,6 +654,7 @@
             this.Controls.Add(this.dgvRep);
             this.Controls.Add(this.bnRows);
             this.Controls.Add(this.panel1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(760, 36);
             this.Name = "FormRep_VSAOI";
             this.Text = "Darba devēja ziņojums";
@@ -650,6 +663,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsRep)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnRows)).EndInit();
             this.bnRows.ResumeLayout(false);
             this.bnRows.PerformLayout();
@@ -663,7 +678,6 @@
         private System.Windows.Forms.Label label1;
         private KlonsLIB.Components.MyMcFlatComboBox cbYear;
         private KlonsLIB.Components.MyMcFlatComboBox cbMonth;
-        private System.Windows.Forms.Button cmTable;
         private KlonsLIB.Components.MyDataGridView dgvRep;
         private System.Windows.Forms.BindingSource bsRep;
         private KlonsLIB.Components.MyMcFlatComboBox cbTp;
@@ -675,10 +689,8 @@
         private System.Windows.Forms.Label label3;
         private KlonsLIB.Components.MyTextBox tbPosition;
         private KlonsLIB.Components.MyTextBox tbName;
-        private System.Windows.Forms.Button cmReport;
         private System.Windows.Forms.Label label2;
         private KlonsLIB.Components.MyTextBox tbPayDate;
-        private System.Windows.Forms.Button cmXML;
         private System.Windows.Forms.Panel panel1;
         private KlonsLIB.Components.MyBindingNavigator bnRows;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -702,6 +714,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcURVN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcHours;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNr;
-        private System.Windows.Forms.Button cmXMLv2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem miTable;
+        private System.Windows.Forms.ToolStripMenuItem miReport;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miXMLv1;
+        private System.Windows.Forms.ToolStripMenuItem miXMLv2;
     }
 }

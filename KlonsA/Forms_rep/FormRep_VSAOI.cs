@@ -21,7 +21,9 @@ namespace KlonsA.Forms
         public FormRep_VSAOI()
         {
             InitializeComponent();
+            menuStrip1.Renderer = MyMainForm.MainMenuStrip.Renderer;
             CheckMyFontAndColors();
+            menuStrip1.Font = this.Font;
             dgvRep.AutoGenerateColumns = false;
             LoadParams();
         }

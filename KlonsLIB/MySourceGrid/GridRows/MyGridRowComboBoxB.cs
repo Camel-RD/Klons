@@ -4,15 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using KlonsLIB.Misc;
-using KlonsLIB.Components;
-using KlonsLIB.Forms;
 using KlonsLIB.MySourceGrid.Cells;
 using SourceGrid;
-using SourceGrid.Cells.Editors;
-using SourceGrid.Cells.Controllers;
 
 namespace KlonsLIB.MySourceGrid.GridRows
 {
@@ -27,6 +22,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
         private int maxDropDownRows = 15;
 
         [Category("ListData")]
+        [DefaultValue(null)]
         public string[] ListStrings { get; set; } = null;
 
         [DefaultValue(null)]
@@ -148,7 +144,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
             : base(name, title, gridpropname, EMyGridRowType.ComboBox, valtyp)
         {
             comboBoxEditor = new MyComboBoxCell(GetValueType());
-            this.DataSource = values;
+            this.listSource = values;
             this.ListValueMember = valuemember;
             this.ListDisplayMember = displaymember;
             this.ColumnNames = columnnames;
@@ -186,6 +182,16 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
             cbcell = new SourceGrid.Cells.Cell(GetDefaultValue(), GetValueType());
             comboBoxEditor = new MyComboBoxCell(GetValueType());
+
+            var list = GetListItems();
+            if (list != null)
+            {
+                this.ListSource = list;
+                this.ListValueMember = "Value";
+                this.ListDisplayMember = "Key";
+                this.ColumnNames = new[] { "Key", "Value" };
+            }
+
             comboBoxEditor.Control.DataSource = listSource;
             comboBoxEditor.Control.ValueMember = listValueMember;
             comboBoxEditor.Control.DisplayMember = listDisplayMember;
@@ -199,15 +205,6 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
             if (ReadOnly)
                 comboBoxEditor.EditableMode = EditableMode.None;
-
-            var list = GetListItems();
-            if (list != null)
-            {
-                this.DataSource = list;
-                this.ListValueMember = "Value";
-                this.ListDisplayMember = "Key";
-                this.ColumnNames = new[] {"Key", "Value"};
-            }
 
             comboBoxEditor.AllowNull = AllowNull;
             comboBoxEditor.Row = this;

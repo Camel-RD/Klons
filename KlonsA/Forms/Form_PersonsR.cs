@@ -843,6 +843,7 @@ namespace KlonsA.Forms
 
         public void DoAddPerson()
         {
+            if (!SaveData()) return;
             var fp = MyMainForm.FindForm(typeof(Form_Persons));
             if (fp != null)
             {
@@ -853,11 +854,13 @@ namespace KlonsA.Forms
             var rt = fpn.ShowDialog(MyMainForm);
             if (rt != DialogResult.OK) return;
             SelectPerson(fpn.IDP);
+            SaveData();
         }
 
 
         public void DoAddPosition()
         {
+            if (!SaveData()) return;
             var fp = MyMainForm.FindForm(typeof(Form_Persons));
             if (fp != null)
             {
@@ -894,6 +897,8 @@ namespace KlonsA.Forms
             tableAmatiR.AddPOSITIONS_RRow(dr_amr);
 
             SelectPosition(dr_am.ID);
+
+            SaveData();
         }
 
         private void rādītDarbiniekuSarakstuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -918,12 +923,12 @@ namespace KlonsA.Forms
             CheckEventsForAll();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void miAddPerson_Click(object sender, EventArgs e)
         {
             DoAddPerson();
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void miAddPosition_Click(object sender, EventArgs e)
         {
             DoAddPosition();
         }

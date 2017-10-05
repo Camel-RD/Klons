@@ -39,16 +39,72 @@ namespace KlonsA.Forms
             ShowPayDataPanel(MyData.Settings.ShowPayDataPanel);
             tslPeriod.Text = DataLoader.GetPeriodStr();
             MyData.DataSetKlons.PAYLISTS_R.ColumnChanged += PAYLISTS_R_ColumnChanged;
+            MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowChanged += PAYLISTS_R_PAYLISTS_RRowChanged;
+            MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowDeleted += PAYLISTS_R_PAYLISTS_RRowDeleted;
+            MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowDeleting += PAYLISTS_R_PAYLISTS_RRowDeleting;
             MyData.DataSetKlons.PAYLISTS.ColumnChanged += PAYLISTS_ColumnChanged;
             CheckEnableRows();
             CheckEnableSGR();
             CheckSave();
         }
 
+        private KlonsADataSet.PAYLISTSRow last_list_RowDeleting_parent = null;
+        private void PAYLISTS_R_PAYLISTS_RRowDeleting(object sender, KlonsADataSet.PAYLISTS_RRowChangeEvent e)
+        {
+            last_list_RowDeleting_parent = e.Row.PAYLISTSRow;
+        }
+
+        private void PAYLISTS_R_PAYLISTS_RRowDeleted(object sender, KlonsADataSet.PAYLISTS_RRowChangeEvent e)
+        {
+            if (e.Action == DataRowAction.Add || e.Action == DataRowAction.Change)
+            {
+                CheckListTotal(e.Row.PAYLISTSRow);
+            }
+        }
+
+        private void PAYLISTS_R_PAYLISTS_RRowChanged(object sender, KlonsADataSet.PAYLISTS_RRowChangeEvent e)
+        {
+            KlonsADataSet.PAYLISTSRow dr = null;
+
+            if (e.Row.HasVersion(DataRowVersion.Original))
+            {
+                int listid = (int)e.Row["IDS", DataRowVersion.Original];
+                dr = MyData.DataSetKlons.PAYLISTS.FindByID(listid);
+            }
+            else
+            {
+                dr = last_list_RowDeleting_parent;
+            }
+            if (dr == null) return;
+            CheckListTotal(dr);
+        }
+
+        private void CheckListTotal(KlonsADataSet.PAYLISTSRow listrow)
+        {
+            if (listrow == null) return;
+            var total = SumTotal(listrow);
+            if (listrow.TOTAL_PAY != total) listrow.TOTAL_PAY = total;
+        }
+
+        private decimal SumTotal(KlonsADataSet.PAYLISTSRow listrow)
+        {
+            if (listrow == null) return 0.0M;
+            decimal ret = 0.0M;
+            var rows = listrow.GetPAYLISTS_RRows();
+            foreach(var row in rows)
+            {
+                ret += row.TPAY;
+            }
+            return ret;
+        }
+
         private void Form_PayLists_FormClosed(object sender, FormClosedEventArgs e)
         {
             MyData.DataSetKlons.PAYLISTS_R.ColumnChanged -= PAYLISTS_R_ColumnChanged;
             MyData.DataSetKlons.PAYLISTS.ColumnChanged -= PAYLISTS_ColumnChanged;
+            MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowChanged -= PAYLISTS_R_PAYLISTS_RRowChanged;
+            MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowDeleted -= PAYLISTS_R_PAYLISTS_RRowDeleted;
+            MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowDeleting -= PAYLISTS_R_PAYLISTS_RRowDeleting;
         }
 
         private void SetupToolStrips()
@@ -852,6 +908,16 @@ namespace KlonsA.Forms
             rr.ShowReport2();
         }
 
+        private void RenumRows()
+        {
+            for (int i = 0; i < bsRows.Count; i++)
+            {
+                var dr = (bsRows[i] as DataRowView).Row as KlonsADataSet.PAYLISTS_RRow;
+                if (dr.SNR != (short)(i + 1)) dr.SNR = (short)(i + 1);
+            }
+        }
+
+
         private void miReport1_Click(object sender, EventArgs e)
         {
             ShowReport1();
@@ -909,5 +975,9 @@ namespace KlonsA.Forms
             Form_PayCalc.Show(ci, Form_PayCalc.EReportType.Splitpay);
         }
 
+        private void tsbRenum_Click(object sender, EventArgs e)
+        {
+            RenumRows();
+        }
     }
 }

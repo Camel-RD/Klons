@@ -199,8 +199,8 @@ namespace KlonsA.Forms
             this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miShowOnlyUsed = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAddPerson = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAddPosition = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.pārbaudītNotikumusDarbiniekamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -850,7 +850,6 @@ namespace KlonsA.Forms
             // 
             // shedPersonsText
             // 
-            this.shedPersonsText.DataMember = null;
             this.shedPersonsText.Name = "shedPersonsText";
             this.shedPersonsText.RowTitle = null;
             this.shedPersonsText.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
@@ -982,7 +981,6 @@ namespace KlonsA.Forms
             this.rwAmatiDep.GridPropertyName = "_IDDEP";
             this.rwAmatiDep.ListDisplayMember = "ID";
             this.rwAmatiDep.ListSource = this.bsDep;
-            this.rwAmatiDep.ListStrings = null;
             this.rwAmatiDep.ListValueMember = "ID";
             this.rwAmatiDep.Name = "rwAmatiDep";
             this.rwAmatiDep.RowTitle = "Struktūrvienība";
@@ -1065,12 +1063,14 @@ namespace KlonsA.Forms
             // 
             // shrwAmariDecimal
             // 
+            this.shrwAmariDecimal.DataMember = null;
             this.shrwAmariDecimal.Name = "shrwAmariDecimal";
             this.shrwAmariDecimal.RowTitle = null;
             this.shrwAmariDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // shrwAmatiRateType
             // 
+            this.shrwAmatiRateType.DataMember = null;
             this.shrwAmatiRateType.ListStrings = new string[] {
         "0;%",
         "1;€"};
@@ -1701,6 +1701,7 @@ namespace KlonsA.Forms
             this.dgvPersons.AllowUserToDeleteRows = false;
             this.dgvPersons.AllowUserToResizeRows = false;
             this.dgvPersons.AutoGenerateColumns = false;
+            this.dgvPersons.AutoSave = false;
             this.dgvPersons.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1982,7 +1983,6 @@ namespace KlonsA.Forms
             this.rwBankId2.GridPropertyName = "_BANK_ID";
             this.rwBankId2.ListDisplayMember = "NAME";
             this.rwBankId2.ListSource = this.bsBanks;
-            this.rwBankId2.ListStrings = null;
             this.rwBankId2.ListValueMember = "ID";
             this.rwBankId2.Name = "rwBankId2";
             this.rwBankId2.RowTitle = "Banka";
@@ -2012,7 +2012,6 @@ namespace KlonsA.Forms
             // 
             // sharedPersonsNoYes
             // 
-            this.sharedPersonsNoYes.DataMember = null;
             this.sharedPersonsNoYes.ListStrings = new string[] {
         "0;nē",
         "1;jā"};
@@ -2022,7 +2021,6 @@ namespace KlonsA.Forms
             // 
             // sharedPersonsDecimal
             // 
-            this.sharedPersonsDecimal.DataMember = null;
             this.sharedPersonsDecimal.Name = "sharedPersonsDecimal";
             this.sharedPersonsDecimal.RowTitle = null;
             this.sharedPersonsDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
@@ -2030,6 +2028,7 @@ namespace KlonsA.Forms
             // shedPersonsTextAllowNull
             // 
             this.shedPersonsTextAllowNull.AllowNull = true;
+            this.shedPersonsTextAllowNull.DataMember = null;
             this.shedPersonsTextAllowNull.Name = "shedPersonsTextAllowNull";
             this.shedPersonsTextAllowNull.RowTitle = null;
             this.shedPersonsTextAllowNull.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
@@ -2074,8 +2073,8 @@ namespace KlonsA.Forms
             this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem,
             this.miShowOnlyUsed,
             this.toolStripSeparator1,
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
+            this.miAddPerson,
+            this.miAddPosition,
             this.toolStripSeparator3,
             this.pārbaudītNotikumusDarbiniekamToolStripMenuItem,
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem,
@@ -2088,64 +2087,64 @@ namespace KlonsA.Forms
             // rādītPaslēptDarbiniekuKartiņasToolStripMenuItem
             // 
             this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Name = "rādītPaslēptDarbiniekuKartiņasToolStripMenuItem";
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Size = new System.Drawing.Size(444, 30);
+            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
             this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Text = "Rādīt darbinieku sarakstu";
             this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Click += new System.EventHandler(this.rādītDarbiniekuSarakstuToolStripMenuItem_Click);
             // 
             // miShowOnlyUsed
             // 
             this.miShowOnlyUsed.Name = "miShowOnlyUsed";
-            this.miShowOnlyUsed.Size = new System.Drawing.Size(444, 30);
+            this.miShowOnlyUsed.Size = new System.Drawing.Size(443, 30);
             this.miShowOnlyUsed.Text = "Rādīt tikai aktīvos darbiniekus / amatus";
             this.miShowOnlyUsed.Click += new System.EventHandler(this.miShowOnlyUsed_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(441, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(440, 6);
             // 
-            // toolStripMenuItem1
+            // miAddPerson
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(444, 30);
-            this.toolStripMenuItem1.Text = "Pievienot jaunu darbinieku";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.miAddPerson.Name = "miAddPerson";
+            this.miAddPerson.Size = new System.Drawing.Size(443, 30);
+            this.miAddPerson.Text = "Pievienot jaunu darbinieku";
+            this.miAddPerson.Click += new System.EventHandler(this.miAddPerson_Click);
             // 
-            // toolStripMenuItem2
+            // miAddPosition
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(444, 30);
-            this.toolStripMenuItem2.Text = "Pievienot amatu";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.miAddPosition.Name = "miAddPosition";
+            this.miAddPosition.Size = new System.Drawing.Size(443, 30);
+            this.miAddPosition.Text = "Pievienot amatu";
+            this.miAddPosition.Click += new System.EventHandler(this.miAddPosition_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(441, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(440, 6);
             // 
             // pārbaudītNotikumusDarbiniekamToolStripMenuItem
             // 
             this.pārbaudītNotikumusDarbiniekamToolStripMenuItem.Name = "pārbaudītNotikumusDarbiniekamToolStripMenuItem";
-            this.pārbaudītNotikumusDarbiniekamToolStripMenuItem.Size = new System.Drawing.Size(444, 30);
+            this.pārbaudītNotikumusDarbiniekamToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
             this.pārbaudītNotikumusDarbiniekamToolStripMenuItem.Text = "Pārbaudīt notikumus darbiniekam";
             this.pārbaudītNotikumusDarbiniekamToolStripMenuItem.Click += new System.EventHandler(this.pārbaudītNotikumusDarbiniekamToolStripMenuItem_Click);
             // 
             // pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem
             // 
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem.Name = "pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem";
-            this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem.Size = new System.Drawing.Size(444, 30);
+            this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem.Text = "Pārbaudīt notikumus visiem darbiniekiem";
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem.Click += new System.EventHandler(this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(441, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(440, 6);
             // 
             // darbiniekaKartīteToolStripMenuItem
             // 
             this.darbiniekaKartīteToolStripMenuItem.Name = "darbiniekaKartīteToolStripMenuItem";
-            this.darbiniekaKartīteToolStripMenuItem.Size = new System.Drawing.Size(444, 30);
+            this.darbiniekaKartīteToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
             this.darbiniekaKartīteToolStripMenuItem.Text = "Darbinieka kartīte";
             this.darbiniekaKartīteToolStripMenuItem.Click += new System.EventHandler(this.darbiniekaKartīteToolStripMenuItem_Click);
             // 
@@ -2334,9 +2333,9 @@ namespace KlonsA.Forms
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowComboBoxA rwNotOSA;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowComboBoxA sharedPersonsNoYes;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA sharedPersonsDecimal;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem miAddPerson;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem miAddPosition;
         private System.Windows.Forms.ToolStripMenuItem darbiniekaKartīteToolStripMenuItem;
         private KlonsLIB.Data.MyBindingSource bsBanks;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowComboBoxB rwBankId2;
