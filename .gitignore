@@ -17,6 +17,7 @@ KlonsF/Config/*.xml
 KlonsA/Config/*.xml
 KlonsP/Config/*.xml
 KlonsM/
+DataObjectsM/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

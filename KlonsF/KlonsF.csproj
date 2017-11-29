@@ -488,6 +488,7 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="SQL\SQLV073.txt" />
     <EmbeddedResource Include="SQL\SQLV070.txt" />
     <EmbeddedResource Include="SQL\SQLV069.txt" />
     <EmbeddedResource Include="Forms_sys\Form_Import.resx">

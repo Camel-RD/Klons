@@ -31,8 +31,9 @@ namespace KlonsF.FormsReportParams
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_PVNDekl));
-            this.bsAC = new KlonsLIB.Data.MyBindingSource();
+            this.bsAC = new KlonsLIB.Data.MyBindingSource(this.components);
             this.tbSD = new KlonsLIB.Components.MyTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbED = new KlonsLIB.Components.MyTextBox();
@@ -236,20 +237,20 @@ namespace KlonsF.FormsReportParams
             // pVNDeklarācijaToolStripMenuItem
             // 
             this.pVNDeklarācijaToolStripMenuItem.Name = "pVNDeklarācijaToolStripMenuItem";
-            this.pVNDeklarācijaToolStripMenuItem.Size = new System.Drawing.Size(1009, 30);
+            this.pVNDeklarācijaToolStripMenuItem.Size = new System.Drawing.Size(1008, 30);
             this.pVNDeklarācijaToolStripMenuItem.Text = "PVN deklarācija";
             this.pVNDeklarācijaToolStripMenuItem.Click += new System.EventHandler(this.pVNDeklarācijaToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(1006, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(1005, 6);
             // 
             // piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem
             // 
             this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem.Name = "piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStrip" +
     "MenuItem";
-            this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem.Size = new System.Drawing.Size(1009, 30);
+            this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem.Size = new System.Drawing.Size(1008, 30);
             this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem.Text = "Piel.1.1: Nodokļa summas par iekšzemē iegādātajām precēm un saņemtajiem pakalpoju" +
     "miem";
             this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem.Click += new System.EventHandler(this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem_Click);
@@ -258,7 +259,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem.Name = "piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvals" +
     "tīmToolStripMenuItem";
-            this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem.Size = new System.Drawing.Size(1009, 30);
+            this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem.Size = new System.Drawing.Size(1008, 30);
             this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem.Text = "Piel.1.2: Nodokļa  summas par precēm un pakalpojumiem, kas saņemti no Eiropas Sav" +
     "ienības dalībvalstīm";
             this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem.Click += new System.EventHandler(this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem_Click);
@@ -267,7 +268,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Name = "piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStrip" +
     "MenuItem";
-            this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Size = new System.Drawing.Size(1009, 30);
+            this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Size = new System.Drawing.Size(1008, 30);
             this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Text = "Piel.1.3: Aprēķinātais nodoklis par piegādātajām precēm un sniegtajiem pakalpojum" +
     "iem";
             this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Click += new System.EventHandler(this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem_Click);
@@ -291,7 +292,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem1.Name = "piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStrip" +
     "MenuItem1";
-            this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem1.Size = new System.Drawing.Size(1009, 30);
+            this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem1.Size = new System.Drawing.Size(1008, 30);
             this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem1.Text = "Piel.1.1: Nodokļa summas par iekšzemē iegādātajām precēm un saņemtajiem pakalpoju" +
     "miem";
             this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem1.Click += new System.EventHandler(this.piel1NodokļaSummasParIekšzemēIegādātajāmPrecēmUnSaņemtajiemPakalpojumiemToolStripMenuItem1_Click);
@@ -300,7 +301,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem1.Name = "piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvals" +
     "tīmToolStripMenuItem1";
-            this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem1.Size = new System.Drawing.Size(1009, 30);
+            this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem1.Size = new System.Drawing.Size(1008, 30);
             this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem1.Text = "Piel.1.2: Nodokļa  summas par precēm un pakalpojumiem, kas saņemti no Eiropas Sav" +
     "ienības dalībvalstīm";
             this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem1.Click += new System.EventHandler(this.piel12NodokļaSummasParPrecēmUnPakalpojumiemKasSaņemtiNoEiropasSavienībasDalībvalstīmToolStripMenuItem1_Click);
@@ -309,7 +310,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem1.Name = "piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStrip" +
     "MenuItem1";
-            this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem1.Size = new System.Drawing.Size(1009, 30);
+            this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem1.Size = new System.Drawing.Size(1008, 30);
             this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem1.Text = "Piel.1.3: Aprēķinātais nodoklis par piegādātajām precēm un sniegtajiem pakalpojum" +
     "iem";
             this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem1.Click += new System.EventHandler(this.piel3AprēķinātaisNodoklisParPiegādātajāmPrecēmUnSniegtajiemPakalpojumiemToolStripMenuItem1_Click);
@@ -317,7 +318,7 @@ namespace KlonsF.FormsReportParams
             // pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem
             // 
             this.pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Name = "pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem";
-            this.pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Size = new System.Drawing.Size(1009, 30);
+            this.pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Size = new System.Drawing.Size(1008, 30);
             this.pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Text = "Piel. 2: Pārskats par preču piegādēm un sniegtajiem pakalpojumiem";
             this.pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem.Click += new System.EventHandler(this.pVN2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemToolStripMenuItem_Click);
             // 
@@ -325,7 +326,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenuItem.Name = "piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenu" +
     "Item";
-            this.piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenuItem.Size = new System.Drawing.Size(1009, 30);
+            this.piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenuItem.Size = new System.Drawing.Size(1008, 30);
             this.piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenuItem.Text = "Piel. 2: Pārskats par preču piegādēm un sniegtajiem pakalpojumiem - pa dokumentie" +
     "m";
             this.piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenuItem.Click += new System.EventHandler(this.piel2PārskatsParPrečuPiegādēmUnSniegtajiemPakalpojumiemPaDokumentiemToolStripMenuItem_Click);
@@ -345,14 +346,14 @@ namespace KlonsF.FormsReportParams
             // xMLAtskaiteToolStripMenuItem
             // 
             this.xMLAtskaiteToolStripMenuItem.Name = "xMLAtskaiteToolStripMenuItem";
-            this.xMLAtskaiteToolStripMenuItem.Size = new System.Drawing.Size(392, 30);
+            this.xMLAtskaiteToolStripMenuItem.Size = new System.Drawing.Size(391, 30);
             this.xMLAtskaiteToolStripMenuItem.Text = "XML Atskaite";
             this.xMLAtskaiteToolStripMenuItem.Click += new System.EventHandler(this.xMLAtskaiteToolStripMenuItem_Click);
             // 
             // xMLAtskaiteBezPVN2PielikumaToolStripMenuItem
             // 
             this.xMLAtskaiteBezPVN2PielikumaToolStripMenuItem.Name = "xMLAtskaiteBezPVN2PielikumaToolStripMenuItem";
-            this.xMLAtskaiteBezPVN2PielikumaToolStripMenuItem.Size = new System.Drawing.Size(392, 30);
+            this.xMLAtskaiteBezPVN2PielikumaToolStripMenuItem.Size = new System.Drawing.Size(391, 30);
             this.xMLAtskaiteBezPVN2PielikumaToolStripMenuItem.Text = "XML atskaite bez PVN 2 pielikuma";
             this.xMLAtskaiteBezPVN2PielikumaToolStripMenuItem.Click += new System.EventHandler(this.xMLAtskaiteBezPVN2PielikumaToolStripMenuItem_Click);
             // 
@@ -378,7 +379,7 @@ namespace KlonsF.FormsReportParams
             this.Controls.Add(this.tbSD);
             this.Name = "FormRep_PVNDekl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Apgrozijumu pārskata parametri";
+            this.Text = "PVN deklarācija";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRep_PVNDekl_FormClosing);
             this.Load += new System.EventHandler(this.FormRepApgr1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsAC)).EndInit();
