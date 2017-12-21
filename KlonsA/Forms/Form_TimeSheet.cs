@@ -403,12 +403,38 @@ namespace KlonsA.Forms
         }
 
 
+        private bool HasAnyTimePlan(KlonsADataSet.TIMESHEET_LISTSRow row)
+        {
+            var rr = MyData.DataSetKlons.TIMESHEET.WhereX(d =>
+            {
+                return d.YR == row.YR && d.MT == row.MT &&
+                (d.XKind1 == EKind1.PlanGroupDay || d.XKind1 == EKind1.PlanIndividualDay);
+            });
+            return rr.FirstOrDefault() != null;
+        }
+
+        private bool HasTimePlan(KlonsADataSet.TIMESHEET_LISTSRow row, int plid)
+        {
+            var rr = MyData.DataSetKlons.TIMESHEET.WhereX(d =>
+            {
+                return d.YR == row.YR && d.MT == row.MT && d.IDP == plid &&
+                (d.XKind1 == EKind1.PlanGroupDay || d.XKind1 == EKind1.PlanIndividualDay);
+            });
+            return rr.FirstOrDefault() != null;
+        }
+
         private void AddNew()
         {
             if (bsLapuSar.Current == null) return;
             var dr_sar = (bsLapuSar.Current as DataRowView).Row as KlonsADataSet.TIMESHEET_LISTSRow;
             var id = dr_sar.ID;
 
+            if (!HasAnyTimePlan(dr_sar))
+            {
+                MyMainForm.ShowWarning("Mēnesim nav izveidots darba laika plāns");
+                return;
+            }
+            
             var fm = new Form_TimeSheetEdit();
 
             int new_id = 0;
@@ -422,6 +448,13 @@ namespace KlonsA.Forms
 
             bool ret = fm.Execute(true, id, out snr, out idp, out idam, out idpl, out plind, out night, out overtime);
             if (ret == false) return;
+
+            if (!HasTimePlan(dr_sar, idpl))
+            {
+                MyMainForm.ShowWarning("Mēnesim nav izveidots darba laika plāns");
+                return;
+            }
+
             var er = dlJoinView1.AddNew(dr_sar, out new_id, snr, idp, idam, idpl, plind, night, overtime);
             if (er != "OK")
             {

@@ -81,14 +81,16 @@ namespace KlonsA.Forms
 
         private void CheckListTotal(KlonsADataSet.PAYLISTSRow listrow)
         {
-            if (listrow == null) return;
+            if (listrow == null || listrow.RowState == DataRowState.Deleted ||
+                listrow.RowState == DataRowState.Detached) return;
             var total = SumTotal(listrow);
             if (listrow.TOTAL_PAY != total) listrow.TOTAL_PAY = total;
         }
 
         private decimal SumTotal(KlonsADataSet.PAYLISTSRow listrow)
         {
-            if (listrow == null) return 0.0M;
+            if (listrow == null || listrow.RowState == DataRowState.Deleted ||
+                listrow.RowState == DataRowState.Detached) return 0.0M;
             decimal ret = 0.0M;
             var rows = listrow.GetPAYLISTS_RRows();
             foreach(var row in rows)

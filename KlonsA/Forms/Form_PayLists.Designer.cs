@@ -50,15 +50,16 @@ namespace KlonsA.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_PayLists));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_PayLists));
             this.bNav = new KlonsLIB.Components.MyBindingNavigator();
             this.bsLists = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsRows = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
+            this.dgcRowsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsSNR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsIDP = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsPersons = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -83,10 +84,18 @@ namespace KlonsA.Forms
             this.dgcRowsS0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowS2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsIDS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvLists = new KlonsLIB.Components.MyDataGridView();
+            this.dgcListsYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcListsMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcListsSNR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcListsDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcListTotalPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcListsDep = new KlonsLIB.Components.MyDgvMcCBColumn();
             this.bsDep = new KlonsLIB.Data.MyBindingSource(this.components);
+            this.dgcListsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcListDoPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcListsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.tsLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -158,15 +167,6 @@ namespace KlonsA.Forms
             this.grRowS0 = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.grtPayRowDecimal = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.grtPayRowDecimalReadOnly = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
-            this.dgcListsYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcListsMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcListsSNR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcListsDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcListTotalPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcListsDep = new KlonsLIB.Components.MyDgvMcCBColumn();
-            this.dgcListsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcListDoPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgcListsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).BeginInit();
             this.bNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsLists)).BeginInit();
@@ -225,8 +225,6 @@ namespace KlonsA.Forms
             // 
             // bsLists
             // 
-            this.bsLists.AutoSaveChildrenDelete = true;
-            this.bsLists.AutoSaveOnDelete = true;
             this.bsLists.ChildBS = this.bsRows;
             this.bsLists.DataMember = "PAYLISTS";
             this.bsLists.MyDataSource = "KlonsData";
@@ -236,7 +234,6 @@ namespace KlonsA.Forms
             // 
             // bsRows
             // 
-            this.bsRows.AutoSaveOnDelete = true;
             this.bsRows.DataMember = "FK_PAYLISTS_R_IDS";
             this.bsRows.DataSource = this.bsLists;
             this.bsRows.Sort = "SNR";
@@ -259,6 +256,7 @@ namespace KlonsA.Forms
             this.dgvRows.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRows.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgcRowsID,
             this.dgcRowsSNR,
             this.dgcRowsIDP,
             this.dgcRowsIDAM,
@@ -281,7 +279,6 @@ namespace KlonsA.Forms
             this.dgcRowsS0,
             this.dgcRowS1,
             this.dgcRowS2,
-            this.dgcRowsID,
             this.dgcRowsIDS});
             this.dgvRows.DataSource = this.bsRows;
             this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -301,10 +298,16 @@ namespace KlonsA.Forms
             this.dgvRows.Enter += new System.EventHandler(this.dgvRows_Enter);
             this.dgvRows.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRows_KeyDown);
             // 
+            // dgcRowsID
+            // 
+            this.dgcRowsID.DataPropertyName = "ID";
+            this.dgcRowsID.HeaderText = "ID";
+            this.dgcRowsID.Name = "dgcRowsID";
+            this.dgcRowsID.Width = 50;
+            // 
             // dgcRowsSNR
             // 
             this.dgcRowsSNR.DataPropertyName = "SNR";
-            this.dgcRowsSNR.Frozen = true;
             this.dgcRowsSNR.HeaderText = "npk.";
             this.dgcRowsSNR.Name = "dgcRowsSNR";
             this.dgcRowsSNR.Width = 40;
@@ -316,7 +319,6 @@ namespace KlonsA.Forms
             this.dgcRowsIDP.DisplayMember = "YNAME";
             this.dgcRowsIDP.DisplayStyleForCurrentCellOnly = true;
             this.dgcRowsIDP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcRowsIDP.Frozen = true;
             this.dgcRowsIDP.HeaderText = "darbinieks";
             this.dgcRowsIDP.MaxDropDownItems = 15;
             this.dgcRowsIDP.Name = "dgcRowsIDP";
@@ -571,14 +573,6 @@ namespace KlonsA.Forms
             this.dgcRowS2.ToolTipText = "Summa no pēdējā algu aprēķina";
             this.dgcRowS2.Width = 80;
             // 
-            // dgcRowsID
-            // 
-            this.dgcRowsID.DataPropertyName = "ID";
-            this.dgcRowsID.HeaderText = "ID";
-            this.dgcRowsID.Name = "dgcRowsID";
-            this.dgcRowsID.Visible = false;
-            this.dgcRowsID.Width = 50;
-            // 
             // dgcRowsIDS
             // 
             this.dgcRowsIDS.DataPropertyName = "IDS";
@@ -592,6 +586,7 @@ namespace KlonsA.Forms
             this.dgvLists.AllowUserToAddRows = false;
             this.dgvLists.AllowUserToDeleteRows = false;
             this.dgvLists.AutoGenerateColumns = false;
+            this.dgvLists.AutoSave = false;
             this.dgvLists.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
@@ -629,11 +624,103 @@ namespace KlonsA.Forms
             this.dgvLists.Enter += new System.EventHandler(this.dgvLists_Enter);
             this.dgvLists.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLists_KeyDown);
             // 
+            // dgcListsYR
+            // 
+            this.dgcListsYR.DataPropertyName = "YR";
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcListsYR.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dgcListsYR.HeaderText = "gsds";
+            this.dgcListsYR.Name = "dgcListsYR";
+            this.dgcListsYR.ReadOnly = true;
+            this.dgcListsYR.Width = 50;
+            // 
+            // dgcListsMT
+            // 
+            this.dgcListsMT.DataPropertyName = "MT";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcListsMT.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dgcListsMT.HeaderText = "mēn.";
+            this.dgcListsMT.Name = "dgcListsMT";
+            this.dgcListsMT.ReadOnly = true;
+            this.dgcListsMT.ToolTipText = "mēnesis";
+            this.dgcListsMT.Width = 50;
+            // 
+            // dgcListsSNR
+            // 
+            this.dgcListsSNR.DataPropertyName = "SNR";
+            this.dgcListsSNR.HeaderText = "npk.";
+            this.dgcListsSNR.Name = "dgcListsSNR";
+            this.dgcListsSNR.Width = 50;
+            // 
+            // dgcListsDT
+            // 
+            this.dgcListsDT.DataPropertyName = "DT";
+            dataGridViewCellStyle24.Format = "dd.MM.yyyy";
+            this.dgcListsDT.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dgcListsDT.HeaderText = "datums";
+            this.dgcListsDT.Name = "dgcListsDT";
+            this.dgcListsDT.ToolTipText = "izmaksas datums";
+            this.dgcListsDT.Width = 85;
+            // 
+            // dgcListTotalPay
+            // 
+            this.dgcListTotalPay.DataPropertyName = "TOTAL_PAY";
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle25.Format = "N2";
+            this.dgcListTotalPay.DefaultCellStyle = dataGridViewCellStyle25;
+            this.dgcListTotalPay.HeaderText = "summa";
+            this.dgcListTotalPay.Name = "dgcListTotalPay";
+            this.dgcListTotalPay.ReadOnly = true;
+            // 
+            // dgcListsDep
+            // 
+            this.dgcListsDep.ColumnNames = new string[] {
+        "ID",
+        "DESCR"};
+            this.dgcListsDep.ColumnWidths = "60;200";
+            this.dgcListsDep.DataPropertyName = "DEP";
+            this.dgcListsDep.DataSource = this.bsDep;
+            this.dgcListsDep.DisplayMember = "ID";
+            this.dgcListsDep.HeaderText = "str.v.";
+            this.dgcListsDep.MaxDropDownItems = 15;
+            this.dgcListsDep.Name = "dgcListsDep";
+            this.dgcListsDep.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcListsDep.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcListsDep.ToolTipText = "struktūrvienība";
+            this.dgcListsDep.ValueMember = "ID";
+            this.dgcListsDep.Width = 150;
+            // 
             // bsDep
             // 
             this.bsDep.DataMember = "DEPARTMENTS";
             this.bsDep.MyDataSource = "KlonsData";
             this.bsDep.Sort = "ID";
+            // 
+            // dgcListsDescr
+            // 
+            this.dgcListsDescr.DataPropertyName = "DESCR";
+            this.dgcListsDescr.HeaderText = "apraksts";
+            this.dgcListsDescr.Name = "dgcListsDescr";
+            this.dgcListsDescr.Width = 200;
+            // 
+            // dgcListDoPay
+            // 
+            this.dgcListDoPay.DataPropertyName = "DOPAY";
+            this.dgcListDoPay.FalseValue = "0";
+            this.dgcListDoPay.HeaderText = "izmaksai";
+            this.dgcListDoPay.Name = "dgcListDoPay";
+            this.dgcListDoPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcListDoPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcListDoPay.TrueValue = "1";
+            this.dgcListDoPay.Visible = false;
+            this.dgcListDoPay.Width = 60;
+            // 
+            // dgcListsId
+            // 
+            this.dgcListsId.DataPropertyName = "ID";
+            this.dgcListsId.HeaderText = "ID";
+            this.dgcListsId.Name = "dgcListsId";
+            this.dgcListsId.Visible = false;
             // 
             // bindingNavigatorCountItem
             // 
@@ -1380,98 +1467,6 @@ namespace KlonsA.Forms
             this.grtPayRowDecimalReadOnly.RowTitle = null;
             this.grtPayRowDecimalReadOnly.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
             // 
-            // dgcListsYR
-            // 
-            this.dgcListsYR.DataPropertyName = "YR";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcListsYR.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dgcListsYR.HeaderText = "gsds";
-            this.dgcListsYR.Name = "dgcListsYR";
-            this.dgcListsYR.ReadOnly = true;
-            this.dgcListsYR.Width = 50;
-            // 
-            // dgcListsMT
-            // 
-            this.dgcListsMT.DataPropertyName = "MT";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcListsMT.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dgcListsMT.HeaderText = "mēn.";
-            this.dgcListsMT.Name = "dgcListsMT";
-            this.dgcListsMT.ReadOnly = true;
-            this.dgcListsMT.ToolTipText = "mēnesis";
-            this.dgcListsMT.Width = 50;
-            // 
-            // dgcListsSNR
-            // 
-            this.dgcListsSNR.DataPropertyName = "SNR";
-            this.dgcListsSNR.HeaderText = "npk.";
-            this.dgcListsSNR.Name = "dgcListsSNR";
-            this.dgcListsSNR.Width = 50;
-            // 
-            // dgcListsDT
-            // 
-            this.dgcListsDT.DataPropertyName = "DT";
-            dataGridViewCellStyle24.Format = "dd.MM.yyyy";
-            this.dgcListsDT.DefaultCellStyle = dataGridViewCellStyle24;
-            this.dgcListsDT.HeaderText = "datums";
-            this.dgcListsDT.Name = "dgcListsDT";
-            this.dgcListsDT.ToolTipText = "izmaksas datums";
-            this.dgcListsDT.Width = 85;
-            // 
-            // dgcListTotalPay
-            // 
-            this.dgcListTotalPay.DataPropertyName = "TOTAL_PAY";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.Format = "N2";
-            this.dgcListTotalPay.DefaultCellStyle = dataGridViewCellStyle25;
-            this.dgcListTotalPay.HeaderText = "summa";
-            this.dgcListTotalPay.Name = "dgcListTotalPay";
-            this.dgcListTotalPay.ReadOnly = true;
-            // 
-            // dgcListsDep
-            // 
-            this.dgcListsDep.ColumnNames = new string[] {
-        "ID",
-        "DESCR"};
-            this.dgcListsDep.ColumnWidths = "60;200";
-            this.dgcListsDep.DataPropertyName = "DEP";
-            this.dgcListsDep.DataSource = this.bsDep;
-            this.dgcListsDep.DisplayMember = "ID";
-            this.dgcListsDep.HeaderText = "str.v.";
-            this.dgcListsDep.MaxDropDownItems = 15;
-            this.dgcListsDep.Name = "dgcListsDep";
-            this.dgcListsDep.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcListsDep.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcListsDep.ToolTipText = "struktūrvienība";
-            this.dgcListsDep.ValueMember = "ID";
-            this.dgcListsDep.Width = 150;
-            // 
-            // dgcListsDescr
-            // 
-            this.dgcListsDescr.DataPropertyName = "DESCR";
-            this.dgcListsDescr.HeaderText = "apraksts";
-            this.dgcListsDescr.Name = "dgcListsDescr";
-            this.dgcListsDescr.Width = 200;
-            // 
-            // dgcListDoPay
-            // 
-            this.dgcListDoPay.DataPropertyName = "DOPAY";
-            this.dgcListDoPay.FalseValue = "0";
-            this.dgcListDoPay.HeaderText = "izmaksai";
-            this.dgcListDoPay.Name = "dgcListDoPay";
-            this.dgcListDoPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcListDoPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcListDoPay.TrueValue = "1";
-            this.dgcListDoPay.Visible = false;
-            this.dgcListDoPay.Width = 60;
-            // 
-            // dgcListsId
-            // 
-            this.dgcListsId.DataPropertyName = "ID";
-            this.dgcListsId.HeaderText = "ID";
-            this.dgcListsId.Name = "dgcListsId";
-            this.dgcListsId.Visible = false;
-            // 
             // Form_PayLists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1593,6 +1588,17 @@ namespace KlonsA.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem miReport3;
         private System.Windows.Forms.ToolStripMenuItem miReport4;
+        private System.Windows.Forms.ToolStripButton tsbRenum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsYR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsMT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsSNR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListTotalPay;
+        private KlonsLIB.Components.MyDgvMcCBColumn dgcListsDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsDescr;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcListDoPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsSNR;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcRowsIDP;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcRowsIDAM;
@@ -1615,17 +1621,6 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsS0;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowS1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowS2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIDS;
-        private System.Windows.Forms.ToolStripButton tsbRenum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsYR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsMT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsSNR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListTotalPay;
-        private KlonsLIB.Components.MyDgvMcCBColumn dgcListsDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsDescr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcListDoPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcListsId;
     }
 }
