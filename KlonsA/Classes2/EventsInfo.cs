@@ -236,6 +236,10 @@ namespace KlonsA.Classes
         public EPeriodId[] DayIds = new EPeriodId[31];
         public EEventId[] DayIdsA = new EEventId[31];
 
+        public Dictionary<int, EPeriodId[]> PositionDayIds = new Dictionary<int, EPeriodId[]>();
+        public Dictionary<int, EEventId[]> PositionDayIdsA = new Dictionary<int, EEventId[]>();
+
+
         public string ProcessData(int idp, DateTime dt1, DateTime dt2)
         {
             IsOK = false;
@@ -246,14 +250,28 @@ namespace KlonsA.Classes
             return ret;
         }
 
+        private void ClearA(EPeriodId[] ids)
+        {
+            for (int i = 0; i < DayIds.Length; i++)
+            {
+                ids[i] = EPeriodId.Nav_pieņets;
+            }
+        }
+
+        private void ClearB(EEventId[] ids)
+        {
+            for (int i = 0; i < DayIds.Length; i++)
+            {
+                ids[i] = EEventId.None;
+            }
+        }
+
         public void ClearDays()
         {
-            int i;
-            for (i = 0; i < DayIds.Length; i++)
-            {
-                DayIds[i] = EPeriodId.Nav_pieņets;
-                DayIdsA[i] = EEventId.None;
-            }
+            ClearA(DayIds);
+            ClearB(DayIdsA);
+            PositionDayIds = new Dictionary<int, EPeriodId[]>();
+            PositionDayIdsA = new Dictionary<int, EEventId[]>();
         }
 
         public string MarkDays(DateTime dt1, DateTime dt2)
@@ -264,10 +282,31 @@ namespace KlonsA.Classes
                 return "Darbieneiks nav pieņemts darbā.";
 
             foreach (var pv in Positions)
+            {
+                var dids = new EPeriodId[31];
+                var didsa = new EEventId[31];
+                ClearA(dids);
+                ClearB(didsa);
+                PositionDayIds[pv.Key] = dids;
+                PositionDayIdsA[pv.Key] = didsa;
+            }
+
+            foreach (var pv in Positions)
+            {
                 pv.Value.MarkDates(DayIds, dt1, dt2, EPeriodId.Ir_pieņemts);
+                var posdayids = PositionDayIds[pv.Key];
+                pv.Value.MarkDates(posdayids, dt1, dt2, EPeriodId.Ir_pieņemts);
+            }
 
             Vacations.MarkDates(DayIds, dt1, dt2, EPeriodId.Atvaļinājums);
             SickDays.MarkDates(DayIds, dt1, dt2, EPeriodId.Slimo);
+
+            foreach (var pv in Positions)
+            {
+                var posdayids = PositionDayIds[pv.Key];
+                Vacations.MarkDates(posdayids, dt1, dt2, EPeriodId.Atvaļinājums);
+                SickDays.MarkDates(posdayids, dt1, dt2, EPeriodId.Slimo);
+            }
 
             foreach (var pi in Vacations.LinkedPeriods)
                 pi.EEventId = (pi.Item1 as KlonsADataSet.EVENTSRow).EventCode;
@@ -275,10 +314,21 @@ namespace KlonsA.Classes
                 pi.EEventId = (pi.Item1 as KlonsADataSet.EVENTSRow).EventCode;
 
             foreach (var pv in Positions)
+            {
                 pv.Value.MarkDates(DayIdsA, dt1, dt2, EEventId.Pieņemts);
+                var posdayidsa = PositionDayIdsA[pv.Key];
+                pv.Value.MarkDates(posdayidsa, dt1, dt2, EEventId.Pieņemts);
+            }
 
             Vacations.MarkDatesA(DayIdsA, dt1, dt2, d => d.EEventId);
             SickDays.MarkDatesA(DayIdsA, dt1, dt2, d => d.EEventId);
+
+            foreach (var pv in Positions)
+            {
+                var posdayidsa = PositionDayIdsA[pv.Key];
+                Vacations.MarkDatesA(posdayidsa, dt1, dt2, d => d.EEventId);
+                SickDays.MarkDatesA(posdayidsa, dt1, dt2, d => d.EEventId);
+            }
 
             return "OK";
         }

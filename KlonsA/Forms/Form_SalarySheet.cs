@@ -54,6 +54,8 @@ namespace KlonsA.Forms
             tabControl1.SelectedIndex = 0;
 
             ShowBonusList(!MyData.Params.HideBonusList);
+            ShowPositionTitleColumn(MyData.Params.SalarySheetShowPositionTitle);
+            
 
             //sw.Stop();
             //MessageBox.Show("" + sw.ElapsedMilliseconds);
@@ -751,16 +753,28 @@ namespace KlonsA.Forms
             var err = sr.SetUpFromRowX(dr_lapas_r);
             if (err.HasErrors)
             {
-                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
                 return;
             }
-            var vc = new VacationCalcInfo(true);
-            err = vc.CalcVacationDays(sr);
+            sr.CheckLinkedRows(dr_lapas_r.IDP);
+
+            var sc = new SalaryCalcTInfo(sr.SalarySheetRowSet, new SalaryInfo(), true);
+            err = sc.FillRow();
             if (err.HasErrors)
             {
-                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
                 return;
             }
+
+            VacationCalcInfo vc = null;
+
+            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne) vc = sc.LinkedSCI[0].VacationCalc;
+            else if (dr_lapas_r.XType == ESalarySheetRowType.Total) vc = sc.VacationCalc;
+            else vc = sc.LinkedSCI.Where(d => d.SR.Row == dr_lapas_r).FirstOrDefault()?.VacationCalc;
+
+            if (vc == null) return;
+
+
             var person = string.Format("{0} {1}, {2}", sr.DR_Person_r.FNAME,
                 sr.DR_Person_r.LNAME, sr.GetPositionTitle().Nz().ToLower());
             var period = string.Format("{0:dd.MM.yyyy} - {1:dd.MM.yyyy}",
@@ -802,6 +816,45 @@ namespace KlonsA.Forms
             Form_WorkPayCalc.Show(wc, person, period);
         }
 
+        private void miAprekinaSeciba_Click(object sender, EventArgs e)
+        {
+            if (bsSarR.Current == null) return;
+            var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
+            if (dr_lapas_r == null) return;
+
+
+            var sr = new SalarySheetRowInfo();
+            var err = sr.SetUpFromRowX(dr_lapas_r);
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
+                return;
+            }
+            sr.CheckLinkedRows(dr_lapas_r.IDP);
+
+            var sc = new SalaryCalcTInfo(sr.SalarySheetRowSet, new SalaryInfo(), true);
+            err = sc.FillRow();
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
+                return;
+            }
+
+            PayFxA pfxa = null;
+            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne) pfxa = sc.LinkedSCI[0].PFxA;
+            else if (dr_lapas_r.XType == ESalarySheetRowType.Total) pfxa = sc.PFxB;
+            else pfxa = sc.LinkedSCI.Where(d => d.SR.Row == dr_lapas_r).FirstOrDefault()?.PFxA;
+
+            if (pfxa == null) return;
+
+            var person = string.Format("{0} {1}, {2}", sr.DR_Person_r.FNAME,
+                sr.DR_Person_r.LNAME, sr.GetPositionTitle().Nz().ToLower());
+            var period = string.Format("{0:dd.MM.yyyy} - {1:dd.MM.yyyy}",
+                sr.SalarySheet.DT1, sr.SalarySheet.DT2);
+            Form_PayFx.Show(pfxa, person, period);
+        }
+
+
         private void aprēķinaIzklāstsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (bsSarR.Current == null) return;
@@ -818,10 +871,23 @@ namespace KlonsA.Forms
             MyData.Params.HideBonusList = !b;
         }
 
+        public void ShowPositionTitleColumn(bool b)
+        {
+            dgcSarPositionTitle.Visible = b;
+            miRādītDarbiniekuAmatus.Checked = b;
+            MyData.Params.SalarySheetShowPositionTitle = b;
+        }
+
         private void miShoeBonusList_Click(object sender, EventArgs e)
         {
             ShowBonusList(splitContainer2.Panel2Collapsed);
         }
+
+        private void miRādītDarbiniekuAmatus_Click(object sender, EventArgs e)
+        {
+            ShowPositionTitleColumn(!dgcSarPositionTitle.Visible);
+        }
+
 
         private void arAmatiemBezParakstiemToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -836,6 +902,7 @@ namespace KlonsA.Forms
             var dr = (bsLapas.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
             Report_Salary2.MakeReport(dr, Report_Salary2.ERepType.NoPosWithSign);
         }
+
     }
 
 

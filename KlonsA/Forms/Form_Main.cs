@@ -299,6 +299,11 @@ namespace KlonsA
             }
             ShowForm(typeof(Form_PersonsR));
         }
+        private void miNeapliekamaisMinimums_Click(object sender, EventArgs e)
+        {
+            if (!CheckData()) return;
+            ShowForm(typeof(Form_UntaxedMinimum));
+        }
 
         private void notikumuIzklāstsToolStripMenuItem_Click(object sender, EventArgs e)
         {

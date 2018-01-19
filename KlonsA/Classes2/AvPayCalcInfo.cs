@@ -120,7 +120,7 @@ namespace KlonsA.Classes
                 d =>
                 {
                     int k = (d.YR * 12 + d.MT - 1);
-                    return d.XType != ESalarySheetRowType.OneOfMany && k >= k2 && k < k1;
+                    return k >= k2 && k < k1;
                 }).ToArray();
 
             foreach (var dr in drs_m)

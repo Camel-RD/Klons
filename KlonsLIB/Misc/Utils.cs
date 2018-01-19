@@ -641,5 +641,38 @@ namespace KlonsLIB.Misc
                 return null;
         }
 
+        //for small differences
+        public static decimal MakeExactSum<T>(decimal sum, IEnumerable<T> list,
+            Func<T, decimal> fgetval, Action<T, decimal> fsetval)
+        {
+            decimal cursum = list.Sum(d => fgetval(d));
+            if (cursum == sum) return cursum;
+            decimal addsumd = cursum < sum ? 0.01M : -0.01M;
+            if (cursum == 0.0M)
+            {
+                while (true)
+                {
+                    foreach (var pfx in list)
+                    {
+                        decimal curval = fgetval(pfx);
+                        fsetval(pfx, curval + addsumd);
+                        cursum += addsumd;
+                        if (cursum == sum) return cursum;
+                    }
+                }
+            }
+            while (true)
+            {
+                foreach (var pfx in list)
+                {
+                    decimal curval = fgetval(pfx);
+                    if (curval == 0.0M) continue;
+                    fsetval(pfx, curval + addsumd);
+                    cursum += addsumd;
+                    if (cursum == sum) return cursum;
+                }
+            }
+        }
+
     }
 }

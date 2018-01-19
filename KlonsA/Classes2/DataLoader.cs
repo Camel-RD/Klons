@@ -98,6 +98,7 @@ namespace KlonsA.Classes
 
             var tables = new DataTable[]
             {
+                ds.UNTAXED_MIN,
                 ds.SALARY_PLUSMINUS,
                 ds.SALARY_SHEETS_R,
                 ds.SALARY_SHEETS,
@@ -210,7 +211,8 @@ namespace KlonsA.Classes
                 ds.BANKS,
                 ds.EVENT_TYPES2,
                 ds.PERSONS_FIZ,
-                ds.INCOME_CODES
+                ds.INCOME_CODES,
+                ds.UNTAXED_MIN
             };
 
             foreach (var t in tables)

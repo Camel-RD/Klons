@@ -745,7 +745,11 @@ namespace KlonsA.Forms
             var drv = e.ListItem as DataRowView;
             if (drv == null) return;
             var dr = drv.Row as KlonsADataSet.PAYLISTSRow;
-            if (dr == null) return;
+            if (dr == null || dr.RowState == DataRowState.Deleted || dr.RowState == DataRowState.Deleted)
+            {
+                e.Value = "?";
+                return;
+            }
             var s = string.Format("{0:dd.MM.yyyy} {1} {2}", dr.DT, dr.SNR, dr.DESCR);
             e.Value = s;
         }

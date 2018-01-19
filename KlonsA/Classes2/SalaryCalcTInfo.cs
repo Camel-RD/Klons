@@ -40,6 +40,14 @@ namespace KlonsA.Classes
             }
         }
 
+        public PayFxB PFxB = null;
+
+        private decimal[] GetValues(Func<SalaryInfo, decimal> fval)
+        {
+            return LinkedSCI.Select(d => fval(d.SI)).ToArray();
+        }
+
+
         public ErrorList FillRow()
         {
             IsAvPayCalcDone = false;
@@ -48,6 +56,7 @@ namespace KlonsA.Classes
             var dt2 = SRS.SalarySheet.DT2;
 
             var err_list = new ErrorList();
+            ErrorList err = null;
 
             // -- should be done in initialization
             //CheckLinkedRows(DrTotalRow.IDP);
@@ -66,13 +75,13 @@ namespace KlonsA.Classes
                 var sci = LinkedSCI[0];
                 TotalSI = sci.SI;
                 SRS.TotalPersonPay = TotalSI;
-                var err = sci.FillRow();
+                err = sci.FillRow();
                 err_list.AddRange(err);
                 SRS.TotalPersonPay = sci.SI;
                 return err_list;
             }
 
-            BonusCalcInfo bonus, bonus_am;
+            BonusCalcInfo bonus_am;
 
             TotalSI = new SalaryInfo();
             SRS.TotalPersonPay = TotalSI;
@@ -81,14 +90,16 @@ namespace KlonsA.Classes
             MakeWorkTime(); // updates all rows and TotalPersonPay
             CalcRf(dt1, dt2);
 
-            bonus = new BonusCalcInfo(SRS.GetAlgasAllPSRows(), PreparingReport);
+            var drs_bonust = SRS.GetAlgasAllPSRows();
+
+            BonusCalc = new BonusCalcInfo(CalcR, drs_bonust, PreparingReport);
 
             for (int i = 0; i < LinkedSCI.Length; i++)
             {
                 var lr = SRS.LinkedRows[i];
                 var lsc = LinkedSCI[i];
 
-                bonus_am = bonus.Filter(
+                bonus_am = BonusCalc.Filter(
                     d =>
                     d.IsIDANull() ||
                     (!d.IsIDANull() &&
@@ -98,119 +109,295 @@ namespace KlonsA.Classes
 
                 lsc.SR.CheckAlgasPS();
                 lsc.CalcRR(dt1, dt2);
-                lsc.FillRow1();
+            }
+            LinkedSCI[0].BonusCalc.TakeRoundingError = true;
+
+
+            PFxB = new PayFxB();
+            PFxB.SetFrom(CalcR);
+            PFxB.IinEx = TotalSI.SumIINExemptsAll();
+            PFxB.InitParts(this);
+
+
+            var cret1 = BonusCalc.CalcNotProcT(this, 0);
+            BonusCalc.CalcFromEndAT(this);
+
+            var cret2 = BonusCalc.CalcProcT(this, EBonusFrom.FromMonthSalary, d=>d.PlanedWorkPay);
+            var cret3 = BonusCalc.CalcProcT(this, EBonusFrom.FromPay, d=>d._SALARY);
+
+            TotalSI._FORAVPAYCALC_BRUTO += BonusCalc.ForAvpayCalc;
+            foreach(var sci in LinkedSCI) 
+                sci.SI._FORAVPAYCALC_BRUTO += sci.BonusCalc.ForAvpayCalc;
+
+            PFxB.TempCRets.AddRange(cret1);
+            PFxB.TempCRets.AddRange(cret2);
+            PFxB.TempCRets.AddRange(cret3);
+
+            //SummForAvPayCalcBruto(); //--allredy done
+
+            decimal[] avpay1 = GetAvPay();
+            decimal savpay1 = avpay1.Sum();
+
+            err = FillRowVcSdc();
+            if (err.HasErrors) return err_list;
+
+            decimal[] avpay2 = GetAvPay();
+            decimal savpay2 = avpay2.Sum();
+            if (savpay2 > savpay1)
+            {
+                for (int i = 0; i < avpay1.Length; i++)
+                    avpay2[i] -= avpay1[i];
+                //PFxB.DoPayFxB_AvPay(savpay2 - savpay1, avpay2);
             }
 
-            Summ2();
-            FillRowVcSdc();
+
+            cret1 = BonusCalc.CalcProcT(this, EBonusFrom.FromPayAndVacSick, 
+                d=> 
+                d._SALARY + 
+                d._SICKDAYS_PAY + 
+                d._VACATION_PAY_CURRENT);
+
+            cret2 = BonusCalc.CalcProcT(this, EBonusFrom.FromPayBeforeSAI,
+                d =>
+                d._SALARY +
+                d._SICKDAYS_PAY +
+                d._VACATION_PAY_CURRENT +
+                d._PLUS_TAXED);
+
+            CalcSAI();
+
+            cret3 = BonusCalc.CalcProcT(this, EBonusFrom.FromPayAfterSAI,
+                d =>
+                d._AMOUNT_BEFORE_SN -
+                d._DNSN_AMOUNT);
+
+            PFxB.TempCRets.AddRange(cret1);
+            PFxB.TempCRets.AddRange(cret2);
+            PFxB.TempCRets.AddRange(cret3);
+
+
+         
+            //done in BonusCalc.Calc
+            //Summ1();
+
+
+            decimal payAfterSAI =
+                TotalSI._AMOUNT_BEFORE_SN -
+                TotalSI._DNSN_AMOUNT +
+                TotalSI._PLUS_NOSAI +
+                TotalSI._PLUS_AUTHORS_FEES -
+                TotalSI._MINUS_BEFORE_IIN;
+
+            TotalSI._AMOUNT_BEFORE_IIN = payAfterSAI;
+
+            decimal curbruto =
+                TotalSI._AMOUNT_BEFORE_SN -
+                TotalSI._PLUS_NOSAI +
+                TotalSI._PLUS_AUTHORS_FEES -
+                TotalSI._MINUS_BEFORE_IIN;
+
+            decimal iinexempts1 = TotalSI.SumIINExemptsAll();
+
+            decimal iinexempts1a =
+                iinexempts1 -
+                CalcR.ExDivided.ExUntaxedMinimum +
+                CalcR.ExDivided.ExUntaxedMinimum2;
+
+            decimal iinexempts1b =
+                iinexempts1 -
+                CalcR.ExDivided.ExUntaxedMinimum;
+
+            List<BonusCalcInfo.CalcRet> rpfx = null;
+            var plusfromendbruto = BonusCalc.CalcFromEndCT(
+                sct: this,
+                totalinex: iinexempts1,
+                totalinexa: iinexempts1a,
+                totalinexb: iinexempts1b,
+                curbruto: curbruto,
+                brutonosai: TotalSI._PLUS_NOSAI,
+                brutomargin: CalcR.IINMargin,
+                brutomargina: CalcR.IINMarginA,
+                brutomarginb: CalcR.IINMarginB,
+                useprogressiveiin: CalcR.UseProgresiveIINRate,
+                hastaxdoc: CalcR.HasTaxDoc,
+                iinrate1: TotalSI._RATE_IIN,
+                iinrate2: TotalSI._RATE_IIN2,
+                dnsrate: TotalSI._RATE_DNSN,
+                divby: LinkedSCI.Length,
+                rpfx: out rpfx);
+
+            PFxB.TempCRets.AddRange(rpfx);
+
+            if (plusfromendbruto != 0.0M)
+            {
+                CalcSAI();
+
+                payAfterSAI =
+                    TotalSI._AMOUNT_BEFORE_SN -
+                    TotalSI._DNSN_AMOUNT +
+                    TotalSI._PLUS_NOSAI +
+                    TotalSI._PLUS_AUTHORS_FEES -
+                    TotalSI._MINUS_BEFORE_IIN;
+            }
+
+
+            CalcIIN();
+
+            TotalSI._TOTAL_BEFORE_TAXES =
+                TotalSI._AMOUNT_BEFORE_SN +
+                TotalSI._PLUS_NOTTAXED +
+                TotalSI._PLUS_NOSAI +
+                TotalSI._PLUS_AUTHORS_FEES;
+
+            TotalSI._PAY =
+                TotalSI._TOTAL_BEFORE_TAXES -
+                TotalSI._DNSN_AMOUNT -
+                TotalSI._IIN_AMOUNT;
+
+
+            PFxB.IinEx = CalcR.ExDivided.SumIINExemptsAll();
+
+            PFxB.DoPayFxB_Salary(TotalSI._SALARY, GetValues(d => d._SALARY));
+            PFxB.DoPayFxB_SickPay(
+                TotalSI._SICKDAYS_PAY,
+                GetValues(d => d._SICKDAYS_PAY));
+            PFxB.DoPayFxB_VacationPrev(
+                TotalSI._VACATION_PAY_PREV,
+                GetValues(d => d._VACATION_PAY_PREV));
+            PFxB.DoPayFxB_Vacation(
+                TotalSI._VACATION_PAY_CURRENT,
+                GetValues(d => d._VACATION_PAY_CURRENT));
+
+            CorrectVacCash();
+            PFxB.DoPayFxB_Bonus(PFxB.TempCRets);
+
+            MakeExactIINExSplit();
 
             for (int i = 0; i < LinkedSCI.Length; i++)
             {
                 var lsc = LinkedSCI[i];
-                lsc.FillRowA();
+                lsc.FillRowFromParentA(PFxB.Parts[i].IIN);
             }
 
-            FillRowA();
 
-            decimal plusfromendbruto, plusfromendcash;
+            cret1 = BonusCalc.CalcNotProcT(this, 1);
+            cret2 = BonusCalc.CalcProcT(this, EBonusFrom.FromPayAfterIIN,
+                d => d._PAY);
 
-            CheckPlusFromEnd(out plusfromendbruto, out plusfromendcash);
 
-            decimal tb = TotalSI._AMOUNT_BEFORE_IIN + plusfromendbruto;
-            decimal r = 1.0M / (decimal)LinkedSCI.Length;
+            PFxB.TempCRets2.AddRange(cret1);
+            PFxB.TempCRets2.AddRange(cret2);
+            PFxB.DoPayFxB_BonusSimpleAdd(PFxB.TempCRets2);
+            BonusCalc.CalcCashT(this);
+
+
+            //  ?????? ?????
+            //Summ1();
+
+            TotalSI._MINUS_AFTER_IIN +=
+                TotalSI._PLUS_NP_TAXED +
+                TotalSI._PLUS_NP_NOTTAXED +
+                TotalSI._PLUS_NP_NOSAI;
+
+            //---Negatīva izmaksājamā summa ir OK
+            TotalSI._VACATION_ADVANCE_CURRENT = -TotalSI._VACATION_ADVANCE_PREV;
+
+            TotalSI._VACATION_ADVANCE_NEXT =
+                TotalSI._VACATION_ADVANCE_PREV +
+                TotalSI._VACATION_ADVANCE_CURRENT +
+                TotalSI._VACATION_CASH_NEXT;
+
+            TotalSI._ADVANCE = 
+                TotalSI._VACATION_CASH_NEXT + 
+                TotalSI._VACATION_ADVANCE_CURRENT;
+
+            TotalSI._PAYT =
+                TotalSI._PAY +
+                TotalSI._ADVANCE -
+                TotalSI._MINUS_AFTER_IIN;
+
+            TotalSI._FORAVPAYCALC_PAYOUT = TotalSI._PAY;
+
+            TotalSI._PAY0 = CalcPay0();
+
+            if (SRS?.SalarySheet?.DR_Likmes != null)
+                TotalSI._URVN_AMAOUNT = SRS.SalarySheet.DR_Likmes.URN;
+
 
             for (int i = 0; i < LinkedSCI.Length; i++)
             {
                 var lsc = LinkedSCI[i];
-                decimal lb = plusfromendcash == 0.0M ? 0.0M : 
-                    lsc.BonusCalc.PlusFromEnd / plusfromendcash * plusfromendbruto;
-                if (tb > 0.0M)
-                    r = (lsc.SI._AMOUNT_BEFORE_IIN + lb) / tb;
-
-                lsc.CalcR.ApplyRatio(r, lsc.SI);
-                //FillLinkedRow(lsc.SI);
+                lsc.FillRowFromParentB();
             }
 
-            EnsureExactSum0();
-            EnsureExactSum();
+
+            TotalSI._FORAVPAYCALC_BRUTO = 0.0M;
+            TotalSI._FORAVPAYCALC_PAYOUT = 0.0M;
 
             for (int i = 0; i < LinkedSCI.Length; i++)
             {
-                var lsc = LinkedSCI[i];
-                lsc.CalcR.SaveStateForDivided(lsc.CalcR.ExDivided);
-                lsc.FillRowB();
+                var si = LinkedSCI[i].SI;
+                TotalSI._FORAVPAYCALC_BRUTO += si._FORAVPAYCALC_BRUTO;
+                TotalSI._FORAVPAYCALC_PAYOUT += si._FORAVPAYCALC_PAYOUT;
             }
 
-            FillRowB();
-            FillRowC();
 
             return err_list;
         }
 
-        public void EnsureExactSum()
+        private decimal[] GetAvPay()
         {
-            decimal d1 = 0.0M, d2 = 0.0M, d3 = 0.0M, d4 = 0.0M, d5 = 0.0M;
-            //decimal d6 = 0.0M, d7 = 0.0M, d8 = 0.0M, d9 = 0.0M, d10 = 0.0M, d11 = 0.0M;
-            SalaryInfo si, sx = null;
-
+            decimal[] ret = new decimal[LinkedSCI.Length];
             for (int i = 0; i < LinkedSCI.Length; i++)
             {
-                si = LinkedSCI[i].SI;
-                d1 += si._IIN_EXEMPT_UNTAXED_MINIMUM;
-                d2 += si._IIN_EXEMPT_DEPENDANTS;
-                d3 += si._IIN_EXEMPT_INVALIDITY;
-                d4 += si._IIN_EXEMPT_NATIONAL_MOVEMENT;
-                d5 += si._IIN_EXEMPT_RETALIATION;
-                /*d6 += si._PLUS_PF_NOTTAXED;
-                d7 += si._PLUS_PF_TAXED;
-                d8 += si._PLUS_LI_NOTTAXED;
-                d9 += si._PLUS_LI_TAXED;
-                d10 += si._PLUS_HI_NOTTAXED;
-                d11 += si._PLUS_HI_TAXED;
-                */
-                if (si._AMOUNT_BEFORE_SN > 0.0M)
-                    sx = si;
+                var lscsi = LinkedSCI[i].SI;
+                ret[i] =
+                    lscsi._SALARY_AVPAY_FREE_DAYS +
+                    lscsi._SALARY_AVPAY_WORK_DAYS +
+                    lscsi._SALARY_AVPAY_WORK_DAYS_OVERTIME +
+                    lscsi._SALARY_AVPAY_HOLIDAYS +
+                    lscsi._SALARY_AVPAY_HOLIDAYS_OVERTIME;
             }
-            if (sx == null) return;
-            si = sx;
-            si._IIN_EXEMPT_UNTAXED_MINIMUM -= d1 - TotalSI._IIN_EXEMPT_UNTAXED_MINIMUM;
-            si._IIN_EXEMPT_DEPENDANTS -= d2 - TotalSI._IIN_EXEMPT_DEPENDANTS;
-            si._IIN_EXEMPT_INVALIDITY -= d3 - TotalSI._IIN_EXEMPT_INVALIDITY;
-            si._IIN_EXEMPT_NATIONAL_MOVEMENT -= d4 - TotalSI._IIN_EXEMPT_NATIONAL_MOVEMENT;
-            si._IIN_EXEMPT_RETALIATION -= d5 - TotalSI._IIN_EXEMPT_RETALIATION;
-            /*si._PLUS_PF_NOTTAXED -= d6 - TotalSI._PLUS_PF_NOTTAXED;
-            si._PLUS_PF_TAXED -= d7 - TotalSI._PLUS_PF_TAXED;
-            si._PLUS_LI_NOTTAXED -= d8 - TotalSI._PLUS_LI_NOTTAXED;
-            si._PLUS_LI_TAXED -= d9 - TotalSI._PLUS_LI_TAXED;
-            si._PLUS_HI_NOTTAXED -= d10 - TotalSI._PLUS_HI_NOTTAXED;
-            si._PLUS_HI_TAXED -= d11 - TotalSI._PLUS_HI_TAXED;
-            */
+            return ret;
         }
 
-        public void EnsureExactSum0()
+        public void MakeExactIINExSplit()
         {
-            decimal d1 = 0.0M, d2 = 0.0M, d3 = 0.0M, d4 = 0.0M, d5 = 0.0M;
-            //decimal d6 = 0.0M, d7 = 0.0M, d8 = 0.0M, d9 = 0.0M, d10 = 0.0M, d11 = 0.0M;
-            SalaryInfo si, sx = null;
+            var dd1 = new[]{
+                TotalSI._IIN_EXEMPT_UNTAXED_MINIMUM,
+                TotalSI._IIN_EXEMPT_DEPENDANTS,
+                TotalSI._IIN_EXEMPT_INVALIDITY,
+                TotalSI._IIN_EXEMPT_NATIONAL_MOVEMENT,
+                TotalSI._IIN_EXEMPT_RETALIATION,
+                TotalSI._IIN_EXEMPT_EXPENSES};
+
+            var dd2 = PFxB.Parts.Select(d => d.UsedIinEx).ToArray();
+
+            var dd = PayFxA.MakeExactSplit(dd1, dd2);
 
             for (int i = 0; i < LinkedSCI.Length; i++)
             {
-                si = LinkedSCI[i].SI;
-                d1 += si._IIN_EXEMPT_UNTAXED_MINIMUM0;
-                d2 += si._IIN_EXEMPT_DEPENDANTS0;
-                d3 += si._IIN_EXEMPT_INVALIDITY0;
-                d4 += si._IIN_EXEMPT_NATIONAL_MOVEMENT0;
-                d5 += si._IIN_EXEMPT_RETALIATION0;
-                if (si._AMOUNT_BEFORE_SN > 0.0M)
-                    sx = si;
+                var lsc = LinkedSCI[i];
+                var si = lsc.SI;
+                si._IIN_EXEMPT_UNTAXED_MINIMUM = dd[0, i];
+                si._IIN_EXEMPT_DEPENDANTS = dd[1, i];
+                si._IIN_EXEMPT_INVALIDITY = dd[2, i];
+                si._IIN_EXEMPT_NATIONAL_MOVEMENT = dd[3, i];
+                si._IIN_EXEMPT_RETALIATION = dd[4, i];
+                si._IIN_EXEMPT_EXPENSES = dd[5, i];
+
+                si._IIN_EXEMPT_2 =
+                    si._IIN_EXEMPT_INVALIDITY +
+                    si._IIN_EXEMPT_NATIONAL_MOVEMENT +
+                    si._IIN_EXEMPT_RETALIATION;
+
+                lsc.CalcR.ExDivided.SetFrom(si);
+                lsc.CalcR.ExCorrect.SetFrom(lsc.CalcR.ExDivided);
+                lsc.CalcR.SaveStateForFinal(CalcR.ExCorrect);
+                lsc.CalcR.AddToListT();
+                lsc.CalcR.PrepareList();
             }
-            if (sx == null) return;
-            si = sx;
-            si._IIN_EXEMPT_UNTAXED_MINIMUM0 -= d1 - TotalSI._IIN_EXEMPT_UNTAXED_MINIMUM0;
-            si._IIN_EXEMPT_DEPENDANTS0 -= d2 - TotalSI._IIN_EXEMPT_DEPENDANTS0;
-            si._IIN_EXEMPT_INVALIDITY0 -= d3 - TotalSI._IIN_EXEMPT_INVALIDITY0;
-            si._IIN_EXEMPT_NATIONAL_MOVEMENT0 -= d4 - TotalSI._IIN_EXEMPT_NATIONAL_MOVEMENT0;
-            si._IIN_EXEMPT_RETALIATION0 -= d5 - TotalSI._IIN_EXEMPT_RETALIATION0;
+
         }
 
         public void Summ1()
@@ -253,7 +440,7 @@ namespace KlonsA.Classes
             }
         }
 
-        public void Summ2()
+        public void SummForAvPayCalcBruto()
         {
             TotalSI._FORAVPAYCALC_BRUTO = 0.0M;
 
@@ -302,115 +489,176 @@ namespace KlonsA.Classes
             return err_list;
         }
 
-        public ErrorList FillRowA()
+        public void CorrectVacCash()
         {
-            var err_list = new ErrorList();
-            var si = TotalSI;
+            if (PFxB.PFx_vacation_prev != null)
+            {
+                VacationCalc.VcrPrevCurrent.IINEX = PFxB.PFx_vacation_prev.UsedIinEx;
+                VacationCalc.VcrPrevCurrent.IIN = PFxB.PFx_vacation_prev.IIN;
+                VacationCalc.VcrPrevCurrent.Cash = PFxB.PFx_vacation_prev.Cash;
+            }
+            if (PFxB.PFx_vacation != null)
+            {
+                VacationCalc.VcrCurrent.IINEX = PFxB.PFx_vacation.UsedIinEx;
+                VacationCalc.VcrCurrent.IIN = PFxB.PFx_vacation.IIN;
+                VacationCalc.VcrCurrent.Cash = PFxB.PFx_vacation.Cash;
 
-            Summ1();
+                if (VacationCalc.VcrCompensation.Pay > 0.0M && VacationCalc.VcrCurrent.Pay > 0.0M)
+                {
+                    decimal r =
+                        VacationCalc.VcrCompensation.Pay /
+                        VacationCalc.VcrCurrent.Pay;
 
-            decimal pay1 = si._SALARY;
+                    VacationCalc.VcrCompensation.IINEX = VacationCalc.VcrCurrent.IINEX * r;
+                    VacationCalc.VcrCompensation.IIN = VacationCalc.VcrCurrent.IIN * r;
 
-            decimal pay2 = pay1 +
-                si._VACATION_PAY_CURRENT +
-                si._SICKDAYS_PAY;
+                    VacationCalc.VcrCompensation.IINEX = KlonsData.RoundA(VacationCalc.VcrCompensation.IINEX, 2);
+                    VacationCalc.VcrCompensation.IIN = KlonsData.RoundA(VacationCalc.VcrCompensation.IIN, 2);
 
-            decimal payBeforeSAI = pay2 +
-                si._PLUS_TAXED;
-
-            si._AMOUNT_BEFORE_SN = payBeforeSAI;
-
-            si._DNSN_AMOUNT = KlonsData.RoundA(si._AMOUNT_BEFORE_SN * si._RATE_DNSN / 100.0M, 2);
-            si._DDSN_AMOUNT = KlonsData.RoundA(si._AMOUNT_BEFORE_SN * si._RATE_DDSN / 100.0M, 2);
-            si._SN_AMOUNT = si._DDSN_AMOUNT + si._DNSN_AMOUNT;
-
-            decimal payAfterSAI = si._AMOUNT_BEFORE_SN - si._DNSN_AMOUNT;
-
-            decimal payAfterSAI2 = payAfterSAI +
-                 si._PLUS_NOSAI +
-                 si._PLUS_AUTHORS_FEES -
-                 si._MINUS_BEFORE_IIN;
-
-            si._AMOUNT_BEFORE_IIN = payAfterSAI2;
-
-            return err_list;
+                    VacationCalc.VcrCompensation.Cash =
+                        VacationCalc.VcrCompensation.Pay -
+                        VacationCalc.VcrCompensation.DNS -
+                        VacationCalc.VcrCompensation.IIN;
+                }
+            }
         }
 
-
-        public ErrorList FillRowB()
+        public void CalcSAI()
         {
-            var err_list = new ErrorList();
-            var si = TotalSI;
+            var SI = TotalSI;
 
-            Summ1();
+            decimal pay1 =
+                SI._SALARY +
+                SI._SICKDAYS_PAY +
+                SI._VACATION_PAY_CURRENT +
+                SI._PLUS_TAXED;
 
-            decimal payAfterSAI = si._AMOUNT_BEFORE_SN - si._DNSN_AMOUNT;
+            SI._AMOUNT_BEFORE_SN = pay1;
 
-            decimal payAfterSAI2 = payAfterSAI +
-                 si._PLUS_NOSAI +
-                 si._PLUS_AUTHORS_FEES -
-                 si._MINUS_BEFORE_IIN;
+            SI._DNSN_AMOUNT = KlonsData.RoundA(SI._AMOUNT_BEFORE_SN * SI._RATE_DNSN / 100.0M, 2);
+            SI._DDSN_AMOUNT = KlonsData.RoundA(SI._AMOUNT_BEFORE_SN * SI._RATE_DDSN / 100.0M, 2);
+            SI._SN_AMOUNT = SI._DDSN_AMOUNT + SI._DNSN_AMOUNT;
 
-            decimal iinexempts1 = si.SumIINExempts();
+            for (int i = 0; i < LinkedSCI.Length; i++)
+            {
+                var lsc = LinkedSCI[i];
+                lsc.CalcSAI();
+            }
 
-            CalcR.ExDivided.ApplyTo(si);
-            CalcR.CorrectIINExempts(payAfterSAI2);
-            CalcR.ExCorrect.ApplyTo(si);
+            Utils.MakeExactSum(SI._DNSN_AMOUNT, LinkedSCI, 
+                d => d.SI._DNSN_AMOUNT, 
+                (d, val) => d.SI._DNSN_AMOUNT = val);
+
+            Utils.MakeExactSum(SI._DDSN_AMOUNT, LinkedSCI,
+                d => d.SI._DDSN_AMOUNT,
+                (d, val) => d.SI._DDSN_AMOUNT = val);
+
+            for (int i = 0; i < LinkedSCI.Length; i++)
+            {
+                var lsc = LinkedSCI[i];
+                lsc.SI._SN_AMOUNT = lsc.SI._DNSN_AMOUNT + lsc.SI._DDSN_AMOUNT;
+            }
+
+        }
+
+        public void CalcIIN()
+        {
+            var SI = TotalSI;
+
+            decimal pay1 =
+                SI._AMOUNT_BEFORE_SN -
+                SI._PLUS_NOSAI +
+                SI._PLUS_AUTHORS_FEES;
+
+            decimal payAfterSAI =
+                SI._AMOUNT_BEFORE_SN -
+                SI._DNSN_AMOUNT +
+                SI._PLUS_NOSAI +
+                SI._PLUS_AUTHORS_FEES -
+                SI._MINUS_BEFORE_IIN;
+
+            if (CalcR.UseProgresiveIINRate && CalcR.HasTaxDoc)
+            {
+                if (pay1 > 1000.0M)
+                {
+                    SI._IIN_EXEMPT_UNTAXED_MINIMUM = 0.0M;
+                    SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = 0.0M;
+                    CalcR.ExDivided.ExUntaxedMinimum = 0.0M;
+                    if (CalcR.CrUntaxedMinimum != null)
+                        CalcR.CrUntaxedMinimum.RateDivided = 0.0M;
+                }
+                else if (pay1 > 430.0M)
+                {
+                    SI._IIN_EXEMPT_UNTAXED_MINIMUM = CalcR.ExDivided.ExUntaxedMinimum2;
+                    SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = CalcR.ExMax2.ExUntaxedMinimum2;
+                    CalcR.ExDivided.ExUntaxedMinimum = CalcR.ExDivided.ExUntaxedMinimum2;
+                    if (CalcR.CrUntaxedMinimum != null)
+                        CalcR.CrUntaxedMinimum.RateDivided = CalcR.ExDivided.ExUntaxedMinimum2;
+                }
+            }
+
+            decimal iinexempts = SI.SumIINExemptsAll();
+
+            if (!CalcR.UseProgresiveIINRate)
+            {
+                iinexempts = Math.Min(iinexempts, payAfterSAI);
+                SI._AMOUNT_BEFORE_IIN = payAfterSAI - iinexempts;
+                SI._IIN_AMOUNT = KlonsData.RoundA(SI._AMOUNT_BEFORE_IIN * SI._RATE_IIN / 100.0M, 2);
+            }
+            else if (CalcR.HasTaxDoc)
+            {
+                if (pay1 <= CalcR.IINMargin)
+                {
+                    iinexempts = Math.Min(iinexempts, payAfterSAI);
+                    SI._AMOUNT_BEFORE_IIN = payAfterSAI - iinexempts;
+                    SI._IIN_AMOUNT = KlonsData.RoundA(SI._AMOUNT_BEFORE_IIN * SI._RATE_IIN / 100.0M, 2);
+                }
+                else
+                {
+                    decimal amountbeforeiin =
+                        CalcR.IINMargin -
+                        SI._DNSN_AMOUNT -
+                        SI._MINUS_BEFORE_IIN -
+                        iinexempts;
+
+                    decimal iin = amountbeforeiin * SI._RATE_IIN / 100.0M;
+
+                    decimal amountbeforeiin2 =
+                        pay1 -
+                        CalcR.IINMargin;
+
+                    iin += amountbeforeiin2 * SI._RATE_IIN2 / 100.0M;
+
+                    if (iin < 0.0M)
+                    {
+                        iinexempts += KlonsData.RoundA(iin / (SI._RATE_IIN / 100.0M), 2);
+                        iin = 0.0M;
+                    }
+
+                    SI._IIN_AMOUNT = KlonsData.RoundA(iin, 2);
+                }
+            }
+            else
+            {
+                SI._AMOUNT_BEFORE_IIN = payAfterSAI;
+                decimal iin =
+                    (SI._AMOUNT_BEFORE_IIN + SI._DNSN_AMOUNT) * SI._RATE_IIN2 / 100.0M -
+                    SI._DNSN_AMOUNT * SI._RATE_IIN / 100.0M;
+                SI._IIN_AMOUNT = KlonsData.RoundA(iin, 2);
+            }
+
+            SI._AMOUNT_BEFORE_IIN = payAfterSAI - iinexempts;
+
+
+            CalcR.ExDivided.ApplyTo0(TotalSI);
+            CalcR.CorrectIINExempts(iinexempts);
+            CalcR.ExCorrect.ApplyTo(TotalSI);
+            CalcR.SaveStateForFinal(CalcR.ExCorrect);
             CalcR.AddToListT();
             CalcR.PrepareList();
-            CalcR.PrepareReportT(this);
 
-            decimal iinexempts2 = si.SumIINExemptsAll();
-            decimal payBeforeIIN = payAfterSAI2 - iinexempts2;
-
-            si._AMOUNT_BEFORE_IIN = payBeforeIIN;
-
-            si._IIN_AMOUNT = KlonsData.RoundA(si._AMOUNT_BEFORE_IIN * si._RATE_IIN / 100.0M, 2);
-
-            decimal PpayAfterIIN = payAfterSAI2 - si._IIN_AMOUNT;
-
-            si._TOTAL_BEFORE_TAXES =
-                si._AMOUNT_BEFORE_SN +
-                si._PLUS_NOTTAXED +
-                si._PLUS_NOSAI +
-                si._PLUS_AUTHORS_FEES;
-
-            VacationCalc.CorrectCash(si);
-
-            si._PAY =
-                si._TOTAL_BEFORE_TAXES -
-                si._DNSN_AMOUNT -
-                si._IIN_AMOUNT;
-
-            si._MINUS_AFTER_IIN +=
-                si._PLUS_NP_TAXED +
-                si._PLUS_NP_NOTTAXED +
-                si._PLUS_NP_NOSAI;
-
-            //---Negatīva izmaksājamā summa ir OK
-            si._VACATION_ADVANCE_CURRENT = -si._VACATION_ADVANCE_PREV;
-
-            si._VACATION_ADVANCE_NEXT =
-                si._VACATION_ADVANCE_PREV +
-                si._VACATION_ADVANCE_CURRENT +
-                si._VACATION_CASH_NEXT;
-
-            si._ADVANCE = si._VACATION_CASH_NEXT + si._VACATION_ADVANCE_CURRENT;
-
-            si._PAYT =
-                si._PAY +
-                si._ADVANCE -
-                si._MINUS_AFTER_IIN;
-
-            si._FORAVPAYCALC_PAYOUT = si._PAY;
-
-            si._PAY0 = CalcPay0();
-
-            if (SRS?.SalarySheet?.DR_Likmes != null)
-                si._URVN_AMAOUNT = SRS.SalarySheet.DR_Likmes.URN;
-
-            return err_list;
         }
+
 
         public decimal CalcPay0()
         {
@@ -429,8 +677,15 @@ namespace KlonsA.Classes
 
             decimal totaliinex = SI.SumIINExemptsAll();
             decimal iinex = Math.Min(totaliinex, beforeiinex);
-
-            decimal iin = KlonsData.RoundA((beforeiinex - iinex) * SI._RATE_IIN / 100.0M, 2);
+            decimal iin = 0.0M;
+            if (CalcR.UseProgresiveIINRate)
+            {
+                iin = (Math.Min(SI._PLUS_NP_TAXED + SI._PLUS_NP_NOSAI, CalcR.IINMargin) - sai - iinex) * SI._RATE_IIN / 100.0M;
+                iin += Math.Max(SI._PLUS_NP_TAXED + SI._PLUS_NP_NOSAI - CalcR.IINMargin, 0.0M) * SI._RATE_IIN2 / 100.0M;
+                iin = KlonsData.RoundA(Math.Max(iin, 0.0M), 2);
+            }
+            else
+                iin = KlonsData.RoundA((beforeiinex - iinex) * SI._RATE_IIN / 100.0M, 2);
 
             decimal pay0 = totalpay1 - sai - iin + SI._MINUS_AFTER_IIN;
             pay0 = Math.Min(pay0, SI._PAYT);
@@ -438,23 +693,6 @@ namespace KlonsA.Classes
             return pay0;
         }
 
-
-        public ErrorList FillRowC()
-        {
-            var err_list = new ErrorList();
-
-            TotalSI._FORAVPAYCALC_BRUTO = 0.0M;
-            TotalSI._FORAVPAYCALC_PAYOUT = 0.0M;
-
-            for (int i = 0; i < LinkedSCI.Length; i++)
-            {
-                var si = LinkedSCI[i].SI;
-                TotalSI._FORAVPAYCALC_BRUTO += si._FORAVPAYCALC_BRUTO;
-                TotalSI._FORAVPAYCALC_PAYOUT += si._FORAVPAYCALC_PAYOUT;
-            }
-
-            return err_list;
-        }
 
         public void WriteData()
         {
@@ -497,6 +735,7 @@ namespace KlonsA.Classes
             TotalSI._RATE_DDSN = CalcR.RateDDSN;
             TotalSI._RATE_DNSN = CalcR.RateDNSN;
             TotalSI._RATE_IIN = CalcR.RateIIN;
+            TotalSI._RATE_IIN2 = CalcR.RateIIN2;
         }
 
         public void SetAvPayTo(SalaryCalcInfo sc)
@@ -590,8 +829,8 @@ namespace KlonsA.Classes
             if (SickDayCalc == null) SickDayCalc = new SickDayCalcInfo(true);
             if (VacationCalc == null) VacationCalc = new VacationCalcInfo(true);
             if (WorkPayCalc == null) WorkPayCalc = new WorkPayCalcTInfo(true);
-            if (BonusCalc == null) BonusCalc = new BonusCalcInfo((KlonsADataSet.SALARY_PLUSMINUSRow[])null, true);
             if (CalcR == null) CalcR = new CalcRInfo(true);
+            if (BonusCalc == null) BonusCalc = new BonusCalcInfo(CalcR, (KlonsADataSet.SALARY_PLUSMINUSRow[])null, true);
         }
 
         public Report_SalaryCalc1 MakeReport1()

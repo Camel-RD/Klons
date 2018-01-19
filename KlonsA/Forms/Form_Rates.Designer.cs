@@ -39,6 +39,10 @@ namespace KlonsA.Forms
             this.LikmesData1 = new DataObjectsA.LikmesData();
             this.row_MinPayMonth = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.row_MinPayHour = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
+            this.row_IIN_Likme_2 = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
+            this.row_IIN_Likme_3 = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
+            this.row_IIN_Slieksnis_1 = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
+            this.row_IIN_Slieksnis_2 = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.row_SIDN_Pamatlikme = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.row_SIDD_Pens = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.row_SIDN_Pens = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
@@ -92,7 +96,6 @@ namespace KlonsA.Forms
             this.bsLikmes.DataMember = "RATES";
             this.bsLikmes.MyDataSource = "KlonsData";
             this.bsLikmes.Sort = "ONDATE";
-            this.bsLikmes.MyBeforeRowInsert += new KlonsLIB.Data.MyRowUpdateEventHandler(this.bsLikmes_MyBeforeRowInsert);
             this.bsLikmes.DataError += new System.Windows.Forms.BindingManagerDataErrorEventHandler(this.bsLikmes_DataError);
             this.bsLikmes.CurrentChanged += new System.EventHandler(this.bsLikmes_CurrentChanged);
             this.bsLikmes.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsLikmes_ListChanged);
@@ -134,6 +137,10 @@ namespace KlonsA.Forms
             this.myGrid1.RowList.Add(this.row_MinPayMonth);
             this.myGrid1.RowList.Add(this.row_MinPayHour);
             this.myGrid1.RowList.Add(this.row_IIN_Likme);
+            this.myGrid1.RowList.Add(this.row_IIN_Likme_2);
+            this.myGrid1.RowList.Add(this.row_IIN_Likme_3);
+            this.myGrid1.RowList.Add(this.row_IIN_Slieksnis_1);
+            this.myGrid1.RowList.Add(this.row_IIN_Slieksnis_2);
             this.myGrid1.RowList.Add(this.row_SIDD_Pamatlikme);
             this.myGrid1.RowList.Add(this.row_SIDN_Pamatlikme);
             this.myGrid1.RowList.Add(this.row_SIDD_Pens);
@@ -159,6 +166,131 @@ namespace KlonsA.Forms
             this.myGrid1.ToolTipText = "";
             this.myGrid1.EditEnded += new System.EventHandler(this.myGrid1_EditEnded);
             // 
+            // LikmesData1
+            // 
+            this.LikmesData1._APGAD = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._IIN_LIKME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._IIN_LIKME_2 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._IIN_LIKME_3 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._IIN_SLIEKSNIS_1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._IIN_SLIEKSNIS_2 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._INVALID_12 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._INVALID_3 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._MIN_PAY_HOUR = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._MIN_PAY_MONTH = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._NEPLIEK_MIN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._ONDATE = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.LikmesData1._PRET = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._REPR = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDD_IESLODZ = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDD_IESLODZ_PENS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDD_IZDPENS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDD_PAMATLIKME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDD_PENS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDN_IESLODZ = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDN_IESLODZ_PENS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDN_IZDPENS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDN_PAMATLIKME = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._SIDN_PENS = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.LikmesData1._STR = null;
+            this.LikmesData1._URN = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            // 
             // row_MinPayMonth
             // 
             this.row_MinPayMonth.DataMember = "MIN_PAY_MONTH";
@@ -179,6 +311,46 @@ namespace KlonsA.Forms
             this.row_MinPayHour.Name = "row_MinPayHour";
             this.row_MinPayHour.RowTitle = "Minimālā stundas likme";
             this.row_MinPayHour.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
+            // 
+            // row_IIN_Likme_2
+            // 
+            this.row_IIN_Likme_2.DataMember = "IIN_LIKME_2";
+            this.row_IIN_Likme_2.DataSource = this.bsLikmes;
+            this.row_IIN_Likme_2.EditorTemplateName = "sharedTextBox";
+            this.row_IIN_Likme_2.GridPropertyName = "_IIN_LIKME_2";
+            this.row_IIN_Likme_2.Name = "row_IIN_Likme_2";
+            this.row_IIN_Likme_2.RowTitle = "IIN likme 2";
+            this.row_IIN_Likme_2.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
+            // 
+            // row_IIN_Likme_3
+            // 
+            this.row_IIN_Likme_3.DataMember = "IIN_LIKME_3";
+            this.row_IIN_Likme_3.DataSource = this.bsLikmes;
+            this.row_IIN_Likme_3.EditorTemplateName = "sharedTextBox";
+            this.row_IIN_Likme_3.GridPropertyName = "_IIN_LIKME_3";
+            this.row_IIN_Likme_3.Name = "row_IIN_Likme_3";
+            this.row_IIN_Likme_3.RowTitle = "IIN likme 3";
+            this.row_IIN_Likme_3.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
+            // 
+            // row_IIN_Slieksnis_1
+            // 
+            this.row_IIN_Slieksnis_1.DataMember = "IIN_SLIEKSNIS_1";
+            this.row_IIN_Slieksnis_1.DataSource = this.bsLikmes;
+            this.row_IIN_Slieksnis_1.EditorTemplateName = "sharedTextBox";
+            this.row_IIN_Slieksnis_1.GridPropertyName = "_IIN_SLIEKSNIS_1";
+            this.row_IIN_Slieksnis_1.Name = "row_IIN_Slieksnis_1";
+            this.row_IIN_Slieksnis_1.RowTitle = "IIN likmes slieksnis 1";
+            this.row_IIN_Slieksnis_1.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
+            // 
+            // row_IIN_Slieksnis_2
+            // 
+            this.row_IIN_Slieksnis_2.DataMember = "IIN_SLIEKSNIS_2";
+            this.row_IIN_Slieksnis_2.DataSource = this.bsLikmes;
+            this.row_IIN_Slieksnis_2.EditorTemplateName = "sharedTextBox";
+            this.row_IIN_Slieksnis_2.GridPropertyName = "_IIN_SLIEKSNIS_2";
+            this.row_IIN_Slieksnis_2.Name = "row_IIN_Slieksnis_2";
+            this.row_IIN_Slieksnis_2.RowTitle = "IIN likmes slieksnis 2";
+            this.row_IIN_Slieksnis_2.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // row_SIDN_Pamatlikme
             // 
@@ -545,5 +717,9 @@ namespace KlonsA.Forms
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA row_MinPayMonth;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA row_MinPayHour;
         private KlonsLIB.Components.MyMcFlatComboBox cbDates;
+        private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA row_IIN_Likme_2;
+        private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA row_IIN_Likme_3;
+        private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA row_IIN_Slieksnis_1;
+        private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA row_IIN_Slieksnis_2;
     }
 }

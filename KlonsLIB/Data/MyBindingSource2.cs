@@ -560,7 +560,7 @@ namespace KlonsLIB.Data
             DataViewRowState st;
             
             if(onlydeleted) st = DataViewRowState.Deleted;
-            else st = DataViewRowState.Added | DataViewRowState.ModifiedCurrent;
+            else st = DataViewRowState.Added | DataViewRowState.ModifiedCurrent | DataViewRowState.Deleted;
 
             DataRow[] rows = table.Select(null, null, st);
             List<DataRow> rows2 = new List<DataRow>();

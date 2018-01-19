@@ -94,7 +94,7 @@ namespace KlonsA.Forms
 
         public override bool SaveData()
         {
-            var ret = bsLikmes.SaveTable();
+            var ret = bsLikmes.SaveTableA();
             return ret != EBsSaveResult.Error;
         }
 
@@ -107,8 +107,10 @@ namespace KlonsA.Forms
         {
             if (bsLikmes.Count < 2 || bsLikmes.Current == null) return;
             if (!Validate()) return;
-            bsLikmes.RemoveCurrent();
+            var dr = (bsLikmes.Current as DataRowView).Row as KlonsADataSet.RATESRow;
+            dr.Delete();
             SaveData();
+            CheckSave();
         }
 
         private void bsLikmes_ListChanged(object sender, ListChangedEventArgs e)
@@ -143,19 +145,26 @@ namespace KlonsA.Forms
 
             newdr.BeginEdit();
             newdr.ONDATE = DateTime.Today;
+            //newdr.ID = (int)MyData.KlonsQueriesTableAdapter.SP_RATES_ID();
+            newdr.ID = MyData.DataSetKlons.RATES.Max(d => d.ID) + 1;
             newdr.EndEdit();
 
             prevdr.Table.Rows.Add(newdr);
 
             bsLikmes.Position = bsLikmes.Count - 1;
+
+            SaveData();
+            CheckSave();
         }
 
+        /*
         private void bsLikmes_MyBeforeRowInsert(MyRowUpdateEventArgs e)
         {
             var dr = e.DataRow as KlonsADataSet.RATESRow;
             if (dr == null) return;
             dr.ID = (int)MyData.KlonsQueriesTableAdapter.SP_RATES_ID();
         }
+        */
 
         private void bsLikmes_DataError(object sender, BindingManagerDataErrorEventArgs e)
         {

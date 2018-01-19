@@ -77,6 +77,7 @@ namespace KlonsA.Classes
                 for (int j = 0; j < ari_l.LinkedPeriods.Count; j++)
                 {
                     var ari = ari_l.LinkedPeriods[j];
+                    sr.DLRows.CountPlan(wt, ari.DateFirst, ari.DateLast);
                     sr.DLRows.CountFact(wt, ari.DateFirst, ari.DateLast);
                 }
 
@@ -122,6 +123,8 @@ namespace KlonsA.Classes
             }
 
             TotalRow._SALARY_PIECEWORK = CalcPieceWorkPay(dt1, dt2, sr.Row.IDAM);
+
+            TotalRow.PlanedWorkPay = KlonsData.RoundA(TotalRow.PlanedWorkPay, 2);
 
             TotalRow._SALARY_DAY = KlonsData.RoundA(TotalRow._SALARY_DAY, 2);
             TotalRow._SALARY_NIGHT = KlonsData.RoundA(TotalRow._SALARY_NIGHT, 2);

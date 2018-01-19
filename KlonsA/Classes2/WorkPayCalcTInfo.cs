@@ -93,8 +93,33 @@ namespace KlonsA.Classes
             TotalRow._SALARY = TotalRow.SumSalary();
             TotalRow.SumForAvPay();
 
+            MakeAvPayExactSum();
+
             if (PreparingReport) PrepareListT();
             return new ErrorList();
+        }
+
+        private void MakeAvPayExactSum()
+        {
+            Utils.MakeExactSum(TotalRow._SALARY_AVPAY_FREE_DAYS, LinkedWorkPayCalcs,
+                d => d.TotalRow._SALARY_AVPAY_FREE_DAYS,
+                (d, val) => d.TotalRow._SALARY_AVPAY_FREE_DAYS = val);
+
+            Utils.MakeExactSum(TotalRow._SALARY_AVPAY_WORK_DAYS, LinkedWorkPayCalcs,
+                d => d.TotalRow._SALARY_AVPAY_WORK_DAYS,
+                (d, val) => d.TotalRow._SALARY_AVPAY_WORK_DAYS = val);
+
+            Utils.MakeExactSum(TotalRow._SALARY_AVPAY_WORK_DAYS_OVERTIME, LinkedWorkPayCalcs,
+                d => d.TotalRow._SALARY_AVPAY_WORK_DAYS_OVERTIME,
+                (d, val) => d.TotalRow._SALARY_AVPAY_WORK_DAYS_OVERTIME = val);
+
+            Utils.MakeExactSum(TotalRow._SALARY_AVPAY_HOLIDAYS, LinkedWorkPayCalcs,
+                d => d.TotalRow._SALARY_AVPAY_HOLIDAYS,
+                (d, val) => d.TotalRow._SALARY_AVPAY_HOLIDAYS = val);
+
+            Utils.MakeExactSum(TotalRow._SALARY_AVPAY_HOLIDAYS_OVERTIME, LinkedWorkPayCalcs,
+                d => d.TotalRow._SALARY_AVPAY_HOLIDAYS_OVERTIME,
+                (d, val) => d.TotalRow._SALARY_AVPAY_HOLIDAYS_OVERTIME = val);
         }
 
         // used only for making report

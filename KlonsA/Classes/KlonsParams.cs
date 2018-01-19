@@ -189,6 +189,11 @@ namespace KlonsA.Classes
             get { return GetParamBool("HideBonusList").GetValueOrDefault(false); }
             set { SetParamBool("HideBonusList", value); }
         }
+        public bool SalarySheetShowPositionTitle
+        {
+            get { return GetParamBool("SHPosTitle").GetValueOrDefault(false); }
+            set { SetParamBool("SHPosTitle", value); }
+        }
 
         public int LoadYR1
         {

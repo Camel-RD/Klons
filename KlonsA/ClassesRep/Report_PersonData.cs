@@ -209,7 +209,8 @@ namespace KlonsA.Classes
         public decimal RateDNSN { get; set; } = 0.0M;
         public decimal RateDDSN { get; set; } = 0.0M;
         public decimal RateIIN { get; set; } = 0.0M;
-
+        public decimal RateIIN2 { get; set; } = 0.0M;
+        public bool UseProgresiveIINRate { get; set; } = false;
 
         public decimal PAY0 { get; set; } = 0.0M;
         public decimal IIN0 { get; set; } = 0.0M;
@@ -282,8 +283,8 @@ namespace KlonsA.Classes
             var dr_rates = DataTasks.GetRates(dt);
             if (dr_persons_r == null || dr_rates == null) return;
             var cr = new CalcRRow2();
-            CalcRInfo.GetRatesForPerson(cr, dr_persons_r, dr_rates);
-            CalcRInfo.GetIINDeductionsForPerson(cr, dr_persons_r, dr_rates);
+            CalcRInfo.GetRatesForPerson(cr, dr_persons_r, dr_rates, dt);
+            CalcRInfo.GetIINDeductionsForPerson(cr, dr_persons_r, dr_rates, dt);
             ExDependants = cr.ExDependants;
             ExInvalidity = cr.ExInvalidity;
             ExNationalMovements = cr.ExNationalMovements;
@@ -293,6 +294,8 @@ namespace KlonsA.Classes
             RateDDSN = cr.RateDDSN;
             RateDNSN = cr.RateDNSN;
             RateIIN = cr.RateIIN;
+            RateIIN2 = cr.RateIIN2;
+            UseProgresiveIINRate = cr.UseProgresiveIINRate;
         }
 
         public RepRowPersonStatusChange[] GetStatusChangeRep()
@@ -393,6 +396,17 @@ namespace KlonsA.Classes
                     };
                     list_cr.Add(rr);
                 }
+                if (cr_prev.Value.RateIIN2 != cr_cur.Value.RateIIN2)
+                {
+                    var rr = new RepRowPersonRatesChange()
+                    {
+                        Date = cr_cur.Key,
+                        Descr = "IIN 2 likme",
+                        R1 = cr_prev.Value.RateIIN2,
+                        R2 = cr_cur.Value.RateIIN2
+                    };
+                    list_cr.Add(rr);
+                }
                 if (cr_prev.Value.RateDDSN != cr_cur.Value.RateDDSN)
                 {
                     var rr = new RepRowPersonRatesChange()
@@ -481,6 +495,7 @@ namespace KlonsA.Classes
             var table_persons_r = MyData.DataSetKlons.PERSONS_R;
             var table_events = MyData.DataSetKlons.EVENTS;
             var table_rates = MyData.DataSetKlons.RATES;
+            var table_untaxedmin = MyData.DataSetKlons.UNTAXED_MIN;
 
             var dr_person = table_persons.FindByID(IDP);
             var drs_persons_r = dr_person.GetPERSONS_RRows()
@@ -532,10 +547,16 @@ namespace KlonsA.Classes
                     dd.HasDate(d.ONDATE))
                 .ToArray();
 
+            var drs_untaxedmin = table_untaxedmin
+                .WhereX(d => d.ONDATE <= dte)
+                .OrderBy(d => d.ONDATE)
+                .ToArray();
+
             var l_dates = new List<DateTime>();
             l_dates.AddRange(drsn_hire.Select(d => d.DATE1));
             l_dates.AddRange(drs_persons_r.Select(d => d.EDIT_DATE));
             l_dates.AddRange(drs_rates.Select(d => d.ONDATE));
+            l_dates.AddRange(drs_untaxedmin.Select(d => d.ONDATE));
             l_dates.Sort();
             var a_dates = l_dates.DistinctForOrdered().ToArray();
 
@@ -551,8 +572,8 @@ namespace KlonsA.Classes
                     .LastOrDefault();
                 if (dr_pr == null || dr_rt == null) continue;
                 var cr = new CalcRRow2();
-                CalcRInfo.GetRatesForPerson(cr, dr_pr, dr_rt);
-                CalcRInfo.GetIINDeductionsForPerson(cr, dr_pr, dr_rt);
+                CalcRInfo.GetRatesForPerson(cr, dr_pr, dr_rt, dti);
+                CalcRInfo.GetIINDeductionsForPerson(cr, dr_pr, dr_rt, dti);
                 if (list_ret.Count > 0 && list_ret[list_ret.Count - 1].Value.Equals(cr)) continue;
                 list_ret.Add(new KeyValuePair<DateTime, CalcRRow2>(dti, cr));
             }

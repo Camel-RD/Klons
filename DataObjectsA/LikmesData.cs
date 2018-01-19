@@ -11,6 +11,10 @@ namespace DataObjectsA
     {
         public DateTime _ONDATE { get; set; } = DateTime.Today;
         public decimal _IIN_LIKME { get; set; } = 0.0M;
+        public decimal _IIN_LIKME_2 { get; set; } = 0.0M;
+        public decimal _IIN_LIKME_3 { get; set; } = 0.0M;
+        public decimal _IIN_SLIEKSNIS_1 { get; set; } = 0.0M;
+        public decimal _IIN_SLIEKSNIS_2 { get; set; } = 0.0M;
         public decimal _SIDD_PAMATLIKME{get; set; } = 0.0M;
         public decimal _SIDN_PAMATLIKME{get; set; } = 0.0M;
         public decimal _SIDD_PENS{get; set; } = 0.0M;

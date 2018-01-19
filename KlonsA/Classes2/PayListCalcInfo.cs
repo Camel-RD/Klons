@@ -318,41 +318,28 @@ namespace KlonsA.Classes
             if (rpay.CASH == 0.0M) return "OK";
             if (rpay.PAY_TAXED == 0.0M && rpay.PAY_NOSAI == 0.0M && rpay.PAY_NOTTAXED == 0.0M) return "OK";
 
-            var rpay2 = new PayCalcRow();
-            rpay2.SetFrom(rpay);
+            var pfx = new PayFx();
+            var pfx2 = new PayFx();
+            var pfx3 = new PayFx();
+            paid.SetTo(pfx, sr);
+            pfx2.SetFrom(pfx);
+            pfx.IncPayByIncCash(pay, rpay.PAY_TAXED, rpay.PAY_NOSAI, rpay.PAY_NOTTAXED);
+            pfx3.SetFrom(pfx);
+            pfx.Subtract(pfx2);
 
-            decimal paya = paid.CASH + pay;
-            decimal iin_rate = sr.IIN_RATE / 100.0M;
-            decimal si_rate = sr.SI_RATE / 100.0M;
+            rpay.SetFrom(pfx);
 
-            decimal sr_iinex = sr.UNTAXED_MINIMUM + sr.IINEX_DEPENDANTS + sr.IINEX2 + sr.IINEX_EXP;
-            decimal rp_iinex = rpay.UNTAXED_MINIMUM + rpay.IINEX_DEPENDANTS + rpay.IINEX2 + rpay.IINEX_EXP;
+            pfx3.Pay = Math.Min(pfx3.Pay, sr.NOTPAID_TAXED);
+            pfx3.PayNs = Math.Min(pfx3.PayNs, sr.NOTPAID_NOSAI);
+            pfx3.PayNt = Math.Min(pfx3.PayNt, sr.NOTPAID_NOTTAXED);
+            pfx.CalcAll();
 
-            decimal X1 = paya - paid.PAY_NOTTAXED - (paid.PAY_NOSAI + (1 - si_rate) * paid.PAY_TAXED);
-            X1 = X1 / (rpay.PAY_NOTTAXED + rpay.PAY_NOSAI + (1 - si_rate) * rpay.PAY_TAXED);
-
-            decimal X2 = paya - sr_iinex * iin_rate - paid.PAY_NOTTAXED - (1 - iin_rate) * (paid.PAY_NOSAI + (1 - si_rate) * paid.PAY_TAXED);
-            X2 = X2 / (rpay.PAY_NOTTAXED + (1 - iin_rate) * (rpay.PAY_NOSAI + (1 - si_rate) * rpay.PAY_TAXED));
-
-            if (X1 > 1.0M) X1 = 1.0M;
-            if (X1 < 0.0M) X1 = 0.0M;
-            if (X2 > 1.0M) X2 = 1.0M;
-            if (X2 < 0.0M) X2 = 0.0M;
-
-            decimal VT = rpay.PAY_TAXED * X1;
-            decimal VNS = rpay.PAY_NOSAI * X1;
-            decimal VBE = paid.PAY_NOSAI + VNS + (paid.PAY_TAXED + VT) * (1 - si_rate);
-
-            decimal X = VBE > sr_iinex ? X2 : X1;
-
-            rpay.PAY_TAXED *= X;
-            rpay.PAY_NOSAI *= X;
-            rpay.PAY_NOTTAXED *= X;
-
-            rpay.RecalcA();
+            rpay.CASH_NOTPAID = pfx3.Cash - paid.CASH_NOTPAID;
 
             return "OK";
         }
+
+
     }
 
     // PFT, LIT, HIT are included in PAY_TAXED
@@ -370,6 +357,7 @@ namespace KlonsA.Classes
         public DateTime DT2 { get; set; }
         
         public decimal IIN_RATE { get; set; } = 0.0M;
+        public decimal IIN_RATE2 { get; set; } = 0.0M;
         public decimal SI_RATE { get; set; } = 0.0M;
 
         public decimal PAY_TAXED { get; set; } = 0.0M;
@@ -412,14 +400,15 @@ namespace KlonsA.Classes
 
         public void SetFrom(PayCalcRow cr)
         {
-            ID_P = ID_P;
-            ID_AM = ID_AM;
+            ID_P = cr.ID_P;
+            ID_AM = cr.ID_AM;
             ID_SHR = cr.ID_SHR;
 
             DT1 = cr.DT1;
             DT2 = cr.DT2;
 
             IIN_RATE = cr.IIN_RATE;
+            IIN_RATE2 = cr.IIN_RATE2;
             SI_RATE = cr.SI_RATE;
 
             PAY_TAXED = cr.PAY_TAXED;
@@ -512,6 +501,7 @@ namespace KlonsA.Classes
             DT2 = dr_x.VA_SHEET_DT2;
 
             IIN_RATE = dr_x.VA_IIN_RATE;
+            IIN_RATE2 = dr_x.VA_IIN_RATE2;
             SI_RATE = dr_x.VA_SI_RATE;
 
             PAY_TAXED = dr_x.VA1_PAY_TAXED;
@@ -550,6 +540,7 @@ namespace KlonsA.Classes
             DT2 = dr_x.VA_SHEET_DT2;
 
             IIN_RATE = dr_x.VA_IIN_RATE;
+            IIN_RATE2 = dr_x.VA_IIN_RATE2;
             SI_RATE = dr_x.VA_SI_RATE;
 
             PAY_TAXED = dr_x.VA2_PAY_TAXED;
@@ -581,6 +572,7 @@ namespace KlonsA.Classes
             DT2 = dr_x.VB_SHEET_DT2;
 
             IIN_RATE = dr_x.VB_IIN_RATE;
+            IIN_RATE2 = dr_x.VB_IIN_RATE2;
             SI_RATE = dr_x.VB_SI_RATE;
 
             PAY_TAXED = dr_x.VB1_PAY_TAXED;
@@ -618,6 +610,7 @@ namespace KlonsA.Classes
             DT2 = dr_x.VB_SHEET_DT2;
 
             IIN_RATE = dr_x.VB_IIN_RATE;
+            IIN_RATE2 = dr_x.VB_IIN_RATE2;
             SI_RATE = dr_x.VB_SI_RATE;
 
             PAY_TAXED = dr_x.VB2_PAY_TAXED;
@@ -646,6 +639,7 @@ namespace KlonsA.Classes
             DT2 = dr_x.DT2;
 
             IIN_RATE = dr_x.IIN_RATE;
+            IIN_RATE2 = dr_x.IIN_RATE2;
             SI_RATE = dr_x.SI_RATE;
 
             PAY_TAXED = dr_x.PAY_TAXED;
@@ -710,7 +704,7 @@ namespace KlonsA.Classes
             dr.HINT_1 = HINT;
             dr.IINEX_EXP_1 = IINEX_EXP;
             dr.IIN_1 = IIN;
-            dr.IIN += IIN;
+            dr.IIN = IIN;
 
             dr.EndEdit();
         }
@@ -752,63 +746,125 @@ namespace KlonsA.Classes
             dr.HINT_2 = HINT;
             dr.IINEX_EXP_2 = IINEX_EXP;
             dr.IIN_2 = IIN;
-            dr.IIN += IIN;
+            dr.IIN = IIN;
 
             dr.EndEdit();
         }
 
-        public decimal RecalcCash()
+        public void SetTo(PayFx pfx, PayCalcRow fromsr)
         {
-            decimal dnsi = PAY_TAXED * SI_RATE / 100.0M;
-            decimal foriin = PAY_TAXED + PAY_NOSAI - dnsi;
-            decimal iinex = UNTAXED_MINIMUM + IINEX_DEPENDANTS + IINEX2 + IINEX_EXP;
-            decimal iinex2 = Math.Min(foriin, iinex);
-            decimal iin = (foriin - iinex2) * IIN_RATE / 100.0M;
-            return PAY_TAXED + PAY_NOSAI + PAY_NOTTAXED - dnsi - iin;
+            pfx.Ir = IIN_RATE / 100.0M;
+            pfx.Ir2 = IIN_RATE2 / 100.0M;
+            pfx.Sr = SI_RATE / 100.0M;
+            pfx.IM = PayFx.GetIINMargin(DT1);
+            pfx.IMa = PayFx.GetIINMarginA(DT1);
+            pfx.IMb = PayFx.GetIINMarginB(DT1);
+
+            pfx.IinEx = 
+                fromsr.UNTAXED_MINIMUM + 
+                fromsr.IINEX_DEPENDANTS + 
+                fromsr.IINEX2 + 
+                fromsr.IINEX_EXP;
+
+            pfx.UsedIinEx =
+                UNTAXED_MINIMUM +
+                IINEX_DEPENDANTS +
+                IINEX2 +
+                IINEX_EXP;
+
+            pfx.HasProgressiveIIN = DT1 >= PayFx.ProgressiveIINStartDate;
+            pfx.HasTaxDoc = fromsr.UNTAXED_MINIMUM > 0.0M;
+
+            pfx.Pay = PAY_TAXED;
+            pfx.PayNs = PAY_NOSAI;
+            pfx.PayNt = PAY_NOTTAXED;
+
+            pfx.DNS = DNSI;
+
+            pfx.IIN = IIN;
+            pfx.Cash = CASH;
         }
 
-        public decimal RecalcCashNotPaid()
+        public void SetTo(PayFx pfx)
         {
-            decimal dnsi = PAY_TAXED * SI_RATE / 100.0M;
-            decimal foriin = PAY_TAXED + PAY_NOSAI - dnsi;
-            decimal iinex = UNTAXED_MINIMUM + IINEX_DEPENDANTS + IINEX2 + IINEX_EXP;
-            decimal iinex2 = Math.Min(foriin, iinex);
-            decimal iin = (foriin - iinex2) * IIN_RATE / 100.0M;
-            CASH_NOTPAID = 0.0M;
-            if (NOTPAID_TAXED == 0.0M && NOTPAID_NOSAI == 0.0M && NOTPAID_NOTTAXED == 0.0M) return 0.0M;
-            decimal DNSI_2 = NOTPAID_TAXED * SI_RATE / 100.0M;
-            decimal foriin_2 = NOTPAID_TAXED + NOTPAID_NOSAI - DNSI_2;
-            decimal IIN_2 = foriin_2 / foriin * IIN;
-            return CASH_NOTPAID = NOTPAID_TAXED + NOTPAID_NOSAI + NOTPAID_NOTTAXED - DNSI_2 - IIN_2;
+            pfx.Ir = IIN_RATE / 100.0M;
+            pfx.Ir2 = IIN_RATE2 / 100.0M;
+            pfx.Sr = SI_RATE / 100.0M;
+            pfx.IM = PayFx.GetIINMargin(DT1);
+            pfx.IMa = PayFx.GetIINMarginA(DT1);
+            pfx.IMb = PayFx.GetIINMarginB(DT1);
+
+            pfx.IinEx =
+                UNTAXED_MINIMUM +
+                IINEX_DEPENDANTS +
+                IINEX2 +
+                IINEX_EXP;
+
+            pfx.UsedIinEx = pfx.IinEx;
+
+            pfx.HasProgressiveIIN = DT1 >= PayFx.ProgressiveIINStartDate;
+            pfx.HasTaxDoc = UNTAXED_MINIMUM > 0.0M;
+
+            pfx.Pay = PAY_TAXED;
+            pfx.PayNs = PAY_NOSAI;
+            pfx.PayNt = PAY_NOTTAXED;
+
+            pfx.DNS = DNSI;
+
+            pfx.IIN = IIN;
+            pfx.Cash = CASH;
         }
 
-        public void RecalcA()
+        public void SetFrom(PayFx pfx)
         {
-            DNSI = PAY_TAXED * SI_RATE / 100.0M;
-            decimal foriin = PAY_TAXED + PAY_NOSAI - DNSI;
-            decimal iinex = UNTAXED_MINIMUM + IINEX_DEPENDANTS + IINEX2 + IINEX_EXP;
-            decimal iinex2 = Math.Min(foriin, iinex);
-            IIN = (foriin - iinex2) * IIN_RATE / 100.0M;
-            if (iinex > 0)
+            PAY_TAXED = pfx.Pay;
+            PAY_NOSAI = pfx.PayNs;
+            PAY_NOTTAXED = pfx.PayNt;
+
+            DNSI = pfx.DNS;
+
+            if (pfx.IinEx > 0)
             {
-                decimal r = iinex2 / iinex;
+                decimal r = pfx.UsedIinEx / pfx.IinEx;
                 UNTAXED_MINIMUM *= r;
                 IINEX_DEPENDANTS *= r;
                 IINEX2 *= r;
                 IINEX_EXP *= r;
             }
-            CASH = PAY_TAXED + PAY_NOSAI + PAY_NOTTAXED - DNSI - IIN;
-            CASH_NOTPAID = 0.0M;
 
+            IIN = pfx.IIN;
+            CASH = pfx.Cash;
+        }
+
+        public decimal RecalcCashNotPaid()
+        {
+            CASH_NOTPAID = 0.0M;
+            if (NOTPAID_TAXED == 0.0M && NOTPAID_NOSAI == 0.0M && NOTPAID_NOTTAXED == 0.0M) return 0.0M;
+            var pfx = new PayFx();
+            SetTo(pfx);
+            pfx.Pay = Math.Min(PAY_TAXED, NOTPAID_TAXED);
+            pfx.PayNs = Math.Min(PAY_NOSAI, NOTPAID_NOSAI);
+            pfx.PayNt = Math.Min(PAY_NOTTAXED, NOTPAID_NOTTAXED);
+            pfx.CalcAll();
+            CASH_NOTPAID = pfx.Cash;
+            return CASH_NOTPAID;
+        }
+
+        public void RecalcA()
+        {
+            var pfx = new PayFx();
+            SetTo(pfx);
+            pfx.CalcAll();
+            SetFrom(pfx);
+
+            CASH_NOTPAID = 0.0M;
             if (NOTPAID_TAXED == 0.0M && NOTPAID_NOSAI == 0.0M && NOTPAID_NOTTAXED == 0.0M) return;
 
-            decimal DNSI_2 = NOTPAID_TAXED * SI_RATE / 100.0M;
-            decimal foriin_2 = NOTPAID_TAXED + NOTPAID_NOSAI - DNSI_2;
-            decimal IIN_2 = 0.0M;
-            if(foriin > 0.0M)
-                IIN_2 = foriin_2 / foriin * IIN;
-            CASH_NOTPAID = NOTPAID_TAXED + NOTPAID_NOSAI + NOTPAID_NOTTAXED - DNSI_2 - IIN_2;
-
+            pfx.Pay = Math.Min(PAY_TAXED, NOTPAID_TAXED);
+            pfx.PayNs = Math.Min(PAY_NOSAI, NOTPAID_NOSAI);
+            pfx.PayNt = Math.Min(PAY_NOTTAXED, NOTPAID_NOTTAXED);
+            pfx.CalcAll();
+            CASH_NOTPAID = pfx.Cash;
         }
 
         public void RecalcAndRound()
@@ -820,38 +876,40 @@ namespace KlonsA.Classes
             NOTPAID_NOSAI = KlonsData.RoundA(NOTPAID_NOSAI, 2);
             NOTPAID_NOTTAXED = KlonsData.RoundA(NOTPAID_NOTTAXED, 2);
             PFNT = KlonsData.RoundA(PFNT, 2);
+            LIT = KlonsData.RoundA(LIT, 2);
+            HIT = KlonsData.RoundA(HIT, 2);
+            PFT = KlonsData.RoundA(PFT, 2);
             LINT = KlonsData.RoundA(LINT, 2);
             HINT = KlonsData.RoundA(HINT, 2);
 
-            DNSI = KlonsData.RoundA(PAY_TAXED * SI_RATE / 100.0M, 2);
-            decimal foriin = PAY_TAXED + PAY_NOSAI - DNSI;
-            decimal iinex = UNTAXED_MINIMUM + IINEX_DEPENDANTS + IINEX2 + IINEX_EXP;
-            decimal iinex2 = Math.Min(foriin, iinex);
-            if (iinex > 0)
+            var pfx = new PayFx();
+            SetTo(pfx);
+            pfx.CalcAllAndRound();
+            SetFrom(pfx);
+
+            if (pfx.IinEx > 0)
             {
-                decimal r = iinex2 / iinex;
-                UNTAXED_MINIMUM = KlonsData.RoundA(UNTAXED_MINIMUM * r, 2);
-                IINEX_DEPENDANTS = KlonsData.RoundA(IINEX_DEPENDANTS * r, 2);
-                IINEX2 = KlonsData.RoundA(IINEX2 * r, 2);
-                IINEX_EXP = KlonsData.RoundA(IINEX_EXP * r, 2);
-
+                UNTAXED_MINIMUM = KlonsData.RoundA(UNTAXED_MINIMUM, 2);
+                IINEX_DEPENDANTS = KlonsData.RoundA(IINEX_DEPENDANTS, 2);
+                IINEX2 = KlonsData.RoundA(IINEX2, 2);
+                IINEX_EXP = KlonsData.RoundA(IINEX_EXP, 2);
+                var dd = new decimal[] { UNTAXED_MINIMUM, IINEX_DEPENDANTS, IINEX2, IINEX_EXP };
+                PayFxA.MakeExactSum(pfx.UsedIinEx, dd);
+                UNTAXED_MINIMUM = dd[0];
+                IINEX_DEPENDANTS = dd[1];
+                IINEX2 = dd[2];
+                IINEX_EXP = dd[3];
             }
-            decimal iinex3 = UNTAXED_MINIMUM + IINEX_DEPENDANTS + IINEX2 + IINEX_EXP;
-            IIN = KlonsData.RoundA((foriin - iinex3) * IIN_RATE / 100.0M, 2);
 
-            CASH = PAY_TAXED + PAY_NOSAI + PAY_NOTTAXED - DNSI - IIN;
             CASH_NOTPAID = 0.0M;
-
             if (NOTPAID_TAXED == 0.0M && NOTPAID_NOSAI == 0.0M && NOTPAID_NOTTAXED == 0.0M) return;
 
-            decimal DNSI_2 = KlonsData.RoundA(NOTPAID_TAXED * SI_RATE / 100.0M, 2);
-            decimal foriin_2 = NOTPAID_TAXED + NOTPAID_NOSAI - DNSI_2;
-            decimal IIN_2 = 0.0M;
-            if(foriin > 0.0M)
-                IIN_2 = KlonsData.RoundA(foriin_2 / foriin * IIN, 2);
-            CASH_NOTPAID = NOTPAID_TAXED + NOTPAID_NOSAI + NOTPAID_NOTTAXED - DNSI_2 - IIN_2;
+            pfx.Pay = Math.Min(PAY_TAXED, NOTPAID_TAXED);
+            pfx.PayNs = Math.Min(PAY_NOSAI, NOTPAID_NOSAI);
+            pfx.PayNt = Math.Min(PAY_NOTTAXED, NOTPAID_NOTTAXED);
+            pfx.CalcAllAndRound();
+            CASH_NOTPAID = pfx.Cash;
         }
-
 
     }
 

@@ -605,9 +605,19 @@ namespace KlonsA.Classes
         {
             var totalrow = GetTotalRow();
             if (totalrow != null)
-                return totalrow.GetSALARY_PLUSMINUSRows().WhereX(_d=>true).ToArray();
+            {
+                var drs = totalrow.GetSALARY_PLUSMINUSRows()
+                    .WhereX(_d => true)
+                    .OrderBy(_d => _d.ID)
+                    .ToArray();
+                return drs;
+            }
 
-            return Row.GetSALARY_PLUSMINUSRows().WhereX(_d => true).ToArray();
+            var drs2 = Row.GetSALARY_PLUSMINUSRows()
+                .WhereX(_d => true)
+                .OrderBy(_d => _d.ID)
+                .ToArray();
+            return drs2;
         }
 
         public KlonsADataSet.SALARY_PLUSMINUSRow[] GetAlgasPSRowsT()

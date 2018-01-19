@@ -183,6 +183,7 @@ namespace DataObjectsA
         public decimal _AMOUNT_BEFORE_IIN_REVERSE { get; set; } = 0.0M;
 
         public decimal _RATE_IIN { get; set; } = 0.0M;
+        public decimal _RATE_IIN2 { get; set; } = 0.0M;
         public decimal _IIN_AMOUNT { get; set; } = 0.0M;
 
         public decimal _IIN_AMOUNT_REVERSE { get; set; } = 0.0M;

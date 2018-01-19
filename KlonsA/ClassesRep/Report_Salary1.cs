@@ -276,6 +276,7 @@ namespace KlonsA.Classes
 
             addrxt("Ar IIN apliekamā summa", SI._AMOUNT_BEFORE_IIN);
             addrx("IIN likme", SI._RATE_IIN);
+            addrx("IIN likme 2", SI._RATE_IIN2);
             addrxt("IIN summa", SI._IIN_AMOUNT);
 
             addrx("Atvilkumi pirms IIN", SI._MINUS_BEFORE_IIN);

@@ -237,6 +237,7 @@ namespace KlonsA.Forms
             }
             else
             {
+                MyMainForm.ShowWarning("Šim mēnesim dati nav ielādēdi.");
                 dgvPlans.Enabled = false;
                 bnavPlans.Enabled = false;
             }

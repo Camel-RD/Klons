@@ -688,10 +688,13 @@ namespace KlonsA.Classes
 
                 var dlrowset = dr_sar_r.GetDLRowSet();
 
+                var perioddayids = events_info.PositionDayIds[dr_sar_r.IDAM];
+                var eventdayids = events_info.PositionDayIdsA[dr_sar_r.IDAM];
+
                 for (int i = 0; i < daycount; i++)
                 {
-                    var periodid = events_info.DayIds[i];
-                    var eventid = events_info.DayIdsA[i];
+                    var periodid = perioddayids[i];
+                    var eventid = eventdayids[i];
                     EDayFactId dayidbase = SomeDataDefs.GetDayCodeForEvent(periodid, eventid);
                     EDayFactId dayiduser = dlrowset.Fact.DxFact[i];
                     if (dayidbase == EDayFactId.Error) throw new Exception("Bad event id");

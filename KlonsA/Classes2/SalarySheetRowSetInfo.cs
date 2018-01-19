@@ -365,15 +365,18 @@ namespace KlonsA.Classes
         {
             if (DrTotalRow == null)
                 throw new Exception("Bad init.");
-
-            return DrTotalRow.GetSALARY_PLUSMINUSRows();
+            var drst = DrTotalRow.GetSALARY_PLUSMINUSRows();
+            var drsl = DrLinkedRows.SelectMany(d => d.GetSALARY_PLUSMINUSRows());
+            var drsz = drst.Concat(drsl);
+            return drsz.ToArray();
         }
 
         public KlonsADataSet.SALARY_PLUSMINUSRow[] GetAlgasPSRowsT()
         {
-            return GetAlgasAllPSRows().Where(
-                d => d.IsIDANull()
-                ).ToArray();
+            if (DrTotalRow == null)
+                throw new Exception("Bad init.");
+            var drst = DrTotalRow.GetSALARY_PLUSMINUSRows();
+            return drst.ToArray();
         }
 
         public KlonsADataSet.SALARY_PLUSMINUSRow[] GetAlgasPSRows(int ida)
