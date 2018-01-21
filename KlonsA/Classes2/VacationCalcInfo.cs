@@ -739,8 +739,10 @@ namespace KlonsA.Classes
             if(!PerMonth.TryGetValue(yrmt, out vcmt))
             {
                 vcmt = new VacationCalcRow();
-                vcmt.DateStart = new DateTime(v.DateStart.Year, v.DateStart.Month, 1);
-                vcmt.DateEnd = vcmt.DateStart.LastDayOfMonth();
+                vcmt.DateStart = v.DateStart;
+                vcmt.DateEnd = v.DateEnd;
+                //vcmt.DateStart = new DateTime(v.DateStart.Year, v.DateStart.Month, 1);
+                //vcmt.DateEnd = vcmt.DateStart.LastDayOfMonth();
                 PerMonth[yrmt] = vcmt;
             }
             vcmt.Add(v);
@@ -754,8 +756,10 @@ namespace KlonsA.Classes
             if (!PerMonth.TryGetValue(yrmt, out vcmt))
             {
                 vcmt = new VacationCalcRow();
-                vcmt.DateStart = new DateTime(v.DateStart.Year, v.DateStart.Month, 1);
-                vcmt.DateEnd = vcmt.DateStart.LastDayOfMonth();
+                vcmt.DateStart = v.DateStart;
+                vcmt.DateEnd = v.DateEnd;
+                //vcmt.DateStart = new DateTime(v.DateStart.Year, v.DateStart.Month, 1);
+                //vcmt.DateEnd = vcmt.DateStart.LastDayOfMonth();
                 PerMonth[yrmt] = vcmt;
             }
             vcmt.Add(v);

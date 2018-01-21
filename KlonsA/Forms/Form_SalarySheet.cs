@@ -729,18 +729,29 @@ namespace KlonsA.Forms
                 Form_ErrorList.ShowErrorList(MyMainForm, err);
                 return;
             }
-            var sd = new SickDayCalcInfo(true);
-            err = sd.CalcSickDays(sr);
+            sr.CheckLinkedRows(dr_lapas_r.IDP);
+
+            var sc = new SalaryCalcTInfo(sr.SalarySheetRowSet, new SalaryInfo(), true);
+            err = sc.FillRow();
             if (err.HasErrors)
             {
-                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
                 return;
             }
+
+            SickDayCalcInfo sdc = null;
+
+            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne) sdc = sc.LinkedSCI[0].SickDayCalc;
+            else if (dr_lapas_r.XType == ESalarySheetRowType.Total) sdc = sc.SickDayCalc;
+            else sdc = sc.LinkedSCI.Where(d => d.SR.Row == dr_lapas_r).FirstOrDefault()?.SickDayCalc;
+
+            if (sdc == null) return;
+
             var person = string.Format("{0} {1}, {2}", sr.DR_Person_r.FNAME, 
                 sr.DR_Person_r.LNAME, sr.GetPositionTitle().Nz().ToLower());
             var period = string.Format("{0:dd.MM.yyyy} - {1:dd.MM.yyyy}", 
                 sr.SalarySheet.DT1, sr.SalarySheet.DT2);
-            Form_SickDaysCalc.Show(sd, person, period);
+            Form_SickDaysCalc.Show(sdc, person, period);
         }
 
         private void atvaļinājumaNaudasAprēķinsToolStripMenuItem_Click(object sender, EventArgs e)
