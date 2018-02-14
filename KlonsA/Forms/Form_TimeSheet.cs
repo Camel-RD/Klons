@@ -1199,7 +1199,9 @@ namespace KlonsA.Forms
         {
             if (e.ColumnIndex >= dgcV1.Index && e.ColumnIndex <= dgcV31.Index)
             {
-                dgvLapa.AutoResizeColumn(e.ColumnIndex);
+                var cell = dgvLapa[e.ColumnIndex, e.RowIndex];
+                if(cell.PreferredSize.Width > cell.Size.Width)
+                    dgvLapa.AutoResizeColumn(e.ColumnIndex);
             }
         }
 
@@ -1207,11 +1209,13 @@ namespace KlonsA.Forms
         private void tsmiSheetCheckEvents_Click(object sender, EventArgs e)
         {
             CheckEvents(sethours: false, setdaycode: true);
+            dgvLapa.AutoResizeColumns();
         }
 
         private void tsmiSheetFillFact_Click(object sender, EventArgs e)
         {
             CheckEvents(sethours: true, setdaycode: false);
+            dgvLapa.AutoResizeColumns();
         }
 
 
@@ -1223,6 +1227,7 @@ namespace KlonsA.Forms
             var id = jr.XObj.IDX;
             CheckEvents(id, sethours: false, setdaycode: true);
             RefreshRowSet(id);
+            dgvLapa.AutoResizeColumns();
         }
 
         private void tsmiPersonFillFact_Click(object sender, EventArgs e)
@@ -1233,6 +1238,7 @@ namespace KlonsA.Forms
             var id = jr.XObj.IDX;
             CheckEvents(id, sethours: true, setdaycode: false);
             RefreshRowSet(id);
+            dgvLapa.AutoResizeColumns();
         }
 
         private void darbaLaikaLapaToolStripMenuItem_Click(object sender, EventArgs e)

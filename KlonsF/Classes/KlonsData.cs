@@ -18,7 +18,7 @@ namespace KlonsF.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "073";
+        public string Version = "075";
         
         public string SettingsFileName = GetBasePath() + "\\Config\\Settings.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterList.xml";
@@ -429,10 +429,11 @@ namespace KlonsF.Classes
             int k = GetPVNTyp(ac5);
             return k > 0;
         }
+
         public bool IsGoodPVN(string ac5)
         {
             int k = GetPVNTyp(ac5);
-            return k == 1;
+            return k == 1 || k == 3;
         }
 
         public bool IsIenemumiA(int ac5paz3)
@@ -452,8 +453,8 @@ namespace KlonsF.Classes
             if (dr == null) return 0;
             int k = dr.Ispz5Null() ? -1 : dr.pz5;
             if (k < 1) return 0;
-            if (k > 3) return dr.IstNull() ? 0 : (int)dr.t;
-            if (k == 1 || k == 2)
+            if (k > 3 || k == 1) return dr.IstNull() ? 0 : (int)dr.t;
+            if (k == 2 || k == 3)
             {
                 if (date < new DateTime(2011, 1, 1))
                 {
@@ -468,11 +469,6 @@ namespace KlonsF.Classes
                     return 21;
                 }
             }
-            else if (k == 3)
-            {
-                return 12;
-            }
-
             return 0;
         }
         #endregion

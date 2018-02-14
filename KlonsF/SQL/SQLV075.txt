@@ -1,0 +1,64 @@
+﻿
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('101', 'ar PVN 18 % likmi apliekamie darījumi (arī pašpatēriņš)', 18, '41', 8, 31, 1, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('102', 'ar PVN 5 % likmi apliekamie darījumi (arī pašpatēriņš)', 5, '42.1', 9, 31, 1, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('105', 'ar PVN 10 % likmi apliekamie darījumi (arī pašpatēriņš)', 10, '42', 9, 31, 1, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('1121', '- uz ES dalībvalstīm piegādātās preces (42.p.)', 0, 'G', 102, 0, 71, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('135', 'No ES dalībvalstīm saņemtie pakalpojumi (21 %)', 21, 'P', 14, 0, 12, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('137', 'No ES dalībvalstīm saņemtie pakalpojumi (22 %)', 22, 'P', 14, 0, 12, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('138', 'No ES dalībvalstīm saņemtās preces (12 %)', 12, 'G', 14, 0, 12, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('201', 'PVN ar 18 % likmi apliekamiem darījumiem', 18, '41', 16, 32, 2, 0, 1);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('202', 'PVN ar 5 % likmi apliekamiem darījumiem', 5, '42.1', 17, 32, 2, 0, 1);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('211', 'par saņemtajiem pakalpojumiem', 21, '48.2', 18, 32, 2, 0, 1);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('235', 'PVN ar 21 % likmi apliekamiem pakalpojumiem, kas saņemtas no ES dalībvalstīm', 21, '', 19, 0, 13, 0, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('237', 'PVN ar 12 % likmi apliekamām precēm, kas saņemtas no ES dalībvalstīm', 12, '', 20, 0, 13, 0, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('238', 'PVN ar 22 % likmi apliekamiem pakalpojumiem, kas saņemtas no ES dalībvalstīm', 22, '', 19, 0, 13, 0, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('251', 'Atskaitāmais priekšnodoklis vai aprēķinātais nodoklis saskaņā ar likuma 13.2 pantu', 21, '', 0, 0, 0, 0, 1);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('311', 'par importētajām precēm savas saimnieciskās darbības nodrošināšanai', 1, 'I', 26, 1, 4, 0, 3);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('321', 'Aprēķinātā PVN summa saskaņā ar likuma 92.panta pirmās daļas 4.punktu (izņemot 64.rindu)', 1, 'N', 28, 1, 4, 0, 3);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('501', 'Atkal PVN 18%', 18, '', 0, 0, 9, 0, 1);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('502', 'Atkal PVN 5%', 5, '', 0, 0, 9, 0, 1);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('B03', 'ieņēmumi no būvniecības izstrādājumu piegādēm', 0, '41.1', 8, 21, 1, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('B04', 'saņemtie būvniecības izstrādājumi', 0, 'R9', 23, 0, 8, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('B13', 'aprēķinātais PVN no būvniecības izstrādājumu piegādēm', 1, '41.1', 8, 22, 2, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('B14', 'PVN par saņemtajiem būvniecības izstrādājumiem', 1, 'R9', 201, 0, 5, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D03', 'Pārdota prece (sadzīves elektronisko iekārtas un aparatūra)', 0, '41.1', 8, 21, 1, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D04', 'Saņemta prece (sadzīves elektronisko iekārtas un aparatūra)', 0, 'R8', 23, 0, 8, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D13', 'PVN par pārdoto (sadzīves elektronisko iekārtas un aparatūra)', 1, '41.1', 8, 22, 2, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('D14', 'PVN par saņemto (sadzīves elektronisko iekārtas un aparatūra)', 1, 'R8', 201, 0, 5, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('K102', 'PVN par kokmateriāliem, kas piegādāti, izmantojot mazumtirdzniecības tīklu', 1, '', 16, 0, 0, 1, 3);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('K103', 'PVN par kokmateriāliem, kas piegādāti neapliekamām personāmi, neizmantojot mazumtirdzniecības tīklu', 1, '41', 16, 32, 2, 1, 3);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('K106', 'PVN par pakalpojumiem, kas sniegti neapliekamām personām', 1, '41.1', 16, 32, 2, 1, 3);
+
+
+UPDATE Params
+SET PVALUE = '075'
+WHERE PNAME = 'version';

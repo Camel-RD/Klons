@@ -1308,6 +1308,8 @@ namespace KlonsA.Classes
 
             PayListCalcInfo.Static.Calc(dr, dr_x);
 
+            decimal iin = dr.IIN + dr.IIN_1 + dr.IIN_2;
+            if (dr.IIN != iin) dr.IIN = iin;
         }
 
         public static ErrorList CheckEventsSimple(int idp)

@@ -150,8 +150,7 @@ namespace KlonsA.Classes
                 var rpay0 = new PayCalcRow();
                 rpay0.SetFrom(rpay);
                 paid2.AddThat(rpay0);
-                rpay.SetFrom(sr);
-                rpay.SubtractThat(paid2);
+                rpay.SetFrom(rpay0);
 
                 if (PreparingReport)
                 {
@@ -327,13 +326,14 @@ namespace KlonsA.Classes
             pfx3.SetFrom(pfx);
             pfx.Subtract(pfx2);
 
+            pfx.CalcAll();
             rpay.SetFrom(pfx);
 
             pfx3.Pay = Math.Min(pfx3.Pay, sr.NOTPAID_TAXED);
             pfx3.PayNs = Math.Min(pfx3.PayNs, sr.NOTPAID_NOSAI);
             pfx3.PayNt = Math.Min(pfx3.PayNt, sr.NOTPAID_NOTTAXED);
-            pfx.CalcAll();
 
+            pfx3.CalcAll();
             rpay.CASH_NOTPAID = pfx3.Cash - paid.CASH_NOTPAID;
 
             return "OK";
@@ -682,8 +682,7 @@ namespace KlonsA.Classes
                 dr.LINT_1 == LINT &&
                 dr.HINT_1 == HINT &&
                 dr.IINEX_EXP_1 == IINEX_EXP &&
-                dr.IIN_1 == IIN &&
-                dr.IIN  == dr.IIN + IIN) return;
+                dr.IIN_1 == IIN) return;
 
             dr.BeginEdit();
 
@@ -704,7 +703,6 @@ namespace KlonsA.Classes
             dr.HINT_1 = HINT;
             dr.IINEX_EXP_1 = IINEX_EXP;
             dr.IIN_1 = IIN;
-            dr.IIN = IIN;
 
             dr.EndEdit();
         }
@@ -724,8 +722,7 @@ namespace KlonsA.Classes
                 dr.LINT_2 == LINT &&
                 dr.HINT_2 == HINT &&
                 dr.IINEX_EXP_2 == IINEX_EXP &&
-                dr.IIN_2 == IIN &&
-                dr.IIN == dr.IIN + IIN) return;
+                dr.IIN_2 == IIN) return;
 
             dr.BeginEdit();
 
@@ -746,7 +743,6 @@ namespace KlonsA.Classes
             dr.HINT_2 = HINT;
             dr.IINEX_EXP_2 = IINEX_EXP;
             dr.IIN_2 = IIN;
-            dr.IIN = IIN;
 
             dr.EndEdit();
         }

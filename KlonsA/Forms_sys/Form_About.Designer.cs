@@ -76,9 +76,9 @@
             this.label3.Location = new System.Drawing.Point(178, 80);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 22);
+            this.label3.Size = new System.Drawing.Size(147, 22);
             this.label3.TabIndex = 3;
-            this.label3.Text = "versija 2018.01.#2";
+            this.label3.Text = "versija 2018.02.#";
             // 
             // label4
             // 

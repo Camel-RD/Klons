@@ -488,6 +488,10 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\Report_PVN_dekl_2.rdlc" />
+    <Content Include="Reports\Report_PVN_piel1_2.rdlc" />
+    <Content Include="Reports\Report_PVN_piel3_2.rdlc" />
+    <EmbeddedResource Include="SQL\SQLV075.txt" />
     <EmbeddedResource Include="SQL\SQLV073.txt" />
     <EmbeddedResource Include="SQL\SQLV070.txt" />
     <EmbeddedResource Include="SQL\SQLV069.txt" />
