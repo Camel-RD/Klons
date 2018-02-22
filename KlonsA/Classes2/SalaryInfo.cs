@@ -205,12 +205,12 @@ namespace KlonsA.Classes
                 _R_HR_HOLIDAY_OVERTIME /= d;
             }
 
-            _R_HR = Math.Round(_R_HR, 4);
-            _R_HR_NIGHT = Math.Round(_R_HR_NIGHT, 4);
-            _R_HR_OVERTIME = Math.Round(_R_HR_OVERTIME, 4);
-            _R_HR_HOLIDAY = Math.Round(_R_HR_HOLIDAY, 4);
-            _R_HR_HOLIDAY_NIGHT = Math.Round(_R_HR_HOLIDAY_NIGHT, 4);
-            _R_HR_HOLIDAY_OVERTIME = Math.Round(_R_HR_HOLIDAY_OVERTIME, 4);
+            _R_HR = KlonsData.RoundA(_R_HR, 6);
+            _R_HR_NIGHT = KlonsData.RoundA(_R_HR_NIGHT, 6);
+            _R_HR_OVERTIME = KlonsData.RoundA(_R_HR_OVERTIME, 6);
+            _R_HR_HOLIDAY = KlonsData.RoundA(_R_HR_HOLIDAY, 6);
+            _R_HR_HOLIDAY_NIGHT = KlonsData.RoundA(_R_HR_HOLIDAY_NIGHT, 6);
+            _R_HR_HOLIDAY_OVERTIME = KlonsData.RoundA(_R_HR_HOLIDAY_OVERTIME, 6);
         }
 
         public decimal GetRate(decimal baserate, short ratetype, decimal aplyrate)

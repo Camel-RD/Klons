@@ -967,7 +967,6 @@ namespace KlonsA.Forms
             // grRowLName
             // 
             this.grRowLName.CustomConversions = true;
-            this.grRowLName.DataMember = null;
             this.grRowLName.GridPropertyName = "_IDP";
             this.grRowLName.Name = "grRowLName";
             this.grRowLName.ReadOnly = true;
@@ -1183,12 +1182,14 @@ namespace KlonsA.Forms
             // 
             // grtPayRowDecimal
             // 
+            this.grtPayRowDecimal.DataMember = null;
             this.grtPayRowDecimal.Name = "grtPayRowDecimal";
             this.grtPayRowDecimal.RowTitle = null;
             this.grtPayRowDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grtPayRowDecimalReadOnly
             // 
+            this.grtPayRowDecimalReadOnly.DataMember = null;
             this.grtPayRowDecimalReadOnly.Name = "grtPayRowDecimalReadOnly";
             this.grtPayRowDecimalReadOnly.ReadOnly = true;
             this.grtPayRowDecimalReadOnly.RowTitle = null;
@@ -1197,6 +1198,7 @@ namespace KlonsA.Forms
             // dgcRowsSNR
             // 
             this.dgcRowsSNR.DataPropertyName = "SNR";
+            this.dgcRowsSNR.Frozen = true;
             this.dgcRowsSNR.HeaderText = "npk.";
             this.dgcRowsSNR.Name = "dgcRowsSNR";
             this.dgcRowsSNR.Width = 40;
@@ -1208,6 +1210,7 @@ namespace KlonsA.Forms
             this.dgcRowsIDP.DisplayMember = "YNAME";
             this.dgcRowsIDP.DisplayStyleForCurrentCellOnly = true;
             this.dgcRowsIDP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcRowsIDP.Frozen = true;
             this.dgcRowsIDP.HeaderText = "darbinieks";
             this.dgcRowsIDP.MaxDropDownItems = 15;
             this.dgcRowsIDP.Name = "dgcRowsIDP";

@@ -410,7 +410,7 @@ namespace KlonsA.Classes
 
             if (CalcR.UseProgresiveIINRate && CalcR.HasTaxDoc)
             {
-                if(pay1 > 1000.0M)
+                if(pay1 >= 1000.0M)
                 {
                     SI._IIN_EXEMPT_UNTAXED_MINIMUM = 0.0M;
                     SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = 0.0M;

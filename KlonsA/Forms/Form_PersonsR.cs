@@ -523,6 +523,8 @@ namespace KlonsA.Forms
                 tabControl1.SelectedIndex = 2;
                 InSwitchingTabs = false;
 
+                dgcNotIDA.Visible = SelectedTab != ESelectedTab.atvaļinājumi &&
+                    SelectedTab != ESelectedTab.slimības;
                 dgcNotIDN2.Visible = SelectedTab == ESelectedTab.citi ||
                     SelectedTab == ESelectedTab.visi_notikumi;
                 dgcNotDate2.Visible = SelectedTab != ESelectedTab.pieņemts_atlaists;

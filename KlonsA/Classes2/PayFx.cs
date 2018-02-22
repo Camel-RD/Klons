@@ -217,7 +217,7 @@ namespace KlonsA.Classes
                         IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                         return IIN;
                     }
-                    if (Pay + PayNs <= IMb)
+                    if (Pay + PayNs < IMb)
                     {
                         UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
                         IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
@@ -275,7 +275,7 @@ namespace KlonsA.Classes
                         IIN = RoundA(IIN);
                         return IIN;
                     }
-                    if (Pay + PayNs <= IMb)
+                    if (Pay + PayNs < IMb)
                     {
                         UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
                         IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
@@ -414,7 +414,7 @@ namespace KlonsA.Classes
                 IinEx = IinExA;
                 calcpay = GetPayByIncCashB(dcash);
             }
-            if (calcpay > IMb)
+            if (calcpay >= IMb)
             {
                 IinEx = IinExB;
                 calcpay = GetPayByIncCashB(dcash);
@@ -578,7 +578,7 @@ namespace KlonsA.Classes
                 pfx.IinEx = IinExA;
                 rdcash = pfx.IncPayByIncCashB(dcash, apay, apayns, apaynt);
             }
-            if (pfx.Pay + pfx.PayNs > IMb)
+            if (pfx.Pay + pfx.PayNs >= IMb)
             {
                 pfx.SetFrom(this);
                 pfx.IinEx = IinExB;
