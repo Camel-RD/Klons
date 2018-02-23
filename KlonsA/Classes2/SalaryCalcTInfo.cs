@@ -114,10 +114,6 @@ namespace KlonsA.Classes
 
 
             PFxB = new PayFxB();
-            PFxB.SetFrom(CalcR);
-            PFxB.IinEx = TotalSI.SumIINExemptsAll();
-            PFxB.InitParts(this);
-
 
             var cret1 = BonusCalc.CalcNotProcT(this, 0);
             BonusCalc.CalcFromEndAT(this);
@@ -255,7 +251,8 @@ namespace KlonsA.Classes
                 TotalSI._IIN_AMOUNT;
 
 
-            PFxB.IinEx = CalcR.ExDivided.SumIINExemptsAll();
+            PFxB.SetFrom(CalcR);
+            PFxB.InitParts(this);
 
             PFxB.DoPayFxB_Salary(TotalSI._SALARY, GetValues(d => d._SALARY));
             PFxB.DoPayFxB_SickPay(

@@ -82,6 +82,9 @@ namespace KlonsA.Classes
             IMb = from.IINMarginB;
             HasTaxDoc = from.HasTaxDoc;
             HasProgressiveIIN = from.UseProgresiveIINRate;
+            IinEx = from.ExDivided.SumIINExemptsAll();
+            IinExA = IinEx - from.ExDivided.ExUntaxedMinimum + from.ExDivided.ExUntaxedMinimum2;
+            IinExB = IinEx - from.ExDivided.ExUntaxedMinimum;
         }
 
         public void Add(PayFx from)
@@ -160,7 +163,7 @@ namespace KlonsA.Classes
             IinEx = RoundA(IinEx);
             DNS = RoundA(Pay * Sr);
 
-            if (Pay + PayNs <= IM || !HasProgressiveIIN)
+            if (!HasProgressiveIIN)
             {
                 UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
                 IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
@@ -257,7 +260,7 @@ namespace KlonsA.Classes
             IinEx = RoundA(IinEx);
             DNS = RoundA(Pay * Sr);
 
-            if (Pay + PayNs <= IM || !HasProgressiveIIN)
+            if (!HasProgressiveIIN)
             {
                 UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
                 IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;

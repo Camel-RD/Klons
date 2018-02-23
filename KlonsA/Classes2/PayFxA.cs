@@ -93,7 +93,7 @@ namespace KlonsA.Classes
                 PFx_vacation_prev.SetFrom(this);
                 PFx_vacation_prev.Caption = "Iepriekš izmaksātā atv.n.";
                 PFx_vacation_prev.Pay += val_prev;
-                PFx_vacation_prev.CalcAllAndRound();
+                PFx_vacation_prev.CalcAllabAndRound();
                 PFx_vacation_prev.Subtract(this);
             }
             if (val > 0.0M)
@@ -135,7 +135,7 @@ namespace KlonsA.Classes
                 pr.DNS = pr.Pay * pr.Sr;
                 fulliinbase += pr.Pay + pr.PayNs - pr.DNS;
             }
-            CalcAll();
+            CalcAllab();
             var p2 = new PayFx();
             p2.SetFrom(this);
             p2.Subtract(p1);
@@ -158,7 +158,7 @@ namespace KlonsA.Classes
                 AddPayRound(pr);
                 pr.DNS = RoundA(pr.Pay * pr.Sr);
             }
-            CalcAllAndRound();
+            CalcAllabAndRound();
             var p2 = new PayFx();
             p2.SetFrom(this);
             p2.Subtract(p1);
@@ -294,7 +294,7 @@ namespace KlonsA.Classes
             var p1 = new PayFx();
             p1.SetFrom(this);
             AddPay(row);
-            CalcAll();
+            CalcAllab();
             var p2 = new PayFx();
             p2.SetFrom(this);
             p2.Subtract(p1);
@@ -312,7 +312,7 @@ namespace KlonsA.Classes
             var p1 = new PayFx();
             p1.SetFrom(this);
             AddPayRound(row);
-            CalcAllAndRound();
+            CalcAllabAndRound();
             row.SetFrom(this);
             row.Subtract(p1);
             Rows.Add(row);
@@ -335,7 +335,7 @@ namespace KlonsA.Classes
             var p1 = new PayFx();
             p1.SetFrom(this);
             AddPayRound(rowt);
-            CalcAllAndRound();
+            CalcAllabAndRound();
             rowt.SetFrom(this);
             rowt.Subtract(p1);
 

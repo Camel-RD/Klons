@@ -133,7 +133,7 @@ namespace KlonsA.Classes
             PFx_vacation_prev.SetFrom(this);
             PFx_vacation_prev.Caption = "Iepriekš izmaksātā atv.n.";
             PFx_vacation_prev.Pay += valt;
-            PFx_vacation_prev.CalcAllAndRound();
+            PFx_vacation_prev.CalcAllabAndRound();
             PFx_vacation_prev.Subtract(this);
 
             var partpfxs = new PayFx2[Parts.Count];

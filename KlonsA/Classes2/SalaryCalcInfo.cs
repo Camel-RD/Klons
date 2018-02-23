@@ -80,7 +80,6 @@ namespace KlonsA.Classes
             PFxA = new PayFxA();
             PFxA.Position = PositionTitle;
             PFxA.SetFrom(CalcR);
-            PFxA.IinEx = SI.SumIINExemptsAll();
 
             var pfxs1 = BonusCalc.CalcNotProc(SI, 0, 1);
             BonusCalc.CalcFromEndA(1);
