@@ -125,9 +125,9 @@ namespace KlonsA.Classes
             foreach(var sci in LinkedSCI) 
                 sci.SI._FORAVPAYCALC_BRUTO += sci.BonusCalc.ForAvpayCalc;
 
-            PFxB.TempCRets.AddRange(cret1);
-            PFxB.TempCRets.AddRange(cret2);
-            PFxB.TempCRets.AddRange(cret3);
+            PFxB.TempCRets0.AddRange(cret1);
+            PFxB.TempCRets0.AddRange(cret2);
+            PFxB.TempCRets0.AddRange(cret3);
 
             //SummForAvPayCalcBruto(); //--allredy done
 
@@ -167,9 +167,9 @@ namespace KlonsA.Classes
                 d._AMOUNT_BEFORE_SN -
                 d._DNSN_AMOUNT);
 
-            PFxB.TempCRets.AddRange(cret1);
-            PFxB.TempCRets.AddRange(cret2);
-            PFxB.TempCRets.AddRange(cret3);
+            PFxB.TempCRets1.AddRange(cret1);
+            PFxB.TempCRets1.AddRange(cret2);
+            PFxB.TempCRets1.AddRange(cret3);
 
 
          
@@ -222,7 +222,7 @@ namespace KlonsA.Classes
                 divby: LinkedSCI.Length,
                 rpfx: out rpfx);
 
-            PFxB.TempCRets.AddRange(rpfx);
+            PFxB.TempCRets1.AddRange(rpfx);
 
             if (plusfromendbruto != 0.0M)
             {
@@ -255,6 +255,7 @@ namespace KlonsA.Classes
             PFxB.InitParts(this);
 
             PFxB.DoPayFxB_Salary(TotalSI._SALARY, GetValues(d => d._SALARY));
+            PFxB.DoPayFxB_Bonus(PFxB.TempCRets0);
             PFxB.DoPayFxB_SickPay(
                 TotalSI._SICKDAYS_PAY,
                 GetValues(d => d._SICKDAYS_PAY));
@@ -266,7 +267,7 @@ namespace KlonsA.Classes
                 GetValues(d => d._VACATION_PAY_CURRENT));
 
             CorrectVacCash();
-            PFxB.DoPayFxB_Bonus(PFxB.TempCRets);
+            PFxB.DoPayFxB_Bonus(PFxB.TempCRets1);
 
             MakeExactIINExSplit();
 

@@ -43,7 +43,8 @@ namespace KlonsA.Classes
         public PayFx2 PFx_vacation = null;
         public PayFx2 PFx_vacation_prev = null;
 
-        public List<PayFx2> TempRows = new List<PayFx2>();
+        public List<PayFx2> TempRows0 = new List<PayFx2>();
+        public List<PayFx2> TempRows1 = new List<PayFx2>();
         public List<PayFx2> TempRows2 = new List<PayFx2>();
 
         public PayFxA(bool hasProgressiveIIN = true) : base(hasProgressiveIIN)

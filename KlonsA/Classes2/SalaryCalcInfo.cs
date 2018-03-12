@@ -89,9 +89,9 @@ namespace KlonsA.Classes
 
             SI._FORAVPAYCALC_BRUTO += BonusCalc.ForAvpayCalc;
 
-            PFxA.TempRows.AddRange(pfxs1);
-            PFxA.TempRows.AddRange(pfxs2);
-            PFxA.TempRows.AddRange(pfxs3);
+            PFxA.TempRows0.AddRange(pfxs1);
+            PFxA.TempRows0.AddRange(pfxs2);
+            PFxA.TempRows0.AddRange(pfxs3);
 
             decimal avpay1 =
                 SI._SALARY_AVPAY_FREE_DAYS +
@@ -128,8 +128,8 @@ namespace KlonsA.Classes
 
             pfxs2 = BonusCalc.CalcProc(SI, EBonusFrom.FromPayBeforeSAI, payBeforeSAI);
 
-            PFxA.TempRows.AddRange(pfxs1);
-            PFxA.TempRows.AddRange(pfxs2);
+            PFxA.TempRows1.AddRange(pfxs1);
+            PFxA.TempRows1.AddRange(pfxs2);
 
             CalcSAI();
 
@@ -138,7 +138,7 @@ namespace KlonsA.Classes
                 SI._DNSN_AMOUNT;
 
             pfxs3 = BonusCalc.CalcProc(SI, EBonusFrom.FromPayAfterSAI, payAfterSAI);
-            PFxA.TempRows.AddRange(pfxs3);
+            PFxA.TempRows1.AddRange(pfxs3);
 
             payAfterSAI = 
                 payAfterSAI +
@@ -191,7 +191,7 @@ namespace KlonsA.Classes
                 divby: SR.GetLinkedRowsCount(),
                 rpfx: out rpfx);
 
-            PFxA.TempRows.AddRange(rpfx);
+            PFxA.TempRows1.AddRange(rpfx);
 
             if (plusfromendbruto != 0.0M)
             {
@@ -228,10 +228,11 @@ namespace KlonsA.Classes
             PFxA.IinEx = CalcR.ExDivided.SumIINExemptsAll();
 
             PFxA.DoPayFxA_Salary(SI._SALARY);
+            PFxA.DoPayFxA_Bonus(PFxA.TempRows0);
             PFxA.DoPayFxA_SickPay(SI._SICKDAYS_PAY);
             PFxA.DoPayFxA_Vacation(SI._VACATION_PAY_CURRENT, SI._VACATION_PAY_PREV);
             CorrectVacCash();
-            PFxA.DoPayFxA_Bonus(PFxA.TempRows);
+            PFxA.DoPayFxA_Bonus(PFxA.TempRows1);
             PFxA.DoPayFxA_BonusSimpleAdd(PFxA.TempRows2);
 
             var cashNotPaid = BonusCalc.CalcCashNotPaid(SI, SI._RATE_IIN, SI._RATE_DNSN);

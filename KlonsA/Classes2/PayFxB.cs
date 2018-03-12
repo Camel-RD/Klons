@@ -10,7 +10,8 @@ namespace KlonsA.Classes
     {
         public List<PayFxA> Parts = new List<PayFxA>();
 
-        public List<BonusCalcInfo.CalcRet> TempCRets = new List<BonusCalcInfo.CalcRet>();
+        public List<BonusCalcInfo.CalcRet> TempCRets0 = new List<BonusCalcInfo.CalcRet>();
+        public List<BonusCalcInfo.CalcRet> TempCRets1 = new List<BonusCalcInfo.CalcRet>();
         public List<BonusCalcInfo.CalcRet> TempCRets2 = new List<BonusCalcInfo.CalcRet>();
 
         public PayFxB(bool hasProgressiveIIN = true) : base(hasProgressiveIIN)
