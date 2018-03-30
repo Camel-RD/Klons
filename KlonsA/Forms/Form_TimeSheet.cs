@@ -462,6 +462,7 @@ namespace KlonsA.Forms
                 return;
             }
             CheckEvents(new_id, true, true);
+            dgvLapa.AutoResizeColumns();
         }
 
         public void DeleteCurrent()

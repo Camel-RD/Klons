@@ -105,6 +105,8 @@
               <Mapping SourceColumn="PLAN_DAYS" DataSetColumn="PLAN_DAYS" />
               <Mapping SourceColumn="PLAN_HOURS" DataSetColumn="PLAN_HOURS" />
               <Mapping SourceColumn="TOTAL_BEFORE_TAXES" DataSetColumn="TOTAL_BEFORE_TAXES" />
+              <Mapping SourceColumn="PLAN_WORKDAYS" DataSetColumn="PLAN_WORKDAYS" />
+              <Mapping SourceColumn="PLAN_WORKHOURS" DataSetColumn="PLAN_WORKHOURS" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -722,7 +724,7 @@
   <xs:element name="KlonsARepDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KlonsARepDataSet" msprop:Generator_UserDSName="KlonsARepDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="PARAMS" msprop:Generator_TableClassName="PARAMSDataTable" msprop:Generator_TableVarName="tablePARAMS" msprop:Generator_TablePropName="PARAMS" msprop:Generator_RowDeletingName="PARAMSRowDeleting" msprop:Generator_RowChangingName="PARAMSRowChanging" msprop:Generator_RowEvHandlerName="PARAMSRowChangeEventHandler" msprop:Generator_RowDeletedName="PARAMSRowDeleted" msprop:Generator_UserTableName="PARAMS" msprop:Generator_RowChangedName="PARAMSRowChanged" msprop:Generator_RowEvArgName="PARAMSRowChangeEvent" msprop:Generator_RowClassName="PARAMSRow">
+        <xs:element name="PARAMS" msprop:Generator_TableClassName="PARAMSDataTable" msprop:Generator_TableVarName="tablePARAMS" msprop:Generator_RowChangedName="PARAMSRowChanged" msprop:Generator_TablePropName="PARAMS" msprop:Generator_RowDeletingName="PARAMSRowDeleting" msprop:Generator_RowChangingName="PARAMSRowChanging" msprop:Generator_RowEvHandlerName="PARAMSRowChangeEventHandler" msprop:Generator_RowDeletedName="PARAMSRowDeleted" msprop:Generator_RowClassName="PARAMSRow" msprop:Generator_UserTableName="PARAMS" msprop:Generator_RowEvArgName="PARAMSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -750,7 +752,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AVPAYCALC" msprop:Generator_TableClassName="AVPAYCALCDataTable" msprop:Generator_TableVarName="tableAVPAYCALC" msprop:Generator_RowChangedName="AVPAYCALCRowChanged" msprop:Generator_TablePropName="AVPAYCALC" msprop:Generator_RowDeletingName="AVPAYCALCRowDeleting" msprop:Generator_RowChangingName="AVPAYCALCRowChanging" msprop:Generator_RowEvHandlerName="AVPAYCALCRowChangeEventHandler" msprop:Generator_RowDeletedName="AVPAYCALCRowDeleted" msprop:Generator_RowClassName="AVPAYCALCRow" msprop:Generator_UserTableName="AVPAYCALC" msprop:Generator_RowEvArgName="AVPAYCALCRowChangeEvent">
+        <xs:element name="AVPAYCALC" msprop:Generator_TableClassName="AVPAYCALCDataTable" msprop:Generator_TableVarName="tableAVPAYCALC" msprop:Generator_TablePropName="AVPAYCALC" msprop:Generator_RowDeletingName="AVPAYCALCRowDeleting" msprop:Generator_RowChangingName="AVPAYCALCRowChanging" msprop:Generator_RowEvHandlerName="AVPAYCALCRowChangeEventHandler" msprop:Generator_RowDeletedName="AVPAYCALCRowDeleted" msprop:Generator_UserTableName="AVPAYCALC" msprop:Generator_RowChangedName="AVPAYCALCRowChanged" msprop:Generator_RowEvArgName="AVPAYCALCRowChangeEvent" msprop:Generator_RowClassName="AVPAYCALCRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
@@ -771,10 +773,12 @@
               <xs:element name="PLAN_DAYS" msprop:Generator_ColumnVarNameInTable="columnPLAN_DAYS" msprop:Generator_ColumnPropNameInRow="PLAN_DAYS" msprop:Generator_ColumnPropNameInTable="PLAN_DAYSColumn" msprop:Generator_UserColumnName="PLAN_DAYS" type="xs:int" minOccurs="0" />
               <xs:element name="PLAN_HOURS" msprop:Generator_ColumnVarNameInTable="columnPLAN_HOURS" msprop:Generator_ColumnPropNameInRow="PLAN_HOURS" msprop:Generator_ColumnPropNameInTable="PLAN_HOURSColumn" msprop:Generator_UserColumnName="PLAN_HOURS" type="xs:float" minOccurs="0" />
               <xs:element name="TOTAL_BEFORE_TAXES" msprop:Generator_ColumnVarNameInTable="columnTOTAL_BEFORE_TAXES" msprop:Generator_ColumnPropNameInRow="TOTAL_BEFORE_TAXES" msprop:Generator_ColumnPropNameInTable="TOTAL_BEFORE_TAXESColumn" msprop:Generator_UserColumnName="TOTAL_BEFORE_TAXES" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PLAN_WORKDAYS" msprop:Generator_ColumnVarNameInTable="columnPLAN_WORKDAYS" msprop:Generator_ColumnPropNameInRow="PLAN_WORKDAYS" msprop:Generator_ColumnPropNameInTable="PLAN_WORKDAYSColumn" msprop:Generator_UserColumnName="PLAN_WORKDAYS" type="xs:int" minOccurs="0" />
+              <xs:element name="PLAN_WORKHOURS" msprop:Generator_ColumnVarNameInTable="columnPLAN_WORKHOURS" msprop:Generator_ColumnPropNameInRow="PLAN_WORKHOURS" msprop:Generator_ColumnPropNameInTable="PLAN_WORKHOURSColumn" msprop:Generator_UserColumnName="PLAN_WORKHOURS" type="xs:float" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_REP_IINK_01" msprop:Generator_TableClassName="SP_REP_IINK_01DataTable" msprop:Generator_TableVarName="tableSP_REP_IINK_01" msprop:Generator_RowChangedName="SP_REP_IINK_01RowChanged" msprop:Generator_TablePropName="SP_REP_IINK_01" msprop:Generator_RowDeletingName="SP_REP_IINK_01RowDeleting" msprop:Generator_RowChangingName="SP_REP_IINK_01RowChanging" msprop:Generator_RowEvHandlerName="SP_REP_IINK_01RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_REP_IINK_01RowDeleted" msprop:Generator_RowClassName="SP_REP_IINK_01Row" msprop:Generator_UserTableName="SP_REP_IINK_01" msprop:Generator_RowEvArgName="SP_REP_IINK_01RowChangeEvent">
+        <xs:element name="SP_REP_IINK_01" msprop:Generator_TableClassName="SP_REP_IINK_01DataTable" msprop:Generator_TableVarName="tableSP_REP_IINK_01" msprop:Generator_TablePropName="SP_REP_IINK_01" msprop:Generator_RowDeletingName="SP_REP_IINK_01RowDeleting" msprop:Generator_RowChangingName="SP_REP_IINK_01RowChanging" msprop:Generator_RowEvHandlerName="SP_REP_IINK_01RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_REP_IINK_01RowDeleted" msprop:Generator_UserTableName="SP_REP_IINK_01" msprop:Generator_RowChangedName="SP_REP_IINK_01RowChanged" msprop:Generator_RowEvArgName="SP_REP_IINK_01RowChangeEvent" msprop:Generator_RowClassName="SP_REP_IINK_01Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />
@@ -802,7 +806,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PAY_SALDO" msprop:Generator_TableClassName="PAY_SALDODataTable" msprop:Generator_TableVarName="tablePAY_SALDO" msprop:Generator_TablePropName="PAY_SALDO" msprop:Generator_RowDeletingName="PAY_SALDORowDeleting" msprop:Generator_RowChangingName="PAY_SALDORowChanging" msprop:Generator_RowEvHandlerName="PAY_SALDORowChangeEventHandler" msprop:Generator_RowDeletedName="PAY_SALDORowDeleted" msprop:Generator_UserTableName="PAY_SALDO" msprop:Generator_RowChangedName="PAY_SALDORowChanged" msprop:Generator_RowEvArgName="PAY_SALDORowChangeEvent" msprop:Generator_RowClassName="PAY_SALDORow">
+        <xs:element name="PAY_SALDO" msprop:Generator_TableClassName="PAY_SALDODataTable" msprop:Generator_TableVarName="tablePAY_SALDO" msprop:Generator_RowChangedName="PAY_SALDORowChanged" msprop:Generator_TablePropName="PAY_SALDO" msprop:Generator_RowDeletingName="PAY_SALDORowDeleting" msprop:Generator_RowChangingName="PAY_SALDORowChanging" msprop:Generator_RowEvHandlerName="PAY_SALDORowChangeEventHandler" msprop:Generator_RowDeletedName="PAY_SALDORowDeleted" msprop:Generator_RowClassName="PAY_SALDORow" msprop:Generator_UserTableName="PAY_SALDO" msprop:Generator_RowEvArgName="PAY_SALDORowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />
@@ -814,7 +818,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_PAY_MATCHLISTS" msprop:Generator_TableClassName="SP_PAY_MATCHLISTSDataTable" msprop:Generator_TableVarName="tableSP_PAY_MATCHLISTS" msprop:Generator_TablePropName="SP_PAY_MATCHLISTS" msprop:Generator_RowDeletingName="SP_PAY_MATCHLISTSRowDeleting" msprop:Generator_RowChangingName="SP_PAY_MATCHLISTSRowChanging" msprop:Generator_RowEvHandlerName="SP_PAY_MATCHLISTSRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_PAY_MATCHLISTSRowDeleted" msprop:Generator_UserTableName="SP_PAY_MATCHLISTS" msprop:Generator_RowChangedName="SP_PAY_MATCHLISTSRowChanged" msprop:Generator_RowEvArgName="SP_PAY_MATCHLISTSRowChangeEvent" msprop:Generator_RowClassName="SP_PAY_MATCHLISTSRow">
+        <xs:element name="SP_PAY_MATCHLISTS" msprop:Generator_TableClassName="SP_PAY_MATCHLISTSDataTable" msprop:Generator_TableVarName="tableSP_PAY_MATCHLISTS" msprop:Generator_RowChangedName="SP_PAY_MATCHLISTSRowChanged" msprop:Generator_TablePropName="SP_PAY_MATCHLISTS" msprop:Generator_RowDeletingName="SP_PAY_MATCHLISTSRowDeleting" msprop:Generator_RowChangingName="SP_PAY_MATCHLISTSRowChanging" msprop:Generator_RowEvHandlerName="SP_PAY_MATCHLISTSRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_PAY_MATCHLISTSRowDeleted" msprop:Generator_RowClassName="SP_PAY_MATCHLISTSRow" msprop:Generator_UserTableName="SP_PAY_MATCHLISTS" msprop:Generator_RowEvArgName="SP_PAY_MATCHLISTSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />
@@ -830,7 +834,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_REP_IINK_21" msprop:Generator_TableClassName="SP_REP_IINK_21DataTable" msprop:Generator_TableVarName="tableSP_REP_IINK_21" msprop:Generator_RowChangedName="SP_REP_IINK_21RowChanged" msprop:Generator_TablePropName="SP_REP_IINK_21" msprop:Generator_RowDeletingName="SP_REP_IINK_21RowDeleting" msprop:Generator_RowChangingName="SP_REP_IINK_21RowChanging" msprop:Generator_RowEvHandlerName="SP_REP_IINK_21RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_REP_IINK_21RowDeleted" msprop:Generator_RowClassName="SP_REP_IINK_21Row" msprop:Generator_UserTableName="SP_REP_IINK_21" msprop:Generator_RowEvArgName="SP_REP_IINK_21RowChangeEvent">
+        <xs:element name="SP_REP_IINK_21" msprop:Generator_TableClassName="SP_REP_IINK_21DataTable" msprop:Generator_TableVarName="tableSP_REP_IINK_21" msprop:Generator_TablePropName="SP_REP_IINK_21" msprop:Generator_RowDeletingName="SP_REP_IINK_21RowDeleting" msprop:Generator_RowChangingName="SP_REP_IINK_21RowChanging" msprop:Generator_RowEvHandlerName="SP_REP_IINK_21RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_REP_IINK_21RowDeleted" msprop:Generator_UserTableName="SP_REP_IINK_21" msprop:Generator_RowChangedName="SP_REP_IINK_21RowChanged" msprop:Generator_RowEvArgName="SP_REP_IINK_21RowChangeEvent" msprop:Generator_RowClassName="SP_REP_IINK_21Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />
@@ -858,11 +862,11 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_PAY_MATCHLISTS_1X" msprop:Generator_TableClassName="SP_PAY_MATCHLISTS_1XDataTable" msprop:Generator_TableVarName="tableSP_PAY_MATCHLISTS_1X" msprop:Generator_TablePropName="SP_PAY_MATCHLISTS_1X" msprop:Generator_RowDeletingName="SP_PAY_MATCHLISTS_1XRowDeleting" msprop:Generator_RowChangingName="SP_PAY_MATCHLISTS_1XRowChanging" msprop:Generator_RowEvHandlerName="SP_PAY_MATCHLISTS_1XRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_PAY_MATCHLISTS_1XRowDeleted" msprop:Generator_UserTableName="SP_PAY_MATCHLISTS_1X" msprop:Generator_RowChangedName="SP_PAY_MATCHLISTS_1XRowChanged" msprop:Generator_RowEvArgName="SP_PAY_MATCHLISTS_1XRowChangeEvent" msprop:Generator_RowClassName="SP_PAY_MATCHLISTS_1XRow">
+        <xs:element name="SP_PAY_MATCHLISTS_1X" msprop:Generator_TableClassName="SP_PAY_MATCHLISTS_1XDataTable" msprop:Generator_TableVarName="tableSP_PAY_MATCHLISTS_1X" msprop:Generator_RowChangedName="SP_PAY_MATCHLISTS_1XRowChanged" msprop:Generator_TablePropName="SP_PAY_MATCHLISTS_1X" msprop:Generator_RowDeletingName="SP_PAY_MATCHLISTS_1XRowDeleting" msprop:Generator_RowChangingName="SP_PAY_MATCHLISTS_1XRowChanging" msprop:Generator_RowEvHandlerName="SP_PAY_MATCHLISTS_1XRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_PAY_MATCHLISTS_1XRowDeleted" msprop:Generator_RowClassName="SP_PAY_MATCHLISTS_1XRow" msprop:Generator_UserTableName="SP_PAY_MATCHLISTS_1X" msprop:Generator_RowEvArgName="SP_PAY_MATCHLISTS_1XRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />
-              <xs:element name="IDAM" msprop:Generator_ColumnVarNameInTable="columnIDAM" msprop:Generator_ColumnPropNameInRow="IDAM" msprop:Generator_ColumnPropNameInTable="IDAMColumn" msprop:Generator_UserColumnName="IDAM" type="xs:int" minOccurs="0" />
+              <xs:element name="IDAM" msprop:Generator_ColumnVarNameInTable="columnIDAM" msprop:Generator_ColumnPropNameInRow="IDAM" msprop:Generator_ColumnPropNameInTable="IDAMColumn" msprop:Generator_UserColumnName="IDAM" type="xs:int" />
               <xs:element name="DT1" msprop:Generator_ColumnVarNameInTable="columnDT1" msprop:Generator_ColumnPropNameInRow="DT1" msprop:Generator_ColumnPropNameInTable="DT1Column" msprop:Generator_UserColumnName="DT1" type="xs:dateTime" minOccurs="0" />
               <xs:element name="DT2" msprop:Generator_ColumnVarNameInTable="columnDT2" msprop:Generator_ColumnPropNameInRow="DT2" msprop:Generator_ColumnPropNameInTable="DT2Column" msprop:Generator_UserColumnName="DT2" type="xs:dateTime" minOccurs="0" />
               <xs:element name="IDSHR1" msprop:Generator_ColumnVarNameInTable="columnIDSHR1" msprop:Generator_ColumnPropNameInRow="IDSHR1" msprop:Generator_ColumnPropNameInTable="IDSHR1Column" msprop:Generator_UserColumnName="IDSHR1" type="xs:int" minOccurs="0" />
@@ -952,10 +956,10 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_PAY_MATCHLISTS_2X" msprop:Generator_TableClassName="SP_PAY_MATCHLISTS_2XDataTable" msprop:Generator_TableVarName="tableSP_PAY_MATCHLISTS_2X" msprop:Generator_RowChangedName="SP_PAY_MATCHLISTS_2XRowChanged" msprop:Generator_TablePropName="SP_PAY_MATCHLISTS_2X" msprop:Generator_RowDeletingName="SP_PAY_MATCHLISTS_2XRowDeleting" msprop:Generator_RowChangingName="SP_PAY_MATCHLISTS_2XRowChanging" msprop:Generator_RowEvHandlerName="SP_PAY_MATCHLISTS_2XRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_PAY_MATCHLISTS_2XRowDeleted" msprop:Generator_RowClassName="SP_PAY_MATCHLISTS_2XRow" msprop:Generator_UserTableName="SP_PAY_MATCHLISTS_2X" msprop:Generator_RowEvArgName="SP_PAY_MATCHLISTS_2XRowChangeEvent">
+        <xs:element name="SP_PAY_MATCHLISTS_2X" msprop:Generator_TableClassName="SP_PAY_MATCHLISTS_2XDataTable" msprop:Generator_TableVarName="tableSP_PAY_MATCHLISTS_2X" msprop:Generator_TablePropName="SP_PAY_MATCHLISTS_2X" msprop:Generator_RowDeletingName="SP_PAY_MATCHLISTS_2XRowDeleting" msprop:Generator_RowChangingName="SP_PAY_MATCHLISTS_2XRowChanging" msprop:Generator_RowEvHandlerName="SP_PAY_MATCHLISTS_2XRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_PAY_MATCHLISTS_2XRowDeleted" msprop:Generator_UserTableName="SP_PAY_MATCHLISTS_2X" msprop:Generator_RowChangedName="SP_PAY_MATCHLISTS_2XRowChanged" msprop:Generator_RowEvArgName="SP_PAY_MATCHLISTS_2XRowChangeEvent" msprop:Generator_RowClassName="SP_PAY_MATCHLISTS_2XRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_SHR" msprop:Generator_ColumnVarNameInTable="columnID_SHR" msprop:Generator_ColumnPropNameInRow="ID_SHR" msprop:Generator_ColumnPropNameInTable="ID_SHRColumn" msprop:Generator_UserColumnName="ID_SHR" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_SHR" msprop:Generator_ColumnVarNameInTable="columnID_SHR" msprop:Generator_ColumnPropNameInRow="ID_SHR" msprop:Generator_ColumnPropNameInTable="ID_SHRColumn" msprop:Generator_UserColumnName="ID_SHR" type="xs:int" />
               <xs:element name="DT1" msprop:Generator_ColumnVarNameInTable="columnDT1" msprop:Generator_ColumnPropNameInRow="DT1" msprop:Generator_ColumnPropNameInTable="DT1Column" msprop:Generator_UserColumnName="DT1" type="xs:dateTime" minOccurs="0" />
               <xs:element name="DT2" msprop:Generator_ColumnVarNameInTable="columnDT2" msprop:Generator_ColumnPropNameInRow="DT2" msprop:Generator_ColumnPropNameInTable="DT2Column" msprop:Generator_UserColumnName="DT2" type="xs:dateTime" minOccurs="0" />
               <xs:element name="IIN_RATE" msprop:Generator_ColumnVarNameInTable="columnIIN_RATE" msprop:Generator_ColumnPropNameInRow="IIN_RATE" msprop:Generator_ColumnPropNameInTable="IIN_RATEColumn" msprop:Generator_UserColumnName="IIN_RATE" type="xs:decimal" default="0" minOccurs="0" />
@@ -984,7 +988,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_STATS_02" msprop:Generator_TableClassName="SP_STATS_02DataTable" msprop:Generator_TableVarName="tableSP_STATS_02" msprop:Generator_TablePropName="SP_STATS_02" msprop:Generator_RowDeletingName="SP_STATS_02RowDeleting" msprop:Generator_RowChangingName="SP_STATS_02RowChanging" msprop:Generator_RowEvHandlerName="SP_STATS_02RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_STATS_02RowDeleted" msprop:Generator_UserTableName="SP_STATS_02" msprop:Generator_RowChangedName="SP_STATS_02RowChanged" msprop:Generator_RowEvArgName="SP_STATS_02RowChangeEvent" msprop:Generator_RowClassName="SP_STATS_02Row">
+        <xs:element name="SP_STATS_02" msprop:Generator_TableClassName="SP_STATS_02DataTable" msprop:Generator_TableVarName="tableSP_STATS_02" msprop:Generator_RowChangedName="SP_STATS_02RowChanged" msprop:Generator_TablePropName="SP_STATS_02" msprop:Generator_RowDeletingName="SP_STATS_02RowDeleting" msprop:Generator_RowChangingName="SP_STATS_02RowChanging" msprop:Generator_RowEvHandlerName="SP_STATS_02RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_STATS_02RowDeleted" msprop:Generator_RowClassName="SP_STATS_02Row" msprop:Generator_UserTableName="SP_STATS_02" msprop:Generator_RowEvArgName="SP_STATS_02RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />
@@ -1014,7 +1018,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_STATS_01" msprop:Generator_TableClassName="SP_STATS_01DataTable" msprop:Generator_TableVarName="tableSP_STATS_01" msprop:Generator_RowChangedName="SP_STATS_01RowChanged" msprop:Generator_TablePropName="SP_STATS_01" msprop:Generator_RowDeletingName="SP_STATS_01RowDeleting" msprop:Generator_RowChangingName="SP_STATS_01RowChanging" msprop:Generator_RowEvHandlerName="SP_STATS_01RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_STATS_01RowDeleted" msprop:Generator_RowClassName="SP_STATS_01Row" msprop:Generator_UserTableName="SP_STATS_01" msprop:Generator_RowEvArgName="SP_STATS_01RowChangeEvent">
+        <xs:element name="SP_STATS_01" msprop:Generator_TableClassName="SP_STATS_01DataTable" msprop:Generator_TableVarName="tableSP_STATS_01" msprop:Generator_TablePropName="SP_STATS_01" msprop:Generator_RowDeletingName="SP_STATS_01RowDeleting" msprop:Generator_RowChangingName="SP_STATS_01RowChanging" msprop:Generator_RowEvHandlerName="SP_STATS_01RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_STATS_01RowDeleted" msprop:Generator_UserTableName="SP_STATS_01" msprop:Generator_RowChangedName="SP_STATS_01RowChanged" msprop:Generator_RowEvArgName="SP_STATS_01RowChangeEvent" msprop:Generator_RowClassName="SP_STATS_01Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="HIRED" msprop:Generator_ColumnVarNameInTable="columnHIRED" msprop:Generator_ColumnPropNameInRow="HIRED" msprop:Generator_ColumnPropNameInTable="HIREDColumn" msprop:Generator_UserColumnName="HIRED" type="xs:int" default="0" minOccurs="0" />
@@ -1034,7 +1038,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SP_REP_AGGREGATE" msprop:Generator_TableClassName="SP_REP_AGGREGATEDataTable" msprop:Generator_TableVarName="tableSP_REP_AGGREGATE" msprop:Generator_TablePropName="SP_REP_AGGREGATE" msprop:Generator_RowDeletingName="SP_REP_AGGREGATERowDeleting" msprop:Generator_RowChangingName="SP_REP_AGGREGATERowChanging" msprop:Generator_RowEvHandlerName="SP_REP_AGGREGATERowChangeEventHandler" msprop:Generator_RowDeletedName="SP_REP_AGGREGATERowDeleted" msprop:Generator_UserTableName="SP_REP_AGGREGATE" msprop:Generator_RowChangedName="SP_REP_AGGREGATERowChanged" msprop:Generator_RowEvArgName="SP_REP_AGGREGATERowChangeEvent" msprop:Generator_RowClassName="SP_REP_AGGREGATERow">
+        <xs:element name="SP_REP_AGGREGATE" msprop:Generator_TableClassName="SP_REP_AGGREGATEDataTable" msprop:Generator_TableVarName="tableSP_REP_AGGREGATE" msprop:Generator_RowChangedName="SP_REP_AGGREGATERowChanged" msprop:Generator_TablePropName="SP_REP_AGGREGATE" msprop:Generator_RowDeletingName="SP_REP_AGGREGATERowDeleting" msprop:Generator_RowChangingName="SP_REP_AGGREGATERowChanging" msprop:Generator_RowEvHandlerName="SP_REP_AGGREGATERowChangeEventHandler" msprop:Generator_RowDeletedName="SP_REP_AGGREGATERowDeleted" msprop:Generator_RowClassName="SP_REP_AGGREGATERow" msprop:Generator_UserTableName="SP_REP_AGGREGATE" msprop:Generator_RowEvArgName="SP_REP_AGGREGATERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDP" msprop:Generator_ColumnVarNameInTable="columnIDP" msprop:Generator_ColumnPropNameInRow="IDP" msprop:Generator_ColumnPropNameInTable="IDPColumn" msprop:Generator_UserColumnName="IDP" type="xs:int" minOccurs="0" />

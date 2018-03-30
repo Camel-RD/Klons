@@ -17,7 +17,7 @@ namespace KlonsA.Classes
         }
 
         private static string[] dbversions =
-            new string[] {};
+            new string[] {"024"};
 
         public static bool HasUpgrade(string db_ver, string app_ver)
         {

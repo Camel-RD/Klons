@@ -128,7 +128,7 @@ namespace KlonsA.Classes
                 sbruto += dr.FORAVPAYCALC_BRUTO;
                 sbruto2 += dr.TOTAL_BEFORE_TAXES;
                 sdays += dr.FORAVPAYCALC_DAYS;
-                splandays += dr.PLAN_DAYS;
+                splandays += dr.PLAN_WORKDAYS;
                 shours += dr.FORAVPAYCALC_HOURS;
             }
 
@@ -160,7 +160,7 @@ namespace KlonsA.Classes
                     sbruto += dr.FORAVPAYCALC_BRUTO;
                     sbruto2 += dr.TOTAL_BEFORE_TAXES;
                     sdays += dr.FORAVPAYCALC_DAYS;
-                    splandays += dr.PLAN_DAYS;
+                    splandays += dr.PLAN_WORKDAYS;
                     shours += dr.FORAVPAYCALC_HOURS;
                 }
             }
@@ -187,9 +187,13 @@ namespace KlonsA.Classes
                         drl.Year = yr1;
                         drl.Month = mt1;
                         drl.CalendarDays = si._CALENDAR_DAYS_USE;
-                        drl.DaysPlan = si._PLAN_WORK_DAYS;
+                        drl.DaysPlan = si._PLAN_DAYS;
+                        drl.WorkDaysPlan = si._PLAN_WORK_DAYS;
+                        drl.MonthWorkDays = si._MONTH_WORKDAYS;
+                        drl.MonthWorkHours = si._MONTH_WORKHOURS;
                         drl.DaysFact = si._FORAVPAYCALC_DAYS;
-                        drl.HoursPlan = si._PLAN_WORK_HOURS;
+                        drl.HoursPlan = si._PLAN_HOURS;
+                        drl.WorkHoursPlan = si._PLAN_WORK_HOURS;
                         drl.HoursFact = si._FORAVPAYCALC_HOURS;
                         drl.Salary = si._FORAVPAYCALC_BRUTO;
                         drl.Salary2 = si._TOTAL_BEFORE_TAXES;
@@ -209,9 +213,13 @@ namespace KlonsA.Classes
                         drl.Year = dr.YR;
                         drl.Month = dr.MT;
                         drl.CalendarDays += dr.CALENDAR_DAYS;
+                        drl.MonthWorkDays += dr.MONTH_WORKDAYS;
+                        drl.MonthWorkHours += dr.MONTH_WORKHOURS;
                         drl.DaysPlan += dr.PLAN_DAYS;
+                        drl.WorkDaysPlan += dr.PLAN_WORKDAYS;
                         drl.DaysFact += dr.FORAVPAYCALC_DAYS;
                         drl.HoursPlan += dr.PLAN_HOURS;
+                        drl.WorkHoursPlan += dr.PLAN_WORKHOURS;
                         drl.HoursFact += dr.FORAVPAYCALC_HOURS;
                         drl.Salary += dr.FORAVPAYCALC_BRUTO;
                         drl.Salary2 += dr.TOTAL_BEFORE_TAXES;
@@ -223,9 +231,13 @@ namespace KlonsA.Classes
                     {
                         drl = ReportRows[i];
                         TotalRow.CalendarDays += drl.CalendarDays;
+                        TotalRow.MonthWorkDays += drl.MonthWorkDays;
+                        TotalRow.MonthWorkHours += drl.MonthWorkHours;
                         TotalRow.DaysPlan += drl.DaysPlan;
+                        TotalRow.WorkDaysPlan += drl.WorkDaysPlan;
                         TotalRow.DaysFact += drl.DaysFact;
                         TotalRow.HoursPlan += drl.HoursPlan;
+                        TotalRow.WorkHoursPlan += drl.WorkHoursPlan;
                         TotalRow.HoursFact += drl.HoursFact;
                         TotalRow.Salary += drl.Salary;
                         TotalRow.Salary2 += drl.Salary2;
@@ -269,9 +281,13 @@ namespace KlonsA.Classes
         public decimal Salary2 { get; set; } = 0.0M;
         public decimal Pay { get; set; } = 0.0M;
         public int CalendarDays { get; set; } = 0;
+        public int MonthWorkDays { get; set; } = 0;
+        public float MonthWorkHours { get; set; } = 0.0f;
         public int DaysPlan { get; set; } = 0;
+        public int WorkDaysPlan { get; set; } = 0;
         public int DaysFact { get; set; } = 0;
         public float HoursPlan { get; set; } = 0.0f;
+        public float WorkHoursPlan { get; set; } = 0.0f;
         public float HoursFact { get; set; } = 0.0f;
     }
 

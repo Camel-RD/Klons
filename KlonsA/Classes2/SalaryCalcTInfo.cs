@@ -252,6 +252,7 @@ namespace KlonsA.Classes
 
 
             PFxB.SetFrom(CalcR);
+            PFxB.IinEx = TotalSI.SumIINExemptsAll();
             PFxB.InitParts(this);
 
             PFxB.DoPayFxB_Salary(TotalSI._SALARY, GetValues(d => d._SALARY));

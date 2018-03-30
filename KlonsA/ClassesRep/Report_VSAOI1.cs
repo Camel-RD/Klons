@@ -167,8 +167,8 @@ namespace KlonsA.Classes
             var dr = drpr;
             if (dr == null) return;
             Tp2 = 1;
-            if (dr.PENSIONER == 1) Tp2 = 2;
-            if (dr.PENSIONER_SP == 1) Tp2 = 3;
+            if (dr.PENSIONER_SP == 1) Tp2 = 2;
+            if (dr.PENSIONER == 1) Tp2 = 3;
             if (dr.PRISONER == 1 && dr.PENSIONER == 0) Tp2 = 5;
             if (dr.PRISONER == 1 && dr.PENSIONER == 1) Tp2 = 6;
 

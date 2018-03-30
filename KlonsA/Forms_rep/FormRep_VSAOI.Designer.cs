@@ -132,20 +132,20 @@
             this.cbYear.GridLineHorizontal = false;
             this.cbYear.GridLineVertical = false;
             this.cbYear.IntegralHeight = false;
-            myItem1.Col1 = "2014";
-            myItem2.Col1 = "2015";
-            myItem3.Col1 = "2016";
-            myItem4.Col1 = "2017";
+            myItem1.Col1 = "2015";
+            myItem2.Col1 = "2016";
+            myItem3.Col1 = "2017";
+            myItem4.Col1 = "2018";
             this.cbYear.Items.AddRange(new object[] {
             myItem1,
             myItem2,
             myItem3,
             myItem4});
             this.cbYear.ItemStrings = new string[] {
-        "2014",
         "2015",
         "2016",
-        "2017"};
+        "2017",
+        "2018"};
             this.cbYear.Location = new System.Drawing.Point(128, 5);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(69, 23);

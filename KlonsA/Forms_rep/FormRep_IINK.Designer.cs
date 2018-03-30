@@ -47,7 +47,6 @@
             KlonsLIB.Components.MyMcComboBox.MyItem myItem16 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem17 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_IINK));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -63,10 +62,31 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_IINK));
             this.label1 = new System.Windows.Forms.Label();
             this.cbYear = new KlonsLIB.Components.MyMcFlatComboBox();
             this.cbMonth = new KlonsLIB.Components.MyMcFlatComboBox();
             this.dgvRep = new KlonsLIB.Components.MyDataGridView();
+            this.dgcUse = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIncomeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcDT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcDT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIncomeNotTaxed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcUntaxedMinimum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcDependants = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcOtherDeduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcOtherDeductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcExpenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIINBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsRep = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -99,26 +119,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgcUse = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIncomeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcDT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcDT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIncomeNotTaxed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUntaxedMinimum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcDependants = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcOtherDeduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcOtherDeductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcExpenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIINBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRep)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -152,20 +152,20 @@
             this.cbYear.GridLineHorizontal = false;
             this.cbYear.GridLineVertical = false;
             this.cbYear.IntegralHeight = false;
-            myItem1.Col1 = "2014";
-            myItem2.Col1 = "2015";
-            myItem3.Col1 = "2016";
-            myItem4.Col1 = "2017";
+            myItem1.Col1 = "2015";
+            myItem2.Col1 = "2016";
+            myItem3.Col1 = "2017";
+            myItem4.Col1 = "2018";
             this.cbYear.Items.AddRange(new object[] {
             myItem1,
             myItem2,
             myItem3,
             myItem4});
             this.cbYear.ItemStrings = new string[] {
-        "2014",
         "2015",
         "2016",
-        "2017"};
+        "2017",
+        "2018"};
             this.cbYear.Location = new System.Drawing.Point(127, 4);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(69, 23);
@@ -278,314 +278,6 @@
             this.dgvRep.RowTemplate.Height = 24;
             this.dgvRep.Size = new System.Drawing.Size(901, 375);
             this.dgvRep.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(531, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 16);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Datums:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(281, 31);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 16);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Tālruņa numurs:";
-            // 
-            // tbDate
-            // 
-            this.tbDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbDate.IsDate = true;
-            this.tbDate.Location = new System.Drawing.Point(596, 29);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(90, 22);
-            this.tbDate.TabIndex = 18;
-            // 
-            // tbPhoneNr
-            // 
-            this.tbPhoneNr.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPhoneNr.Location = new System.Drawing.Point(395, 29);
-            this.tbPhoneNr.Name = "tbPhoneNr";
-            this.tbPhoneNr.Size = new System.Drawing.Size(105, 22);
-            this.tbPhoneNr.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(531, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 16);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Amats:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(281, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 16);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Vārds, uzvārds:";
-            // 
-            // tbPosition
-            // 
-            this.tbPosition.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPosition.Location = new System.Drawing.Point(596, 5);
-            this.tbPosition.Name = "tbPosition";
-            this.tbPosition.Size = new System.Drawing.Size(126, 22);
-            this.tbPosition.TabIndex = 16;
-            // 
-            // tbName
-            // 
-            this.tbName.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbName.Location = new System.Drawing.Point(395, 5);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(126, 22);
-            this.tbName.TabIndex = 15;
-            // 
-            // chSimple
-            // 
-            this.chSimple.AutoSize = true;
-            this.chSimple.Location = new System.Drawing.Point(142, 35);
-            this.chSimple.Name = "chSimple";
-            this.chSimple.Size = new System.Drawing.Size(70, 20);
-            this.chSimple.TabIndex = 23;
-            this.chSimple.Text = "simple";
-            this.chSimple.UseVisualStyleBackColor = true;
-            this.chSimple.Visible = false;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F);
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbGetRows,
-            this.tsbReport,
-            this.tsbXML,
-            this.tsbMark});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 52);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.ShowItemToolTips = false;
-            this.toolStrip1.Size = new System.Drawing.Size(901, 25);
-            this.toolStrip1.TabIndex = 24;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbGetRows
-            // 
-            this.tsbGetRows.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbGetRows.Image = ((System.Drawing.Image)(resources.GetObject("tsbGetRows.Image")));
-            this.tsbGetRows.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbGetRows.Name = "tsbGetRows";
-            this.tsbGetRows.Size = new System.Drawing.Size(48, 22);
-            this.tsbGetRows.Text = "Atlasīt";
-            this.tsbGetRows.Click += new System.EventHandler(this.tsbGetRows_Click);
-            // 
-            // tsbReport
-            // 
-            this.tsbReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbReport1,
-            this.tsbReport2});
-            this.tsbReport.Image = ((System.Drawing.Image)(resources.GetObject("tsbReport.Image")));
-            this.tsbReport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbReport.Name = "tsbReport";
-            this.tsbReport.Size = new System.Drawing.Size(73, 22);
-            this.tsbReport.Text = "Atskaite";
-            // 
-            // tsbReport1
-            // 
-            this.tsbReport1.Name = "tsbReport1";
-            this.tsbReport1.Size = new System.Drawing.Size(300, 28);
-            this.tsbReport1.Text = "Katrai personai - MK 677 1. pielikums";
-            this.tsbReport1.Click += new System.EventHandler(this.tsbReport1_Click);
-            // 
-            // tsbReport2
-            // 
-            this.tsbReport2.Name = "tsbReport2";
-            this.tsbReport2.Size = new System.Drawing.Size(300, 28);
-            this.tsbReport2.Text = "Kopsavilkums - MK 677 2. pielikums";
-            this.tsbReport2.Click += new System.EventHandler(this.tsbReport2_Click);
-            // 
-            // tsbXML
-            // 
-            this.tsbXML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbXML.Image = ((System.Drawing.Image)(resources.GetObject("tsbXML.Image")));
-            this.tsbXML.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbXML.Name = "tsbXML";
-            this.tsbXML.Size = new System.Drawing.Size(132, 22);
-            this.tsbXML.Text = "XML (kopsavilkums)";
-            this.tsbXML.Click += new System.EventHandler(this.tsbXML_Click);
-            // 
-            // tsbMark
-            // 
-            this.tsbMark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbMark.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbMarkAll,
-            this.tsbMarkNone});
-            this.tsbMark.Image = ((System.Drawing.Image)(resources.GetObject("tsbMark.Image")));
-            this.tsbMark.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbMark.Name = "tsbMark";
-            this.tsbMark.Size = new System.Drawing.Size(68, 22);
-            this.tsbMark.Text = "Atzīmēt";
-            // 
-            // tsbMarkAll
-            // 
-            this.tsbMarkAll.Name = "tsbMarkAll";
-            this.tsbMarkAll.Size = new System.Drawing.Size(134, 28);
-            this.tsbMarkAll.Text = "Visus";
-            this.tsbMarkAll.Click += new System.EventHandler(this.tsbMarkAll_Click);
-            // 
-            // tsbMarkNone
-            // 
-            this.tsbMarkNone.Name = "tsbMarkNone";
-            this.tsbMarkNone.Size = new System.Drawing.Size(134, 28);
-            this.tsbMarkNone.Text = "Nevienu";
-            this.tsbMarkNone.Click += new System.EventHandler(this.tsbMarkNone_Click);
-            // 
-            // bnRows
-            // 
-            this.bnRows.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bnRows.BindingSource = this.bsRep;
-            this.bnRows.CountItem = this.bindingNavigatorCountItem;
-            this.bnRows.CountItemFormat = " no {0}";
-            this.bnRows.DataGrid = this.dgvRep;
-            this.bnRows.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bnRows.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bnRows.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.bnRows.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bnRows.Location = new System.Drawing.Point(0, 452);
-            this.bnRows.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bnRows.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bnRows.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bnRows.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bnRows.Name = "bnRows";
-            this.bnRows.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnRows.SaveItem = null;
-            this.bnRows.Size = new System.Drawing.Size(901, 32);
-            this.bnRows.TabIndex = 25;
-            this.bnRows.Text = "myBindingNavigator1";
-            this.bnRows.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnRows_ItemDeleting);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
-            this.bindingNavigatorAddNewItem.Text = "Jauns";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
-            this.bindingNavigatorCountItem.Text = " no {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Ierakstu skaits";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
-            this.bindingNavigatorDeleteItem.Text = "Dzēst";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
-            this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
-            this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 30);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
-            this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
-            this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.chSimple);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.toolStrip1);
-            this.panel1.Controls.Add(this.cbYear);
-            this.panel1.Controls.Add(this.cbMonth);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.tbName);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.tbPosition);
-            this.panel1.Controls.Add(this.tbDate);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tbPhoneNr);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 77);
-            this.panel1.TabIndex = 26;
             // 
             // dgcUse
             // 
@@ -790,6 +482,314 @@
             this.dgcIIN.Name = "dgcIIN";
             this.dgcIIN.ToolTipText = "ieturētais nodoklis";
             this.dgcIIN.Width = 80;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(531, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 16);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Datums:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(281, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 16);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Tālruņa numurs:";
+            // 
+            // tbDate
+            // 
+            this.tbDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbDate.IsDate = true;
+            this.tbDate.Location = new System.Drawing.Point(596, 29);
+            this.tbDate.Name = "tbDate";
+            this.tbDate.Size = new System.Drawing.Size(90, 22);
+            this.tbDate.TabIndex = 18;
+            // 
+            // tbPhoneNr
+            // 
+            this.tbPhoneNr.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbPhoneNr.Location = new System.Drawing.Point(395, 29);
+            this.tbPhoneNr.Name = "tbPhoneNr";
+            this.tbPhoneNr.Size = new System.Drawing.Size(105, 22);
+            this.tbPhoneNr.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(531, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Amats:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(281, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 16);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Vārds, uzvārds:";
+            // 
+            // tbPosition
+            // 
+            this.tbPosition.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbPosition.Location = new System.Drawing.Point(596, 5);
+            this.tbPosition.Name = "tbPosition";
+            this.tbPosition.Size = new System.Drawing.Size(126, 22);
+            this.tbPosition.TabIndex = 16;
+            // 
+            // tbName
+            // 
+            this.tbName.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbName.Location = new System.Drawing.Point(395, 5);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(126, 22);
+            this.tbName.TabIndex = 15;
+            // 
+            // chSimple
+            // 
+            this.chSimple.AutoSize = true;
+            this.chSimple.Location = new System.Drawing.Point(142, 35);
+            this.chSimple.Name = "chSimple";
+            this.chSimple.Size = new System.Drawing.Size(70, 20);
+            this.chSimple.TabIndex = 23;
+            this.chSimple.Text = "simple";
+            this.chSimple.UseVisualStyleBackColor = true;
+            this.chSimple.Visible = false;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbGetRows,
+            this.tsbReport,
+            this.tsbXML,
+            this.tsbMark});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip1.Location = new System.Drawing.Point(0, 52);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.ShowItemToolTips = false;
+            this.toolStrip1.Size = new System.Drawing.Size(901, 25);
+            this.toolStrip1.TabIndex = 24;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbGetRows
+            // 
+            this.tsbGetRows.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbGetRows.Image = ((System.Drawing.Image)(resources.GetObject("tsbGetRows.Image")));
+            this.tsbGetRows.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGetRows.Name = "tsbGetRows";
+            this.tsbGetRows.Size = new System.Drawing.Size(48, 22);
+            this.tsbGetRows.Text = "Atlasīt";
+            this.tsbGetRows.Click += new System.EventHandler(this.tsbGetRows_Click);
+            // 
+            // tsbReport
+            // 
+            this.tsbReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbReport1,
+            this.tsbReport2});
+            this.tsbReport.Image = ((System.Drawing.Image)(resources.GetObject("tsbReport.Image")));
+            this.tsbReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbReport.Name = "tsbReport";
+            this.tsbReport.Size = new System.Drawing.Size(73, 22);
+            this.tsbReport.Text = "Atskaite";
+            // 
+            // tsbReport1
+            // 
+            this.tsbReport1.Name = "tsbReport1";
+            this.tsbReport1.Size = new System.Drawing.Size(299, 28);
+            this.tsbReport1.Text = "Katrai personai - MK 677 1. pielikums";
+            this.tsbReport1.Click += new System.EventHandler(this.tsbReport1_Click);
+            // 
+            // tsbReport2
+            // 
+            this.tsbReport2.Name = "tsbReport2";
+            this.tsbReport2.Size = new System.Drawing.Size(299, 28);
+            this.tsbReport2.Text = "Kopsavilkums - MK 677 2. pielikums";
+            this.tsbReport2.Click += new System.EventHandler(this.tsbReport2_Click);
+            // 
+            // tsbXML
+            // 
+            this.tsbXML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbXML.Image = ((System.Drawing.Image)(resources.GetObject("tsbXML.Image")));
+            this.tsbXML.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbXML.Name = "tsbXML";
+            this.tsbXML.Size = new System.Drawing.Size(132, 22);
+            this.tsbXML.Text = "XML (kopsavilkums)";
+            this.tsbXML.Click += new System.EventHandler(this.tsbXML_Click);
+            // 
+            // tsbMark
+            // 
+            this.tsbMark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbMark.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbMarkAll,
+            this.tsbMarkNone});
+            this.tsbMark.Image = ((System.Drawing.Image)(resources.GetObject("tsbMark.Image")));
+            this.tsbMark.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMark.Name = "tsbMark";
+            this.tsbMark.Size = new System.Drawing.Size(68, 22);
+            this.tsbMark.Text = "Atzīmēt";
+            // 
+            // tsbMarkAll
+            // 
+            this.tsbMarkAll.Name = "tsbMarkAll";
+            this.tsbMarkAll.Size = new System.Drawing.Size(133, 28);
+            this.tsbMarkAll.Text = "Visus";
+            this.tsbMarkAll.Click += new System.EventHandler(this.tsbMarkAll_Click);
+            // 
+            // tsbMarkNone
+            // 
+            this.tsbMarkNone.Name = "tsbMarkNone";
+            this.tsbMarkNone.Size = new System.Drawing.Size(133, 28);
+            this.tsbMarkNone.Text = "Nevienu";
+            this.tsbMarkNone.Click += new System.EventHandler(this.tsbMarkNone_Click);
+            // 
+            // bnRows
+            // 
+            this.bnRows.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bnRows.BindingSource = this.bsRep;
+            this.bnRows.CountItem = this.bindingNavigatorCountItem;
+            this.bnRows.CountItemFormat = " no {0}";
+            this.bnRows.DataGrid = this.dgvRep;
+            this.bnRows.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bnRows.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bnRows.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.bnRows.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem});
+            this.bnRows.Location = new System.Drawing.Point(0, 452);
+            this.bnRows.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bnRows.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bnRows.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bnRows.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bnRows.Name = "bnRows";
+            this.bnRows.PositionItem = this.bindingNavigatorPositionItem;
+            this.bnRows.SaveItem = null;
+            this.bnRows.Size = new System.Drawing.Size(901, 32);
+            this.bnRows.TabIndex = 25;
+            this.bnRows.Text = "myBindingNavigator1";
+            this.bnRows.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnRows_ItemDeleting);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
+            this.bindingNavigatorAddNewItem.Text = "Jauns";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
+            this.bindingNavigatorCountItem.Text = " no {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Ierakstu skaits";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
+            this.bindingNavigatorDeleteItem.Text = "Dzēst";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 30);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.chSimple);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.toolStrip1);
+            this.panel1.Controls.Add(this.cbYear);
+            this.panel1.Controls.Add(this.cbMonth);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.tbName);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.tbPosition);
+            this.panel1.Controls.Add(this.tbDate);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.tbPhoneNr);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(901, 77);
+            this.panel1.TabIndex = 26;
             // 
             // FormRep_IINK
             // 

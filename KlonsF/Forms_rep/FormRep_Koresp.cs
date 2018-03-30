@@ -194,6 +194,7 @@ namespace KlonsF.FormsReportParams
             SaveParams();
 
             int repid = lbCm.SelectedIndex;
+            if (cbClid.Text == "*") cbClid.Text = "";
             if (cbClid.Text != "") repid += 6;
 
             ROps1aTableAdapter ad1a = MyData.GetKlonsRepAdapter("ROps1a") as ROps1aTableAdapter;

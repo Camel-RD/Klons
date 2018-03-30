@@ -152,7 +152,7 @@ namespace KlonsA.Forms
             if (LastDate != DateTime.MinValue) dt = LastDate;
             else if (FilterDate != DateTime.MinValue) dt = FilterDate;
             else dt = DateTime.Today;
-            e.Row.Cells[dgcOnDate.Index].Value = Utils.DateToString(dt);
+            e.Row.Cells[dgcOnDate.Index].Value = dt;
         }
     }
 }

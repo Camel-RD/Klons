@@ -242,7 +242,9 @@ namespace KlonsA.DataSets
                 }
                 else if (HasVersion(DataRowVersion.Current))
                 {
-                    if (!HasChanges())
+                    if(!HasVersion(DataRowVersion.Original))
+                        EndEdit();
+                    else if (!HasChanges())
                         AcceptChanges();
                 }
             }

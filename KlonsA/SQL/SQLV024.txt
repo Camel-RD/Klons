@@ -1,0 +1,129 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_AVPAYCALC_01(
+  PIDP INTEGER,
+  PYR1 INTEGER,
+  PMT1 INTEGER,
+  PYR2 INTEGER,
+  PMT2 INTEGER)
+RETURNS (
+  ID TYPE OF COLUMN SALARY_SHEETS_R.ID,
+  TYPE_TAG TYPE OF COLUMN SALARY_SHEETS_R.TYPE_TAG,
+  IDP TYPE OF COLUMN SALARY_SHEETS_R.IDP,
+  IDAM TYPE OF COLUMN SALARY_SHEETS_R.IDAM,
+  YR TYPE OF COLUMN SALARY_SHEETS.YR,
+  MT TYPE OF COLUMN SALARY_SHEETS.MT,
+  CALENDAR_DAYS TYPE OF COLUMN SALARY_SHEETS_R.CALENDAR_DAYS_USE,
+  MONTH_WORKDAYS TYPE OF COLUMN SALARY_SHEETS_R.MONTH_WORKDAYS,
+  MONTH_WORKHOURS TYPE OF COLUMN SALARY_SHEETS_R.MONTH_WORKHOURS,
+  PLAN_DAYS TYPE OF COLUMN SALARY_SHEETS_R.PLAN_DAYS,
+  PLAN_HOURS TYPE OF COLUMN SALARY_SHEETS_R.PLAN_HOURS,
+  PLAN_WORKDAYS TYPE OF COLUMN SALARY_SHEETS_R.PLAN_WORK_DAYS,
+  PLAN_WORKHOURS TYPE OF COLUMN SALARY_SHEETS_R.PLAN_WORK_HOURS,
+  TOTAL_BEFORE_TAXES TYPE OF COLUMN SALARY_SHEETS_R.TOTAL_BEFORE_TAXES,
+  FORAVPAYCALC_BRUTO TYPE OF COLUMN SALARY_SHEETS_R.FORAVPAYCALC_BRUTO,
+  FORAVPAYCALC_PAYOUT TYPE OF COLUMN SALARY_SHEETS_R.FORAVPAYCALC_PAYOUT,
+  FORAVPAYCALC_DAYS TYPE OF COLUMN SALARY_SHEETS_R.FORAVPAYCALC_DAYS,
+  FORAVPAYCALC_HOURS TYPE OF COLUMN SALARY_SHEETS_R.FORAVPAYCALC_HOURS,
+  AVPAYCALC_DAY TYPE OF COLUMN SALARY_SHEETS_R.AVPAYCALC_DAY,
+  AVPAYCALC_HOUR TYPE OF COLUMN SALARY_SHEETS_R.AVPAYCALC_HOUR)
+AS
+declare km1 integer;
+    declare km2 integer;
+begin
+    km1 = (:pyr1 - 1900) * 13 + :pmt1;
+    km2 = (:pyr2 - 1900) * 13 + :pmt2;
+
+    for select
+        salary_sheets_r.id,
+        salary_sheets_r.type_tag,
+        salary_sheets_r.idp as ridp,
+        salary_sheets_r.idam,
+        salary_sheets.yr as ryr,
+        salary_sheets.mt as rmt,
+        salary_sheets_R.calendar_days_use,
+        salary_sheets_r.month_workdays,
+        salary_sheets_r.month_workhours,
+        salary_sheets_r.plan_days,
+        salary_sheets_r.plan_hours,
+        salary_sheets_r.plan_work_days,
+        salary_sheets_r.plan_work_hours,
+        salary_sheets_r.total_before_taxes,
+        salary_sheets_r.foravpaycalc_bruto,
+        salary_sheets_r.foravpaycalc_payout,
+        salary_sheets_r.foravpaycalc_days,
+        salary_sheets_r.foravpaycalc_hours,
+        salary_sheets_r.avpaycalc_day,
+        salary_sheets_r.avpaycalc_hour
+
+    from salary_sheets
+    inner join salary_sheets_r on salary_sheets.id = salary_sheets_r.idst
+
+    where
+        (salary_sheets_r.idp = :pidp) AND
+        (((salary_sheets.yr - 1900)*13 + salary_sheets.mt) between :km1 and :km2) AND
+        (salary_sheets.is_temp = 0) AND
+        (salary_sheets.kind = 1)
+
+
+    union all
+
+    select
+        pastdata.id,
+        0,
+        pastdata.idp as ridp,
+        -1,
+        pastdata.yr as ryr,
+        pastdata.mt as rmt,
+        pastdata.caldays,
+        pastdata.daysmt, 
+        pastdata.hoursmt,
+        pastdata.plandays,
+        pastdata.planhours,
+        pastdata.plandays,
+        pastdata.planhours,
+        pastdata.bruto2,
+        pastdata.bruto,
+        pastdata.pay,
+        pastdata.days,
+        pastdata.hours,
+        0,
+        0
+
+    from pastdata
+    where ((pastdata.idp = :PIDP) and
+        (((pastdata.yr - 1900)*13 + pastdata.mt) between :km1 and :km2))
+
+    into
+        :id,
+        :type_tag,
+        :idp,
+        :idam,
+        :yr, 
+        :mt,
+        :calendar_days,
+        :month_workdays,
+        :month_workhours,
+        :plan_days,
+        :plan_hours,
+        :plan_workdays,
+        :plan_workhours,
+        :total_before_taxes,
+        :foravpaycalc_bruto,
+        :foravpaycalc_payout,
+        :foravpaycalc_days,
+        :foravpaycalc_hours,
+        :avpaycalc_day,
+        :avpaycalc_hour
+  do
+  begin
+    suspend;
+  end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '024'
+WHERE PNAME = 'version';

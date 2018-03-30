@@ -560,6 +560,7 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="SQL\SQLV024.txt" />
     <None Include="packages.config" />
     <None Include="Pics\Icon1.ico" />
     <None Include="Pics\Icon2.ico" />

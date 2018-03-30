@@ -225,7 +225,7 @@ namespace KlonsA.Classes
             PFxA.TempRows2.AddRange(pfxs2);
 
 
-            PFxA.IinEx = CalcR.ExDivided.SumIINExemptsAll();
+            PFxA.IinEx = SI.SumIINExemptsAll();
 
             PFxA.DoPayFxA_Salary(SI._SALARY);
             PFxA.DoPayFxA_Bonus(PFxA.TempRows0);

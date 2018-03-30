@@ -313,7 +313,7 @@ namespace KlonsA.Classes
             var p1 = new PayFx();
             p1.SetFrom(this);
             AddPayRound(row);
-            CalcAllabAndRound();
+            CalcAllAndRound();
             row.SetFrom(this);
             row.Subtract(p1);
             Rows.Add(row);
@@ -336,7 +336,7 @@ namespace KlonsA.Classes
             var p1 = new PayFx();
             p1.SetFrom(this);
             AddPayRound(rowt);
-            CalcAllabAndRound();
+            CalcAllAndRound();
             rowt.SetFrom(this);
             rowt.Subtract(p1);
 

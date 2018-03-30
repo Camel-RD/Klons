@@ -968,6 +968,10 @@ namespace KlonsA.DataSets {
             
             private global::System.Data.DataColumn columnTOTAL_BEFORE_TAXES;
             
+            private global::System.Data.DataColumn columnPLAN_WORKDAYS;
+            
+            private global::System.Data.DataColumn columnPLAN_WORKHOURS;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AVPAYCALCDataTable() {
@@ -1147,6 +1151,22 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PLAN_WORKDAYSColumn {
+                get {
+                    return this.columnPLAN_WORKDAYS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PLAN_WORKHOURSColumn {
+                get {
+                    return this.columnPLAN_WORKHOURS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1200,7 +1220,9 @@ namespace KlonsA.DataSets {
                         int CALENDAR_DAYS, 
                         int PLAN_DAYS, 
                         float PLAN_HOURS, 
-                        decimal TOTAL_BEFORE_TAXES) {
+                        decimal TOTAL_BEFORE_TAXES, 
+                        int PLAN_WORKDAYS, 
+                        float PLAN_WORKHOURS) {
                 AVPAYCALCRow rowAVPAYCALCRow = ((AVPAYCALCRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -1220,7 +1242,9 @@ namespace KlonsA.DataSets {
                         CALENDAR_DAYS,
                         PLAN_DAYS,
                         PLAN_HOURS,
-                        TOTAL_BEFORE_TAXES};
+                        TOTAL_BEFORE_TAXES,
+                        PLAN_WORKDAYS,
+                        PLAN_WORKHOURS};
                 rowAVPAYCALCRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAVPAYCALCRow);
                 return rowAVPAYCALCRow;
@@ -1261,6 +1285,8 @@ namespace KlonsA.DataSets {
                 this.columnPLAN_DAYS = base.Columns["PLAN_DAYS"];
                 this.columnPLAN_HOURS = base.Columns["PLAN_HOURS"];
                 this.columnTOTAL_BEFORE_TAXES = base.Columns["TOTAL_BEFORE_TAXES"];
+                this.columnPLAN_WORKDAYS = base.Columns["PLAN_WORKDAYS"];
+                this.columnPLAN_WORKHOURS = base.Columns["PLAN_WORKHOURS"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1302,6 +1328,10 @@ namespace KlonsA.DataSets {
                 base.Columns.Add(this.columnPLAN_HOURS);
                 this.columnTOTAL_BEFORE_TAXES = new global::System.Data.DataColumn("TOTAL_BEFORE_TAXES", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTAL_BEFORE_TAXES);
+                this.columnPLAN_WORKDAYS = new global::System.Data.DataColumn("PLAN_WORKDAYS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPLAN_WORKDAYS);
+                this.columnPLAN_WORKHOURS = new global::System.Data.DataColumn("PLAN_WORKHOURS", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPLAN_WORKHOURS);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7427,6 +7457,38 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int PLAN_WORKDAYS {
+                get {
+                    try {
+                        return ((int)(this[this.tableAVPAYCALC.PLAN_WORKDAYSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PLAN_WORKDAYS\' in table \'AVPAYCALC\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAVPAYCALC.PLAN_WORKDAYSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public float PLAN_WORKHOURS {
+                get {
+                    try {
+                        return ((float)(this[this.tableAVPAYCALC.PLAN_WORKHOURSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PLAN_WORKHOURS\' in table \'AVPAYCALC\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAVPAYCALC.PLAN_WORKHOURSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableAVPAYCALC.IDColumn);
             }
@@ -7639,6 +7701,30 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTOTAL_BEFORE_TAXESNull() {
                 this[this.tableAVPAYCALC.TOTAL_BEFORE_TAXESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPLAN_WORKDAYSNull() {
+                return this.IsNull(this.tableAVPAYCALC.PLAN_WORKDAYSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPLAN_WORKDAYSNull() {
+                this[this.tableAVPAYCALC.PLAN_WORKDAYSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPLAN_WORKHOURSNull() {
+                return this.IsNull(this.tableAVPAYCALC.PLAN_WORKHOURSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPLAN_WORKHOURSNull() {
+                this[this.tableAVPAYCALC.PLAN_WORKHOURSColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14873,6 +14959,8 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PLAN_DAYS", "PLAN_DAYS");
             tableMapping.ColumnMappings.Add("PLAN_HOURS", "PLAN_HOURS");
             tableMapping.ColumnMappings.Add("TOTAL_BEFORE_TAXES", "TOTAL_BEFORE_TAXES");
+            tableMapping.ColumnMappings.Add("PLAN_WORKDAYS", "PLAN_WORKDAYS");
+            tableMapping.ColumnMappings.Add("PLAN_WORKHOURS", "PLAN_WORKHOURS");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

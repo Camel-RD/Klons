@@ -67,9 +67,12 @@ namespace KlonsA
                 return;
             }
             DataLoader.LoadSomeData();
-            ShowInfo("Darbs pie programmas vēl nav pabeigts,\n" +
-                "Šī versija ir paredzēta testēšanai,\n"+
-                "Ja tev ir ieteikumi uzlabojumiem, raksti uz e-pastu.");
+            if (MyData.Settings.ShowBetaWarning)
+            {
+                ShowInfo("Darbs pie programmas vēl nav pabeigts,\n" +
+                    "Šī versija ir paredzēta testēšanai,\n" +
+                    "Ja tev ir ieteikumi uzlabojumiem, raksti uz e-pastu.");
+            }
         }
 
         public void LoadData()

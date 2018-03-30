@@ -33,6 +33,7 @@ namespace KlonsA.Classes
         private bool showPayLists = false;
         private bool showFpPayDataPanel = false;
         private bool showFpPayLists = false;
+        private bool showBetaWarning = false;
 
         private int[] columnWidths_Docs = new int[0];
 
@@ -300,6 +301,17 @@ namespace KlonsA.Classes
             {
                 if (showFpPayLists == value) return;
                 showFpPayLists = value;
+                HasChanged = true;
+            }
+        }
+
+        public bool ShowBetaWarning
+        {
+            get { return showBetaWarning; }
+            set
+            {
+                if (showBetaWarning == value) return;
+                showBetaWarning = value;
                 HasChanged = true;
             }
         }

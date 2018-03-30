@@ -38,6 +38,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSar = new KlonsLIB.Components.MyDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbRateCalDay = new KlonsLIB.Components.MyTextBox();
@@ -55,6 +57,8 @@
             this.dgcBruto2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcCalDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcMonthWorkDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcMonthWorkHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDaysPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcHoursPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDaysFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +87,8 @@
             this.dgcBruto2,
             this.dgcPay,
             this.dgcCalDays,
+            this.dgcMonthWorkDays,
+            this.dgcMonthWorkHours,
             this.dgcDaysPlan,
             this.dgcHoursPlan,
             this.dgcDaysFact,
@@ -92,7 +98,7 @@
             this.dgvSar.Name = "dgvSar";
             this.dgvSar.ReadOnly = true;
             this.dgvSar.RowTemplate.Height = 24;
-            this.dgvSar.Size = new System.Drawing.Size(809, 234);
+            this.dgvSar.Size = new System.Drawing.Size(902, 234);
             this.dgvSar.TabIndex = 0;
             // 
             // panel1
@@ -110,7 +116,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 234);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(809, 138);
+            this.panel1.Size = new System.Drawing.Size(902, 138);
             this.panel1.TabIndex = 1;
             // 
             // tbRateCalDay
@@ -257,54 +263,81 @@
             this.dgcCalDays.HeaderText = "kalend. dienas";
             this.dgcCalDays.Name = "dgcCalDays";
             this.dgcCalDays.ReadOnly = true;
+            this.dgcCalDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgcCalDays.ToolTipText = "kalendāra dienas";
-            this.dgcCalDays.Width = 80;
+            this.dgcCalDays.Width = 70;
+            // 
+            // dgcMonthWorkDays
+            // 
+            this.dgcMonthWorkDays.DataPropertyName = "DaysPlan";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcMonthWorkDays.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcMonthWorkDays.HeaderText = "kalend. darba d.";
+            this.dgcMonthWorkDays.Name = "dgcMonthWorkDays";
+            this.dgcMonthWorkDays.ReadOnly = true;
+            this.dgcMonthWorkDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcMonthWorkDays.Width = 70;
+            // 
+            // dgcMonthWorkHours
+            // 
+            this.dgcMonthWorkHours.DataPropertyName = "HoursPlan";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcMonthWorkHours.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcMonthWorkHours.HeaderText = "kalend. darba st.";
+            this.dgcMonthWorkHours.Name = "dgcMonthWorkHours";
+            this.dgcMonthWorkHours.ReadOnly = true;
+            this.dgcMonthWorkHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcMonthWorkHours.Width = 70;
             // 
             // dgcDaysPlan
             // 
-            this.dgcDaysPlan.DataPropertyName = "DaysPlan";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcDaysPlan.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcDaysPlan.DataPropertyName = "WorkDaysPlan";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcDaysPlan.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgcDaysPlan.HeaderText = "dienas plāns";
             this.dgcDaysPlan.Name = "dgcDaysPlan";
             this.dgcDaysPlan.ReadOnly = true;
-            this.dgcDaysPlan.Width = 80;
+            this.dgcDaysPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcDaysPlan.Width = 70;
             // 
             // dgcHoursPlan
             // 
-            this.dgcHoursPlan.DataPropertyName = "HoursPlan";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcHoursPlan.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcHoursPlan.DataPropertyName = "WorkHoursPlan";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcHoursPlan.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgcHoursPlan.HeaderText = "stundas plāns";
             this.dgcHoursPlan.Name = "dgcHoursPlan";
             this.dgcHoursPlan.ReadOnly = true;
-            this.dgcHoursPlan.Width = 80;
+            this.dgcHoursPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcHoursPlan.Width = 70;
             // 
             // dgcDaysFact
             // 
             this.dgcDaysFact.DataPropertyName = "DaysFact";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcDaysFact.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcDaysFact.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgcDaysFact.HeaderText = "dienas fakts";
             this.dgcDaysFact.Name = "dgcDaysFact";
             this.dgcDaysFact.ReadOnly = true;
-            this.dgcDaysFact.Width = 80;
+            this.dgcDaysFact.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcDaysFact.Width = 70;
             // 
             // dgcHoursFact
             // 
             this.dgcHoursFact.DataPropertyName = "HoursFact";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcHoursFact.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcHoursFact.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgcHoursFact.HeaderText = "stundas fakts";
             this.dgcHoursFact.Name = "dgcHoursFact";
             this.dgcHoursFact.ReadOnly = true;
-            this.dgcHoursFact.Width = 80;
+            this.dgcHoursFact.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcHoursFact.Width = 70;
             // 
             // Form_AvPayCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 372);
+            this.ClientSize = new System.Drawing.Size(902, 372);
             this.Controls.Add(this.dgvSar);
             this.Controls.Add(this.panel1);
             this.Name = "Form_AvPayCalc";
@@ -337,6 +370,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBruto2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCalDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcMonthWorkDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcMonthWorkHours;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDaysPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcHoursPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDaysFact;
