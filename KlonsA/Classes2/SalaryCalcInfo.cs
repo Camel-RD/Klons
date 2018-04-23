@@ -471,6 +471,7 @@ namespace KlonsA.Classes
             }
             else
             {
+                iinexempts = 0.0M;
                 SI._AMOUNT_BEFORE_IIN = payAfterSAI;
                 decimal iin = 
                     (SI._AMOUNT_BEFORE_IIN + SI._DNSN_AMOUNT)* SI._RATE_IIN2 / 100.0M -

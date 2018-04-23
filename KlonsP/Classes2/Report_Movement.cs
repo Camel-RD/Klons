@@ -406,12 +406,16 @@ namespace KlonsP.Classes
                 {
                     var dic_totals = SumGroupTotals(firstGroupField, ReportRows, keys, ids);
                     foreach (var kv in dic_totals)
+                    {
+                        kv.Key.GroupingOrder = groupingorder;
                         GroupingDict[kv.Key] = kv.Value;
+                    }
 
                     var evs2 = GroupingDict
                         .Where(d => FilterGroupingKey(d.Key))
                         .OrderBy(d => d.Key)
-                        .Select(d => d.Value);
+                        .Select(d => d.Value)
+                        .ToArray();
 
                     ReportRows.Clear();
                     ReportRows.AddRange(evs);

@@ -1031,7 +1031,16 @@ namespace KlonsP.Forms
             }
             if (filterData1.fCAT1 != null)
             {
-                var fs1 = "TCAT1=" + filterData1.fCAT1.Value;
+                string fs1 = "";
+                var drf = MyData.DataSetKlons.CAT1.FindByID(filterData1.fCAT1.Value);
+                if (drf.GROUP == 0)
+                {
+                    fs1 = "TCAT1=" + filterData1.fCAT1.Value;
+                }
+                else
+                {
+                    fs1 = $"Parent(FK_ITEMS_TCAT1).CODE LIKE '{drf.CODE}*'";
+                }
                 fs = fs == "" ? fs1 : fs + " AND (" + fs1 + ")";
             }
             if (filterData1.fCATD != null)
@@ -1046,12 +1055,30 @@ namespace KlonsP.Forms
             }
             if (filterData1.fDEPARTMENT != null)
             {
-                var fs1 = "TDEPARTMENT=" + filterData1.fDEPARTMENT.Value;
+                string fs1 = "";
+                var drf = MyData.DataSetKlons.DEPARTMENTS.FindByID(filterData1.fDEPARTMENT.Value);
+                if (drf.GROUP == 0)
+                {
+                    fs1 = "TDEPARTMENT=" + filterData1.fDEPARTMENT.Value;
+                }
+                else
+                {
+                    fs1 = $"Parent(FK_ITEMS_TDEPARTMENT).CODE LIKE '{drf.CODE}*'";
+                }
                 fs = fs == "" ? fs1 : fs + " AND (" + fs1 + ")";
             }
             if (filterData1.fPLACE != null)
             {
-                var fs1 = "TPLACE=" + filterData1.fPLACE.Value;
+                string fs1 = "";
+                var drf = MyData.DataSetKlons.PLACES.FindByID(filterData1.fPLACE.Value);
+                if (drf.GROUP == 0)
+                {
+                    fs1 = "TPLACE=" + filterData1.fPLACE.Value;
+                }
+                else
+                {
+                    fs1 = $"Parent(FK_ITEMS_TPLACE).CODE LIKE '{drf.CODE}*'";
+                }
                 fs = fs == "" ? fs1 : fs + " AND (" + fs1 + ")";
             }
 

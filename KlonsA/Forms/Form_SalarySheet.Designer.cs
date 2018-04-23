@@ -1898,6 +1898,7 @@ namespace KlonsA.Forms
             // 
             // grtInt
             // 
+            this.grtInt.DataMember = null;
             this.grtInt.Name = "grtInt";
             this.grtInt.ReadOnly = true;
             this.grtInt.RowTitle = null;
@@ -1905,6 +1906,7 @@ namespace KlonsA.Forms
             // 
             // grtInt16
             // 
+            this.grtInt16.DataMember = null;
             this.grtInt16.Name = "grtInt16";
             this.grtInt16.ReadOnly = true;
             this.grtInt16.RowTitle = null;
@@ -1912,6 +1914,7 @@ namespace KlonsA.Forms
             // 
             // grtDouble
             // 
+            this.grtDouble.DataMember = null;
             this.grtDouble.Name = "grtDouble";
             this.grtDouble.ReadOnly = true;
             this.grtDouble.RowTitle = null;
@@ -1919,12 +1922,14 @@ namespace KlonsA.Forms
             // 
             // grDecimal
             // 
+            this.grDecimal.DataMember = null;
             this.grDecimal.Name = "grDecimal";
             this.grDecimal.RowTitle = null;
             this.grDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grString
             // 
+            this.grString.DataMember = null;
             this.grString.Name = "grString";
             this.grString.ReadOnly = true;
             this.grString.RowTitle = null;
@@ -1932,7 +1937,6 @@ namespace KlonsA.Forms
             // 
             // grDecimalProc
             // 
-            this.grDecimalProc.DataMember = null;
             this.grDecimalProc.FormatString = "0.00\\%";
             this.grDecimalProc.Name = "grDecimalProc";
             this.grDecimalProc.ReadOnly = true;
@@ -1941,6 +1945,7 @@ namespace KlonsA.Forms
             // 
             // grSingle
             // 
+            this.grSingle.DataMember = null;
             this.grSingle.Name = "grSingle";
             this.grSingle.ReadOnly = true;
             this.grSingle.RowTitle = null;
@@ -2761,6 +2766,7 @@ namespace KlonsA.Forms
             // 
             // grDecimalReadOnly
             // 
+            this.grDecimalReadOnly.DataMember = null;
             this.grDecimalReadOnly.Name = "grDecimalReadOnly";
             this.grDecimalReadOnly.ReadOnly = true;
             this.grDecimalReadOnly.RowTitle = null;
@@ -2772,7 +2778,7 @@ namespace KlonsA.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(332, 351);
+            this.tabPage2.Size = new System.Drawing.Size(332, 384);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2801,7 +2807,7 @@ namespace KlonsA.Forms
             this.sgrBonus.RowList.Add(this.grbTitle2);
             this.sgrBonus.RowList.Add(this.grbDescr2);
             this.sgrBonus.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.sgrBonus.Size = new System.Drawing.Size(332, 351);
+            this.sgrBonus.Size = new System.Drawing.Size(332, 384);
             this.sgrBonus.TabIndex = 0;
             this.sgrBonus.TabStop = true;
             this.sgrBonus.ToolTipText = "";
@@ -3220,7 +3226,7 @@ namespace KlonsA.Forms
             this.dgcSarName.HeaderText = "darbineiks";
             this.dgcSarName.Name = "dgcSarName";
             this.dgcSarName.ReadOnly = true;
-            this.dgcSarName.Width = 130;
+            this.dgcSarName.Width = 150;
             // 
             // dgcSarPositionTitle
             // 

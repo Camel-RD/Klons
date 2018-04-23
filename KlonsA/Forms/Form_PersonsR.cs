@@ -26,7 +26,10 @@ namespace KlonsA.Forms
             {
                 Form_Error.ShowException(e);
             }
+            toolStrip2.Renderer = MyMainForm.MainMenuStrip.Renderer;
             CheckMyFontAndColors();
+            toolStrip2.Font = this.Font;
+            tstbFindPerson.Font = this.Font;
 
             ShowOnlyUsed = MyData.Params.PersDataOnlyUsed;
         }
@@ -286,7 +289,7 @@ namespace KlonsA.Forms
 
             if (bsPersonsR.Count == 0) return;
 
-            var drv_last_pr = bsPersonsR[bsPersonsR.Count - 1] as DataRowView;
+            var drv_last_pr = bsPersonsR[0] as DataRowView;
             var row_last_pr = drv_last_pr.Row as KlonsADataSet.PERSONS_RRow;
 
             var lastdt = row_last_pr.EDIT_DATE;
@@ -318,7 +321,7 @@ namespace KlonsA.Forms
 
             if (bsAmatiR.Count == 0) return;
 
-            var drv_last_amr = bsAmatiR[bsAmatiR.Count - 1] as DataRowView;
+            var drv_last_amr = bsAmatiR[0] as DataRowView;
             var row_last_amr = drv_last_amr.Row as KlonsADataSet.POSITIONS_RRow;
 
             var lastdt = row_last_amr.EDIT_DATE;
@@ -780,7 +783,7 @@ namespace KlonsA.Forms
 
         public void ShowPersonsList(bool b)
         {
-            rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Checked = b;
+            rādītPaslēptDarbiniekuSarakstuToolStripMenuItem.Checked = b;
             mySplitContainer1.Panel1Collapsed = !b;
             cbPersons.Visible = !b;
             lbArrow1.Visible = !b;
@@ -1125,5 +1128,40 @@ namespace KlonsA.Forms
             }
         }
 
+        public int FindPerson(bool forward)
+        {
+            if (bsPersons.Position == -1 || bsPersons.Current == null || !Validate()) return -1;
+            var s = tstbFindPerson.Text;
+            if (string.IsNullOrEmpty(s)) return -1;
+            int step = forward ? 1 : -1;
+            for (int i = bsPersons.Position + step; i >= 0 && i < bsPersons.Count; i += step)
+            {
+                var dr = (bsPersons[i] as DataRowView).Row as KlonsADataSet.PERSONSRow;
+                if (dr.YNAME.IndexOf(s, StringComparison.OrdinalIgnoreCase) > -1)
+                {
+                    bsPersons.Position = i;
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private void tsbPrevPerson_Click(object sender, EventArgs e)
+        {
+            FindPerson(false);
+        }
+
+        private void tsbNextPerson_Click(object sender, EventArgs e)
+        {
+            FindPerson(true);
+        }
+
+        private void tstbFindPerson_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Return)
+            {
+                FindPerson(true);
+            }
+        }
     }
 }

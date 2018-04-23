@@ -641,7 +641,8 @@ namespace KlonsA.Classes
                 case 0: return "mēneša";
                 case 1: return "stundas";
                 case 2: return "dienas";
-                case 3: return "gamaldarba";
+                case 3: return "summētais";
+                case 4: return "gabaldarba";
             }
             return "?";
         }

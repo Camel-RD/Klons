@@ -1080,7 +1080,7 @@ FROM    TAXDEPRECYEAR</CommandText>
   <xs:element name="KlonsPDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="KlonsPDataSet" msprop:Generator_UserDSName="KlonsPDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="PARAMS" msprop:Generator_TableClassName="PARAMSDataTable" msprop:Generator_TableVarName="tablePARAMS" msprop:Generator_RowChangedName="PARAMSRowChanged" msprop:Generator_TablePropName="PARAMS" msprop:Generator_RowDeletingName="PARAMSRowDeleting" msprop:Generator_RowChangingName="PARAMSRowChanging" msprop:Generator_RowEvHandlerName="PARAMSRowChangeEventHandler" msprop:Generator_RowDeletedName="PARAMSRowDeleted" msprop:Generator_RowClassName="PARAMSRow" msprop:Generator_UserTableName="PARAMS" msprop:Generator_RowEvArgName="PARAMSRowChangeEvent">
+        <xs:element name="PARAMS" msprop:Generator_TableClassName="PARAMSDataTable" msprop:Generator_TableVarName="tablePARAMS" msprop:Generator_TablePropName="PARAMS" msprop:Generator_RowDeletingName="PARAMSRowDeleting" msprop:Generator_RowChangingName="PARAMSRowChanging" msprop:Generator_RowEvHandlerName="PARAMSRowChangeEventHandler" msprop:Generator_RowDeletedName="PARAMSRowDeleted" msprop:Generator_UserTableName="PARAMS" msprop:Generator_RowChangedName="PARAMSRowChanged" msprop:Generator_RowEvArgName="PARAMSRowChangeEvent" msprop:Generator_RowClassName="PARAMSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1108,7 +1108,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TUSERS" msprop:Generator_TableClassName="TUSERSDataTable" msprop:Generator_TableVarName="tableTUSERS" msprop:Generator_RowChangedName="TUSERSRowChanged" msprop:Generator_TablePropName="TUSERS" msprop:Generator_RowDeletingName="TUSERSRowDeleting" msprop:Generator_RowChangingName="TUSERSRowChanging" msprop:Generator_RowEvHandlerName="TUSERSRowChangeEventHandler" msprop:Generator_RowDeletedName="TUSERSRowDeleted" msprop:Generator_RowClassName="TUSERSRow" msprop:Generator_UserTableName="TUSERS" msprop:Generator_RowEvArgName="TUSERSRowChangeEvent">
+        <xs:element name="TUSERS" msprop:Generator_TableClassName="TUSERSDataTable" msprop:Generator_TableVarName="tableTUSERS" msprop:Generator_TablePropName="TUSERS" msprop:Generator_RowDeletingName="TUSERSRowDeleting" msprop:Generator_RowChangingName="TUSERSRowChanging" msprop:Generator_RowEvHandlerName="TUSERSRowChangeEventHandler" msprop:Generator_RowDeletedName="TUSERSRowDeleted" msprop:Generator_UserTableName="TUSERS" msprop:Generator_RowChangedName="TUSERSRowChanged" msprop:Generator_RowEvArgName="TUSERSRowChangeEvent" msprop:Generator_RowClassName="TUSERSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NM" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="NM" msprop:Generator_ColumnVarNameInTable="columnNM" msprop:Generator_ColumnPropNameInTable="NMColumn" msprop:Generator_UserColumnName="NM">
@@ -1136,7 +1136,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CAT1" msprop:Generator_TableClassName="CAT1DataTable" msprop:Generator_TableVarName="tableCAT1" msprop:Generator_RowChangedName="CAT1RowChanged" msprop:Generator_TablePropName="CAT1" msprop:Generator_RowDeletingName="CAT1RowDeleting" msprop:Generator_RowChangingName="CAT1RowChanging" msprop:Generator_RowEvHandlerName="CAT1RowChangeEventHandler" msprop:Generator_RowDeletedName="CAT1RowDeleted" msprop:Generator_RowClassName="CAT1Row" msprop:Generator_UserTableName="CAT1" msprop:Generator_RowEvArgName="CAT1RowChangeEvent">
+        <xs:element name="CAT1" msprop:Generator_TableClassName="CAT1DataTable" msprop:Generator_TableVarName="tableCAT1" msprop:Generator_TablePropName="CAT1" msprop:Generator_RowDeletingName="CAT1RowDeleting" msprop:Generator_RowChangingName="CAT1RowChanging" msprop:Generator_RowEvHandlerName="CAT1RowChangeEventHandler" msprop:Generator_RowDeletedName="CAT1RowDeleted" msprop:Generator_UserTableName="CAT1" msprop:Generator_RowChangedName="CAT1RowChanged" msprop:Generator_RowEvArgName="CAT1RowChangeEvent" msprop:Generator_RowClassName="CAT1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1161,7 +1161,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CATD" msprop:Generator_TableClassName="CATDDataTable" msprop:Generator_TableVarName="tableCATD" msprop:Generator_RowChangedName="CATDRowChanged" msprop:Generator_TablePropName="CATD" msprop:Generator_RowDeletingName="CATDRowDeleting" msprop:Generator_RowChangingName="CATDRowChanging" msprop:Generator_RowEvHandlerName="CATDRowChangeEventHandler" msprop:Generator_RowDeletedName="CATDRowDeleted" msprop:Generator_RowClassName="CATDRow" msprop:Generator_UserTableName="CATD" msprop:Generator_RowEvArgName="CATDRowChangeEvent">
+        <xs:element name="CATD" msprop:Generator_TableClassName="CATDDataTable" msprop:Generator_TableVarName="tableCATD" msprop:Generator_TablePropName="CATD" msprop:Generator_RowDeletingName="CATDRowDeleting" msprop:Generator_RowChangingName="CATDRowChanging" msprop:Generator_RowEvHandlerName="CATDRowChangeEventHandler" msprop:Generator_RowDeletedName="CATDRowDeleted" msprop:Generator_UserTableName="CATD" msprop:Generator_RowChangedName="CATDRowChanged" msprop:Generator_RowEvArgName="CATDRowChangeEvent" msprop:Generator_RowClassName="CATDRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1183,7 +1183,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CATT" msprop:Generator_TableClassName="CATTDataTable" msprop:Generator_TableVarName="tableCATT" msprop:Generator_RowChangedName="CATTRowChanged" msprop:Generator_TablePropName="CATT" msprop:Generator_RowDeletingName="CATTRowDeleting" msprop:Generator_RowChangingName="CATTRowChanging" msprop:Generator_RowEvHandlerName="CATTRowChangeEventHandler" msprop:Generator_RowDeletedName="CATTRowDeleted" msprop:Generator_RowClassName="CATTRow" msprop:Generator_UserTableName="CATT" msprop:Generator_RowEvArgName="CATTRowChangeEvent">
+        <xs:element name="CATT" msprop:Generator_TableClassName="CATTDataTable" msprop:Generator_TableVarName="tableCATT" msprop:Generator_TablePropName="CATT" msprop:Generator_RowDeletingName="CATTRowDeleting" msprop:Generator_RowChangingName="CATTRowChanging" msprop:Generator_RowEvHandlerName="CATTRowChangeEventHandler" msprop:Generator_RowDeletedName="CATTRowDeleted" msprop:Generator_UserTableName="CATT" msprop:Generator_RowChangedName="CATTRowChanged" msprop:Generator_RowEvArgName="CATTRowChangeEvent" msprop:Generator_RowClassName="CATTRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1207,7 +1207,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PLACES" msprop:Generator_TableClassName="PLACESDataTable" msprop:Generator_TableVarName="tablePLACES" msprop:Generator_RowChangedName="PLACESRowChanged" msprop:Generator_TablePropName="PLACES" msprop:Generator_RowDeletingName="PLACESRowDeleting" msprop:Generator_RowChangingName="PLACESRowChanging" msprop:Generator_RowEvHandlerName="PLACESRowChangeEventHandler" msprop:Generator_RowDeletedName="PLACESRowDeleted" msprop:Generator_RowClassName="PLACESRow" msprop:Generator_UserTableName="PLACES" msprop:Generator_RowEvArgName="PLACESRowChangeEvent">
+        <xs:element name="PLACES" msprop:Generator_TableClassName="PLACESDataTable" msprop:Generator_TableVarName="tablePLACES" msprop:Generator_TablePropName="PLACES" msprop:Generator_RowDeletingName="PLACESRowDeleting" msprop:Generator_RowChangingName="PLACESRowChanging" msprop:Generator_RowEvHandlerName="PLACESRowChangeEventHandler" msprop:Generator_RowDeletedName="PLACESRowDeleted" msprop:Generator_UserTableName="PLACES" msprop:Generator_RowChangedName="PLACESRowChanged" msprop:Generator_RowEvArgName="PLACESRowChangeEvent" msprop:Generator_RowClassName="PLACESRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1236,7 +1236,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EVENTS" msprop:Generator_TableClassName="EVENTSDataTable" msprop:Generator_TableVarName="tableEVENTS" msprop:Generator_RowChangedName="EVENTSRowChanged" msprop:Generator_TablePropName="EVENTS" msprop:Generator_RowDeletingName="EVENTSRowDeleting" msprop:Generator_RowChangingName="EVENTSRowChanging" msprop:Generator_RowEvHandlerName="EVENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="EVENTSRowDeleted" msprop:Generator_RowClassName="EVENTSRow" msprop:Generator_UserTableName="EVENTS" msprop:Generator_RowEvArgName="EVENTSRowChangeEvent">
+        <xs:element name="EVENTS" msprop:Generator_TableClassName="EVENTSDataTable" msprop:Generator_TableVarName="tableEVENTS" msprop:Generator_TablePropName="EVENTS" msprop:Generator_RowDeletingName="EVENTSRowDeleting" msprop:Generator_RowChangingName="EVENTSRowChanging" msprop:Generator_RowEvHandlerName="EVENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="EVENTSRowDeleted" msprop:Generator_UserTableName="EVENTS" msprop:Generator_RowChangedName="EVENTSRowChanged" msprop:Generator_RowEvArgName="EVENTSRowChangeEvent" msprop:Generator_RowClassName="EVENTSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1259,7 +1259,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ITEMS" msprop:Generator_TableClassName="ITEMSDataTable" msprop:Generator_TableVarName="tableITEMS" msprop:Generator_RowChangedName="ITEMSRowChanged" msprop:Generator_TablePropName="ITEMS" msprop:Generator_RowDeletingName="ITEMSRowDeleting" msprop:Generator_RowChangingName="ITEMSRowChanging" msprop:Generator_RowEvHandlerName="ITEMSRowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMSRowDeleted" msprop:Generator_RowClassName="ITEMSRow" msprop:Generator_UserTableName="ITEMS" msprop:Generator_RowEvArgName="ITEMSRowChangeEvent">
+        <xs:element name="ITEMS" msprop:Generator_TableClassName="ITEMSDataTable" msprop:Generator_TableVarName="tableITEMS" msprop:Generator_TablePropName="ITEMS" msprop:Generator_RowDeletingName="ITEMSRowDeleting" msprop:Generator_RowChangingName="ITEMSRowChanging" msprop:Generator_RowEvHandlerName="ITEMSRowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMSRowDeleted" msprop:Generator_UserTableName="ITEMS" msprop:Generator_RowChangedName="ITEMSRowChanged" msprop:Generator_RowEvArgName="ITEMSRowChangeEvent" msprop:Generator_RowClassName="ITEMSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1312,7 +1312,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ITEMS_EVENTS" msprop:Generator_TableClassName="ITEMS_EVENTSDataTable" msprop:Generator_TableVarName="tableITEMS_EVENTS" msprop:Generator_RowChangedName="ITEMS_EVENTSRowChanged" msprop:Generator_TablePropName="ITEMS_EVENTS" msprop:Generator_RowDeletingName="ITEMS_EVENTSRowDeleting" msprop:Generator_RowChangingName="ITEMS_EVENTSRowChanging" msprop:Generator_RowEvHandlerName="ITEMS_EVENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMS_EVENTSRowDeleted" msprop:Generator_RowClassName="ITEMS_EVENTSRow" msprop:Generator_UserTableName="ITEMS_EVENTS" msprop:Generator_RowEvArgName="ITEMS_EVENTSRowChangeEvent">
+        <xs:element name="ITEMS_EVENTS" msprop:Generator_TableClassName="ITEMS_EVENTSDataTable" msprop:Generator_TableVarName="tableITEMS_EVENTS" msprop:Generator_TablePropName="ITEMS_EVENTS" msprop:Generator_RowDeletingName="ITEMS_EVENTSRowDeleting" msprop:Generator_RowChangingName="ITEMS_EVENTSRowChanging" msprop:Generator_RowEvHandlerName="ITEMS_EVENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMS_EVENTSRowDeleted" msprop:Generator_UserTableName="ITEMS_EVENTS" msprop:Generator_RowChangedName="ITEMS_EVENTSRowChanged" msprop:Generator_RowEvArgName="ITEMS_EVENTSRowChangeEvent" msprop:Generator_RowClassName="ITEMS_EVENTSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1374,7 +1374,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DEPARTMENTS" msprop:Generator_TableClassName="DEPARTMENTSDataTable" msprop:Generator_TableVarName="tableDEPARTMENTS" msprop:Generator_RowChangedName="DEPARTMENTSRowChanged" msprop:Generator_TablePropName="DEPARTMENTS" msprop:Generator_RowDeletingName="DEPARTMENTSRowDeleting" msprop:Generator_RowChangingName="DEPARTMENTSRowChanging" msprop:Generator_RowEvHandlerName="DEPARTMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="DEPARTMENTSRowDeleted" msprop:Generator_RowClassName="DEPARTMENTSRow" msprop:Generator_UserTableName="DEPARTMENTS" msprop:Generator_RowEvArgName="DEPARTMENTSRowChangeEvent">
+        <xs:element name="DEPARTMENTS" msprop:Generator_TableClassName="DEPARTMENTSDataTable" msprop:Generator_TableVarName="tableDEPARTMENTS" msprop:Generator_TablePropName="DEPARTMENTS" msprop:Generator_RowDeletingName="DEPARTMENTSRowDeleting" msprop:Generator_RowChangingName="DEPARTMENTSRowChanging" msprop:Generator_RowEvHandlerName="DEPARTMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="DEPARTMENTSRowDeleted" msprop:Generator_UserTableName="DEPARTMENTS" msprop:Generator_RowChangedName="DEPARTMENTSRowChanged" msprop:Generator_RowEvArgName="DEPARTMENTSRowChangeEvent" msprop:Generator_RowClassName="DEPARTMENTSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1396,7 +1396,7 @@ FROM    TAXDEPRECYEAR</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TAXDEPRECYEAR" msprop:Generator_TableClassName="TAXDEPRECYEARDataTable" msprop:Generator_TableVarName="tableTAXDEPRECYEAR" msprop:Generator_RowChangedName="TAXDEPRECYEARRowChanged" msprop:Generator_TablePropName="TAXDEPRECYEAR" msprop:Generator_RowDeletingName="TAXDEPRECYEARRowDeleting" msprop:Generator_RowChangingName="TAXDEPRECYEARRowChanging" msprop:Generator_RowEvHandlerName="TAXDEPRECYEARRowChangeEventHandler" msprop:Generator_RowDeletedName="TAXDEPRECYEARRowDeleted" msprop:Generator_RowClassName="TAXDEPRECYEARRow" msprop:Generator_UserTableName="TAXDEPRECYEAR" msprop:Generator_RowEvArgName="TAXDEPRECYEARRowChangeEvent">
+        <xs:element name="TAXDEPRECYEAR" msprop:Generator_TableClassName="TAXDEPRECYEARDataTable" msprop:Generator_TableVarName="tableTAXDEPRECYEAR" msprop:Generator_TablePropName="TAXDEPRECYEAR" msprop:Generator_RowDeletingName="TAXDEPRECYEARRowDeleting" msprop:Generator_RowChangingName="TAXDEPRECYEARRowChanging" msprop:Generator_RowEvHandlerName="TAXDEPRECYEARRowChangeEventHandler" msprop:Generator_RowDeletedName="TAXDEPRECYEARRowDeleted" msprop:Generator_UserTableName="TAXDEPRECYEAR" msprop:Generator_RowChangedName="TAXDEPRECYEARRowChanged" msprop:Generator_RowEvArgName="TAXDEPRECYEARRowChangeEvent" msprop:Generator_RowClassName="TAXDEPRECYEARRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1466,65 +1466,85 @@ FROM    TAXDEPRECYEAR</CommandText>
       <xs:selector xpath=".//mstns:TAXDEPRECYEAR" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:keyref name="FK_TAXDEPRECYEAR_CATT" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="TAXDEPRECYEAR" msprop:rel_Generator_ChildPropName="GetTAXDEPRECYEARRows" msprop:rel_Generator_UserRelationName="FK_TAXDEPRECYEAR_CATT" msprop:rel_Generator_RelationVarName="relationFK_TAXDEPRECYEAR_CATT" msprop:rel_Generator_UserParentTable="CATT" msprop:rel_Generator_ParentPropName="CATTRow" msdata:DeleteRule="None">
+    <xs:keyref name="FK_TAXDEPRECYEAR_CATT" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="TAXDEPRECYEAR" msprop:rel_Generator_ChildPropName="GetTAXDEPRECYEARRows" msprop:rel_Generator_UserRelationName="FK_TAXDEPRECYEAR_CATT" msprop:rel_Generator_ParentPropName="CATTRow" msprop:rel_Generator_RelationVarName="relationFK_TAXDEPRECYEAR_CATT" msprop:rel_Generator_UserParentTable="CATT" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:TAXDEPRECYEAR" />
       <xs:field xpath="mstns:CATT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_EVENT" refer="EVENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_EVENT1" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_EVENT1" msprop:rel_Generator_UserParentTable="EVENTS" msprop:rel_Generator_ParentPropName="EVENTSRow" msdata:RelationName="FK_ITEMS_EVENTS_EVENT1" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_EVENTS_CATT1" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_CATT" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_CATT" msprop:rel_Generator_UserParentTable="CATT" msprop:rel_Generator_ParentPropName="CATTRow" msdata:RelationName="FK_ITEMS_EVENTS_CATT" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
-      <xs:field xpath="mstns:EVENT" />
+      <xs:field xpath="mstns:CATT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_DEPARTMENT" refer="DEPARTMENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_DEPARTMENT1" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_DEPARTMENT1" msprop:rel_Generator_UserParentTable="DEPARTMENTS" msprop:rel_Generator_ParentPropName="DEPARTMENTSRow" msdata:RelationName="FK_ITEMS_EVENTS_DEPARTMENT1" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_EVENTS_PLACE1" refer="PLACES_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_PLACE" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_PLACE" msprop:rel_Generator_UserParentTable="PLACES" msprop:rel_Generator_ParentPropName="PLACESRow" msdata:RelationName="FK_ITEMS_EVENTS_PLACE" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
-      <xs:field xpath="mstns:DEPARTMENT" />
+      <xs:field xpath="mstns:PLACE" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_IDIT" refer="ITEMS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_IDIT" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_IDIT" msprop:rel_Generator_UserParentTable="ITEMS" msprop:rel_Generator_ParentPropName="ITEMSRow">
+    <xs:keyref name="FK_ITEMS_EVENTS_CATD1" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_CATD" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_CATD" msprop:rel_Generator_UserParentTable="CATD" msprop:rel_Generator_ParentPropName="CATDRow" msdata:RelationName="FK_ITEMS_EVENTS_CATD" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
+      <xs:field xpath="mstns:CATD" />
+    </xs:keyref>
+    <xs:keyref name="FK_ITEMS_EVENTS_CAT11" refer="CAT1_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_CAT1" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_CAT1" msprop:rel_Generator_UserParentTable="CAT1" msprop:rel_Generator_ParentPropName="CAT1Row" msdata:RelationName="FK_ITEMS_EVENTS_CAT1" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
+      <xs:field xpath="mstns:CAT1" />
+    </xs:keyref>
+    <xs:keyref name="FK_ITEMS_EVENTS_IDIT" refer="ITEMS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_IDIT" msprop:rel_Generator_ParentPropName="ITEMSRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_IDIT" msprop:rel_Generator_UserParentTable="ITEMS">
       <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
       <xs:field xpath="mstns:IDIT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_CAT11" refer="CAT1_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_CAT1" msprop:rel_Generator_ParentPropName="CAT1Row" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_CAT1" msprop:rel_Generator_UserParentTable="CAT1" msdata:RelationName="FK_ITEMS_EVENTS_CAT1" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_EVENTS_DEPARTMENT" refer="DEPARTMENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_DEPARTMENT1" msprop:rel_Generator_ParentPropName="DEPARTMENTSRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_DEPARTMENT1" msprop:rel_Generator_UserParentTable="DEPARTMENTS" msdata:RelationName="FK_ITEMS_EVENTS_DEPARTMENT1" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
-      <xs:field xpath="mstns:CAT1" />
+      <xs:field xpath="mstns:DEPARTMENT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_CATD1" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_CATD" msprop:rel_Generator_ParentPropName="CATDRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_CATD" msprop:rel_Generator_UserParentTable="CATD" msdata:RelationName="FK_ITEMS_EVENTS_CATD" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_EVENTS_EVENT" refer="EVENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_EVENT1" msprop:rel_Generator_ParentPropName="EVENTSRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_EVENT1" msprop:rel_Generator_UserParentTable="EVENTS" msdata:RelationName="FK_ITEMS_EVENTS_EVENT1" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
-      <xs:field xpath="mstns:CATD" />
+      <xs:field xpath="mstns:EVENT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_PLACE1" refer="PLACES_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_PLACE" msprop:rel_Generator_ParentPropName="PLACESRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_PLACE" msprop:rel_Generator_UserParentTable="PLACES" msdata:RelationName="FK_ITEMS_EVENTS_PLACE" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
-      <xs:field xpath="mstns:PLACE" />
-    </xs:keyref>
-    <xs:keyref name="FK_ITEMS_EVENTS_CATT1" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS_EVENTS" msprop:rel_Generator_ChildPropName="GetITEMS_EVENTSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_EVENTS_CATT" msprop:rel_Generator_ParentPropName="CATTRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_EVENTS_CATT" msprop:rel_Generator_UserParentTable="CATT" msdata:RelationName="FK_ITEMS_EVENTS_CATT" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:ITEMS_EVENTS" />
-      <xs:field xpath="mstns:CATT" />
-    </xs:keyref>
-    <xs:keyref name="FK_ITEMS_CAT11" refer="CAT1_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_CAT1" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_CAT1" msprop:rel_Generator_UserParentTable="CAT1" msprop:rel_Generator_ParentPropName="CAT1Row" msdata:RelationName="FK_ITEMS_CAT1" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_TDEPARTMENT" refer="DEPARTMENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRowsByFK_ITEMS_TDEPARTMENT" msprop:rel_Generator_UserRelationName="FK_ITEMS_TDEPARTMENT" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_TDEPARTMENT" msprop:rel_Generator_UserParentTable="DEPARTMENTS" msprop:rel_Generator_ParentPropName="DEPARTMENTSRowByFK_ITEMS_TDEPARTMENT" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS" />
-      <xs:field xpath="mstns:CAT1" />
+      <xs:field xpath="mstns:TDEPARTMENT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_PLACE1" refer="PLACES_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_PLACE" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_PLACE" msprop:rel_Generator_UserParentTable="PLACES" msprop:rel_Generator_ParentPropName="PLACESRow" msdata:RelationName="FK_ITEMS_PLACE" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_TPLACE" refer="PLACES_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRowsByFK_ITEMS_TPLACE" msprop:rel_Generator_UserRelationName="FK_ITEMS_TPLACE" msprop:rel_Generator_ParentPropName="PLACESRowByFK_ITEMS_TPLACE" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_TPLACE" msprop:rel_Generator_UserParentTable="PLACES" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS" />
-      <xs:field xpath="mstns:PLACE" />
+      <xs:field xpath="mstns:TPLACE" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_CATD1" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_CATD" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_CATD" msprop:rel_Generator_UserParentTable="CATD" msprop:rel_Generator_ParentPropName="CATDRow" msdata:RelationName="FK_ITEMS_CATD" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_TCATT" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRowsByFK_ITEMS_TCATT" msprop:rel_Generator_UserRelationName="FK_ITEMS_TCATT" msprop:rel_Generator_ParentPropName="CATTRowByFK_ITEMS_TCATT" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_TCATT" msprop:rel_Generator_UserParentTable="CATT" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS" />
-      <xs:field xpath="mstns:CATD" />
+      <xs:field xpath="mstns:TCATT" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_CATT1" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_CATT" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_CATT" msprop:rel_Generator_UserParentTable="CATT" msprop:rel_Generator_ParentPropName="CATTRow" msdata:RelationName="FK_ITEMS_CATT" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_TCATD" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRowsByFK_ITEMS_TCATD" msprop:rel_Generator_UserRelationName="FK_ITEMS_TCATD" msprop:rel_Generator_ParentPropName="CATDRowByFK_ITEMS_TCATD" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_TCATD" msprop:rel_Generator_UserParentTable="CATD" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS" />
-      <xs:field xpath="mstns:CATT" />
+      <xs:field xpath="mstns:TCATD" />
     </xs:keyref>
-    <xs:keyref name="FK_ITEMS_DEPARTMENT" refer="DEPARTMENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_DEPARTMENT1" msprop:rel_Generator_ParentPropName="DEPARTMENTSRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_DEPARTMENT1" msprop:rel_Generator_UserParentTable="DEPARTMENTS" msdata:RelationName="FK_ITEMS_DEPARTMENT1" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_TCAT1" refer="CAT1_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRowsByFK_ITEMS_TCAT1" msprop:rel_Generator_UserRelationName="FK_ITEMS_TCAT1" msprop:rel_Generator_ParentPropName="CAT1RowByFK_ITEMS_TCAT1" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_TCAT1" msprop:rel_Generator_UserParentTable="CAT1" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS" />
+      <xs:field xpath="mstns:TCAT1" />
+    </xs:keyref>
+    <xs:keyref name="FK_ITEMS_DEPARTMENT" refer="DEPARTMENTS_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_DEPARTMENT1" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_DEPARTMENT1" msprop:rel_Generator_UserParentTable="DEPARTMENTS" msprop:rel_Generator_ParentPropName="DEPARTMENTSRow" msdata:RelationName="FK_ITEMS_DEPARTMENT1" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:ITEMS" />
       <xs:field xpath="mstns:DEPARTMENT" />
     </xs:keyref>
-    <xs:keyref name="FK_CAT1_IDCD1" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="CAT1" msprop:rel_Generator_ChildPropName="GetCAT1Rows" msprop:rel_Generator_UserRelationName="FK_CAT1_IDCD" msprop:rel_Generator_ParentPropName="CATDRow" msprop:rel_Generator_RelationVarName="relationFK_CAT1_IDCD" msprop:rel_Generator_UserParentTable="CATD" msdata:RelationName="FK_CAT1_IDCD" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:CAT1" />
-      <xs:field xpath="mstns:IDCD" />
+    <xs:keyref name="FK_ITEMS_CATT1" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_CATT" msprop:rel_Generator_ParentPropName="CATTRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_CATT" msprop:rel_Generator_UserParentTable="CATT" msdata:RelationName="FK_ITEMS_CATT" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS" />
+      <xs:field xpath="mstns:CATT" />
     </xs:keyref>
-    <xs:keyref name="FK_CAT1_IDCT1" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="CAT1" msprop:rel_Generator_ChildPropName="GetCAT1Rows" msprop:rel_Generator_UserRelationName="FK_CAT1_IDCT" msprop:rel_Generator_ParentPropName="CATTRow" msprop:rel_Generator_RelationVarName="relationFK_CAT1_IDCT" msprop:rel_Generator_UserParentTable="CATT" msdata:RelationName="FK_CAT1_IDCT" msdata:DeleteRule="None">
+    <xs:keyref name="FK_ITEMS_CATD1" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_CATD" msprop:rel_Generator_ParentPropName="CATDRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_CATD" msprop:rel_Generator_UserParentTable="CATD" msdata:RelationName="FK_ITEMS_CATD" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS" />
+      <xs:field xpath="mstns:CATD" />
+    </xs:keyref>
+    <xs:keyref name="FK_ITEMS_PLACE1" refer="PLACES_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_PLACE" msprop:rel_Generator_ParentPropName="PLACESRow" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_PLACE" msprop:rel_Generator_UserParentTable="PLACES" msdata:RelationName="FK_ITEMS_PLACE" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS" />
+      <xs:field xpath="mstns:PLACE" />
+    </xs:keyref>
+    <xs:keyref name="FK_ITEMS_CAT11" refer="CAT1_Constraint1" msprop:rel_Generator_UserChildTable="ITEMS" msprop:rel_Generator_ChildPropName="GetITEMSRows" msprop:rel_Generator_UserRelationName="FK_ITEMS_CAT1" msprop:rel_Generator_ParentPropName="CAT1Row" msprop:rel_Generator_RelationVarName="relationFK_ITEMS_CAT1" msprop:rel_Generator_UserParentTable="CAT1" msdata:RelationName="FK_ITEMS_CAT1" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:ITEMS" />
+      <xs:field xpath="mstns:CAT1" />
+    </xs:keyref>
+    <xs:keyref name="FK_CAT1_IDCT1" refer="CATT_Constraint1" msprop:rel_Generator_UserChildTable="CAT1" msprop:rel_Generator_ChildPropName="GetCAT1Rows" msprop:rel_Generator_UserRelationName="FK_CAT1_IDCT" msprop:rel_Generator_RelationVarName="relationFK_CAT1_IDCT" msprop:rel_Generator_UserParentTable="CATT" msprop:rel_Generator_ParentPropName="CATTRow" msdata:RelationName="FK_CAT1_IDCT" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:CAT1" />
       <xs:field xpath="mstns:IDCT" />
+    </xs:keyref>
+    <xs:keyref name="FK_CAT1_IDCD1" refer="CATD_Constraint1" msprop:rel_Generator_UserChildTable="CAT1" msprop:rel_Generator_ChildPropName="GetCAT1Rows" msprop:rel_Generator_UserRelationName="FK_CAT1_IDCD" msprop:rel_Generator_RelationVarName="relationFK_CAT1_IDCD" msprop:rel_Generator_UserParentTable="CATD" msprop:rel_Generator_ParentPropName="CATDRow" msdata:RelationName="FK_CAT1_IDCD" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:CAT1" />
+      <xs:field xpath="mstns:IDCD" />
     </xs:keyref>
     <xs:keyref name="FK_PARAMS_USR_TUSERS_NM" refer="TUSERS_Constraint1" msdata:ConstraintOnly="true" msdata:UpdateRule="None" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:PARAMS" />

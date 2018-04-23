@@ -170,6 +170,10 @@ namespace KlonsA.Forms
             this.mySplitContainer1 = new KlonsLIB.Components.MySplitContainer();
             this.dgvPersons = new KlonsLIB.Components.MyDataGridView();
             this.zNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tsbPrevPerson = new System.Windows.Forms.ToolStripButton();
+            this.tstbFindPerson = new System.Windows.Forms.ToolStripTextBox();
+            this.tsbNextPerson = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new KlonsLIB.Components.TabControlWithoutHeader();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.sgrAmati = new KlonsLIB.MySourceGrid.MyGrid();
@@ -196,7 +200,7 @@ namespace KlonsA.Forms
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.darbiniekuDatiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rādītPaslēptDarbiniekuSarakstuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miShowOnlyUsed = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.miAddPerson = new System.Windows.Forms.ToolStripMenuItem();
@@ -230,6 +234,7 @@ namespace KlonsA.Forms
             this.mySplitContainer1.Panel2.SuspendLayout();
             this.mySplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
+            this.toolStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsBanks)).BeginInit();
@@ -1580,7 +1585,7 @@ namespace KlonsA.Forms
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lbArrow1,
             this.toolStripLabel2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 33);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1053, 28);
             this.toolStrip1.TabIndex = 9;
@@ -1680,17 +1685,18 @@ namespace KlonsA.Forms
             // mySplitContainer1
             // 
             this.mySplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mySplitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.mySplitContainer1.Location = new System.Drawing.Point(0, 61);
             this.mySplitContainer1.Name = "mySplitContainer1";
             // 
             // mySplitContainer1.Panel1
             // 
             this.mySplitContainer1.Panel1.Controls.Add(this.dgvPersons);
+            this.mySplitContainer1.Panel1.Controls.Add(this.toolStrip2);
             // 
             // mySplitContainer1.Panel2
             // 
             this.mySplitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.mySplitContainer1.Size = new System.Drawing.Size(1053, 421);
+            this.mySplitContainer1.Size = new System.Drawing.Size(1053, 388);
             this.mySplitContainer1.SplitterDistance = 209;
             this.mySplitContainer1.SplitterWidth = 6;
             this.mySplitContainer1.TabIndex = 14;
@@ -1708,12 +1714,12 @@ namespace KlonsA.Forms
             this.zNAMEDataGridViewTextBoxColumn});
             this.dgvPersons.DataSource = this.bsPersons;
             this.dgvPersons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPersons.Location = new System.Drawing.Point(0, 0);
+            this.dgvPersons.Location = new System.Drawing.Point(0, 32);
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.ReadOnly = true;
             this.dgvPersons.RowHeadersVisible = false;
             this.dgvPersons.RowTemplate.Height = 24;
-            this.dgvPersons.Size = new System.Drawing.Size(209, 421);
+            this.dgvPersons.Size = new System.Drawing.Size(209, 356);
             this.dgvPersons.TabIndex = 0;
             // 
             // zNAMEDataGridViewTextBoxColumn
@@ -1724,6 +1730,51 @@ namespace KlonsA.Forms
             this.zNAMEDataGridViewTextBoxColumn.ReadOnly = true;
             this.zNAMEDataGridViewTextBoxColumn.Width = 170;
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbPrevPerson,
+            this.tstbFindPerson,
+            this.tsbNextPerson});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(209, 32);
+            this.toolStrip2.Stretch = true;
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // tsbPrevPerson
+            // 
+            this.tsbPrevPerson.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPrevPerson.Image = ((System.Drawing.Image)(resources.GetObject("tsbPrevPerson.Image")));
+            this.tsbPrevPerson.Name = "tsbPrevPerson";
+            this.tsbPrevPerson.RightToLeftAutoMirrorImage = true;
+            this.tsbPrevPerson.Size = new System.Drawing.Size(25, 29);
+            this.tsbPrevPerson.Text = "Iet uz iepriekšējo";
+            this.tsbPrevPerson.ToolTipText = "Atrast iepriekšējo";
+            this.tsbPrevPerson.Click += new System.EventHandler(this.tsbPrevPerson_Click);
+            // 
+            // tstbFindPerson
+            // 
+            this.tstbFindPerson.Margin = new System.Windows.Forms.Padding(1);
+            this.tstbFindPerson.Name = "tstbFindPerson";
+            this.tstbFindPerson.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.tstbFindPerson.Size = new System.Drawing.Size(120, 30);
+            this.tstbFindPerson.ToolTipText = "Meklēt darbinieku";
+            this.tstbFindPerson.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstbFindPerson_KeyDown);
+            // 
+            // tsbNextPerson
+            // 
+            this.tsbNextPerson.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNextPerson.Image = ((System.Drawing.Image)(resources.GetObject("tsbNextPerson.Image")));
+            this.tsbNextPerson.Name = "tsbNextPerson";
+            this.tsbNextPerson.RightToLeftAutoMirrorImage = true;
+            this.tsbNextPerson.Size = new System.Drawing.Size(25, 29);
+            this.tsbNextPerson.Text = "Iet uz nākošo";
+            this.tsbNextPerson.ToolTipText = "Atrast nākošo";
+            this.tsbNextPerson.Click += new System.EventHandler(this.tsbNextPerson_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -1733,7 +1784,7 @@ namespace KlonsA.Forms
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(838, 421);
+            this.tabControl1.Size = new System.Drawing.Size(838, 388);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -1743,7 +1794,7 @@ namespace KlonsA.Forms
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(830, 392);
+            this.tabPage1.Size = new System.Drawing.Size(830, 359);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "pamatdati";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1788,7 +1839,7 @@ namespace KlonsA.Forms
             this.sgrAmati.RowTemplateList.Add(this.shrwAmariDecimal);
             this.sgrAmati.RowTemplateList.Add(this.shrwAmatiRateType);
             this.sgrAmati.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.sgrAmati.Size = new System.Drawing.Size(350, 389);
+            this.sgrAmati.Size = new System.Drawing.Size(350, 356);
             this.sgrAmati.TabIndex = 9;
             this.sgrAmati.TabStop = true;
             this.sgrAmati.ToolTipText = "";
@@ -1937,7 +1988,7 @@ namespace KlonsA.Forms
             this.sgrPersR.RowTemplateList.Add(this.sharedPersonsDecimal);
             this.sgrPersR.RowTemplateList.Add(this.shedPersonsTextAllowNull);
             this.sgrPersR.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.sgrPersR.Size = new System.Drawing.Size(340, 389);
+            this.sgrPersR.Size = new System.Drawing.Size(340, 356);
             this.sgrPersR.TabIndex = 8;
             this.sgrPersR.TabStop = true;
             this.sgrPersR.ToolTipText = "";
@@ -2070,7 +2121,7 @@ namespace KlonsA.Forms
             // darbiniekuDatiToolStripMenuItem
             // 
             this.darbiniekuDatiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem,
+            this.rādītPaslēptDarbiniekuSarakstuToolStripMenuItem,
             this.miShowOnlyUsed,
             this.toolStripSeparator1,
             this.miAddPerson,
@@ -2084,12 +2135,12 @@ namespace KlonsA.Forms
             this.darbiniekuDatiToolStripMenuItem.Size = new System.Drawing.Size(153, 29);
             this.darbiniekuDatiToolStripMenuItem.Text = "Darbinieku dati";
             // 
-            // rādītPaslēptDarbiniekuKartiņasToolStripMenuItem
+            // rādītPaslēptDarbiniekuSarakstuToolStripMenuItem
             // 
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Name = "rādītPaslēptDarbiniekuKartiņasToolStripMenuItem";
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Text = "Rādīt darbinieku sarakstu";
-            this.rādītPaslēptDarbiniekuKartiņasToolStripMenuItem.Click += new System.EventHandler(this.rādītDarbiniekuSarakstuToolStripMenuItem_Click);
+            this.rādītPaslēptDarbiniekuSarakstuToolStripMenuItem.Name = "rādītPaslēptDarbiniekuSarakstuToolStripMenuItem";
+            this.rādītPaslēptDarbiniekuSarakstuToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
+            this.rādītPaslēptDarbiniekuSarakstuToolStripMenuItem.Text = "Rādīt darbinieku sarakstu";
+            this.rādītPaslēptDarbiniekuSarakstuToolStripMenuItem.Click += new System.EventHandler(this.rādītDarbiniekuSarakstuToolStripMenuItem_Click);
             // 
             // miShowOnlyUsed
             // 
@@ -2189,10 +2240,13 @@ namespace KlonsA.Forms
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.mySplitContainer1.Panel1.ResumeLayout(false);
+            this.mySplitContainer1.Panel1.PerformLayout();
             this.mySplitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mySplitContainer1)).EndInit();
             this.mySplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsBanks)).EndInit();
@@ -2315,7 +2369,7 @@ namespace KlonsA.Forms
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA rwVacationDays;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem darbiniekuDatiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rādītPaslēptDarbiniekuKartiņasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rādītPaslēptDarbiniekuSarakstuToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem pārbaudītNotikumusDarbiniekamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem;
@@ -2367,5 +2421,9 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNotOcc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNotID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNotIDP;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton tsbPrevPerson;
+        private System.Windows.Forms.ToolStripTextBox tstbFindPerson;
+        private System.Windows.Forms.ToolStripButton tsbNextPerson;
     }
 }
