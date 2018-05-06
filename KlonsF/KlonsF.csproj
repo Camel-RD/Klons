@@ -491,6 +491,9 @@
     <Content Include="Reports\Report_PVN_dekl_2.rdlc" />
     <Content Include="Reports\Report_PVN_piel1_2.rdlc" />
     <Content Include="Reports\Report_PVN_piel3_2.rdlc" />
+    <Content Include="Reports\Report_Bilance_31.rdlc" />
+    <Content Include="Reports\Report_Bilance_41.rdlc" />
+    <EmbeddedResource Include="SQL\SQLV077.txt" />
     <EmbeddedResource Include="SQL\SQLV075.txt" />
     <EmbeddedResource Include="SQL\SQLV073.txt" />
     <EmbeddedResource Include="SQL\SQLV070.txt" />
@@ -754,6 +757,8 @@
     <None Include="DataSets\klonsDataSet.xss">
       <DependentUpon>klonsDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\KlonsF.Forms.FormRep_Bilance.datasource" />
+    <None Include="Properties\DataSources\KlonsF.Forms.RepRow_BalMT.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

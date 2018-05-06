@@ -92,12 +92,25 @@ namespace KlonsF.Forms
 
             SaveParams();
 
-            if (selectedreport == 2)
+            if (selectedreport == 4)
             {
-                DoIt2();
+                DoIt3();
                 return;
             }
+            if (selectedreport == 0 || selectedreport == 1)
+            {
+                DoIt1(selectedreport);
+                return;
+            }
+            if (selectedreport == 2 || selectedreport == 3)
+            {
+                DoIt2(selectedreport);
+                return;
+            }
+        }
 
+        private void DoIt1(int selectedreport)
+        {
             var ad = MyData.GetKlonsAdapter("BalA21") as BalA21TableAdapter;
             var ad2 = MyData.GetKlonsAdapter("BalA22") as BalA22TableAdapter;
             if (ad == null) return;
@@ -122,10 +135,10 @@ namespace KlonsF.Forms
             switch (selectedreport)
             {
                 case 0:
-                    rd.FileName = "Report_Bilance_1";
+                    rd.FileName = "Report_Bilance_2";
                     break;
                 case 1:
-                    rd.FileName = "Report_Bilance_2";
+                    rd.FileName = "Report_Bilance_1";
                     break;
             }
 
@@ -135,6 +148,56 @@ namespace KlonsF.Forms
                 "dc, nr",
                 DataViewRowState.CurrentRows);
             rd.Sources["DataSet1"] = dv;
+            rd.AddReportParameters(
+                new string[]
+                {
+                    "RSD", MyData.Params.RSD,
+                    "RED", MyData.Params.RED,
+                    "CompanyName", MyData.Params.CompNameX,
+                    "RTITLE", rtitle,
+                    "RAKTIVS", raktivs,
+                    "RPASIVS", rpasivs
+                });
+            MyMainForm.ShowReport(rd);
+        }
+
+        private void DoIt2(int selectedreport)
+        {
+            var ad = MyData.GetKlonsAdapter("BalA2") as BalA2TableAdapter;
+            var ad2 = MyData.GetKlonsRepAdapter("SP_REP_BAL_22") as SP_REP_BAL_22TableAdapter;
+            if (ad == null) return;
+
+            try
+            {
+                MyData.DataSetKlons.BalA2.Clear();
+                MyData.DataSetKlons.BalA22.Clear();
+                MyData.DataSetKlonsRep.SP_REP_BAL_22.Clear();
+                ad.Fill(MyData.DataSetKlons.BalA2);
+                ad2.Fill(MyData.DataSetKlonsRep.SP_REP_BAL_22, startDate, endDate, balid);
+            }
+            catch (Exception)
+            {
+                MyMainForm.ShowWarning("Neizdevās sagatavot atskaiti.");
+                return;
+            }
+
+            List<RepRow_BalMT> reprows = null;
+
+            ReportViewerData rd = new ReportViewerData();
+
+            switch (selectedreport)
+            {
+                case 2:
+                    reprows = PrepareReportMt_apgr(balid, MyData.DataSetKlonsRep.SP_REP_BAL_22);
+                    rd.FileName = "Report_Bilance_31";
+                    break;
+                case 3:
+                    reprows = PrepareReportMt_atl(balid, MyData.DataSetKlonsRep.SP_REP_BAL_22);
+                    rd.FileName = "Report_Bilance_41";
+                    break;
+            }
+
+            rd.Sources["DataSet1"] = reprows;
             rd.AddReportParameters(
                 new string[]
                 {
@@ -162,7 +225,7 @@ namespace KlonsF.Forms
             return false;
         }
 
-        private void DoIt2()
+        private void DoIt3()
         {
             if(MyData.DataSetKlons.BalA3.Count == 0)
             {
@@ -230,6 +293,122 @@ namespace KlonsF.Forms
             MyMainForm.ShowReport(rd);
         }
 
+        public List<RepRow_BalMT> PrepareReportMt_apgr(string balid, KlonsF.DataSets.klonsRepDataSet.SP_REP_BAL_22DataTable table)
+        {
+            var ret = new List<RepRow_BalMT>();
+            foreach(var dr in table)
+            {
+                var drb = MyData.DataSetKlons.BalA2.FindByid(dr.ID);
+                if (drb == null) continue;
+                var rr = new RepRow_BalMT()
+                {
+                    id = dr.ID,
+                    bid = dr.BID,
+                    Dc = drb.dc,
+                    Tp = drb.tp,
+                    Nr = drb.Descr,
+                    Descr = drb.Descr,
+                    M0 = dr.M0,
+                    M1 = dr.M1,
+                    M2 = dr.M2,
+                    M3 = dr.M3,
+                    M4 = dr.M4,
+                    M5 = dr.M5,
+                    M6 = dr.M6,
+                    M7 = dr.M7,
+                    M8 = dr.M8,
+                    M9 = dr.M9,
+                    M10 = dr.M10,
+                    M11 = dr.M11,
+                    M12 = dr.M12
+                };
+                rr.M13 = rr.M1 + rr.M2 + rr.M3 + rr.M4 + rr.M5 + rr.M6 + rr.M7 + rr.M8 + rr.M9 + rr.M10 + rr.M11 + rr.M12;
+                if (rr.Tp == "V")
+                {
+                    rr.M0 = 0.0M;
+                    rr.M1 = 0.0M;
+                    rr.M2 = 0.0M;
+                    rr.M3 = 0.0M;
+                    rr.M4 = 0.0M;
+                    rr.M5 = 0.0M;
+                    rr.M6 = 0.0M;
+                    rr.M7 = 0.0M;
+                    rr.M8 = 0.0M;
+                    rr.M9 = 0.0M;
+                    rr.M10 = 0.0M;
+                    rr.M11 = 0.0M;
+                    rr.M12 = 0.0M;
+                    rr.M13 = 0.0M;
+                }
+                ret.Add(rr);
+            }
+            return ret;
+        }
+
+        public List<RepRow_BalMT> PrepareReportMt_atl(string balid, KlonsF.DataSets.klonsRepDataSet.SP_REP_BAL_22DataTable table)
+        {
+            var ret = new List<RepRow_BalMT>();
+            foreach (var dr in table)
+            {
+                var drb = MyData.DataSetKlons.BalA2.FindByid(dr.ID);
+                if (drb == null) continue;
+                var rr = new RepRow_BalMT()
+                {
+                    id = dr.ID,
+                    bid = dr.BID,
+                    Dc = drb.dc,
+                    Tp = drb.tp,
+                    Nr = drb.Descr,
+                    Descr = drb.Descr,
+                    M0 = dr.M0,
+                    M1 = dr.M1,
+                    M2 = dr.M2,
+                    M3 = dr.M3,
+                    M4 = dr.M4,
+                    M5 = dr.M5,
+                    M6 = dr.M6,
+                    M7 = dr.M7,
+                    M8 = dr.M8,
+                    M9 = dr.M9,
+                    M10 = dr.M10,
+                    M11 = dr.M11,
+                    M12 = dr.M12
+                };
+                rr.M1 += rr.M0;
+                rr.M2 += rr.M1;
+                rr.M3 += rr.M2;
+                rr.M4 += rr.M3;
+                rr.M5 += rr.M4;
+                rr.M6 += rr.M5;
+                rr.M7 += rr.M6;
+                rr.M8 += rr.M7;
+                rr.M9 += rr.M8;
+                rr.M10 += rr.M9;
+                rr.M11 += rr.M10;
+                rr.M12 += rr.M11;
+
+                if (rr.Tp == "V")
+                {
+                    rr.M0 = 0.0M;
+                    rr.M1 = 0.0M;
+                    rr.M2 = 0.0M;
+                    rr.M3 = 0.0M;
+                    rr.M4 = 0.0M;
+                    rr.M5 = 0.0M;
+                    rr.M6 = 0.0M;
+                    rr.M7 = 0.0M;
+                    rr.M8 = 0.0M;
+                    rr.M9 = 0.0M;
+                    rr.M10 = 0.0M;
+                    rr.M11 = 0.0M;
+                    rr.M12 = 0.0M;
+                    rr.M13 = 0.0M;
+                }
+
+                ret.Add(rr);
+            }
+            return ret;
+        }
 
         private void cmReport_Click(object sender, EventArgs e)
         {
@@ -260,4 +439,29 @@ namespace KlonsF.Forms
         }
 
     }
+
+    public class RepRow_BalMT
+    {
+        public int id { get; set; } = 0;
+        public int bid { get; set; } = 0;
+        public string Nr { get; set; } = null;
+        public string Dc { get; set; } = null;
+        public string Tp { get; set; } = null;
+        public string Descr { get; set; } = null;
+        public decimal M0 { get; set; } = 0.0M;
+        public decimal M1 { get; set; } = 0.0M;
+        public decimal M2 { get; set; } = 0.0M;
+        public decimal M3 { get; set; } = 0.0M;
+        public decimal M4 { get; set; } = 0.0M;
+        public decimal M5 { get; set; } = 0.0M;
+        public decimal M6 { get; set; } = 0.0M;
+        public decimal M7 { get; set; } = 0.0M;
+        public decimal M8 { get; set; } = 0.0M;
+        public decimal M9 { get; set; } = 0.0M;
+        public decimal M10 { get; set; } = 0.0M;
+        public decimal M11 { get; set; } = 0.0M;
+        public decimal M12 { get; set; } = 0.0M;
+        public decimal M13 { get; set; } = 0.0M;
+    }
+
 }

@@ -1,0 +1,776 @@
+﻿CREATE GENERATOR GEN_TTEMP_BALMT1_ID;
+
+CREATE GLOBAL TEMPORARY TABLE TTEMP_BALMT1 (
+    ID INTEGER NOT NULL,
+    SPID INTEGER DEFAULT 0,
+    AC VARCHAR(8) NOT NULL COLLATE UNICODE_CI,
+    M0 MONEY DEFAULT 0 NOT NULL,
+    M1 MONEY DEFAULT 0 NOT NULL,
+    M2 MONEY DEFAULT 0 NOT NULL,
+    M3 MONEY DEFAULT 0 NOT NULL,
+    M4 MONEY DEFAULT 0 NOT NULL,
+    M5 MONEY DEFAULT 0 NOT NULL,
+    M6 MONEY DEFAULT 0 NOT NULL,
+    M7 MONEY DEFAULT 0 NOT NULL,
+    M8 MONEY DEFAULT 0 NOT NULL,
+    M9 MONEY DEFAULT 0 NOT NULL,
+    M10 MONEY DEFAULT 0 NOT NULL,
+    M11 MONEY DEFAULT 0 NOT NULL,
+    M12 MONEY DEFAULT 0 NOT NULL)
+ ON COMMIT DELETE ROWS;
+
+CREATE GLOBAL TEMPORARY TABLE TTEMP_BALMT2 (
+    ID INTEGER NOT NULL,
+    SPID INTEGER,
+    BID INTEGER DEFAULT 0 NOT NULL,
+    M0 MONEY DEFAULT 0 NOT NULL,
+    M1 MONEY DEFAULT 0 NOT NULL,
+    M2 MONEY DEFAULT 0 NOT NULL,
+    M3 MONEY DEFAULT 0 NOT NULL,
+    M4 MONEY DEFAULT 0 NOT NULL,
+    M5 MONEY DEFAULT 0 NOT NULL,
+    M6 MONEY DEFAULT 0 NOT NULL,
+    M7 MONEY DEFAULT 0 NOT NULL,
+    M8 MONEY DEFAULT 0 NOT NULL,
+    M9 MONEY DEFAULT 0 NOT NULL,
+    M10 MONEY DEFAULT 0 NOT NULL,
+    M11 MONEY DEFAULT 0 NOT NULL,
+    M12 MONEY DEFAULT 0 NOT NULL)
+ ON COMMIT DELETE ROWS;
+
+SET TERM ^ ;
+
+CREATE TRIGGER TTEMP_BALMT1_BI FOR TTEMP_BALMT1
+ACTIVE
+BEFORE INSERT
+POSITION 0 
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(gen_ttemp_balmt1_id,1);
+end
+^
+
+CREATE TRIGGER TTEMP_BALMT2_BI FOR TTEMP_BALMT2
+ACTIVE
+BEFORE INSERT
+POSITION 0 
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(gen_ttemp_balmt1_id,1);
+end
+^
+
+SET TERM ; ^
+
+ALTER TABLE TTEMP_BALMT1 ADD CONSTRAINT PK_TTEMP_BALMT1 PRIMARY KEY (ID);
+
+ALTER TABLE TTEMP_BALMT2 ADD CONSTRAINT PK_TTEMP_BALMT2 PRIMARY KEY (ID);
+
+SET TERM ^ ;
+
+CREATE PROCEDURE SP_REP_BAL_21(
+  SDT DATE,
+  EDT DATE)
+RETURNS (
+  AC VARCHAR(8),
+  M0 MONEY,
+  M1 MONEY,
+  M2 MONEY,
+  M3 MONEY,
+  M4 MONEY,
+  M5 MONEY,
+  M6 MONEY,
+  M7 MONEY,
+  M8 MONEY,
+  M9 MONEY,
+  M10 MONEY,
+  M11 MONEY,
+  M12 MONEY)
+AS
+begin
+    FOR SELECT
+        AC, M0, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10, M11, M12
+    FROM
+    (
+        SELECT
+            T2.AC AS AC,
+            SUM(CASE WHEN MT = 0 THEN S1 ELSE 0.00 END) AS M0,
+            SUM(CASE WHEN MT = 1 THEN S1 ELSE 0.00 END) AS M1,
+            SUM(CASE WHEN MT = 2 THEN S1 ELSE 0.00 END) AS M2,
+            SUM(CASE WHEN MT = 3 THEN S1 ELSE 0.00 END) AS M3,
+            SUM(CASE WHEN MT = 4 THEN S1 ELSE 0.00 END) AS M4,
+            SUM(CASE WHEN MT = 5 THEN S1 ELSE 0.00 END) AS M5,
+            SUM(CASE WHEN MT = 6 THEN S1 ELSE 0.00 END) AS M6,
+            SUM(CASE WHEN MT = 7 THEN S1 ELSE 0.00 END) AS M7,
+            SUM(CASE WHEN MT = 8 THEN S1 ELSE 0.00 END) AS M8,
+            SUM(CASE WHEN MT = 9 THEN S1 ELSE 0.00 END) AS M9,
+            SUM(CASE WHEN MT = 10 THEN S1 ELSE 0.00 END) AS M10,
+            SUM(CASE WHEN MT = 11 THEN S1 ELSE 0.00 END) AS M11,
+            SUM(CASE WHEN MT = 12 THEN S1 ELSE 0.00 END) AS M12
+        FROM
+        (
+            SELECT AC, MT, SUM(SDb - SCr) AS S1
+            FROM
+            (
+                SELECT 
+                    OPS.AC11 AS AC,
+                    CASE
+                        WHEN OPSd.Dete < :sdt THEN 0
+                        ELSE EXTRACT(MONTH FROM OPSd.Dete)
+                    END AS MT,
+    
+                    OPS.Summ AS SDb,
+                    0.00 AS SCr
+    
+                FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                WHERE OPSd.Dete <= :edt
+    
+                UNION ALL
+    
+                SELECT 
+                    OPS.AC21 AS AC,
+                    CASE
+                        WHEN OPSd.Dete < :sdt THEN 0
+                        ELSE EXTRACT(MONTH FROM OPSd.Dete)
+                    END AS MT,
+    
+                    0.00 AS SDb,
+                    OPS.Summ AS SCr
+    
+                FROM OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                WHERE OPSd.Dete <= :edt
+    
+                UNION ALL
+    
+                SELECT 
+                    Bal0.AC11 AS AC,
+                    0 AS MT,
+                    Bal0.SummD AS SDb,
+                    Bal0.SummC AS SCr
+                FROM Bal0
+    
+            ) AS T1
+    
+            GROUP BY T1.AC, T1.MT
+        ) AS T2    
+    
+        WHERE (S1) <> 0.00
+        GROUP BY AC
+    )
+    ORDER BY AC
+    INTO
+        :AC, :M0, :M1, :M2, :M3, :M4, :M5, :M6, :M7, :M8, :M9, :M10, :M11, :M12
+    DO
+    BEGIN
+        SUSPEND;
+    END
+end
+^
+
+CREATE PROCEDURE SP_REP_BAL_22(
+  SDT DATE,
+  EDT DATE,
+  PBALID VARCHAR(10))
+RETURNS (
+  ID INTEGER,
+  SPID INTEGER,
+  BID INTEGER,
+  M0 MONEY,
+  M1 MONEY,
+  M2 MONEY,
+  M3 MONEY,
+  M4 MONEY,
+  M5 MONEY,
+  M6 MONEY,
+  M7 MONEY,
+  M8 MONEY,
+  M9 MONEY,
+  M10 MONEY,
+  M11 MONEY,
+  M12 MONEY)
+AS
+begin
+    INSERT INTO ttemp_balmt1 (AC, M0, M1, M2, M3, M4, M5,
+            M6, M7, M8, M9, M10, M11, M12)
+        SELECT T1.AC, T1.M0, T1.M1, T1.M2, T1.M3, T1.M4, T1.M5,
+                T1.M6, T1.M7, T1.M8, T1.M9, T1.M10, T1.M11, T1.M12
+        FROM sp_rep_bal_21(:SDT, :EDT) AS T1;
+
+    INSERT INTO ttemp_BalMT2 (bid, M0, M1, M2, M3, M4, M5,
+            M6, M7, M8, M9, M10, M11, M12)
+    SELECT 
+        BalA2.id AS bid,
+        SUM(iif(BalA3.tp = 'Db', T1a.M0, - T1a.M0)) AS M0,
+        SUM(iif(BalA3.tp = 'Db', T1a.M1, - T1a.M1)) AS M1,
+        SUM(iif(BalA3.tp = 'Db', T1a.M2, - T1a.M2)) AS M2,
+        SUM(iif(BalA3.tp = 'Db', T1a.M3, - T1a.M3)) AS M3,
+        SUM(iif(BalA3.tp = 'Db', T1a.M4, - T1a.M4)) AS M4,
+        SUM(iif(BalA3.tp = 'Db', T1a.M5, - T1a.M5)) AS M5,
+        SUM(iif(BalA3.tp = 'Db', T1a.M6, - T1a.M6)) AS M6,
+        SUM(iif(BalA3.tp = 'Db', T1a.M7, - T1a.M7)) AS M7,
+        SUM(iif(BalA3.tp = 'Db', T1a.M8, - T1a.M8)) AS M8,
+        SUM(iif(BalA3.tp = 'Db', T1a.M9, - T1a.M9)) AS M9,
+        SUM(iif(BalA3.tp = 'Db', T1a.M10, - T1a.M10)) AS M10,
+        SUM(iif(BalA3.tp = 'Db', T1a.M11, - T1a.M11)) AS M11,
+        SUM(iif(BalA3.tp = 'Db', T1a.M12, - T1a.M12)) AS M12
+    FROM BalA1
+        INNER JOIN BalA2 ON BalA1.balid = BalA2.balid
+        INNER JOIN BalA3 ON BalA2.id = BalA3.id2
+        INNER JOIN ttemp_balMT1 AS T1a ON T1a.AC LIKE REPLACE(BalA3.ac,'*','%')
+    WHERE
+        BalA1.balid = :pbalid AND
+        BalA2.tp = 'S'
+    GROUP BY BalA2.id;
+
+
+    INSERT INTO ttemp_BalMT2 (bid, M0, M1, M2, M3, M4, M5,
+            M6, M7, M8, M9, M10, M11, M12)
+    SELECT 
+        BalA2.id AS bid,
+        SUM(T2.M0) AS M0,
+        SUM(T2.M1) AS M1,
+        SUM(T2.M2) AS M2,
+        SUM(T2.M3) AS M3,
+        SUM(T2.M4) AS M4,
+        SUM(T2.M5) AS M5,
+        SUM(T2.M6) AS M6,
+        SUM(T2.M7) AS M7,
+        SUM(T2.M8) AS M8,
+        SUM(T2.M9) AS M9,
+        SUM(T2.M10) AS M10,
+        SUM(T2.M11) AS M11,
+        SUM(T2.M12) AS M12
+    FROM 
+        BalA1 
+        INNER JOIN BalA2 ON BalA1.balid = BalA2.balid
+        INNER JOIN
+            (
+                SELECT
+                    BalA2.nr,
+                    ttemp_BalMT2.M0,
+                    ttemp_BalMT2.M1,
+                    ttemp_BalMT2.M2,
+                    ttemp_BalMT2.M3,
+                    ttemp_BalMT2.M4,
+                    ttemp_BalMT2.M5,
+                    ttemp_BalMT2.M6,
+                    ttemp_BalMT2.M7,
+                    ttemp_BalMT2.M8,
+                    ttemp_BalMT2.M9,
+                    ttemp_BalMT2.M10,
+                    ttemp_BalMT2.M11,
+                    ttemp_BalMT2.M12
+                FROM BalA2 INNER JOIN ttemp_BalMT2
+                    ON ttemp_BalMT2.bid = BalA2.id
+            ) AS T2
+            ON T2.nr BETWEEN BalA2.nr1 AND BalA2.nr2
+    WHERE
+        BalA1.balid = :pbalid AND
+        BalA2.tp = 'K'
+    GROUP BY BalA2.id;
+
+
+    INSERT INTO ttemp_BalMT2 (bid, M0, M1, M2, M3, M4, M5,
+            M6, M7, M8, M9, M10, M11, M12)
+    SELECT 
+        BalA2.id AS bid,
+        SUM(T2.M0) AS M0,
+        SUM(T2.M1) AS M1,
+        SUM(T2.M2) AS M2,
+        SUM(T2.M3) AS M3,
+        SUM(T2.M4) AS M4,
+        SUM(T2.M5) AS M5,
+        SUM(T2.M6) AS M6,
+        SUM(T2.M7) AS M7,
+        SUM(T2.M8) AS M8,
+        SUM(T2.M9) AS M9,
+        SUM(T2.M10) AS M10,
+        SUM(T2.M11) AS M11,
+        SUM(T2.M12) AS M12
+    FROM 
+        BalA1 
+        INNER JOIN BalA2 ON BalA1.balid = BalA2.balid
+        INNER JOIN
+            (
+                SELECT
+                    BalA2.nr,
+                    ttemp_BalMT2.M0,
+                    ttemp_BalMT2.M1,
+                    ttemp_BalMT2.M2,
+                    ttemp_BalMT2.M3,
+                    ttemp_BalMT2.M4,
+                    ttemp_BalMT2.M5,
+                    ttemp_BalMT2.M6,
+                    ttemp_BalMT2.M7,
+                    ttemp_BalMT2.M8,
+                    ttemp_BalMT2.M9,
+                    ttemp_BalMT2.M10,
+                    ttemp_BalMT2.M11,
+                    ttemp_BalMT2.M12
+                FROM BalA2 INNER JOIN ttemp_BalMT2
+                    ON ttemp_BalMT2.bid = BalA2.id
+            ) AS T2
+            ON T2.nr = BalA2.nr1
+    WHERE
+        BalA1.balid = :pbalid AND
+        BalA2.tp = 'V'
+    GROUP BY BalA2.id;
+
+
+    FOR SELECT
+        ttemp_BalMT2.bid AS id, -- hack
+        0 AS spid,
+        ttemp_BalMT2.bid AS bid,
+        ttemp_BalMT2.M0 AS M0,
+        ttemp_BalMT2.M1 AS M1,
+        ttemp_BalMT2.M2 AS M2,
+        ttemp_BalMT2.M3 AS M3,
+        ttemp_BalMT2.M4 AS M4,
+        ttemp_BalMT2.M5 AS M5,
+        ttemp_BalMT2.M6 AS M6,
+        ttemp_BalMT2.M7 AS M7,
+        ttemp_BalMT2.M8 AS M8,
+        ttemp_BalMT2.M9 AS M9,
+        ttemp_BalMT2.M10 AS M10,
+        ttemp_BalMT2.M11 AS M11,
+        ttemp_BalMT2.M12 AS M12
+    FROM ttemp_BalMT2
+        INNER JOIN BalA2 ON ttemp_BalMT2.bid = BalA2.id
+    ORDER BY BalA2.nr
+
+    into
+        :id, :spid, :bid, :M0, :M1, :M2, :M3, :M4, :M5, :M6, :M7, :M8, :M9, :M10, :M11, :M12
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+ALTER PROCEDURE SP_REP_PERS_13(
+  SDT DATE,
+  EDT DATE,
+  PAC VARCHAR(8),
+  PCLID VARCHAR(15))
+RETURNS (
+  ID TYPE OF COLUMN TREPA1.ID,
+  SPID TYPE OF COLUMN TREPA1.SPID,
+  I1 TYPE OF COLUMN TREPA1.I1,
+  NM TYPE OF COLUMN TREPA1.NM,
+  DT TYPE OF COLUMN TREPA1.DT,
+  ST TYPE OF COLUMN TREPA1.ST,
+  NR TYPE OF COLUMN TREPA1.NR,
+  S1 TYPE OF COLUMN TREPA1.S1,
+  S2 TYPE OF COLUMN TREPA1.S2,
+  S3 TYPE OF COLUMN TREPA1.S3,
+  S4 TYPE OF COLUMN TREPA1.S4)
+AS
+begin
+-- neapmaksātās pavadzīmess, kas izrakstītas pēc :sdt,
+--        vai kur ir bijusi kustība pēc :edt
+    FOR SELECT
+        gen_id(GEN_TREPA1_ID, 1) as ID,
+        current_connection as SPID,
+        T2.ClId AS i1,
+        Persons.Name AS nm,
+        T2.dt AS dt,
+        T2.DocSt AS st,
+        T2.DocNr AS nr,
+        T2.BDb AS s1,
+        T2.BCr AS s2,
+        0.0 AS s3, 
+        0.0 AS s4
+    FROM
+    (
+        SELECT ClId, COALESCE(MAX(dtx), MIN(dt)) AS dt, DocSt, DocNr, SUM(TDb) AS BDb, SUM(TCr) AS BCr
+        FROM
+        (
+            SELECT 
+                OPSd.ClId AS ClId,
+                OPSd.Dete AS dt,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                OPS.Summ AS TDb,
+                0.00 AS TCr,
+                iif(:pac starting '2', OPSd.Dete, null) as dtx
+
+            FROM 
+                OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcP21 ON OPS.AC11 = AcP21.AC
+            WHERE 
+                OPS.AC11 LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR OPSd.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                OPSd.ClId AS ClId,
+                OPSd.Dete AS dt,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                0.00 AS TDb,
+                OPS.Summ AS TCr,
+                iif(:pac starting '5', OPSd.Dete, null) as dtx
+
+            FROM 
+                OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcP21 ON OPS.AC21 = AcP21.AC
+            WHERE 
+                OPS.AC21 LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR OPSd.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                DOCS0.ClId AS ClId,
+                DOCS0.Dete AS dt,
+                DOCS0.DocSt AS DocSt,
+                DOCS0.DocNr AS DocNr,
+                DOCS0.Summ AS TDb,
+                0.00 AS TCr,
+                iif(:pac starting '2', DOCS0.Dete, null) as dtx
+
+            FROM 
+                DOCS0
+                INNER JOIN AcP21 ON DOCS0.AC = AcP21.AC
+            WHERE 
+                DOCS0.Summ > 0.0 AND
+                DOCS0.AC LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR DOCS0.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                DOCS0.ClId AS ClId,
+                DOCS0.Dete AS dt,
+                DOCS0.DocSt AS DocSt,
+                DOCS0.DocNr AS DocNr,
+                0.00 AS TDb,
+                -DOCS0.Summ AS TcR,
+                iif(:pac starting '5', DOCS0.Dete, null) as dtx
+
+            FROM 
+                DOCS0
+                INNER JOIN AcP21 ON DOCS0.AC = AcP21.AC
+            WHERE 
+                DOCS0.Summ < 0.0 AND
+                DOCS0.AC LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR DOCS0.ClId = :pclid)
+
+        ) AS T1
+
+        GROUP BY T1.ClId, T1.DocSt, T1.DocNr
+        HAVING MIN(T1.dt) >= :sdt OR MAX(T1.dt) >= :edt
+
+    ) AS T2    
+    
+    INNER JOIN Persons ON Persons.ClId = T2.Clid
+    
+    WHERE BDb <> BCr
+    ORDER BY i1, dt, nr
+
+    into
+        :id, :spid, :i1, :nm, :dt, :st, :nr,
+        :s1, :s2, :s3, :s4
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+ALTER PROCEDURE SP_REP_PERS_14(
+  SDT DATE,
+  EDT DATE,
+  PAC VARCHAR(8),
+  PCLID VARCHAR(15))
+RETURNS (
+  ID TYPE OF COLUMN TREPA1.ID,
+  SPID TYPE OF COLUMN TREPA1.SPID,
+  I1 TYPE OF COLUMN TREPA1.I1,
+  NM TYPE OF COLUMN TREPA1.NM,
+  DT TYPE OF COLUMN TREPA1.DT,
+  ST TYPE OF COLUMN TREPA1.ST,
+  NR TYPE OF COLUMN TREPA1.NR,
+  S1 TYPE OF COLUMN TREPA1.S1,
+  S2 TYPE OF COLUMN TREPA1.S2,
+  S3 TYPE OF COLUMN TREPA1.S3,
+  S4 TYPE OF COLUMN TREPA1.S4)
+AS
+begin
+-- pavadzÄ«mes
+    FOR SELECT
+        gen_id(GEN_TREPA1_ID, 1) as ID,
+        current_connection as SPID,
+        T2.ClId AS i1,
+        Persons.Name AS nm,
+        T2.dt AS dt,
+        T2.DocSt AS st,
+        T2.DocNr AS nr,
+        T2.BDb AS s1,
+        T2.BCr AS s2,
+        0.0 AS s3,
+        0.0 AS s4
+    FROM
+    (
+        SELECT ClId, COALESCE(MAX(dtx), MIN(dt)) as dt, DocSt, DocNr, SUM(TDb) AS BDb, SUM(TCr) AS BCr
+        FROM
+        (
+            SELECT 
+                OPSd.ClId AS ClId,
+                OPSd.Dete AS dt,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                OPS.Summ AS TDb,
+                0.00 AS TCr,
+                iif(:pac starting '2', OPSd.Dete, null) as dtx
+
+            FROM 
+                OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcP21 ON OPS.AC11 = AcP21.AC
+            WHERE 
+                OPSd.Dete BETWEEN :sdt AND :edt AND 
+                OPS.AC11 LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR OPSd.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                OPSd.ClId AS ClId,
+                OPSd.Dete AS dt,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                0.00 AS TDb,
+                OPS.Summ AS TCr,
+                iif(:pac starting '5', OPSd.Dete, null) as dtx
+
+            FROM 
+                OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcP21 ON OPS.AC21 = AcP21.AC
+            WHERE 
+                OPSd.Dete BETWEEN :sdt AND :edt AND 
+                OPS.AC21 LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR OPSd.ClId = :pclid)
+
+        ) AS T1
+
+        GROUP BY T1.ClId, T1.DocSt, T1.DocNr
+
+    ) AS T2    
+    
+    INNER JOIN Persons ON Persons.ClId = T2.Clid
+    
+    WHERE BDb <> 0.00 OR BCr <> 0.00
+    ORDER BY i1, dt, nr
+
+
+    into
+        :id, :spid, :i1, :nm, :dt, :st, :nr,
+        :s1, :s2, :s3, :s4
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+ALTER PROCEDURE SP_REP_PVN_22(
+  PSD DATE,
+  PED DATE,
+  RG1 MONEY,
+  RG2 MONEY)
+RETURNS (
+  ID TYPE OF COLUMN ROPS1A.ID,
+  SPID TYPE OF COLUMN ROPS1A.SPID,
+  DID TYPE OF COLUMN ROPS1A.DID,
+  DETE TYPE OF COLUMN ROPS1A.DETE,
+  NRX TYPE OF COLUMN ROPS1A.NRX,
+  DOCTYP TYPE OF COLUMN ROPS1A.DOCTYP,
+  DOCTYP1 TYPE OF COLUMN ROPS1A.DOCTYP1,
+  DOCTYP2 TYPE OF COLUMN ROPS1A.DOCTYP2,
+  DOCST TYPE OF COLUMN ROPS1A.DOCST,
+  DOCNR TYPE OF COLUMN ROPS1A.DOCNR,
+  CLID TYPE OF COLUMN ROPS1A.CLID,
+  CLID2 TYPE OF COLUMN ROPS1A.CLID2,
+  NAME TYPE OF COLUMN ROPS1A.NAME,
+  NAME2 TYPE OF COLUMN ROPS1A.NAME2,
+  REGNR TYPE OF COLUMN ROPS1A.REGNR,
+  REGNR2 TYPE OF COLUMN ROPS1A.REGNR2,
+  B0 TYPE OF COLUMN ROPS1A.B0,
+  DESCR TYPE OF COLUMN ROPS1A.DESCR,
+  DESCR2 TYPE OF COLUMN ROPS1A.DESCR2,
+  AC1 TYPE OF COLUMN ROPS1A.AC1,
+  AC2 TYPE OF COLUMN ROPS1A.AC2,
+  SAC1 TYPE OF COLUMN ROPS1A.SAC1,
+  SAC2 TYPE OF COLUMN ROPS1A.SAC2,
+  SUMMC TYPE OF COLUMN ROPS1A.SUMMC,
+  CUR TYPE OF COLUMN ROPS1A.CUR,
+  SUMM TYPE OF COLUMN ROPS1A.SUMM,
+  PVN TYPE OF COLUMN ROPS1A.PVN,
+  RAC TYPE OF COLUMN ROPS1A.RAC,
+  SDB TYPE OF COLUMN ROPS1A.SDB,
+  SCR TYPE OF COLUMN ROPS1A.SCR,
+  RAC2 TYPE OF COLUMN ROPS1A.RAC2,
+  RAC3 TYPE OF COLUMN ROPS1A.RAC3,
+  RAC4 TYPE OF COLUMN ROPS1A.RAC4,
+  RAC5 TYPE OF COLUMN ROPS1A.RAC5,
+  QV TYPE OF COLUMN ROPS1A.QV,
+  ZNR TYPE OF COLUMN ROPS1A.ZNR)
+AS
+begin
+-- PVN piel 1.1 - izdevumiem
+    
+    DELETE FROM ttemp_pvn1 WHERE Did IS NOT NULL;
+
+    INSERT INTO ttemp_pvn1(
+        did, clid, doctyp1, doctyp2, doctypc,
+        rac5, summ, pvn, summc, cur)
+    SELECT
+        did, clid, doctyp1, doctyp2, doctypc,
+        rac5, summ, pvn, summc, cur
+    FROM SP_REP_PVN_21(:PSD, :PED, :RG1, :RG2);
+
+    INSERT INTO ttemp_pvn2(clid)
+    SELECT TT1.ClId
+    FROM ttemp_pvn1 AS TT1
+    WHERE 
+        TT1.ClId IS NOT NULL AND
+        ABS(TT1.Summ) < :rg1 AND
+        TT1.DocTypC = 0
+    GROUP BY TT1.ClId
+    HAVING SUM(ABS(TT1.Summ)) < :rg1;
+
+
+    FOR SELECT
+        gen_id(GEN_ROPS1A_ID, 1) as ID,
+        current_connection as SPID,
+        T4.did,
+        CASE
+            WHEN OPSd.DT2 IS NULL
+            THEN OPSd.Dete
+            ELSE OPSd.DT2
+            END AS Dete,
+        null AS nrx,
+        null AS DocTyp,
+        DocTyp.pvnpaz AS DocTyp1,
+        T4.DocTyp2 AS DocTyp2,
+        OPSd.DocSt,
+        OPSd.DocNr,
+        OPSd.clid AS clid,
+        null AS clid2,
+        Persons.Name AS Name,
+        null AS Name2,
+        Persons.PVNRegNr AS RegNr,
+        null AS RegNr2,
+        0.0 AS b0,
+        null AS descr,
+        null AS descr2,
+        null AS AC1,
+        null AS AC2,
+        null AS SAC1,
+        null AS SAC2,
+        0.0 AS SummC,
+        'EUR' AS Cur,
+        T4.Summ AS Summ,
+        T4.PVN AS PVN,
+        null AS RAC,
+        0.0 AS SDb,
+        0.0 AS SCr,
+        null AS RAC2,
+        null AS RAC3,
+        null AS RAC4,
+        null AS RAC5,
+        0.0 AS QV,
+        OPSd.znr AS ZNR
+
+    FROM
+    (
+        SELECT
+            T3.did,
+            T3.ClId,
+            T3.DocTyp2,
+            SUM(T3.Summ) AS Summ,
+            SUM(T3.PVN) AS PVN
+        FROM
+        (    
+            SELECT
+                -1 AS did,
+                NULL AS ClId,
+                'T' AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                ABS(T2.Summ) < :rg1 AND
+                T2.DocTypC = 0 AND
+                (T2.ClId IS NULL OR T21.ClId IS NOT NULL)
+
+            UNION ALL
+
+            SELECT
+                -1 AS did,
+                T2.ClId AS ClId,
+                'V' AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                ABS(T2.Summ) < :rg1 AND
+                T2.DocTypC = 0 AND
+                (T2.ClId IS NOT NULL AND T21.ClId IS NULL)
+            
+            UNION ALL
+
+            SELECT
+                T2.did AS did,
+                T2.ClId AS ClId,
+                T2.DocTyp2 AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                ABS(T2.Summ) >= :rg1 OR
+                T2.DocTypC = 1
+
+        ) AS T3
+        GROUP BY T3.did, T3.ClId, T3.DocTyp2
+
+    ) AS T4 
+
+        LEFT JOIN OPSd ON T4.did = OPSd.id
+        LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+        LEFT JOIN Persons ON T4.ClId = Persons.ClId
+
+    ORDER BY OPSd.Dete
+
+
+    into
+        :id, :spid, :did, :DETE, :nrx,
+        :doctyp, :doctyp1, :doctyp2, :docst, :docnr,
+        :clid, :clid2, :name, :name2, :regnr, :regnr2,
+        :b0, :descr, :descr2, :ac1, :ac2, :sac1,:sac2,
+        :summc, :cur, :summ, :pvn, :rac, :sdb, :scr,
+        :rac2, :rac3, :rac4, :rac5, :qv, :znr
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '077'
+WHERE PNAME = 'version';

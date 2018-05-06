@@ -33,18 +33,18 @@ namespace KlonsF.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.bsBalA1 = new KlonsLIB.Data.MyBindingSource();
+            this.bsBalA1 = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgvBalA1 = new KlonsLIB.Components.MyDataGridView();
-            this.dgcBalA1balid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcBalA1Descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcBalA1TA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcBalA1TP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbSD = new KlonsLIB.Components.MyTextBox();
             this.tbED = new KlonsLIB.Components.MyTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmReport = new System.Windows.Forms.Button();
             this.cmEdit = new System.Windows.Forms.Button();
             this.lbCM = new System.Windows.Forms.ListBox();
+            this.dgcBalA1balid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcBalA1Descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcBalA1TA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcBalA1TP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsBalA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBalA1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@ namespace KlonsF.Forms
             // 
             this.dgvBalA1.AllowUserToAddRows = false;
             this.dgvBalA1.AllowUserToDeleteRows = false;
+            this.dgvBalA1.AllowUserToResizeRows = false;
             this.dgvBalA1.AutoGenerateColumns = false;
             this.dgvBalA1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvBalA1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -85,44 +86,6 @@ namespace KlonsF.Forms
             this.dgvBalA1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBalA1.Size = new System.Drawing.Size(453, 121);
             this.dgvBalA1.TabIndex = 0;
-            // 
-            // dgcBalA1balid
-            // 
-            this.dgcBalA1balid.DataPropertyName = "balid";
-            this.dgcBalA1balid.HeaderText = "Kods";
-            this.dgcBalA1balid.Name = "dgcBalA1balid";
-            this.dgcBalA1balid.ReadOnly = true;
-            this.dgcBalA1balid.ToolTipText = "Atskaites kods (B1, PZA1, utml.)";
-            this.dgcBalA1balid.Width = 64;
-            // 
-            // dgcBalA1Descr
-            // 
-            this.dgcBalA1Descr.DataPropertyName = "Descr";
-            this.dgcBalA1Descr.HeaderText = "Apraksts";
-            this.dgcBalA1Descr.Name = "dgcBalA1Descr";
-            this.dgcBalA1Descr.ReadOnly = true;
-            this.dgcBalA1Descr.ToolTipText = "Apraksts";
-            this.dgcBalA1Descr.Width = 320;
-            // 
-            // dgcBalA1TA
-            // 
-            this.dgcBalA1TA.DataPropertyName = "TA";
-            this.dgcBalA1TA.HeaderText = "Nosaukums1";
-            this.dgcBalA1TA.Name = "dgcBalA1TA";
-            this.dgcBalA1TA.ReadOnly = true;
-            this.dgcBalA1TA.ToolTipText = "Nosaukums atskaites aktīva pusei";
-            this.dgcBalA1TA.Visible = false;
-            this.dgcBalA1TA.Width = 112;
-            // 
-            // dgcBalA1TP
-            // 
-            this.dgcBalA1TP.DataPropertyName = "TP";
-            this.dgcBalA1TP.HeaderText = "Nosaukums2";
-            this.dgcBalA1TP.Name = "dgcBalA1TP";
-            this.dgcBalA1TP.ReadOnly = true;
-            this.dgcBalA1TP.ToolTipText = "Nosaukums atskaites pasīva pusei";
-            this.dgcBalA1TP.Visible = false;
-            this.dgcBalA1TP.Width = 112;
             // 
             // tbSD
             // 
@@ -185,21 +148,61 @@ namespace KlonsF.Forms
             this.lbCM.FormattingEnabled = true;
             this.lbCM.ItemHeight = 16;
             this.lbCM.Items.AddRange(new object[] {
-            "Pilna atskaite",
             "Tikai rindas, kas nav tukšas",
+            "Pilna atskaite",
+            "Pa mēnešiem - apgrozijums",
+            "Pa mēnešiem - atlikums",
             "Summu izklāsts pa atskaites rindu numuriem"});
             this.lbCM.Location = new System.Drawing.Point(13, 190);
             this.lbCM.Margin = new System.Windows.Forms.Padding(2);
             this.lbCM.Name = "lbCM";
-            this.lbCM.Size = new System.Drawing.Size(307, 68);
+            this.lbCM.Size = new System.Drawing.Size(307, 100);
             this.lbCM.TabIndex = 6;
             this.lbCM.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbCM_MouseDoubleClick);
+            // 
+            // dgcBalA1balid
+            // 
+            this.dgcBalA1balid.DataPropertyName = "balid";
+            this.dgcBalA1balid.HeaderText = "Kods";
+            this.dgcBalA1balid.Name = "dgcBalA1balid";
+            this.dgcBalA1balid.ReadOnly = true;
+            this.dgcBalA1balid.ToolTipText = "Atskaites kods (B1, PZA1, utml.)";
+            this.dgcBalA1balid.Width = 80;
+            // 
+            // dgcBalA1Descr
+            // 
+            this.dgcBalA1Descr.DataPropertyName = "Descr";
+            this.dgcBalA1Descr.HeaderText = "Apraksts";
+            this.dgcBalA1Descr.Name = "dgcBalA1Descr";
+            this.dgcBalA1Descr.ReadOnly = true;
+            this.dgcBalA1Descr.ToolTipText = "Apraksts";
+            this.dgcBalA1Descr.Width = 350;
+            // 
+            // dgcBalA1TA
+            // 
+            this.dgcBalA1TA.DataPropertyName = "TA";
+            this.dgcBalA1TA.HeaderText = "Nosaukums1";
+            this.dgcBalA1TA.Name = "dgcBalA1TA";
+            this.dgcBalA1TA.ReadOnly = true;
+            this.dgcBalA1TA.ToolTipText = "Nosaukums atskaites aktīva pusei";
+            this.dgcBalA1TA.Visible = false;
+            this.dgcBalA1TA.Width = 112;
+            // 
+            // dgcBalA1TP
+            // 
+            this.dgcBalA1TP.DataPropertyName = "TP";
+            this.dgcBalA1TP.HeaderText = "Nosaukums2";
+            this.dgcBalA1TP.Name = "dgcBalA1TP";
+            this.dgcBalA1TP.ReadOnly = true;
+            this.dgcBalA1TP.ToolTipText = "Nosaukums atskaites pasīva pusei";
+            this.dgcBalA1TP.Visible = false;
+            this.dgcBalA1TP.Width = 112;
             // 
             // FormRep_Bilance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 294);
+            this.ClientSize = new System.Drawing.Size(467, 303);
             this.CloseOnEscape = true;
             this.Controls.Add(this.lbCM);
             this.Controls.Add(this.cmEdit);
@@ -228,10 +231,10 @@ namespace KlonsF.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cmReport;
         private System.Windows.Forms.Button cmEdit;
+        private System.Windows.Forms.ListBox lbCM;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBalA1balid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBalA1Descr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBalA1TA;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBalA1TP;
-        private System.Windows.Forms.ListBox lbCM;
     }
 }
