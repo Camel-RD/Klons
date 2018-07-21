@@ -767,6 +767,8 @@ namespace KlonsA.Classes
 
         public void CalcAll(SalarySheetRowInfo sr, VacationCalcInfo[] vcs)
         {
+            Days = 0.0f;
+            Hours = 0.0f;
             Pay = 0.0M;
             DNS = 0.0M;
             IINEX = 0.0M;

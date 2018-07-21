@@ -746,6 +746,7 @@ Fields!Dc.Value = "PA", Parameters!RPASIVS.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1231,17 +1232,7 @@ Fields!Dc.Value = "PA", Parameters!RPASIVS.Value)</Value>
                       <RepeatOnNewPage>true</RepeatOnNewPage>
                     </TablixMember>
                     <TablixMember>
-                      <Group Name="Details">
-                        <Filters>
-                          <Filter>
-                            <FilterExpression>=Fields!M13.Value &lt;&gt; 0</FilterExpression>
-                            <Operator>Equal</Operator>
-                            <FilterValues>
-                              <FilterValue DataType="Boolean">true</FilterValue>
-                            </FilterValues>
-                          </Filter>
-                        </Filters>
-                      </Group>
+                      <Group Name="Details" />
                     </TablixMember>
                   </TablixMembers>
                 </TablixMember>
@@ -1286,7 +1277,6 @@ Fields!Dc.Value = "PA", Parameters!RPASIVS.Value)</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>6.4516cm</Left>
               <Height>0.6cm</Height>
               <Width>4.30848cm</Width>
