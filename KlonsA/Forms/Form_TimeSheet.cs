@@ -417,8 +417,9 @@ namespace KlonsA.Forms
         {
             var rr = MyData.DataSetKlons.TIMESHEET.WhereX(d =>
             {
-                return d.YR == row.YR && d.MT == row.MT && d.IDP == plid &&
-                (d.XKind1 == EKind1.PlanGroupDay || d.XKind1 == EKind1.PlanIndividualDay);
+                return d.YR == row.YR && d.MT == row.MT &&
+                (d.XKind1 == EKind1.PlanGroupDay || d.XKind1 == EKind1.PlanIndividualDay) &&
+                d.IDP == plid;
             });
             return rr.FirstOrDefault() != null;
         }
@@ -487,6 +488,7 @@ namespace KlonsA.Forms
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
+            if (dgvLapa.CurrentRow == null || dgvLapa.CurrentRow.IsNewRow || !AskCanDelete()) return;
             DeleteCurrent();
         }
 

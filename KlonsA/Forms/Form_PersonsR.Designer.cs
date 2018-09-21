@@ -210,6 +210,7 @@ namespace KlonsA.Forms
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.darbiniekaKartīteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bnavNav)).BeginInit();
             this.bnavNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPersonsR)).BeginInit();
@@ -855,6 +856,7 @@ namespace KlonsA.Forms
             // 
             // shedPersonsText
             // 
+            this.shedPersonsText.DataMember = null;
             this.shedPersonsText.Name = "shedPersonsText";
             this.shedPersonsText.RowTitle = null;
             this.shedPersonsText.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
@@ -1068,14 +1070,12 @@ namespace KlonsA.Forms
             // 
             // shrwAmariDecimal
             // 
-            this.shrwAmariDecimal.DataMember = null;
             this.shrwAmariDecimal.Name = "shrwAmariDecimal";
             this.shrwAmariDecimal.RowTitle = null;
             this.shrwAmariDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // shrwAmatiRateType
             // 
-            this.shrwAmatiRateType.DataMember = null;
             this.shrwAmatiRateType.ListStrings = new string[] {
         "0;%",
         "1;€"};
@@ -1244,7 +1244,7 @@ namespace KlonsA.Forms
             this.dgvPapildSummas.Location = new System.Drawing.Point(3, 3);
             this.dgvPapildSummas.Name = "dgvPapildSummas";
             this.dgvPapildSummas.RowTemplate.Height = 24;
-            this.dgvPapildSummas.Size = new System.Drawing.Size(824, 386);
+            this.dgvPapildSummas.Size = new System.Drawing.Size(824, 353);
             this.dgvPapildSummas.TabIndex = 0;
             this.dgvPapildSummas.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvPapildSummas_CellBeginEdit);
             this.dgvPapildSummas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPapildSummas_CellEndEdit);
@@ -1426,7 +1426,7 @@ namespace KlonsA.Forms
             this.dgvNotikumi.Location = new System.Drawing.Point(3, 3);
             this.dgvNotikumi.Name = "dgvNotikumi";
             this.dgvNotikumi.RowTemplate.Height = 24;
-            this.dgvNotikumi.Size = new System.Drawing.Size(824, 386);
+            this.dgvNotikumi.Size = new System.Drawing.Size(824, 353);
             this.dgvNotikumi.TabIndex = 0;
             this.dgvNotikumi.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotikumi_CellEndEdit);
             this.dgvNotikumi.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvNotikumi_CellParsing);
@@ -2063,6 +2063,7 @@ namespace KlonsA.Forms
             // 
             // sharedPersonsNoYes
             // 
+            this.sharedPersonsNoYes.DataMember = null;
             this.sharedPersonsNoYes.ListStrings = new string[] {
         "0;nē",
         "1;jā"};
@@ -2072,6 +2073,7 @@ namespace KlonsA.Forms
             // 
             // sharedPersonsDecimal
             // 
+            this.sharedPersonsDecimal.DataMember = null;
             this.sharedPersonsDecimal.Name = "sharedPersonsDecimal";
             this.sharedPersonsDecimal.RowTitle = null;
             this.sharedPersonsDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
@@ -2079,7 +2081,6 @@ namespace KlonsA.Forms
             // shedPersonsTextAllowNull
             // 
             this.shedPersonsTextAllowNull.AllowNull = true;
-            this.shedPersonsTextAllowNull.DataMember = null;
             this.shedPersonsTextAllowNull.Name = "shedPersonsTextAllowNull";
             this.shedPersonsTextAllowNull.RowTitle = null;
             this.shedPersonsTextAllowNull.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
@@ -2090,7 +2091,7 @@ namespace KlonsA.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 392);
+            this.tabPage2.Size = new System.Drawing.Size(830, 359);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "piemaksas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2101,7 +2102,7 @@ namespace KlonsA.Forms
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(830, 392);
+            this.tabPage3.Size = new System.Drawing.Size(830, 359);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "notikumi";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2130,7 +2131,8 @@ namespace KlonsA.Forms
             this.pārbaudītNotikumusDarbiniekamToolStripMenuItem,
             this.pārbaudītNotikumusVisiemDarbiniekiemToolStripMenuItem,
             this.toolStripSeparator2,
-            this.darbiniekaKartīteToolStripMenuItem});
+            this.darbiniekaKartīteToolStripMenuItem,
+            this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem});
             this.darbiniekuDatiToolStripMenuItem.Name = "darbiniekuDatiToolStripMenuItem";
             this.darbiniekuDatiToolStripMenuItem.Size = new System.Drawing.Size(153, 29);
             this.darbiniekuDatiToolStripMenuItem.Text = "Darbinieku dati";
@@ -2198,6 +2200,13 @@ namespace KlonsA.Forms
             this.darbiniekaKartīteToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
             this.darbiniekaKartīteToolStripMenuItem.Text = "Darbinieka kartīte";
             this.darbiniekaKartīteToolStripMenuItem.Click += new System.EventHandler(this.darbiniekaKartīteToolStripMenuItem_Click);
+            // 
+            // neizmantotāsAtvaļinājumaDienasToolStripMenuItem
+            // 
+            this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem.Name = "neizmantotāsAtvaļinājumaDienasToolStripMenuItem";
+            this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem.Size = new System.Drawing.Size(443, 30);
+            this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem.Text = "Neizmantotās atvaļinājuma dienas";
+            this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem.Click += new System.EventHandler(this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem_Click);
             // 
             // Form_PersonsR
             // 
@@ -2425,5 +2434,6 @@ namespace KlonsA.Forms
         private System.Windows.Forms.ToolStripButton tsbPrevPerson;
         private System.Windows.Forms.ToolStripTextBox tstbFindPerson;
         private System.Windows.Forms.ToolStripButton tsbNextPerson;
+        private System.Windows.Forms.ToolStripMenuItem neizmantotāsAtvaļinājumaDienasToolStripMenuItem;
     }
 }

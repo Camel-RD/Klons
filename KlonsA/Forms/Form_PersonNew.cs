@@ -32,6 +32,11 @@ namespace KlonsA.Forms
         public string PositionTitle = null;
         public string iddep = null;
 
+        public DateTime EventDate = DateTime.Today;
+        public bool MakeEvents = true;
+        public string RepCode = "11";
+        public string ProfCode = "?";
+
         private void Form_PersonNew_Load(object sender, EventArgs e)
         {
             this.SetControlsUpDownOrder(
@@ -44,8 +49,17 @@ namespace KlonsA.Forms
                     new Control[] { chFemale },
                     new Control[] { tbPosition },
                     new Control[] { cbDep },
+                    new Control[] { tbDate },
+                    new Control[] { chMakeEvents },
+                    new Control[] { tbRepCode },
+                    new Control[] { tbProfCode },
                     new Control[] { cmOK },
-                    new Control[] { cmCancel }});
+                    new Control[] { cmCancel }
+                });
+
+            tbDate.Text = Utils.DateToString(DateTime.Today);
+            tbRepCode.Text = "11";
+            tbProfCode.Text = "?";
         }
 
         public string Check()
@@ -86,7 +100,21 @@ namespace KlonsA.Forms
                     return "Darbinieks ar šādu personas kodu jau ir uzskaitē.";
             }
 
-
+            MakeEvents = chMakeEvents.Checked;
+            Utils.StringToDate(tbDate.Text, out EventDate);
+            RepCode = tbRepCode.Text;
+            ProfCode = tbProfCode.Text;
+            if (MakeEvents)
+            {
+                if (string.IsNullOrEmpty(ProfCode) || ProfCode == "?")
+                    return "Jānorāda profesijas kods.";
+                if (string.IsNullOrEmpty(RepCode))
+                    return "Jānorāda ziņu kods.";
+                if (RepCode.Length > 5)
+                    return "Ziņu kods par garu";
+                if (ProfCode.Length > 7)
+                    return "Profesijas kods par garu";
+            }
             return "OK";
         }
 
@@ -96,6 +124,7 @@ namespace KlonsA.Forms
             var tablePersonsR = MyData.DataSetKlons.PERSONS_R;
             var tableAmati = MyData.DataSetKlons.POSITIONS;
             var tableAmatiR = MyData.DataSetKlons.POSITIONS_R;
+            var tableEvents = MyData.DataSetKlons.EVENTS;
 
             var dr_p = tablePersons.NewPERSONSRow();
             dr_p.FNAME = FName;
@@ -111,7 +140,7 @@ namespace KlonsA.Forms
 
             dr_pr.IDP = IDP;
             dr_pr.PERSONSRow = dr_p;
-            dr_pr.EDIT_DATE = DateTime.Today;
+            dr_pr.EDIT_DATE = EventDate;
             dr_pr.FNAME = FName;
             dr_pr.LNAME = LName;
             if (!string.IsNullOrEmpty(dr_p.PK)) dr_pr.PERSON_CODE = dr_p.PK;
@@ -129,10 +158,30 @@ namespace KlonsA.Forms
 
             dr_amr.IDA = dr_am.ID;
             dr_amr.POSITIONSRow = dr_am;
-            dr_amr.EDIT_DATE = DateTime.Today;
+            dr_amr.EDIT_DATE = EventDate;
             if (!string.IsNullOrEmpty(dr_am.TITLE)) dr_amr.TITLE = dr_am.TITLE;
             if (!string.IsNullOrEmpty(dr_am.IDDEP)) dr_amr.IDDEP = dr_am.IDDEP;
             tableAmatiR.AddPOSITIONS_RRow(dr_amr);
+
+            var dr_evHire = tableEvents.NewEVENTSRow();
+
+            dr_evHire.EventCode = EEventId.Pieņemts;
+            dr_evHire.IDP = IDP;
+            dr_evHire.PERSONSRow = dr_p;
+            dr_evHire.DATE1 = EventDate;
+            dr_evHire.SCODE = RepCode;
+            dr_evHire.OCCUPATION_CODE = ProfCode;
+            tableEvents.AddEVENTSRow(dr_evHire);
+
+            var dr_evAssign = tableEvents.NewEVENTSRow();
+
+            dr_evAssign.EventCode = EEventId.Piešķirts_amats;
+            dr_evAssign.IDP = IDP;
+            dr_evAssign.PERSONSRow = dr_p;
+            dr_evAssign.IDA = dr_am.ID;
+            dr_evAssign.POSITIONSRow = dr_am;
+            dr_evAssign.DATE1 = EventDate;
+            tableEvents.AddEVENTSRow(dr_evAssign);
         }
 
         private void chMale_CheckedChanged(object sender, EventArgs e)

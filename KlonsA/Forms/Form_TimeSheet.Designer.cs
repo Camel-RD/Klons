@@ -34,50 +34,10 @@ namespace KlonsA.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TimeSheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TimeSheet));
             this.dgvLapa = new KlonsLIB.Components.MyDataGridView();
-            this.dgcIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSNRX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcKind1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcV31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcKind2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsLapa2 = new KlonsLIB.Data.MyBindingSource2(this.components);
             this.dlJoinView1 = new KlonsA.Classes.DLJoinView(this.components);
             this.bsLapa = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -119,6 +79,46 @@ namespace KlonsA.Forms
             this.izdrukaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaLapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaKopsummasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgcIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSNRX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcKind1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcV31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcKind2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLapa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapa2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapa)).BeginInit();
@@ -222,345 +222,6 @@ namespace KlonsA.Forms
             this.dgvLapa.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvLapa_CellParsing);
             this.dgvLapa.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvLapa_EditingControlShowing);
             this.dgvLapa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLapa_KeyDown);
-            // 
-            // dgcIDX
-            // 
-            this.dgcIDX.DataPropertyName = "IDX";
-            this.dgcIDX.Frozen = true;
-            this.dgcIDX.HeaderText = "IDX";
-            this.dgcIDX.Name = "dgcIDX";
-            this.dgcIDX.ReadOnly = true;
-            this.dgcIDX.Visible = false;
-            this.dgcIDX.Width = 50;
-            // 
-            // dgcID
-            // 
-            this.dgcID.DataPropertyName = "ID";
-            this.dgcID.Frozen = true;
-            this.dgcID.HeaderText = "ID";
-            this.dgcID.Name = "dgcID";
-            this.dgcID.Visible = false;
-            this.dgcID.Width = 40;
-            // 
-            // dgcSNRX
-            // 
-            this.dgcSNRX.DataPropertyName = "SNRX";
-            this.dgcSNRX.Frozen = true;
-            this.dgcSNRX.HeaderText = "npk";
-            this.dgcSNRX.Name = "dgcSNRX";
-            this.dgcSNRX.ReadOnly = true;
-            this.dgcSNRX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSNRX.Width = 32;
-            // 
-            // dgcTitle
-            // 
-            this.dgcTitle.DataPropertyName = "Name";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgcTitle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcTitle.Frozen = true;
-            this.dgcTitle.HeaderText = "darbinieks";
-            this.dgcTitle.Name = "dgcTitle";
-            this.dgcTitle.ReadOnly = true;
-            this.dgcTitle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcTitle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcTitle.Width = 150;
-            // 
-            // dgcPosition
-            // 
-            this.dgcPosition.DataPropertyName = "Position";
-            this.dgcPosition.Frozen = true;
-            this.dgcPosition.HeaderText = "Amats";
-            this.dgcPosition.Name = "dgcPosition";
-            this.dgcPosition.ReadOnly = true;
-            this.dgcPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcPosition.Visible = false;
-            // 
-            // dgcKind1
-            // 
-            this.dgcKind1.DataPropertyName = "KIND1";
-            this.dgcKind1.Frozen = true;
-            this.dgcKind1.HeaderText = "tips";
-            this.dgcKind1.Name = "dgcKind1";
-            this.dgcKind1.ReadOnly = true;
-            this.dgcKind1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcKind1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcKind1.Width = 60;
-            // 
-            // dgcK1
-            // 
-            this.dgcK1.DataPropertyName = "K1";
-            this.dgcK1.Frozen = true;
-            this.dgcK1.HeaderText = "Σ";
-            this.dgcK1.Name = "dgcK1";
-            this.dgcK1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcK1.Width = 32;
-            // 
-            // dgcV1
-            // 
-            this.dgcV1.DataPropertyName = "V1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcV1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcV1.HeaderText = "1";
-            this.dgcV1.Name = "dgcV1";
-            this.dgcV1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV1.Width = 28;
-            // 
-            // dgcV2
-            // 
-            this.dgcV2.DataPropertyName = "V2";
-            this.dgcV2.HeaderText = "2";
-            this.dgcV2.Name = "dgcV2";
-            this.dgcV2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV2.Width = 28;
-            // 
-            // dgcV3
-            // 
-            this.dgcV3.DataPropertyName = "V3";
-            this.dgcV3.HeaderText = "3";
-            this.dgcV3.Name = "dgcV3";
-            this.dgcV3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV3.Width = 28;
-            // 
-            // dgcV4
-            // 
-            this.dgcV4.DataPropertyName = "V4";
-            this.dgcV4.HeaderText = "4";
-            this.dgcV4.Name = "dgcV4";
-            this.dgcV4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV4.Width = 28;
-            // 
-            // dgcV5
-            // 
-            this.dgcV5.DataPropertyName = "V5";
-            this.dgcV5.HeaderText = "5";
-            this.dgcV5.Name = "dgcV5";
-            this.dgcV5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV5.Width = 28;
-            // 
-            // dgcV6
-            // 
-            this.dgcV6.DataPropertyName = "V6";
-            this.dgcV6.HeaderText = "6";
-            this.dgcV6.Name = "dgcV6";
-            this.dgcV6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV6.Width = 28;
-            // 
-            // dgcV7
-            // 
-            this.dgcV7.DataPropertyName = "V7";
-            this.dgcV7.HeaderText = "7";
-            this.dgcV7.Name = "dgcV7";
-            this.dgcV7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV7.Width = 28;
-            // 
-            // dgcV8
-            // 
-            this.dgcV8.DataPropertyName = "V8";
-            this.dgcV8.HeaderText = "8";
-            this.dgcV8.Name = "dgcV8";
-            this.dgcV8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV8.Width = 28;
-            // 
-            // dgcV9
-            // 
-            this.dgcV9.DataPropertyName = "V9";
-            this.dgcV9.HeaderText = "9";
-            this.dgcV9.Name = "dgcV9";
-            this.dgcV9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV9.Width = 28;
-            // 
-            // dgcV10
-            // 
-            this.dgcV10.DataPropertyName = "V10";
-            this.dgcV10.HeaderText = "10";
-            this.dgcV10.Name = "dgcV10";
-            this.dgcV10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV10.Width = 28;
-            // 
-            // dgcV11
-            // 
-            this.dgcV11.DataPropertyName = "V11";
-            this.dgcV11.HeaderText = "11";
-            this.dgcV11.Name = "dgcV11";
-            this.dgcV11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV11.Width = 28;
-            // 
-            // dgcV12
-            // 
-            this.dgcV12.DataPropertyName = "V12";
-            this.dgcV12.HeaderText = "12";
-            this.dgcV12.Name = "dgcV12";
-            this.dgcV12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV12.Width = 28;
-            // 
-            // dgcV13
-            // 
-            this.dgcV13.DataPropertyName = "V13";
-            this.dgcV13.HeaderText = "13";
-            this.dgcV13.Name = "dgcV13";
-            this.dgcV13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV13.Width = 28;
-            // 
-            // dgcV14
-            // 
-            this.dgcV14.DataPropertyName = "V14";
-            this.dgcV14.HeaderText = "14";
-            this.dgcV14.Name = "dgcV14";
-            this.dgcV14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV14.Width = 28;
-            // 
-            // dgcV15
-            // 
-            this.dgcV15.DataPropertyName = "V15";
-            this.dgcV15.HeaderText = "15";
-            this.dgcV15.Name = "dgcV15";
-            this.dgcV15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV15.Width = 28;
-            // 
-            // dgcV16
-            // 
-            this.dgcV16.DataPropertyName = "V16";
-            this.dgcV16.HeaderText = "16";
-            this.dgcV16.Name = "dgcV16";
-            this.dgcV16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV16.Width = 28;
-            // 
-            // dgcV17
-            // 
-            this.dgcV17.DataPropertyName = "V17";
-            this.dgcV17.HeaderText = "17";
-            this.dgcV17.Name = "dgcV17";
-            this.dgcV17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV17.Width = 28;
-            // 
-            // dgcV18
-            // 
-            this.dgcV18.DataPropertyName = "V18";
-            this.dgcV18.HeaderText = "18";
-            this.dgcV18.Name = "dgcV18";
-            this.dgcV18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV18.Width = 28;
-            // 
-            // dgcV19
-            // 
-            this.dgcV19.DataPropertyName = "V19";
-            this.dgcV19.HeaderText = "19";
-            this.dgcV19.Name = "dgcV19";
-            this.dgcV19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV19.Width = 28;
-            // 
-            // dgcV20
-            // 
-            this.dgcV20.DataPropertyName = "V20";
-            this.dgcV20.HeaderText = "20";
-            this.dgcV20.Name = "dgcV20";
-            this.dgcV20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV20.Width = 28;
-            // 
-            // dgcV21
-            // 
-            this.dgcV21.DataPropertyName = "V21";
-            this.dgcV21.HeaderText = "21";
-            this.dgcV21.Name = "dgcV21";
-            this.dgcV21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV21.Width = 28;
-            // 
-            // dgcV22
-            // 
-            this.dgcV22.DataPropertyName = "V22";
-            this.dgcV22.HeaderText = "22";
-            this.dgcV22.Name = "dgcV22";
-            this.dgcV22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV22.Width = 28;
-            // 
-            // dgcV23
-            // 
-            this.dgcV23.DataPropertyName = "V23";
-            this.dgcV23.HeaderText = "23";
-            this.dgcV23.Name = "dgcV23";
-            this.dgcV23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV23.Width = 28;
-            // 
-            // dgcV24
-            // 
-            this.dgcV24.DataPropertyName = "V24";
-            this.dgcV24.HeaderText = "24";
-            this.dgcV24.Name = "dgcV24";
-            this.dgcV24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV24.Width = 28;
-            // 
-            // dgcV25
-            // 
-            this.dgcV25.DataPropertyName = "V25";
-            this.dgcV25.HeaderText = "25";
-            this.dgcV25.Name = "dgcV25";
-            this.dgcV25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV25.Width = 28;
-            // 
-            // dgcV26
-            // 
-            this.dgcV26.DataPropertyName = "V26";
-            this.dgcV26.HeaderText = "26";
-            this.dgcV26.Name = "dgcV26";
-            this.dgcV26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV26.Width = 28;
-            // 
-            // dgcV27
-            // 
-            this.dgcV27.DataPropertyName = "V27";
-            this.dgcV27.HeaderText = "27";
-            this.dgcV27.Name = "dgcV27";
-            this.dgcV27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV27.Width = 28;
-            // 
-            // dgcV28
-            // 
-            this.dgcV28.DataPropertyName = "V28";
-            this.dgcV28.HeaderText = "28";
-            this.dgcV28.Name = "dgcV28";
-            this.dgcV28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV28.Width = 28;
-            // 
-            // dgcV29
-            // 
-            this.dgcV29.DataPropertyName = "V29";
-            this.dgcV29.HeaderText = "29";
-            this.dgcV29.Name = "dgcV29";
-            this.dgcV29.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV29.Width = 28;
-            // 
-            // dgcV30
-            // 
-            this.dgcV30.DataPropertyName = "V30";
-            this.dgcV30.HeaderText = "30";
-            this.dgcV30.Name = "dgcV30";
-            this.dgcV30.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV30.Width = 28;
-            // 
-            // dgcV31
-            // 
-            this.dgcV31.DataPropertyName = "V31";
-            this.dgcV31.HeaderText = "31";
-            this.dgcV31.Name = "dgcV31";
-            this.dgcV31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcV31.Width = 28;
-            // 
-            // dgcIDL
-            // 
-            this.dgcIDL.DataPropertyName = "IDL";
-            this.dgcIDL.HeaderText = "IDL";
-            this.dgcIDL.Name = "dgcIDL";
-            this.dgcIDL.Visible = false;
-            this.dgcIDL.Width = 40;
-            // 
-            // dgcKind2
-            // 
-            this.dgcKind2.DataPropertyName = "KIND2";
-            this.dgcKind2.HeaderText = "KIND2";
-            this.dgcKind2.Name = "dgcKind2";
-            this.dgcKind2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcKind2.Visible = false;
-            this.dgcKind2.Width = 40;
             // 
             // bsLapa2
             // 
@@ -916,6 +577,345 @@ namespace KlonsA.Forms
             this.darbaLaikaKopsummasToolStripMenuItem.Size = new System.Drawing.Size(300, 30);
             this.darbaLaikaKopsummasToolStripMenuItem.Text = "Darba laika kopsummas";
             this.darbaLaikaKopsummasToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaKopsummasToolStripMenuItem_Click);
+            // 
+            // dgcIDX
+            // 
+            this.dgcIDX.DataPropertyName = "IDX";
+            this.dgcIDX.Frozen = true;
+            this.dgcIDX.HeaderText = "IDX";
+            this.dgcIDX.Name = "dgcIDX";
+            this.dgcIDX.ReadOnly = true;
+            this.dgcIDX.Visible = false;
+            this.dgcIDX.Width = 50;
+            // 
+            // dgcID
+            // 
+            this.dgcID.DataPropertyName = "ID";
+            this.dgcID.Frozen = true;
+            this.dgcID.HeaderText = "ID";
+            this.dgcID.Name = "dgcID";
+            this.dgcID.Visible = false;
+            this.dgcID.Width = 40;
+            // 
+            // dgcSNRX
+            // 
+            this.dgcSNRX.DataPropertyName = "SNRX";
+            this.dgcSNRX.Frozen = true;
+            this.dgcSNRX.HeaderText = "npk";
+            this.dgcSNRX.Name = "dgcSNRX";
+            this.dgcSNRX.ReadOnly = true;
+            this.dgcSNRX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSNRX.Width = 32;
+            // 
+            // dgcTitle
+            // 
+            this.dgcTitle.DataPropertyName = "Name";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgcTitle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcTitle.Frozen = true;
+            this.dgcTitle.HeaderText = "darbinieks";
+            this.dgcTitle.Name = "dgcTitle";
+            this.dgcTitle.ReadOnly = true;
+            this.dgcTitle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcTitle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcTitle.Width = 180;
+            // 
+            // dgcPosition
+            // 
+            this.dgcPosition.DataPropertyName = "Position";
+            this.dgcPosition.Frozen = true;
+            this.dgcPosition.HeaderText = "Amats";
+            this.dgcPosition.Name = "dgcPosition";
+            this.dgcPosition.ReadOnly = true;
+            this.dgcPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcPosition.Visible = false;
+            // 
+            // dgcKind1
+            // 
+            this.dgcKind1.DataPropertyName = "KIND1";
+            this.dgcKind1.Frozen = true;
+            this.dgcKind1.HeaderText = "tips";
+            this.dgcKind1.Name = "dgcKind1";
+            this.dgcKind1.ReadOnly = true;
+            this.dgcKind1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcKind1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcKind1.Width = 60;
+            // 
+            // dgcK1
+            // 
+            this.dgcK1.DataPropertyName = "K1";
+            this.dgcK1.Frozen = true;
+            this.dgcK1.HeaderText = "Σ";
+            this.dgcK1.Name = "dgcK1";
+            this.dgcK1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcK1.Width = 32;
+            // 
+            // dgcV1
+            // 
+            this.dgcV1.DataPropertyName = "V1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcV1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcV1.HeaderText = "1";
+            this.dgcV1.Name = "dgcV1";
+            this.dgcV1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV1.Width = 28;
+            // 
+            // dgcV2
+            // 
+            this.dgcV2.DataPropertyName = "V2";
+            this.dgcV2.HeaderText = "2";
+            this.dgcV2.Name = "dgcV2";
+            this.dgcV2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV2.Width = 28;
+            // 
+            // dgcV3
+            // 
+            this.dgcV3.DataPropertyName = "V3";
+            this.dgcV3.HeaderText = "3";
+            this.dgcV3.Name = "dgcV3";
+            this.dgcV3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV3.Width = 28;
+            // 
+            // dgcV4
+            // 
+            this.dgcV4.DataPropertyName = "V4";
+            this.dgcV4.HeaderText = "4";
+            this.dgcV4.Name = "dgcV4";
+            this.dgcV4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV4.Width = 28;
+            // 
+            // dgcV5
+            // 
+            this.dgcV5.DataPropertyName = "V5";
+            this.dgcV5.HeaderText = "5";
+            this.dgcV5.Name = "dgcV5";
+            this.dgcV5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV5.Width = 28;
+            // 
+            // dgcV6
+            // 
+            this.dgcV6.DataPropertyName = "V6";
+            this.dgcV6.HeaderText = "6";
+            this.dgcV6.Name = "dgcV6";
+            this.dgcV6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV6.Width = 28;
+            // 
+            // dgcV7
+            // 
+            this.dgcV7.DataPropertyName = "V7";
+            this.dgcV7.HeaderText = "7";
+            this.dgcV7.Name = "dgcV7";
+            this.dgcV7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV7.Width = 28;
+            // 
+            // dgcV8
+            // 
+            this.dgcV8.DataPropertyName = "V8";
+            this.dgcV8.HeaderText = "8";
+            this.dgcV8.Name = "dgcV8";
+            this.dgcV8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV8.Width = 28;
+            // 
+            // dgcV9
+            // 
+            this.dgcV9.DataPropertyName = "V9";
+            this.dgcV9.HeaderText = "9";
+            this.dgcV9.Name = "dgcV9";
+            this.dgcV9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV9.Width = 28;
+            // 
+            // dgcV10
+            // 
+            this.dgcV10.DataPropertyName = "V10";
+            this.dgcV10.HeaderText = "10";
+            this.dgcV10.Name = "dgcV10";
+            this.dgcV10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV10.Width = 28;
+            // 
+            // dgcV11
+            // 
+            this.dgcV11.DataPropertyName = "V11";
+            this.dgcV11.HeaderText = "11";
+            this.dgcV11.Name = "dgcV11";
+            this.dgcV11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV11.Width = 28;
+            // 
+            // dgcV12
+            // 
+            this.dgcV12.DataPropertyName = "V12";
+            this.dgcV12.HeaderText = "12";
+            this.dgcV12.Name = "dgcV12";
+            this.dgcV12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV12.Width = 28;
+            // 
+            // dgcV13
+            // 
+            this.dgcV13.DataPropertyName = "V13";
+            this.dgcV13.HeaderText = "13";
+            this.dgcV13.Name = "dgcV13";
+            this.dgcV13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV13.Width = 28;
+            // 
+            // dgcV14
+            // 
+            this.dgcV14.DataPropertyName = "V14";
+            this.dgcV14.HeaderText = "14";
+            this.dgcV14.Name = "dgcV14";
+            this.dgcV14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV14.Width = 28;
+            // 
+            // dgcV15
+            // 
+            this.dgcV15.DataPropertyName = "V15";
+            this.dgcV15.HeaderText = "15";
+            this.dgcV15.Name = "dgcV15";
+            this.dgcV15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV15.Width = 28;
+            // 
+            // dgcV16
+            // 
+            this.dgcV16.DataPropertyName = "V16";
+            this.dgcV16.HeaderText = "16";
+            this.dgcV16.Name = "dgcV16";
+            this.dgcV16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV16.Width = 28;
+            // 
+            // dgcV17
+            // 
+            this.dgcV17.DataPropertyName = "V17";
+            this.dgcV17.HeaderText = "17";
+            this.dgcV17.Name = "dgcV17";
+            this.dgcV17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV17.Width = 28;
+            // 
+            // dgcV18
+            // 
+            this.dgcV18.DataPropertyName = "V18";
+            this.dgcV18.HeaderText = "18";
+            this.dgcV18.Name = "dgcV18";
+            this.dgcV18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV18.Width = 28;
+            // 
+            // dgcV19
+            // 
+            this.dgcV19.DataPropertyName = "V19";
+            this.dgcV19.HeaderText = "19";
+            this.dgcV19.Name = "dgcV19";
+            this.dgcV19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV19.Width = 28;
+            // 
+            // dgcV20
+            // 
+            this.dgcV20.DataPropertyName = "V20";
+            this.dgcV20.HeaderText = "20";
+            this.dgcV20.Name = "dgcV20";
+            this.dgcV20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV20.Width = 28;
+            // 
+            // dgcV21
+            // 
+            this.dgcV21.DataPropertyName = "V21";
+            this.dgcV21.HeaderText = "21";
+            this.dgcV21.Name = "dgcV21";
+            this.dgcV21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV21.Width = 28;
+            // 
+            // dgcV22
+            // 
+            this.dgcV22.DataPropertyName = "V22";
+            this.dgcV22.HeaderText = "22";
+            this.dgcV22.Name = "dgcV22";
+            this.dgcV22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV22.Width = 28;
+            // 
+            // dgcV23
+            // 
+            this.dgcV23.DataPropertyName = "V23";
+            this.dgcV23.HeaderText = "23";
+            this.dgcV23.Name = "dgcV23";
+            this.dgcV23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV23.Width = 28;
+            // 
+            // dgcV24
+            // 
+            this.dgcV24.DataPropertyName = "V24";
+            this.dgcV24.HeaderText = "24";
+            this.dgcV24.Name = "dgcV24";
+            this.dgcV24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV24.Width = 28;
+            // 
+            // dgcV25
+            // 
+            this.dgcV25.DataPropertyName = "V25";
+            this.dgcV25.HeaderText = "25";
+            this.dgcV25.Name = "dgcV25";
+            this.dgcV25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV25.Width = 28;
+            // 
+            // dgcV26
+            // 
+            this.dgcV26.DataPropertyName = "V26";
+            this.dgcV26.HeaderText = "26";
+            this.dgcV26.Name = "dgcV26";
+            this.dgcV26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV26.Width = 28;
+            // 
+            // dgcV27
+            // 
+            this.dgcV27.DataPropertyName = "V27";
+            this.dgcV27.HeaderText = "27";
+            this.dgcV27.Name = "dgcV27";
+            this.dgcV27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV27.Width = 28;
+            // 
+            // dgcV28
+            // 
+            this.dgcV28.DataPropertyName = "V28";
+            this.dgcV28.HeaderText = "28";
+            this.dgcV28.Name = "dgcV28";
+            this.dgcV28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV28.Width = 28;
+            // 
+            // dgcV29
+            // 
+            this.dgcV29.DataPropertyName = "V29";
+            this.dgcV29.HeaderText = "29";
+            this.dgcV29.Name = "dgcV29";
+            this.dgcV29.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV29.Width = 28;
+            // 
+            // dgcV30
+            // 
+            this.dgcV30.DataPropertyName = "V30";
+            this.dgcV30.HeaderText = "30";
+            this.dgcV30.Name = "dgcV30";
+            this.dgcV30.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV30.Width = 28;
+            // 
+            // dgcV31
+            // 
+            this.dgcV31.DataPropertyName = "V31";
+            this.dgcV31.HeaderText = "31";
+            this.dgcV31.Name = "dgcV31";
+            this.dgcV31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcV31.Width = 28;
+            // 
+            // dgcIDL
+            // 
+            this.dgcIDL.DataPropertyName = "IDL";
+            this.dgcIDL.HeaderText = "IDL";
+            this.dgcIDL.Name = "dgcIDL";
+            this.dgcIDL.Visible = false;
+            this.dgcIDL.Width = 40;
+            // 
+            // dgcKind2
+            // 
+            this.dgcKind2.DataPropertyName = "KIND2";
+            this.dgcKind2.HeaderText = "KIND2";
+            this.dgcKind2.Name = "dgcKind2";
+            this.dgcKind2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcKind2.Visible = false;
+            this.dgcKind2.Width = 40;
             // 
             // Form_TimeSheet
             // 

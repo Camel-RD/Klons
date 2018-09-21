@@ -47,6 +47,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbDep = new KlonsLIB.Components.MyMcFlatComboBox();
             this.bsDep = new KlonsLIB.Data.MyBindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbProfCode = new KlonsLIB.Components.MyTextBox();
+            this.tbRepCode = new KlonsLIB.Components.MyTextBox();
+            this.tbDate = new KlonsLIB.Components.MyTextBox();
+            this.chMakeEvents = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsDep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +72,7 @@
             this.label1.Location = new System.Drawing.Point(13, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 16);
-            this.label1.TabIndex = 10;
+            this.label1.TabIndex = 13;
             this.label1.Text = "Vārds:";
             // 
             // tbLName
@@ -83,7 +90,7 @@
             this.label2.Location = new System.Drawing.Point(13, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 16);
-            this.label2.TabIndex = 11;
+            this.label2.TabIndex = 14;
             this.label2.Text = "Uzvārds";
             // 
             // tbBirthDate
@@ -101,7 +108,7 @@
             this.label3.Location = new System.Drawing.Point(13, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 16);
-            this.label3.TabIndex = 12;
+            this.label3.TabIndex = 15;
             this.label3.Text = "Dzimšanas datums:";
             // 
             // tbPK
@@ -119,7 +126,7 @@
             this.label4.Location = new System.Drawing.Point(13, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 16);
-            this.label4.TabIndex = 13;
+            this.label4.TabIndex = 16;
             this.label4.Text = "Personas kods:";
             // 
             // chMale
@@ -151,15 +158,15 @@
             this.label5.Location = new System.Drawing.Point(13, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 16);
-            this.label5.TabIndex = 14;
+            this.label5.TabIndex = 17;
             this.label5.Text = "Dzimums:";
             // 
             // cmOK
             // 
-            this.cmOK.Location = new System.Drawing.Point(206, 250);
+            this.cmOK.Location = new System.Drawing.Point(393, 249);
             this.cmOK.Name = "cmOK";
             this.cmOK.Size = new System.Drawing.Size(83, 37);
-            this.cmOK.TabIndex = 8;
+            this.cmOK.TabIndex = 11;
             this.cmOK.Text = "Pievienot";
             this.cmOK.UseVisualStyleBackColor = true;
             this.cmOK.Click += new System.EventHandler(this.cmOK_Click);
@@ -168,10 +175,10 @@
             // cmCancel
             // 
             this.cmCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmCancel.Location = new System.Drawing.Point(295, 250);
+            this.cmCancel.Location = new System.Drawing.Point(482, 249);
             this.cmCancel.Name = "cmCancel";
             this.cmCancel.Size = new System.Drawing.Size(83, 37);
-            this.cmCancel.TabIndex = 9;
+            this.cmCancel.TabIndex = 12;
             this.cmCancel.Text = "Atcelt";
             this.cmCancel.UseVisualStyleBackColor = true;
             this.cmCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -191,7 +198,7 @@
             this.label6.Location = new System.Drawing.Point(13, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 16);
-            this.label6.TabIndex = 15;
+            this.label6.TabIndex = 18;
             this.label6.Text = "Amats:";
             // 
             // label7
@@ -200,7 +207,7 @@
             this.label7.Location = new System.Drawing.Point(13, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 16);
-            this.label7.TabIndex = 16;
+            this.label7.TabIndex = 19;
             this.label7.Text = "Struktūrvienība:";
             // 
             // cbDep
@@ -234,14 +241,86 @@
             // 
             this.bsDep.DataMember = "DEPARTMENTS";
             this.bsDep.MyDataSource = "KlonsData";
-            this.bsDep.Name2 = null;
             this.bsDep.Sort = "ID";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(336, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Profesijas kods:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(336, 104);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 16);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Ziņu kods:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(336, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(106, 16);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Ieraksta datums:";
+            // 
+            // tbProfCode
+            // 
+            this.tbProfCode.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbProfCode.Location = new System.Drawing.Point(475, 130);
+            this.tbProfCode.Name = "tbProfCode";
+            this.tbProfCode.Size = new System.Drawing.Size(90, 22);
+            this.tbProfCode.TabIndex = 10;
+            this.tbProfCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
+            // 
+            // tbRepCode
+            // 
+            this.tbRepCode.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbRepCode.Location = new System.Drawing.Point(475, 102);
+            this.tbRepCode.Name = "tbRepCode";
+            this.tbRepCode.Size = new System.Drawing.Size(90, 22);
+            this.tbRepCode.TabIndex = 9;
+            this.tbRepCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
+            // 
+            // tbDate
+            // 
+            this.tbDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbDate.IsDate = true;
+            this.tbDate.Location = new System.Drawing.Point(475, 24);
+            this.tbDate.Name = "tbDate";
+            this.tbDate.Size = new System.Drawing.Size(90, 22);
+            this.tbDate.TabIndex = 8;
+            this.tbDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
+            // 
+            // chMakeEvents
+            // 
+            this.chMakeEvents.AutoSize = true;
+            this.chMakeEvents.Location = new System.Drawing.Point(339, 76);
+            this.chMakeEvents.Name = "chMakeEvents";
+            this.chMakeEvents.Size = new System.Drawing.Size(139, 20);
+            this.chMakeEvents.TabIndex = 21;
+            this.chMakeEvents.Text = "Izveidot notikumus";
+            this.chMakeEvents.UseVisualStyleBackColor = true;
+            this.chMakeEvents.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
             // 
             // Form_PersonNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 298);
+            this.ClientSize = new System.Drawing.Size(575, 298);
+            this.Controls.Add(this.chMakeEvents);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tbProfCode);
+            this.Controls.Add(this.tbRepCode);
+            this.Controls.Add(this.tbDate);
             this.Controls.Add(this.cbDep);
             this.Controls.Add(this.cmCancel);
             this.Controls.Add(this.cmOK);
@@ -289,5 +368,12 @@
         private System.Windows.Forms.Label label7;
         private KlonsLIB.Components.MyMcFlatComboBox cbDep;
         private KlonsLIB.Data.MyBindingSource bsDep;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private KlonsLIB.Components.MyTextBox tbProfCode;
+        private KlonsLIB.Components.MyTextBox tbRepCode;
+        private KlonsLIB.Components.MyTextBox tbDate;
+        private System.Windows.Forms.CheckBox chMakeEvents;
     }
 }

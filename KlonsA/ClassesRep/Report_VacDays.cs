@@ -37,7 +37,7 @@ namespace KlonsA.Classes
             return er;
         }
 
-        public string GetVacDaysNotUsed(KlonsADataSet.PERSONSRow dr_person, DateTime dt, RepRowVacDays rrvd)
+        public static string GetVacDaysNotUsed(KlonsADataSet.PERSONSRow dr_person, DateTime dt, RepRowVacDays rrvd)
         {
             rrvd.Clear();
 

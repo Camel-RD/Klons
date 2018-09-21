@@ -1146,6 +1146,39 @@ namespace KlonsA.Forms
             return -1;
         }
 
+        public void ShowVacationUseData()
+        {
+            if (bsPersons.Position == -1 || bsPersons.Current == null || !Validate()) return;
+            var dr = (bsPersons.Current as DataRowView).Row as KlonsADataSet.PERSONSRow;
+            var rrvd = new RepRowVacDays();
+            DateTime dt = DateTime.Today;
+            var fim = new Form_InputBox("Atvaļinājuma dienu aprēķins", "Aprēķina datums:", Utils.DateToString(dt));
+            var rt = fim.ShowMyDialogModal();
+            if (rt != DialogResult.OK) return;
+            if (!Utils.StringToDate(fim.SelectedValue, out dt))
+            {
+                MyMainForm.ShowWarning("Norādīts nekorekts datums.");
+                return;
+            }
+            var er1 = Report_VacDays.GetVacDaysNotUsed(dr, dt, rrvd);
+            if (er1 == "OK")
+            {
+                string msg = $"Darbinieks: {dr.YNAME}\n";
+                msg += $"Datums: {Utils.DateToString(dt)}\n\n";
+                msg += $"Pienākas atvaļinājuma dienas: {rrvd.ToUse}\n";
+                msg += $"Izmantotās atvaļinājuma dienas: {rrvd.Used}\n";
+                msg += $"Neizmantotās atvaļinājuma dienas: {rrvd.ToUse}\n";
+                msg += $"Kompensētās atvaļinājuma dienas: {rrvd.Compansated}\n";
+                msg += $"Atlikušās atvaļinājuma dienas: {rrvd.NotUsed}";
+                MyMainForm.ShowInfo(msg, "Atvaļinājuma dati:");
+            }
+            else
+            {
+                MyMainForm.ShowWarning(er1);
+            }
+        }
+
+
         private void tsbPrevPerson_Click(object sender, EventArgs e)
         {
             FindPerson(false);
@@ -1162,6 +1195,11 @@ namespace KlonsA.Forms
             {
                 FindPerson(true);
             }
+        }
+
+        private void neizmantotāsAtvaļinājumaDienasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowVacationUseData();
         }
     }
 }

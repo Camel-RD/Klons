@@ -308,24 +308,63 @@ namespace KlonsA.Forms
 
         public void DeleteCurrent()
         {
+            bnavNav.DeleteCurrent();
+            SaveDataA(true);
+        }
+
+        public bool CanDelete()
+        {
+            if (!SaveData())
+            {
+                MyMainForm.ShowWarning("Neizdevās saglabāt izmaiņas.");
+                return false; ;
+            }
+            if (MyMainForm.FindForm(typeof(Form_PersonsR)) != null)
+            {
+                MyMainForm.ShowWarning("Vispirms jāaizver forma [Darbinieku dati].");
+                return false; ;
+            }
+            if (bnavNav.BindingSource == bsPersons)
+            {
+                if (bsPersons.Current == null) return false;
+                var dr_per = (bsPersons.Current as DataRowView).Row as KlonsADataSet.PERSONSRow;
+                if (dr_per.GetEVENTSRows().Length > 0 ||
+                    dr_per.GetPASTDATARows().Length > 0 ||
+                    dr_per.GetPAYLISTS_RRows().Length > 0 ||
+                    dr_per.GetPAYLIST_TEMPL_RRows().Length > 0 ||
+                    dr_per.GetPIECEWORKRows().Length > 0 ||
+                    dr_per.GetPOSITIONS_PLUSMINUSRows().Length > 0 ||
+                    dr_per.GetSALARY_PLUSMINUSRows().Length > 0 ||
+                    dr_per.GetSALARY_SHEETS_RRows().Length > 0 ||
+                    dr_per.GetSALARY_SHEET_TEMPL_RRows().Length > 0 ||
+                    dr_per.GetTIMESHEET_LISTS_RRows().Length > 0 ||
+                    dr_per.GetTIMESHEET_TEMPL_RRows().Length > 0 ||
+                    dr_per.GetUNTAXED_MINRows().Length > 0)
+                {
+                    MyMainForm.ShowWarning("Nevar dzēst darbinieku ar datiem citās tabulās.");
+                    return false;
+                }
+            }
             if (bnavNav.BindingSource == bsAmati)
             {
                 if (bsAmati.Count == 1)
                 {
                     MyMainForm.ShowWarning("Nevar dzēst darbinieka vienīgo amatu.");
-                    return;
+                    return false;
                 }
-            }
-            bnavNav.DeleteCurrent();
-            SaveData();
-        }
+                if (bsAmati.Current == null) return false;
+                var dr_pos = (bsAmati.Current as DataRowView).Row as KlonsADataSet.POSITIONSRow;
+                if (dr_pos.GetEVENTSRows().Length > 0 ||
+                    dr_pos.GetPOSITIONS_PLUSMINUSRows().Length > 0 ||
+                    dr_pos.GetSALARY_SHEETS_RRows().Length > 0 ||
+                    dr_pos.GetSALARY_SHEET_TEMPL_RRows().Length > 0 ||
+                    dr_pos.GetTIMESHEET_LISTS_RRows().Length > 0 ||
+                    dr_pos.GetTIMESHEET_TEMPL_RRows().Length > 0)
+                {
+                    MyMainForm.ShowWarning("Nevar dzēst amatu ar datiem citās tabulās.");
+                    return false;
+                }
 
-        public bool CanDelete()
-        {
-            if (MyMainForm.FindForm(typeof(Form_PersonsR)) != null)
-            {
-                MyMainForm.ShowWarning("Vispirms jāaizver forma [Darbinieku dati].");
-                return false; ;
             }
             return true;
         }
@@ -357,7 +396,12 @@ namespace KlonsA.Forms
 
         public override bool SaveData()
         {
-            if(!this.Validate()) return false;
+            return SaveDataA();
+        }
+
+        public bool SaveDataA(bool droponerror = false)
+        {
+            if (!this.Validate()) return false;
             if (!dgvAmati.EndEditX()) return false;
             if (!dgvPersons.EndEditX()) return false;
             try
@@ -370,9 +414,25 @@ namespace KlonsA.Forms
             {
                 CheckSave();
                 Form_Error.ShowException(e, "Neizdevās saglabāt izmaiņas.");
+                if (droponerror)
+                    DropChanges();
                 return false;
             }
             return true;
+        }
+
+        public void DropChanges()
+        {
+            var tablenames = MyAdapterManager1.TableNames;
+            foreach (var tablename in tablenames)
+            {
+                var table = MyData.DataSetKlons.Tables[tablename];
+                try
+                {
+                    table.RejectChanges();
+                }
+                catch (Exception) { }
+            }
         }
 
         private void CheckSave()

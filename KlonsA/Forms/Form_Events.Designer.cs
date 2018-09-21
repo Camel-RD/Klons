@@ -30,13 +30,23 @@ namespace KlonsA.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Events));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Events));
             this.bsEvents = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsNV = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgvEvents = new KlonsLIB.Components.MyDataGridView();
+            this.cbFilterEvent = new KlonsLIB.Components.MyMcFlatComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tbDT1 = new KlonsLIB.Components.MyTextBox();
+            this.tbDT2 = new KlonsLIB.Components.MyTextBox();
+            this.bsNV2 = new KlonsLIB.Data.MyBindingSource(this.components);
+            this.cbFilterEvent2 = new KlonsLIB.Components.MyMcFlatComboBox();
             this.dgcDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcIDP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,16 +60,6 @@ namespace KlonsA.Forms
             this.dgcDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcOccCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbFilterEvent = new KlonsLIB.Components.MyMcFlatComboBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tbDT1 = new KlonsLIB.Components.MyTextBox();
-            this.tbDT2 = new KlonsLIB.Components.MyTextBox();
-            this.bsNV2 = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.cbFilterEvent2 = new KlonsLIB.Components.MyMcFlatComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
@@ -71,14 +71,12 @@ namespace KlonsA.Forms
             // 
             this.bsEvents.DataMember = "EVENTS";
             this.bsEvents.MyDataSource = "KlonsData";
-            this.bsEvents.Name2 = null;
             this.bsEvents.Sort = "DATE1";
             // 
             // bsNV
             // 
             this.bsNV.DataMember = "EVENT_TYPES";
             this.bsNV.MyDataSource = "KlonsData";
-            this.bsNV.Name2 = null;
             this.bsNV.Sort = "ID";
             // 
             // dgvEvents
@@ -119,121 +117,6 @@ namespace KlonsA.Forms
             this.dgvEvents.Size = new System.Drawing.Size(847, 384);
             this.dgvEvents.TabIndex = 0;
             this.dgvEvents.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEvents_CellFormatting);
-            // 
-            // dgcDate1
-            // 
-            this.dgcDate1.DataPropertyName = "DATE1";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "dd.MM.yyyy";
-            this.dgcDate1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcDate1.HeaderText = "datums no";
-            this.dgcDate1.Name = "dgcDate1";
-            this.dgcDate1.ReadOnly = true;
-            this.dgcDate1.Width = 90;
-            // 
-            // dgcDate2
-            // 
-            this.dgcDate2.DataPropertyName = "DATE2";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "dd.MM.yyyy";
-            this.dgcDate2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcDate2.HeaderText = "datums līdz";
-            this.dgcDate2.Name = "dgcDate2";
-            this.dgcDate2.ReadOnly = true;
-            this.dgcDate2.Width = 90;
-            // 
-            // dgcIDP
-            // 
-            this.dgcIDP.DataPropertyName = "YNAME";
-            this.dgcIDP.HeaderText = "darbinieks";
-            this.dgcIDP.Name = "dgcIDP";
-            this.dgcIDP.ReadOnly = true;
-            this.dgcIDP.Width = 120;
-            // 
-            // dgcIDA
-            // 
-            this.dgcIDA.DataPropertyName = "IDA";
-            this.dgcIDA.HeaderText = "amats";
-            this.dgcIDA.Name = "dgcIDA";
-            this.dgcIDA.ReadOnly = true;
-            this.dgcIDA.Width = 120;
-            // 
-            // dgcIDN
-            // 
-            this.dgcIDN.DataPropertyName = "IDN";
-            this.dgcIDN.HeaderText = "notikums";
-            this.dgcIDN.Name = "dgcIDN";
-            this.dgcIDN.ReadOnly = true;
-            this.dgcIDN.Width = 180;
-            // 
-            // dgcIDN2
-            // 
-            this.dgcIDN2.DataPropertyName = "IDN2";
-            this.dgcIDN2.HeaderText = "cits notikums";
-            this.dgcIDN2.Name = "dgcIDN2";
-            this.dgcIDN2.ReadOnly = true;
-            this.dgcIDN2.Width = 150;
-            // 
-            // dgcDescr
-            // 
-            this.dgcDescr.DataPropertyName = "DESCR";
-            this.dgcDescr.HeaderText = "apraksts";
-            this.dgcDescr.Name = "dgcDescr";
-            this.dgcDescr.ReadOnly = true;
-            this.dgcDescr.Width = 150;
-            // 
-            // dgcDate3
-            // 
-            this.dgcDate3.DataPropertyName = "DATE3";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "dd.MM.yyyy";
-            this.dgcDate3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgcDate3.HeaderText = "izmaksas datums";
-            this.dgcDate3.Name = "dgcDate3";
-            this.dgcDate3.ReadOnly = true;
-            this.dgcDate3.Width = 90;
-            // 
-            // dgcDocNr
-            // 
-            this.dgcDocNr.DataPropertyName = "DOCNR";
-            this.dgcDocNr.HeaderText = "dok.nr.";
-            this.dgcDocNr.Name = "dgcDocNr";
-            this.dgcDocNr.ReadOnly = true;
-            this.dgcDocNr.Width = 60;
-            // 
-            // dgcSCode
-            // 
-            this.dgcSCode.DataPropertyName = "SCODE";
-            this.dgcSCode.HeaderText = "ziņu kods";
-            this.dgcSCode.Name = "dgcSCode";
-            this.dgcSCode.ReadOnly = true;
-            this.dgcSCode.Width = 50;
-            // 
-            // dgcDays
-            // 
-            this.dgcDays.DataPropertyName = "DAYS";
-            this.dgcDays.HeaderText = "dienas";
-            this.dgcDays.Name = "dgcDays";
-            this.dgcDays.ReadOnly = true;
-            this.dgcDays.ToolTipText = "atvaļinājums dienas";
-            this.dgcDays.Width = 60;
-            // 
-            // dgcOccCode
-            // 
-            this.dgcOccCode.DataPropertyName = "OCCUPATION_CODE";
-            this.dgcOccCode.HeaderText = "prof. kods";
-            this.dgcOccCode.Name = "dgcOccCode";
-            this.dgcOccCode.ReadOnly = true;
-            this.dgcOccCode.ToolTipText = "profesijas kods";
-            this.dgcOccCode.Width = 80;
-            // 
-            // dgcID
-            // 
-            this.dgcID.DataPropertyName = "ID";
-            this.dgcID.HeaderText = "ID";
-            this.dgcID.Name = "dgcID";
-            this.dgcID.ReadOnly = true;
-            this.dgcID.Visible = false;
             // 
             // cbFilterEvent
             // 
@@ -325,7 +208,6 @@ namespace KlonsA.Forms
             // 
             this.bsNV2.DataMember = "EVENT_TYPES2";
             this.bsNV2.MyDataSource = "KlonsData";
-            this.bsNV2.Name2 = null;
             this.bsNV2.Sort = "TAG";
             // 
             // cbFilterEvent2
@@ -352,6 +234,121 @@ namespace KlonsA.Forms
             this.cbFilterEvent2.Size = new System.Drawing.Size(226, 23);
             this.cbFilterEvent2.TabIndex = 15;
             this.cbFilterEvent2.ValueMember = "ID";
+            // 
+            // dgcDate1
+            // 
+            this.dgcDate1.DataPropertyName = "DATE1";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "dd.MM.yyyy";
+            this.dgcDate1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcDate1.HeaderText = "datums no";
+            this.dgcDate1.Name = "dgcDate1";
+            this.dgcDate1.ReadOnly = true;
+            this.dgcDate1.Width = 90;
+            // 
+            // dgcDate2
+            // 
+            this.dgcDate2.DataPropertyName = "DATE2";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "dd.MM.yyyy";
+            this.dgcDate2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcDate2.HeaderText = "datums līdz";
+            this.dgcDate2.Name = "dgcDate2";
+            this.dgcDate2.ReadOnly = true;
+            this.dgcDate2.Width = 90;
+            // 
+            // dgcIDP
+            // 
+            this.dgcIDP.DataPropertyName = "YNAME";
+            this.dgcIDP.HeaderText = "darbinieks";
+            this.dgcIDP.Name = "dgcIDP";
+            this.dgcIDP.ReadOnly = true;
+            this.dgcIDP.Width = 160;
+            // 
+            // dgcIDA
+            // 
+            this.dgcIDA.DataPropertyName = "IDA";
+            this.dgcIDA.HeaderText = "amats";
+            this.dgcIDA.Name = "dgcIDA";
+            this.dgcIDA.ReadOnly = true;
+            this.dgcIDA.Width = 120;
+            // 
+            // dgcIDN
+            // 
+            this.dgcIDN.DataPropertyName = "IDN";
+            this.dgcIDN.HeaderText = "notikums";
+            this.dgcIDN.Name = "dgcIDN";
+            this.dgcIDN.ReadOnly = true;
+            this.dgcIDN.Width = 180;
+            // 
+            // dgcIDN2
+            // 
+            this.dgcIDN2.DataPropertyName = "IDN2";
+            this.dgcIDN2.HeaderText = "cits notikums";
+            this.dgcIDN2.Name = "dgcIDN2";
+            this.dgcIDN2.ReadOnly = true;
+            this.dgcIDN2.Width = 150;
+            // 
+            // dgcDescr
+            // 
+            this.dgcDescr.DataPropertyName = "DESCR";
+            this.dgcDescr.HeaderText = "apraksts";
+            this.dgcDescr.Name = "dgcDescr";
+            this.dgcDescr.ReadOnly = true;
+            this.dgcDescr.Width = 150;
+            // 
+            // dgcDate3
+            // 
+            this.dgcDate3.DataPropertyName = "DATE3";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "dd.MM.yyyy";
+            this.dgcDate3.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgcDate3.HeaderText = "izmaksas datums";
+            this.dgcDate3.Name = "dgcDate3";
+            this.dgcDate3.ReadOnly = true;
+            this.dgcDate3.Width = 90;
+            // 
+            // dgcDocNr
+            // 
+            this.dgcDocNr.DataPropertyName = "DOCNR";
+            this.dgcDocNr.HeaderText = "dok.nr.";
+            this.dgcDocNr.Name = "dgcDocNr";
+            this.dgcDocNr.ReadOnly = true;
+            this.dgcDocNr.Width = 60;
+            // 
+            // dgcSCode
+            // 
+            this.dgcSCode.DataPropertyName = "SCODE";
+            this.dgcSCode.HeaderText = "ziņu kods";
+            this.dgcSCode.Name = "dgcSCode";
+            this.dgcSCode.ReadOnly = true;
+            this.dgcSCode.Width = 50;
+            // 
+            // dgcDays
+            // 
+            this.dgcDays.DataPropertyName = "DAYS";
+            this.dgcDays.HeaderText = "dienas";
+            this.dgcDays.Name = "dgcDays";
+            this.dgcDays.ReadOnly = true;
+            this.dgcDays.ToolTipText = "atvaļinājums dienas";
+            this.dgcDays.Width = 60;
+            // 
+            // dgcOccCode
+            // 
+            this.dgcOccCode.DataPropertyName = "OCCUPATION_CODE";
+            this.dgcOccCode.HeaderText = "prof. kods";
+            this.dgcOccCode.Name = "dgcOccCode";
+            this.dgcOccCode.ReadOnly = true;
+            this.dgcOccCode.ToolTipText = "profesijas kods";
+            this.dgcOccCode.Width = 80;
+            // 
+            // dgcID
+            // 
+            this.dgcID.DataPropertyName = "ID";
+            this.dgcID.HeaderText = "ID";
+            this.dgcID.Name = "dgcID";
+            this.dgcID.ReadOnly = true;
+            this.dgcID.Visible = false;
             // 
             // Form_Events
             // 
@@ -391,6 +388,8 @@ namespace KlonsA.Forms
         private KlonsLIB.Components.MyTextBox tbDT1;
         private KlonsLIB.Components.MyTextBox tbDT2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private KlonsLIB.Data.MyBindingSource bsNV2;
+        private KlonsLIB.Components.MyMcFlatComboBox cbFilterEvent2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDate1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDate2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcIDP;
@@ -404,7 +403,5 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcOccCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
-        private KlonsLIB.Data.MyBindingSource bsNV2;
-        private KlonsLIB.Components.MyMcFlatComboBox cbFilterEvent2;
     }
 }

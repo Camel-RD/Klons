@@ -1416,6 +1416,10 @@ namespace KlonsA.Classes
             if (ret != "OK") return ret;
 
             var drs_pr = dr_person.GetPERSONS_RRows();
+            if (drs_pr.Length == 0)
+            {
+                return "Darbinieka dati ir bojāti.";
+            }
             var dr_pr_first = drs_pr.OrderBy(d => d.EDIT_DATE).First();
             var dtprfirst = dr_pr_first.EDIT_DATE;
 

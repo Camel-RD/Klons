@@ -783,7 +783,7 @@ namespace KlonsA.Classes
                 {
                     var dr_not = (d.Item1 as KlonsADataSet.EVENTSRow);
                     if (dr_not.IsDATE3Null()) return false;
-                    return (d.DateLast > dt2) ||
+                    return (d.DateLast > dt2) &&
                         (dr_not.DATE3 >= dt1 && dr_not.DATE3 <= dt2);
                 }).ToArray();
 
