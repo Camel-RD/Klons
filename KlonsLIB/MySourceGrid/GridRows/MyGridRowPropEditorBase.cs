@@ -240,6 +240,9 @@ namespace KlonsLIB.MySourceGrid.GridRows
             var bp = new DataCellController(this);
             DataCell.AddController(bp);
 
+            DataCell.Editor.EditableMode = EditableMode.AnyKey | EditableMode.DoubleClick |
+                EditableMode.F2Key | EditableMode.SingleClick;
+
             if (DataSource != null && DataMember != null)
             {
                 var bd = new Binding(GridPropertyName, DataSource, DataMember, true, DataSourceUpdateMode.OnPropertyChanged);

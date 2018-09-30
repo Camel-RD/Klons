@@ -260,6 +260,7 @@
     <Compile Include="MySourceGrid\RowMarkCellController.cs" />
     <Compile Include="MySourceGrid\RowMarkModel.cs" />
     <Compile Include="MySourceGrid\SharedControlDef.cs" />
+    <Compile Include="MySourceGrid\MyStandardBehavior.cs" />
     <Compile Include="MySourceGrid\ValueMappingB.cs" />
     <Compile Include="MySourceGrid\ValueMappingA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

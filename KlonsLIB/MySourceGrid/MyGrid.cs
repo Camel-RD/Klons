@@ -108,6 +108,15 @@ namespace KlonsLIB.MySourceGrid
             gridViewModel = new MyGridViewModel(this);
             gridRowList = new MyGridRowList(this);
             gridRowTemplateList = new MyGridRowList(this);
+
+            Controller.RemoveController(SourceGrid.Cells.Controllers.StandardBehavior.Default);
+            Controller.RemoveController(SourceGrid.Cells.Controllers.MouseSelection.Default);
+            Controller.RemoveController(SourceGrid.Cells.Controllers.CellEventDispatcher.Default);
+
+            Controller.AddController(MyStandardBehavior.Default);
+            Controller.AddController(SourceGrid.Cells.Controllers.MouseSelection.Default);
+            Controller.AddController(SourceGrid.Cells.Controllers.CellEventDispatcher.Default);
+
             SetMyToolTip();
         }
 

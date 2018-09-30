@@ -203,7 +203,7 @@ namespace KlonsF.FormsReportParams
 
             ax[42] = sc("102") + sc("105") + sc("108");
             //rinda 411
-            ax[73] = sc("K041") + sc("K051") + sc("B01") + sc("D01");
+            ax[73] = sc("K041") + sc("K051") + sc("B01") + sc("D01") + sc("M01");
             ax[44] = sc("111");
             ax[45] = sc("112") + sc("K044") + sc("K053");
             ax[46] = sc("113");
@@ -248,7 +248,7 @@ namespace KlonsF.FormsReportParams
                     ax[53] = sc("202") + sc("205") + sc("207");
                 }
             }
-            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12");
+            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
             ax[53] = ax[53];
 
             ax[54] = sc("211");
@@ -259,7 +259,7 @@ namespace KlonsF.FormsReportParams
             ax[57] = sc("301") + sc("302") + sc("303") +
                      sc("304") + sc("305") + sc("306") + sc("307") + sc("308");
             
-            ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12");
+            ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + sd("M12");
 
             //ax[58] = sc("251")
 
@@ -268,7 +268,7 @@ namespace KlonsF.FormsReportParams
             ax[62] = sd("301") + sd("302") + sd("303") +
                      sd("305") + sd("306") + sd("307") + sd("308");
 
-            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12");
+            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
             ax[63] = sd("321");
             ax[64] = sd("331") + sd("332");
             ax[65] = sd("304");
@@ -314,7 +314,7 @@ namespace KlonsF.FormsReportParams
             //rinda 421
             ax[74] = sc("102");
             //rinda 411
-            ax[73] = sc("K041") + sc("K051") + sc("B01") + sc("D01") + sc("B03") + sc("D03");
+            ax[73] = sc("K041") + sc("K051") + sc("B01") + sc("D01") + sc("B03") + sc("D03") + sc("M01");
             ax[44] = sc("111");
             ax[45] = sc("112") + sc("K044") + sc("K053");
             //rinda 451
@@ -366,7 +366,7 @@ namespace KlonsF.FormsReportParams
                     ax[77] = sc("202");
                 }
             }
-            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12");
+            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
             ax[53] = ax[53];
 
             ax[54] = sc("211");
@@ -379,7 +379,7 @@ namespace KlonsF.FormsReportParams
             ax[57] = sc("301") + sc("302") + sc("303") +
                      sc("304") + sc("305") + sc("306") + sc("307") + sc("308");
 
-            ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + sc("B14") + sc("D14");
+            ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + sc("B14") + sc("D14") + sc("M12");
 
             //ax[58] = sc("251")
 
@@ -388,7 +388,7 @@ namespace KlonsF.FormsReportParams
             ax[62] = sd("301") + sd("302") + sd("303") +
                      sd("305") + sd("306") + sd("307") + sd("308");
 
-            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12");
+            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
             ax[63] = sd("321");
             ax[64] = sd("331") + sd("332");
             ax[65] = sd("304");

@@ -41,22 +41,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bsPersons = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgvPersons = new KlonsLIB.Components.MyDataGridView();
-            this.dgcClid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRegNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPVNRegNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcTP = new KlonsLIB.Components.MyDgvMcCBColumn();
-            this.dgcTP2 = new KlonsLIB.Components.MyDgvMcCBColumn();
-            this.dgcTP3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgcAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcAddr2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcBankId = new KlonsLIB.Components.MyDgvMcCBColumn();
             this.bsBanks = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcBank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcBankAcc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcAct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -74,6 +59,21 @@ namespace KlonsF.Forms
             this.tbClid = new KlonsLIB.Components.MyPickRowTextBox();
             this.cbAct = new KlonsLIB.Components.MyMcFlatComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.dgcClid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRegNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPVNRegNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcTP = new KlonsLIB.Components.MyDgvMcCBColumn();
+            this.dgcTP2 = new KlonsLIB.Components.MyDgvMcCBColumn();
+            this.dgcTP3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcAddr2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcBankId = new KlonsLIB.Components.MyDgvMcCBColumn();
+            this.dgcBank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcBankAcc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcAct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bnavPersons)).BeginInit();
             this.bnavPersons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPersons)).BeginInit();
@@ -111,7 +111,8 @@ namespace KlonsF.Forms
             this.bnavPersons.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnavPersons.Name = "bnavPersons";
             this.bnavPersons.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnavPersons.Size = new System.Drawing.Size(698, 32);
+            this.bnavPersons.SaveItem = null;
+            this.bnavPersons.Size = new System.Drawing.Size(801, 32);
             this.bnavPersons.TabIndex = 0;
             this.bnavPersons.Text = "bindingNavigator1";
             this.bnavPersons.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavPersons_ItemDeleting);
@@ -130,7 +131,6 @@ namespace KlonsF.Forms
             this.bsPersons.AutoSaveOnDelete = true;
             this.bsPersons.DataMember = "Persons";
             this.bsPersons.MyDataSource = "KlonsData";
-            this.bsPersons.Name2 = null;
             this.bsPersons.Sort = "";
             this.bsPersons.UseDataGridView = this.dgvPersons;
             this.bsPersons.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bsPersons_ListChanged);
@@ -170,7 +170,7 @@ namespace KlonsF.Forms
             this.dgvPersons.DataSource = this.bsPersons;
             this.dgvPersons.Location = new System.Drawing.Point(0, 28);
             this.dgvPersons.Name = "dgvPersons";
-            this.dgvPersons.Size = new System.Drawing.Size(698, 380);
+            this.dgvPersons.Size = new System.Drawing.Size(801, 380);
             this.dgvPersons.TabIndex = 3;
             this.dgvPersons.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPersons_MyKeyDown);
             this.dgvPersons.MyCheckForChanges += new System.EventHandler(this.dgvPersons_MyCheckForChanges);
@@ -180,162 +180,11 @@ namespace KlonsF.Forms
             this.dgvPersons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPersons_KeyDown);
             this.dgvPersons.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvPersons_KeyPress);
             // 
-            // dgcClid
-            // 
-            this.dgcClid.DataPropertyName = "ClId";
-            this.dgcClid.HeaderText = "kods";
-            this.dgcClid.Name = "dgcClid";
-            this.dgcClid.Width = 96;
-            // 
-            // dgcName
-            // 
-            this.dgcName.DataPropertyName = "Name";
-            this.dgcName.HeaderText = "nosaukums";
-            this.dgcName.Name = "dgcName";
-            this.dgcName.Width = 160;
-            // 
-            // dgcRegNr
-            // 
-            this.dgcRegNr.DataPropertyName = "RegNr";
-            this.dgcRegNr.HeaderText = "reģ.nr.";
-            this.dgcRegNr.Name = "dgcRegNr";
-            this.dgcRegNr.ToolTipText = "Uzņēmuma reģistrācijas numurs, vai personas kods";
-            this.dgcRegNr.Width = 112;
-            // 
-            // dgcPVNRegNr
-            // 
-            this.dgcPVNRegNr.DataPropertyName = "PVNRegNr";
-            this.dgcPVNRegNr.HeaderText = "PVN reģ.nr.";
-            this.dgcPVNRegNr.Name = "dgcPVNRegNr";
-            this.dgcPVNRegNr.Width = 128;
-            // 
-            // dgcTP
-            // 
-            this.dgcTP.ColumnNames = new string[] {
-        "col1",
-        "col2"};
-            this.dgcTP.ColumnWidths = "50;150";
-            this.dgcTP.DataPropertyName = "TP";
-            this.dgcTP.DisplayMember = "col1";
-            this.dgcTP.HeaderText = "veids";
-            this.dgcTP.ItemStrings = new string[] {
-        "DB;debitors",
-        "KR;kreditors"};
-            this.dgcTP.MaxDropDownItems = 15;
-            this.dgcTP.Name = "dgcTP";
-            this.dgcTP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcTP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcTP.ValueMember = "col1";
-            this.dgcTP.Width = 48;
-            // 
-            // dgcTP2
-            // 
-            this.dgcTP2.ColumnNames = new string[] {
-        "col1",
-        "col2"};
-            this.dgcTP2.DataPropertyName = "TP2";
-            this.dgcTP2.DisplayMember = "col1";
-            this.dgcTP2.HeaderText = "fp/jp";
-            this.dgcTP2.ItemStrings = new string[] {
-        "FP;fiziska persona",
-        "JP;juridiska persona",
-        "DA;darbinieks"};
-            this.dgcTP2.MaxDropDownItems = 15;
-            this.dgcTP2.Name = "dgcTP2";
-            this.dgcTP2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcTP2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcTP2.ValueMember = "col1";
-            this.dgcTP2.Width = 40;
-            // 
-            // dgcTP3
-            // 
-            this.dgcTP3.DataPropertyName = "TP3";
-            this.dgcTP3.FalseValue = "Nav";
-            this.dgcTP3.HeaderText = "pvn";
-            this.dgcTP3.Name = "dgcTP3";
-            this.dgcTP3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcTP3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcTP3.ToolTipText = "vai ir pvn maksātajs";
-            this.dgcTP3.TrueValue = "Ir";
-            this.dgcTP3.Width = 40;
-            // 
-            // dgcAddr
-            // 
-            this.dgcAddr.DataPropertyName = "Addr";
-            this.dgcAddr.HeaderText = "jur. adrese";
-            this.dgcAddr.Name = "dgcAddr";
-            this.dgcAddr.ToolTipText = "Juridiskā adrese";
-            this.dgcAddr.Width = 160;
-            // 
-            // dgcAddr2
-            // 
-            this.dgcAddr2.DataPropertyName = "Addr2";
-            this.dgcAddr2.HeaderText = "fiz. adrese";
-            this.dgcAddr2.Name = "dgcAddr2";
-            this.dgcAddr2.ToolTipText = "Struktūrvienības adrese (pavadzīmēm)";
-            this.dgcAddr2.Width = 160;
-            // 
-            // dgcATK
-            // 
-            this.dgcATK.DataPropertyName = "ATK";
-            this.dgcATK.HeaderText = "ATK";
-            this.dgcATK.Name = "dgcATK";
-            this.dgcATK.Width = 80;
-            // 
-            // dgcBankId
-            // 
-            this.dgcBankId.ColumnNames = new string[] {
-        "id",
-        "name"};
-            this.dgcBankId.ColumnWidths = "100;200";
-            this.dgcBankId.DataPropertyName = "BankId";
-            this.dgcBankId.DataSource = this.bsBanks;
-            this.dgcBankId.DisplayMember = "Id";
-            this.dgcBankId.HeaderText = "bankas kods";
-            this.dgcBankId.MaxDropDownItems = 15;
-            this.dgcBankId.Name = "dgcBankId";
-            this.dgcBankId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcBankId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcBankId.ToolTipText = "Bankas BIC kods";
-            this.dgcBankId.ValueMember = "Id";
-            this.dgcBankId.Width = 112;
-            // 
             // bsBanks
             // 
             this.bsBanks.DataMember = "Banks";
             this.bsBanks.MyDataSource = "KlonsData";
             this.bsBanks.Name2 = "bsBanks";
-            // 
-            // dgcBank
-            // 
-            this.dgcBank.DataPropertyName = "Bank";
-            this.dgcBank.HeaderText = "bankas nosaukums";
-            this.dgcBank.MaxInputLength = 50;
-            this.dgcBank.Name = "dgcBank";
-            this.dgcBank.Width = 160;
-            // 
-            // dgcBankAcc
-            // 
-            this.dgcBankAcc.DataPropertyName = "BankAcc";
-            this.dgcBankAcc.HeaderText = "bankas konts";
-            this.dgcBankAcc.Name = "dgcBankAcc";
-            this.dgcBankAcc.Width = 120;
-            // 
-            // dgcPhone
-            // 
-            this.dgcPhone.DataPropertyName = "Phone";
-            this.dgcPhone.HeaderText = "telefona";
-            this.dgcPhone.Name = "dgcPhone";
-            this.dgcPhone.Width = 80;
-            // 
-            // dgcAct
-            // 
-            this.dgcAct.DataPropertyName = "Act";
-            this.dgcAct.FalseValue = "0";
-            this.dgcAct.HeaderText = "aktīvs";
-            this.dgcAct.Name = "dgcAct";
-            this.dgcAct.TrueValue = "1";
-            this.dgcAct.Width = 48;
             // 
             // bindingNavigatorCountItem
             // 
@@ -511,11 +360,162 @@ namespace KlonsF.Forms
             this.label3.TabIndex = 4;
             this.label3.Text = "rādīt:";
             // 
+            // dgcClid
+            // 
+            this.dgcClid.DataPropertyName = "ClId";
+            this.dgcClid.HeaderText = "kods";
+            this.dgcClid.Name = "dgcClid";
+            this.dgcClid.Width = 96;
+            // 
+            // dgcName
+            // 
+            this.dgcName.DataPropertyName = "Name";
+            this.dgcName.HeaderText = "nosaukums";
+            this.dgcName.Name = "dgcName";
+            this.dgcName.Width = 250;
+            // 
+            // dgcRegNr
+            // 
+            this.dgcRegNr.DataPropertyName = "RegNr";
+            this.dgcRegNr.HeaderText = "reģ.nr.";
+            this.dgcRegNr.Name = "dgcRegNr";
+            this.dgcRegNr.ToolTipText = "Uzņēmuma reģistrācijas numurs, vai personas kods";
+            this.dgcRegNr.Width = 112;
+            // 
+            // dgcPVNRegNr
+            // 
+            this.dgcPVNRegNr.DataPropertyName = "PVNRegNr";
+            this.dgcPVNRegNr.HeaderText = "PVN reģ.nr.";
+            this.dgcPVNRegNr.Name = "dgcPVNRegNr";
+            this.dgcPVNRegNr.Width = 128;
+            // 
+            // dgcTP
+            // 
+            this.dgcTP.ColumnNames = new string[] {
+        "col1",
+        "col2"};
+            this.dgcTP.ColumnWidths = "50;150";
+            this.dgcTP.DataPropertyName = "TP";
+            this.dgcTP.DisplayMember = "col1";
+            this.dgcTP.HeaderText = "veids";
+            this.dgcTP.ItemStrings = new string[] {
+        "DB;debitors",
+        "KR;kreditors"};
+            this.dgcTP.MaxDropDownItems = 15;
+            this.dgcTP.Name = "dgcTP";
+            this.dgcTP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcTP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcTP.ValueMember = "col1";
+            this.dgcTP.Width = 48;
+            // 
+            // dgcTP2
+            // 
+            this.dgcTP2.ColumnNames = new string[] {
+        "col1",
+        "col2"};
+            this.dgcTP2.DataPropertyName = "TP2";
+            this.dgcTP2.DisplayMember = "col1";
+            this.dgcTP2.HeaderText = "fp/jp";
+            this.dgcTP2.ItemStrings = new string[] {
+        "FP;fiziska persona",
+        "JP;juridiska persona",
+        "DA;darbinieks"};
+            this.dgcTP2.MaxDropDownItems = 15;
+            this.dgcTP2.Name = "dgcTP2";
+            this.dgcTP2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcTP2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcTP2.ValueMember = "col1";
+            this.dgcTP2.Width = 40;
+            // 
+            // dgcTP3
+            // 
+            this.dgcTP3.DataPropertyName = "TP3";
+            this.dgcTP3.FalseValue = "Nav";
+            this.dgcTP3.HeaderText = "pvn";
+            this.dgcTP3.Name = "dgcTP3";
+            this.dgcTP3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcTP3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcTP3.ToolTipText = "vai ir pvn maksātajs";
+            this.dgcTP3.TrueValue = "Ir";
+            this.dgcTP3.Width = 40;
+            // 
+            // dgcAddr
+            // 
+            this.dgcAddr.DataPropertyName = "Addr";
+            this.dgcAddr.HeaderText = "jur. adrese";
+            this.dgcAddr.Name = "dgcAddr";
+            this.dgcAddr.ToolTipText = "Juridiskā adrese";
+            this.dgcAddr.Width = 160;
+            // 
+            // dgcAddr2
+            // 
+            this.dgcAddr2.DataPropertyName = "Addr2";
+            this.dgcAddr2.HeaderText = "fiz. adrese";
+            this.dgcAddr2.Name = "dgcAddr2";
+            this.dgcAddr2.ToolTipText = "Struktūrvienības adrese (pavadzīmēm)";
+            this.dgcAddr2.Width = 160;
+            // 
+            // dgcATK
+            // 
+            this.dgcATK.DataPropertyName = "ATK";
+            this.dgcATK.HeaderText = "ATK";
+            this.dgcATK.Name = "dgcATK";
+            this.dgcATK.Width = 80;
+            // 
+            // dgcBankId
+            // 
+            this.dgcBankId.ColumnNames = new string[] {
+        "id",
+        "name"};
+            this.dgcBankId.ColumnWidths = "100;200";
+            this.dgcBankId.DataPropertyName = "BankId";
+            this.dgcBankId.DataSource = this.bsBanks;
+            this.dgcBankId.DisplayMember = "Id";
+            this.dgcBankId.HeaderText = "bankas kods";
+            this.dgcBankId.MaxDropDownItems = 15;
+            this.dgcBankId.Name = "dgcBankId";
+            this.dgcBankId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcBankId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcBankId.ToolTipText = "Bankas BIC kods";
+            this.dgcBankId.ValueMember = "Id";
+            this.dgcBankId.Width = 112;
+            // 
+            // dgcBank
+            // 
+            this.dgcBank.DataPropertyName = "Bank";
+            this.dgcBank.HeaderText = "bankas nosaukums";
+            this.dgcBank.MaxInputLength = 50;
+            this.dgcBank.Name = "dgcBank";
+            this.dgcBank.Width = 160;
+            // 
+            // dgcBankAcc
+            // 
+            this.dgcBankAcc.DataPropertyName = "BankAcc";
+            this.dgcBankAcc.HeaderText = "bankas konts";
+            this.dgcBankAcc.Name = "dgcBankAcc";
+            this.dgcBankAcc.Width = 120;
+            // 
+            // dgcPhone
+            // 
+            this.dgcPhone.DataPropertyName = "Phone";
+            this.dgcPhone.HeaderText = "telefona";
+            this.dgcPhone.Name = "dgcPhone";
+            this.dgcPhone.Width = 80;
+            // 
+            // dgcAct
+            // 
+            this.dgcAct.DataPropertyName = "Act";
+            this.dgcAct.FalseValue = "0";
+            this.dgcAct.HeaderText = "aktīvs";
+            this.dgcAct.Name = "dgcAct";
+            this.dgcAct.TrueValue = "1";
+            this.dgcAct.Width = 48;
+            // 
             // Form_Persons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 435);
+            this.ClientSize = new System.Drawing.Size(801, 435);
             this.Controls.Add(this.cbAct);
             this.Controls.Add(this.tbClid);
             this.Controls.Add(this.label3);

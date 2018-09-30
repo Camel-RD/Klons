@@ -39,10 +39,6 @@ namespace KlonsF.Forms
             this.bsAcPlan = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.dgvAcp21 = new KlonsLIB.Components.MyDataGridView();
-            this.dgcAc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcId1 = new KlonsLIB.Components.MyDgvMcCBColumn();
-            this.dgcId2 = new KlonsLIB.Components.MyDgvMcCBColumn();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -58,6 +54,10 @@ namespace KlonsF.Forms
             this.tbSearch = new KlonsLIB.Components.MyTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dgcAc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcId1 = new KlonsLIB.Components.MyDgvMcCBColumn();
+            this.dgcId2 = new KlonsLIB.Components.MyDgvMcCBColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bnavAcp21)).BeginInit();
             this.bnavAcp21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsAcPlan)).BeginInit();
@@ -95,7 +95,8 @@ namespace KlonsF.Forms
             this.bnavAcp21.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnavAcp21.Name = "bnavAcp21";
             this.bnavAcp21.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnavAcp21.Size = new System.Drawing.Size(544, 32);
+            this.bnavAcp21.SaveItem = null;
+            this.bnavAcp21.Size = new System.Drawing.Size(648, 32);
             this.bnavAcp21.TabIndex = 0;
             this.bnavAcp21.Text = "bindingNavigator1";
             this.bnavAcp21.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.acP21BindingNavigator_ItemDeleting);
@@ -142,7 +143,7 @@ namespace KlonsF.Forms
             this.dgvAcp21.Location = new System.Drawing.Point(0, 32);
             this.dgvAcp21.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAcp21.Name = "dgvAcp21";
-            this.dgvAcp21.Size = new System.Drawing.Size(544, 334);
+            this.dgvAcp21.Size = new System.Drawing.Size(648, 334);
             this.dgvAcp21.TabIndex = 2;
             this.dgvAcp21.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.acP21DataGridView_MyKeyDown);
             this.dgvAcp21.MyCheckForChanges += new System.EventHandler(this.dgvAcp21_MyCheckForChanges);
@@ -150,56 +151,6 @@ namespace KlonsF.Forms
             this.dgvAcp21.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.acP21DataGridView_UserDeletingRow);
             this.dgvAcp21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acP21DataGridView_KeyDown);
             this.dgvAcp21.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.acP21DataGridView_KeyPress);
-            // 
-            // dgcAc
-            // 
-            this.dgcAc.DataPropertyName = "AC";
-            this.dgcAc.HeaderText = "kods";
-            this.dgcAc.Name = "dgcAc";
-            this.dgcAc.Width = 64;
-            // 
-            // dgcName
-            // 
-            this.dgcName.DataPropertyName = "Name";
-            this.dgcName.HeaderText = "nosaukums";
-            this.dgcName.Name = "dgcName";
-            this.dgcName.Width = 240;
-            // 
-            // dgcId1
-            // 
-            this.dgcId1.ColumnWidths = "50;100";
-            this.dgcId1.DataPropertyName = "id1";
-            this.dgcId1.DisplayMember = "col1";
-            this.dgcId1.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownList;
-            this.dgcId1.HeaderText = "paz.np.";
-            this.dgcId1.ItemStrings = new string[] {
-        "BA;banka",
-        "CN;cita nauda",
-        "KA;kase"};
-            this.dgcId1.MaxDropDownItems = 15;
-            this.dgcId1.Name = "dgcId1";
-            this.dgcId1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcId1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcId1.ToolTipText = "pazīme naudas plūsmai";
-            this.dgcId1.ValueMember = "col1";
-            this.dgcId1.Width = 80;
-            // 
-            // dgcId2
-            // 
-            this.dgcId2.ColumnWidths = "50;100";
-            this.dgcId2.DataPropertyName = "id2";
-            this.dgcId2.DisplayMember = "col1";
-            this.dgcId2.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownList;
-            this.dgcId2.HeaderText = "paz.2";
-            this.dgcId2.ItemStrings = new string[] {
-        "DB;debitoriem",
-        "KR;kreditoriem"};
-            this.dgcId2.MaxDropDownItems = 15;
-            this.dgcId2.Name = "dgcId2";
-            this.dgcId2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcId2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcId2.ValueMember = "col1";
-            this.dgcId2.Width = 80;
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -308,7 +259,7 @@ namespace KlonsF.Forms
             this.tbSearch.Location = new System.Drawing.Point(204, 6);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(90, 22);
+            this.tbSearch.Size = new System.Drawing.Size(118, 22);
             this.tbSearch.TabIndex = 1;
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
@@ -333,11 +284,61 @@ namespace KlonsF.Forms
             this.label2.TabIndex = 5;
             this.label2.Text = "meklēt:";
             // 
+            // dgcAc
+            // 
+            this.dgcAc.DataPropertyName = "AC";
+            this.dgcAc.HeaderText = "kods";
+            this.dgcAc.Name = "dgcAc";
+            this.dgcAc.Width = 64;
+            // 
+            // dgcName
+            // 
+            this.dgcName.DataPropertyName = "Name";
+            this.dgcName.HeaderText = "nosaukums";
+            this.dgcName.Name = "dgcName";
+            this.dgcName.Width = 350;
+            // 
+            // dgcId1
+            // 
+            this.dgcId1.ColumnWidths = "50;100";
+            this.dgcId1.DataPropertyName = "id1";
+            this.dgcId1.DisplayMember = "col1";
+            this.dgcId1.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownList;
+            this.dgcId1.HeaderText = "paz.np.";
+            this.dgcId1.ItemStrings = new string[] {
+        "BA;banka",
+        "CN;cita nauda",
+        "KA;kase"};
+            this.dgcId1.MaxDropDownItems = 15;
+            this.dgcId1.Name = "dgcId1";
+            this.dgcId1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcId1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcId1.ToolTipText = "pazīme naudas plūsmai";
+            this.dgcId1.ValueMember = "col1";
+            this.dgcId1.Width = 80;
+            // 
+            // dgcId2
+            // 
+            this.dgcId2.ColumnWidths = "50;100";
+            this.dgcId2.DataPropertyName = "id2";
+            this.dgcId2.DisplayMember = "col1";
+            this.dgcId2.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownList;
+            this.dgcId2.HeaderText = "paz.2";
+            this.dgcId2.ItemStrings = new string[] {
+        "DB;debitoriem",
+        "KR;kreditoriem"};
+            this.dgcId2.MaxDropDownItems = 15;
+            this.dgcId2.Name = "dgcId2";
+            this.dgcId2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcId2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcId2.ValueMember = "col1";
+            this.dgcId2.Width = 80;
+            // 
             // Form_AcPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 393);
+            this.ClientSize = new System.Drawing.Size(648, 393);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSearch);
@@ -379,10 +380,10 @@ namespace KlonsF.Forms
         private MyTextBox tbSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private MyDgvMcCBColumn dgcId1;
         private MyDgvMcCBColumn dgcId2;
-        private System.Windows.Forms.ToolStripButton toolStripButtonInfo;
     }
 }
