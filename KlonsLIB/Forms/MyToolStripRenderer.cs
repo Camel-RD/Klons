@@ -42,7 +42,7 @@ namespace KlonsLIB.Forms
         {
             Rectangle rc = new Rectangle(e.ImageRectangle.Left - 2, 1, e.ImageRectangle.Width + 4, e.Item.Height - 2);
             var ct = ColorTable as MyColorTable;
-            var pen = new Pen(ct.MyColorTheme.ForeColor, 2f);
+            var pen = new Pen(ct.MyColorTheme.ControlTextColor, 2f);
             var p1 = new Point(5, 6);
             var p2 = new Point(7, 9);
             var p3 = new Point(11, 4);

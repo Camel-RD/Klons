@@ -10,12 +10,13 @@ namespace KlonsLIB.Forms
 
     public class MyColorTheme
     {
-        public Color ForeColor { get; private set; }
         public Color ControlColor { get; private set; }
+        public Color ControlTextColor { get; private set; }
         public Color ControlColorDark { get; private set; }
         public Color ControlColorDarkDark { get; private set; }
         public Color ControlColorLight { get; private set; }
         public Color WindowColor { get; private set; }
+        public Color WindowTextColor { get; private set; }
         public Color BorderColor { get; private set; }
         public Color MenuHighlight { get; private set; }
 
@@ -30,33 +31,52 @@ namespace KlonsLIB.Forms
 
         private void MakeTables()
         {
-            SysToMy[SystemColors.ControlText] = ForeColor;
+            SysToMy[SystemColors.ControlText] = ControlTextColor;
             SysToMy[SystemColors.Control] = ControlColor;
-            SysToMy[SystemColors.WindowText] = ForeColor;
+            SysToMy[SystemColors.WindowText] = WindowTextColor;
             SysToMy[SystemColors.Window] = WindowColor;
             SysToMy[SystemColors.ControlLight] = ControlColorLight;
             SysToMy[SystemColors.ControlDark] = ControlColorDark;
             SysToMy[SystemColors.ControlDarkDark] = ControlColorDarkDark;
         }
 
-        public Color GetColor(Color color, Color value)
+        public Color TranslateSystemColor(Color color)
         {
-            if (color.IsEmpty) return color;
-            if (SysToMy.Keys.Contains(color))
-                return SysToMy[color];
-            return value;
+            if (!color.IsSystemColor) return Color.Empty;
+            switch (color.ToKnownColor())
+            {
+                case KnownColor.Window: return WindowColor;
+                case KnownColor.WindowText: return WindowTextColor;
+                case KnownColor.Control: return ControlColor;
+                case KnownColor.ControlText: return ControlTextColor;
+                case KnownColor.ControlDark: return ControlColorDark;
+                case KnownColor.ControlDarkDark: return ControlColorDarkDark;
+                case KnownColor.ControlLight: return ControlColorLight;
+            }
+            return Color.Empty;
+        }
+
+        public Color GetColor(Color color, Color defaultvalue)
+        {
+            if (color.IsEmpty) return defaultvalue;
+            Color c1 = TranslateSystemColor(color);
+            if (!c1.IsEmpty) return c1;
+            //if (SysToMy.Keys.Contains(color))
+            //    return SysToMy[color];
+            return defaultvalue;
         }
 
         public void UseSystemColors()
         {
-            ForeColor = SystemColors.WindowText;
             WindowColor = SystemColors.Window;
+            WindowTextColor = SystemColors.WindowText;
             ControlColor = SystemColors.Control;
+            ControlTextColor = SystemColors.ControlText;
             ControlColorLight = SystemColors.ControlLight;
             ControlColorDark = SystemColors.ControlDark;
             ControlColorDarkDark = SystemColors.ControlDarkDark;
             //MenuHighlight = SystemColors.MenuHighlight;
-            MenuHighlight = ColorThemeHelper.ColorBetween(WindowColor, ForeColor, 0.2f);
+            MenuHighlight = ColorThemeHelper.ColorBetween(WindowColor, WindowTextColor, 0.2f);
             
             BorderColor = ControlColorDarkDark;
             UsingSystemColors = true;
@@ -65,12 +85,13 @@ namespace KlonsLIB.Forms
 
         public void UseDarkTheme1()
         {
-            ForeColor = Color.FromArgb(241,241,241);
             WindowColor = Color.FromArgb(37, 37, 38);
+            WindowTextColor = Color.FromArgb(241, 241, 241);
             ControlColor = Color.FromArgb(37, 37, 38);
+            ControlTextColor = Color.FromArgb(241, 241, 241);
             ControlColorLight = Color.FromArgb(241, 241, 241);
             ControlColorDark = Color.FromArgb(200, 200, 200);
-            ControlColorDarkDark = ForeColor;
+            ControlColorDarkDark = ControlTextColor;
             MenuHighlight = Color.FromArgb(80, 80, 85);
             BorderColor = ControlColorDarkDark;
             UsingSystemColors = false;
@@ -78,9 +99,10 @@ namespace KlonsLIB.Forms
         }
         public void UseGreenOnBlack()
         {
-            ForeColor = Color.FromArgb(0, 255, 0);
             WindowColor = Color.FromArgb(0, 0, 0);
+            WindowTextColor = Color.FromArgb(0, 255, 0);
             ControlColor = Color.FromArgb(0, 0, 0);
+            ControlTextColor = Color.FromArgb(0, 255, 0);
             ControlColorLight = Color.FromArgb(0, 240, 0);
             ControlColorDark = Color.FromArgb(100, 100, 100);
             ControlColorDarkDark = Color.FromArgb(0, 240, 0);
@@ -91,9 +113,10 @@ namespace KlonsLIB.Forms
         }
         public void UseBlackOnWhite()
         {
-            ForeColor = Color.FromArgb(0, 0, 0);
             WindowColor = Color.FromArgb(255, 255, 255);
+            WindowTextColor = Color.FromArgb(0, 0, 0);
             ControlColor = Color.FromArgb(200, 200, 200);
+            ControlTextColor = Color.FromArgb(0, 0, 0);
             ControlColorLight = Color.FromArgb(100, 100, 100);
             ControlColorDark = Color.FromArgb(100, 100, 100);
             ControlColorDarkDark = Color.FromArgb(50, 50, 50);
@@ -225,12 +248,12 @@ namespace KlonsLIB.Forms
             if (c0 is ToolStripMenuItem)
             {
                 ToolStripMenuItem tmi = c0 as ToolStripMenuItem;
-                tmi.ForeColor = mycolortheme.GetColor(tmi.ForeColor, mycolortheme.ForeColor);
+                tmi.ForeColor = mycolortheme.GetColor(tmi.ForeColor, mycolortheme.ControlTextColor);
                 tmi.BackColor = mycolortheme.GetColor(tmi.BackColor, mycolortheme.ControlColor);
                 ToolStripDropDownMenu tdd = tmi.DropDown as ToolStripDropDownMenu;
                 if (tdd != null)
                 {
-                    tdd.ForeColor = mycolortheme.GetColor(tdd.ForeColor, mycolortheme.ForeColor);
+                    tdd.ForeColor = mycolortheme.GetColor(tdd.ForeColor, mycolortheme.ControlTextColor);
                     //tdd.BackColor = mycolortheme.GetColor(tdd.BackColor, mycolortheme.ControlColorDark);
                 }
                 return;
@@ -238,7 +261,7 @@ namespace KlonsLIB.Forms
             if (c0 is ToolStripItem)
             {
                 ToolStripItem tsi = c0 as ToolStripItem;
-                tsi.ForeColor = mycolortheme.GetColor(tsi.ForeColor, mycolortheme.ForeColor);
+                tsi.ForeColor = mycolortheme.GetColor(tsi.ForeColor, mycolortheme.ControlTextColor);
                 tsi.BackColor = mycolortheme.GetColor(tsi.BackColor, mycolortheme.ControlColor);
                 return;
             }
@@ -249,7 +272,7 @@ namespace KlonsLIB.Forms
 
             if (c is Form)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ControlTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.ControlColor);
             }
             else if (c is MdiClient)
@@ -261,7 +284,7 @@ namespace KlonsLIB.Forms
                 MenuStrip ms = c as MenuStrip;
                 if (ms.Renderer != MyToolStripRenderer)
                     ms.Renderer = MyToolStripRenderer;
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ControlTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.ControlColor);
             }
             else if (c is ToolStrip)
@@ -269,51 +292,51 @@ namespace KlonsLIB.Forms
                 var tsp = c as ToolStrip;
                 if (tsp.Renderer != MyToolStripRenderer)
                     tsp.Renderer = MyToolStripRenderer;
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ControlTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.ControlColor);
             }
             else if (c is TabPage)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ControlTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.ControlColor);
             }
             else if (c is MyLabel)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ControlTextColor);
                 (c as MyLabel).BorderColor = mycolortheme.GetColor((c as MyLabel).BorderColor, mycolortheme.BorderColor);
             }
             else if (c is Label)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ControlTextColor);
             }
             else if (c is MyTextBox)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
                 (c as MyTextBox).BorderColor = mycolortheme.GetColor((c as MyTextBox).BorderColor, mycolortheme.BorderColor);
             }
             else if (c is MyMcFlatComboBox)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
                 (c as MyMcFlatComboBox).BorderColor = mycolortheme.GetColor((c as MyMcFlatComboBox).BorderColor, mycolortheme.BorderColor);
-                (c as MyMcFlatComboBox).GridLineColor = mycolortheme.GetColor((c as MyMcFlatComboBox).GridLineColor, mycolortheme.ForeColor);
+                (c as MyMcFlatComboBox).GridLineColor = mycolortheme.GetColor((c as MyMcFlatComboBox).GridLineColor, mycolortheme.ControlTextColor);
             }
             else if (c is MyMcComboBox)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
-                (c as MyMcComboBox).GridLineColor = mycolortheme.GetColor((c as MyMcComboBox).GridLineColor, mycolortheme.ForeColor);
+                (c as MyMcComboBox).GridLineColor = mycolortheme.GetColor((c as MyMcComboBox).GridLineColor, mycolortheme.ControlTextColor);
             }
             else if (c is FlatComboBox)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
                 (c as FlatComboBox).BorderColor = mycolortheme.GetColor((c as FlatComboBox).BorderColor, mycolortheme.BorderColor);
             }
             else if (c is ListBox)
             {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.ForeColor);
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
             }
             else if (c is PropertyGrid)
@@ -321,7 +344,7 @@ namespace KlonsLIB.Forms
                 var prgr = c as PropertyGrid;
                 prgr.BackColor = mycolortheme.GetColor(prgr.BackColor, mycolortheme.WindowColor);
                 prgr.ViewBackColor = prgr.BackColor;
-                prgr.ViewForeColor = mycolortheme.GetColor(prgr.ViewForeColor, mycolortheme.ForeColor);
+                prgr.ViewForeColor = mycolortheme.GetColor(prgr.ViewForeColor, mycolortheme.ControlTextColor);
                 prgr.LineColor = mycolortheme.GetColor(prgr.LineColor, mycolortheme.ControlColorDark);
                 prgr.CategoryForeColor = prgr.BackColor;
                 //prgr.CategorySplitterColor = prgr.ViewForeColor;
@@ -340,17 +363,20 @@ namespace KlonsLIB.Forms
                 dgv.DefaultCellStyle.BackColor =
                     mycolortheme.GetColor(dgv.DefaultCellStyle.BackColor, mycolortheme.WindowColor);
 
+                dgv.DefaultCellStyle.ForeColor =
+                    mycolortheme.GetColor(dgv.DefaultCellStyle.ForeColor, mycolortheme.WindowTextColor);
+
                 dgv.ColumnHeadersDefaultCellStyle.BackColor = 
                     mycolortheme.GetColor(dgv.ColumnHeadersDefaultCellStyle.BackColor, mycolortheme.ControlColor);
 
                 dgv.ColumnHeadersDefaultCellStyle.ForeColor =
-                    mycolortheme.GetColor(dgv.ColumnHeadersDefaultCellStyle.ForeColor, mycolortheme.ForeColor);
+                    mycolortheme.GetColor(dgv.ColumnHeadersDefaultCellStyle.ForeColor, mycolortheme.ControlTextColor);
 
                 dgv.RowHeadersDefaultCellStyle.BackColor =
                     mycolortheme.GetColor(dgv.RowHeadersDefaultCellStyle.BackColor, mycolortheme.ControlColor);
 
                 dgv.RowHeadersDefaultCellStyle.ForeColor =
-                    mycolortheme.GetColor(dgv.RowHeadersDefaultCellStyle.ForeColor, mycolortheme.ForeColor);
+                    mycolortheme.GetColor(dgv.RowHeadersDefaultCellStyle.ForeColor, mycolortheme.ControlTextColor);
 
             }
             else if (c is MyGrid)

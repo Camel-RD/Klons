@@ -520,7 +520,7 @@ namespace KlonsLIB.MySourceGrid
 
         public void ApplyColorTheme(MyColorTheme mycolortheme)
         {
-            this.ForeColor = mycolortheme.GetColor(this.ForeColor, mycolortheme.ForeColor);
+            this.ForeColor = mycolortheme.GetColor(this.ForeColor, mycolortheme.ControlTextColor);
             this.BackColor = mycolortheme.GetColor(this.BackColor, mycolortheme.ControlColor);
             Color wc = mycolortheme.WindowColor;
             Color gc = mycolortheme.ControlColorDark;

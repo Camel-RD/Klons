@@ -959,6 +959,7 @@ namespace KlonsP.Classes
                     CatD = curEventInfo.CatD;
                     CatT = curEventInfo.CatT;
                     Place = curEventInfo.Place;
+                    Department = curEventInfo.Department;
 
                     ValueLeft0 = Value0 - Deprec0;
                     ValueLeft1 = Value1 - Deprec1;

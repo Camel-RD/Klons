@@ -239,6 +239,7 @@ namespace KlonsF.Forms
             table.Clear();
             var ad = MyData.GetKlonsRepAdapter("ROps2a1") as ROps2a1TableAdapter;
             ad.FillBy(table, startDate, endDate, "%");
+            MyData.ReportHelper.PrepareRops2a1();
 
             var b1 = MyData.DataSetKlons.BalA1.FindBybalid(balid);
             if (b1 == null) return;

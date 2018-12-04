@@ -130,6 +130,32 @@ namespace KlonsF.Classes
 
             }
         }
+
+        public void PrepareRops2a1()
+        {
+            klonsRepDataSet.ROps2a1DataTable dt = MyDataSet.ROps2a1;
+            decimal d1;
+            foreach (var rv in dt)
+            {
+                d1 = rv.SDb - rv.SCr;
+                rv.ADb = 0.0M;
+                rv.ACr = 0.0M;
+                rv.BDb = 0.0M;
+                rv.BCr = 0.0M;
+                rv.B0 = d1;
+                if (d1 > 0)
+                    rv.ADb = d1;
+                else
+                    rv.ACr = -d1;
+                d1 += rv.TDb - rv.TCr;
+                if (d1 > 0)
+                    rv.BDb = d1;
+                else
+                    rv.BCr = -d1;
+
+            }
+        }
+
         public void PrepareRops2aRAC()
         {
             klonsRepDataSet.ROps2aDataTable dt = MyDataSet.ROps2a;

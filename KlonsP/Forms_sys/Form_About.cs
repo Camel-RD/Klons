@@ -17,7 +17,7 @@ namespace KlonsP.Forms
         public Form_About()
         {
             InitializeComponent();
-            ForeColor = MyData.Settings.ColorTheme.ForeColor;
+            ForeColor = MyData.Settings.ColorTheme.ControlTextColor;
             BackColor = MyData.Settings.ColorTheme.ControlColor;
         }
 
