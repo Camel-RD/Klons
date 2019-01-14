@@ -464,7 +464,7 @@ namespace KlonsA.Classes
 
                 decimal v = dr.RATE;
 
-                calcbruto = p1.GetPayByIncCashAB(v);
+                calcbruto = p1.GetPayByIncCash(v);
                 calcbruto = KlonsData.RoundA(calcbruto, 2);
                 v = calcbruto - curbruto;
                 p1.Pay = calcbruto;

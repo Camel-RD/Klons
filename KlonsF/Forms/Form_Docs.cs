@@ -1216,9 +1216,9 @@ namespace KlonsF.Forms
                     }
                     else if (c1 == '7' || c2 == '7' || c1 == '8' || c2 == '8')
                     {
-                        if ("LIZNIZPIZDIZMIZ".IndexOf(dr.AC13) == -1)
+                        if ("LIZ1NIZ1PIZDIZMIZ".IndexOf(dr.AC13) == -1)
                         {
-                            sb.AppendLine("Vai debete 3. pazīmei nevajadzētu būt LIZ, NIZ, PIZ");
+                            sb.AppendLine("Vai debete 3. pazīmei nevajadzētu būt LIZ, LIZ1, NIZ, NIZ1, PIZ");
                             sb.AppendLine();
                         }
                     }
@@ -1243,9 +1243,9 @@ namespace KlonsF.Forms
                     }
                     else if (c1 == '7' || c2 == '7')
                     {
-                        if ("LIZNIZPIZDIZMIZ".IndexOf(dr.AC23) == -1)
+                        if ("LIZ1NIZ1PIZDIZMIZ".IndexOf(dr.AC23) == -1)
                         {
-                            sb.AppendLine("Vai kredīta 3. pazīmei nevajadzētu būt LIZ, NIZ, PIZ");
+                            sb.AppendLine("Vai kredīta 3. pazīmei nevajadzētu būt LIZ, LIZ1, NIZ, NIZ1, PIZ");
                             sb.AppendLine();
                         }
 

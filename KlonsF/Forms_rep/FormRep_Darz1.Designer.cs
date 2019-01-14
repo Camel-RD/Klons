@@ -31,6 +31,7 @@ namespace KlonsF.FormsReportParams
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem1 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem2 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem3 = new KlonsLIB.Components.MyMcComboBox.MyItem();
@@ -45,7 +46,7 @@ namespace KlonsF.FormsReportParams
             KlonsLIB.Components.MyMcComboBox.MyItem myItem12 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem13 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem14 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            this.bsAC = new KlonsLIB.Data.MyBindingSource();
+            this.bsAC = new KlonsLIB.Data.MyBindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cmDoIt = new System.Windows.Forms.Button();
             this.cbYear = new KlonsLIB.Components.MyMcFlatComboBox();
@@ -196,11 +197,12 @@ namespace KlonsF.FormsReportParams
             this.lbCM.ItemHeight = 16;
             this.lbCM.Items.AddRange(new object[] {
             "IIN maksātājam",
+            "IIN maksātājam, no 01.07.2018",
             "MUN maksātājam"});
             this.lbCM.Location = new System.Drawing.Point(18, 110);
             this.lbCM.Margin = new System.Windows.Forms.Padding(2);
             this.lbCM.Name = "lbCM";
-            this.lbCM.Size = new System.Drawing.Size(239, 52);
+            this.lbCM.Size = new System.Drawing.Size(239, 68);
             this.lbCM.TabIndex = 7;
             this.lbCM.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbCM_MouseDoubleClick);
             // 
@@ -217,8 +219,6 @@ namespace KlonsF.FormsReportParams
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormRep_Darz1";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Saimniecisko darijumu uzskaites žurnāls";
             this.Load += new System.EventHandler(this.FormRepApgr1_Load);

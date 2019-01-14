@@ -128,7 +128,7 @@ namespace KlonsA.Classes
                 ds.PAYLIST_TEMPL_R,
                 ds.PERSONS,
                 ds.PERSONS_R,
-                //ds.PASTDATA, -- no need
+                ds.PASTDATA,
                 ds.PROFESSIONS,
                 ds.HOLIDAYS,
                 ds.TERITORIAL_CODES,
@@ -203,8 +203,8 @@ namespace KlonsA.Classes
                 ds.PAYLIST_TEMPL_R,
                 ds.PERSONS,
                 ds.PERSONS_R,
-                //ds.PASTDATA, -- no need
-                ds.PROFESSIONS,
+                ds.PASTDATA,
+                //ds.PROFESSIONS, -- loaded in form
                 ds.HOLIDAYS,
                 ds.TERITORIAL_CODES,
                 ds.REPORT_CODES,

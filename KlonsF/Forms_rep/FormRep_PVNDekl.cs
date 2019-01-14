@@ -366,7 +366,7 @@ namespace KlonsF.FormsReportParams
                     ax[77] = sc("202");
                 }
             }
-            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
+            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("B14") + sd("D14") + sd("M12");
             ax[53] = ax[53];
 
             ax[54] = sc("211");
@@ -388,7 +388,7 @@ namespace KlonsF.FormsReportParams
             ax[62] = sd("301") + sd("302") + sd("303") +
                      sd("305") + sd("306") + sd("307") + sd("308");
 
-            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
+            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("B14") + sd("D14") + sd("M12");
             ax[63] = sd("321");
             ax[64] = sd("331") + sd("332");
             ax[65] = sd("304");

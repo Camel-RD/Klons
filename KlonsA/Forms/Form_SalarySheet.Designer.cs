@@ -31,9 +31,6 @@ namespace KlonsA.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SalarySheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +41,9 @@ namespace KlonsA.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.salaryData1 = new DataObjectsA.SalaryData();
             this.bsLapas = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsSarR = new KlonsLIB.Data.MyBindingSource2(this.components);
@@ -224,18 +224,21 @@ namespace KlonsA.Forms
             this.grbIsInAvpay = new KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox();
             this.splitContainer2 = new KlonsLIB.Components.MySplitContainer();
             this.dgvLapa = new KlonsLIB.Components.MyDataGridView();
+            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPositionTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGCsARsALARY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarDnSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPapildsummas = new KlonsLIB.Components.MyDataGridView();
-            this.dgcPsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPsAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsIDSV = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPsIDNO = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPsIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsIDP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsIDAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcPsIDSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.algasAprēķinaLapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pārrēķinātDarbiniekamToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -255,20 +258,17 @@ namespace KlonsA.Forms
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.miShoeBonusList = new System.Windows.Forms.ToolStripMenuItem();
             this.miRādītDarbiniekuAmatus = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPositionTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGCsARsALARY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarDnSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcPsAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsIDSV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcPsIDNO = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcPsIE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsIDP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsIDAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPsIDSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR2)).BeginInit();
@@ -1898,7 +1898,6 @@ namespace KlonsA.Forms
             // 
             // grtInt
             // 
-            this.grtInt.DataMember = null;
             this.grtInt.Name = "grtInt";
             this.grtInt.ReadOnly = true;
             this.grtInt.RowTitle = null;
@@ -1906,7 +1905,6 @@ namespace KlonsA.Forms
             // 
             // grtInt16
             // 
-            this.grtInt16.DataMember = null;
             this.grtInt16.Name = "grtInt16";
             this.grtInt16.ReadOnly = true;
             this.grtInt16.RowTitle = null;
@@ -1914,7 +1912,6 @@ namespace KlonsA.Forms
             // 
             // grtDouble
             // 
-            this.grtDouble.DataMember = null;
             this.grtDouble.Name = "grtDouble";
             this.grtDouble.ReadOnly = true;
             this.grtDouble.RowTitle = null;
@@ -1922,14 +1919,12 @@ namespace KlonsA.Forms
             // 
             // grDecimal
             // 
-            this.grDecimal.DataMember = null;
             this.grDecimal.Name = "grDecimal";
             this.grDecimal.RowTitle = null;
             this.grDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grString
             // 
-            this.grString.DataMember = null;
             this.grString.Name = "grString";
             this.grString.ReadOnly = true;
             this.grString.RowTitle = null;
@@ -1937,6 +1932,7 @@ namespace KlonsA.Forms
             // 
             // grDecimalProc
             // 
+            this.grDecimalProc.DataMember = null;
             this.grDecimalProc.FormatString = "0.00\\%";
             this.grDecimalProc.Name = "grDecimalProc";
             this.grDecimalProc.ReadOnly = true;
@@ -1945,7 +1941,6 @@ namespace KlonsA.Forms
             // 
             // grSingle
             // 
-            this.grSingle.DataMember = null;
             this.grSingle.Name = "grSingle";
             this.grSingle.ReadOnly = true;
             this.grSingle.RowTitle = null;
@@ -2766,7 +2761,6 @@ namespace KlonsA.Forms
             // 
             // grDecimalReadOnly
             // 
-            this.grDecimalReadOnly.DataMember = null;
             this.grDecimalReadOnly.Name = "grDecimalReadOnly";
             this.grDecimalReadOnly.ReadOnly = true;
             this.grDecimalReadOnly.RowTitle = null;
@@ -2917,299 +2911,6 @@ namespace KlonsA.Forms
             this.dgvLapa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLapa_CellFormatting);
             this.dgvLapa.Enter += new System.EventHandler(this.dgvLapa_Enter);
             // 
-            // dgvPapildsummas
-            // 
-            this.dgvPapildsummas.AllowUserToAddRows = false;
-            this.dgvPapildsummas.AllowUserToDeleteRows = false;
-            this.dgvPapildsummas.AutoGenerateColumns = false;
-            this.dgvPapildsummas.AutoSave = false;
-            this.dgvPapildsummas.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPapildsummas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvPapildsummas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPapildsummas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgcPsDescr,
-            this.dgcPsRate,
-            this.dgcPsRateType,
-            this.dgcPsAmount,
-            this.dgcPsIDSV,
-            this.dgcPsIDNO,
-            this.dgcPsIE,
-            this.dgcPsID,
-            this.dgcPsIDP,
-            this.dgcPsIDAP,
-            this.dgcPsIDSX});
-            this.dgvPapildsummas.DataSource = this.bsAlgasPapildsummas;
-            this.dgvPapildsummas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPapildsummas.Location = new System.Drawing.Point(0, 0);
-            this.dgvPapildsummas.Name = "dgvPapildsummas";
-            this.dgvPapildsummas.RowTemplate.Height = 24;
-            this.dgvPapildsummas.Size = new System.Drawing.Size(653, 115);
-            this.dgvPapildsummas.TabIndex = 0;
-            this.dgvPapildsummas.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvPapildsummas_CellBeginEdit);
-            this.dgvPapildsummas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPapildsummas_CellEndEdit);
-            this.dgvPapildsummas.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPapildsummas_DefaultValuesNeeded);
-            this.dgvPapildsummas.Enter += new System.EventHandler(this.dgvPapildsummas_Enter);
-            // 
-            // dgcPsDescr
-            // 
-            this.dgcPsDescr.DataPropertyName = "DESCR";
-            this.dgcPsDescr.HeaderText = "apraksts";
-            this.dgcPsDescr.Name = "dgcPsDescr";
-            this.dgcPsDescr.Width = 250;
-            // 
-            // dgcPsRate
-            // 
-            this.dgcPsRate.DataPropertyName = "RATE";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.dgcPsRate.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dgcPsRate.HeaderText = "likme";
-            this.dgcPsRate.Name = "dgcPsRate";
-            this.dgcPsRate.Visible = false;
-            this.dgcPsRate.Width = 80;
-            // 
-            // dgcPsRateType
-            // 
-            this.dgcPsRateType.DataPropertyName = "RATE_TYPE";
-            this.dgcPsRateType.HeaderText = "%/€";
-            this.dgcPsRateType.Name = "dgcPsRateType";
-            this.dgcPsRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPsRateType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPsRateType.Visible = false;
-            this.dgcPsRateType.Width = 60;
-            // 
-            // dgcPsAmount
-            // 
-            this.dgcPsAmount.DataPropertyName = "AMOUNT";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N2";
-            this.dgcPsAmount.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dgcPsAmount.HeaderText = "summa";
-            this.dgcPsAmount.Name = "dgcPsAmount";
-            this.dgcPsAmount.ReadOnly = true;
-            this.dgcPsAmount.Width = 80;
-            // 
-            // dgcPsIDSV
-            // 
-            this.dgcPsIDSV.DataPropertyName = "IDSV";
-            this.dgcPsIDSV.DataSource = this.bsPapildsummasVeids;
-            this.dgcPsIDSV.DisplayMember = "DESCR";
-            this.dgcPsIDSV.DisplayStyleForCurrentCellOnly = true;
-            this.dgcPsIDSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcPsIDSV.HeaderText = "piem/atv. veids";
-            this.dgcPsIDSV.Name = "dgcPsIDSV";
-            this.dgcPsIDSV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPsIDSV.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPsIDSV.ValueMember = "ID";
-            this.dgcPsIDSV.Visible = false;
-            this.dgcPsIDSV.Width = 150;
-            // 
-            // dgcPsIDNO
-            // 
-            this.dgcPsIDNO.DataPropertyName = "IDNO";
-            this.dgcPsIDNO.DataSource = this.bsPapildsummaNo;
-            this.dgcPsIDNO.DisplayMember = "DESCR";
-            this.dgcPsIDNO.DisplayStyleForCurrentCellOnly = true;
-            this.dgcPsIDNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcPsIDNO.HeaderText = "aprēķina no";
-            this.dgcPsIDNO.Name = "dgcPsIDNO";
-            this.dgcPsIDNO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPsIDNO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPsIDNO.ValueMember = "ID";
-            this.dgcPsIDNO.Visible = false;
-            this.dgcPsIDNO.Width = 150;
-            // 
-            // dgcPsIE
-            // 
-            this.dgcPsIE.DataPropertyName = "IDIE";
-            this.dgcPsIE.HeaderText = "IDIE";
-            this.dgcPsIE.Name = "dgcPsIE";
-            this.dgcPsIE.Visible = false;
-            // 
-            // dgcPsID
-            // 
-            this.dgcPsID.DataPropertyName = "ID";
-            this.dgcPsID.HeaderText = "ID";
-            this.dgcPsID.Name = "dgcPsID";
-            this.dgcPsID.Visible = false;
-            // 
-            // dgcPsIDP
-            // 
-            this.dgcPsIDP.DataPropertyName = "IDP";
-            this.dgcPsIDP.HeaderText = "IDP";
-            this.dgcPsIDP.Name = "dgcPsIDP";
-            this.dgcPsIDP.Visible = false;
-            // 
-            // dgcPsIDAP
-            // 
-            this.dgcPsIDAP.DataPropertyName = "IDAP";
-            this.dgcPsIDAP.HeaderText = "IDAP";
-            this.dgcPsIDAP.Name = "dgcPsIDAP";
-            this.dgcPsIDAP.Visible = false;
-            // 
-            // dgcPsIDSX
-            // 
-            this.dgcPsIDSX.DataPropertyName = "IDSX";
-            this.dgcPsIDSX.HeaderText = "IDSX";
-            this.dgcPsIDSX.Name = "dgcPsIDSX";
-            this.dgcPsIDSX.Visible = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.algasAprēķinaLapaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(998, 33);
-            this.menuStrip1.TabIndex = 16;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
-            // 
-            // algasAprēķinaLapaToolStripMenuItem
-            // 
-            this.algasAprēķinaLapaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pārrēķinātDarbiniekamToolStripMenuItem1,
-            this.pārrēķinātVisiemToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem,
-            this.slimībasNaudasAprēķinsToolStripMenuItem,
-            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem,
-            this.darbaSamaksasAprēķinsToolStripMenuItem,
-            this.miAprekinaSeciba,
-            this.toolStripSeparator2,
-            this.aprēķinaIzklāstsToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.algasParēķinaLapaToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.miShoeBonusList,
-            this.miRādītDarbiniekuAmatus});
-            this.algasAprēķinaLapaToolStripMenuItem.MergeIndex = 2;
-            this.algasAprēķinaLapaToolStripMenuItem.Name = "algasAprēķinaLapaToolStripMenuItem";
-            this.algasAprēķinaLapaToolStripMenuItem.Size = new System.Drawing.Size(196, 29);
-            this.algasAprēķinaLapaToolStripMenuItem.Text = "Algas aprēķina lapa";
-            // 
-            // pārrēķinātDarbiniekamToolStripMenuItem1
-            // 
-            this.pārrēķinātDarbiniekamToolStripMenuItem1.Name = "pārrēķinātDarbiniekamToolStripMenuItem1";
-            this.pārrēķinātDarbiniekamToolStripMenuItem1.Size = new System.Drawing.Size(401, 30);
-            this.pārrēķinātDarbiniekamToolStripMenuItem1.Text = "Pārrēķināt darbiniekam";
-            this.pārrēķinātDarbiniekamToolStripMenuItem1.Click += new System.EventHandler(this.pārrēķinātDarbiniekamToolStripMenuItem1_Click);
-            // 
-            // pārrēķinātVisiemToolStripMenuItem
-            // 
-            this.pārrēķinātVisiemToolStripMenuItem.Name = "pārrēķinātVisiemToolStripMenuItem";
-            this.pārrēķinātVisiemToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.pārrēķinātVisiemToolStripMenuItem.Text = "Pārrēķināt sarakstu";
-            this.pārrēķinātVisiemToolStripMenuItem.Click += new System.EventHandler(this.pārrēķinātVisiemToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(398, 6);
-            // 
-            // vidējāsIzpeļņasAprēķinsToolStripMenuItem
-            // 
-            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Name = "vidējāsIzpeļņasAprēķinsToolStripMenuItem";
-            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Text = "Vidējās izpeļņas aprēķins";
-            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.vidējāsIzpeļņasAprēķinsToolStripMenuItem_Click);
-            // 
-            // slimībasNaudasAprēķinsToolStripMenuItem
-            // 
-            this.slimībasNaudasAprēķinsToolStripMenuItem.Name = "slimībasNaudasAprēķinsToolStripMenuItem";
-            this.slimībasNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.slimībasNaudasAprēķinsToolStripMenuItem.Text = "Slimības naudas aprēķins";
-            this.slimībasNaudasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.slimībasNaudasAprēķinsToolStripMenuItem_Click);
-            // 
-            // atvaļinājumaNaudasAprēķinsToolStripMenuItem
-            // 
-            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Name = "atvaļinājumaNaudasAprēķinsToolStripMenuItem";
-            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Text = "Atvaļinājuma naudas aprēķins";
-            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.atvaļinājumaNaudasAprēķinsToolStripMenuItem_Click);
-            // 
-            // darbaSamaksasAprēķinsToolStripMenuItem
-            // 
-            this.darbaSamaksasAprēķinsToolStripMenuItem.Name = "darbaSamaksasAprēķinsToolStripMenuItem";
-            this.darbaSamaksasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.darbaSamaksasAprēķinsToolStripMenuItem.Text = "Darba samaksas aprēķins";
-            this.darbaSamaksasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.darbaSamaksasAprēķinsToolStripMenuItem_Click);
-            // 
-            // miAprekinaSeciba
-            // 
-            this.miAprekinaSeciba.Name = "miAprekinaSeciba";
-            this.miAprekinaSeciba.Size = new System.Drawing.Size(401, 30);
-            this.miAprekinaSeciba.Text = "Aprēķina secība";
-            this.miAprekinaSeciba.Click += new System.EventHandler(this.miAprekinaSeciba_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(398, 6);
-            // 
-            // aprēķinaIzklāstsToolStripMenuItem
-            // 
-            this.aprēķinaIzklāstsToolStripMenuItem.Name = "aprēķinaIzklāstsToolStripMenuItem";
-            this.aprēķinaIzklāstsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.aprēķinaIzklāstsToolStripMenuItem.Text = "Aprēķina izklāsts";
-            this.aprēķinaIzklāstsToolStripMenuItem.Click += new System.EventHandler(this.aprēķinaIzklāstsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(398, 6);
-            // 
-            // algasParēķinaLapaToolStripMenuItem
-            // 
-            this.algasParēķinaLapaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arAmatiemBezParakstiemToolStripMenuItem,
-            this.bezAmatiemArParakstiemToolStripMenuItem});
-            this.algasParēķinaLapaToolStripMenuItem.Name = "algasParēķinaLapaToolStripMenuItem";
-            this.algasParēķinaLapaToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
-            this.algasParēķinaLapaToolStripMenuItem.Text = "Algas aprēķina lapa";
-            // 
-            // arAmatiemBezParakstiemToolStripMenuItem
-            // 
-            this.arAmatiemBezParakstiemToolStripMenuItem.Name = "arAmatiemBezParakstiemToolStripMenuItem";
-            this.arAmatiemBezParakstiemToolStripMenuItem.Size = new System.Drawing.Size(329, 30);
-            this.arAmatiemBezParakstiemToolStripMenuItem.Text = "ar amatiem, bez parakstiem";
-            this.arAmatiemBezParakstiemToolStripMenuItem.Click += new System.EventHandler(this.arAmatiemBezParakstiemToolStripMenuItem_Click);
-            // 
-            // bezAmatiemArParakstiemToolStripMenuItem
-            // 
-            this.bezAmatiemArParakstiemToolStripMenuItem.Name = "bezAmatiemArParakstiemToolStripMenuItem";
-            this.bezAmatiemArParakstiemToolStripMenuItem.Size = new System.Drawing.Size(329, 30);
-            this.bezAmatiemArParakstiemToolStripMenuItem.Text = "bez amatiem, ar parakstiem";
-            this.bezAmatiemArParakstiemToolStripMenuItem.Click += new System.EventHandler(this.bezAmatiemArParakstiemToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(398, 6);
-            // 
-            // miShoeBonusList
-            // 
-            this.miShoeBonusList.Name = "miShoeBonusList";
-            this.miShoeBonusList.Size = new System.Drawing.Size(401, 30);
-            this.miShoeBonusList.Text = "Rādīt piemaksu / atvilkumu sarakstu";
-            this.miShoeBonusList.Click += new System.EventHandler(this.miShoeBonusList_Click);
-            // 
-            // miRādītDarbiniekuAmatus
-            // 
-            this.miRādītDarbiniekuAmatus.Name = "miRādītDarbiniekuAmatus";
-            this.miRādītDarbiniekuAmatus.Size = new System.Drawing.Size(401, 30);
-            this.miRādītDarbiniekuAmatus.Text = "Rādīt darbinieku amatus";
-            this.miRādītDarbiniekuAmatus.Click += new System.EventHandler(this.miRādītDarbiniekuAmatus_Click);
-            // 
             // dgcSarSnr
             // 
             this.dgcSarSnr.DataPropertyName = "SNR";
@@ -3359,6 +3060,298 @@ namespace KlonsA.Forms
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dgvPapildsummas
+            // 
+            this.dgvPapildsummas.AllowUserToAddRows = false;
+            this.dgvPapildsummas.AllowUserToDeleteRows = false;
+            this.dgvPapildsummas.AutoGenerateColumns = false;
+            this.dgvPapildsummas.AutoSave = false;
+            this.dgvPapildsummas.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPapildsummas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvPapildsummas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPapildsummas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgcPsDescr,
+            this.dgcPsRate,
+            this.dgcPsRateType,
+            this.dgcPsAmount,
+            this.dgcPsIDSV,
+            this.dgcPsIDNO,
+            this.dgcPsIE,
+            this.dgcPsID,
+            this.dgcPsIDP,
+            this.dgcPsIDAP,
+            this.dgcPsIDSX});
+            this.dgvPapildsummas.DataSource = this.bsAlgasPapildsummas;
+            this.dgvPapildsummas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPapildsummas.Location = new System.Drawing.Point(0, 0);
+            this.dgvPapildsummas.Name = "dgvPapildsummas";
+            this.dgvPapildsummas.RowTemplate.Height = 24;
+            this.dgvPapildsummas.Size = new System.Drawing.Size(653, 115);
+            this.dgvPapildsummas.TabIndex = 0;
+            this.dgvPapildsummas.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvPapildsummas_CellBeginEdit);
+            this.dgvPapildsummas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPapildsummas_CellEndEdit);
+            this.dgvPapildsummas.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPapildsummas_DefaultValuesNeeded);
+            this.dgvPapildsummas.Enter += new System.EventHandler(this.dgvPapildsummas_Enter);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.algasAprēķinaLapaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(998, 33);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
+            // 
+            // algasAprēķinaLapaToolStripMenuItem
+            // 
+            this.algasAprēķinaLapaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pārrēķinātDarbiniekamToolStripMenuItem1,
+            this.pārrēķinātVisiemToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem,
+            this.slimībasNaudasAprēķinsToolStripMenuItem,
+            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem,
+            this.darbaSamaksasAprēķinsToolStripMenuItem,
+            this.miAprekinaSeciba,
+            this.toolStripSeparator2,
+            this.aprēķinaIzklāstsToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.algasParēķinaLapaToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.miShoeBonusList,
+            this.miRādītDarbiniekuAmatus});
+            this.algasAprēķinaLapaToolStripMenuItem.MergeIndex = 2;
+            this.algasAprēķinaLapaToolStripMenuItem.Name = "algasAprēķinaLapaToolStripMenuItem";
+            this.algasAprēķinaLapaToolStripMenuItem.Size = new System.Drawing.Size(196, 29);
+            this.algasAprēķinaLapaToolStripMenuItem.Text = "Algas aprēķina lapa";
+            // 
+            // pārrēķinātDarbiniekamToolStripMenuItem1
+            // 
+            this.pārrēķinātDarbiniekamToolStripMenuItem1.Name = "pārrēķinātDarbiniekamToolStripMenuItem1";
+            this.pārrēķinātDarbiniekamToolStripMenuItem1.Size = new System.Drawing.Size(401, 30);
+            this.pārrēķinātDarbiniekamToolStripMenuItem1.Text = "Pārrēķināt darbiniekam";
+            this.pārrēķinātDarbiniekamToolStripMenuItem1.Click += new System.EventHandler(this.pārrēķinātDarbiniekamToolStripMenuItem1_Click);
+            // 
+            // pārrēķinātVisiemToolStripMenuItem
+            // 
+            this.pārrēķinātVisiemToolStripMenuItem.Name = "pārrēķinātVisiemToolStripMenuItem";
+            this.pārrēķinātVisiemToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.pārrēķinātVisiemToolStripMenuItem.Text = "Pārrēķināt sarakstu";
+            this.pārrēķinātVisiemToolStripMenuItem.Click += new System.EventHandler(this.pārrēķinātVisiemToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(398, 6);
+            // 
+            // vidējāsIzpeļņasAprēķinsToolStripMenuItem
+            // 
+            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Name = "vidējāsIzpeļņasAprēķinsToolStripMenuItem";
+            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Text = "Vidējās izpeļņas aprēķins";
+            this.vidējāsIzpeļņasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.vidējāsIzpeļņasAprēķinsToolStripMenuItem_Click);
+            // 
+            // slimībasNaudasAprēķinsToolStripMenuItem
+            // 
+            this.slimībasNaudasAprēķinsToolStripMenuItem.Name = "slimībasNaudasAprēķinsToolStripMenuItem";
+            this.slimībasNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.slimībasNaudasAprēķinsToolStripMenuItem.Text = "Slimības naudas aprēķins";
+            this.slimībasNaudasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.slimībasNaudasAprēķinsToolStripMenuItem_Click);
+            // 
+            // atvaļinājumaNaudasAprēķinsToolStripMenuItem
+            // 
+            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Name = "atvaļinājumaNaudasAprēķinsToolStripMenuItem";
+            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Text = "Atvaļinājuma naudas aprēķins";
+            this.atvaļinājumaNaudasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.atvaļinājumaNaudasAprēķinsToolStripMenuItem_Click);
+            // 
+            // darbaSamaksasAprēķinsToolStripMenuItem
+            // 
+            this.darbaSamaksasAprēķinsToolStripMenuItem.Name = "darbaSamaksasAprēķinsToolStripMenuItem";
+            this.darbaSamaksasAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.darbaSamaksasAprēķinsToolStripMenuItem.Text = "Darba samaksas aprēķins";
+            this.darbaSamaksasAprēķinsToolStripMenuItem.Click += new System.EventHandler(this.darbaSamaksasAprēķinsToolStripMenuItem_Click);
+            // 
+            // miAprekinaSeciba
+            // 
+            this.miAprekinaSeciba.Name = "miAprekinaSeciba";
+            this.miAprekinaSeciba.Size = new System.Drawing.Size(401, 30);
+            this.miAprekinaSeciba.Text = "Aprēķina secība";
+            this.miAprekinaSeciba.Click += new System.EventHandler(this.miAprekinaSeciba_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(398, 6);
+            // 
+            // aprēķinaIzklāstsToolStripMenuItem
+            // 
+            this.aprēķinaIzklāstsToolStripMenuItem.Name = "aprēķinaIzklāstsToolStripMenuItem";
+            this.aprēķinaIzklāstsToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.aprēķinaIzklāstsToolStripMenuItem.Text = "Aprēķina izklāsts";
+            this.aprēķinaIzklāstsToolStripMenuItem.Click += new System.EventHandler(this.aprēķinaIzklāstsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(398, 6);
+            // 
+            // algasParēķinaLapaToolStripMenuItem
+            // 
+            this.algasParēķinaLapaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arAmatiemBezParakstiemToolStripMenuItem,
+            this.bezAmatiemArParakstiemToolStripMenuItem});
+            this.algasParēķinaLapaToolStripMenuItem.Name = "algasParēķinaLapaToolStripMenuItem";
+            this.algasParēķinaLapaToolStripMenuItem.Size = new System.Drawing.Size(401, 30);
+            this.algasParēķinaLapaToolStripMenuItem.Text = "Algas aprēķina lapa";
+            // 
+            // arAmatiemBezParakstiemToolStripMenuItem
+            // 
+            this.arAmatiemBezParakstiemToolStripMenuItem.Name = "arAmatiemBezParakstiemToolStripMenuItem";
+            this.arAmatiemBezParakstiemToolStripMenuItem.Size = new System.Drawing.Size(329, 30);
+            this.arAmatiemBezParakstiemToolStripMenuItem.Text = "ar amatiem, bez parakstiem";
+            this.arAmatiemBezParakstiemToolStripMenuItem.Click += new System.EventHandler(this.arAmatiemBezParakstiemToolStripMenuItem_Click);
+            // 
+            // bezAmatiemArParakstiemToolStripMenuItem
+            // 
+            this.bezAmatiemArParakstiemToolStripMenuItem.Name = "bezAmatiemArParakstiemToolStripMenuItem";
+            this.bezAmatiemArParakstiemToolStripMenuItem.Size = new System.Drawing.Size(329, 30);
+            this.bezAmatiemArParakstiemToolStripMenuItem.Text = "bez amatiem, ar parakstiem";
+            this.bezAmatiemArParakstiemToolStripMenuItem.Click += new System.EventHandler(this.bezAmatiemArParakstiemToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(398, 6);
+            // 
+            // miShoeBonusList
+            // 
+            this.miShoeBonusList.Name = "miShoeBonusList";
+            this.miShoeBonusList.Size = new System.Drawing.Size(401, 30);
+            this.miShoeBonusList.Text = "Rādīt piemaksu / atvilkumu sarakstu";
+            this.miShoeBonusList.Click += new System.EventHandler(this.miShoeBonusList_Click);
+            // 
+            // miRādītDarbiniekuAmatus
+            // 
+            this.miRādītDarbiniekuAmatus.Name = "miRādītDarbiniekuAmatus";
+            this.miRādītDarbiniekuAmatus.Size = new System.Drawing.Size(401, 30);
+            this.miRādītDarbiniekuAmatus.Text = "Rādīt darbinieku amatus";
+            this.miRādītDarbiniekuAmatus.Click += new System.EventHandler(this.miRādītDarbiniekuAmatus_Click);
+            // 
+            // dgcPsDescr
+            // 
+            this.dgcPsDescr.DataPropertyName = "DESCR";
+            this.dgcPsDescr.HeaderText = "apraksts";
+            this.dgcPsDescr.Name = "dgcPsDescr";
+            this.dgcPsDescr.Width = 250;
+            // 
+            // dgcPsRate
+            // 
+            this.dgcPsRate.DataPropertyName = "RATE";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.dgcPsRate.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgcPsRate.HeaderText = "likme";
+            this.dgcPsRate.Name = "dgcPsRate";
+            this.dgcPsRate.Width = 80;
+            // 
+            // dgcPsRateType
+            // 
+            this.dgcPsRateType.DataPropertyName = "RATE_TYPE";
+            this.dgcPsRateType.HeaderText = "%/€";
+            this.dgcPsRateType.Name = "dgcPsRateType";
+            this.dgcPsRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPsRateType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPsRateType.Visible = false;
+            this.dgcPsRateType.Width = 60;
+            // 
+            // dgcPsAmount
+            // 
+            this.dgcPsAmount.DataPropertyName = "AMOUNT";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.dgcPsAmount.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgcPsAmount.HeaderText = "summa";
+            this.dgcPsAmount.Name = "dgcPsAmount";
+            this.dgcPsAmount.ReadOnly = true;
+            this.dgcPsAmount.Width = 80;
+            // 
+            // dgcPsIDSV
+            // 
+            this.dgcPsIDSV.DataPropertyName = "IDSV";
+            this.dgcPsIDSV.DataSource = this.bsPapildsummasVeids;
+            this.dgcPsIDSV.DisplayMember = "DESCR";
+            this.dgcPsIDSV.DisplayStyleForCurrentCellOnly = true;
+            this.dgcPsIDSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcPsIDSV.HeaderText = "piem/atv. veids";
+            this.dgcPsIDSV.Name = "dgcPsIDSV";
+            this.dgcPsIDSV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPsIDSV.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPsIDSV.ValueMember = "ID";
+            this.dgcPsIDSV.Visible = false;
+            this.dgcPsIDSV.Width = 150;
+            // 
+            // dgcPsIDNO
+            // 
+            this.dgcPsIDNO.DataPropertyName = "IDNO";
+            this.dgcPsIDNO.DataSource = this.bsPapildsummaNo;
+            this.dgcPsIDNO.DisplayMember = "DESCR";
+            this.dgcPsIDNO.DisplayStyleForCurrentCellOnly = true;
+            this.dgcPsIDNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcPsIDNO.HeaderText = "aprēķina no";
+            this.dgcPsIDNO.Name = "dgcPsIDNO";
+            this.dgcPsIDNO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPsIDNO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPsIDNO.ValueMember = "ID";
+            this.dgcPsIDNO.Visible = false;
+            this.dgcPsIDNO.Width = 150;
+            // 
+            // dgcPsIE
+            // 
+            this.dgcPsIE.DataPropertyName = "IDIE";
+            this.dgcPsIE.HeaderText = "IDIE";
+            this.dgcPsIE.Name = "dgcPsIE";
+            this.dgcPsIE.Visible = false;
+            // 
+            // dgcPsID
+            // 
+            this.dgcPsID.DataPropertyName = "ID";
+            this.dgcPsID.HeaderText = "ID";
+            this.dgcPsID.Name = "dgcPsID";
+            this.dgcPsID.Visible = false;
+            // 
+            // dgcPsIDP
+            // 
+            this.dgcPsIDP.DataPropertyName = "IDP";
+            this.dgcPsIDP.HeaderText = "IDP";
+            this.dgcPsIDP.Name = "dgcPsIDP";
+            this.dgcPsIDP.Visible = false;
+            // 
+            // dgcPsIDAP
+            // 
+            this.dgcPsIDAP.DataPropertyName = "IDAP";
+            this.dgcPsIDAP.HeaderText = "IDAP";
+            this.dgcPsIDAP.Name = "dgcPsIDAP";
+            this.dgcPsIDAP.Visible = false;
+            // 
+            // dgcPsIDSX
+            // 
+            this.dgcPsIDSX.DataPropertyName = "IDSX";
+            this.dgcPsIDSX.HeaderText = "IDSX";
+            this.dgcPsIDSX.Name = "dgcPsIDSX";
+            this.dgcPsIDSX.Visible = false;
             // 
             // Form_SalarySheet
             // 
@@ -3596,17 +3589,6 @@ namespace KlonsA.Forms
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grPlusNPNotTaxed;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox grbIsPaid;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox grbIsInAvpay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsDescr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsRate;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dgcPsRateType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsAmount;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dgcPsIDSV;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dgcPsIDNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIDP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIDAP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIDSX;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTitle grPlanMonthTitle;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grMonthWorkDays;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grMonthWorkhours;
@@ -3632,5 +3614,16 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarAdvance;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarPayT;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsDescr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsRate;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgcPsRateType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsAmount;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgcPsIDSV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgcPsIDNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIDP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIDAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPsIDSX;
     }
 }

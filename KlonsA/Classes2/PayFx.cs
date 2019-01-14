@@ -28,8 +28,8 @@ namespace KlonsA.Classes
         public bool HasTaxDoc { get; set; } = false;
 
         public decimal IM = 1667.0M;
-        public decimal IMa = 430.0M;
-        public decimal IMb = 1000.0M;
+        public decimal IMa = -1.0M; //440.0M
+        public decimal IMb = -1.0M; //1000.0M
         public static readonly DateTime ProgressiveIINStartDate = new DateTime(2018, 1, 1);
 
         public PayFx(bool hasProgressiveIIN = true)
@@ -125,23 +125,27 @@ namespace KlonsA.Classes
                 IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                 return IIN;
             }
+
+            if(IMa == -1.0M || IMb == -1.0M)
+                throw new Exception("Nav norādīti IIN neapliekamā minimuma sliekšņi.");
+
             if (HasTaxDoc)
             {
-                if(Pay + PayNs <= IM)
+                if (Pay + PayNs <= IM)
                 {
-                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
+                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
                     IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                     return IIN;
                 }
                 else
                 {
                     UsedIinEx = IinEx;
-                    decimal iin1 = (IM - Pay * Sr - IinEx) * Ir;
+                    decimal iin1 = (IM - Pay * Sr - IinExA) * Ir;
                     decimal iin2 = (Pay + PayNs - IM) * Ir2;
                     IIN = iin1 + iin2;
                     if (IIN < 0.0M)
                     {
-                        UsedIinEx -= IIN / Ir;
+                        UsedIinEx += IIN / Ir;
                         IIN = 0.0M;
                     }
                     return IIN;
@@ -170,11 +174,15 @@ namespace KlonsA.Classes
                 IIN = RoundA(IIN);
                 return IIN;
             }
+
+            if (IMa == -1.0M || IMb == -1.0M)
+                throw new Exception("Nav norādīti IIN neapliekamā minimuma sliekšņi.");
+
             if (HasTaxDoc)
             {
                 if (Pay + PayNs <= IM)
                 {
-                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
+                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
                     IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                     IIN = RoundA(IIN);
                     return IIN;
@@ -182,7 +190,7 @@ namespace KlonsA.Classes
                 else
                 {
                     UsedIinEx = IinEx;
-                    decimal iin1 = (IM - DNS - IinEx) * Ir;
+                    decimal iin1 = (IM - DNS - IinExA) * Ir;
                     decimal iin2 = (Pay + PayNs - IM) * Ir2;
                     IIN = RoundA(iin1 + iin2);
                     if (IIN < 0.0M)
@@ -201,117 +209,6 @@ namespace KlonsA.Classes
             }
         }
 
-        public decimal CalcIINab()
-        {
-            DNS = Pay * Sr;
-            if (!HasProgressiveIIN)
-            {
-                UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
-                IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                return IIN;
-            }
-            if (HasTaxDoc)
-            {
-                if (Pay + PayNs <= IM)
-                {
-                    if (Pay + PayNs <= IMa)
-                    {
-                        UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
-                        IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                        return IIN;
-                    }
-                    if (Pay + PayNs < IMb)
-                    {
-                        UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
-                        IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                        return IIN;
-                    }
-                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExB);
-                    IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                    return IIN;
-                }
-                else
-                {
-                    UsedIinEx = IinEx;
-                    decimal iin1 = (IM - Pay * Sr - IinExB) * Ir;
-                    decimal iin2 = (Pay + PayNs - IM) * Ir2;
-                    IIN = iin1 + iin2;
-                    if (IIN < 0.0M)
-                    {
-                        UsedIinEx -= IIN / Ir;
-                        IIN = 0.0M;
-                    }
-                    return IIN;
-                }
-            }
-            else
-            {
-                UsedIinEx = 0.0M;
-                IIN = (Pay + PayNs - UsedIinEx) * Ir2 - DNS * Ir;
-                return IIN;
-            }
-        }
-
-        public decimal CalcIINabAndRound()
-        {
-            Pay = RoundA(Pay);
-            PayNs = RoundA(PayNs);
-            PayNt = RoundA(PayNt);
-            IinEx = RoundA(IinEx);
-            DNS = RoundA(Pay * Sr);
-
-            if (!HasProgressiveIIN)
-            {
-                UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
-                IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                IIN = RoundA(IIN);
-                return IIN;
-            }
-            if (HasTaxDoc)
-            {
-                if (Pay + PayNs <= IM)
-                {
-                    if (Pay + PayNs <= IMa)
-                    {
-                        UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
-                        IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                        IIN = RoundA(IIN);
-                        return IIN;
-                    }
-                    if (Pay + PayNs < IMb)
-                    {
-                        UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
-                        IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                        IIN = RoundA(IIN);
-                        return IIN;
-                    }
-                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExB);
-                    IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
-                    IIN = RoundA(IIN);
-                    return IIN;
-
-                }
-                else
-                {
-                    UsedIinEx = IinEx;
-                    decimal iin1 = (IM - DNS - IinExB) * Ir;
-                    decimal iin2 = (Pay + PayNs - IM) * Ir2;
-                    IIN = RoundA(iin1 + iin2);
-                    if (IIN < 0.0M)
-                    {
-                        UsedIinEx += RoundA(IIN / Ir);
-                        IIN = 0.0M;
-                    }
-                    return IIN;
-                }
-            }
-            else
-            {
-                UsedIinEx = 0.0M;
-                IIN = RoundA((Pay + PayNs - UsedIinEx) * Ir2 - DNS * Ir);
-                return IIN;
-            }
-        }
 
         public decimal CalcAll()
         {
@@ -324,22 +221,6 @@ namespace KlonsA.Classes
         public decimal CalcAllAndRound()
         {
             CalcIINAndRound();
-            Cash = Pay + PayNs + PayNt - DNS - IIN;
-            return Cash;
-        }
-
-
-        public decimal CalcAllab()
-        {
-            DNS = Pay * Sr;
-            decimal iin = CalcIINab();
-            Cash = Pay + PayNs + PayNt - DNS - iin;
-            return Cash;
-        }
-
-        public decimal CalcAllabAndRound()
-        {
-            CalcIINabAndRound();
             Cash = Pay + PayNs + PayNt - DNS - IIN;
             return Cash;
         }
@@ -366,13 +247,6 @@ namespace KlonsA.Classes
         {
             if (!HasProgressiveIIN) return GetPayByIncCashA(dcash);
             if (HasTaxDoc) return GetPayByIncCashB(dcash);
-            return GetPayByIncCashC(dcash);
-        }
-
-        public decimal GetPayByIncCashAB(decimal dcash)
-        {
-            if (!HasProgressiveIIN) return GetPayByIncCashA(dcash);
-            if (HasTaxDoc) return GetPayByIncCashBab(dcash);
             return GetPayByIncCashC(dcash);
         }
 
@@ -404,25 +278,6 @@ namespace KlonsA.Classes
                 dcashleft -= dcash2;
             }
 
-            return calcpay;
-        }
-
-        public decimal GetPayByIncCashBab(decimal dcash)
-        {
-            if (dcash <= 0.0M) return 0.0M;
-            var remIinEx = IinEx;
-            decimal calcpay = GetPayByIncCashB(dcash);
-            if(calcpay > IMa)
-            {
-                IinEx = IinExA;
-                calcpay = GetPayByIncCashB(dcash);
-            }
-            if (calcpay >= IMb)
-            {
-                IinEx = IinExB;
-                calcpay = GetPayByIncCashB(dcash);
-            }
-            IinEx = remIinEx;
             return calcpay;
         }
 
@@ -508,12 +363,6 @@ namespace KlonsA.Classes
             return IncPayByIncCashC(dcash, apay, apayns, apaynt);
         }
 
-        public decimal IncPayByIncCashAB(decimal dcash, decimal apay, decimal apayns, decimal apaynt)
-        {
-            if (!HasProgressiveIIN) return IncPayByIncCashA(dcash, apay, apayns, apaynt);
-            if (HasTaxDoc) return IncPayByIncCashBab(dcash, apay, apayns, apaynt);
-            return IncPayByIncCashC(dcash, apay, apayns, apaynt);
-        }
 
         public decimal IncPayByIncCashA(decimal dcash, decimal apay, decimal apayns, decimal apaynt)
         {
@@ -569,30 +418,6 @@ namespace KlonsA.Classes
 
         }
 
-        public decimal IncPayByIncCashBab(decimal dcash, decimal apay, decimal apayns, decimal apaynt)
-        {
-            if (dcash <= 0.0M) return 0.0M;
-            var pfx = new PayFx();
-            pfx.SetFrom(this);
-            decimal rdcash = pfx.IncPayByIncCashB(dcash, apay, apayns, apaynt);
-            if (pfx.Pay + pfx.PayNs > IMa)
-            {
-                pfx.SetFrom(this);
-                pfx.IinEx = IinExA;
-                rdcash = pfx.IncPayByIncCashB(dcash, apay, apayns, apaynt);
-            }
-            if (pfx.Pay + pfx.PayNs >= IMb)
-            {
-                pfx.SetFrom(this);
-                pfx.IinEx = IinExB;
-                rdcash = pfx.IncPayByIncCashB(dcash, apay, apayns, apaynt);
-            }
-            Pay = pfx.Pay;
-            PayNs = pfx.PayNs;
-            PayNt = pfx.PayNt;
-
-            return rdcash;
-        }
 
         public decimal IncPayByIncCashB(decimal dcash, decimal apay, decimal apayns, decimal apaynt)
         {
@@ -822,13 +647,16 @@ namespace KlonsA.Classes
         public static decimal GetIINMarginA(DateTime dt)
         {
             if (dt < ProgressiveIINStartDate) return 0.0M;
-            else return 430.0M;
+            else return 440.0M;
         }
 
         public static decimal GetIINMarginB(DateTime dt)
         {
-            if (dt < ProgressiveIINStartDate) return 0.0M;
-            else return 1000.0M;
+            if (dt.Year <= 2017) return 0.0M;
+            if (dt.Year == 2018) return 1000.0M;
+            if (dt.Year == 2019) return 1100.0M;
+            if (dt.Year == 2020) return 1200.0M;
+            else return 1200.0M;
         }
 
     }

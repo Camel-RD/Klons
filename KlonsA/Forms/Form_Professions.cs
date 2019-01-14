@@ -20,6 +20,13 @@ namespace KlonsA.Forms
         {
             InitializeComponent();
             CheckMyFontAndColors();
+
+            var table = MyData.DataSetKlons.PROFESSIONS;
+            if(table.Rows.Count == 0)
+            {
+                MyData.FillTable(table);
+            }
+
             dgvProf.AutoResizeRows();
         }
 

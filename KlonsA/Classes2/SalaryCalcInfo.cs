@@ -410,22 +410,11 @@ namespace KlonsA.Classes
 
             if (CalcR.UseProgresiveIINRate && CalcR.HasTaxDoc)
             {
-                if(pay1 >= 1000.0M)
-                {
-                    SI._IIN_EXEMPT_UNTAXED_MINIMUM = 0.0M;
-                    SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = 0.0M;
-                    CalcR.ExDivided.ExUntaxedMinimum = 0.0M;
-                    if (CalcR.CrUntaxedMinimum != null)
-                        CalcR.CrUntaxedMinimum.RateDivided = 0.0M;
-                }
-                else if(pay1 > 430.0M)
-                {
-                    SI._IIN_EXEMPT_UNTAXED_MINIMUM = CalcR.ExDivided.ExUntaxedMinimum2;
-                    SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = CalcR.ExMax2.ExUntaxedMinimum2;
-                    CalcR.ExDivided.ExUntaxedMinimum = CalcR.ExDivided.ExUntaxedMinimum2;
-                    if (CalcR.CrUntaxedMinimum != null)
-                        CalcR.CrUntaxedMinimum.RateDivided = CalcR.ExDivided.ExUntaxedMinimum2;
-                }
+                SI._IIN_EXEMPT_UNTAXED_MINIMUM = CalcR.ExDivided.ExUntaxedMinimum2;
+                SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = CalcR.ExMax2.ExUntaxedMinimum2;
+                CalcR.ExDivided.ExUntaxedMinimum = CalcR.ExDivided.ExUntaxedMinimum2;
+                if (CalcR.CrUntaxedMinimum != null)
+                    CalcR.CrUntaxedMinimum.RateDivided = CalcR.ExDivided.ExUntaxedMinimum2;
             }
 
             decimal iinexempts = SI.SumIINExemptsAll();

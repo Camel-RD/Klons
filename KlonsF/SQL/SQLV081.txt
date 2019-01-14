@@ -1,0 +1,262 @@
+﻿UPDATE OR INSERT INTO ACP23 (IDX, NAME, ID1, ID2)
+  VALUES ('LIZ1', 'Izdevumi lauksaimniecībai ierobežotā apmērā', '14      ', 3);
+UPDATE OR INSERT INTO ACP23 (IDX, NAME, ID1, ID2)
+  VALUES ('NIZ1', 'Nelauksaimnieciskie izdevumi ierobežotā apmērā', '15      ', 3);
+
+  
+  ALTER TABLE TREPDARZ1
+  ADD A17 MONEY;
+
+ALTER TABLE TREPDARZ1
+  ADD A18 MONEY;
+
+ALTER TABLE TREPDARZ2
+  ADD A20 MONEY;
+
+ALTER TABLE TREPDARZ2
+  ADD A21 MONEY;
+
+
+SET TERM ^ ;
+
+ALTER PROCEDURE SP_REP_DARZ_1(
+  SDT DATE,
+  EDT DATE)
+RETURNS (
+  ID TYPE OF COLUMN TREPDARZ1.ID,
+  SPID TYPE OF COLUMN TREPDARZ1.SPID,
+  DID TYPE OF COLUMN TREPDARZ1.DID,
+  RID TYPE OF COLUMN TREPDARZ1.RID,
+  DETE TYPE OF COLUMN TREPDARZ1.DETE,
+  NRX TYPE OF COLUMN TREPDARZ1.NRX,
+  DOCTYP TYPE OF COLUMN TREPDARZ1.DOCTYP,
+  DOCST TYPE OF COLUMN TREPDARZ1.DOCST,
+  DOCNR TYPE OF COLUMN TREPDARZ1.DOCNR,
+  CLID TYPE OF COLUMN TREPDARZ1.CLID,
+  NAME TYPE OF COLUMN TREPDARZ1.NAME,
+  REGNR TYPE OF COLUMN TREPDARZ1.REGNR,
+  DESCR TYPE OF COLUMN TREPDARZ1.DESCR,
+  AC1 TYPE OF COLUMN TREPDARZ1.AC1,
+  AC2 TYPE OF COLUMN TREPDARZ1.AC2,
+  AA TYPE OF COLUMN TREPDARZ1.AA,
+  A1 TYPE OF COLUMN TREPDARZ1.A1,
+  A2 TYPE OF COLUMN TREPDARZ1.A2,
+  A3 TYPE OF COLUMN TREPDARZ1.A3,
+  A4 TYPE OF COLUMN TREPDARZ1.A4,
+  A5 TYPE OF COLUMN TREPDARZ1.A5,
+  A6 TYPE OF COLUMN TREPDARZ1.A6,
+  A7 TYPE OF COLUMN TREPDARZ1.A7,
+  A8 TYPE OF COLUMN TREPDARZ1.A8,
+  A9 TYPE OF COLUMN TREPDARZ1.A9,
+  A10 TYPE OF COLUMN TREPDARZ1.A10,
+  A11 TYPE OF COLUMN TREPDARZ1.A11,
+  A12 TYPE OF COLUMN TREPDARZ1.A12,
+  A13 TYPE OF COLUMN TREPDARZ1.A13,
+  A14 TYPE OF COLUMN TREPDARZ1.A14,
+  A15 TYPE OF COLUMN TREPDARZ1.A15,
+  A16 TYPE OF COLUMN TREPDARZ1.A16,
+  A17 TYPE OF COLUMN TREPDARZ1.A17,
+  A18 TYPE OF COLUMN TREPDARZ1.A18)
+AS
+begin
+    FOR SELECT
+        gen_id(GEN_TREPDARZ1_ID, 1) AS id,
+        current_connection AS spid,
+        DocId AS did,
+        0 AS rid,
+        MAX(Dete) AS Dete,
+        MAX(NrX) AS NrX,
+        MAX(DocTyp.id1) AS DocTyp,
+        MAX(DocSt) AS DocSt,
+        MAX(DocNr) AS DocNr,
+        MAX(OPSd.clid) AS clid,
+        MAX(Persons.name) AS Name,
+        MAX(Persons.regnr) AS RegNr,
+        MAX(OPSd.descr) AS Descr,
+
+        null AS AC1,
+        null AS AC2,
+        null AS AA,
+
+        SUM(CASE WHEN AC13 = 'KA' THEN OPS.Summ ELSE 0.00 END) AS A1,
+        SUM(CASE WHEN AC23 = 'KA' THEN OPS.Summ ELSE 0.00 END) AS A2,
+        
+        SUM(CASE WHEN AC13 = 'BA' THEN OPS.Summ ELSE 0.00 END) AS A3,
+        SUM(CASE WHEN AC23 = 'BA' THEN OPS.Summ ELSE 0.00 END) AS A4,
+                                                                
+        SUM(CASE WHEN AC13 = 'CN' THEN OPS.Summ ELSE 0.00 END) AS A5,
+        SUM(CASE WHEN AC23 = 'CN' THEN OPS.Summ ELSE 0.00 END) AS A6,
+
+        SUM(CASE WHEN AC23 = 'LIE' THEN OPS.Summ ELSE 0.00 END) AS A7,
+        SUM(CASE WHEN AC23 = 'NIE' THEN OPS.Summ ELSE 0.00 END) AS A8,
+        SUM(CASE WHEN AC23 = 'SUB' THEN OPS.Summ ELSE 0.00 END) AS A9,
+        SUM(CASE WHEN AC23 = 'ZIE' THEN OPS.Summ ELSE 0.00 END) AS A10,
+        SUM(CASE WHEN AC23 = 'CIE' THEN OPS.Summ ELSE 0.00 END) AS A11,
+
+        SUM(CASE WHEN AC13 = 'LIZ' THEN OPS.Summ ELSE 0.00 END) AS A12,
+        SUM(CASE WHEN AC13 = 'NIZ' THEN OPS.Summ ELSE 0.00 END) AS A13,
+        SUM(CASE WHEN AC13 = 'PIZ' THEN OPS.Summ ELSE 0.00 END) AS A14,
+        SUM(CASE WHEN AC13 = 'ZIZ' THEN OPS.Summ ELSE 0.00 END) AS A15,
+        SUM(CASE WHEN AC13 = 'CIZ' THEN OPS.Summ ELSE 0.00 END) AS A16,
+
+        SUM(CASE WHEN AC13 = 'LIZ1' THEN OPS.Summ ELSE 0.00 END) AS A17,
+        SUM(CASE WHEN AC13 = 'NIZ1' THEN OPS.Summ ELSE 0.00 END) AS A18
+
+    FROM
+        OPSd JOIN OPS ON OPSd.id = OPS.DocId
+        LEFT JOIN persons ON OPSd.clid = Persons.clid
+        LEFT JOIN doctyp ON OPSd.doctyp = doctyp.id
+    WHERE
+        OPSd.Dete BETWEEN :sdt AND :edt AND
+        OPS.AC13 IS NOT NULL AND
+        OPS.AC23 IS NOT NULL
+    GROUP BY DocId
+    ORDER BY Dete, did
+
+
+    into
+        :id, :spid, :did, :rid, :dete, :nrx,
+        :doctyp, :docst, :docnr, :clid, :name, :regnr,
+        :descr, :ac1, :ac2, :aa,
+        :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8,
+        :a9, :a10, :a11, :a12, :a13, :a14,:a15,:a16,:a17,:a18
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+ALTER PROCEDURE SP_REP_DARZ_2(
+  SDT DATE,
+  EDT DATE)
+RETURNS (
+  ID TYPE OF COLUMN TREPDARZ2.ID,
+  SPID TYPE OF COLUMN TREPDARZ2.SPID,
+  RID0 TYPE OF COLUMN TREPDARZ2.RID0,
+  A1 TYPE OF COLUMN TREPDARZ2.A1,
+  A2 TYPE OF COLUMN TREPDARZ2.A2,
+  A3 TYPE OF COLUMN TREPDARZ2.A3,
+  A4 TYPE OF COLUMN TREPDARZ2.A4,
+  A5 TYPE OF COLUMN TREPDARZ2.A5,
+  A6 TYPE OF COLUMN TREPDARZ2.A6,
+  A7 TYPE OF COLUMN TREPDARZ2.A7,
+  A8 TYPE OF COLUMN TREPDARZ2.A8,
+  A9 TYPE OF COLUMN TREPDARZ2.A9,
+  A10 TYPE OF COLUMN TREPDARZ2.A10,
+  A11 TYPE OF COLUMN TREPDARZ2.A11,
+  A12 TYPE OF COLUMN TREPDARZ2.A12,
+  A13 TYPE OF COLUMN TREPDARZ2.A13,
+  A14 TYPE OF COLUMN TREPDARZ2.A14,
+  A15 TYPE OF COLUMN TREPDARZ2.A15,
+  A16 TYPE OF COLUMN TREPDARZ2.A16,
+  A17 TYPE OF COLUMN TREPDARZ2.A17,
+  A18 TYPE OF COLUMN TREPDARZ2.A18,
+  A19 TYPE OF COLUMN TREPDARZ2.A19,
+  A20 TYPE OF COLUMN TREPDARZ2.A20,
+  A21 TYPE OF COLUMN TREPDARZ2.A21)
+AS
+begin
+
+    FOR SELECT
+        gen_id(GEN_TREPDARZ2_ID, 1) AS id,
+        current_connection AS spid,
+        coalesce(T2.rid0, 0) AS rid0,
+        coalesce(T1.A1, 0.00) AS A1,
+        coalesce(T1.A2, 0.00) AS A2,
+        coalesce(T1.A3, 0.00) AS A3,
+        coalesce(T1.A4, 0.00) AS A4,
+        coalesce(T1.A5, 0.00) AS A5,
+        coalesce(T1.A6, 0.00) AS A6,
+        coalesce(T2.A7, 0.00) AS A7,
+        coalesce(T2.A8, 0.00) AS A8,
+        coalesce(T2.A9, 0.00) AS A9,
+        coalesce(T2.A10, 0.00) AS A10,
+        coalesce(T2.A11, 0.00) AS A11,
+        coalesce(T2.A12, 0.00) AS A12,
+        coalesce(T2.A13, 0.00) AS A13,
+        coalesce(T2.A14, 0.00) AS A14,
+        coalesce(T2.A15, 0.00) AS A15,
+        coalesce(T2.A16, 0.00) AS A16,
+        coalesce(T3.A17, 0.00) AS A17,
+        coalesce(T3.A18, 0.00) AS A18,
+        coalesce(T3.A19, 0.00) AS A19,
+        coalesce(T2.A20, 0.00) AS A20,
+        coalesce(T2.A21, 0.00) AS A21
+
+    FROM
+        (SELECT
+            SUM(CASE WHEN AC13 = 'KA' THEN OPS.Summ ELSE 0.00 END) AS A1,
+            SUM(CASE WHEN AC23 = 'KA' THEN OPS.Summ ELSE 0.00 END) AS A2,
+        
+            SUM(CASE WHEN AC13 = 'BA' THEN OPS.Summ ELSE 0.00 END) AS A3,
+            SUM(CASE WHEN AC23 = 'BA' THEN OPS.Summ ELSE 0.00 END) AS A4,
+        
+            SUM(CASE WHEN AC13 = 'CN' THEN OPS.Summ ELSE 0.00 END) AS A5,
+            SUM(CASE WHEN AC23 = 'CN' THEN OPS.Summ ELSE 0.00 END) AS A6
+
+        FROM
+            OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+        WHERE
+            OPSd.Dete <= :edt AND
+            OPS.AC13 IS NOT NULL AND
+            OPS.AC23 IS NOT NULL
+        ) AS T1,
+        
+        (SELECT
+            COUNT(DISTINCT DocId) rid0,
+        
+            SUM(CASE WHEN AC23 = 'LIE' THEN OPS.Summ ELSE 0.00 END) AS A7,
+            SUM(CASE WHEN AC23 = 'NIE' THEN OPS.Summ ELSE 0.00 END) AS A8,
+            SUM(CASE WHEN AC23 = 'SUB' THEN OPS.Summ ELSE 0.00 END) AS A9,
+            SUM(CASE WHEN AC23 = 'ZIE' THEN OPS.Summ ELSE 0.00 END) AS A10,
+            SUM(CASE WHEN AC23 = 'CIE' THEN OPS.Summ ELSE 0.00 END) AS A11,
+
+            SUM(CASE WHEN AC13 = 'LIZ' THEN OPS.Summ ELSE 0.00 END) AS A12,
+            SUM(CASE WHEN AC13 = 'NIZ' THEN OPS.Summ ELSE 0.00 END) AS A13,
+            SUM(CASE WHEN AC13 = 'PIZ' THEN OPS.Summ ELSE 0.00 END) AS A14,
+            SUM(CASE WHEN AC13 = 'ZIZ' THEN OPS.Summ ELSE 0.00 END) AS A15,
+            SUM(CASE WHEN AC13 = 'CIZ' THEN OPS.Summ ELSE 0.00 END) AS A16,
+
+            SUM(CASE WHEN AC13 = 'LIZ1' THEN OPS.Summ ELSE 0.00 END) AS A20,
+            SUM(CASE WHEN AC13 = 'NIZ1' THEN OPS.Summ ELSE 0.00 END) AS A21
+
+        FROM
+            OPSd JOIN OPS ON OPSd.id = OPS.DocId
+        WHERE
+            OPSd.Dete BETWEEN :sdt AND :edt AND
+            OPS.AC13 IS NOT NULL AND
+            OPS.AC23 IS NOT NULL
+        ) AS T2,
+
+        (SELECT 
+            SUM(CASE WHEN AcP21.id1 = 'KA'
+                THEN Bal0.SummD - Bal0.SummC ELSE 0.00 END) AS A17,
+            SUM(CASE WHEN AcP21.id1 = 'BA'
+                THEN Bal0.SummD - Bal0.SummC ELSE 0.00 END) AS A18,
+            SUM(CASE WHEN AcP21.id1 = 'CN'
+                THEN Bal0.SummD - Bal0.SummC ELSE 0.00 END) AS A19
+
+        FROM Bal0
+            INNER JOIN AcP21 ON Bal0.AC11 = AcP21.AC
+        WHERE AcP21.id1 IN ('KA','BA','CN')
+        ) AS T3
+
+
+    into
+        :id, :spid, :rid0,
+        :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10,
+        :a11, :a12, :a13, :a14, :a15, :a16, :a17, :a18, :a19, :a20, :a21
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '081'
+WHERE PNAME = 'version';

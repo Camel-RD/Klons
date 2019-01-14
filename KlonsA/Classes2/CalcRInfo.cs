@@ -33,7 +33,7 @@ namespace KlonsA.Classes
         public decimal RateIIN = 0.0M;
         public decimal RateIIN2 = 0.0M;
         public decimal IINMargin = 1667.0M;
-        public decimal IINMarginA = 430.0M;
+        public decimal IINMarginA = 440.0M;
         public decimal IINMarginB = 1000.0M;
         public bool IsPensioner = false;
         public bool HasTaxDoc = false;
@@ -62,6 +62,10 @@ namespace KlonsA.Classes
         {
             if (dt1 > dt2 || dt1.Month != dt2.Month)
                 throw new ArgumentException("Bad call.");
+
+            IINMargin = PayFx.GetIINMargin(dt1);
+            IINMarginA = PayFx.GetIINMarginA(dt1);
+            IINMarginB = PayFx.GetIINMarginB(dt1);
 
             var fPersonR = sr.PersonR.FilterListWithDates(dt1, dt2);
             var fHireFire = sr.Events.HireFire.FilterListWithDates(dt1, dt2);
@@ -167,6 +171,9 @@ namespace KlonsA.Classes
             {
                 wt.RateIIN = drl.IIN_LIKME;
                 wt.RateIIN2 = drl.IIN_LIKME_2;
+                int iin_rate_type = GetIINRateType(drpr.PERSONSRow, dt.FirstDayOfMonth());
+                if (iin_rate_type == 1)
+                    wt.RateIIN = wt.RateIIN2;
             }
             wt.IINMargin = drl.IIN_SLIEKSNIS_1;
 
@@ -254,6 +261,17 @@ namespace KlonsA.Classes
                 .LastOrDefault();
             if (dr_um == null) return 0.0M;
             return dr_um.UNTAXED_MIN;
+        }
+
+        // returns -1 if no data; 0 - reduced rate; 1 - full rate
+        public static int GetIINRateType(KlonsADataSet.PERSONSRow drpr, DateTime dt)
+        {
+            var dr_um = drpr.GetUNTAXED_MINRows()
+                .WhereX(d => d.ONDATE <= dt)
+                .OrderBy(d => d.ONDATE)
+                .LastOrDefault();
+            if (dr_um == null) return -1;
+            return dr_um.IIN_RATE_TYPE;
         }
 
 

@@ -112,6 +112,11 @@ namespace KlonsF.FormsReportParams
                     rd.FileName = "Report_Darz_1";
                     break;
                 case 1:
+                    ad1.FillBy_darz_1(MyData.DataSetKlonsRep.TRepDarz1, startDate, endDate);
+                    ad2.FillBy_darz_2(MyData.DataSetKlonsRep.TRepDarz2, startDateOfYear, startDate.AddDays(-1));
+                    rd.FileName = "Report_Darz_3";
+                    break;
+                case 2:
                     ad1.FillBy_darz_3(MyData.DataSetKlonsRep.TRepDarz1, startDate, endDate);
                     ad2.FillBy_darz_4(MyData.DataSetKlonsRep.TRepDarz2, startDateOfYear, startDate.AddDays(-1));
                     rd.FileName = "Report_Darz_2";

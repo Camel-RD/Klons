@@ -57,18 +57,25 @@ namespace KlonsP.Classes
                 dr.EndEdit();
                 return;
             }
-            if (dr.HasVersion(DataRowVersion.Proposed))
-            {
-                if (HasChanges2(dr))
-                    dr.EndEdit();
-                else
-                    dr.CancelEdit();
-            }
-            if (dr.HasVersion(DataRowVersion.Current))
+            if (dr.HasVersion(DataRowVersion.Current) &&
+                dr.HasVersion(DataRowVersion.Original))
             {
                 if (!HasChanges(dr, ad))
+                {
                     dr.AcceptChanges();
+                    return;
+                }
             }
+            if (dr.HasVersion(DataRowVersion.Current) && 
+                dr.HasVersion(DataRowVersion.Proposed))
+            {
+                if (!HasChanges2(dr))
+                {
+                    dr.CancelEdit();
+                    return;
+                }
+            }
+            dr.EndEdit();
         }
 
         public static string GetChangesAsString(this DataRow dr)

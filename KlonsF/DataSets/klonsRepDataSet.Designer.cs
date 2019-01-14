@@ -3839,6 +3839,12 @@ namespace KlonsF.DataSets {
             
             private global::System.Data.DataColumn columnA16;
             
+            private global::System.Data.DataColumn columnDOCSTR;
+            
+            private global::System.Data.DataColumn columnA17;
+            
+            private global::System.Data.DataColumn columnA18;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TRepDarz1DataTable() {
@@ -4138,6 +4144,30 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DOCSTRColumn {
+                get {
+                    return this.columnDOCSTR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn A17Column {
+                get {
+                    return this.columnA17;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn A18Column {
+                get {
+                    return this.columnA18;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4205,7 +4235,10 @@ namespace KlonsF.DataSets {
                         decimal A13, 
                         decimal A14, 
                         decimal A15, 
-                        decimal A16) {
+                        decimal A16, 
+                        string DOCSTR1, 
+                        decimal A17, 
+                        decimal A18) {
                 TRepDarz1Row rowTRepDarz1Row = ((TRepDarz1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4240,7 +4273,10 @@ namespace KlonsF.DataSets {
                         A13,
                         A14,
                         A15,
-                        A16};
+                        A16,
+                        DOCSTR1,
+                        A17,
+                        A18};
                 rowTRepDarz1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTRepDarz1Row);
                 return rowTRepDarz1Row;
@@ -4303,6 +4339,9 @@ namespace KlonsF.DataSets {
                 this.columnA14 = base.Columns["A14"];
                 this.columnA15 = base.Columns["A15"];
                 this.columnA16 = base.Columns["A16"];
+                this.columnDOCSTR = base.Columns["DOCSTR"];
+                this.columnA17 = base.Columns["A17"];
+                this.columnA18 = base.Columns["A18"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4374,6 +4413,12 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columnA15);
                 this.columnA16 = new global::System.Data.DataColumn("A16", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnA16);
+                this.columnDOCSTR = new global::System.Data.DataColumn("DOCSTR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCSTR);
+                this.columnA17 = new global::System.Data.DataColumn("A17", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnA17);
+                this.columnA18 = new global::System.Data.DataColumn("A18", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnA18);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -4409,6 +4454,7 @@ namespace KlonsF.DataSets {
                 this.columnA14.DefaultValue = ((decimal)(0m));
                 this.columnA15.DefaultValue = ((decimal)(0m));
                 this.columnA16.DefaultValue = ((decimal)(0m));
+                this.columnDOCSTR.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4585,6 +4631,10 @@ namespace KlonsF.DataSets {
             private global::System.Data.DataColumn columnA18;
             
             private global::System.Data.DataColumn columnA19;
+            
+            private global::System.Data.DataColumn columnA20;
+            
+            private global::System.Data.DataColumn columnA21;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -4797,6 +4847,22 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn A20Column {
+                get {
+                    return this.columnA20;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn A21Column {
+                get {
+                    return this.columnA21;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4853,7 +4919,9 @@ namespace KlonsF.DataSets {
                         decimal A16, 
                         decimal A17, 
                         decimal A18, 
-                        decimal A19) {
+                        decimal A19, 
+                        decimal A20, 
+                        decimal A21) {
                 TRepDarz2Row rowTRepDarz2Row = ((TRepDarz2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4877,7 +4945,9 @@ namespace KlonsF.DataSets {
                         A16,
                         A17,
                         A18,
-                        A19};
+                        A19,
+                        A20,
+                        A21};
                 rowTRepDarz2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTRepDarz2Row);
                 return rowTRepDarz2Row;
@@ -4929,6 +4999,8 @@ namespace KlonsF.DataSets {
                 this.columnA17 = base.Columns["A17"];
                 this.columnA18 = base.Columns["A18"];
                 this.columnA19 = base.Columns["A19"];
+                this.columnA20 = base.Columns["A20"];
+                this.columnA21 = base.Columns["A21"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4978,6 +5050,10 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columnA18);
                 this.columnA19 = new global::System.Data.DataColumn("A19", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnA19);
+                this.columnA20 = new global::System.Data.DataColumn("A20", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnA20);
+                this.columnA21 = new global::System.Data.DataColumn("A21", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnA21);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -13072,6 +13148,54 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DOCSTR {
+                get {
+                    try {
+                        return ((string)(this[this.tableTRepDarz1.DOCSTRColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DOCSTR\' in table \'TRepDarz1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRepDarz1.DOCSTRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal A17 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTRepDarz1.A17Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'A17\' in table \'TRepDarz1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRepDarz1.A17Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal A18 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTRepDarz1.A18Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'A18\' in table \'TRepDarz1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRepDarz1.A18Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsspidNull() {
                 return this.IsNull(this.tableTRepDarz1.spidColumn);
             }
@@ -13453,6 +13577,42 @@ namespace KlonsF.DataSets {
             public void SetA16Null() {
                 this[this.tableTRepDarz1.A16Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDOCSTRNull() {
+                return this.IsNull(this.tableTRepDarz1.DOCSTRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDOCSTRNull() {
+                this[this.tableTRepDarz1.DOCSTRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsA17Null() {
+                return this.IsNull(this.tableTRepDarz1.A17Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetA17Null() {
+                this[this.tableTRepDarz1.A17Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsA18Null() {
+                return this.IsNull(this.tableTRepDarz1.A18Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetA18Null() {
+                this[this.tableTRepDarz1.A18Column] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -13818,6 +13978,38 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal A20 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTRepDarz2.A20Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'A20\' in table \'TRepDarz2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRepDarz2.A20Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal A21 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTRepDarz2.A21Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'A21\' in table \'TRepDarz2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRepDarz2.A21Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsspidNull() {
                 return this.IsNull(this.tableTRepDarz2.spidColumn);
             }
@@ -14066,6 +14258,30 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetA19Null() {
                 this[this.tableTRepDarz2.A19Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsA20Null() {
+                return this.IsNull(this.tableTRepDarz2.A20Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetA20Null() {
+                this[this.tableTRepDarz2.A20Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsA21Null() {
+                return this.IsNull(this.tableTRepDarz2.A21Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetA21Null() {
+                this[this.tableTRepDarz2.A21Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -32740,6 +32956,8 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("A15", "A15");
             tableMapping.ColumnMappings.Add("A16", "A16");
             tableMapping.ColumnMappings.Add("DOCSTR", "DOCSTR");
+            tableMapping.ColumnMappings.Add("A17", "A17");
+            tableMapping.ColumnMappings.Add("A18", "A18");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -32771,31 +32989,33 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                 "3)) AND ((@IsNull_A14 = 1 AND \"A14\" IS NULL) OR (\"A14\" = @Original_A14)) AND ((@" +
                 "IsNull_A15 = 1 AND \"A15\" IS NULL) OR (\"A15\" = @Original_A15)) AND ((@IsNull_A16 " +
                 "= 1 AND \"A16\" IS NULL) OR (\"A16\" = @Original_A16)) AND ((@IsNull_DOCSTR = 1 AND " +
-                "\"DOCSTR\" IS NULL) OR (\"DOCSTR\" = @Original_DOCSTR)))";
+                "\"DOCSTR\" IS NULL) OR (\"DOCSTR\" = @Original_DOCSTR)) AND ((@IsNull_A17 = 1 AND \"A" +
+                "17\" IS NULL) OR (\"A17\" = @Original_A17)) AND ((@IsNull_A18 = 1 AND \"A18\" IS NULL" +
+                ") OR (\"A18\" = @Original_A18)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32803,7 +33023,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "did";
+            param.SourceColumn = "DID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32812,7 +33032,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "did";
+            param.SourceColumn = "DID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32820,7 +33040,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid";
+            param.SourceColumn = "RID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32829,7 +33049,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid";
+            param.SourceColumn = "RID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32837,7 +33057,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32846,7 +33066,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32854,7 +33074,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32862,23 +33082,23 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_NRX";
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DOCTYP";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_DOCTYP";
-            param.Size = 8;
+            param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32886,7 +33106,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32894,7 +33114,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_DOCST";
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32902,7 +33122,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32910,7 +33130,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_DOCNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32918,7 +33138,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32926,7 +33146,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_CLID";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32934,7 +33154,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32942,7 +33162,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_NAME";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32950,7 +33170,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32958,23 +33178,23 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_REGNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DESCR";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_DESCR";
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32982,7 +33202,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac1";
+            param.SourceColumn = "AC1";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -32990,7 +33210,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_AC1";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac1";
+            param.SourceColumn = "AC1";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -32998,7 +33218,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac2";
+            param.SourceColumn = "AC2";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -33006,7 +33226,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_AC2";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac2";
+            param.SourceColumn = "AC2";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33303,7 +33523,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 200;
             param.IsNullable = true;
-            param.SourceColumn = "DocStr";
+            param.SourceColumn = "DOCSTR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -33311,107 +33531,141 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_DOCSTR";
             param.Size = 200;
             param.IsNullable = true;
-            param.SourceColumn = "DocStr";
+            param.SourceColumn = "DOCSTR";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A17";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A17";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A17";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A17";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A18";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A18";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A18";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A18";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TREPDARZ1"" (""ID"", ""SPID"", ""DID"", ""RID"", ""DETE"", ""NRX"", ""DOCTYP"", ""DOCST"", ""DOCNR"", ""CLID"", ""NAME"", ""REGNR"", ""DESCR"", ""AC1"", ""AC2"", ""AA"", ""A1"", ""A2"", ""A3"", ""A4"", ""A5"", ""A6"", ""A7"", ""A8"", ""A9"", ""A10"", ""A11"", ""A12"", ""A13"", ""A14"", ""A15"", ""A16"", ""DOCSTR"") VALUES (@ID, @SPID, @DID, @RID, @DETE, @NRX, @DOCTYP, @DOCST, @DOCNR, @CLID, @NAME, @REGNR, @DESCR, @AC1, @AC2, @AA, @A1, @A2, @A3, @A4, @A5, @A6, @A7, @A8, @A9, @A10, @A11, @A12, @A13, @A14, @A15, @A16, @DOCSTR)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TREPDARZ1"" (""ID"", ""SPID"", ""DID"", ""RID"", ""DETE"", ""NRX"", ""DOCTYP"", ""DOCST"", ""DOCNR"", ""CLID"", ""NAME"", ""REGNR"", ""DESCR"", ""AC1"", ""AC2"", ""AA"", ""A1"", ""A2"", ""A3"", ""A4"", ""A5"", ""A6"", ""A7"", ""A8"", ""A9"", ""A10"", ""A11"", ""A12"", ""A13"", ""A14"", ""A15"", ""A16"", ""DOCSTR"", ""A17"", ""A18"") VALUES (@ID, @SPID, @DID, @RID, @DETE, @NRX, @DOCTYP, @DOCST, @DOCNR, @CLID, @NAME, @REGNR, @DESCR, @AC1, @AC2, @AA, @A1, @A2, @A3, @A4, @A5, @A6, @A7, @A8, @A9, @A10, @A11, @A12, @A13, @A14, @A15, @A16, @DOCSTR, @A17, @A18)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "did";
+            param.SourceColumn = "DID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@RID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid";
+            param.SourceColumn = "RID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DETE";
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NRX";
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCTYP";
-            param.Size = 8;
+            param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCST";
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CLID";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NAME";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@REGNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DESCR";
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AC1";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac1";
+            param.SourceColumn = "AC1";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AC2";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac2";
+            param.SourceColumn = "AC2";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AA";
@@ -33536,7 +33790,21 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@DOCSTR";
             param.Size = 200;
             param.IsNullable = true;
-            param.SourceColumn = "DocStr";
+            param.SourceColumn = "DOCSTR";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A17";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A17";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A18";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A18";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -33546,130 +33814,132 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                 "@AC1, \"AC2\" = @AC2, \"AA\" = @AA, \"A1\" = @A1, \"A2\" = @A2, \"A3\" = @A3, \"A4\" = @A4, " +
                 "\"A5\" = @A5, \"A6\" = @A6, \"A7\" = @A7, \"A8\" = @A8, \"A9\" = @A9, \"A10\" = @A10, \"A11\" " +
                 "= @A11, \"A12\" = @A12, \"A13\" = @A13, \"A14\" = @A14, \"A15\" = @A15, \"A16\" = @A16, \"D" +
-                "OCSTR\" = @DOCSTR WHERE ((\"ID\" = @Original_ID) AND ((@IsNull_SPID = 1 AND \"SPID\" " +
-                "IS NULL) OR (\"SPID\" = @Original_SPID)) AND ((@IsNull_DID = 1 AND \"DID\" IS NULL) " +
-                "OR (\"DID\" = @Original_DID)) AND ((@IsNull_RID = 1 AND \"RID\" IS NULL) OR (\"RID\" =" +
-                " @Original_RID)) AND ((@IsNull_DETE = 1 AND \"DETE\" IS NULL) OR (\"DETE\" = @Origin" +
-                "al_DETE)) AND ((@IsNull_NRX = 1 AND \"NRX\" IS NULL) OR (\"NRX\" = @Original_NRX)) A" +
-                "ND ((@IsNull_DOCTYP = 1 AND \"DOCTYP\" IS NULL) OR (\"DOCTYP\" = @Original_DOCTYP)) " +
-                "AND ((@IsNull_DOCST = 1 AND \"DOCST\" IS NULL) OR (\"DOCST\" = @Original_DOCST)) AND" +
-                " ((@IsNull_DOCNR = 1 AND \"DOCNR\" IS NULL) OR (\"DOCNR\" = @Original_DOCNR)) AND ((" +
-                "@IsNull_CLID = 1 AND \"CLID\" IS NULL) OR (\"CLID\" = @Original_CLID)) AND ((@IsNull" +
-                "_NAME = 1 AND \"NAME\" IS NULL) OR (\"NAME\" = @Original_NAME)) AND ((@IsNull_REGNR " +
-                "= 1 AND \"REGNR\" IS NULL) OR (\"REGNR\" = @Original_REGNR)) AND ((@IsNull_DESCR = 1" +
-                " AND \"DESCR\" IS NULL) OR (\"DESCR\" = @Original_DESCR)) AND ((@IsNull_AC1 = 1 AND " +
-                "\"AC1\" IS NULL) OR (\"AC1\" = @Original_AC1)) AND ((@IsNull_AC2 = 1 AND \"AC2\" IS NU" +
-                "LL) OR (\"AC2\" = @Original_AC2)) AND ((@IsNull_AA = 1 AND \"AA\" IS NULL) OR (\"AA\" " +
-                "= @Original_AA)) AND ((@IsNull_A1 = 1 AND \"A1\" IS NULL) OR (\"A1\" = @Original_A1)" +
-                ") AND ((@IsNull_A2 = 1 AND \"A2\" IS NULL) OR (\"A2\" = @Original_A2)) AND ((@IsNull" +
-                "_A3 = 1 AND \"A3\" IS NULL) OR (\"A3\" = @Original_A3)) AND ((@IsNull_A4 = 1 AND \"A4" +
-                "\" IS NULL) OR (\"A4\" = @Original_A4)) AND ((@IsNull_A5 = 1 AND \"A5\" IS NULL) OR (" +
-                "\"A5\" = @Original_A5)) AND ((@IsNull_A6 = 1 AND \"A6\" IS NULL) OR (\"A6\" = @Origina" +
-                "l_A6)) AND ((@IsNull_A7 = 1 AND \"A7\" IS NULL) OR (\"A7\" = @Original_A7)) AND ((@I" +
-                "sNull_A8 = 1 AND \"A8\" IS NULL) OR (\"A8\" = @Original_A8)) AND ((@IsNull_A9 = 1 AN" +
-                "D \"A9\" IS NULL) OR (\"A9\" = @Original_A9)) AND ((@IsNull_A10 = 1 AND \"A10\" IS NUL" +
-                "L) OR (\"A10\" = @Original_A10)) AND ((@IsNull_A11 = 1 AND \"A11\" IS NULL) OR (\"A11" +
-                "\" = @Original_A11)) AND ((@IsNull_A12 = 1 AND \"A12\" IS NULL) OR (\"A12\" = @Origin" +
-                "al_A12)) AND ((@IsNull_A13 = 1 AND \"A13\" IS NULL) OR (\"A13\" = @Original_A13)) AN" +
-                "D ((@IsNull_A14 = 1 AND \"A14\" IS NULL) OR (\"A14\" = @Original_A14)) AND ((@IsNull" +
-                "_A15 = 1 AND \"A15\" IS NULL) OR (\"A15\" = @Original_A15)) AND ((@IsNull_A16 = 1 AN" +
-                "D \"A16\" IS NULL) OR (\"A16\" = @Original_A16)) AND ((@IsNull_DOCSTR = 1 AND \"DOCST" +
-                "R\" IS NULL) OR (\"DOCSTR\" = @Original_DOCSTR)))";
+                "OCSTR\" = @DOCSTR, \"A17\" = @A17, \"A18\" = @A18 WHERE ((\"ID\" = @Original_ID) AND ((" +
+                "@IsNull_SPID = 1 AND \"SPID\" IS NULL) OR (\"SPID\" = @Original_SPID)) AND ((@IsNull" +
+                "_DID = 1 AND \"DID\" IS NULL) OR (\"DID\" = @Original_DID)) AND ((@IsNull_RID = 1 AN" +
+                "D \"RID\" IS NULL) OR (\"RID\" = @Original_RID)) AND ((@IsNull_DETE = 1 AND \"DETE\" I" +
+                "S NULL) OR (\"DETE\" = @Original_DETE)) AND ((@IsNull_NRX = 1 AND \"NRX\" IS NULL) O" +
+                "R (\"NRX\" = @Original_NRX)) AND ((@IsNull_DOCTYP = 1 AND \"DOCTYP\" IS NULL) OR (\"D" +
+                "OCTYP\" = @Original_DOCTYP)) AND ((@IsNull_DOCST = 1 AND \"DOCST\" IS NULL) OR (\"DO" +
+                "CST\" = @Original_DOCST)) AND ((@IsNull_DOCNR = 1 AND \"DOCNR\" IS NULL) OR (\"DOCNR" +
+                "\" = @Original_DOCNR)) AND ((@IsNull_CLID = 1 AND \"CLID\" IS NULL) OR (\"CLID\" = @O" +
+                "riginal_CLID)) AND ((@IsNull_NAME = 1 AND \"NAME\" IS NULL) OR (\"NAME\" = @Original" +
+                "_NAME)) AND ((@IsNull_REGNR = 1 AND \"REGNR\" IS NULL) OR (\"REGNR\" = @Original_REG" +
+                "NR)) AND ((@IsNull_DESCR = 1 AND \"DESCR\" IS NULL) OR (\"DESCR\" = @Original_DESCR)" +
+                ") AND ((@IsNull_AC1 = 1 AND \"AC1\" IS NULL) OR (\"AC1\" = @Original_AC1)) AND ((@Is" +
+                "Null_AC2 = 1 AND \"AC2\" IS NULL) OR (\"AC2\" = @Original_AC2)) AND ((@IsNull_AA = 1" +
+                " AND \"AA\" IS NULL) OR (\"AA\" = @Original_AA)) AND ((@IsNull_A1 = 1 AND \"A1\" IS NU" +
+                "LL) OR (\"A1\" = @Original_A1)) AND ((@IsNull_A2 = 1 AND \"A2\" IS NULL) OR (\"A2\" = " +
+                "@Original_A2)) AND ((@IsNull_A3 = 1 AND \"A3\" IS NULL) OR (\"A3\" = @Original_A3)) " +
+                "AND ((@IsNull_A4 = 1 AND \"A4\" IS NULL) OR (\"A4\" = @Original_A4)) AND ((@IsNull_A" +
+                "5 = 1 AND \"A5\" IS NULL) OR (\"A5\" = @Original_A5)) AND ((@IsNull_A6 = 1 AND \"A6\" " +
+                "IS NULL) OR (\"A6\" = @Original_A6)) AND ((@IsNull_A7 = 1 AND \"A7\" IS NULL) OR (\"A" +
+                "7\" = @Original_A7)) AND ((@IsNull_A8 = 1 AND \"A8\" IS NULL) OR (\"A8\" = @Original_" +
+                "A8)) AND ((@IsNull_A9 = 1 AND \"A9\" IS NULL) OR (\"A9\" = @Original_A9)) AND ((@IsN" +
+                "ull_A10 = 1 AND \"A10\" IS NULL) OR (\"A10\" = @Original_A10)) AND ((@IsNull_A11 = 1" +
+                " AND \"A11\" IS NULL) OR (\"A11\" = @Original_A11)) AND ((@IsNull_A12 = 1 AND \"A12\" " +
+                "IS NULL) OR (\"A12\" = @Original_A12)) AND ((@IsNull_A13 = 1 AND \"A13\" IS NULL) OR" +
+                " (\"A13\" = @Original_A13)) AND ((@IsNull_A14 = 1 AND \"A14\" IS NULL) OR (\"A14\" = @" +
+                "Original_A14)) AND ((@IsNull_A15 = 1 AND \"A15\" IS NULL) OR (\"A15\" = @Original_A1" +
+                "5)) AND ((@IsNull_A16 = 1 AND \"A16\" IS NULL) OR (\"A16\" = @Original_A16)) AND ((@" +
+                "IsNull_DOCSTR = 1 AND \"DOCSTR\" IS NULL) OR (\"DOCSTR\" = @Original_DOCSTR)) AND ((" +
+                "@IsNull_A17 = 1 AND \"A17\" IS NULL) OR (\"A17\" = @Original_A17)) AND ((@IsNull_A18" +
+                " = 1 AND \"A18\" IS NULL) OR (\"A18\" = @Original_A18)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "did";
+            param.SourceColumn = "DID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@RID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid";
+            param.SourceColumn = "RID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DETE";
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NRX";
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCTYP";
-            param.Size = 8;
+            param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCST";
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CLID";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NAME";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@REGNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DESCR";
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AC1";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac1";
+            param.SourceColumn = "AC1";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AC2";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac2";
+            param.SourceColumn = "AC2";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AA";
@@ -33794,31 +34064,45 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@DOCSTR";
             param.Size = 200;
             param.IsNullable = true;
-            param.SourceColumn = "DocStr";
+            param.SourceColumn = "DOCSTR";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A17";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A17";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A18";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A18";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33826,7 +34110,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "did";
+            param.SourceColumn = "DID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33835,7 +34119,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "did";
+            param.SourceColumn = "DID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33843,7 +34127,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid";
+            param.SourceColumn = "RID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33852,7 +34136,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid";
+            param.SourceColumn = "RID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33860,7 +34144,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33869,7 +34153,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33877,7 +34161,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33885,23 +34169,23 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_NRX";
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DOCTYP";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 8;
+            param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_DOCTYP";
-            param.Size = 8;
+            param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33909,7 +34193,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33917,7 +34201,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_DOCST";
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33925,7 +34209,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33933,7 +34217,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_DOCNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33941,7 +34225,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33949,7 +34233,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_CLID";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33957,7 +34241,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33965,7 +34249,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_NAME";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -33973,7 +34257,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -33981,23 +34265,23 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_REGNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DESCR";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_DESCR";
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -34005,7 +34289,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac1";
+            param.SourceColumn = "AC1";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -34013,7 +34297,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_AC1";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac1";
+            param.SourceColumn = "AC1";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -34021,7 +34305,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac2";
+            param.SourceColumn = "AC2";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -34029,7 +34313,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_AC2";
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Ac2";
+            param.SourceColumn = "AC2";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -34326,7 +34610,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 200;
             param.IsNullable = true;
-            param.SourceColumn = "DocStr";
+            param.SourceColumn = "DOCSTR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -34334,7 +34618,41 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.ParameterName = "@Original_DOCSTR";
             param.Size = 200;
             param.IsNullable = true;
-            param.SourceColumn = "DocStr";
+            param.SourceColumn = "DOCSTR";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A17";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A17";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A17";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A17";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A18";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A18";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A18";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A18";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -34354,7 +34672,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, SPID, DID, RID, DETE, NRX, DOCTYP, DOCST, DOCNR, CLID, NAME, REGNR, DE" +
                 "SCR, AC1, AC2, AA, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, " +
-                "A15, A16, DOCSTR\r\nFROM    TREPDARZ1";
+                "A15, A16, DOCSTR, A17, A18\r\nFROM    TREPDARZ1";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -34580,7 +34898,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> Original_A14, 
                     global::System.Nullable<decimal> Original_A15, 
                     global::System.Nullable<decimal> Original_A16, 
-                    string Original_DOCSTR) {
+                    string Original_DOCSTR, 
+                    global::System.Nullable<decimal> Original_A17, 
+                    global::System.Nullable<decimal> Original_A18) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_SPID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -34838,6 +35158,22 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[63].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[64].Value = ((string)(Original_DOCSTR));
             }
+            if ((Original_A17.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[66].Value = ((decimal)(Original_A17.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            if ((Original_A18.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[68].Value = ((decimal)(Original_A18.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -34891,7 +35227,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> A14, 
                     global::System.Nullable<decimal> A15, 
                     global::System.Nullable<decimal> A16, 
-                    string DOCSTR) {
+                    string DOCSTR, 
+                    global::System.Nullable<decimal> A17, 
+                    global::System.Nullable<decimal> A18) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
             if ((SPID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(SPID.Value));
@@ -35085,6 +35423,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[32].Value = ((string)(DOCSTR));
             }
+            if ((A17.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(A17.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((A18.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[34].Value = ((decimal)(A18.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -35139,6 +35489,8 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> A15, 
                     global::System.Nullable<decimal> A16, 
                     string DOCSTR, 
+                    global::System.Nullable<decimal> A17, 
+                    global::System.Nullable<decimal> A18, 
                     int Original_ID, 
                     global::System.Nullable<int> Original_SPID, 
                     global::System.Nullable<int> Original_DID, 
@@ -35171,7 +35523,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> Original_A14, 
                     global::System.Nullable<decimal> Original_A15, 
                     global::System.Nullable<decimal> Original_A16, 
-                    string Original_DOCSTR) {
+                    string Original_DOCSTR, 
+                    global::System.Nullable<decimal> Original_A17, 
+                    global::System.Nullable<decimal> Original_A18) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
             if ((SPID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(SPID.Value));
@@ -35365,262 +35719,290 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(DOCSTR));
             }
-            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_ID));
-            if ((Original_SPID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_SPID.Value));
+            if ((A17.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((decimal)(A17.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((Original_DID.HasValue == true)) {
+            if ((A18.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((decimal)(A18.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_ID));
+            if ((Original_SPID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_DID.Value));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_SPID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            if ((Original_RID.HasValue == true)) {
+            if ((Original_DID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_RID.Value));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_DID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
-            if ((Original_DETE.HasValue == true)) {
+            if ((Original_RID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((System.DateTime)(Original_DETE.Value));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_RID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
-            if ((Original_NRX == null)) {
+            if ((Original_DETE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((System.DateTime)(Original_DETE.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_NRX));
-            }
-            if ((Original_DOCTYP == null)) {
+            if ((Original_NRX == null)) {
                 this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_DOCTYP));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_NRX));
             }
-            if ((Original_DOCST == null)) {
+            if ((Original_DOCTYP == null)) {
                 this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_DOCST));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_DOCTYP));
             }
-            if ((Original_DOCNR == null)) {
+            if ((Original_DOCST == null)) {
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_DOCNR));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_DOCST));
             }
-            if ((Original_CLID == null)) {
+            if ((Original_DOCNR == null)) {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_CLID));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_DOCNR));
             }
-            if ((Original_NAME == null)) {
+            if ((Original_CLID == null)) {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_NAME));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_CLID));
             }
-            if ((Original_REGNR == null)) {
+            if ((Original_NAME == null)) {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_REGNR));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_NAME));
             }
-            if ((Original_DESCR == null)) {
+            if ((Original_REGNR == null)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_DESCR));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_REGNR));
             }
-            if ((Original_AC1 == null)) {
+            if ((Original_DESCR == null)) {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_AC1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_DESCR));
             }
-            if ((Original_AC2 == null)) {
+            if ((Original_AC1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_AC2));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_AC1));
             }
-            if ((Original_AA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_AA.Value));
-            }
-            else {
+            if ((Original_AC2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
             }
-            if ((Original_A1.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_AC2));
+            }
+            if ((Original_AA.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_A1.Value));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_AA.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
             }
-            if ((Original_A2.HasValue == true)) {
+            if ((Original_A1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((decimal)(Original_A2.Value));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((decimal)(Original_A1.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
             }
-            if ((Original_A3.HasValue == true)) {
+            if ((Original_A2.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((decimal)(Original_A3.Value));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((decimal)(Original_A2.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
             }
-            if ((Original_A4.HasValue == true)) {
+            if ((Original_A3.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_A4.Value));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_A3.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
             }
-            if ((Original_A5.HasValue == true)) {
+            if ((Original_A4.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((decimal)(Original_A5.Value));
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((decimal)(Original_A4.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
             }
-            if ((Original_A6.HasValue == true)) {
+            if ((Original_A5.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[75].Value = ((decimal)(Original_A6.Value));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((decimal)(Original_A5.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
             }
-            if ((Original_A7.HasValue == true)) {
+            if ((Original_A6.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((decimal)(Original_A7.Value));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((decimal)(Original_A6.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[77].Value = global::System.DBNull.Value;
             }
-            if ((Original_A8.HasValue == true)) {
+            if ((Original_A7.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[79].Value = ((decimal)(Original_A8.Value));
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((decimal)(Original_A7.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
             }
-            if ((Original_A9.HasValue == true)) {
+            if ((Original_A8.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[81].Value = ((decimal)(Original_A9.Value));
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((decimal)(Original_A8.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[81].Value = global::System.DBNull.Value;
             }
-            if ((Original_A10.HasValue == true)) {
+            if ((Original_A9.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_A10.Value));
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_A9.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[83].Value = global::System.DBNull.Value;
             }
-            if ((Original_A11.HasValue == true)) {
+            if ((Original_A10.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_A11.Value));
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_A10.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[85].Value = global::System.DBNull.Value;
             }
-            if ((Original_A12.HasValue == true)) {
+            if ((Original_A11.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[87].Value = ((decimal)(Original_A12.Value));
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((decimal)(Original_A11.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[87].Value = global::System.DBNull.Value;
             }
-            if ((Original_A13.HasValue == true)) {
+            if ((Original_A12.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[89].Value = ((decimal)(Original_A13.Value));
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((decimal)(Original_A12.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[89].Value = global::System.DBNull.Value;
             }
-            if ((Original_A14.HasValue == true)) {
+            if ((Original_A13.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((decimal)(Original_A14.Value));
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((decimal)(Original_A13.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[91].Value = global::System.DBNull.Value;
             }
-            if ((Original_A15.HasValue == true)) {
+            if ((Original_A14.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[93].Value = ((decimal)(Original_A15.Value));
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((decimal)(Original_A14.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[93].Value = global::System.DBNull.Value;
             }
-            if ((Original_A16.HasValue == true)) {
+            if ((Original_A15.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[95].Value = ((decimal)(Original_A16.Value));
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((decimal)(Original_A15.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[95].Value = global::System.DBNull.Value;
             }
-            if ((Original_DOCSTR == null)) {
+            if ((Original_A16.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((decimal)(Original_A16.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[97].Value = global::System.DBNull.Value;
             }
+            if ((Original_DOCSTR == null)) {
+                this.Adapter.UpdateCommand.Parameters[98].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[99].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[97].Value = ((string)(Original_DOCSTR));
+                this.Adapter.UpdateCommand.Parameters[98].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((string)(Original_DOCSTR));
+            }
+            if ((Original_A17.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((decimal)(Original_A17.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[101].Value = global::System.DBNull.Value;
+            }
+            if ((Original_A18.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[102].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((decimal)(Original_A18.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[102].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[103].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -35636,79 +36018,6 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> SPID, 
-                    global::System.Nullable<int> DID, 
-                    global::System.Nullable<int> RID, 
-                    global::System.Nullable<global::System.DateTime> DETE, 
-                    string NRX, 
-                    string DOCTYP, 
-                    string DOCST, 
-                    string DOCNR, 
-                    string CLID, 
-                    string NAME, 
-                    string REGNR, 
-                    string DESCR, 
-                    string AC1, 
-                    string AC2, 
-                    global::System.Nullable<decimal> AA, 
-                    global::System.Nullable<decimal> A1, 
-                    global::System.Nullable<decimal> A2, 
-                    global::System.Nullable<decimal> A3, 
-                    global::System.Nullable<decimal> A4, 
-                    global::System.Nullable<decimal> A5, 
-                    global::System.Nullable<decimal> A6, 
-                    global::System.Nullable<decimal> A7, 
-                    global::System.Nullable<decimal> A8, 
-                    global::System.Nullable<decimal> A9, 
-                    global::System.Nullable<decimal> A10, 
-                    global::System.Nullable<decimal> A11, 
-                    global::System.Nullable<decimal> A12, 
-                    global::System.Nullable<decimal> A13, 
-                    global::System.Nullable<decimal> A14, 
-                    global::System.Nullable<decimal> A15, 
-                    global::System.Nullable<decimal> A16, 
-                    string DOCSTR, 
-                    int Original_ID, 
-                    global::System.Nullable<int> Original_SPID, 
-                    global::System.Nullable<int> Original_DID, 
-                    global::System.Nullable<int> Original_RID, 
-                    global::System.Nullable<global::System.DateTime> Original_DETE, 
-                    string Original_NRX, 
-                    string Original_DOCTYP, 
-                    string Original_DOCST, 
-                    string Original_DOCNR, 
-                    string Original_CLID, 
-                    string Original_NAME, 
-                    string Original_REGNR, 
-                    string Original_DESCR, 
-                    string Original_AC1, 
-                    string Original_AC2, 
-                    global::System.Nullable<decimal> Original_AA, 
-                    global::System.Nullable<decimal> Original_A1, 
-                    global::System.Nullable<decimal> Original_A2, 
-                    global::System.Nullable<decimal> Original_A3, 
-                    global::System.Nullable<decimal> Original_A4, 
-                    global::System.Nullable<decimal> Original_A5, 
-                    global::System.Nullable<decimal> Original_A6, 
-                    global::System.Nullable<decimal> Original_A7, 
-                    global::System.Nullable<decimal> Original_A8, 
-                    global::System.Nullable<decimal> Original_A9, 
-                    global::System.Nullable<decimal> Original_A10, 
-                    global::System.Nullable<decimal> Original_A11, 
-                    global::System.Nullable<decimal> Original_A12, 
-                    global::System.Nullable<decimal> Original_A13, 
-                    global::System.Nullable<decimal> Original_A14, 
-                    global::System.Nullable<decimal> Original_A15, 
-                    global::System.Nullable<decimal> Original_A16, 
-                    string Original_DOCSTR) {
-            return this.Update(Original_ID, SPID, DID, RID, DETE, NRX, DOCTYP, DOCST, DOCNR, CLID, NAME, REGNR, DESCR, AC1, AC2, AA, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, DOCSTR, Original_ID, Original_SPID, Original_DID, Original_RID, Original_DETE, Original_NRX, Original_DOCTYP, Original_DOCST, Original_DOCNR, Original_CLID, Original_NAME, Original_REGNR, Original_DESCR, Original_AC1, Original_AC2, Original_AA, Original_A1, Original_A2, Original_A3, Original_A4, Original_A5, Original_A6, Original_A7, Original_A8, Original_A9, Original_A10, Original_A11, Original_A12, Original_A13, Original_A14, Original_A15, Original_A16, Original_DOCSTR);
         }
     }
     
@@ -35855,34 +36164,56 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("A17", "A17");
             tableMapping.ColumnMappings.Add("A18", "A18");
             tableMapping.ColumnMappings.Add("A19", "A19");
+            tableMapping.ColumnMappings.Add("A20", "A20");
+            tableMapping.ColumnMappings.Add("A21", "A21");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""TREPDARZ2"" WHERE ((""ID"" = @Original_ID) AND ((@IsNull_SPID = 1 AND ""SPID"" IS NULL) OR (""SPID"" = @Original_SPID)) AND ((@IsNull_RID0 = 1 AND ""RID0"" IS NULL) OR (""RID0"" = @Original_RID0)) AND ((@IsNull_A1 = 1 AND ""A1"" IS NULL) OR (""A1"" = @Original_A1)) AND ((@IsNull_A2 = 1 AND ""A2"" IS NULL) OR (""A2"" = @Original_A2)) AND ((@IsNull_A3 = 1 AND ""A3"" IS NULL) OR (""A3"" = @Original_A3)) AND ((@IsNull_A4 = 1 AND ""A4"" IS NULL) OR (""A4"" = @Original_A4)) AND ((@IsNull_A5 = 1 AND ""A5"" IS NULL) OR (""A5"" = @Original_A5)) AND ((@IsNull_A6 = 1 AND ""A6"" IS NULL) OR (""A6"" = @Original_A6)) AND ((@IsNull_A7 = 1 AND ""A7"" IS NULL) OR (""A7"" = @Original_A7)) AND ((@IsNull_A8 = 1 AND ""A8"" IS NULL) OR (""A8"" = @Original_A8)) AND ((@IsNull_A9 = 1 AND ""A9"" IS NULL) OR (""A9"" = @Original_A9)) AND ((@IsNull_A10 = 1 AND ""A10"" IS NULL) OR (""A10"" = @Original_A10)) AND ((@IsNull_A11 = 1 AND ""A11"" IS NULL) OR (""A11"" = @Original_A11)) AND ((@IsNull_A12 = 1 AND ""A12"" IS NULL) OR (""A12"" = @Original_A12)) AND ((@IsNull_A13 = 1 AND ""A13"" IS NULL) OR (""A13"" = @Original_A13)) AND ((@IsNull_A14 = 1 AND ""A14"" IS NULL) OR (""A14"" = @Original_A14)) AND ((@IsNull_A15 = 1 AND ""A15"" IS NULL) OR (""A15"" = @Original_A15)) AND ((@IsNull_A16 = 1 AND ""A16"" IS NULL) OR (""A16"" = @Original_A16)) AND ((@IsNull_A17 = 1 AND ""A17"" IS NULL) OR (""A17"" = @Original_A17)) AND ((@IsNull_A18 = 1 AND ""A18"" IS NULL) OR (""A18"" = @Original_A18)) AND ((@IsNull_A19 = 1 AND ""A19"" IS NULL) OR (""A19"" = @Original_A19)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TREPDARZ2\" WHERE ((\"ID\" = @Original_ID) AND ((@IsNull_SPID = 1 AND \"" +
+                "SPID\" IS NULL) OR (\"SPID\" = @Original_SPID)) AND ((@IsNull_RID0 = 1 AND \"RID0\" I" +
+                "S NULL) OR (\"RID0\" = @Original_RID0)) AND ((@IsNull_A1 = 1 AND \"A1\" IS NULL) OR " +
+                "(\"A1\" = @Original_A1)) AND ((@IsNull_A2 = 1 AND \"A2\" IS NULL) OR (\"A2\" = @Origin" +
+                "al_A2)) AND ((@IsNull_A3 = 1 AND \"A3\" IS NULL) OR (\"A3\" = @Original_A3)) AND ((@" +
+                "IsNull_A4 = 1 AND \"A4\" IS NULL) OR (\"A4\" = @Original_A4)) AND ((@IsNull_A5 = 1 A" +
+                "ND \"A5\" IS NULL) OR (\"A5\" = @Original_A5)) AND ((@IsNull_A6 = 1 AND \"A6\" IS NULL" +
+                ") OR (\"A6\" = @Original_A6)) AND ((@IsNull_A7 = 1 AND \"A7\" IS NULL) OR (\"A7\" = @O" +
+                "riginal_A7)) AND ((@IsNull_A8 = 1 AND \"A8\" IS NULL) OR (\"A8\" = @Original_A8)) AN" +
+                "D ((@IsNull_A9 = 1 AND \"A9\" IS NULL) OR (\"A9\" = @Original_A9)) AND ((@IsNull_A10" +
+                " = 1 AND \"A10\" IS NULL) OR (\"A10\" = @Original_A10)) AND ((@IsNull_A11 = 1 AND \"A" +
+                "11\" IS NULL) OR (\"A11\" = @Original_A11)) AND ((@IsNull_A12 = 1 AND \"A12\" IS NULL" +
+                ") OR (\"A12\" = @Original_A12)) AND ((@IsNull_A13 = 1 AND \"A13\" IS NULL) OR (\"A13\"" +
+                " = @Original_A13)) AND ((@IsNull_A14 = 1 AND \"A14\" IS NULL) OR (\"A14\" = @Origina" +
+                "l_A14)) AND ((@IsNull_A15 = 1 AND \"A15\" IS NULL) OR (\"A15\" = @Original_A15)) AND" +
+                " ((@IsNull_A16 = 1 AND \"A16\" IS NULL) OR (\"A16\" = @Original_A16)) AND ((@IsNull_" +
+                "A17 = 1 AND \"A17\" IS NULL) OR (\"A17\" = @Original_A17)) AND ((@IsNull_A18 = 1 AND" +
+                " \"A18\" IS NULL) OR (\"A18\" = @Original_A18)) AND ((@IsNull_A19 = 1 AND \"A19\" IS N" +
+                "ULL) OR (\"A19\" = @Original_A19)) AND ((@IsNull_A20 = 1 AND \"A20\" IS NULL) OR (\"A" +
+                "20\" = @Original_A20)) AND ((@IsNull_A21 = 1 AND \"A21\" IS NULL) OR (\"A21\" = @Orig" +
+                "inal_A21)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -35890,7 +36221,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid0";
+            param.SourceColumn = "RID0";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -35899,7 +36230,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid0";
+            param.SourceColumn = "RID0";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -36225,30 +36556,64 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.SourceColumn = "A19";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A20";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A20";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A20";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A20";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A21";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A21";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A21";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A21";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TREPDARZ2"" (""ID"", ""SPID"", ""RID0"", ""A1"", ""A2"", ""A3"", ""A4"", ""A5"", ""A6"", ""A7"", ""A8"", ""A9"", ""A10"", ""A11"", ""A12"", ""A13"", ""A14"", ""A15"", ""A16"", ""A17"", ""A18"", ""A19"") VALUES (@ID, @SPID, @RID0, @A1, @A2, @A3, @A4, @A5, @A6, @A7, @A8, @A9, @A10, @A11, @A12, @A13, @A14, @A15, @A16, @A17, @A18, @A19)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TREPDARZ2"" (""ID"", ""SPID"", ""RID0"", ""A1"", ""A2"", ""A3"", ""A4"", ""A5"", ""A6"", ""A7"", ""A8"", ""A9"", ""A10"", ""A11"", ""A12"", ""A13"", ""A14"", ""A15"", ""A16"", ""A17"", ""A18"", ""A19"", ""A20"", ""A21"") VALUES (@ID, @SPID, @RID0, @A1, @A2, @A3, @A4, @A5, @A6, @A7, @A8, @A9, @A10, @A11, @A12, @A13, @A14, @A15, @A16, @A17, @A18, @A19, @A20, @A21)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@RID0";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid0";
+            param.SourceColumn = "RID0";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@A1";
@@ -36382,53 +36747,69 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "A19";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A20";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A20";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A21";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A21";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE \"TREPDARZ2\" SET \"ID\" = @ID, \"SPID\" = @SPID, \"RID0\" = @RID0, \"A1\" = @A1, \"A" +
                 "2\" = @A2, \"A3\" = @A3, \"A4\" = @A4, \"A5\" = @A5, \"A6\" = @A6, \"A7\" = @A7, \"A8\" = @A8" +
                 ", \"A9\" = @A9, \"A10\" = @A10, \"A11\" = @A11, \"A12\" = @A12, \"A13\" = @A13, \"A14\" = @A" +
-                "14, \"A15\" = @A15, \"A16\" = @A16, \"A17\" = @A17, \"A18\" = @A18, \"A19\" = @A19 WHERE (" +
-                "(\"ID\" = @Original_ID) AND ((@IsNull_SPID = 1 AND \"SPID\" IS NULL) OR (\"SPID\" = @O" +
-                "riginal_SPID)) AND ((@IsNull_RID0 = 1 AND \"RID0\" IS NULL) OR (\"RID0\" = @Original" +
-                "_RID0)) AND ((@IsNull_A1 = 1 AND \"A1\" IS NULL) OR (\"A1\" = @Original_A1)) AND ((@" +
-                "IsNull_A2 = 1 AND \"A2\" IS NULL) OR (\"A2\" = @Original_A2)) AND ((@IsNull_A3 = 1 A" +
-                "ND \"A3\" IS NULL) OR (\"A3\" = @Original_A3)) AND ((@IsNull_A4 = 1 AND \"A4\" IS NULL" +
-                ") OR (\"A4\" = @Original_A4)) AND ((@IsNull_A5 = 1 AND \"A5\" IS NULL) OR (\"A5\" = @O" +
-                "riginal_A5)) AND ((@IsNull_A6 = 1 AND \"A6\" IS NULL) OR (\"A6\" = @Original_A6)) AN" +
-                "D ((@IsNull_A7 = 1 AND \"A7\" IS NULL) OR (\"A7\" = @Original_A7)) AND ((@IsNull_A8 " +
-                "= 1 AND \"A8\" IS NULL) OR (\"A8\" = @Original_A8)) AND ((@IsNull_A9 = 1 AND \"A9\" IS" +
-                " NULL) OR (\"A9\" = @Original_A9)) AND ((@IsNull_A10 = 1 AND \"A10\" IS NULL) OR (\"A" +
-                "10\" = @Original_A10)) AND ((@IsNull_A11 = 1 AND \"A11\" IS NULL) OR (\"A11\" = @Orig" +
-                "inal_A11)) AND ((@IsNull_A12 = 1 AND \"A12\" IS NULL) OR (\"A12\" = @Original_A12)) " +
-                "AND ((@IsNull_A13 = 1 AND \"A13\" IS NULL) OR (\"A13\" = @Original_A13)) AND ((@IsNu" +
-                "ll_A14 = 1 AND \"A14\" IS NULL) OR (\"A14\" = @Original_A14)) AND ((@IsNull_A15 = 1 " +
-                "AND \"A15\" IS NULL) OR (\"A15\" = @Original_A15)) AND ((@IsNull_A16 = 1 AND \"A16\" I" +
-                "S NULL) OR (\"A16\" = @Original_A16)) AND ((@IsNull_A17 = 1 AND \"A17\" IS NULL) OR " +
-                "(\"A17\" = @Original_A17)) AND ((@IsNull_A18 = 1 AND \"A18\" IS NULL) OR (\"A18\" = @O" +
-                "riginal_A18)) AND ((@IsNull_A19 = 1 AND \"A19\" IS NULL) OR (\"A19\" = @Original_A19" +
-                ")))";
+                "14, \"A15\" = @A15, \"A16\" = @A16, \"A17\" = @A17, \"A18\" = @A18, \"A19\" = @A19, \"A20\" " +
+                "= @A20, \"A21\" = @A21 WHERE ((\"ID\" = @Original_ID) AND ((@IsNull_SPID = 1 AND \"SP" +
+                "ID\" IS NULL) OR (\"SPID\" = @Original_SPID)) AND ((@IsNull_RID0 = 1 AND \"RID0\" IS " +
+                "NULL) OR (\"RID0\" = @Original_RID0)) AND ((@IsNull_A1 = 1 AND \"A1\" IS NULL) OR (\"" +
+                "A1\" = @Original_A1)) AND ((@IsNull_A2 = 1 AND \"A2\" IS NULL) OR (\"A2\" = @Original" +
+                "_A2)) AND ((@IsNull_A3 = 1 AND \"A3\" IS NULL) OR (\"A3\" = @Original_A3)) AND ((@Is" +
+                "Null_A4 = 1 AND \"A4\" IS NULL) OR (\"A4\" = @Original_A4)) AND ((@IsNull_A5 = 1 AND" +
+                " \"A5\" IS NULL) OR (\"A5\" = @Original_A5)) AND ((@IsNull_A6 = 1 AND \"A6\" IS NULL) " +
+                "OR (\"A6\" = @Original_A6)) AND ((@IsNull_A7 = 1 AND \"A7\" IS NULL) OR (\"A7\" = @Ori" +
+                "ginal_A7)) AND ((@IsNull_A8 = 1 AND \"A8\" IS NULL) OR (\"A8\" = @Original_A8)) AND " +
+                "((@IsNull_A9 = 1 AND \"A9\" IS NULL) OR (\"A9\" = @Original_A9)) AND ((@IsNull_A10 =" +
+                " 1 AND \"A10\" IS NULL) OR (\"A10\" = @Original_A10)) AND ((@IsNull_A11 = 1 AND \"A11" +
+                "\" IS NULL) OR (\"A11\" = @Original_A11)) AND ((@IsNull_A12 = 1 AND \"A12\" IS NULL) " +
+                "OR (\"A12\" = @Original_A12)) AND ((@IsNull_A13 = 1 AND \"A13\" IS NULL) OR (\"A13\" =" +
+                " @Original_A13)) AND ((@IsNull_A14 = 1 AND \"A14\" IS NULL) OR (\"A14\" = @Original_" +
+                "A14)) AND ((@IsNull_A15 = 1 AND \"A15\" IS NULL) OR (\"A15\" = @Original_A15)) AND (" +
+                "(@IsNull_A16 = 1 AND \"A16\" IS NULL) OR (\"A16\" = @Original_A16)) AND ((@IsNull_A1" +
+                "7 = 1 AND \"A17\" IS NULL) OR (\"A17\" = @Original_A17)) AND ((@IsNull_A18 = 1 AND \"" +
+                "A18\" IS NULL) OR (\"A18\" = @Original_A18)) AND ((@IsNull_A19 = 1 AND \"A19\" IS NUL" +
+                "L) OR (\"A19\" = @Original_A19)) AND ((@IsNull_A20 = 1 AND \"A20\" IS NULL) OR (\"A20" +
+                "\" = @Original_A20)) AND ((@IsNull_A21 = 1 AND \"A21\" IS NULL) OR (\"A21\" = @Origin" +
+                "al_A21)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@RID0";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid0";
+            param.SourceColumn = "RID0";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@A1";
@@ -36564,28 +36945,42 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.SourceColumn = "A19";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A20";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A20";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@A21";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A21";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_ID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_SPID";
             param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 2;
+            param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "spid";
+            param.SourceColumn = "SPID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -36593,7 +36988,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid0";
+            param.SourceColumn = "RID0";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -36602,7 +36997,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "rid0";
+            param.SourceColumn = "RID0";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -36926,6 +37321,40 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.Size = 8;
             param.IsNullable = true;
             param.SourceColumn = "A19";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A20";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A20";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A20";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A20";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_A21";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A21";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_A21";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "A21";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -36943,9 +37372,8 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[3];
             this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"ID\", \"SPID\", \"RID0\", \"A1\", \"A2\", \"A3\", \"A4\", \"A5\", \"A6\", \"A7\", \"A8\", \"A9\"" +
-                ", \"A10\", \"A11\", \"A12\", \"A13\", \"A14\", \"A15\", \"A16\", \"A17\", \"A18\", \"A19\" FROM \"TRE" +
-                "PDARZ2\"";
+            this._commandCollection[0].CommandText = "SELECT ID, SPID, RID0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A1" +
+                "4, A15, A16, A17, A18, A19, A20, A21\r\nFROM    TREPDARZ2";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -37160,7 +37588,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> Original_A16, 
                     global::System.Nullable<decimal> Original_A17, 
                     global::System.Nullable<decimal> Original_A18, 
-                    global::System.Nullable<decimal> Original_A19) {
+                    global::System.Nullable<decimal> Original_A19, 
+                    global::System.Nullable<decimal> Original_A20, 
+                    global::System.Nullable<decimal> Original_A21) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_SPID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -37330,6 +37760,22 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
+            if ((Original_A20.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((decimal)(Original_A20.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((Original_A21.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((decimal)(Original_A21.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -37372,7 +37818,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> A16, 
                     global::System.Nullable<decimal> A17, 
                     global::System.Nullable<decimal> A18, 
-                    global::System.Nullable<decimal> A19) {
+                    global::System.Nullable<decimal> A19, 
+                    global::System.Nullable<decimal> A20, 
+                    global::System.Nullable<decimal> A21) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
             if ((SPID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(SPID.Value));
@@ -37500,6 +37948,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
+            if ((A20.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(A20.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((A21.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(A21.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -37543,6 +38003,8 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> A17, 
                     global::System.Nullable<decimal> A18, 
                     global::System.Nullable<decimal> A19, 
+                    global::System.Nullable<decimal> A20, 
+                    global::System.Nullable<decimal> A21, 
                     int Original_ID, 
                     global::System.Nullable<int> Original_SPID, 
                     global::System.Nullable<int> Original_RID0, 
@@ -37564,7 +38026,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     global::System.Nullable<decimal> Original_A16, 
                     global::System.Nullable<decimal> Original_A17, 
                     global::System.Nullable<decimal> Original_A18, 
-                    global::System.Nullable<decimal> Original_A19) {
+                    global::System.Nullable<decimal> Original_A19, 
+                    global::System.Nullable<decimal> Original_A20, 
+                    global::System.Nullable<decimal> Original_A21) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
             if ((SPID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(SPID.Value));
@@ -37692,174 +38156,202 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_ID));
-            if ((Original_SPID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_SPID.Value));
+            if ((A20.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(A20.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_RID0.HasValue == true)) {
+            if ((A21.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(A21.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_ID));
+            if ((Original_SPID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_RID0.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_SPID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((Original_A1.HasValue == true)) {
+            if ((Original_RID0.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_A1.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_RID0.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_A2.HasValue == true)) {
+            if ((Original_A1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_A2.Value));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_A1.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
-            if ((Original_A3.HasValue == true)) {
+            if ((Original_A2.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(Original_A3.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(Original_A2.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((Original_A4.HasValue == true)) {
+            if ((Original_A3.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((decimal)(Original_A4.Value));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((decimal)(Original_A3.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((Original_A5.HasValue == true)) {
+            if ((Original_A4.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((decimal)(Original_A5.Value));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((decimal)(Original_A4.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((Original_A6.HasValue == true)) {
+            if ((Original_A5.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((decimal)(Original_A6.Value));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((decimal)(Original_A5.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((Original_A7.HasValue == true)) {
+            if ((Original_A6.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((decimal)(Original_A7.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((decimal)(Original_A6.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
-            if ((Original_A8.HasValue == true)) {
+            if ((Original_A7.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((decimal)(Original_A8.Value));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((decimal)(Original_A7.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
-            if ((Original_A9.HasValue == true)) {
+            if ((Original_A8.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((decimal)(Original_A9.Value));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((decimal)(Original_A8.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            if ((Original_A10.HasValue == true)) {
+            if ((Original_A9.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(Original_A10.Value));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(Original_A9.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
-            if ((Original_A11.HasValue == true)) {
+            if ((Original_A10.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(Original_A11.Value));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(Original_A10.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
-            if ((Original_A12.HasValue == true)) {
+            if ((Original_A11.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_A12.Value));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_A11.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
             }
-            if ((Original_A13.HasValue == true)) {
+            if ((Original_A12.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((decimal)(Original_A13.Value));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((decimal)(Original_A12.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
             }
-            if ((Original_A14.HasValue == true)) {
+            if ((Original_A13.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((decimal)(Original_A14.Value));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((decimal)(Original_A13.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
             }
-            if ((Original_A15.HasValue == true)) {
+            if ((Original_A14.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_A15.Value));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_A14.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
-            if ((Original_A16.HasValue == true)) {
+            if ((Original_A15.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_A16.Value));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_A15.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
-            if ((Original_A17.HasValue == true)) {
+            if ((Original_A16.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_A17.Value));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_A16.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
             }
-            if ((Original_A18.HasValue == true)) {
+            if ((Original_A17.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((decimal)(Original_A18.Value));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((decimal)(Original_A17.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
             }
-            if ((Original_A19.HasValue == true)) {
+            if ((Original_A18.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((decimal)(Original_A19.Value));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((decimal)(Original_A18.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+            }
+            if ((Original_A19.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((decimal)(Original_A19.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            if ((Original_A20.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((decimal)(Original_A20.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
+            if ((Original_A21.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((decimal)(Original_A21.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -37875,57 +38367,6 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> SPID, 
-                    global::System.Nullable<int> RID0, 
-                    global::System.Nullable<decimal> A1, 
-                    global::System.Nullable<decimal> A2, 
-                    global::System.Nullable<decimal> A3, 
-                    global::System.Nullable<decimal> A4, 
-                    global::System.Nullable<decimal> A5, 
-                    global::System.Nullable<decimal> A6, 
-                    global::System.Nullable<decimal> A7, 
-                    global::System.Nullable<decimal> A8, 
-                    global::System.Nullable<decimal> A9, 
-                    global::System.Nullable<decimal> A10, 
-                    global::System.Nullable<decimal> A11, 
-                    global::System.Nullable<decimal> A12, 
-                    global::System.Nullable<decimal> A13, 
-                    global::System.Nullable<decimal> A14, 
-                    global::System.Nullable<decimal> A15, 
-                    global::System.Nullable<decimal> A16, 
-                    global::System.Nullable<decimal> A17, 
-                    global::System.Nullable<decimal> A18, 
-                    global::System.Nullable<decimal> A19, 
-                    int Original_ID, 
-                    global::System.Nullable<int> Original_SPID, 
-                    global::System.Nullable<int> Original_RID0, 
-                    global::System.Nullable<decimal> Original_A1, 
-                    global::System.Nullable<decimal> Original_A2, 
-                    global::System.Nullable<decimal> Original_A3, 
-                    global::System.Nullable<decimal> Original_A4, 
-                    global::System.Nullable<decimal> Original_A5, 
-                    global::System.Nullable<decimal> Original_A6, 
-                    global::System.Nullable<decimal> Original_A7, 
-                    global::System.Nullable<decimal> Original_A8, 
-                    global::System.Nullable<decimal> Original_A9, 
-                    global::System.Nullable<decimal> Original_A10, 
-                    global::System.Nullable<decimal> Original_A11, 
-                    global::System.Nullable<decimal> Original_A12, 
-                    global::System.Nullable<decimal> Original_A13, 
-                    global::System.Nullable<decimal> Original_A14, 
-                    global::System.Nullable<decimal> Original_A15, 
-                    global::System.Nullable<decimal> Original_A16, 
-                    global::System.Nullable<decimal> Original_A17, 
-                    global::System.Nullable<decimal> Original_A18, 
-                    global::System.Nullable<decimal> Original_A19) {
-            return this.Update(Original_ID, SPID, RID0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, Original_ID, Original_SPID, Original_RID0, Original_A1, Original_A2, Original_A3, Original_A4, Original_A5, Original_A6, Original_A7, Original_A8, Original_A9, Original_A10, Original_A11, Original_A12, Original_A13, Original_A14, Original_A15, Original_A16, Original_A17, Original_A18, Original_A19);
         }
     }
     

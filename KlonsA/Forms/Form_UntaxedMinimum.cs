@@ -20,6 +20,11 @@ namespace KlonsA.Forms
         {
             InitializeComponent();
             CheckMyFontAndColors();
+
+            dgcIINRateType.DataSource = SomeDataDefs.IINLikmesVeids;
+            dgcIINRateType.DisplayMember = "Val";
+            dgcIINRateType.ValueMember = "Key";
+
         }
 
         DateTime FilterDate = DateTime.MinValue;
@@ -27,7 +32,49 @@ namespace KlonsA.Forms
 
         private void Form_UntaxedMinimum_Load(object sender, EventArgs e)
         {
+            cbPerson.Text = null;
+        }
 
+        public void MarkRowsForFilter(DateTime dt)
+        {
+            var table = MyData.DataSetKlons.UNTAXED_MIN;
+            foreach(var dr in table.WhereX(d => d.ONDATE > dt))
+            {
+                dr.BeginEdit();
+                dr.FilterTag = 0;
+                dr.EndEditX();
+            }
+            var drs_um = table
+                .WhereX(d => d.ONDATE <= dt)
+                .OrderBy(d => d.IDP)
+                .ThenByDescending(d => d.ONDATE);
+
+            bool first_found = false;
+            int prev_idp = int.MaxValue;
+
+            foreach (var dr in drs_um)
+            {
+                if (!first_found)
+                {
+                    first_found = true;
+                    dr.BeginEdit();
+                    dr.FilterTag = 1;
+                    dr.EndEditX();
+                    prev_idp = dr.IDP;
+                    continue;
+                }
+                if(prev_idp == dr.IDP)
+                {
+                    dr.BeginEdit();
+                    dr.FilterTag = 0;
+                    dr.EndEditX();
+                    continue;
+                }
+                dr.BeginEdit();
+                dr.FilterTag = 1;
+                dr.EndEditX();
+                prev_idp = dr.IDP;
+            }
         }
 
         public void DoFilter()
@@ -45,17 +92,20 @@ namespace KlonsA.Forms
                 return;
             }
             string fs = "";
-            if (dt != DateTime.MinValue)
-            {
-                fs = string.Format("ONDATE == #{0:M/d/yyyy}#", dt);
-                FilterDate = dt;
-                LastDate = dt;
-            }
             if (idp > -1)
             {
                 string fs1 = "IDP = " + idp;
                 if (fs == "") fs = fs1;
                 else fs = $"({fs}) and ({fs1})";
+            }
+            if (dt != DateTime.MinValue)
+            {
+                MarkRowsForFilter(dt);
+                string fs1 = "FilterTag = 1";
+                if (fs == "") fs = fs1;
+                else fs = $"({fs}) and ({fs1})";
+                FilterDate = dt;
+                LastDate = dt;
             }
             bsRows.Filter = fs;
         }
@@ -143,7 +193,9 @@ namespace KlonsA.Forms
 
         private void cmFilter_Click(object sender, EventArgs e)
         {
+            if (!SaveData()) return;
             DoFilter();
+            CheckSave();
         }
 
         private void dgvRows_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -153,6 +205,11 @@ namespace KlonsA.Forms
             else if (FilterDate != DateTime.MinValue) dt = FilterDate;
             else dt = DateTime.Today;
             e.Row.Cells[dgcOnDate.Index].Value = dt;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

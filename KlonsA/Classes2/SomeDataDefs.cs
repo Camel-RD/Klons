@@ -268,6 +268,9 @@ namespace KlonsA.Classes
                 "3", "ieslodzītais",
                 "4", "ieslodzītais pensionārs");
 
+            IINLikmesVeids = MakeListB(
+                "0", "20",
+                "1", "23");
         }
 
         public const string IdBrivdienaStr = "br";
@@ -375,7 +378,8 @@ namespace KlonsA.Classes
         public static List<MyListItemInt16> PlanaVeids { private set; get; } = null;
         public static List<MyListItemInt16> FPMaksNodVeids { private set; get; } = null;
         public static List<MyListItemInt16> FPMaksSILikmesVeids { private set; get; } = null;
-        
+        public static List<MyListItemInt> IINLikmesVeids { private set; get; } = null;
+
 
         public static List<MyListItemInt16> MakeListA(params string[] data)
         {

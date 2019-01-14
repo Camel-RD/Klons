@@ -836,7 +836,7 @@ namespace KlonsA.Classes
                 pfx.IinEx = cri.ExMax2.SumIINExempts();
             }
             pfx.Pay = v.Pay;
-            pfx.CalcAllabAndRound();
+            pfx.CalcAllAndRound();
             v.DNS = pfx.DNS;
             v.IINEX = pfx.UsedIinEx;
             v.IIN = pfx.IIN;

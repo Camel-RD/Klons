@@ -493,6 +493,8 @@
     <Content Include="Reports\Report_PVN_piel3_2.rdlc" />
     <Content Include="Reports\Report_Bilance_31.rdlc" />
     <Content Include="Reports\Report_Bilance_41.rdlc" />
+    <Content Include="Reports\Report_Darz_3.rdlc" />
+    <EmbeddedResource Include="SQL\SQLV081.txt" />
     <EmbeddedResource Include="SQL\SQLV079.txt" />
     <EmbeddedResource Include="SQL\SQLV078.txt" />
     <EmbeddedResource Include="SQL\SQLV077.txt" />
