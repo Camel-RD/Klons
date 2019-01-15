@@ -139,7 +139,7 @@ namespace KlonsA.Classes
                 }
                 else
                 {
-                    UsedIinEx = IinEx;
+                    UsedIinEx = IinExA;
                     decimal iin1 = (IM - Pay * Sr - IinExA) * Ir;
                     decimal iin2 = (Pay + PayNs - IM) * Ir2;
                     IIN = iin1 + iin2;
@@ -189,7 +189,7 @@ namespace KlonsA.Classes
                 }
                 else
                 {
-                    UsedIinEx = IinEx;
+                    UsedIinEx = IinExA;
                     decimal iin1 = (IM - DNS - IinExA) * Ir;
                     decimal iin2 = (Pay + PayNs - IM) * Ir2;
                     IIN = RoundA(iin1 + iin2);
