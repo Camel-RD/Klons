@@ -304,25 +304,25 @@ namespace KlonsA.DataSets
                 {
                     EndEdit();
                 }
-				if (HasVersion(DataRowVersion.Current) &&
-					HasVersion(DataRowVersion.Original))
-				{
-					if (!HasChanges())
-					{
-						AcceptChanges();
-						return;
-					}
-				}
-				if (HasVersion(DataRowVersion.Current) && 
-					HasVersion(DataRowVersion.Proposed))
-				{
-					if (!HasChanges2())
-					{
-						CancelEdit();
-						return;
-					}
-				}
-				EndEdit();
+                if (HasVersion(DataRowVersion.Current) &&
+                    HasVersion(DataRowVersion.Original))
+                {
+                    if (!HasChanges())
+                    {
+                        AcceptChanges();
+                        return;
+                    }
+                }
+                if (HasVersion(DataRowVersion.Current) &&
+                    HasVersion(DataRowVersion.Proposed))
+                {
+                    if (!HasChanges2())
+                    {
+                        CancelEdit();
+                        return;
+                    }
+                }
+                EndEdit();
             }
 
         }

@@ -400,7 +400,7 @@ namespace KlonsA.Classes
 
                 while (true)
                 {
-                    int addmt = vt.DateStart.Month - dt1.Month;
+                    int addmt = Utils.MonthDiff(dt1, vt.DateStart);
 
                     var nextdlrowsetT = srs.GetDLRowSetList(addmt);
                     if (nextdlrowsetT.Count == 0) break;

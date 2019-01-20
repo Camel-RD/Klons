@@ -41,8 +41,9 @@ namespace KlonsA.Forms
         {
             int yr = DateTime.Today.Year;
             int mt = DateTime.Today.Month;
+            Utils.AddMonths(ref yr, ref mt, -1);
             cbYear.Text = yr.ToString();
-            cbMonth.SelectedIndex = (mt == 1 ? 12 : mt - 1) - 1;
+            cbMonth.SelectedIndex = mt - 1;
             WindowState = FormWindowState.Maximized;
         }
 

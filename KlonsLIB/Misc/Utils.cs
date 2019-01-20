@@ -207,6 +207,11 @@ namespace KlonsLIB.Misc
             }
         }
 
+        public static int MonthDiff(DateTime dtsmall, DateTime dtbig)
+        {
+            return (dtbig.Year - dtsmall.Year) * 12 + dtbig.Month - dtsmall.Month;
+        }
+
         public static bool StringEndsWith(string s, string end)
         {
             if (string.IsNullOrEmpty(s) || string.IsNullOrEmpty(end)) return false;

@@ -798,7 +798,7 @@ namespace KlonsA.Classes
 
                 while (true)
                 {
-                    int addmt = dtp1.Month - dt1.Month;
+                    int addmt = Utils.MonthDiff(dt1, dtp1);
 
                     var nextdlrowset = GetDLRowSet(addmt, idam);
                     if (nextdlrowset == null || nextdlrowset.Plan == null)

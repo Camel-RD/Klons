@@ -93,7 +93,7 @@ namespace KlonsA.Forms
             ShowPersonsList(MyData.Settings.ShowPersonList);
         }
 
-        public void SaveSettings()
+        public override void SaveParams()
         {
             MyData.Settings.ShowPersonList = !mySplitContainer1.Panel1Collapsed;
         }
@@ -924,7 +924,6 @@ namespace KlonsA.Forms
 
         private void Form_PersonsR_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveSettings();
             CheckEventsForAll();
         }
 

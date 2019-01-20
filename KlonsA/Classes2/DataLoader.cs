@@ -280,7 +280,6 @@ namespace KlonsA.Classes
             adFpPayLists.FillBy_SP_FP_PAYLISTS_PER_01(tableFpPayLists, yr0, mt0, yr2, mt2);
             adFpPayListsR.FillBy_SP_FP_PAYLISTS_R_PER_01(tableFpPayListsR, yr0, mt0, yr2, mt2);
 
-
             MyData.DataSetKlons.EnforceConstraints = true;
 
             LoadedDT0 = new DateTime(yr0, mt0, 1);

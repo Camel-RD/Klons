@@ -12,6 +12,7 @@ using KlonsLIB.Forms;
 using KlonsLIB.Misc;
 using KlonsA.Classes;
 using KlonsA.Forms;
+using System.Diagnostics;
 
 namespace KlonsA
 {
@@ -61,12 +62,14 @@ namespace KlonsA
             catch (Exception) { }
 
             Form_StartUp fs = new Form_StartUp();
+
             if (fs.ShowDialog(this) != DialogResult.OK)
             {
                 Application.Exit();
                 return;
             }
             DataLoader.LoadSomeData();
+
             if (!MyData.Settings.DontShowBetaWarning)
             {
                 ShowInfo("Darbs pie programmas vēl nav pabeigts,\n" +

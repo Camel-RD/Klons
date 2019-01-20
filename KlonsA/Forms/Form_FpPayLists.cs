@@ -43,8 +43,8 @@ namespace KlonsA.Forms
             dgcRowsSIRateTP.DisplayMember = "Val";
             dgcRowsSIRateTP.ValueMember = "Key";
 
-            ShowPayLists(MyData.Settings.ShowPayLists);
-            ShowPayDataPanel(MyData.Settings.ShowPayDataPanel);
+            ShowPayLists(MyData.Settings.ShowFpPayLists);
+            ShowPayDataPanel(MyData.Settings.ShowFpPayDataPanel);
             tslPeriod.Text = DataLoader.GetPeriodStr();
             MyData.DataSetKlons.FP_PAYLISTS_R.ColumnChanged += FP_PAYLISTS_R_ColumnChanged;
             rwSAITitle.Expanded = false;
