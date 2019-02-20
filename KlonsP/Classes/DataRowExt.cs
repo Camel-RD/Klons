@@ -58,6 +58,18 @@ namespace KlonsP.Classes
                 return;
             }
             if (dr.HasVersion(DataRowVersion.Current) &&
+                dr.HasVersion(DataRowVersion.Proposed))
+            {
+                if (!HasChanges2(dr))
+                {
+                    dr.CancelEdit();
+                }
+                else
+                {
+                    dr.EndEdit();
+                }
+            }
+            if (dr.HasVersion(DataRowVersion.Current) &&
                 dr.HasVersion(DataRowVersion.Original))
             {
                 if (!HasChanges(dr, ad))
@@ -66,16 +78,6 @@ namespace KlonsP.Classes
                     return;
                 }
             }
-            if (dr.HasVersion(DataRowVersion.Current) && 
-                dr.HasVersion(DataRowVersion.Proposed))
-            {
-                if (!HasChanges2(dr))
-                {
-                    dr.CancelEdit();
-                    return;
-                }
-            }
-            dr.EndEdit();
         }
 
         public static string GetChangesAsString(this DataRow dr)

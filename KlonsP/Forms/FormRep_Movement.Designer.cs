@@ -73,8 +73,6 @@
             this.tbDate2 = new KlonsLIB.Components.MyTextBox();
             this.tbDate1 = new KlonsLIB.Components.MyTextBox();
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
-            this.bsRows = new KlonsLIB.Data.MyBindingSource2(this.components);
-            this.bsCatT = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgcRegNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcCat1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +97,8 @@
             this.dgcTaxValLeftC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTaxValDeprec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTaxValLeft1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsRows = new KlonsLIB.Data.MyBindingSource2(this.components);
+            this.bsCatT = new KlonsLIB.Data.MyBindingSource(this.components);
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPlace)).BeginInit();
@@ -307,7 +307,7 @@
         "CODE",
         "DESCR"};
             this.cbCatT.ColumnWidths = "100;300";
-            this.cbCatT.DataSource = this.bsCat1;
+            this.cbCatT.DataSource = this.bsCatT;
             this.cbCatT.DisplayMember = "CODE";
             this.cbCatT.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCatT.DropDownHeight = 255;
@@ -335,9 +335,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(4, 57);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 16);
+            this.label6.Size = new System.Drawing.Size(73, 16);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Nod.nol. kat.:";
+            this.label6.Text = "Noliet. kat.:";
             // 
             // cbCatD
             // 
@@ -374,9 +374,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(4, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 16);
+            this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Noliet. kat.:";
+            this.label5.Text = "Nod.nol. kat.:";
             // 
             // cbCat1
             // 
@@ -493,12 +493,6 @@
             this.dgvRows.Size = new System.Drawing.Size(1001, 369);
             this.dgvRows.TabIndex = 1;
             this.dgvRows.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRows_CellFormatting);
-            // 
-            // bsCatT
-            // 
-            this.bsCatT.DataMember = "CATT";
-            this.bsCatT.MyDataSource = "KlonsData";
-            this.bsCatT.Sort = "CODE";
             // 
             // dgcRegNr
             // 
@@ -775,6 +769,12 @@
             this.dgcTaxValLeft1.ReadOnly = true;
             this.dgcTaxValLeft1.ToolTipText = "Atlikusī vērtība perioda beigās nolietojuma aprēķinam nodokļa vajadzībām";
             this.dgcTaxValLeft1.Width = 80;
+            // 
+            // bsCatT
+            // 
+            this.bsCatT.DataMember = "CATT";
+            this.bsCatT.MyDataSource = "KlonsData";
+            this.bsCatT.Sort = "CODE";
             // 
             // FormRep_Movement
             // 

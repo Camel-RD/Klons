@@ -236,23 +236,30 @@ namespace KlonsA.DataSets
                 if (RowState == DataRowState.Added)
                 {
                     EndEdit();
+                    return;
                 }
-                else if (HasVersion(DataRowVersion.Current))
+                if (HasVersion(DataRowVersion.Current) &&
+                    HasVersion(DataRowVersion.Proposed))
                 {
-                    if (!HasVersion(DataRowVersion.Original))
-                        EndEdit();
-                    else if (!HasChanges())
-                        AcceptChanges();
-                }
-                else if (HasVersion(DataRowVersion.Proposed))
-                {
-                    if (HasChanges2())
-                        EndEdit();
-                    else
+                    if (!HasChanges2())
+                    {
                         CancelEdit();
+                    }
+                    else
+                    {
+                        EndEdit();
+                    }
+                }
+                if (HasVersion(DataRowVersion.Current) &&
+                    HasVersion(DataRowVersion.Original))
+                {
+                    if (!HasChanges())
+                    {
+                        AcceptChanges();
+                        return;
+                    }
                 }
             }
-
         }
 
         public partial class EVENTSRow
@@ -305,6 +312,18 @@ namespace KlonsA.DataSets
                     EndEdit();
                 }
                 if (HasVersion(DataRowVersion.Current) &&
+                    HasVersion(DataRowVersion.Proposed))
+                {
+                    if (!HasChanges2())
+                    {
+                        CancelEdit();
+                    }
+                    else
+                    {
+                        EndEdit();
+                    }
+                }
+                if (HasVersion(DataRowVersion.Current) &&
                     HasVersion(DataRowVersion.Original))
                 {
                     if (!HasChanges())
@@ -313,16 +332,6 @@ namespace KlonsA.DataSets
                         return;
                     }
                 }
-                if (HasVersion(DataRowVersion.Current) &&
-                    HasVersion(DataRowVersion.Proposed))
-                {
-                    if (!HasChanges2())
-                    {
-                        CancelEdit();
-                        return;
-                    }
-                }
-                EndEdit();
             }
 
         }

@@ -46,7 +46,6 @@
             KlonsLIB.Components.MyMcComboBox.MyItem myItem15 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem16 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_VSAOI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,10 +53,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_VSAOI));
             this.label1 = new System.Windows.Forms.Label();
             this.cbYear = new KlonsLIB.Components.MyMcFlatComboBox();
             this.cbMonth = new KlonsLIB.Components.MyMcFlatComboBox();
             this.dgvRep = new KlonsLIB.Components.MyDataGridView();
+            this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ggcIncomeCorrect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSAICorrect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcURVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsRep = new System.Windows.Forms.BindingSource(this.components);
             this.cbTp = new KlonsLIB.Components.MyMcFlatComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -89,16 +99,6 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ggcIncomeCorrect = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSAICorrect = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcURVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRep)).BeginInit();
             this.panel1.SuspendLayout();
@@ -132,20 +132,20 @@
             this.cbYear.GridLineHorizontal = false;
             this.cbYear.GridLineVertical = false;
             this.cbYear.IntegralHeight = false;
-            myItem1.Col1 = "2015";
-            myItem2.Col1 = "2016";
-            myItem3.Col1 = "2017";
-            myItem4.Col1 = "2018";
+            myItem1.Col1 = "2016";
+            myItem2.Col1 = "2017";
+            myItem3.Col1 = "2018";
+            myItem4.Col1 = "2019";
             this.cbYear.Items.AddRange(new object[] {
             myItem1,
             myItem2,
             myItem3,
             myItem4});
             this.cbYear.ItemStrings = new string[] {
-        "2015",
         "2016",
         "2017",
-        "2018"};
+        "2018",
+        "2019"};
             this.cbYear.Location = new System.Drawing.Point(128, 5);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(69, 23);
@@ -245,6 +245,97 @@
             this.dgvRep.RowTemplate.Height = 24;
             this.dgvRep.Size = new System.Drawing.Size(901, 280);
             this.dgvRep.TabIndex = 1;
+            // 
+            // dgcPK
+            // 
+            this.dgcPK.DataPropertyName = "PK";
+            this.dgcPK.HeaderText = "personas kods";
+            this.dgcPK.Name = "dgcPK";
+            this.dgcPK.Width = 120;
+            // 
+            // dgcName
+            // 
+            this.dgcName.DataPropertyName = "Name";
+            this.dgcName.HeaderText = "vārds, uzvārds";
+            this.dgcName.Name = "dgcName";
+            this.dgcName.Width = 140;
+            // 
+            // dgcIncome
+            // 
+            this.dgcIncome.DataPropertyName = "Income";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.dgcIncome.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcIncome.HeaderText = "ienākumi";
+            this.dgcIncome.Name = "dgcIncome";
+            this.dgcIncome.Width = 80;
+            // 
+            // dgcSAI
+            // 
+            this.dgcSAI.DataPropertyName = "SAI";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.dgcSAI.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcSAI.HeaderText = "VSAOI";
+            this.dgcSAI.Name = "dgcSAI";
+            this.dgcSAI.Width = 80;
+            // 
+            // ggcIncomeCorrect
+            // 
+            this.ggcIncomeCorrect.DataPropertyName = "IncomeCorrected";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "0.00;-0.00;\"\"";
+            this.ggcIncomeCorrect.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ggcIncomeCorrect.HeaderText = "ienākumu korekcija";
+            this.ggcIncomeCorrect.Name = "ggcIncomeCorrect";
+            this.ggcIncomeCorrect.Width = 80;
+            // 
+            // dgcSAICorrect
+            // 
+            this.dgcSAICorrect.DataPropertyName = "SAICorrected";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "0.00;-0.00;\"\"";
+            this.dgcSAICorrect.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgcSAICorrect.HeaderText = "VSAOI korekcija";
+            this.dgcSAICorrect.Name = "dgcSAICorrect";
+            this.dgcSAICorrect.Width = 80;
+            // 
+            // dgcIIN
+            // 
+            this.dgcIIN.DataPropertyName = "IIN";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcIIN.HeaderText = "IIN";
+            this.dgcIIN.Name = "dgcIIN";
+            this.dgcIIN.Width = 80;
+            // 
+            // dgcURVN
+            // 
+            this.dgcURVN.DataPropertyName = "URVN";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.dgcURVN.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcURVN.HeaderText = "URVN";
+            this.dgcURVN.Name = "dgcURVN";
+            this.dgcURVN.Width = 60;
+            // 
+            // dgcHours
+            // 
+            this.dgcHours.DataPropertyName = "Hours";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcHours.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgcHours.HeaderText = "stundas";
+            this.dgcHours.Name = "dgcHours";
+            this.dgcHours.Width = 60;
+            // 
+            // dgcNr
+            // 
+            this.dgcNr.DataPropertyName = "Nr";
+            this.dgcNr.HeaderText = "nr";
+            this.dgcNr.Name = "dgcNr";
+            this.dgcNr.Visible = false;
+            this.dgcNr.Width = 40;
             // 
             // cbTp
             // 
@@ -554,97 +645,6 @@
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
-            // 
-            // dgcPK
-            // 
-            this.dgcPK.DataPropertyName = "PK";
-            this.dgcPK.HeaderText = "personas kods";
-            this.dgcPK.Name = "dgcPK";
-            this.dgcPK.Width = 120;
-            // 
-            // dgcName
-            // 
-            this.dgcName.DataPropertyName = "Name";
-            this.dgcName.HeaderText = "vārds, uzvārds";
-            this.dgcName.Name = "dgcName";
-            this.dgcName.Width = 140;
-            // 
-            // dgcIncome
-            // 
-            this.dgcIncome.DataPropertyName = "Income";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.dgcIncome.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcIncome.HeaderText = "ienākumi";
-            this.dgcIncome.Name = "dgcIncome";
-            this.dgcIncome.Width = 80;
-            // 
-            // dgcSAI
-            // 
-            this.dgcSAI.DataPropertyName = "SAI";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.dgcSAI.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcSAI.HeaderText = "VSAOI";
-            this.dgcSAI.Name = "dgcSAI";
-            this.dgcSAI.Width = 80;
-            // 
-            // ggcIncomeCorrect
-            // 
-            this.ggcIncomeCorrect.DataPropertyName = "IncomeCorrected";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "0.00;-0.00;\"\"";
-            this.ggcIncomeCorrect.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ggcIncomeCorrect.HeaderText = "ienākumu korekcija";
-            this.ggcIncomeCorrect.Name = "ggcIncomeCorrect";
-            this.ggcIncomeCorrect.Width = 80;
-            // 
-            // dgcSAICorrect
-            // 
-            this.dgcSAICorrect.DataPropertyName = "SAICorrected";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "0.00;-0.00;\"\"";
-            this.dgcSAICorrect.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcSAICorrect.HeaderText = "VSAOI korekcija";
-            this.dgcSAICorrect.Name = "dgcSAICorrect";
-            this.dgcSAICorrect.Width = 80;
-            // 
-            // dgcIIN
-            // 
-            this.dgcIIN.DataPropertyName = "IIN";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcIIN.HeaderText = "IIN";
-            this.dgcIIN.Name = "dgcIIN";
-            this.dgcIIN.Width = 80;
-            // 
-            // dgcURVN
-            // 
-            this.dgcURVN.DataPropertyName = "URVN";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.dgcURVN.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgcURVN.HeaderText = "URVN";
-            this.dgcURVN.Name = "dgcURVN";
-            this.dgcURVN.Width = 60;
-            // 
-            // dgcHours
-            // 
-            this.dgcHours.DataPropertyName = "Hours";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcHours.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgcHours.HeaderText = "stundas";
-            this.dgcHours.Name = "dgcHours";
-            this.dgcHours.Width = 60;
-            // 
-            // dgcNr
-            // 
-            this.dgcNr.DataPropertyName = "Nr";
-            this.dgcNr.HeaderText = "nr";
-            this.dgcNr.Name = "dgcNr";
-            this.dgcNr.Visible = false;
-            this.dgcNr.Width = 40;
             // 
             // FormRep_VSAOI
             // 
