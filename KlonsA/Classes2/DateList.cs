@@ -217,7 +217,7 @@ namespace KlonsA.Classes
                         continue;
                     }
                     si++;
-                    sd1 = List[si];
+                    sd1 = dl.List[si];
                     continue;
                 }
                 if (sd1 == null || td1.DateTo < sd1.DateFrom)

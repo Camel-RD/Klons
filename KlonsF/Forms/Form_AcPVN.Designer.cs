@@ -141,6 +141,7 @@ namespace KlonsF.Forms
             this.bsAcPVN.DataMember = "AcPVN";
             this.bsAcPVN.MyDataSource = "KlonsData";
             this.bsAcPVN.Name2 = "bsAcPVN";
+            this.bsAcPVN.Sort = "ID";
             // 
             // dgcName
             // 
@@ -180,6 +181,7 @@ namespace KlonsF.Forms
             this.bnavAcp5.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnavAcp5.Name = "bnavAcp5";
             this.bnavAcp5.PositionItem = this.bindingNavigatorPositionItem;
+            this.bnavAcp5.SaveItem = null;
             this.bnavAcp5.Size = new System.Drawing.Size(465, 32);
             this.bnavAcp5.TabIndex = 3;
             this.bnavAcp5.Text = "bindingNavigator1";

@@ -257,7 +257,8 @@ namespace KlonsF.FormsReportParams
 
             //korekcijas
             ax[57] = sc("301") + sc("302") + sc("303") +
-                     sc("304") + sc("305") + sc("306") + sc("307") + sc("308");
+                     sc("304") + sc("305") + sc("306") + sc("307") + sc("308") +
+                     sc("361");
             
             ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + sd("M12");
 
@@ -266,7 +267,8 @@ namespace KlonsF.FormsReportParams
             ax[61] = sd("311");
             
             ax[62] = sd("301") + sd("302") + sd("303") +
-                     sd("305") + sd("306") + sd("307") + sd("308");
+                     sd("305") + sd("306") + sd("307") + sd("308") +
+                     sd("361");
 
             ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("M12");
             ax[63] = sd("321");
@@ -377,7 +379,8 @@ namespace KlonsF.FormsReportParams
 
             //korekcijas
             ax[57] = sc("301") + sc("302") + sc("303") +
-                     sc("304") + sc("305") + sc("306") + sc("307") + sc("308");
+                     sc("304") + sc("305") + sc("306") + sc("307") + sc("308") + 
+                     sc("361");
 
             ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + sc("B14") + sc("D14") + sc("M12");
 
@@ -386,7 +389,8 @@ namespace KlonsF.FormsReportParams
             ax[61] = sd("311");
 
             ax[62] = sd("301") + sd("302") + sd("303") +
-                     sd("305") + sd("306") + sd("307") + sd("308");
+                     sd("305") + sd("306") + sd("307") + sd("308") + 
+                     sd("361");
 
             ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("B14") + sd("D14") + sd("M12");
             ax[63] = sd("321");

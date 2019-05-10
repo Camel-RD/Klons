@@ -240,6 +240,7 @@ namespace KlonsA.Forms
             DokDDZv2.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
             xdoc.AppendChild(DokDDZv2);
 
+            xdoc.XE(DokDDZv2, "Precizejums", "false");
             xdoc.XE(DokDDZv2, "ParskGads", Year);
             xdoc.XE(DokDDZv2, "ParskMen", Month);
 

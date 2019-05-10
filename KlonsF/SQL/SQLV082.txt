@@ -1,0 +1,128 @@
+﻿SET TERM ^ ;
+
+alter procedure SP_REP_DARZ_4 (
+    SDT date,
+    EDT date)
+returns (
+    ID type of column TREPDARZ2.ID,
+    SPID type of column TREPDARZ2.SPID,
+    RID0 type of column TREPDARZ2.RID0,
+    A1 type of column TREPDARZ2.A1,
+    A2 type of column TREPDARZ2.A2,
+    A3 type of column TREPDARZ2.A3,
+    A4 type of column TREPDARZ2.A4,
+    A5 type of column TREPDARZ2.A5,
+    A6 type of column TREPDARZ2.A6,
+    A7 type of column TREPDARZ2.A7,
+    A8 type of column TREPDARZ2.A8,
+    A9 type of column TREPDARZ2.A9,
+    A10 type of column TREPDARZ2.A10,
+    A11 type of column TREPDARZ2.A11,
+    A12 type of column TREPDARZ2.A12,
+    A13 type of column TREPDARZ2.A13,
+    A14 type of column TREPDARZ2.A14,
+    A15 type of column TREPDARZ2.A15,
+    A16 type of column TREPDARZ2.A16,
+    A17 type of column TREPDARZ2.A17,
+    A18 type of column TREPDARZ2.A18,
+    A19 type of column TREPDARZ2.A19)
+AS
+begin
+    FOR SELECT
+        gen_id(GEN_TREPDARZ2_ID, 1) AS id,
+        current_connection AS spid,
+        coalesce(T2.rid0, 0) AS rid0,
+        coalesce(T1.A1, 0.00) AS A1,
+        coalesce(T1.A2, 0.00) AS A2,
+        coalesce(T1.A3, 0.00) AS A3,
+        coalesce(T1.A4, 0.00) AS A4,
+        coalesce(T1.A5, 0.00) AS A5,
+        coalesce(T1.A6, 0.00) AS A6,
+        coalesce(T2.A7, 0.00) AS A7,
+        coalesce(T2.A8, 0.00) AS A8,
+        coalesce(T2.A9, 0.00) AS A9,
+        coalesce(T2.A10, 0.00) AS A10,
+        coalesce(T2.A11, 0.00) AS A11,
+        coalesce(T2.A12, 0.00) AS A12,
+        coalesce(T2.A13, 0.00) AS A13,
+        0.00 AS A14,
+        0.00 AS A15,
+        0.00 AS A16,
+        coalesce(T3.A17, 0.00) AS A17,
+        coalesce(T3.A18, 0.00) AS A18,
+        coalesce(T3.A19, 0.00) AS A19
+
+    FROM
+        (SELECT
+            SUM(CASE WHEN AC13 = 'KA' THEN OPS.Summ ELSE 0.00 END) AS A1,
+            SUM(CASE WHEN AC23 = 'KA' THEN OPS.Summ ELSE 0.00 END) AS A2,
+        
+            SUM(CASE WHEN AC13 = 'BA' THEN OPS.Summ ELSE 0.00 END) AS A3,
+            SUM(CASE WHEN AC23 = 'BA' THEN OPS.Summ ELSE 0.00 END) AS A4,
+        
+            SUM(CASE WHEN AC13 = 'CN' THEN OPS.Summ ELSE 0.00 END) AS A5,
+            SUM(CASE WHEN AC23 = 'CN' THEN OPS.Summ ELSE 0.00 END) AS A6
+
+        FROM
+            OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+        WHERE
+            OPSd.Dete <= :edt AND
+            OPS.AC13 IS NOT NULL AND
+            OPS.AC23 IS NOT NULL
+
+        ) AS T1,
+
+        (SELECT
+            COUNT(DISTINCT DocId) rid0,
+
+            SUM(CASE WHEN AC23 = 'LIE' OR AC23 = 'SUB' THEN OPS.Summ ELSE 0.00 END) AS A7,
+            SUM(CASE WHEN AC23 = 'NIE' THEN OPS.Summ ELSE 0.00 END) AS A8,
+            SUM(CASE WHEN AC23 = 'ZIE' OR AC23 = 'CIE' THEN OPS.Summ ELSE 0.00 END) AS A9,
+
+            SUM(CASE WHEN AC13 = 'DIZ' THEN OPS.Summ ELSE 0.00 END) AS A10,
+            SUM(CASE WHEN AC13 = 'MIZ' THEN OPS.Summ ELSE 0.00 END) AS A11,
+            SUM(CASE WHEN AC13 = 'LIZ' OR AC13 = 'NIZ' OR AC13 = 'PIZ' THEN OPS.Summ ELSE 0.00 END) AS A12,
+            SUM(CASE WHEN AC13 = 'ZIZ' OR AC13 = 'CIZ' THEN OPS.Summ ELSE 0.00 END) AS A13
+
+        FROM
+            OPSd JOIN OPS ON OPSd.id = OPS.DocId
+
+        WHERE
+            OPSd.Dete BETWEEN :sdt AND :edt AND
+            OPS.AC13 IS NOT NULL AND
+            OPS.AC23 IS NOT NULL
+
+        ) AS T2,
+
+        (SELECT 
+            SUM(CASE WHEN AcP21.id1 = 'KA'
+                THEN Bal0.SummD - Bal0.SummC ELSE 0.00 END) AS A17,
+            SUM(CASE WHEN AcP21.id1 = 'BA'
+                THEN Bal0.SummD - Bal0.SummC ELSE 0.00 END) AS A18,
+            SUM(CASE WHEN AcP21.id1 = 'CN'
+                THEN Bal0.SummD - Bal0.SummC ELSE 0.00 END) AS A19
+
+        FROM Bal0
+            INNER JOIN AcP21 ON Bal0.AC11 = AcP21.AC
+        WHERE AcP21.id1 IN ('KA','BA','CN')
+        ) AS T3
+
+
+    into
+        :id, :spid, :rid0,
+        :a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10,
+        :a11, :a12, :a13, :a14, :a15, :a16, :a17, :a18, :a19
+    do
+    begin
+        suspend;
+    end
+end
+
+^
+
+SET TERM ; ^
+
+UPDATE Params
+SET PVALUE = '082'
+WHERE PNAME = 'version';
