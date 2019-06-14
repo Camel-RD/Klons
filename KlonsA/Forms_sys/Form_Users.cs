@@ -94,7 +94,7 @@ namespace KlonsA.Forms
         {
             if (dgvUsers.NewRowIndex == e.RowIndex ||
                 !dgvUsers.IsCurrentRowDirty) return;
-            var o = dgvUsers.CurrentRow.Cells[dgcUsersName.Index].Value;
+            var o = dgvUsers.CurrentRow.Cells[dgcNM.Index].Value;
             if (o == null || o == DBNull.Value || o.ToString() == "SYSTEM" || 
                 o.ToString().Length > 15)
             {

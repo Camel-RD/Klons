@@ -49,6 +49,8 @@ namespace KlonsA.Classes
         public void WriteToRow(KlonsADataSet.SALARY_SHEETS_RRow dr)
         {
             var props = TypeDescriptor.GetProperties(this);
+            bool has_changes = false;
+            dr.BeginEdit();
             for (int i = 0; i < props.Count; i++)
             {
                 var prop = props[i];
@@ -60,7 +62,13 @@ namespace KlonsA.Classes
                 var val2 = dr[fieldname];
                 if (object.Equals(val1, val2)) continue;
                 dr[fieldname] = val1;
+                has_changes = true;
             }
+            if (has_changes)
+            {
+                dr.DT_EDITED = DateTime.Now;
+            }
+            dr.EndEditX();
         }
 
         public void ClearAll()
@@ -156,25 +164,25 @@ namespace KlonsA.Classes
         {
             var rt = dr_amati_r.XRateType;
 
-            _R_TYPE = dr_amati_r.SALARY_TYPE;
-            _R_MT = dr_amati_r.RATE;
-            _R_MT_NIGHT = dr_amati_r.RATE_NIGHT;
-            _R_MT_NIGHT_TYPE = dr_amati_r.RATE_NIGHT_TYPE;
-            _R_MT_OVERTIME = dr_amati_r.RATE_OVERTIME;
-            _R_MT_OVERTIME_TYPE = dr_amati_r.RATE_OVERTIME_TYPE;
-            _R_MT_HOLIDAY = dr_amati_r.RATE_HOLIDAY;
-            _R_MT_HOLIDAY_TYPE = dr_amati_r.RATE_HOLIDAY_TYPE;
-            _R_MT_HOLIDAY_NIGHT = dr_amati_r.RATE_HOLIDAY_NIGHT;
-            _R_MT_HOLIDAY_NIGHT_TYPE = dr_amati_r.RATE_HOLIDAY_NIGHT_TYPE;
-            _R_MT_HOLIDAY_OVERTIME = dr_amati_r.RATE_HOLIDAY_OVERTIME;
-            _R_MT_HOLIDAY_OVERTIME_TYPE = dr_amati_r.RATE_HOLIDAY_OVERTIME_TYPE;
+            R_TYPE = dr_amati_r.SALARY_TYPE;
+            R_MT = dr_amati_r.RATE;
+            R_MT_NIGHT = dr_amati_r.RATE_NIGHT;
+            R_MT_NIGHT_TYPE = dr_amati_r.RATE_NIGHT_TYPE;
+            R_MT_OVERTIME = dr_amati_r.RATE_OVERTIME;
+            R_MT_OVERTIME_TYPE = dr_amati_r.RATE_OVERTIME_TYPE;
+            R_MT_HOLIDAY = dr_amati_r.RATE_HOLIDAY;
+            R_MT_HOLIDAY_TYPE = dr_amati_r.RATE_HOLIDAY_TYPE;
+            R_MT_HOLIDAY_NIGHT = dr_amati_r.RATE_HOLIDAY_NIGHT;
+            R_MT_HOLIDAY_NIGHT_TYPE = dr_amati_r.RATE_HOLIDAY_NIGHT_TYPE;
+            R_MT_HOLIDAY_OVERTIME = dr_amati_r.RATE_HOLIDAY_OVERTIME;
+            R_MT_HOLIDAY_OVERTIME_TYPE = dr_amati_r.RATE_HOLIDAY_OVERTIME_TYPE;
 
-            _R_HR = _R_MT;
-            _R_HR_NIGHT = GetRate(_R_HR, _R_MT_NIGHT_TYPE, _R_MT_NIGHT);
-            _R_HR_OVERTIME = GetRate(_R_HR, _R_MT_OVERTIME_TYPE, _R_MT_OVERTIME);
-            _R_HR_HOLIDAY = GetRate(_R_HR, _R_MT_HOLIDAY_TYPE, _R_MT_HOLIDAY);
-            _R_HR_HOLIDAY_NIGHT = GetRate(_R_HR, _R_MT_HOLIDAY_NIGHT_TYPE, _R_MT_HOLIDAY_NIGHT);
-            _R_HR_HOLIDAY_OVERTIME = GetRate(_R_HR, _R_MT_HOLIDAY_OVERTIME_TYPE, dr_amati_r.RATE_HOLIDAY_OVERTIME);
+            R_HR = R_MT;
+            R_HR_NIGHT = GetRate(R_HR, R_MT_NIGHT_TYPE, R_MT_NIGHT);
+            R_HR_OVERTIME = GetRate(R_HR, R_MT_OVERTIME_TYPE, R_MT_OVERTIME);
+            R_HR_HOLIDAY = GetRate(R_HR, R_MT_HOLIDAY_TYPE, R_MT_HOLIDAY);
+            R_HR_HOLIDAY_NIGHT = GetRate(R_HR, R_MT_HOLIDAY_NIGHT_TYPE, R_MT_HOLIDAY_NIGHT);
+            R_HR_HOLIDAY_OVERTIME = GetRate(R_HR, R_MT_HOLIDAY_OVERTIME_TYPE, dr_amati_r.RATE_HOLIDAY_OVERTIME);
 
             decimal d;
             //mēneša likmes tiek pārrēķinātas dienas likmēs
@@ -183,34 +191,34 @@ namespace KlonsA.Classes
                 if(calcdays > 0)
                 {
                     d = (decimal)calcdays;
-                    _R_HR /= d;
-                    _R_HR_NIGHT /= d;
-                    _R_HR_HOLIDAY /= d;
+                    R_HR /= d;
+                    R_HR_NIGHT /= d;
+                    R_HR_HOLIDAY /= d;
                 }
                 if(calchours > 0.0f)
                 {
                     d = (decimal)calchours;
-                    _R_HR_NIGHT /= d;
-                    _R_HR_OVERTIME /= d;
-                    _R_HR_HOLIDAY_NIGHT /= d;
-                    _R_HR_HOLIDAY_OVERTIME /= d;
+                    R_HR_NIGHT /= d;
+                    R_HR_OVERTIME /= d;
+                    R_HR_HOLIDAY_NIGHT /= d;
+                    R_HR_HOLIDAY_OVERTIME /= d;
                 }
             }
             if (rt == ESalaryType.Day && calchours > 0.0f)
             {
                 d = (decimal)dr_amati_r.NORMAL_DAY_HOURS;
-                _R_HR_NIGHT /= d;
-                _R_HR_OVERTIME /= d;
-                _R_HR_HOLIDAY_NIGHT /= d;
-                _R_HR_HOLIDAY_OVERTIME /= d;
+                R_HR_NIGHT /= d;
+                R_HR_OVERTIME /= d;
+                R_HR_HOLIDAY_NIGHT /= d;
+                R_HR_HOLIDAY_OVERTIME /= d;
             }
 
-            _R_HR = KlonsData.RoundA(_R_HR, 6);
-            _R_HR_NIGHT = KlonsData.RoundA(_R_HR_NIGHT, 6);
-            _R_HR_OVERTIME = KlonsData.RoundA(_R_HR_OVERTIME, 6);
-            _R_HR_HOLIDAY = KlonsData.RoundA(_R_HR_HOLIDAY, 6);
-            _R_HR_HOLIDAY_NIGHT = KlonsData.RoundA(_R_HR_HOLIDAY_NIGHT, 6);
-            _R_HR_HOLIDAY_OVERTIME = KlonsData.RoundA(_R_HR_HOLIDAY_OVERTIME, 6);
+            R_HR = KlonsData.RoundA(R_HR, 6);
+            R_HR_NIGHT = KlonsData.RoundA(R_HR_NIGHT, 6);
+            R_HR_OVERTIME = KlonsData.RoundA(R_HR_OVERTIME, 6);
+            R_HR_HOLIDAY = KlonsData.RoundA(R_HR_HOLIDAY, 6);
+            R_HR_HOLIDAY_NIGHT = KlonsData.RoundA(R_HR_HOLIDAY_NIGHT, 6);
+            R_HR_HOLIDAY_OVERTIME = KlonsData.RoundA(R_HR_HOLIDAY_OVERTIME, 6);
         }
 
         public decimal GetRate(decimal baserate, short ratetype, decimal aplyrate)

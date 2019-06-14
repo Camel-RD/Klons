@@ -27,7 +27,8 @@ namespace KlonsA.Forms
 
         }
 
-        DateTime FilterDate = DateTime.MinValue;
+        DateTime FilterDate1 = DateTime.MinValue;
+        DateTime FilterDate2 = DateTime.MaxValue;
         DateTime LastDate = DateTime.MinValue;
 
         private void Form_UntaxedMinimum_Load(object sender, EventArgs e)
@@ -35,60 +36,72 @@ namespace KlonsA.Forms
             cbPerson.Text = null;
         }
 
-        public void MarkRowsForFilter(DateTime dt)
+
+        public void MarkRowsForFilter(DateTime dt1, DateTime dt2)
         {
             var table = MyData.DataSetKlons.UNTAXED_MIN;
-            foreach(var dr in table.WhereX(d => d.ONDATE > dt))
+            foreach(var dr in table.WhereX(d => d.ONDATE > dt2))
             {
                 dr.BeginEdit();
                 dr.FilterTag = 0;
                 dr.EndEditX();
             }
-            var drs_um = table
-                .WhereX(d => d.ONDATE <= dt)
-                .OrderBy(d => d.IDP)
-                .ThenByDescending(d => d.ONDATE);
-
-            bool first_found = false;
-            int prev_idp = int.MaxValue;
-
-            foreach (var dr in drs_um)
+            foreach (var dr in table.WhereX(d => d.ONDATE > dt1 && d.ONDATE <= dt1))
             {
-                if (!first_found)
-                {
-                    first_found = true;
-                    dr.BeginEdit();
-                    dr.FilterTag = 1;
-                    dr.EndEditX();
-                    prev_idp = dr.IDP;
-                    continue;
-                }
-                if(prev_idp == dr.IDP)
-                {
-                    dr.BeginEdit();
-                    dr.FilterTag = 0;
-                    dr.EndEditX();
-                    continue;
-                }
                 dr.BeginEdit();
                 dr.FilterTag = 1;
                 dr.EndEditX();
-                prev_idp = dr.IDP;
             }
+
+            var drs_gr = table
+                .WhereX(d => d.ONDATE <= dt1)
+                .GroupBy(d => d.IDP);
+            
+            foreach(var gr in drs_gr)
+            {
+                int idp = gr.Key;
+                if (!DataTasks.IsPersonWorking(idp, dt1, dt2))
+                {                     
+                    foreach (var gr2 in gr)
+                    {
+                        gr2.BeginEdit();
+                        gr2.FilterTag = 0;
+                        gr2.EndEditX();
+                    }
+                    continue;
+                }
+                var gr1 = gr.OrderByDescending(d => d.ONDATE);
+                var gr1_first = gr1.First();
+                gr1_first.BeginEdit();
+                gr1_first.FilterTag = 1;
+                gr1_first.EndEditX();
+                var gr1_rest = gr1.Skip(1);
+                foreach (var gr2 in gr1_rest)
+                {
+                    gr2.BeginEdit();
+                    gr2.FilterTag = 0;
+                    gr2.EndEditX();
+                }
+            }
+
         }
 
         public void DoFilter()
         {
-            DateTime dt = DateTime.MinValue;
-            if (!string.IsNullOrEmpty(tbDate.Text))
-                dt = Utils.StringToDate(tbDate.Text).Value;
+            DateTime dt1 = DateTime.MinValue;
+            DateTime dt2 = DateTime.MaxValue;
+            if (!string.IsNullOrEmpty(tbDate1.Text))
+                dt1 = Utils.StringToDate(tbDate1.Text).Value;
+            if (!string.IsNullOrEmpty(tbDate2.Text))
+                dt2 = Utils.StringToDate(tbDate2.Text).Value;
             int idp = -1;
             if (cbPerson.SelectedIndex > -1 && cbPerson.SelectedValue != null)
                 idp = (int)cbPerson.SelectedValue;
-            if (dt == DateTime.MinValue && idp == -1)
+            if (dt1 == DateTime.MinValue && dt2 == DateTime.MaxValue && idp == -1)
             {
                 bsRows.RemoveFilter();
-                FilterDate = DateTime.MinValue;
+                FilterDate1 = DateTime.MinValue;
+                FilterDate2 = DateTime.MaxValue;
                 return;
             }
             string fs = "";
@@ -98,14 +111,15 @@ namespace KlonsA.Forms
                 if (fs == "") fs = fs1;
                 else fs = $"({fs}) and ({fs1})";
             }
-            if (dt != DateTime.MinValue)
+            if (dt1 != DateTime.MinValue || dt2 != DateTime.MaxValue)
             {
-                MarkRowsForFilter(dt);
+                MarkRowsForFilter(dt1, dt2);
                 string fs1 = "FilterTag = 1";
                 if (fs == "") fs = fs1;
                 else fs = $"({fs}) and ({fs1})";
-                FilterDate = dt;
-                LastDate = dt;
+                FilterDate1 = dt1;
+                FilterDate2 = dt2;
+                LastDate = dt1;
             }
             bsRows.Filter = fs;
         }
@@ -202,14 +216,10 @@ namespace KlonsA.Forms
         {
             DateTime dt = DateTime.MinValue;
             if (LastDate != DateTime.MinValue) dt = LastDate;
-            else if (FilterDate != DateTime.MinValue) dt = FilterDate;
+            else if (FilterDate1 != DateTime.MinValue) dt = FilterDate1;
             else dt = DateTime.Today;
             e.Row.Cells[dgcOnDate.Index].Value = dt;
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

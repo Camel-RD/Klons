@@ -366,7 +366,6 @@
 
         private KlonsLIB.Data.MyBindingSource bsRows;
         private KlonsLIB.Components.MyDataGridView dgvRows;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcValueA;
         private KlonsLIB.Data.MyAdapterManager myAdapterManager1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;

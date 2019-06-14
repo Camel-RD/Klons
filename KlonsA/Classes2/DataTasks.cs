@@ -58,6 +58,33 @@ namespace KlonsA.Classes
                 .WithMaxOrDefault(d => d.EDIT_DATE);
         }
 
+        public static bool IsPersonWorking(int idp, DateTime dt1, DateTime dt2)
+        {
+            var table_persons = KlonsData.St.DataSetKlons.PERSONS;
+            var dr_person = table_persons.FindByID(idp);
+            if (dr_person == null) return false;
+            var drs_events = dr_person.GetEVENTSRows();
+            var drsn_hirefire = drs_events.Where(d =>
+            {
+                return
+                    Utils.IN(d.IDN, (int)EEventId.Pieņemts, (int)EEventId.Atlaists);
+            }).OrderBy(d => d.DATE1).ToArray();
+
+            if (drsn_hirefire.Length == 0)
+                return false;
+
+            var pi_hirefire = new PeriodInfo();
+
+            var rt1 = pi_hirefire.ReadStartEndList(drsn_hirefire,
+                isStartItem: it => it.IDN == (int)EEventId.Pieņemts,
+                getItemDate: it => it.DATE1);
+
+            if (rt1 != PeriodInfo.ERetReadStartEndList.OK) return false;
+
+            var pi_f = pi_hirefire.FilterListWithDates(dt1, dt2);
+            return pi_f.LinkedPeriods.Count > 0;
+        }
+
         public static short GetNextSalarySheetNr(int yr)
         {
             var table_sar = MyData.DataSetKlons.SALARY_SHEETS;

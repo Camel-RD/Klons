@@ -62,6 +62,11 @@ namespace KlonsA.Classes
             if (SR.Row.XType == ESalarySheetRowType.Total)
                 return SR.FillRowX();
 
+            if (PreparingReport)
+                SI._CALC_VER = SR.Row.CALC_VER;
+            else
+                SI._CALC_VER = 1;
+
             var dt1 = SR.SalarySheet.DT1;
             var dt2 = SR.SalarySheet.DT2;
 
@@ -70,7 +75,7 @@ namespace KlonsA.Classes
             SR.CheckAlgasPS();
 
             MakeWorkTime();
-            CalcRR(dt1, dt2);
+            CalcRR(dt1, dt2, SI._CALC_VER);
 
             if (SR.IsSingleRow())
                 BonusCalc = new BonusCalcInfo(CalcR, SR.GetAlgasAllPSRows(), PreparingReport);
@@ -164,20 +169,13 @@ namespace KlonsA.Classes
             //-- useless
             //BonusCalc.CalcProc(SI, EBonusFrom.FromPayBeforeIIN, payBeforeIIN); 
 
-            decimal iinexempts1a =
-                iinexempts1 -
-                CalcR.ExDivided.ExUntaxedMinimum +
-                CalcR.ExDivided.ExUntaxedMinimum2;
+            decimal iinexempts1a = iinexempts1;
 
-            decimal iinexempts1b =
-                iinexempts1 -
-                CalcR.ExDivided.ExUntaxedMinimum;
+            decimal iinexempts1b = iinexempts1;
 
             List< PayFx2> rpfx = null;
             var plusfromendbruto = BonusCalc.CalcFromEndC(si: SI,
                 totalinex: iinexempts1,
-                totalinexa: iinexempts1a,
-                totalinexb: iinexempts1b,
                 curbruto: curbruto,
                 brutonosai: SI._PLUS_NOSAI,
                 brutomargin: CalcR.IINMargin,
@@ -408,15 +406,6 @@ namespace KlonsA.Classes
                 SI._PLUS_AUTHORS_FEES -
                 SI._MINUS_BEFORE_IIN;
 
-            if (CalcR.UseProgresiveIINRate && CalcR.HasTaxDoc)
-            {
-                SI._IIN_EXEMPT_UNTAXED_MINIMUM = CalcR.ExDivided.ExUntaxedMinimum2;
-                SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = CalcR.ExMax2.ExUntaxedMinimum2;
-                CalcR.ExDivided.ExUntaxedMinimum = CalcR.ExDivided.ExUntaxedMinimum2;
-                if (CalcR.CrUntaxedMinimum != null)
-                    CalcR.CrUntaxedMinimum.RateDivided = CalcR.ExDivided.ExUntaxedMinimum2;
-            }
-
             decimal iinexempts = SI.SumIINExemptsAll();
 
             if (!CalcR.UseProgresiveIINRate)
@@ -522,9 +511,9 @@ namespace KlonsA.Classes
             return pay0;
         }
 
-        public void CalcRR(DateTime dt1, DateTime dt2)
+        public void CalcRR(DateTime dt1, DateTime dt2, int calcver)
         {
-            CalcR = new CalcRInfo(PreparingReport);
+            CalcR = new CalcRInfo(PreparingReport, calcver);
             CalcR.CalcR(SR, dt1, dt2);
             CalcR.ExMax2.ApplyTo0(SI);
             CalcR.ExMax2.ApplyTo(SI);
@@ -575,7 +564,7 @@ namespace KlonsA.Classes
 
         public ErrorList CalcVacationDays()
         {
-            VacationCalc = new VacationCalcInfo(PreparingReport);
+            VacationCalc = new VacationCalcInfo(PreparingReport, SI._CALC_VER);
 
             var err = VacationCalc.CalcVacationDays(this);
             if (err.HasErrors) return err;
@@ -604,9 +593,9 @@ namespace KlonsA.Classes
         {
             if (AvPayCalc == null) AvPayCalc = new AvPayCalcInfo(true);
             if (SickDayCalc == null) SickDayCalc = new SickDayCalcInfo(true);
-            if (VacationCalc == null) VacationCalc = new VacationCalcInfo(true);
+            if (VacationCalc == null) VacationCalc = new VacationCalcInfo(true, SI._CALC_VER);
             if (WorkPayCalc == null) WorkPayCalc = new WorkPayCalcInfo(true);
-            if (CalcR == null) CalcR = new CalcRInfo(true);
+            if (CalcR == null) CalcR = new CalcRInfo(true, SI._CALC_VER);
             if (BonusCalc == null) BonusCalc = new BonusCalcInfo(CalcR, (KlonsADataSet.SALARY_PLUSMINUSRow[])null, true);
         }
 

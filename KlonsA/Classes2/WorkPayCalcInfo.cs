@@ -146,53 +146,53 @@ namespace KlonsA.Classes
 
         public void CalcPayWithDayRate(SalaryInfo wt, KlonsADataSet.POSITIONS_RRow dr_amati_r)
         {
-            wt.PlanedWorkPay = wt._R_HR * (decimal)wt._PLAN_DAYS;
-            wt._SALARY_DAY = wt._R_HR * (decimal)wt._FACT_WORK_DAYS;
-            wt._SALARY_NIGHT = wt._R_HR_NIGHT * (decimal)wt._FACT_WORK_HOURS_NIGHT;
-            wt._SALARY_OVERTIME = wt._R_HR_OVERTIME * (decimal)wt._FACT_WORK_HOURS_OVERTIME;
+            wt.PlanedWorkPay = wt.R_HR * (decimal)wt._PLAN_DAYS;
+            wt._SALARY_DAY = wt.R_HR * (decimal)wt._FACT_WORK_DAYS;
+            wt._SALARY_NIGHT = wt.R_HR_NIGHT * (decimal)wt._FACT_WORK_HOURS_NIGHT;
+            wt._SALARY_OVERTIME = wt.R_HR_OVERTIME * (decimal)wt._FACT_WORK_HOURS_OVERTIME;
 
-            wt._SALARY_HOLIDAYS_DAY = wt._R_HR_HOLIDAY * (decimal)wt._FACT_HOLIDAYS_DAYS;
-            wt._SALARY_HOLIDAYS_NIGHT = wt._R_HR_HOLIDAY_NIGHT * (decimal)wt._FACT_HOLIDAYS_HOURS_NIGHT;
-            wt._SALARY_HOLIDAYS_OVERTIME = wt._R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_HOLIDAYS_HOURS_OVERTIME;
+            wt._SALARY_HOLIDAYS_DAY = wt.R_HR_HOLIDAY * (decimal)wt._FACT_HOLIDAYS_DAYS;
+            wt._SALARY_HOLIDAYS_NIGHT = wt.R_HR_HOLIDAY_NIGHT * (decimal)wt._FACT_HOLIDAYS_HOURS_NIGHT;
+            wt._SALARY_HOLIDAYS_OVERTIME = wt.R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_HOLIDAYS_HOURS_OVERTIME;
 
-            wt._SALARY_AVPAY_FREE_DAYS = wt._R_HR * (decimal)wt._FACT_AVPAY_FREE_DAYS;
+            wt._SALARY_AVPAY_FREE_DAYS = wt.R_HR * (decimal)wt._FACT_AVPAY_FREE_DAYS;
 
-            wt._SALARY_AVPAY_WORK_DAYS = wt._R_HR * (decimal)wt._FACT_AVPAY_WORK_DAYS;
-            wt._SALARY_AVPAY_WORK_DAYS_OVERTIME = wt._R_HR_OVERTIME * (decimal)wt._FACT_AVPAY_HOURS_OVERTIME;
-            wt._SALARY_AVPAY_HOLIDAYS = wt._R_HR_HOLIDAY * (decimal)wt._FACT_AVPAY_WORKINHOLIDAYS;
-            wt._SALARY_AVPAY_HOLIDAYS_OVERTIME = wt._R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_AVPAY_HOLIDAYS_HOURS_OVERT;
+            wt._SALARY_AVPAY_WORK_DAYS = wt.R_HR * (decimal)wt._FACT_AVPAY_WORK_DAYS;
+            wt._SALARY_AVPAY_WORK_DAYS_OVERTIME = wt.R_HR_OVERTIME * (decimal)wt._FACT_AVPAY_HOURS_OVERTIME;
+            wt._SALARY_AVPAY_HOLIDAYS = wt.R_HR_HOLIDAY * (decimal)wt._FACT_AVPAY_WORKINHOLIDAYS;
+            wt._SALARY_AVPAY_HOLIDAYS_OVERTIME = wt.R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_AVPAY_HOLIDAYS_HOURS_OVERT;
         }
 
         public void CalcPayWithHourRate(SalaryInfo wt, KlonsADataSet.POSITIONS_RRow dr_amati_r)
         {
-            wt.PlanedWorkPay = wt._R_HR * (decimal)wt._PLAN_HOURS;
-            wt._SALARY_DAY = wt._R_HR * (decimal)wt._FACT_WORK_HOURS;
-            wt._SALARY_NIGHT = wt._R_HR_NIGHT * (decimal)wt._FACT_WORK_HOURS_NIGHT;
-            wt._SALARY_OVERTIME = wt._R_HR_OVERTIME * (decimal)wt._FACT_WORK_HOURS_OVERTIME;
+            wt.PlanedWorkPay = wt.R_HR * (decimal)wt._PLAN_HOURS;
+            wt._SALARY_DAY = wt.R_HR * (decimal)wt._FACT_WORK_HOURS;
+            wt._SALARY_NIGHT = wt.R_HR_NIGHT * (decimal)wt._FACT_WORK_HOURS_NIGHT;
+            wt._SALARY_OVERTIME = wt.R_HR_OVERTIME * (decimal)wt._FACT_WORK_HOURS_OVERTIME;
 
-            wt._SALARY_HOLIDAYS_DAY = wt._R_HR_HOLIDAY * (decimal)wt._FACT_HOLIDAYS_HOURS;
-            wt._SALARY_HOLIDAYS_NIGHT = wt._R_HR_HOLIDAY_NIGHT * (decimal)wt._FACT_HOLIDAYS_HOURS_NIGHT;
-            wt._SALARY_HOLIDAYS_OVERTIME = wt._R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_HOLIDAYS_HOURS_OVERTIME;
+            wt._SALARY_HOLIDAYS_DAY = wt.R_HR_HOLIDAY * (decimal)wt._FACT_HOLIDAYS_HOURS;
+            wt._SALARY_HOLIDAYS_NIGHT = wt.R_HR_HOLIDAY_NIGHT * (decimal)wt._FACT_HOLIDAYS_HOURS_NIGHT;
+            wt._SALARY_HOLIDAYS_OVERTIME = wt.R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_HOLIDAYS_HOURS_OVERTIME;
 
-            wt._SALARY_AVPAY_FREE_DAYS = wt._R_HR * (decimal)wt._FACT_AVPAY_FREE_HOURS;
-            wt._SALARY_AVPAY_WORK_DAYS = wt._R_HR * (decimal)wt._FACT_AVPAY_HOURS;
-            wt._SALARY_AVPAY_WORK_DAYS_OVERTIME = wt._R_HR_OVERTIME * (decimal)wt._FACT_AVPAY_HOURS_OVERTIME;
-            wt._SALARY_AVPAY_HOLIDAYS = wt._R_HR_HOLIDAY * (decimal)wt._FACT_AVPAY_HOLIDAYS_HOURS;
-            wt._SALARY_AVPAY_HOLIDAYS_OVERTIME = wt._R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_AVPAY_HOLIDAYS_HOURS_OVERT;
+            wt._SALARY_AVPAY_FREE_DAYS = wt.R_HR * (decimal)wt._FACT_AVPAY_FREE_HOURS;
+            wt._SALARY_AVPAY_WORK_DAYS = wt.R_HR * (decimal)wt._FACT_AVPAY_HOURS;
+            wt._SALARY_AVPAY_WORK_DAYS_OVERTIME = wt.R_HR_OVERTIME * (decimal)wt._FACT_AVPAY_HOURS_OVERTIME;
+            wt._SALARY_AVPAY_HOLIDAYS = wt.R_HR_HOLIDAY * (decimal)wt._FACT_AVPAY_HOLIDAYS_HOURS;
+            wt._SALARY_AVPAY_HOLIDAYS_OVERTIME = wt.R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_AVPAY_HOLIDAYS_HOURS_OVERT;
         }
 
         //calc done through DoAvPay
         //wt._R_HR not set?
         public void CalcPayWithoutAvPay(SalaryInfo wt, KlonsADataSet.POSITIONS_RRow dr_amati_r)
         {
-            wt.PlanedWorkPay = wt._R_HR * (decimal)wt._PLAN_HOURS;
-            wt._SALARY_DAY = wt._R_HR * (decimal)wt._FACT_WORK_HOURS;
-            wt._SALARY_NIGHT = wt._R_HR_NIGHT * (decimal)wt._FACT_WORK_HOURS_NIGHT;
-            wt._SALARY_OVERTIME = wt._R_HR_OVERTIME * (decimal)wt._FACT_WORK_HOURS_OVERTIME;
+            wt.PlanedWorkPay = wt.R_HR * (decimal)wt._PLAN_HOURS;
+            wt._SALARY_DAY = wt.R_HR * (decimal)wt._FACT_WORK_HOURS;
+            wt._SALARY_NIGHT = wt.R_HR_NIGHT * (decimal)wt._FACT_WORK_HOURS_NIGHT;
+            wt._SALARY_OVERTIME = wt.R_HR_OVERTIME * (decimal)wt._FACT_WORK_HOURS_OVERTIME;
 
-            wt._SALARY_HOLIDAYS_DAY = wt._R_HR_HOLIDAY * (decimal)wt._FACT_HOLIDAYS_HOURS;
-            wt._SALARY_HOLIDAYS_NIGHT = wt._R_HR_HOLIDAY_NIGHT * (decimal)wt._FACT_HOLIDAYS_HOURS_NIGHT;
-            wt._SALARY_HOLIDAYS_OVERTIME = wt._R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_HOLIDAYS_HOURS_OVERTIME;
+            wt._SALARY_HOLIDAYS_DAY = wt.R_HR_HOLIDAY * (decimal)wt._FACT_HOLIDAYS_HOURS;
+            wt._SALARY_HOLIDAYS_NIGHT = wt.R_HR_HOLIDAY_NIGHT * (decimal)wt._FACT_HOLIDAYS_HOURS_NIGHT;
+            wt._SALARY_HOLIDAYS_OVERTIME = wt.R_HR_HOLIDAY_OVERTIME * (decimal)wt._FACT_HOLIDAYS_HOURS_OVERTIME;
 
             wt.FACT_AVPAY_FREE_DAYS_2 = wt._FACT_AVPAY_FREE_DAYS;
             wt.FACT_AVPAY_FREE_HOURS_2 = wt._FACT_AVPAY_FREE_HOURS;
@@ -251,9 +251,9 @@ namespace KlonsA.Classes
 
             if (totalwt == null)
             {
-                decimal rateo = wt._R_MT_OVERTIME / 100.0M;
-                decimal rateh = wt._R_MT_HOLIDAY / 100.0M;
-                decimal rateho = wt._R_MT_HOLIDAY_OVERTIME / 100.0M;
+                decimal rateo = wt.R_MT_OVERTIME / 100.0M;
+                decimal rateh = wt.R_MT_HOLIDAY / 100.0M;
+                decimal rateho = wt.R_MT_HOLIDAY_OVERTIME / 100.0M;
 
                 wt._SALARY_AVPAY_FREE_DAYS += _AvPayRate * (decimal)wt.FACT_AVPAY_FREE_DAYS_2;
 
@@ -478,71 +478,71 @@ namespace KlonsA.Classes
 
             SALARY_DAY.Days = si._FACT_WORK_DAYS;
             SALARY_DAY.Hours = si._FACT_WORK_HOURS;
-            SALARY_DAY.RateDef = si._R_MT;
-            SALARY_DAY.Rate = si._R_HR;
+            SALARY_DAY.RateDef = si.R_MT;
+            SALARY_DAY.Rate = si.R_HR;
             SALARY_DAY.Salary = si._SALARY_DAY;
 
             SALARY_NIGHT.Hours = si._FACT_WORK_HOURS_NIGHT;
-            SALARY_NIGHT.RateDef = si._R_MT_NIGHT;
-            SALARY_NIGHT.RateType = RateType(si._R_MT_NIGHT_TYPE);
-            SALARY_NIGHT.Rate = si._R_HR_NIGHT;
+            SALARY_NIGHT.RateDef = si.R_MT_NIGHT;
+            SALARY_NIGHT.RateType = RateType(si.R_MT_NIGHT_TYPE);
+            SALARY_NIGHT.Rate = si.R_HR_NIGHT;
             SALARY_NIGHT.Salary = si._SALARY_NIGHT;
 
             SALARY_OVERTIME.Hours = si._FACT_WORK_HOURS_OVERTIME;
-            SALARY_OVERTIME.RateDef = si._R_MT_OVERTIME;
-            SALARY_OVERTIME.RateType = RateType(si._R_MT_OVERTIME_TYPE);
-            SALARY_OVERTIME.Rate = si._R_HR_OVERTIME;
+            SALARY_OVERTIME.RateDef = si.R_MT_OVERTIME;
+            SALARY_OVERTIME.RateType = RateType(si.R_MT_OVERTIME_TYPE);
+            SALARY_OVERTIME.Rate = si.R_HR_OVERTIME;
             SALARY_OVERTIME.Salary = si._SALARY_OVERTIME;
 
             SALARY_HOLIDAYS_DAY.Days = si._FACT_HOLIDAYS_DAYS;
             SALARY_HOLIDAYS_DAY.Hours = si._FACT_HOLIDAYS_HOURS;
-            SALARY_HOLIDAYS_DAY.RateDef = si._R_MT_HOLIDAY;
-            SALARY_HOLIDAYS_DAY.RateType = RateType(si._R_MT_HOLIDAY_TYPE);
-            SALARY_HOLIDAYS_DAY.Rate = si._R_HR_HOLIDAY;
+            SALARY_HOLIDAYS_DAY.RateDef = si.R_MT_HOLIDAY;
+            SALARY_HOLIDAYS_DAY.RateType = RateType(si.R_MT_HOLIDAY_TYPE);
+            SALARY_HOLIDAYS_DAY.Rate = si.R_HR_HOLIDAY;
             SALARY_HOLIDAYS_DAY.Salary = si._SALARY_HOLIDAYS_DAY;
 
             SALARY_HOLIDAYS_NIGHT.Hours = si._FACT_HOLIDAYS_HOURS_NIGHT;
-            SALARY_HOLIDAYS_NIGHT.RateDef = si._R_MT_HOLIDAY_NIGHT;
-            SALARY_HOLIDAYS_NIGHT.RateType = RateType(si._R_MT_HOLIDAY_NIGHT_TYPE);
-            SALARY_HOLIDAYS_NIGHT.Rate = si._R_HR_HOLIDAY_NIGHT;
+            SALARY_HOLIDAYS_NIGHT.RateDef = si.R_MT_HOLIDAY_NIGHT;
+            SALARY_HOLIDAYS_NIGHT.RateType = RateType(si.R_MT_HOLIDAY_NIGHT_TYPE);
+            SALARY_HOLIDAYS_NIGHT.Rate = si.R_HR_HOLIDAY_NIGHT;
             SALARY_HOLIDAYS_NIGHT.Salary = si._SALARY_HOLIDAYS_NIGHT;
 
             SALARY_HOLIDAYS_OVERTIME.Hours = si._FACT_HOLIDAYS_HOURS_OVERTIME;
-            SALARY_HOLIDAYS_OVERTIME.RateDef = si._R_MT_HOLIDAY_OVERTIME;
-            SALARY_HOLIDAYS_OVERTIME.RateType = RateType(si._R_MT_HOLIDAY_OVERTIME_TYPE);
-            SALARY_HOLIDAYS_OVERTIME.Rate = si._R_HR_HOLIDAY_OVERTIME;
+            SALARY_HOLIDAYS_OVERTIME.RateDef = si.R_MT_HOLIDAY_OVERTIME;
+            SALARY_HOLIDAYS_OVERTIME.RateType = RateType(si.R_MT_HOLIDAY_OVERTIME_TYPE);
+            SALARY_HOLIDAYS_OVERTIME.Rate = si.R_HR_HOLIDAY_OVERTIME;
             SALARY_HOLIDAYS_OVERTIME.Salary = si._SALARY_HOLIDAYS_OVERTIME;
 
 
             SALARY_AVPAY_FREE_DAYS.Days = si._FACT_AVPAY_FREE_DAYS;
             SALARY_AVPAY_FREE_DAYS.Hours = si._FACT_AVPAY_FREE_HOURS;
-            SALARY_AVPAY_FREE_DAYS.RateDef = si._R_MT;
-            SALARY_AVPAY_FREE_DAYS.Rate = si._R_HR;
+            SALARY_AVPAY_FREE_DAYS.RateDef = si.R_MT;
+            SALARY_AVPAY_FREE_DAYS.Rate = si.R_HR;
             SALARY_AVPAY_FREE_DAYS.Salary = si._SALARY_AVPAY_FREE_DAYS;
 
             SALARY_AVPAY_WORK_DAYS.Days = si._FACT_AVPAY_WORK_DAYS;
             SALARY_AVPAY_WORK_DAYS.Hours = si._FACT_AVPAY_HOURS;
-            SALARY_AVPAY_WORK_DAYS.RateDef = si._R_MT;
-            SALARY_AVPAY_WORK_DAYS.Rate = si._R_HR;
+            SALARY_AVPAY_WORK_DAYS.RateDef = si.R_MT;
+            SALARY_AVPAY_WORK_DAYS.Rate = si.R_HR;
             SALARY_AVPAY_WORK_DAYS.Salary = si._SALARY_AVPAY_WORK_DAYS;
 
             SALARY_AVPAY_WORK_DAYS_OVERTIME.Hours = si._FACT_AVPAY_HOURS_OVERTIME;
-            SALARY_AVPAY_WORK_DAYS_OVERTIME.RateDef = si._R_MT_OVERTIME;
-            SALARY_AVPAY_WORK_DAYS_OVERTIME.RateType = RateType(si._R_MT_OVERTIME_TYPE);
-            SALARY_AVPAY_WORK_DAYS_OVERTIME.Rate = si._R_HR;
+            SALARY_AVPAY_WORK_DAYS_OVERTIME.RateDef = si.R_MT_OVERTIME;
+            SALARY_AVPAY_WORK_DAYS_OVERTIME.RateType = RateType(si.R_MT_OVERTIME_TYPE);
+            SALARY_AVPAY_WORK_DAYS_OVERTIME.Rate = si.R_HR;
             SALARY_AVPAY_WORK_DAYS_OVERTIME.Salary = si._SALARY_AVPAY_WORK_DAYS_OVERTIME;
 
             SALARY_AVPAY_HOLIDAYS.Days = si._FACT_AVPAY_WORKINHOLIDAYS;
             SALARY_AVPAY_HOLIDAYS.Hours = si._FACT_AVPAY_HOLIDAYS_HOURS;
-            SALARY_AVPAY_HOLIDAYS.RateDef = si._R_MT;
-            SALARY_AVPAY_HOLIDAYS.RateType = RateType(si._R_MT_HOLIDAY_TYPE);
-            SALARY_AVPAY_HOLIDAYS.Rate = si._R_HR;
+            SALARY_AVPAY_HOLIDAYS.RateDef = si.R_MT;
+            SALARY_AVPAY_HOLIDAYS.RateType = RateType(si.R_MT_HOLIDAY_TYPE);
+            SALARY_AVPAY_HOLIDAYS.Rate = si.R_HR;
             SALARY_AVPAY_HOLIDAYS.Salary = si._SALARY_AVPAY_HOLIDAYS;
 
             SALARY_AVPAY_HOLIDAYS_OVERTIME.Hours = si._FACT_AVPAY_HOLIDAYS_HOURS_OVERT;
-            SALARY_AVPAY_HOLIDAYS_OVERTIME.RateDef = si._R_MT_HOLIDAY_OVERTIME;
-            SALARY_AVPAY_HOLIDAYS_OVERTIME.RateType = RateType(si._R_MT_HOLIDAY_OVERTIME_TYPE);
-            SALARY_AVPAY_HOLIDAYS_OVERTIME.Rate = si._R_HR;
+            SALARY_AVPAY_HOLIDAYS_OVERTIME.RateDef = si.R_MT_HOLIDAY_OVERTIME;
+            SALARY_AVPAY_HOLIDAYS_OVERTIME.RateType = RateType(si.R_MT_HOLIDAY_OVERTIME_TYPE);
+            SALARY_AVPAY_HOLIDAYS_OVERTIME.Rate = si.R_HR;
             SALARY_AVPAY_HOLIDAYS_OVERTIME.Salary = si._SALARY_AVPAY_HOLIDAYS_OVERTIME;
         }
     }

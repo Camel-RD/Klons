@@ -15,9 +15,7 @@ namespace KlonsA.Classes
         public decimal Pay { get; set; } = 0.0M;
         public decimal PayNs { get; set; } = 0.0M;
         public decimal PayNt { get; set; } = 0.0M;
-        public decimal IinEx { get; set; } = 0.0M; // standad or pay+payns <= ima
-        public decimal IinExA { get; set; } = 0.0M; // ima < pay+payns <= imb
-        public decimal IinExB { get; set; } = 0.0M; // imb < pay+payns
+        public decimal IinEx { get; set; } = 0.0M; 
         public decimal UsedIinEx { get; set; } = 0.0M;
 
         public decimal DNS { get; set; } = 0.0M;
@@ -55,8 +53,6 @@ namespace KlonsA.Classes
             PayNs = from.PayNs;
             PayNt = from.PayNt;
             IinEx = from.IinEx;
-            IinExA = from.IinExA;
-            IinExB = from.IinExB;
             UsedIinEx = from.UsedIinEx;
             DNS = from.DNS;
             IIN = from.IIN;
@@ -83,8 +79,6 @@ namespace KlonsA.Classes
             HasTaxDoc = from.HasTaxDoc;
             HasProgressiveIIN = from.UseProgresiveIINRate;
             IinEx = from.ExDivided.SumIINExemptsAll();
-            IinExA = IinEx - from.ExDivided.ExUntaxedMinimum + from.ExDivided.ExUntaxedMinimum2;
-            IinExB = IinEx - from.ExDivided.ExUntaxedMinimum;
         }
 
         public void Add(PayFx from)
@@ -133,14 +127,14 @@ namespace KlonsA.Classes
             {
                 if (Pay + PayNs <= IM)
                 {
-                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
+                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
                     IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                     return IIN;
                 }
                 else
                 {
-                    UsedIinEx = IinExA;
-                    decimal iin1 = (IM - Pay * Sr - IinExA) * Ir;
+                    UsedIinEx = IinEx;
+                    decimal iin1 = (IM - Pay * Sr - IinEx) * Ir;
                     decimal iin2 = (Pay + PayNs - IM) * Ir2;
                     IIN = iin1 + iin2;
                     if (IIN < 0.0M)
@@ -182,15 +176,15 @@ namespace KlonsA.Classes
             {
                 if (Pay + PayNs <= IM)
                 {
-                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinExA);
+                    UsedIinEx = Math.Min(Pay + PayNs - DNS, IinEx);
                     IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                     IIN = RoundA(IIN);
                     return IIN;
                 }
                 else
                 {
-                    UsedIinEx = IinExA;
-                    decimal iin1 = (IM - DNS - IinExA) * Ir;
+                    UsedIinEx = IinEx;
+                    decimal iin1 = (IM - DNS - IinEx) * Ir;
                     decimal iin2 = (Pay + PayNs - IM) * Ir2;
                     IIN = RoundA(iin1 + iin2);
                     if (IIN < 0.0M)
@@ -380,8 +374,8 @@ namespace KlonsA.Classes
             px1 = Math.Min(px1, px2);
 
             decimal xs = 0.0M;
-            decimal x1 = 0M, x2 = 0M, x3 = 0M, x4 = 0M;
-            decimal dcash1 = 0M, dcash2 = 0M, dcash3 = 0M, dcash4 = 0M;
+            decimal x1 = 0M, x2 = 0M;
+            decimal dcash1 = 0M, dcash2 = 0M;
 
             decimal dpay1 = px1 - calcpay;
             if (dpay1 > 0.0M)

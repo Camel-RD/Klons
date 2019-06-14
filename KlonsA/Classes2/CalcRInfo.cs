@@ -10,10 +10,12 @@ namespace KlonsA.Classes
 {
     public class CalcRInfo
     {
+        public static KlonsData MyData => KlonsData.St;
+
         public bool PreparingReport = false;
+        public int CalcVer = 0;
         public List<CalcRRow> ReportRows = null;
         public CalcRRow CrUntaxedMinimum = null;
-        public CalcRRow CrUntaxedMinimum2 = null; // - VID noteiktais
         public CalcRRow CrDependants = null;
         public CalcRRow CrInvalidity = null;
         public CalcRRow CrRetaliation = null;
@@ -40,14 +42,14 @@ namespace KlonsA.Classes
         public bool UseProgresiveIINRate = false;
         public EIINExempt2Kind IINEx2Tp = EIINExempt2Kind.None;
 
-        public CalcRInfo(bool fillist = false)
+        public CalcRInfo(bool fillist, int calcver)
         {
             PreparingReport = fillist;
+            CalcVer = calcver;
             if (fillist)
             {
                 ReportRows = new List<CalcRRow>();
                 CrUntaxedMinimum = new CalcRRow("neapliekamais minimums");
-                CrUntaxedMinimum2 = new CalcRRow("neapliekamais minimums (VID)");
                 CrDependants = new CalcRRow("par apgādajamajiem");
                 CrInvalidity = new CalcRRow("par invaliditāti");
                 CrRetaliation = new CalcRRow("rehabilitētā persona");
@@ -109,9 +111,9 @@ namespace KlonsA.Classes
                 int caldays = dt2x.Subtract(dt1x).Days + 1;
                 CalendarDays += caldays;
 
-                GetIINDeductionsForPerson(wt1, pri.Item1 as KlonsADataSet.PERSONS_RRow, dr_likmes, dt1);
+                GetIINDeductionsForPerson(wt1, pri.Item1 as KlonsADataSet.PERSONS_RRow, dr_likmes, dt1x, dt2x, CalcVer);
 
-                ExFull.Add(wt1);
+                ExFull.AddForExFull(wt1);
 
                 if (PreparingReport)
                 {
@@ -211,10 +213,10 @@ namespace KlonsA.Classes
 
         }
 
-        public static void GetIINDeductionsForPerson(CalcRRow2 wt, KlonsADataSet.PERSONS_RRow drpr, KlonsADataSet.RATESRow drl, DateTime dt)
+        public static void GetIINDeductionsForPerson(CalcRRow2 wt, KlonsADataSet.PERSONS_RRow drpr,
+            KlonsADataSet.RATESRow drl, DateTime dt)
         {
             wt.ExUntaxedMinimum = 0.0M;
-            wt.ExUntaxedMinimum2 = 0.0M;
             wt.ExDependants = 0.0M;
             wt.ExInvalidity = 0.0M;
             wt.ExRetaliation = 0.0M;
@@ -239,14 +241,61 @@ namespace KlonsA.Classes
                     wt.ExUntaxedMinimum = 0.0M;
                 else
                 {
-                    wt.ExUntaxedMinimum = drl.NEPLIEK_MIN;
                     if (dt < ProgressiveIINStartDate)
                     {
-                        wt.ExUntaxedMinimum2 = 0.0M;
+                        wt.ExUntaxedMinimum = drl.NEPLIEK_MIN;
                     }
                     else
                     {
-                        wt.ExUntaxedMinimum2 = GetIINUntaxedMinimum(drpr.PERSONSRow, dt);
+                        wt.ExUntaxedMinimum = GetIINUntaxedMinimum(drpr.PERSONSRow, dt);
+                    }
+                }
+            }
+
+        }
+
+        public static void GetIINDeductionsForPerson(CalcRRow2 wt, KlonsADataSet.PERSONS_RRow drpr, 
+            KlonsADataSet.RATESRow drl, DateTime dt1, DateTime dt2, int calcver)
+        {
+            wt.ExUntaxedMinimum = 0.0M;
+            wt.ExDependants = 0.0M;
+            wt.ExInvalidity = 0.0M;
+            wt.ExRetaliation = 0.0M;
+            wt.ExNationalMovements = 0.0M;
+
+            if (!string.IsNullOrEmpty(drpr.TAXDOC_NO))
+            {
+                wt.ExDependants = drl.APGAD * (decimal)drpr.APGAD_SK;
+
+                if (drpr.INVALID == 1 || drpr.INVALID == 2)
+                    wt.ExInvalidity = drl.INVALID_12;
+                else if (drpr.INVALID == 3)
+                    wt.ExInvalidity = drl.INVALID_3;
+
+                if (drpr.PRET == 1)
+                    wt.ExNationalMovements = drl.PRET;
+
+                if (drpr.REPRES == 1)
+                    wt.ExRetaliation = drl.REPR;
+
+                if (drpr.PENSIONER == 1 || drpr.PENSIONER_SP == 1)
+                    wt.ExUntaxedMinimum = 0.0M;
+                else
+                {
+                    if (dt1 < ProgressiveIINStartDate)
+                    {
+                        wt.ExUntaxedMinimum = drl.NEPLIEK_MIN;
+                    }
+                    else
+                    {
+                        if(calcver == 0)
+                        {
+                            wt.ExUntaxedMinimum = GetIINUntaxedMinimum(drpr.PERSONSRow, dt1);
+                        }
+                        else
+                        {
+                            wt.ExUntaxedMinimum = GetIINUntaxedMinimum2(drpr.PERSONSRow, dt1, dt2);
+                        }
                     }
                 }
             }
@@ -261,6 +310,35 @@ namespace KlonsA.Classes
                 .LastOrDefault();
             if (dr_um == null) return 0.0M;
             return dr_um.UNTAXED_MIN;
+        }
+
+        public static decimal GetIINUntaxedMinimum2(KlonsADataSet.PERSONSRow drpr, 
+            DateTime dt1, DateTime dt2)
+        {
+            var pi = new PeriodInfo();
+            pi.DateFirst = dt1;
+            pi.DateLast = dt2;
+            var drs = drpr.GetUNTAXED_MINRows()
+                .OrderBy(d => d.ONDATE)
+                .ToArray();
+            if (drs.Length == 0) return 0.0M;
+            var rt = pi.ReadDateListFilter(drs, d => d.ONDATE);
+            if (rt != PeriodInfo.ERetReadStartEndList.OK ||
+                pi.LinkedPeriods.Count == 0) return 0.0M;
+
+            decimal daysinmonth = dt1.DaysInMonth();
+
+            decimal sum = 0.0M;
+            decimal daysct = 0.0M;
+            foreach (var pi2 in pi.LinkedPeriods)
+            {
+                daysct = (decimal)((pi2.DateLast - pi2.DateFirst).TotalDays + 1);
+                decimal rate = (pi2.Item1 as KlonsADataSet.UNTAXED_MINRow).UNTAXED_MIN;
+                sum += rate * daysct / daysinmonth;
+            }
+            daysct = (decimal)((dt2 - dt1).TotalDays + 1);
+            sum = sum / daysct * daysinmonth;
+            return sum;
         }
 
         // returns -1 if no data; 0 - reduced rate; 1 - full rate
@@ -348,7 +426,6 @@ namespace KlonsA.Classes
         {
             if (!PreparingReport) return;
             CrUntaxedMinimum.Days = days;
-            CrUntaxedMinimum2.Days = days;
             CrDependants.Days = days;
             CrInvalidity.Days = days;
             CrRetaliation.Days = days;
@@ -360,7 +437,6 @@ namespace KlonsA.Classes
         {
             if (!PreparingReport) return;
             CrUntaxedMinimum.RateForMonth = cr.ExUntaxedMinimum;
-            CrUntaxedMinimum2.RateForMonth = cr.ExUntaxedMinimum2;
             CrDependants.RateForMonth = cr.ExDependants;
             CrInvalidity.RateForMonth = cr.ExInvalidity;
             CrRetaliation.RateForMonth = cr.ExRetaliation;
@@ -372,7 +448,6 @@ namespace KlonsA.Classes
         {
             if (!PreparingReport) return;
             CrUntaxedMinimum.RateForDays = cr.ExUntaxedMinimum;
-            CrUntaxedMinimum2.RateForDays = cr.ExUntaxedMinimum2;
             CrDependants.RateForDays = cr.ExDependants;
             CrInvalidity.RateForDays = cr.ExInvalidity;
             CrRetaliation.RateForDays = cr.ExRetaliation;
@@ -414,7 +489,6 @@ namespace KlonsA.Classes
         {
             if (!PreparingReport) return;
             if (CrUntaxedMinimum.HasData()) AddToList(CrUntaxedMinimum, dt1, dt2);
-            if (CrUntaxedMinimum2.HasData()) AddToList(CrUntaxedMinimum2, dt1, dt2);
             if (CrDependants.HasData()) AddToList(CrDependants, dt1, dt2);
             if (CrInvalidity.HasData()) AddToList(CrInvalidity, dt1, dt2);
             if (CrRetaliation.HasData()) AddToList(CrRetaliation, dt1, dt2);
@@ -425,7 +499,6 @@ namespace KlonsA.Classes
         {
             if (!PreparingReport) return;
             if (CrUntaxedMinimum.HasData()) AddToListT(CrUntaxedMinimum);
-            if (CrUntaxedMinimum2.HasData()) AddToListT(CrUntaxedMinimum2);
             if (CrDependants.HasData()) AddToListT(CrDependants);
             if (CrInvalidity.HasData()) AddToListT(CrInvalidity);
             if (CrRetaliation.HasData()) AddToListT(CrRetaliation);
@@ -547,7 +620,6 @@ namespace KlonsA.Classes
     {
         public int CalendarDays = 0;
         public decimal ExUntaxedMinimum = 0.0M;
-        public decimal ExUntaxedMinimum2 = 0.0M;
         public decimal ExDependants = 0.0M;
         public decimal ExRetaliation = 0.0M;
         public decimal ExInvalidity = 0.0M;
@@ -569,7 +641,6 @@ namespace KlonsA.Classes
             ExNationalMovements = 0.0M;
             ExRetaliation = 0.0M;
             ExUntaxedMinimum = 0.0M;
-            ExUntaxedMinimum2 = 0.0M;
             Ex2Tp = EIINExempt2Kind.None;
             ExExpenses = 0.0M;
             RateDDSN = 0.0M;
@@ -588,7 +659,6 @@ namespace KlonsA.Classes
             if (ExNationalMovements != cr.ExNationalMovements) return false;
             if (ExRetaliation != cr.ExRetaliation) return false;
             if (ExUntaxedMinimum != cr.ExUntaxedMinimum) return false;
-            if (ExUntaxedMinimum2 != cr.ExUntaxedMinimum2) return false;
             if (Ex2Tp != cr.Ex2Tp) return false;
             if (ExExpenses != cr.ExExpenses) return false;
             if (RateDDSN != cr.RateDDSN) return false;
@@ -607,7 +677,6 @@ namespace KlonsA.Classes
             ExNationalMovements = cr.ExNationalMovements;
             ExRetaliation = cr.ExRetaliation;
             ExUntaxedMinimum = cr.ExUntaxedMinimum;
-            ExUntaxedMinimum2 = cr.ExUntaxedMinimum2;
             Ex2Tp = cr.Ex2Tp;
             ExExpenses = cr.ExExpenses;
             RateDDSN = cr.RateDDSN;
@@ -626,7 +695,6 @@ namespace KlonsA.Classes
             ExNationalMovements *= r;
             ExRetaliation *= r;
             ExUntaxedMinimum *= r;
-            ExUntaxedMinimum2 *= r;
         }
 
         public void Add(CalcRRow2 cr)
@@ -636,7 +704,15 @@ namespace KlonsA.Classes
             ExNationalMovements += cr.ExNationalMovements;
             ExRetaliation += cr.ExRetaliation;
             ExUntaxedMinimum += cr.ExUntaxedMinimum;
-            ExUntaxedMinimum2 += cr.ExUntaxedMinimum2;
+        }
+
+        public void AddForExFull(CalcRRow2 cr)
+        {
+            ExDependants = Math.Max(ExDependants, cr.ExDependants);
+            ExInvalidity = Math.Max(ExInvalidity, cr.ExInvalidity);
+            ExNationalMovements = Math.Max(ExNationalMovements, cr.ExNationalMovements);
+            ExRetaliation = Math.Max(ExRetaliation, cr.ExRetaliation);
+            ExUntaxedMinimum = Math.Max(ExUntaxedMinimum, cr.ExUntaxedMinimum);
         }
 
         public void Round()
@@ -646,7 +722,6 @@ namespace KlonsA.Classes
             ExNationalMovements = KlonsData.RoundA(ExNationalMovements, 2);
             ExRetaliation = KlonsData.RoundA(ExRetaliation, 2);
             ExUntaxedMinimum = KlonsData.RoundA(ExUntaxedMinimum, 2);
-            ExUntaxedMinimum2 = KlonsData.RoundA(ExUntaxedMinimum2, 2);
         }
 
         public void ApplyTo0(SalaryInfo si)
@@ -748,7 +823,6 @@ namespace KlonsA.Classes
             ExNationalMovements = KlonsData.RoundA(r * ExNationalMovements, 2);
             ExRetaliation = KlonsData.RoundA(r * ExRetaliation, 2);
             ExUntaxedMinimum = KlonsData.RoundA(r * ExUntaxedMinimum, 2);
-            ExUntaxedMinimum2 = KlonsData.RoundA(r * ExUntaxedMinimum2, 2);
         }
 
     }

@@ -28,12 +28,6 @@ namespace KlonsP.Classes
         private string doVersionCheck = "NO";
         private string lastVersionCheckDate = "";
 
-        private bool showPersonList = false;
-        private bool showPayDataPanel = false;
-        private bool showPayLists = false;
-        private bool showFpPayDataPanel = false;
-        private bool showFpPayLists = false;
-
         private int[] columnWidths_Docs = new int[0];
 
         [XmlIgnore]

@@ -11,6 +11,7 @@ namespace KlonsA.Classes
     public class VacationCalcInfo
     {
         public bool PreparingReport = false;
+        public int CalcVer = 0;
         public List<VacationCalcRow> Rows = null;
         public VacationCalcRow VcrPrev = new VacationCalcRow();
         public VacationCalcRow VcrPrevCurrent = new VacationCalcRow("A: izmaksāts iepriekš");
@@ -28,9 +29,10 @@ namespace KlonsA.Classes
         public decimal AvPayRateDay = 0.0M;
         public decimal AvPayRateCalendarDay = 0.0M;
 
-        public VacationCalcInfo(bool filllist)
+        public VacationCalcInfo(bool filllist, int calcver)
         {
             PreparingReport = filllist;
+            CalcVer = calcver;
             if (PreparingReport)
                 Rows = new List<VacationCalcRow>();
         }
@@ -84,7 +86,7 @@ namespace KlonsA.Classes
 
             for (int i = 0; i < scti.LinkedSCI.Length; i++)
             {
-                var vc = new VacationCalcInfo(PreparingReport);
+                var vc = new VacationCalcInfo(PreparingReport, CalcVer);
                 vcs[i] = vc;
                 vc.SetAvPayFrom(this);
             }
@@ -142,7 +144,7 @@ namespace KlonsA.Classes
             }
             else
             {
-                totalvc = new VacationCalcInfo(PreparingReport);
+                totalvc = new VacationCalcInfo(PreparingReport, CalcVer);
             }
 
             error_list = totalvc.GetAvPayCalc(sr);
@@ -161,7 +163,7 @@ namespace KlonsA.Classes
             for (int i = 0; i < srs.LinkedRows.Length; i++)
             {
                 var lr = srs.LinkedRows[i];
-                var vc = new VacationCalcInfo(PreparingReport);
+                var vc = new VacationCalcInfo(PreparingReport, CalcVer);
                 positions[i] = lr.GetPositionTitle();
                 vc.SetAvPayFrom(this);
                 if (lr == sr)
@@ -303,7 +305,7 @@ namespace KlonsA.Classes
                 if (dlrowsetT == null) dlrowsetT = srs.GetDLRowSetList();
                 dlrowsetT.CountVacationTime(vt);
                 caldays += (vt.DateEnd - vt.DateStart).Days + 1;
-                VcrPrevCurrent.CalcAndAdd(srs, vt, _AvPayRate);
+                VcrPrevCurrent.CalcAndAdd(srs, vt, _AvPayRate, CalcVer);
 
                 if (PreparingReport) AddRepRow(vt, "A", "Kopā");
 
@@ -328,7 +330,7 @@ namespace KlonsA.Classes
                             r = (decimal)(v.Hours / vt.Hours);
 
                         v.Pay = KlonsData.RoundA(vt.Pay * r, 2);
-                        vci.VcrPrevCurrent.CalcAndAddSplit(sr, v);
+                        vci.VcrPrevCurrent.CalcAndAddSplit(sr, v, CalcVer);
 
                         if (PreparingReport) vci.AddRepRow(vt, "A", sr.GetPositionTitle());
                     }
@@ -346,7 +348,7 @@ namespace KlonsA.Classes
                 if (dlrowsetT == null) dlrowsetT = srs.GetDLRowSetList();
                 dlrowsetT.CountVacationTime(vt);
                 caldays += (vt.DateEnd - vt.DateStart).Days + 1;
-                VcrCurrent.CalcAndAdd(srs, vt, _AvPayRate);
+                VcrCurrent.CalcAndAdd(srs, vt, _AvPayRate, CalcVer);
 
                 if (PreparingReport) AddRepRow(vt, "B", "Kopā");
 
@@ -383,7 +385,7 @@ namespace KlonsA.Classes
                         var vci = vcs[i];
                         if (vci == null) continue;
                         var sr = srs.SalarySheetRowSet.LinkedRows[i];
-                        vci.VcrCurrent.CalcAndAddSplit(sr, v);
+                        vci.VcrCurrent.CalcAndAddSplit(sr, v, CalcVer);
                         if (PreparingReport) vci.AddRepRow(vt, "B", sr.GetPositionTitle());
                     }
 
@@ -470,7 +472,10 @@ namespace KlonsA.Classes
             {
                 var dr_ev = fe.Item2 as KlonsADataSet.EVENTSRow;
                 if (dr_ev == null) continue;
-                vt.Days += dr_ev.DAYS;
+                if(srs.Row.CALC_VER == 0)
+                    vt.Days += dr_ev.DAYS;
+                else
+                    vt.Days += dr_ev.DAYS2;
             }
             if (vt.Days > 0)
             {
@@ -482,7 +487,7 @@ namespace KlonsA.Classes
                 caldays = vt.Days;
                 vt.Hours = 0.0f;
 
-                VcrCompensation.CalcAndAdd(srs, vt, AvPayRateCalendarDay);
+                VcrCompensation.CalcAndAdd(srs, vt, AvPayRateCalendarDay, CalcVer);
 
                 if (PreparingReport) AddRepRow(vt, "D", "Kopā");
 
@@ -514,13 +519,13 @@ namespace KlonsA.Classes
                         var vci = vcs[i];
                         if (vci == null) continue;
                         var sr = srs.SalarySheetRowSet.LinkedRows[i];
-                        vci.VcrCompensation.CalcAndAddSplit(sr, v);
+                        vci.VcrCompensation.CalcAndAddSplit(sr, v, CalcVer);
                         if (PreparingReport) vci.AddRepRow(vt, "D", sr.GetPositionTitle());
                     }
                 }
             }
 
-            VcrNext.CalcAll(srs, vcs);
+            VcrNext.CalcAll(srs, vcs, CalcVer);
 
             if (PreparingReport) PrepareRows();
             return error_list;
@@ -765,7 +770,7 @@ namespace KlonsA.Classes
             vcmt.Add(v);
         }
 
-        public void CalcAll(SalarySheetRowInfo sr, VacationCalcInfo[] vcs)
+        public void CalcAll(SalarySheetRowInfo sr, VacationCalcInfo[] vcs, int calcver)
         {
             Days = 0.0f;
             Hours = 0.0f;
@@ -777,7 +782,7 @@ namespace KlonsA.Classes
 
             foreach (var v in PerMonth)
             {
-                CalcAll(sr, v.Value);
+                CalcAll(sr, v.Value, calcver);
                 Add(v.Value);
             }
 
@@ -820,16 +825,14 @@ namespace KlonsA.Classes
 
         }
 
-        public PayFx CalcAll(SalarySheetRowInfo sr, VacationCalcRow v)
+        public PayFx CalcAll(SalarySheetRowInfo sr, VacationCalcRow v, int calcver)
         {
-            var cri = new CalcRInfo();
+            var cri = new CalcRInfo(false, calcver);
             cri.CalcR(sr, v.DateStart, v.DateEnd);
             var pfx = new PayFx(cri);
             if (cri.UseProgresiveIINRate)
             {
                 pfx.IinEx = 0.0M;
-                pfx.IinExA = 0.0M;
-                pfx.IinExB = 0.0M;
             }
             else
             {
@@ -903,20 +906,20 @@ namespace KlonsA.Classes
 
 
         public void CalcAndAdd(SalarySheetRowInfo sr, VacationCalcRow v,
-            decimal AvPayRateDay)
+            decimal AvPayRateDay, int calcver)
         {
             v.AvPayRate = AvPayRateDay;
             v.Pay = KlonsData.RoundA(AvPayRateDay * (decimal)v.Days, 2);
-            var pcri = new CalcRInfo();
+            var pcri = new CalcRInfo(false, calcver);
             pcri.CalcR(sr, v.DateStart, v.DateEnd);
             v.DNS = KlonsData.RoundA(pcri.RateDNSN * v.Pay / 100.0M, 2);
             v.Cash = v.Pay - v.DNS;
             Add(v);
         }
 
-        public void CalcAndAddSplit(SalarySheetRowInfo sr, VacationCalcRow v)
+        public void CalcAndAddSplit(SalarySheetRowInfo sr, VacationCalcRow v, int calcver)
         {
-            var pcri = new CalcRInfo();
+            var pcri = new CalcRInfo(false, calcver);
             pcri.CalcR(sr, v.DateStart, v.DateEnd);
             v.DNS = KlonsData.RoundA(pcri.RateDNSN * v.Pay / 100.0M, 2);
             v.Cash = v.Pay - v.DNS;

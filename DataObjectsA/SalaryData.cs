@@ -22,25 +22,25 @@ namespace DataObjectsA
         public string _POSITION_TITLE { get; set; } = null;
         public string _TERRITORIAL_CODE { get; set; } = null;
 
-        public Int16 _R_TYPE { get; set; } = 0;
-        public decimal _R_MT { get; set; } = 0.0M;
-        public decimal _R_MT_NIGHT { get; set; } = 0.0M;
-        public Int16 _R_MT_NIGHT_TYPE { get; set; } = 0;
-        public decimal _R_MT_OVERTIME { get; set; } = 0.0M;
-        public Int16 _R_MT_OVERTIME_TYPE { get; set; } = 0;
-        public decimal _R_MT_HOLIDAY { get; set; } = 0.0M;
-        public Int16 _R_MT_HOLIDAY_TYPE { get; set; } = 0;
-        public decimal _R_MT_HOLIDAY_NIGHT { get; set; } = 0.0M;
-        public Int16 _R_MT_HOLIDAY_NIGHT_TYPE { get; set; } = 0;
-        public decimal _R_MT_HOLIDAY_OVERTIME { get; set; } = 0.0M;
-        public Int16 _R_MT_HOLIDAY_OVERTIME_TYPE { get; set; } = 0;
-        public Int16 _R_HR_TYPE { get; set; } = 0;
-        public decimal _R_HR { get; set; } = 0.0M;
-        public decimal _R_HR_NIGHT { get; set; } = 0.0M;
-        public decimal _R_HR_OVERTIME { get; set; } = 0.0M;
-        public decimal _R_HR_HOLIDAY { get; set; } = 0.0M;
-        public decimal _R_HR_HOLIDAY_NIGHT { get; set; } = 0.0M;
-        public decimal _R_HR_HOLIDAY_OVERTIME { get; set; } = 0.0M;
+        public Int16 R_TYPE { get; set; } = 0;
+        public decimal R_MT { get; set; } = 0.0M;
+        public decimal R_MT_NIGHT { get; set; } = 0.0M;
+        public Int16 R_MT_NIGHT_TYPE { get; set; } = 0;
+        public decimal R_MT_OVERTIME { get; set; } = 0.0M;
+        public Int16 R_MT_OVERTIME_TYPE { get; set; } = 0;
+        public decimal R_MT_HOLIDAY { get; set; } = 0.0M;
+        public Int16 R_MT_HOLIDAY_TYPE { get; set; } = 0;
+        public decimal R_MT_HOLIDAY_NIGHT { get; set; } = 0.0M;
+        public Int16 R_MT_HOLIDAY_NIGHT_TYPE { get; set; } = 0;
+        public decimal R_MT_HOLIDAY_OVERTIME { get; set; } = 0.0M;
+        public Int16 R_MT_HOLIDAY_OVERTIME_TYPE { get; set; } = 0;
+        public Int16 R_HR_TYPE { get; set; } = 0;
+        public decimal R_HR { get; set; } = 0.0M;
+        public decimal R_HR_NIGHT { get; set; } = 0.0M;
+        public decimal R_HR_OVERTIME { get; set; } = 0.0M;
+        public decimal R_HR_HOLIDAY { get; set; } = 0.0M;
+        public decimal R_HR_HOLIDAY_NIGHT { get; set; } = 0.0M;
+        public decimal R_HR_HOLIDAY_OVERTIME { get; set; } = 0.0M;
 
         public int _CALENDAR_DAYS { get; set; } = 0;
         public int _CALENDAR_DAYS_USE { get; set; } = 0;
@@ -209,6 +209,8 @@ namespace DataObjectsA
         public decimal _AVPAYCALC_CALDAY { get; set; } = 0.0M;
         public decimal _AVPAYCALC_HOUR { get; set; } = 0.0M;
 
+        public DateTime? _DT_EDITED { get; set; }
+        public int _CALC_VER { get; set; } = 0;
     }
 
 }

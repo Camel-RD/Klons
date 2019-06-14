@@ -478,7 +478,6 @@
 
         private KlonsLIB.Data.MyBindingSource bsRows;
         private KlonsLIB.Components.MyDataGridView dgvRows;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcValueA;
         private KlonsLIB.Components.MyMcFlatComboBox cbYear;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbFirst;

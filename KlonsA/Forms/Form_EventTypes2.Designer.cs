@@ -291,7 +291,6 @@
         private KlonsLIB.Components.MyDataGridView dgvEv;
         private KlonsLIB.Data.MyAdapterManager myAdapterManager1;
         private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTag;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;

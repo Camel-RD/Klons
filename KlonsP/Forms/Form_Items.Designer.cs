@@ -2128,7 +2128,6 @@
         private KlonsLIB.Data.MyBindingSource bsDepartments;
         private KlonsLIB.Components.MyDataGridView dgvEvents;
         private KlonsLIB.Components.MyDataGridView dgvItems;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcItemsActive;
         private KlonsLIB.Components.MySplitContainer mySplitContainer1;
         private KlonsLIB.Data.MyBindingSource bsEvents;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowTitle grTitleItem;

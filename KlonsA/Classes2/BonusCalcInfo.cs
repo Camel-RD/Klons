@@ -429,7 +429,7 @@ namespace KlonsA.Classes
 
 
         public decimal CalcFromEndC(SalaryInfo si,
-            decimal totalinex, decimal totalinexa, decimal totalinexb,
+            decimal totalinex,
             decimal curbruto, decimal brutonosai, 
             decimal brutomargin, decimal brutomargina, decimal brutomarginb,
             bool useprogressiveiin, bool hastaxdoc,
@@ -453,8 +453,6 @@ namespace KlonsA.Classes
             p1.Pay = curbruto;
             p1.PayNs = brutonosai;
             p1.IinEx = totalinex;
-            p1.IinExA = totalinexa;
-            p1.IinExB = totalinexb;
 
             for (int i = 0; i < DataRows.Length; i++)
             {
@@ -480,7 +478,7 @@ namespace KlonsA.Classes
 
 
         public decimal CalcFromEndCT(SalaryCalcTInfo sct,
-            decimal totalinex, decimal totalinexa, decimal totalinexb,
+            decimal totalinex,
             decimal curbruto, decimal brutonosai, 
             decimal brutomargin, decimal brutomargina, decimal brutomarginb,
             bool useprogressiveiin, bool hastaxdoc,
@@ -495,7 +493,7 @@ namespace KlonsA.Classes
             List<PayFx2> rpfxt = null;
 
             decimal calcbruto = CalcFromEndC(sct.TotalSI, 
-                totalinex, totalinexa, totalinexb,
+                totalinex,
                 curbruto, brutonosai, 
                 brutomargin, brutomargina, brutomarginb,
                 useprogressiveiin, hastaxdoc,

@@ -148,7 +148,7 @@ namespace KlonsA.Classes
             int i, j;
             int i1 = dt1.Day;
             int i2 = dt2.Day;
-            float vp, vpn;
+            float vp;
             EDayPlanId daycodeplan;
 
             for (i = i1; i <= i2; i++)

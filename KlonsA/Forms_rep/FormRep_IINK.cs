@@ -97,6 +97,7 @@ namespace KlonsA.Forms
             }
             else
             {
+                ReportTP = Report_IINk.EReportType.ForMonth;
                 Month = cbMonth.SelectedIndex + 1;
                 if (Month < 1 || Month > 12)
                     return "Norādōts nekorekts mēnesis.";

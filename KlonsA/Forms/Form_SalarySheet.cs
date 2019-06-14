@@ -675,7 +675,89 @@ namespace KlonsA.Forms
 
         private void dgvLapa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (e.RowIndex < 0 || e.RowIndex > bsSarR.Count) return;
+            if(e.ColumnIndex == dgcSarAvPay.Index)
+            {
+                var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
+                if (dr == null) return;
+                decimal val = 
+                    dr.SALARY_AVPAY_FREE_DAYS +
+                    dr.SALARY_AVPAY_WORK_DAYS +
+                    dr.SALARY_AVPAY_WORK_DAYS_OVERTIME +
+                    dr.SALARY_AVPAY_HOLIDAYS +
+                    dr.SALARY_AVPAY_HOLIDAYS_OVERTIME;
+                e.Value = val.ToString("# ##0.00;-# ##0.00;\"\"");
+                e.FormattingApplied = true;
+                return;
+            }
+            if (e.ColumnIndex == dgcSarPlusTotal.Index)
+            {
+                var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
+                if (dr == null) return;
+                decimal val =
+                    dr.PLUS_AUTHORS_FEES +
+                    dr.PLUS_TAXED +
+                    dr.PLUS_NOSAI +
+                    dr.PLUS_NOTTAXED +
+                    dr.PLUS_HI_NOTTAXED +
+                    dr.PLUS_HI_TAXED +
+                    dr.PLUS_LI_NOTTAXED +
+                    dr.PLUS_LI_TAXED +
+                    dr.PLUS_PF_NOTTAXED +
+                    dr.PLUS_PF_TAXED;
+                e.Value = val.ToString("# ##0.00;-# ##0.00;\"\"");
+                e.FormattingApplied = true;
+                return;
+            }
+        }
 
+
+        private void SaveHistory()
+        {
+            var table = MyData.DataSetKlons.SALARY_SHEETS_R;
+            int dt_fieldnr = table.Columns["DT_EDITED"].Ordinal;
+            var dt = DateTime.Now;
+            var rows = table.Select(null, null, DataViewRowState.Deleted) as KlonsADataSet.SALARY_SHEETS_RRow[];
+            foreach (var row in rows)
+            {
+                MyData.KlonsQueriesTableAdapter.SP_MAKE_SALARY_SHEET_R_HIST(row.ID, dt, MyData.SalaryCalcHistoryInterval);
+            }
+            rows = table.Select(null, null, DataViewRowState.ModifiedCurrent) as KlonsADataSet.SALARY_SHEETS_RRow[];
+            rows = rows
+                .Where(d =>
+                    d.RowState != DataRowState.Deleted && 
+                    d.RowState != DataRowState.Detached)
+                .ToArray();
+            var idsx_saved = new HashSet<int>();
+            foreach (var row in rows)
+            {
+                if (!(row.HasVersion(DataRowVersion.Current) &&
+                    row.HasVersion(DataRowVersion.Original))) continue;
+                row.DT_EDITED = dt;
+                var old_dt = row[dt_fieldnr, DataRowVersion.Original];
+                if (old_dt == null) continue;
+                if (dt > (DateTime)old_dt &&
+                    dt < ((DateTime)old_dt).AddDays(MyData.SalaryCalcHistoryInterval)) continue;
+                if(row.XType == ESalarySheetRowType.OnlyOne)
+                {
+                    MyData.KlonsQueriesTableAdapter.SP_MAKE_SALARY_SHEET_R_HIST(row.ID, dt, MyData.SalaryCalcHistoryInterval);
+                }
+                else
+                {
+                    if (idsx_saved.Contains(row.IDSX)) continue;
+                    MyData.KlonsQueriesTableAdapter.SP_MAKE_SALARY_SHEET_R_HIST_2(row.IDSX, dt, MyData.SalaryCalcHistoryInterval);
+                    idsx_saved.Add(row.IDSX);
+                }
+            }
+        }
+
+        private bool ConfirmRecalc()
+        {
+            var rt = MyMessageBox.Show(
+                "Veicot pārrēķinu pašreizējie aprēķina dati var nebūt atjaunojami.\n" +
+                "Vai tiešām vēlaties veikt pārrēķinu?", "",
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            return rt == DialogResult.Yes;
         }
 
         private void pārrēķinātDarbiniekamToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -683,9 +765,15 @@ namespace KlonsA.Forms
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
             if (dr_lapas_r == null) return;
+            if (!dr_lapas_r.IsDT_EDITEDNull() && 
+                dr_lapas_r.DT_EDITED.AddDays(MyData.SalaryCalcHistoryInterval) < DateTime.Now)
+            {
+                if (!ConfirmRecalc()) return;
+            }
             var err = DataTasks.CalcSalarySheetRow(dr_lapas_r.ID);
             if(err.HasErrors)
                 Form_ErrorList.ShowErrorList(MyMainForm, err);
+            SaveHistory();
             SaveData();
         }
 
@@ -694,11 +782,235 @@ namespace KlonsA.Forms
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
             if (dr_lapas_r == null) return;
+            if (!dr_lapas_r.IsDT_EDITEDNull() &&
+                dr_lapas_r.DT_EDITED.AddDays(MyData.SalaryCalcHistoryInterval) < DateTime.Now)
+            {
+                if (!ConfirmRecalc()) return;
+            }
             var err = DataTasks.CalcSalarySheet(dr_lapas_r.IDS);
             if (err.HasErrors)
                 Form_ErrorList.ShowErrorList(MyMainForm, err);
+            SaveHistory();
             SaveData();
         }
+
+        public bool RestoreRow(KlonsADataSet.SALARY_SHEETS_RRow row_cur, 
+            KlonsADataSet.SALARY_SHEETS_R_HISTRow row_hist)
+        {
+            row_cur.BeginEdit();
+            try
+            {
+                foreach (DataColumn cm in row_hist.Table.Columns)
+                {
+                    if (cm.ColumnName == "IDH") continue;
+                    row_cur[cm.ColumnName] = row_hist[cm.ColumnName];
+                }
+                row_cur.EndEditX();
+            }
+            catch (Exception )
+            {
+                row_cur.CancelEdit();
+                return false;
+            }
+            return true;
+        }
+
+        private IEnumerable<decimal> GetEnumetatedHistRowData(KlonsADataSet.SALARY_SHEETS_R_HISTRow row)
+        {
+            yield return row.SALARY;
+            yield return row.SALARY_AVPAY_FREE_DAYS;
+            yield return row.SALARY_AVPAY_HOLIDAYS;
+            yield return row.SALARY_AVPAY_HOLIDAYS_OVERTIME;
+            yield return row.SALARY_AVPAY_WORK_DAYS;
+            yield return row.SALARY_AVPAY_WORK_DAYS_OVERTIME;
+            yield return row.SALARY_DAY;
+            yield return row.SALARY_NIGHT;
+            yield return row.SALARY_OVERTIME;
+            yield return row.SALARY_PIECEWORK;
+            yield return row.SICKDAYS_PAY;
+            yield return row.VACATION_PAY_CURRENT;
+
+            yield return row.PLUS_AUTHORS_FEES;
+            yield return row.PLUS_HI_NOTTAXED;
+            yield return row.PLUS_HI_TAXED;
+            yield return row.PLUS_LI_NOTTAXED;
+            yield return row.PLUS_LI_TAXED;
+            yield return row.PLUS_NOSAI;
+            yield return row.PLUS_NOTTAXED;
+            yield return row.PLUS_NOT_PAID;
+            yield return row.PLUS_NP_NOSAI;
+            yield return row.PLUS_NP_NOTTAXED;
+            yield return row.PLUS_NP_TAXED;
+            yield return row.PLUS_PF_NOTTAXED;
+            yield return row.PLUS_PF_TAXED;
+            yield return row.PLUS_TAXED;
+
+            yield return row.TOTAL_BEFORE_TAXES;
+            yield return row.AMOUNT_BEFORE_SN;
+            yield return row.AMOUNT_BEFORE_IIN;
+
+            yield return row.DNSN_AMOUNT;
+            yield return row.DDSN_AMOUNT;
+
+            yield return row.IIN_AMOUNT;
+            yield return row.IIN_EXEMPT_2;
+            yield return row.IIN_EXEMPT_DEPENDANTS;
+            yield return row.IIN_EXEMPT_UNTAXED_MINIMUM;
+
+            yield return row.ADVANCE;
+            yield return row.PAY;
+            yield return row.PAYT;
+        }
+
+        private bool TestHistSum(KlonsADataSet.SALARY_SHEETS_R_HISTRow row_total,
+            KlonsADataSet.SALARY_SHEETS_R_HISTRow[] rows_linked)
+        {
+            var enumeratort = GetEnumetatedHistRowData(row_total);
+            var enumerators = rows_linked
+                .Select(d => GetEnumetatedHistRowData(d).GetEnumerator())
+                .ToArray();
+            foreach(decimal dt in enumeratort)
+            {
+                decimal sum = 0.0M;
+                foreach (var enumeratorx in enumerators)
+                {
+                    if (!enumeratorx.MoveNext()) return false;
+                    sum += enumeratorx.Current;
+                }
+                if (dt != sum) return false;
+            }
+            return true;
+        }
+
+        private bool RestoreRowsX(KlonsADataSet.SALARY_SHEETS_RRow row_cur,
+            KlonsADataSet.SALARY_SHEETS_R_HISTDataTable table_hist)
+        {
+            if (row_cur.XType == ESalarySheetRowType.OnlyOne) return false;
+
+            var table_lapas_r = MyData.DataSetKlons.SALARY_SHEETS_R;
+
+            var drs_lapas_r = table_lapas_r.WhereX(
+                d =>
+                d.IDSX == row_cur.IDSX
+            ).ToArray();
+
+            var drs_total_r = drs_lapas_r.Where(
+                d =>
+                d.XType == ESalarySheetRowType.Total
+            ).ToArray();
+
+            var drs_linked_r = drs_lapas_r.Where(
+                d =>
+                d.XType != ESalarySheetRowType.Total
+            ).ToArray();
+
+            if (drs_total_r.Length != 1) return false;
+            if (drs_linked_r.Length < 2) return false;
+
+            var dr_total_r = drs_total_r[0];
+
+            List<KlonsADataSet.SALARY_SHEETS_R_HISTRow>[] lists_hist_r = 
+                new List<KlonsADataSet.SALARY_SHEETS_R_HISTRow>[drs_lapas_r.Length];
+
+            KlonsADataSet.SALARY_SHEETS_R_HISTRow[] hist_rs =
+                new KlonsADataSet.SALARY_SHEETS_R_HISTRow[drs_lapas_r.Length];
+
+            var gr = table_hist
+                .GroupBy(d => d.ID)
+                .ToDictionary(
+                    d => d.Key, 
+                    d => d.OrderBy(d1 => d1.DT_EDITED).ToList());
+
+            for(int i = 0; i < drs_lapas_r.Length; i++)
+            {
+                var dr = drs_lapas_r[i];
+                if (!gr.TryGetValue(dr.ID, out var list_hist_r)) return false;
+                lists_hist_r[i] = list_hist_r;
+            }
+
+            var dt = row_cur.DT_EDITED;
+
+            for (int i = 0; i < drs_lapas_r.Length; i++)
+            {
+                var dr = drs_lapas_r[i];
+                var list_hist_r = lists_hist_r[i];
+                if(list_hist_r.Count == 1)
+                {
+                    hist_rs[i] = list_hist_r[0];
+                    continue;
+                }
+                hist_rs[i] = list_hist_r
+                    .OrderBy(d => Math.Abs((d.DT_EDITED - dt).TotalMilliseconds))
+                    .First();
+            }
+
+            var hist_total_dr = hist_rs
+                .Where(d => d.ID == dr_total_r.ID)
+                .FirstOrDefault();
+
+            var hist_linked_drs = hist_rs
+                .Where(d => d.ID != dr_total_r.ID)
+                .ToArray();
+
+            if (!TestHistSum(hist_total_dr, hist_linked_drs)) return false;
+
+            for (int i = 0; i < drs_lapas_r.Length; i++)
+            {
+                var dr = drs_lapas_r[i];
+                var hist_r = hist_rs[i];
+                if (!RestoreRow(dr, hist_r)) return false;
+            }
+
+            return true;
+        }
+
+        private void RādītAprēķinaIzmaiņuVēsturiToolStripMenuItem_Click(object sender, EventArgs e)
+        {  
+            if (bsSarR.Current == null) return;
+            var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
+            if (dr_lapas_r == null) return;
+            var ad = new DataSets.KlonsADataSetTableAdapters.SALARY_SHEETS_R_HISTTableAdapter();
+            var table_hist = ad.GetDataBy_SP_SALARY_SHEETS_R_HIST_01(dr_lapas_r.ID);
+            if(table_hist.Rows.Count == 0)
+            {
+                MyMainForm.ShowInfo("Aprēķinam nav saglabāti izmaiņu ieraksti.");
+                return;
+            }
+            int rt = Form_SalarySheetRowHistory.Show(table_hist);
+            if (rt == -1) return;
+            var dr_hist = table_hist.Where(d => d.IDH == rt).FirstOrDefault();
+            if (dr_hist == null) return;
+
+            var rt2 = MyMessageBox.Show(
+                "Veicot datu atjaunošanu, pašreizējie aprēķina dati var būt neatgūstami." +
+                "Vai tiešām vēlaties veikt datu atjaunošanu uz saglabāto versiju?",
+                "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+            if (rt2 != DialogResult.Yes) return;
+
+            bool restore_ok = false;
+            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne)
+            {
+                restore_ok = RestoreRow(dr_lapas_r, dr_hist);
+            }
+            else
+            {
+                DateTime dt = dr_hist.DT_EDITED;
+                DateTime dt1 = dt.AddSeconds(-5);
+                DateTime dt2 = dt.AddSeconds(5);
+
+                var table_hist2 = ad.GetDataBy_SP_SALARY_SHEETS_R_HIST_02(dr_lapas_r.IDSX, dt1, dt2);
+                restore_ok = RestoreRowsX(dr_lapas_r, table_hist2);
+            }
+            if (!restore_ok)
+            {
+                MyMainForm.ShowWarning("Neizdevās pārkopēt aprēķina datus no iepriekšējās versijas.");
+                return;
+            }
+            SaveHistory();
+            SaveData();
+        }
+
 
         private void vidējāsIzpeļņasAprēķinsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -889,6 +1201,12 @@ namespace KlonsA.Forms
             MyData.Params.SalarySheetShowPositionTitle = b;
         }
 
+        public void ShowDataPanel(bool b)
+        {
+            tabControl1.Visible = b;
+            miShowDataPanel.Checked = b;
+        }
+
         private void miShoeBonusList_Click(object sender, EventArgs e)
         {
             ShowBonusList(splitContainer2.Panel2Collapsed);
@@ -899,6 +1217,10 @@ namespace KlonsA.Forms
             ShowPositionTitleColumn(!dgcSarPositionTitle.Visible);
         }
 
+        private void MiShowDataPanel_Click(object sender, EventArgs e)
+        {
+            ShowDataPanel(!tabControl1.Visible);
+        }
 
         private void arAmatiemBezParakstiemToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -912,6 +1234,16 @@ namespace KlonsA.Forms
             if (bsLapas.Count == 0 || bsLapas.Current == null) return;
             var dr = (bsLapas.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
             Report_Salary2.MakeReport(dr, Report_Salary2.ERepType.NoPosWithSign);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.D))
+            {
+                ShowDataPanel(!tabControl1.Visible);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
     }

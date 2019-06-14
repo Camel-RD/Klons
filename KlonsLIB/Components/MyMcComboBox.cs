@@ -32,7 +32,6 @@ namespace KlonsLIB.Components
         private Color m_GridLineColor;
         private string[] m_ColumnNames;
         private string[] m_ColumnNamesAll;
-        private bool valueChanged = false;
         private string[] m_ItemStrings = null;
 
         public MyMcComboBox()

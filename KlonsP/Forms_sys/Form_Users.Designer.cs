@@ -278,9 +278,6 @@ namespace KlonsP.Forms
 
         private MyBindingSource bsUsers;
         private MyDataGridView dgvUsers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcUsersName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcUsersPSW;
-        private MyDgvMcCBColumn dgcUsersTp;
         private MyBindingNavigator bnavUsers;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;

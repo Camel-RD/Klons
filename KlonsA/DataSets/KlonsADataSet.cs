@@ -204,62 +204,6 @@ namespace KlonsA.DataSets
                     f += (float)this[i + v1_colnr];
                 return f;
             }
-
-            public bool HasChanges()
-            {
-                if (!HasVersion(DataRowVersion.Original) ||
-                    !HasVersion(DataRowVersion.Current)) return false;
-                for (int i = 0; i < Table.Columns.Count; i++)
-                {
-                    var vor = this[i, DataRowVersion.Original];
-                    var vcur = this[i, DataRowVersion.Current];
-                    if (!object.Equals(vor, vcur)) return true;
-                }
-                return false;
-            }
-
-            public bool HasChanges2()
-            {
-                if (!HasVersion(DataRowVersion.Proposed) ||
-                    !HasVersion(DataRowVersion.Current)) return false;
-                for (int i = 0; i < Table.Columns.Count; i++)
-                {
-                    var vor = this[i, DataRowVersion.Proposed];
-                    var vcur = this[i, DataRowVersion.Current];
-                    if (!object.Equals(vor, vcur)) return true;
-                }
-                return false;
-            }
-
-            public void EndEditX()
-            {
-                if (RowState == DataRowState.Added)
-                {
-                    EndEdit();
-                    return;
-                }
-                if (HasVersion(DataRowVersion.Current) &&
-                    HasVersion(DataRowVersion.Proposed))
-                {
-                    if (!HasChanges2())
-                    {
-                        CancelEdit();
-                    }
-                    else
-                    {
-                        EndEdit();
-                    }
-                }
-                if (HasVersion(DataRowVersion.Current) &&
-                    HasVersion(DataRowVersion.Original))
-                {
-                    if (!HasChanges())
-                    {
-                        AcceptChanges();
-                        return;
-                    }
-                }
-            }
         }
 
         public partial class EVENTSRow
@@ -273,66 +217,7 @@ namespace KlonsA.DataSets
 
         public partial class UNTAXED_MINRow
         {
-            //public int FilterTag { get; set; } = 0;
 
-
-            public bool HasChanges()
-            {
-                if (!HasVersion(DataRowVersion.Original) ||
-                    !HasVersion(DataRowVersion.Current)) return false;
-                for (int i = 0; i < Table.Columns.Count; i++)
-                {
-                    var col = this.Table.Columns[i];
-                    if (!string.IsNullOrEmpty(col.Caption) &&
-                        col.Caption.StartsWith("!")) continue;
-                    var vor = this[i, DataRowVersion.Original];
-                    var vcur = this[i, DataRowVersion.Current];
-                    if (!object.Equals(vor, vcur)) return true;
-                }
-                return false;
-            }
-
-            public bool HasChanges2()
-            {
-                if (!HasVersion(DataRowVersion.Proposed) ||
-                    !HasVersion(DataRowVersion.Current)) return false;
-                for (int i = 0; i < Table.Columns.Count; i++)
-                {
-                    var vor = this[i, DataRowVersion.Proposed];
-                    var vcur = this[i, DataRowVersion.Current];
-                    if (!object.Equals(vor, vcur)) return true;
-                }
-                return false;
-            }
-
-            public void EndEditX()
-            {
-                if (RowState == DataRowState.Added)
-                {
-                    EndEdit();
-                }
-                if (HasVersion(DataRowVersion.Current) &&
-                    HasVersion(DataRowVersion.Proposed))
-                {
-                    if (!HasChanges2())
-                    {
-                        CancelEdit();
-                    }
-                    else
-                    {
-                        EndEdit();
-                    }
-                }
-                if (HasVersion(DataRowVersion.Current) &&
-                    HasVersion(DataRowVersion.Original))
-                {
-                    if (!HasChanges())
-                    {
-                        AcceptChanges();
-                        return;
-                    }
-                }
-            }
 
         }
     }

@@ -534,6 +534,7 @@ namespace KlonsA.Forms
                 dgcNotDT3.Visible = SelectedTab == ESelectedTab.atvaļinājumi;
                 dgcNotDays.Visible = SelectedTab == ESelectedTab.atvaļinājumi ||
                     SelectedTab == ESelectedTab.pieņemts_atlaists;
+                dgcNotDays2.Visible = dgcNotDays.Visible;
                 dgcNotOcc.Visible = SelectedTab == ESelectedTab.pieņemts_atlaists;
                 return;
             }
@@ -591,6 +592,7 @@ namespace KlonsA.Forms
             dgcNotDate2.Visible = b;
             b = oidn != null && ((EEventId)oidn) == EEventId.Atvaļinājums;
             dgcNotDays.Visible = b;
+            dgcNotDays2.Visible = b;
         }
 
         private void bsNotikumi_CurrentChanged(object sender, EventArgs e)
@@ -620,6 +622,7 @@ namespace KlonsA.Forms
                     dgvNotikumi[dgcNotDate2.Index, e.RowIndex].Value = DBNull.Value;
                     dgvNotikumi[dgcNotDT3.Index, e.RowIndex].Value = DBNull.Value;
                     dgvNotikumi[dgcNotDays.Index, e.RowIndex].Value = 0;
+                    dgvNotikumi[dgcNotDays2.Index, e.RowIndex].Value = 0;
                 }
 
                 return;

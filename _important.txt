@@ -1,0 +1,15 @@
+These files must be copied to folder where msbuild.exe is:
+	MyReportLib.dll
+	MyReportLib.pdb
+
+IbExpert is free for ExUSSR countries. 
+Windows language for non unicode programms must be set tu russian (or use apploc).
+Downloadable from:
+	http://www.ibexpert.com/rus/ibe_sfx.exe
+
+After installing FirebirdSql.Data.FirebirdClient-?.?.?.msi check config files:
+	C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+	C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+search for "<add name="FirebirdClient Data Provider" ", 
+and delete duplicate or older version entries.
+

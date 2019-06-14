@@ -52,6 +52,7 @@ namespace KlonsA.Classes
         {
             IsAvPayCalcDone = false;
 
+
             var dt1 = SRS.SalarySheet.DT1;
             var dt2 = SRS.SalarySheet.DT2;
 
@@ -84,11 +85,17 @@ namespace KlonsA.Classes
             BonusCalcInfo bonus_am;
 
             TotalSI = new SalaryInfo();
+
+            if (PreparingReport)
+                TotalSI._CALC_VER = SRS.TotalRow.Row.CALC_VER;
+            else
+                TotalSI._CALC_VER = 1;
+
             SRS.TotalPersonPay = TotalSI;
             SRS.TotalRow.TotalPositionPay = TotalSI;
 
             MakeWorkTime(); // updates all rows and TotalPersonPay
-            CalcRf(dt1, dt2);
+            CalcRf(dt1, dt2, TotalSI._CALC_VER);
 
             var drs_bonust = SRS.GetAlgasAllPSRows();
 
@@ -108,7 +115,7 @@ namespace KlonsA.Classes
                 lsc.BonusCalc = bonus_am;
 
                 lsc.SR.CheckAlgasPS();
-                lsc.CalcRR(dt1, dt2);
+                lsc.CalcRR(dt1, dt2, lsc.SI._CALC_VER);
             }
             LinkedSCI[0].BonusCalc.TakeRoundingError = true;
 
@@ -194,21 +201,10 @@ namespace KlonsA.Classes
 
             decimal iinexempts1 = TotalSI.SumIINExemptsAll();
 
-            decimal iinexempts1a =
-                iinexempts1 -
-                CalcR.ExDivided.ExUntaxedMinimum +
-                CalcR.ExDivided.ExUntaxedMinimum2;
-
-            decimal iinexempts1b =
-                iinexempts1 -
-                CalcR.ExDivided.ExUntaxedMinimum;
-
             List<BonusCalcInfo.CalcRet> rpfx = null;
             var plusfromendbruto = BonusCalc.CalcFromEndCT(
                 sct: this,
                 totalinex: iinexempts1,
-                totalinexa: iinexempts1a,
-                totalinexb: iinexempts1b,
                 curbruto: curbruto,
                 brutonosai: TotalSI._PLUS_NOSAI,
                 brutomargin: CalcR.IINMargin,
@@ -576,15 +572,6 @@ namespace KlonsA.Classes
                 SI._PLUS_AUTHORS_FEES -
                 SI._MINUS_BEFORE_IIN;
 
-            if (CalcR.UseProgresiveIINRate && CalcR.HasTaxDoc)
-            {
-                SI._IIN_EXEMPT_UNTAXED_MINIMUM = CalcR.ExDivided.ExUntaxedMinimum2;
-                SI._IIN_EXEMPT_UNTAXED_MINIMUM0 = CalcR.ExMax2.ExUntaxedMinimum2;
-                CalcR.ExDivided.ExUntaxedMinimum = CalcR.ExDivided.ExUntaxedMinimum2;
-                if (CalcR.CrUntaxedMinimum != null)
-                    CalcR.CrUntaxedMinimum.RateDivided = CalcR.ExDivided.ExUntaxedMinimum2;
-            }
-
             decimal iinexempts = SI.SumIINExemptsAll();
 
             if (!CalcR.UseProgresiveIINRate)
@@ -714,9 +701,9 @@ namespace KlonsA.Classes
             */
         }
 
-        public void CalcRf(DateTime dt1, DateTime dt2)
+        public void CalcRf(DateTime dt1, DateTime dt2, int calcver)
         {
-            CalcR = new CalcRInfo(PreparingReport);
+            CalcR = new CalcRInfo(PreparingReport, calcver);
             CalcR.CalcR(SRS.TotalRow, dt1, dt2);
             CalcR.ExMax2.ApplyTo0(TotalSI);
             CalcR.ExMax2.ApplyTo(TotalSI);
@@ -788,7 +775,7 @@ namespace KlonsA.Classes
 
         public ErrorList CalcVacationDays()
         {
-            VacationCalc = new VacationCalcInfo(PreparingReport);
+            VacationCalc = new VacationCalcInfo(PreparingReport, TotalSI._CALC_VER);
             VacationCalc.SetAvPayFrom(this);
             var err = VacationCalc.CalcVacationDaysT(this);
             if (err.HasErrors) return err;
@@ -815,9 +802,9 @@ namespace KlonsA.Classes
         {
             if (AvPayCalc == null) AvPayCalc = new AvPayCalcInfo(true);
             if (SickDayCalc == null) SickDayCalc = new SickDayCalcInfo(true);
-            if (VacationCalc == null) VacationCalc = new VacationCalcInfo(true);
+            if (VacationCalc == null) VacationCalc = new VacationCalcInfo(true, TotalSI._CALC_VER);
             if (WorkPayCalc == null) WorkPayCalc = new WorkPayCalcTInfo(true);
-            if (CalcR == null) CalcR = new CalcRInfo(true);
+            if (CalcR == null) CalcR = new CalcRInfo(true, TotalSI._CALC_VER);
             if (BonusCalc == null) BonusCalc = new BonusCalcInfo(CalcR, (KlonsADataSet.SALARY_PLUSMINUSRow[])null, true);
         }
 

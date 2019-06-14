@@ -5,6 +5,7 @@ using System.Linq;
 using Validation;
 namespace System.Collections.Generic
 {
+    /*
     public interface IReadOnlyCollection<out T> : IEnumerable<T>, IEnumerable
     {
         int Count { get; }
@@ -19,7 +20,7 @@ namespace System.Collections.Generic
         bool ContainsKey(TKey key);
         bool TryGetValue(TKey key, out TValue value);
     }
-	
+	*/
 	
     public class MultiValueDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, IReadOnlyCollection<TValue>>, IReadOnlyCollection<KeyValuePair<TKey, IReadOnlyCollection<TValue>>>, IEnumerable<KeyValuePair<TKey, IReadOnlyCollection<TValue>>>, IEnumerable
 	{
