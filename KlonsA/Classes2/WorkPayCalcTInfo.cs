@@ -91,7 +91,7 @@ namespace KlonsA.Classes
             }
 
             TotalRow._SALARY = TotalRow.SumSalary();
-            TotalRow.SumForAvPay();
+            TotalRow.AddAvPay();
 
             MakeAvPayExactSum();
 
@@ -179,7 +179,7 @@ namespace KlonsA.Classes
             }
 
             TotalRow._SALARY = TotalRow.SumSalary();
-            TotalRow.SumForAvPay();
+            TotalRow.AddAvPay();
 
             if (PreparingReport && !AvPayCalcRequired) PrepareListT();
         }

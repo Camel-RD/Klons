@@ -153,11 +153,26 @@ namespace KlonsA.Classes
                 _SALARY_PIECEWORK;
         }
 
+        public decimal SumAvPay()
+        {
+            return 
+                _SALARY_AVPAY_WORK_DAYS +
+                _SALARY_AVPAY_WORK_DAYS_OVERTIME +
+                _SALARY_AVPAY_HOLIDAYS +
+                _SALARY_AVPAY_HOLIDAYS_OVERTIME;
+        }
+
+
         public void SumForAvPay()
         {
             _FORAVPAYCALC_BRUTO = SumSalary() - _SALARY_AVPAY_FREE_DAYS;
             _FORAVPAYCALC_DAYS = _FACT_WORK_DAYS;
             _FORAVPAYCALC_HOURS = _FACT_WORK_HOURS;
+        }
+
+        public void AddAvPay()
+        {
+            _FORAVPAYCALC_BRUTO += SumAvPay();
         }
 
         public void GetRateDefs(KlonsADataSet.POSITIONS_RRow dr_amati_r, int calcdays, float calchours)

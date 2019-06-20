@@ -472,7 +472,7 @@ namespace KlonsA.Classes
         {
             var err_list = new ErrorList();
 
-            err_list = MakeWorkTime2();
+            err_list = MakeWorkTime2(out AvPayCalcInfo avpaycalc);
             if (err_list.HasErrors) return err_list;
 
             err_list = CalcSickDays();
@@ -480,6 +480,13 @@ namespace KlonsA.Classes
 
             err_list = CalcVacationDays();
             if (err_list.HasErrors) return err_list;
+
+            if ((AvPayCalc == null || AvPayCalc.RateCalendarDay == 0.0M) &&
+                avpaycalc != null &&
+                avpaycalc.RateCalendarDay > 0.0M)
+            {
+                avpaycalc.SetAvPayTo(this);
+            }
 
             return err_list;
         }
@@ -790,9 +797,14 @@ namespace KlonsA.Classes
             WorkPayCalc.CalcWorkPayT(this);
         }
 
-        public ErrorList MakeWorkTime2()
+        public ErrorList MakeWorkTime2(out AvPayCalcInfo avpaycalc)
         {
+            avpaycalc = null;
             var err = WorkPayCalc.CalcWorkPayTAvPay(this);
+            if (WorkPayCalc.AvPayCalc != null && WorkPayCalc.AvPayCalc.RateCalendarDay > 0.0M)
+            {
+                avpaycalc = WorkPayCalc.AvPayCalc;
+            }
             if (err.HasErrors) return err;
             if (!PreparingReport) WorkPayCalc = null;
             return new ErrorList();

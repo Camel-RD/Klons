@@ -112,7 +112,7 @@ namespace KlonsA.Forms
             bsRep.DataSource = ReportRows;
         }
 
-        private MyXmlDoc MakeXML()
+        private MyXmlDoc MakeXMLv1()
         {
             var xdoc = new MyXmlDoc();
 
@@ -155,13 +155,58 @@ namespace KlonsA.Forms
             return xdoc;
         }
 
+        private MyXmlDoc MakeXMLv2()
+        {
+            var xdoc = new MyXmlDoc();
+
+            XmlElement DokZDNv2 = xdoc.CreateElement("DokZDNv2");
+            DokZDNv2.SetAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema"); ;
+            DokZDNv2.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            xdoc.AppendChild(DokZDNv2);
+
+            var s = MyData.Params.CompRegNrPVNx;
+            if (s.Length != 11)
+            {
+                MyMainForm.ShowError("Nekorekts PVN reģ.nr.");
+                return null;
+            }
+
+            xdoc.XE(DokZDNv2, "NmrKods", s);
+            xdoc.XE(DokZDNv2, "Izpilditajs", tbName.Text);
+            xdoc.XE(DokZDNv2, "Talrunis", tbPhoneNr.Text);
+
+            var tab = xdoc.CreateElement("Tab");
+            DokZDNv2.AppendChild(tab);
+
+            foreach (var row in ReportRows)
+            {
+                var r = xdoc.CreateElement("R");
+                tab.AppendChild(r);
+                xdoc.XE(r, "PersonasKods", row.PK);
+                xdoc.XE(r, "VardsUzvards", row.Name);
+                xdoc.XE(r, "IzmDatums", row.RDate, true);
+                xdoc.XE(r, "ZinuKods", row.Code);
+                xdoc.XENZ(r, "ProfKods", row.ProfessionCode);
+            }
+
+            return xdoc;
+        }
+
         private void DoXML()
         {
             if (!CheckParams()) return;
             SaveParams();
             if(ReportRows == null || ReportRows.Count == 0)
                 GetRows();
-            var xdoc = MakeXML();
+            MyXmlDoc xdoc;
+            if(Date1 < (new DateTime(2019, 05, 01)))
+            {
+                xdoc = MakeXMLv1();
+            }
+            else
+            {
+                xdoc = MakeXMLv2();
+            }
             if (xdoc == null) return;
             xdoc.Save();
         }

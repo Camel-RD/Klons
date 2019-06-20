@@ -228,7 +228,7 @@ namespace KlonsA.Classes
             }
 
             TotalRow._SALARY = TotalRow.SumSalary();
-            TotalRow.SumForAvPay();
+            TotalRow.AddAvPay();
 
             if (PreparingReport) PrepareList(sr.GetPositionTitle());
 
