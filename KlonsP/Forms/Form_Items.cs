@@ -1436,7 +1436,7 @@ namespace KlonsP.Forms
 
         private void rādītPaslēptFiltraPaneliToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowFilterPanel(!sgrEvents.Visible);
+            ShowFilterPanel(!pnFilter.Visible);
         }
 
         private void aprēķinaIzklāstsPaMēnešiemToolStripMenuItem_Click(object sender, EventArgs e)

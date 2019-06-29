@@ -413,6 +413,18 @@ namespace KlonsA.Forms
         {
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
+            if (dr_lapas_r.XType == ESalarySheetRowType.OneOfMany)
+            {
+                var rt = MyMessageBox.Show(
+                    "Šim darbiniekam ir algas aprēķini vairākiem amatiem." +
+                    "Dzēšot šo aprēķinu, pārējie var mainīties." +
+                    "\nVai dzēst šo aprēķinu?",
+                    "",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning);
+                if (rt != DialogResult.OK)
+                    return;
+            }
             DataTasks.DeleteSalarySheetRow(dr_lapas_r);
             SaveData();
         }
@@ -777,13 +789,26 @@ namespace KlonsA.Forms
             SaveData();
         }
 
+        private bool RecalcPossible()
+        {
+            foreach(DataRowView drv in bsSarR)
+            {
+                var dr = drv.Row as KlonsADataSet.SALARY_SHEETS_RRow;
+                if (!dr.IsDT_EDITEDNull() &&
+                    dr.DT_EDITED.AddDays(MyData.SalaryCalcHistoryInterval) < DateTime.Now)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void pārrēķinātVisiemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
             if (dr_lapas_r == null) return;
-            if (!dr_lapas_r.IsDT_EDITEDNull() &&
-                dr_lapas_r.DT_EDITED.AddDays(MyData.SalaryCalcHistoryInterval) < DateTime.Now)
+            if (RecalcPossible())
             {
                 if (!ConfirmRecalc()) return;
             }

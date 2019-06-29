@@ -264,6 +264,7 @@ namespace KlonsLIB.Components
             return null;
         }
 
+        [System.Diagnostics.DebuggerHidden()]
         public object GetDataItem(int k)
         {
             try

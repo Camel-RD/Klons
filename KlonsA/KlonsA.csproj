@@ -557,6 +557,7 @@
     <EmbeddedResource Include="Forms\Form_SalarySheetRowHistory.resx">
       <DependentUpon>Form_SalarySheetRowHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Reports\ReportA_DarbaLaiks_1k.rdlc" />
     <EmbeddedResource Include="SQL\SQLV032.txt" />
     <EmbeddedResource Include="SQL\SQLV028.txt" />
     <EmbeddedResource Include="SQL\SQLV024.txt" />

@@ -1244,7 +1244,7 @@ namespace KlonsA.Forms
             dgvLapa.AutoResizeColumns();
         }
 
-        private void darbaLaikaLapaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MakeReportTimeSheet1(ReportTimeSheet1.ERoportType roporttype)
         {
             if (bsLapuSar.Count == 0 || bsLapuSar.Current == null) return;
             var dr = (bsLapuSar.Current as DataRowView).Row as KlonsADataSet.TIMESHEET_LISTSRow;
@@ -1256,7 +1256,17 @@ namespace KlonsA.Forms
             }
             if (CalendarMonth == null) return;
             var tr = new ReportTimeSheet1();
-            tr.MakeReport(dlJoinView1, CalendarMonth, dr.DESCR);
+            tr.MakeReport(dlJoinView1, CalendarMonth, dr.DESCR, roporttype, myStyleDefsForReport);
+        }
+
+        private void darbaLaikaLapaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MakeReportTimeSheet1(ReportTimeSheet1.ERoportType.Simple);
+        }
+
+        private void DarbaLaikaLapaArKrāsāmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MakeReportTimeSheet1(ReportTimeSheet1.ERoportType.WithColors);
         }
 
         private void darbaLaikaKopsummasToolStripMenuItem_Click(object sender, EventArgs e)
