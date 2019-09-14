@@ -50,11 +50,6 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.struktūrvienībasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datiParPerioduPirmsUzskaitesSākšanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alguAprēķinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.algasAprēķinaLapuŠabloniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.algasAprēķinaLapuSarakstsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.algasAprēķinaLapasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaUzskaiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaPlānuSarakstsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaLaikaPlānsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +58,11 @@
             this.darbaLaikaUzskaitesLapasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.darbaLaikaUzskaitesLapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alguAprēķinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.algasAprēķinaLapuŠabloniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.algasAprēķinaLapuSarakstsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.algasAprēķinaLapasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gabaldarbsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbaUzskaiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
@@ -100,6 +100,8 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.parProgrammuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDownloader1 = new KlonsLIB.Components.ADownloader();
+            this.pārskatsPaPersonāmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -280,43 +282,6 @@
             this.datiParPerioduPirmsUzskaitesSākšanasToolStripMenuItem.Text = "Dati par periodu pirms uzskaites sākšanas";
             this.datiParPerioduPirmsUzskaitesSākšanasToolStripMenuItem.Click += new System.EventHandler(this.datiParPerioduPirmsUzskaitesSākšanasToolStripMenuItem_Click);
             // 
-            // alguAprēķinsToolStripMenuItem
-            // 
-            this.alguAprēķinsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.algasAprēķinaLapuŠabloniToolStripMenuItem,
-            this.algasAprēķinaLapuSarakstsToolStripMenuItem,
-            this.toolStripSeparator9,
-            this.algasAprēķinaLapasToolStripMenuItem});
-            this.alguAprēķinsToolStripMenuItem.Name = "alguAprēķinsToolStripMenuItem";
-            this.alguAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(334, 30);
-            this.alguAprēķinsToolStripMenuItem.Text = "Algu aprēķins";
-            // 
-            // algasAprēķinaLapuŠabloniToolStripMenuItem
-            // 
-            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Name = "algasAprēķinaLapuŠabloniToolStripMenuItem";
-            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Size = new System.Drawing.Size(368, 30);
-            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Text = "Algas aprēķina lapu sagataves";
-            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Click += new System.EventHandler(this.algasAprēķinaLapusagatavesToolStripMenuItem_Click);
-            // 
-            // algasAprēķinaLapuSarakstsToolStripMenuItem
-            // 
-            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Name = "algasAprēķinaLapuSarakstsToolStripMenuItem";
-            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(368, 30);
-            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Text = "Algas aprēķina lapu saraksts";
-            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Click += new System.EventHandler(this.algasAprēķinaLapuSarakstsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(365, 6);
-            // 
-            // algasAprēķinaLapasToolStripMenuItem
-            // 
-            this.algasAprēķinaLapasToolStripMenuItem.Name = "algasAprēķinaLapasToolStripMenuItem";
-            this.algasAprēķinaLapasToolStripMenuItem.Size = new System.Drawing.Size(368, 30);
-            this.algasAprēķinaLapasToolStripMenuItem.Text = "Algas aprēķina lapa";
-            this.algasAprēķinaLapasToolStripMenuItem.Click += new System.EventHandler(this.algasAprēķinaLapasToolStripMenuItem_Click);
-            // 
             // darbaLaikaUzskaiteToolStripMenuItem
             // 
             this.darbaLaikaUzskaiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -376,6 +341,43 @@
             this.darbaLaikaUzskaitesLapaToolStripMenuItem.Text = "Darba laika uzskaites lapa";
             this.darbaLaikaUzskaitesLapaToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaUzskaitesLapaToolStripMenuItem_Click);
             // 
+            // alguAprēķinsToolStripMenuItem
+            // 
+            this.alguAprēķinsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.algasAprēķinaLapuŠabloniToolStripMenuItem,
+            this.algasAprēķinaLapuSarakstsToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.algasAprēķinaLapasToolStripMenuItem});
+            this.alguAprēķinsToolStripMenuItem.Name = "alguAprēķinsToolStripMenuItem";
+            this.alguAprēķinsToolStripMenuItem.Size = new System.Drawing.Size(334, 30);
+            this.alguAprēķinsToolStripMenuItem.Text = "Algu aprēķins";
+            // 
+            // algasAprēķinaLapuŠabloniToolStripMenuItem
+            // 
+            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Name = "algasAprēķinaLapuŠabloniToolStripMenuItem";
+            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Size = new System.Drawing.Size(368, 30);
+            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Text = "Algas aprēķina lapu sagataves";
+            this.algasAprēķinaLapuŠabloniToolStripMenuItem.Click += new System.EventHandler(this.algasAprēķinaLapusagatavesToolStripMenuItem_Click);
+            // 
+            // algasAprēķinaLapuSarakstsToolStripMenuItem
+            // 
+            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Name = "algasAprēķinaLapuSarakstsToolStripMenuItem";
+            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(368, 30);
+            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Text = "Algas aprēķina lapu saraksts";
+            this.algasAprēķinaLapuSarakstsToolStripMenuItem.Click += new System.EventHandler(this.algasAprēķinaLapuSarakstsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(365, 6);
+            // 
+            // algasAprēķinaLapasToolStripMenuItem
+            // 
+            this.algasAprēķinaLapasToolStripMenuItem.Name = "algasAprēķinaLapasToolStripMenuItem";
+            this.algasAprēķinaLapasToolStripMenuItem.Size = new System.Drawing.Size(368, 30);
+            this.algasAprēķinaLapasToolStripMenuItem.Text = "Algas aprēķina lapa";
+            this.algasAprēķinaLapasToolStripMenuItem.Click += new System.EventHandler(this.algasAprēķinaLapasToolStripMenuItem_Click);
+            // 
             // gabaldarbsToolStripMenuItem
             // 
             this.gabaldarbsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -417,7 +419,9 @@
             // 
             this.maksājumuSarakstiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sarakstuŠabloniToolStripMenuItem,
-            this.mkasājumuSarakstiToolStripMenuItem});
+            this.mkasājumuSarakstiToolStripMenuItem,
+            this.toolStripSeparator13,
+            this.pārskatsPaPersonāmToolStripMenuItem});
             this.maksājumuSarakstiToolStripMenuItem.Name = "maksājumuSarakstiToolStripMenuItem";
             this.maksājumuSarakstiToolStripMenuItem.Size = new System.Drawing.Size(334, 30);
             this.maksājumuSarakstiToolStripMenuItem.Text = "Maksājumu saraksti";
@@ -425,14 +429,14 @@
             // sarakstuŠabloniToolStripMenuItem
             // 
             this.sarakstuŠabloniToolStripMenuItem.Name = "sarakstuŠabloniToolStripMenuItem";
-            this.sarakstuŠabloniToolStripMenuItem.Size = new System.Drawing.Size(285, 30);
+            this.sarakstuŠabloniToolStripMenuItem.Size = new System.Drawing.Size(319, 30);
             this.sarakstuŠabloniToolStripMenuItem.Text = "Sarakstu sagataves";
             this.sarakstuŠabloniToolStripMenuItem.Click += new System.EventHandler(this.sarakstusagatavesToolStripMenuItem_Click);
             // 
             // mkasājumuSarakstiToolStripMenuItem
             // 
             this.mkasājumuSarakstiToolStripMenuItem.Name = "mkasājumuSarakstiToolStripMenuItem";
-            this.mkasājumuSarakstiToolStripMenuItem.Size = new System.Drawing.Size(285, 30);
+            this.mkasājumuSarakstiToolStripMenuItem.Size = new System.Drawing.Size(319, 30);
             this.mkasājumuSarakstiToolStripMenuItem.Text = "Makasājumu saraksti";
             this.mkasājumuSarakstiToolStripMenuItem.Click += new System.EventHandler(this.mkasājumuSarakstiToolStripMenuItem_Click);
             // 
@@ -651,6 +655,18 @@
             this.aDownloader1.DataReceived += new System.EventHandler(this.aDownloader1_DataReceived);
             this.aDownloader1.DownloadFailed += new System.EventHandler(this.aDownloader1_DownloadFailed);
             // 
+            // pārskatsPaPersonāmToolStripMenuItem
+            // 
+            this.pārskatsPaPersonāmToolStripMenuItem.Name = "pārskatsPaPersonāmToolStripMenuItem";
+            this.pārskatsPaPersonāmToolStripMenuItem.Size = new System.Drawing.Size(319, 30);
+            this.pārskatsPaPersonāmToolStripMenuItem.Text = "Pārskats pa darbiniekiem";
+            this.pārskatsPaPersonāmToolStripMenuItem.Click += new System.EventHandler(this.PārskatsPaPersonāmToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(316, 6);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -749,6 +765,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem kopsavilkumsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miNeapliekamaisMinimums;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripMenuItem pārskatsPaPersonāmToolStripMenuItem;
     }
 }
 

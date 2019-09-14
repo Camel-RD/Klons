@@ -691,6 +691,29 @@ namespace KlonsA.Forms
             SaveData();
         }
 
+        public void RecalcAllLists()
+        {
+            if (bsLists.Count == 0) return;
+            if (!SaveBeforeProceed()) return;
+            foreach(var item in bsLists)
+            {
+                var dr = (item as DataRowView).Row as KlonsADataSet.PAYLISTSRow;
+                ignoreColumnChangeEvent = true;
+                DataTasks.FillPayListA(dr.ID, false);
+                if (!SaveData())
+                {
+                    ignoreColumnChangeEvent = false;
+                    return;
+                }
+                DataTasks.FillPayListB(dr.ID);
+                ignoreColumnChangeEvent = false;
+            }
+
+            dgvLists.Refresh();
+            SaveData();
+        }
+
+
         public void RecalcListB()
         {
             if (bsLists.Count == 0 || bsLists.Current == null) return;
@@ -715,30 +738,6 @@ namespace KlonsA.Forms
             SaveData();
         }
 
-        private void izveidotJaunuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MakeNewList();
-        }
-
-        private void pārrēķinātSarakstuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RecalcListA(true);
-        }
-
-        private void pārrēķinātDarbiniekamToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RecalcRowA(true);
-        }
-
-        private void pārrēķinātSarakstuNemainotMaksājumuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RecalcListA(false);
-        }
-
-        private void pārrēķinātDarbiniekamNemainotMaksājumuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RecalcRowA(false);
-        }
 
         private void myMcFlatComboBox1_Format(object sender, ListControlConvertEventArgs e)
         {
@@ -767,16 +766,6 @@ namespace KlonsA.Forms
             sgrPayRow.Visible = b;
             MyData.Settings.ShowPayDataPanel = b;
             rādītPaslēptDatuPaneliToolStripMenuItem.Checked = b;
-        }
-
-        private void rādītPaslēptSarakstuTabuluToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowPayLists(mySplitContainer1.Panel1Collapsed);
-        }
-
-        private void rādītPaslēptDatuPaneliToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowPayDataPanel(!sgrPayRow.Visible);
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -923,41 +912,7 @@ namespace KlonsA.Forms
             }
         }
 
-
-        private void miReport1_Click(object sender, EventArgs e)
-        {
-            ShowReport1();
-        }
-
-        private void miReport2_Click(object sender, EventArgs e)
-        {
-            ShowReport2();
-        }
-
-        private void miReport3_Click(object sender, EventArgs e)
-        {
-            ShowReport3();
-        }
-
-        private void miReport4_Click(object sender, EventArgs e)
-        {
-            ShowReport4();
-        }
-
-        private void miRepShList_Click(object sender, EventArgs e)
-        {
-            if (!SaveData()) return;
-            if (bsRows.Current == null || dgvRows.CurrentRow == null ||
-                dgvRows.CurrentRow.IsNewRow) return;
-
-            var dr = bsRows.CurrentDataRow as KlonsADataSet.PAYLISTS_RRow;
-
-            var ci = new PayListCalcInfo(true);
-            ci.MakeReportB(dr);
-            Form_PayCalc.Show(ci, Form_PayCalc.EReportType.SalarySheetList);
-        }
-
-        private void miRepSplitPay_Click(object sender, EventArgs e)
+        void RepSplitPay()
         {
             if (!SaveData()) return;
             if (bsRows.Current == null || dgvRows.CurrentRow == null ||
@@ -981,9 +936,95 @@ namespace KlonsA.Forms
             Form_PayCalc.Show(ci, Form_PayCalc.EReportType.Splitpay);
         }
 
+        void RepShList()
+        {
+            if (!SaveData()) return;
+            if (bsRows.Current == null || dgvRows.CurrentRow == null ||
+                dgvRows.CurrentRow.IsNewRow) return;
+
+            var dr = bsRows.CurrentDataRow as KlonsADataSet.PAYLISTS_RRow;
+
+            var ci = new PayListCalcInfo(true);
+            ci.MakeReportB(dr);
+            Form_PayCalc.Show(ci, Form_PayCalc.EReportType.SalarySheetList);
+        }
+
+
+        private void izveidotJaunuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MakeNewList();
+        }
+
+        private void pārrēķinātSarakstuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RecalcListA(true);
+        }
+
+        private void pārrēķinātDarbiniekamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RecalcRowA(true);
+        }
+
+        private void pārrēķinātSarakstuNemainotMaksājumuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RecalcListA(false);
+        }
+
+        private void pārrēķinātDarbiniekamNemainotMaksājumuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RecalcRowA(false);
+        }
+
+        private void PārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RecalcAllLists();
+        }
+
+        private void miReport1_Click(object sender, EventArgs e)
+        {
+            ShowReport1();
+        }
+
+        private void miReport2_Click(object sender, EventArgs e)
+        {
+            ShowReport2();
+        }
+
+        private void miReport3_Click(object sender, EventArgs e)
+        {
+            ShowReport3();
+        }
+
+        private void miReport4_Click(object sender, EventArgs e)
+        {
+            ShowReport4();
+        }
+
+
+        private void miRepShList_Click(object sender, EventArgs e)
+        {
+            RepShList();
+        }
+
+        private void miRepSplitPay_Click(object sender, EventArgs e)
+        {
+            RepSplitPay();
+        }
+
+        private void rādītPaslēptSarakstuTabuluToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPayLists(mySplitContainer1.Panel1Collapsed);
+        }
+
+        private void rādītPaslēptDatuPaneliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPayDataPanel(!sgrPayRow.Visible);
+        }
+
         private void tsbRenum_Click(object sender, EventArgs e)
         {
             RenumRows();
         }
+
     }
 }

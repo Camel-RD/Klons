@@ -19,13 +19,13 @@ namespace KlonsA.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "034";
+        public string Version = "036";
         
         public string SettingsFileName = GetBasePath() + "\\Config\\SettingsA.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterListA.xml";
         public string FolderForXMLReports = GetBasePath() + "\\XMLReports";
 
-        public float SalaryCalcHistoryInterval = 2.0f;
+        public float SalaryCalcHistoryInterval = 1.0f;
 
         public KlonsSettings Settings = new KlonsSettings();
         public MasterList MasterList { get; private set; }

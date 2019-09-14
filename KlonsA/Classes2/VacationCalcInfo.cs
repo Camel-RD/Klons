@@ -45,7 +45,7 @@ namespace KlonsA.Classes
 
             SetAvPayFrom(sci);
 
-            err = CalcVacationDays2(sci.SR, null);
+            err = CalcVacationDays2(sci.SR, null, sci.SI._CALC_VER);
             if (err.HasErrors) return err;
 
             SetAvPayTo(sci);
@@ -91,7 +91,7 @@ namespace KlonsA.Classes
                 vc.SetAvPayFrom(this);
             }
 
-            err = CalcVacationDays2(scti.SRS.TotalRow, vcs);
+            err = CalcVacationDays2(scti.SRS.TotalRow, vcs, scti.TotalSI._CALC_VER);
             if (err.HasErrors) return err;
 
             SetAvPayTo(scti);
@@ -123,64 +123,7 @@ namespace KlonsA.Classes
             return err;
         }
 
-        public ErrorList CalcVacationDays(SalarySheetRowInfo sr)
-        {
-            ErrorList error_list;
-            sr.CheckLinkedRows(sr.Row.IDP);
 
-            if (sr.IsSingleRow())
-                return CalcVacationDays2(sr, null);
-            VacationCalcInfo totalvc = null;
-            if (sr.Row.XType == ESalarySheetRowType.Total)
-            {
-                totalvc = this;
-
-                //error_list = CalcVacationDays2(sr, null);
-                //if (error_list.HasErrors) return error_list;
-
-                //--if (PreparingReport) PrepareListB(sr, this);
-
-                //return error_list;
-            }
-            else
-            {
-                totalvc = new VacationCalcInfo(PreparingReport, CalcVer);
-            }
-
-            error_list = totalvc.GetAvPayCalc(sr);
-            if (error_list.HasErrors) return error_list;
-
-            SetAvPayFrom(totalvc);
-
-            VacationCalcInfo[] vcs = null;
-            string[] positions = null;
-
-            var srs = sr.SalarySheetRowSet;
-
-            vcs = new VacationCalcInfo[srs.LinkedRows.Length];
-            positions = new string[srs.LinkedRows.Length];
-
-            for (int i = 0; i < srs.LinkedRows.Length; i++)
-            {
-                var lr = srs.LinkedRows[i];
-                var vc = new VacationCalcInfo(PreparingReport, CalcVer);
-                positions[i] = lr.GetPositionTitle();
-                vc.SetAvPayFrom(this);
-                if (lr == sr)
-                    vcs[i] = this;
-                else
-                    vcs[i] = vc;
-            }
-
-            error_list = totalvc.CalcVacationDays2(srs.TotalRow, vcs);
-            if (error_list.HasErrors) return error_list;
-
-            totalvc.EnsureExactSum(vcs);
-
-            if (PreparingReport) PrepareListT(vcs, positions, totalvc);
-
-            return error_list;
-        }
 
         private VacationCalcRow AddRepRow(VacationCalcRow pvr, string ptype, string ppos)
         {
@@ -199,7 +142,7 @@ namespace KlonsA.Classes
             return posr.XRateType == ESalaryType.Aggregated;
         }
 
-        public ErrorList CalcVacationDays2(SalarySheetRowInfo srs, VacationCalcInfo[] vcs)
+        public ErrorList CalcVacationDays2(SalarySheetRowInfo srs, VacationCalcInfo[] vcs, int calcver)
         {
             var error_list = new ErrorList();
 
@@ -472,7 +415,7 @@ namespace KlonsA.Classes
             {
                 var dr_ev = fe.Item2 as KlonsADataSet.EVENTSRow;
                 if (dr_ev == null) continue;
-                if(srs.Row.CALC_VER == 0)
+                if(calcver == 0)
                     vt.Days += dr_ev.DAYS;
                 else
                     vt.Days += dr_ev.DAYS2;

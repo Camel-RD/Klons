@@ -458,10 +458,10 @@ namespace KlonsA.Classes
                 d =>
                 d.ID != id &&
                 d.IDP == idp &&
-                d["IDAM"] == idam &&
-                d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.DT2 >= dtp1 &&
-                d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.DT2 <= dtp2 &&
-                d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.IS_TEMP == 0
+                object.Equals(d["IDAM"], idam) &&
+                d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.DT2.IsBetween(dtp1, dtp2) &&
+                d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.IS_TEMP == 0 &&
+                d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.XKind != ESalarySheetKind.Total
             ).WithMaxOrDefault(d => d.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.DT2);
 
             if (dr_lapas_r == null) return null;

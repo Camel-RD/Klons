@@ -167,6 +167,12 @@
     <Compile Include="Forms\Form_PayFx.Designer.cs">
       <DependentUpon>Form_PayFx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_PaymentsByPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PaymentsByPerson.Designer.cs">
+      <DependentUpon>Form_PaymentsByPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_SalarySheetRowHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -554,6 +560,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Forms\Form_PaymentsByPerson.resx">
+      <DependentUpon>Form_PaymentsByPerson.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_SalarySheetRowHistory.resx">
       <DependentUpon>Form_SalarySheetRowHistory.cs</DependentUpon>
     </EmbeddedResource>

@@ -54,7 +54,16 @@ namespace KlonsLIB.Components
                     this.ContextMenuStrip = null;
                 }
             }
-        } 
+        }
+
+        [Browsable(true)]
+        [DefaultValue(DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText)]
+        [Category("Behavior")]
+        public new DataGridViewClipboardCopyMode ClipboardCopyMode
+        {
+            get { return base.ClipboardCopyMode; }
+            set { base.ClipboardCopyMode = value; }
+        }
 
         public MyDataGridView() : base()
         {
@@ -63,11 +72,11 @@ namespace KlonsLIB.Components
             DoubleBuffered = true;
             AutoSave = true;
             DataError += MyDataGridView_DataError;
-            this.BackgroundColor = SystemColors.Control;
-
+            BackgroundColor = SystemColors.Control;
+            ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             myContextMenuStrip = new ContextMenuStrip();
             myContextMenuStrip.Items.Add("Copy (Ctrl + C)", null, OnCopy);
-            this.ContextMenuStrip = myContextMenuStrip;
+            ContextMenuStrip = myContextMenuStrip;
 
             SetMyToolTip();
         }

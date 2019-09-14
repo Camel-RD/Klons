@@ -398,6 +398,11 @@ namespace KlonsA
             ShowForm(typeof(Form_PayLists));
         }
 
+        private void PārskatsPaPersonāmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CheckData()) return;
+            ShowForm(typeof(Form_PaymentsByPerson));
+        }
 
         private void atlasītDatusToolStripMenuItem_Click(object sender, EventArgs e)
         {

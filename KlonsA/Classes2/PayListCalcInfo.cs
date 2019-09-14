@@ -324,9 +324,8 @@ namespace KlonsA.Classes
             pfx2.SetFrom(pfx);
             pfx.IncPayByIncCash(pay, rpay.PAY_TAXED, rpay.PAY_NOSAI, rpay.PAY_NOTTAXED);
             pfx3.SetFrom(pfx);
-            pfx.Subtract(pfx2);
-
             pfx.CalcAll();
+            pfx.Subtract(pfx2);
             rpay.SetFrom(pfx);
 
             pfx3.Pay = Math.Min(pfx3.Pay, sr.NOTPAID_TAXED);
@@ -819,9 +818,15 @@ namespace KlonsA.Classes
 
             DNSI = pfx.DNS;
 
-            if (pfx.IinEx > 0)
+            decimal d1 =
+                UNTAXED_MINIMUM +
+                IINEX_DEPENDANTS +
+                IINEX2 +
+                IINEX_EXP;
+
+            if (pfx.IinEx > 0.0M && d1 > 0.0M)
             {
-                decimal r = pfx.UsedIinEx / pfx.IinEx;
+                decimal r = pfx.UsedIinEx / d1;
                 UNTAXED_MINIMUM *= r;
                 IINEX_DEPENDANTS *= r;
                 IINEX2 *= r;
@@ -883,7 +888,7 @@ namespace KlonsA.Classes
             pfx.CalcAllAndRound();
             SetFrom(pfx);
 
-            if (pfx.IinEx > 0)
+            if (pfx.IinEx > 0.0M)
             {
                 UNTAXED_MINIMUM = KlonsData.RoundA(UNTAXED_MINIMUM, 2);
                 IINEX_DEPENDANTS = KlonsData.RoundA(IINEX_DEPENDANTS, 2);

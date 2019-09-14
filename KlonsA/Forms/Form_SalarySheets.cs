@@ -130,7 +130,7 @@ namespace KlonsA.Forms
 
         public void OpenCurrent()
         {
-            if (bsSar.Current == null) return;
+            if (bsSar.Current == null || !IsSheetFormClosed()) return;
             if (!SaveBeforeProceed()) return;
             var dr = (bsSar.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
             var f = MyMainForm.FindForm(typeof(Form_SalarySheet)) as Form_SalarySheet;
@@ -142,7 +142,7 @@ namespace KlonsA.Forms
 
         public void DeleteCurrent()
         {
-            if (bsSar.Current == null || !CanDelete()) return;
+            if (bsSar.Current == null || !IsSheetFormClosed()) return;
             if (!SaveBeforeProceed()) return;
             if (!AskCanDelete()) return;
             var dr = (bsSar.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
@@ -191,11 +191,11 @@ namespace KlonsA.Forms
             }
         }
 
-        public bool CanDelete()
+        public bool IsSheetFormClosed()
         {
             if (MyMainForm.FindForm(typeof(Form_SalarySheet)) != null)
             {
-                MyMainForm.ShowWarning("Vispirms jāaizver froma [Algas aprēķina lapa].");
+                MyMainForm.ShowWarning("Vispirms jāaizver forma [Algas aprēķina lapa].");
                 return false; ;
             }
             return true;
@@ -203,12 +203,12 @@ namespace KlonsA.Forms
 
         private void dgvSar_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            if (!CanDelete() || e.Row.IsNewRow || !AskCanDelete()) e.Cancel = true;
+            if (!IsSheetFormClosed() || e.Row.IsNewRow || !AskCanDelete()) e.Cancel = true;
         }
 
         private void bnavSar_ItemDeleting(object sender, CancelEventArgs e)
         {
-            if (!CanDelete() || !AskCanDelete()) e.Cancel = true;
+            if (!IsSheetFormClosed() || !AskCanDelete()) e.Cancel = true;
         }
 
         private void dgvSar_KeyDown(object sender, KeyEventArgs e)
