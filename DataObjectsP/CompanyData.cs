@@ -6,7 +6,6 @@ using NotyfyProp;
 
 namespace DataObjectsP
 {
-    [NotyfyProp.NotifyPropertyChanged(Filter = "_", Serialize = false, Browsable = true)]
     public class CompanyData : BindableComponent
     {
         public string _CompName { get; set; } = null;

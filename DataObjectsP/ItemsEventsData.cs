@@ -6,7 +6,6 @@ using NotyfyProp;
 
 namespace DataObjectsP
 {
-    [NotyfyProp.NotifyPropertyChanged(Filter = "f", Serialize = false, Browsable = true)]
     public class ItemsEventsData : BindableComponent
     {
         public int fID { get; set; } = 0;

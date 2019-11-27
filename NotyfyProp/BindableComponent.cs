@@ -9,13 +9,12 @@ using NotyfyProp;
 
 namespace NotyfyProp
 {
-    [NotifyPropertyChanged(Filter = "_", Serialize = false, Browsable = true)]
-    public class BindableComponent : Component, IBindableComponent, INotifyPropertyChangedAmendment
+    public class BindableComponent : Component, IBindableComponent, INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public virtual void OnPropertyChanged(PropertyChangedEventArgs args)
+        public void OnPropertyChanged(PropertyChangedEventArgs args)
         {
             if (PropertyChanged != null)
             {

@@ -78,10 +78,10 @@ namespace KlonsA.Classes
 
             foreach (var d in List)
             {
-                if (d.DateFrom > dt2 || d.DateTo < dt1) continue;
+                if (d.DateFrom >= dt1 && d.DateTo <= dt2) continue;
                 var nd = new DatesFromTo(d);
                 ret.List.Add(nd);
-                if (d.DateFrom >= dt1 && d.DateTo <= dt2) continue;
+                if (d.DateFrom > dt2 || d.DateTo < dt1) continue;
                 if (d.DateFrom < dt1 && d.DateTo > dt2)
                 {
                     nd.DateTo = dt1.AddDays(-1);

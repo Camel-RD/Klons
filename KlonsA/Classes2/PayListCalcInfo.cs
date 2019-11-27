@@ -824,7 +824,7 @@ namespace KlonsA.Classes
                 IINEX2 +
                 IINEX_EXP;
 
-            if (pfx.IinEx > 0.0M && d1 > 0.0M)
+            if (d1 > 0.0M)
             {
                 decimal r = pfx.UsedIinEx / d1;
                 UNTAXED_MINIMUM *= r;

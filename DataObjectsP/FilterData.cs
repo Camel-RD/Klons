@@ -6,7 +6,6 @@ using NotyfyProp;
 
 namespace DataObjectsP
 {
-    [NotyfyProp.NotifyPropertyChanged(Filter = "f", Serialize = false, Browsable = true)]
     public class FilterData : BindableComponent
     {
         public DateTime? fDATE1 { get; set; } = null;

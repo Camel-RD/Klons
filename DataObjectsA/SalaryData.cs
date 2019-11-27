@@ -6,7 +6,6 @@ using NotyfyProp;
 
 namespace DataObjectsA
 {
-    [NotyfyProp.NotifyPropertyChanged(Filter = "_", Serialize = false, Browsable = true)]
     public class SalaryData : BindableComponent, IWorkTimeData
     {
         public int _ID { get; set; } = 0;

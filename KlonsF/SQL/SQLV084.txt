@@ -1,0 +1,603 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_REP_PVN_22(
+  PSD DATE,
+  PED DATE,
+  RG1 /* MONEY */ NUMERIC(15,2),
+  RG2 /* MONEY */ NUMERIC(15,2))
+RETURNS (
+  ID /* TYPE OF COLUMN ROPS1A.ID */ INTEGER,
+  SPID /* TYPE OF COLUMN ROPS1A.SPID */ INTEGER,
+  DID /* TYPE OF COLUMN ROPS1A.DID */ INTEGER,
+  DETE /* TYPE OF COLUMN ROPS1A.DETE */ DATE,
+  NRX /* TYPE OF COLUMN ROPS1A.NRX */ VARCHAR(5) /* COLLATE UTF8 - default */,
+  DOCTYP /* TYPE OF COLUMN ROPS1A.DOCTYP */ VARCHAR(10) /* COLLATE UTF8 - default */,
+  DOCTYP1 /* TYPE OF COLUMN ROPS1A.DOCTYP1 */ VARCHAR(10) /* COLLATE UTF8 - default */,
+  DOCTYP2 /* TYPE OF COLUMN ROPS1A.DOCTYP2 */ VARCHAR(10) /* COLLATE UTF8 - default */,
+  DOCST /* TYPE OF COLUMN ROPS1A.DOCST */ VARCHAR(6) /* COLLATE UTF8 - default */,
+  DOCNR /* TYPE OF COLUMN ROPS1A.DOCNR */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  CLID /* TYPE OF COLUMN ROPS1A.CLID */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  CLID2 /* TYPE OF COLUMN ROPS1A.CLID2 */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  NAME /* TYPE OF COLUMN ROPS1A.NAME */ VARCHAR(50) /* COLLATE UTF8 - default */,
+  NAME2 /* TYPE OF COLUMN ROPS1A.NAME2 */ VARCHAR(50) /* COLLATE UTF8 - default */,
+  REGNR /* TYPE OF COLUMN ROPS1A.REGNR */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  REGNR2 /* TYPE OF COLUMN ROPS1A.REGNR2 */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  B0 /* TYPE OF COLUMN ROPS1A.B0 */ NUMERIC(15,2),
+  DESCR /* TYPE OF COLUMN ROPS1A.DESCR */ VARCHAR(80) /* COLLATE UTF8 - default */,
+  DESCR2 /* TYPE OF COLUMN ROPS1A.DESCR2 */ VARCHAR(80) /* COLLATE UTF8 - default */,
+  AC1 /* TYPE OF COLUMN ROPS1A.AC1 */ VARCHAR(8) /* COLLATE UTF8 - default */,
+  AC2 /* TYPE OF COLUMN ROPS1A.AC2 */ VARCHAR(8) /* COLLATE UTF8 - default */,
+  SAC1 /* TYPE OF COLUMN ROPS1A.SAC1 */ VARCHAR(50) /* COLLATE UTF8 - default */,
+  SAC2 /* TYPE OF COLUMN ROPS1A.SAC2 */ VARCHAR(50) /* COLLATE UTF8 - default */,
+  SUMMC /* TYPE OF COLUMN ROPS1A.SUMMC */ NUMERIC(15,2),
+  CUR /* TYPE OF COLUMN ROPS1A.CUR */ VARCHAR(3) /* COLLATE UTF8 - default */,
+  SUMM /* TYPE OF COLUMN ROPS1A.SUMM */ NUMERIC(15,2),
+  PVN /* TYPE OF COLUMN ROPS1A.PVN */ NUMERIC(15,2),
+  RAC /* TYPE OF COLUMN ROPS1A.RAC */ VARCHAR(8) /* COLLATE UTF8 - default */,
+  SDB /* TYPE OF COLUMN ROPS1A.SDB */ NUMERIC(15,2),
+  SCR /* TYPE OF COLUMN ROPS1A.SCR */ NUMERIC(15,2),
+  RAC2 /* TYPE OF COLUMN ROPS1A.RAC2 */ VARCHAR(8) /* COLLATE UTF8 - default */,
+  RAC3 /* TYPE OF COLUMN ROPS1A.RAC3 */ VARCHAR(5) /* COLLATE UTF8 - default */,
+  RAC4 /* TYPE OF COLUMN ROPS1A.RAC4 */ VARCHAR(8) /* COLLATE UTF8 - default */,
+  RAC5 /* TYPE OF COLUMN ROPS1A.RAC5 */ VARCHAR(5) /* COLLATE UTF8 - default */,
+  QV /* TYPE OF COLUMN ROPS1A.QV */ FLOAT,
+  ZNR /* TYPE OF COLUMN ROPS1A.ZNR */ INTEGER)
+AS
+BEGIN
+  SUSPEND;
+END
+^
+
+
+/******************************************************************************/
+/****                   Dropping primary key constraints                   ****/
+/******************************************************************************/
+SET TERM ; ^
+
+
+ALTER TABLE TTEMP_PVN1 DROP CONSTRAINT PK_TTEMP_PVN1;
+
+
+/******************************************************************************/
+/****                   Creating generators (sequences)                    ****/
+/******************************************************************************/
+CREATE GENERATOR GEN_TTEMP_PVN1_ID;
+
+
+/******************************************************************************/
+/****                           Altering tables                            ****/
+/******************************************************************************/
+UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
+WHERE (RDB$FIELD_NAME = 'PZ2') AND (RDB$RELATION_NAME = 'ACPVN');
+
+UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
+WHERE (RDB$FIELD_NAME = 'PZ2A') AND (RDB$RELATION_NAME = 'ACPVN');
+
+UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
+WHERE (RDB$FIELD_NAME = 'PZ3') AND (RDB$RELATION_NAME = 'ACPVN');
+
+UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
+WHERE (RDB$FIELD_NAME = 'PZ4') AND (RDB$RELATION_NAME = 'ACPVN');
+
+UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
+WHERE (RDB$FIELD_NAME = 'PZ5') AND (RDB$RELATION_NAME = 'ACPVN');
+
+ALTER TABLE TTEMP_PVN1
+  ADD ID INTEGER NOT NULL;
+
+ALTER TABLE TTEMP_PVN1
+  ADD SUMMDOC MONEY;
+
+
+/******************************************************************************/
+/****                           Creating indices                           ****/
+/******************************************************************************/
+CREATE INDEX TTEMP_PVN1_IDX_DID
+  ON TTEMP_PVN1 (DID);
+
+
+/******************************************************************************/
+/****                   Creating primary key constraints                   ****/
+/******************************************************************************/
+
+ALTER TABLE TTEMP_PVN1 ADD CONSTRAINT PK_TTEMP_PVN1 PRIMARY KEY (ID) 
+USING INDEX PK_TTEMP_PVN1_ID;
+
+
+/******************************************************************************/
+/****                          Creating triggers                           ****/
+/******************************************************************************/
+SET TERM ^ ;
+
+CREATE TRIGGER TTEMP_PVN1_BI FOR TTEMP_PVN1
+ACTIVE
+BEFORE INSERT
+POSITION 0 
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(gen_ttemp_pvn1_id,1);
+end
+^
+
+
+/******************************************************************************/
+/****                      Altering stored procedures                      ****/
+/******************************************************************************/
+ALTER PROCEDURE SP_REP_PVN_21(
+  PSD DATE,
+  PED DATE,
+  RG1 MONEY,
+  RG2 MONEY)
+RETURNS (
+  DID TYPE OF COLUMN TTEMP_PVN1.DID,
+  CLID TYPE OF COLUMN TTEMP_PVN1.CLID /* COLLATE UTF8 - default */,
+  DOCTYP1 TYPE OF COLUMN TTEMP_PVN1.DOCTYP1 /* COLLATE UTF8 - default */,
+  DOCTYP2 TYPE OF COLUMN TTEMP_PVN1.DOCTYP2 /* COLLATE UTF8 - default */,
+  DOCTYPC TYPE OF COLUMN TTEMP_PVN1.DOCTYPC,
+  RAC5 TYPE OF COLUMN TTEMP_PVN1.RAC5 /* COLLATE UTF8 - default */,
+  SUMM TYPE OF COLUMN TTEMP_PVN1.SUMM,
+  PVN TYPE OF COLUMN TTEMP_PVN1.PVN,
+  SUMMC TYPE OF COLUMN TTEMP_PVN1.SUMMC,
+  CUR TYPE OF COLUMN TTEMP_PVN1.CUR /* COLLATE UTF8 - default */)
+AS
+begin
+-- PVN piel 1.1 - izdevumiem
+    FOR SELECT
+        did,
+        clid,
+        null AS doctyp1,
+        doctyp2,
+        doctypc,
+        rac5,
+        summ,
+        pvn,
+        0.0 AS summc,
+        null AS cur
+    FROM
+    (
+        SELECT 
+            T2.did,
+            T2.ClId,
+            T2.DocTyp2,
+            T2.DocTypC,
+            T2.RAC5,
+            CASE
+                WHEN t2.PVND <> 0.00
+                THEN t2.SummD
+                ELSE -t2.SummC
+                END AS Summ,
+            CASE
+                WHEN t2.PVND <> 0.00
+                THEN t2.PVND
+                ELSE -t2.PVNC
+                END AS PVN
+        FROM
+        (
+            SELECT 
+                T1.did,
+                MAX(T1.ClId) AS ClId,
+                T1.DocTyp2 AS DocTyp2,
+                T1.DocTypC AS DocTypC,
+                MAX(T1.RAC5) AS RAC5,
+                SUM(T1.SummD) AS SummD,
+                SUM(T1.PVND) AS PVND,
+                SUM(T1.SummC) AS SummC,
+                SUM(T1.PVNC) AS PVNC
+            FROM
+            (
+                SELECT 
+                    OPSd.id AS did, 
+                    OPSd.ClId AS ClId,
+                    AcPVN.pz1 AS DocTyp2,
+                    AcPVN.pz4 AS DocTypC,
+                    OPS.AC15 AS RAC5,
+                    0.00 AS SummD,
+                    OPS.Summ AS PVND,
+                    0.00 AS SummC,
+                    0.00 AS PVNC
+                FROM
+                    OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                    INNER JOIN AcPVN ON OPS.AC15 = AcPVN.id
+                WHERE
+                    (OPSd.Dete BETWEEN :psd AND :ped) AND
+                    AcPVN.pz3 IN ('4','5')
+
+
+                UNION ALL
+
+
+                SELECT 
+                    OPSd.id AS did, 
+                    OPSd.ClId AS ClId,
+                    AcPVN.pz1 AS DocTyp2,
+                    AcPVN.pz4 AS DocTypC,
+                    OPS.AC15 AS RAC5,
+                    OPS.Summ AS SummD,
+                    0.00 AS PVND,
+                    0.00 AS SummC,
+                    0.00 AS PVNC
+                FROM
+                    OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                    LEFT JOIN AcPVN ON OPS.AC15 = AcPVN.id
+                WHERE
+                    (OPSd.Dete BETWEEN :psd AND :ped) AND
+                     AcPVN.pz3 IN ('8')
+
+
+                UNION ALL
+
+
+                SELECT
+                    T1A.did AS did,
+                    MAX(T1A.ClId) AS ClId,
+                    MAX(T1A.DocTyp2) AS DocTyp2,
+                    MAX(T1A.DocTypC) AS DocTypC,
+                    MAX(T1A.RAC5) AS RAC5,
+                    SUM(T1B.Summ) AS SummD,
+                    0.00 AS PVND,
+                    0.00 AS SummC,
+                    0.00 AS PVNC
+                FROM
+                    (SELECT
+                        OPSd.id AS did, 
+                        MAX(OPSd.ClId) AS ClId,
+                        MAX(AcPVN.pz1) AS DocTyp2,
+                        MAX(AcPVN.pz4) AS DocTypC,
+                        MAX(OPS.AC15) AS RAC5
+                    FROM
+                        OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                        INNER JOIN AcPVN ON OPS.AC15 = AcPVN.id
+                    WHERE
+                        (OPSd.Dete BETWEEN :psd AND :ped) AND
+                        AcPVN.pz3 IN ('4')
+                    GROUP BY OPSd.id
+                    ) AS T1A
+                    INNER JOIN OPS AS T1B ON T1A.did = T1B.DocId
+                WHERE
+                    T1B.AC15 IS NULL
+                GROUP BY T1A.did
+
+            
+                UNION ALL
+
+
+                -- ATGRIEZTĀ PRECE
+                SELECT 
+                    OPSd.id AS did, 
+                    OPSd.ClId AS ClId,
+                    AcPVN.pz1 AS DocTyp2,
+                    AcPVN.pz4 AS DocTypC,
+                    OPS.AC25 AS RAC5,
+                    0.00 AS SummD,
+                    0.00 AS PVND,
+                    0.00 AS SummC,
+                    OPS.Summ AS PVNC
+                FROM
+                    OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                    INNER JOIN AcPVN ON OPS.AC25 = AcPVN.id
+                WHERE
+                    (OPSd.Dete BETWEEN :psd AND :ped) AND
+                    AcPVN.pz3 IN ('4','5')
+
+                UNION ALL
+
+                SELECT 
+                    OPSd.id AS did, 
+                    OPSd.ClId AS ClId,
+                    AcPVN.pz1 AS DocTyp2,
+                    AcPVN.pz4 AS DocTypC,
+                    OPS.AC25 AS RAC5,
+                    0.00 AS SummD,
+                    0.00 AS PVND,
+                    OPS.Summ AS SummC,
+                    0.00 AS PVNC
+                FROM
+                    OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                    LEFT JOIN AcPVN ON OPS.AC25 = AcPVN.id
+                WHERE
+                    (OPSd.Dete BETWEEN :psd AND :ped) AND
+                     AcPVN.pz3 IN ('8')
+
+
+                UNION ALL
+
+
+                SELECT
+                    T1A.did AS did,
+                    MAX(T1A.ClId) AS ClId,
+                    MAX(T1A.DocTyp2) AS DocTyp2,
+                    MAX(T1A.DocTypC) AS DocTypC,
+                    MAX(T1A.RAC5) AS RAC5,
+                    0.00 AS SummD,
+                    0.00 AS PVND,
+                    SUM(T1B.Summ) AS SummC,
+                    0.00 AS PVNC
+                FROM
+                    (SELECT
+                        OPSd.id AS did, 
+                        MAX(OPSd.ClId) AS ClId,
+                        MAX(AcPVN.pz1) AS DocTyp2,
+                        MAX(AcPVN.pz4) AS DocTypC,
+                        MAX(OPS.AC25) AS RAC5
+                    FROM
+                        OPSd INNER JOIN OPS ON OPSd.id = OPS.DocId
+                        INNER JOIN AcPVN ON OPS.AC25 = AcPVN.id
+                    WHERE
+                        (OPSd.Dete BETWEEN :psd AND :ped) AND
+                        AcPVN.pz3 IN ('4')
+                    GROUP BY OPSd.id
+                    ) AS T1A
+                    INNER JOIN OPS AS T1B ON T1A.did = T1B.DocId
+                WHERE
+                    T1B.AC25 IS NULL
+                GROUP BY T1A.did
+
+
+            ) AS T1
+            GROUP BY T1.did, T1.DocTyp2, T1.DocTypC
+        ) AS T2
+    ) AS T3
+        
+    WHERE 
+        T3.Summ <> 0.00 AND
+        T3.DocTyp2 IS NOT NULL
+
+    into
+        :did, :clid, :doctyp1, :doctyp2, :doctypc,
+        :rac5, :summ, :pvn, :summc, :cur
+    do
+    begin
+        suspend;
+    end
+
+end
+^
+
+ALTER PROCEDURE SP_REP_PVN_22(
+  PSD DATE,
+  PED DATE,
+  RG1 MONEY,
+  RG2 MONEY)
+RETURNS (
+  ID TYPE OF COLUMN ROPS1A.ID,
+  SPID TYPE OF COLUMN ROPS1A.SPID,
+  DID TYPE OF COLUMN ROPS1A.DID,
+  DETE TYPE OF COLUMN ROPS1A.DETE,
+  NRX TYPE OF COLUMN ROPS1A.NRX /* COLLATE UTF8 - default */,
+  DOCTYP TYPE OF COLUMN ROPS1A.DOCTYP /* COLLATE UTF8 - default */,
+  DOCTYP1 TYPE OF COLUMN ROPS1A.DOCTYP1 /* COLLATE UTF8 - default */,
+  DOCTYP2 TYPE OF COLUMN ROPS1A.DOCTYP2 /* COLLATE UTF8 - default */,
+  DOCST TYPE OF COLUMN ROPS1A.DOCST /* COLLATE UTF8 - default */,
+  DOCNR TYPE OF COLUMN ROPS1A.DOCNR /* COLLATE UTF8 - default */,
+  CLID TYPE OF COLUMN ROPS1A.CLID /* COLLATE UTF8 - default */,
+  CLID2 TYPE OF COLUMN ROPS1A.CLID2 /* COLLATE UTF8 - default */,
+  NAME TYPE OF COLUMN ROPS1A.NAME /* COLLATE UTF8 - default */,
+  NAME2 TYPE OF COLUMN ROPS1A.NAME2 /* COLLATE UTF8 - default */,
+  REGNR TYPE OF COLUMN ROPS1A.REGNR /* COLLATE UTF8 - default */,
+  REGNR2 TYPE OF COLUMN ROPS1A.REGNR2 /* COLLATE UTF8 - default */,
+  B0 TYPE OF COLUMN ROPS1A.B0,
+  DESCR TYPE OF COLUMN ROPS1A.DESCR /* COLLATE UTF8 - default */,
+  DESCR2 TYPE OF COLUMN ROPS1A.DESCR2 /* COLLATE UTF8 - default */,
+  AC1 TYPE OF COLUMN ROPS1A.AC1 /* COLLATE UTF8 - default */,
+  AC2 TYPE OF COLUMN ROPS1A.AC2 /* COLLATE UTF8 - default */,
+  SAC1 TYPE OF COLUMN ROPS1A.SAC1 /* COLLATE UTF8 - default */,
+  SAC2 TYPE OF COLUMN ROPS1A.SAC2 /* COLLATE UTF8 - default */,
+  SUMMC TYPE OF COLUMN ROPS1A.SUMMC,
+  CUR TYPE OF COLUMN ROPS1A.CUR /* COLLATE UTF8 - default */,
+  SUMM TYPE OF COLUMN ROPS1A.SUMM,
+  PVN TYPE OF COLUMN ROPS1A.PVN,
+  RAC TYPE OF COLUMN ROPS1A.RAC /* COLLATE UTF8 - default */,
+  SDB TYPE OF COLUMN ROPS1A.SDB,
+  SCR TYPE OF COLUMN ROPS1A.SCR,
+  RAC2 TYPE OF COLUMN ROPS1A.RAC2 /* COLLATE UTF8 - default */,
+  RAC3 TYPE OF COLUMN ROPS1A.RAC3 /* COLLATE UTF8 - default */,
+  RAC4 TYPE OF COLUMN ROPS1A.RAC4 /* COLLATE UTF8 - default */,
+  RAC5 TYPE OF COLUMN ROPS1A.RAC5 /* COLLATE UTF8 - default */,
+  QV TYPE OF COLUMN ROPS1A.QV,
+  ZNR TYPE OF COLUMN ROPS1A.ZNR)
+AS
+begin
+-- PVN piel 1.1 - izdevumiem
+    
+    DELETE FROM ttemp_pvn1 WHERE Did IS NOT NULL;
+
+    INSERT INTO ttemp_pvn1(
+        did, clid, doctyp1, doctyp2, doctypc,
+        rac5, summ, pvn, summc, cur)
+    SELECT
+        did, clid, doctyp1, doctyp2, doctypc,
+        rac5, summ, pvn, summc, cur
+    FROM SP_REP_PVN_21(:PSD, :PED, :RG1, :RG2);
+
+
+    UPDATE ttemp_pvn1
+    SET ttemp_pvn1.summdoc =
+        (
+            SELECT SUM(ST2.summ)
+            FROM
+                OPSD AS DT1
+                INNER JOIN OPSD AS DT2 ON
+                    (DT1.id = ttemp_pvn1.did AND
+                     DT1.DETE = DT2.DETE AND
+                     DT1.CLID = DT2.CLID AND
+                     DT1.DOCTYP = DT2.DOCTYP AND
+                     DT1.DOCNR = DT2.DOCNR)
+                INNER JOIN ttemp_pvn1 AS ST2 ON ST2.did = DT2.id
+        )
+    WHERE EXISTS(
+            SELECT ID
+            FROM OPSD AS DW1
+            WHERE
+                DW1.id = ttemp_pvn1.did AND
+                DW1.CLID IS NOT NULL AND
+                DW1.DOCTYP IS NOT NULL AND
+                DW1.DOCNR IS NOT NULL);
+
+
+    UPDATE ttemp_pvn1
+    SET ttemp_pvn1.summdoc = ttemp_pvn1.summ
+    WHERE NOT EXISTS(
+            SELECT ID
+            FROM OPSD AS DW1
+            WHERE
+                DW1.id = ttemp_pvn1.did AND
+                DW1.CLID IS NOT NULL AND
+                DW1.DOCTYP IS NOT NULL AND
+                DW1.DOCNR IS NOT NULL);
+
+
+
+    INSERT INTO ttemp_pvn2(clid)
+    SELECT TT1.ClId
+    FROM ttemp_pvn1 AS TT1
+    WHERE 
+        TT1.ClId IS NOT NULL AND
+        ABS(TT1.SummDoc) < :rg1 AND
+        TT1.DocTypC = 0
+    GROUP BY TT1.ClId
+    HAVING SUM(ABS(TT1.Summ)) < :rg1;
+
+
+    FOR SELECT
+        gen_id(GEN_ROPS1A_ID, 1) as ID,
+        current_connection as SPID,
+        T4.did,
+        CASE
+            WHEN OPSd.DT2 IS NULL
+            THEN OPSd.Dete
+            ELSE OPSd.DT2
+            END AS Dete,
+        null AS nrx,
+        null AS DocTyp,
+        DocTyp.pvnpaz AS DocTyp1,
+        T4.DocTyp2 AS DocTyp2,
+        OPSd.DocSt,
+        OPSd.DocNr,
+        OPSd.clid AS clid,
+        null AS clid2,
+        Persons.Name AS Name,
+        null AS Name2,
+        Persons.PVNRegNr AS RegNr,
+        null AS RegNr2,
+        0.0 AS b0,
+        null AS descr,
+        null AS descr2,
+        null AS AC1,
+        null AS AC2,
+        null AS SAC1,
+        null AS SAC2,
+        0.0 AS SummC,
+        'EUR' AS Cur,
+        T4.Summ AS Summ,
+        T4.PVN AS PVN,
+        null AS RAC,
+        0.0 AS SDb,
+        0.0 AS SCr,
+        null AS RAC2,
+        null AS RAC3,
+        null AS RAC4,
+        null AS RAC5,
+        0.0 AS QV,
+        OPSd.znr AS ZNR
+
+    FROM
+    (
+        SELECT
+            T3.did,
+            T3.ClId,
+            T3.DocTyp2,
+            SUM(T3.Summ) AS Summ,
+            SUM(T3.PVN) AS PVN
+        FROM
+        (    
+            SELECT
+                -1 AS did,
+                NULL AS ClId,
+                'T' AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                ((ABS(T2.SummDoc) < :rg1 AND
+                T2.DocTypC = 0 AND
+                (T2.ClId IS NOT NULL AND T21.ClId IS NOT NULL)))
+                OR
+                (T2.ClId IS NULL)
+
+            UNION ALL
+
+            SELECT
+                -1 AS did,
+                T2.ClId AS ClId,
+                'V' AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                ABS(T2.SummDoc) < :rg1 AND
+                T2.DocTypC = 0 AND
+                (T2.ClId IS NOT NULL AND T21.ClId IS NULL)
+            
+            UNION ALL
+
+            SELECT
+                T2.did AS did,
+                T2.ClId AS ClId,
+                T2.DocTyp2 AS DocTyp2,
+                T2.Summ AS Summ,
+                T2.PVN AS PVN
+
+            FROM TTEMP_PVN1 AS T2 LEFT JOIN TTEMP_PVN2 AS T21 ON T2.ClId = T21.ClId
+            WHERE 
+                T2.ClId IS NOT NULL AND
+                (ABS(T2.SummDoc) >= :rg1 OR
+                T2.DocTypC = 1)
+
+        ) AS T3
+        GROUP BY T3.did, T3.ClId, T3.DocTyp2
+
+    ) AS T4 
+
+        LEFT JOIN OPSd ON T4.did = OPSd.id
+        LEFT JOIN DocTyp ON OPSd.DocTyp = DocTyp.id
+        LEFT JOIN Persons ON T4.ClId = Persons.ClId
+
+    ORDER BY OPSd.Dete
+
+
+    into
+        :id, :spid, :did, :DETE, :nrx,
+        :doctyp, :doctyp1, :doctyp2, :docst, :docnr,
+        :clid, :clid2, :name, :name2, :regnr, :regnr2,
+        :b0, :descr, :descr2, :ac1, :ac2, :sac1,:sac2,
+        :summc, :cur, :summ, :pvn, :rac, :sdb, :scr,
+        :rac2, :rac3, :rac4, :rac5, :qv, :znr
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+
+SET TERM ; ^
+
+
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('401', 'Saņemtās preces un pakalpojumi iekšzemē ', 0, 'A', 23, 0, 8, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('411', 'Importētās preces ', 0, 'I', 22, 0, 8, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('421', 'Saņemtie pakalpojumi, par kuriem PVN maksā pakalpojumu saņēmējs', 0, 'A', 24, 0, 8, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('431', 'Preces, kas saņemtas no ES dalībvalstīm', 0, 'G', 25, 0, 0, 0, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('432', 'Pakalpojumi, kas saņemtas no ES dalībvalstīm', 0, 'P', 25, 0, 0, 0, 0);
+
+
+UPDATE Params
+SET PVALUE = '084'
+WHERE PNAME = 'version';

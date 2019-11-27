@@ -678,6 +678,8 @@ namespace KlonsF.Forms
 
             if (e.Column == MyData.DataSetKlons.OPSd.SummColumn)
             {
+                try { var sm = dr.Summ; }
+                catch (Exception) { return; }
                 if (OPSd_Enable_SetDocSums)
                 {
                     OPSd_Enable_SetDocSums = false;
@@ -690,6 +692,8 @@ namespace KlonsF.Forms
             }
             else if (e.Column == MyData.DataSetKlons.OPSd.PVNColumn)
             {
+                try { var sm = dr.PVN; }
+                catch (Exception) { return; }
                 if (OPSd_Enable_SetDocSums)
                 {
                     OPSd_Enable_SetDocSums = false;

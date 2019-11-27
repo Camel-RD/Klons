@@ -130,7 +130,7 @@ namespace KlonsA.Forms
 
         public void OpenCurrent()
         {
-            if (bsSar.Current == null || !IsSheetFormClosed()) return;
+            if (bsSar.Current == null) return;
             if (!SaveBeforeProceed()) return;
             var dr = (bsSar.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
             var f = MyMainForm.FindForm(typeof(Form_SalarySheet)) as Form_SalarySheet;

@@ -6,7 +6,6 @@ using NotyfyProp;
 
 namespace DataObjectsA
 {
-    [NotyfyProp.NotifyPropertyChanged(Filter = "_", Serialize = false, Browsable = true)]
     public class PayListRowData : BindableComponent
     {
         public int _ID { get; set; } = 0;
