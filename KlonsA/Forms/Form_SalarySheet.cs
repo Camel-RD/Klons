@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ using KlonsLIB.Data;
 using KlonsLIB.Forms;
 using KlonsLIB.Misc;
 using KlonsLIB.MySourceGrid.GridRows;
+using System.Threading.Tasks;
 
 namespace KlonsA.Forms
 {
@@ -1210,6 +1212,90 @@ namespace KlonsA.Forms
             if (dr_lapas_r == null) return;
 
             Report_SalaryCalc1.MakeReport1(dr_lapas_r);
+        }
+        
+        private string GetAprekinaIzklastsPdfFolder()
+        {
+            string sf = MyData.Params.SalPDFFolder;
+            if (string.IsNullOrEmpty(sf) || !Directory.Exists(sf))
+                sf = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var fd = new FolderBrowserDialog();
+            fd.SelectedPath = sf;
+            fd.Description = "Norādi mapi priekš PDF failiem";
+            var ret = FolderBrowserLauncher.ShowFolderBrowser(fd, this);
+            if (ret != DialogResult.OK) return null;
+            sf = fd.SelectedPath;
+            MyData.Params.SalPDFFolder = sf;
+            return sf;
+        }
+
+        private void AprekinaIzklastsToPdf(KlonsADataSet.SALARY_SHEETS_RRow dr_lapas_r, string foldername)
+        {
+            if (dr_lapas_r == null) return;
+            if (bsLapas.Current == null) return;
+            var dr_lapa = (bsLapas.Current as DataRowView).Row as KlonsADataSet.SALARY_SHEETSRow;
+
+            string filename = $"{dr_lapa.YR}.{dr_lapa.MT} {dr_lapas_r.FNAME} {dr_lapas_r.LNAME}.pdf";
+            filename = Path.Combine(foldername, filename);
+            Report_SalaryCalc1.SaveReportToPdf(dr_lapas_r, filename);
+        }
+
+        private void AprekinaIzklastsAllToPdf(Form_Progress fpr, string foldername)
+        {
+            if (bsLapas.Current == null) return;
+            if (bsSarR.Count == 0) return;
+            if (string.IsNullOrEmpty(foldername)) return;
+
+            foreach (var dr in bsSarR)
+            {
+                if (Cancel_AprekinaIzklastsAllToPdf)
+                {
+                    if (fpr != null) fpr.Close();
+                    return;
+                }
+                var dr_lapas_r = (dr as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
+                if (dr_lapas_r == null) continue;
+                AprekinaIzklastsToPdf(dr_lapas_r, foldername);
+                if (fpr != null) fpr.Progress = fpr.Progress + 1;
+            }
+        }
+
+        private bool Cancel_AprekinaIzklastsAllToPdf = false;
+
+        private void aprēķinaIzklāstsSaglabātVisiemUzPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (bsLapas.Current == null) return;
+            if (bsSarR.Count == 0) return;
+
+            var foldername = GetAprekinaIzklastsPdfFolder();
+            if (string.IsNullOrEmpty(foldername)) return;
+
+            Form_Progress fpr = null;
+            if(bsSarR.Count > 2)
+            {
+                fpr = new Form_Progress();
+                fpr.Message = "Taisam pdf failus...";
+                fpr.MaxProgress = bsSarR.Count;
+                Cancel_AprekinaIzklastsAllToPdf = false;
+                fpr.OnCancel = () => { Cancel_AprekinaIzklastsAllToPdf = true; };
+                fpr.RunThis = () => 
+                {
+                    Task.Run(() =>
+                    {
+                        Task.Delay(1000);
+                        AprekinaIzklastsAllToPdf(fpr, foldername);
+                    }).ContinueWith((t) =>
+                        { 
+                            fpr.Close(); 
+                        }
+                    , TaskScheduler.FromCurrentSynchronizationContext());
+                };
+                fpr.ShowDialog(this);
+            }
+            else
+            {
+                AprekinaIzklastsAllToPdf(null, foldername);
+            }
         }
 
         public void ShowBonusList(bool b)

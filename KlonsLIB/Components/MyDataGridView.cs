@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using System.Linq;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -75,7 +77,8 @@ namespace KlonsLIB.Components
             BackgroundColor = SystemColors.Control;
             ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             myContextMenuStrip = new ContextMenuStrip();
-            myContextMenuStrip.Items.Add("Copy (Ctrl + C)", null, OnCopy);
+            myContextMenuStrip.Items.Add("Kopēt (Ctrl + C)", null, OnCopy);
+            myContextMenuStrip.Items.Add("Kopēt bez virsrakstiem", null, OnCopyWithoutHeaders);
             ContextMenuStrip = myContextMenuStrip;
 
             SetMyToolTip();
@@ -97,7 +100,12 @@ namespace KlonsLIB.Components
 
         private void OnCopy(object sender, EventArgs e)
         {
-            Copy();
+            Copy(true);
+        }
+
+        private void OnCopyWithoutHeaders(object sender, EventArgs e)
+        {
+            Copy(false);
         }
 
         protected override void OnHandleCreated(EventArgs e)
@@ -352,7 +360,7 @@ namespace KlonsLIB.Components
 
             if (e.Control && e.KeyCode == Keys.C)
             {
-                return Copy();
+                return Copy(true);
             }
 
             return base.ProcessDataGridViewKey(e);
@@ -414,12 +422,18 @@ namespace KlonsLIB.Components
         }
         */
 
-        public bool Copy()
+        public bool Copy(bool withheaders)
         {
             try
             {
                 //DataFormats.UnicodeText - has tab separeted values
+                var ccm = ClipboardCopyMode;
+                if(withheaders)
+                    ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+                else
+                    ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
                 string csv = (string) this.GetClipboardContent().GetData(DataFormats.UnicodeText);
+                ClipboardCopyMode = ccm;
                 /*
                 var dataObject = new DataObject();
                 var bytes = System.Text.Encoding.UTF8.GetBytes(csv);
@@ -429,6 +443,19 @@ namespace KlonsLIB.Components
                  */
                 if (csv == null) return true;
                 csv = csv.Replace(" ", "");
+                if (string.IsNullOrEmpty(csv)) return true;
+                var lines = csv.Split(new[] { "\r\n" }, StringSplitOptions.None);
+                var checklines = lines.Where(d => d.Length == 0 || d[0] != '\t');
+                if (!checklines.Any())
+                {
+                    var sb = new StringBuilder();
+                    foreach (var line in lines)
+                    {
+                        sb.Append(line.Substring(1));
+                        sb.Append("\r\n");
+                    }
+                    csv = sb.ToString();
+                }
                 Clipboard.SetText(csv);
             }
             catch (Exception)

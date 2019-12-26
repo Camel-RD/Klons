@@ -2577,7 +2577,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsSickPay</DataSetName>
-            <Top>10.62933cm</Top>
+            <Top>10.31183cm</Top>
             <Left>0.03556cm</Left>
             <Height>5.15702cm</Height>
             <Width>17.30912cm</Width>
@@ -3756,14 +3756,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox129">
+                        <Textbox Name="Textbox39">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Salary2.Value)</Value>
+                                  <Value />
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -3774,7 +3774,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox129</rd:DefaultName>
+                          <rd:DefaultName>Textbox39</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -5045,13 +5045,13 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsAvPay</DataSetName>
-            <Top>4.35003cm</Top>
+            <Top>4.03253cm</Top>
             <Left>0.03556cm</Left>
             <Height>6.17414cm</Height>
             <Width>17.13856cm</Width>
             <ZIndex>2</ZIndex>
             <Visibility>
-              <Hidden>=Parameters!RAvPayDay.Value = 0</Hidden>
+              <Hidden>=Parameters!RIsAvPayUsed.Value = "False"</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -5638,7 +5638,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsWorkPay</DataSetName>
-            <Top>2.55016cm</Top>
+            <Top>2.23266cm</Top>
             <Left>0.03556cm</Left>
             <Height>1.8cm</Height>
             <Width>16.23584cm</Width>
@@ -6362,7 +6362,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsVacationPay</DataSetName>
-            <Top>15.9004cm</Top>
+            <Top>15.5829cm</Top>
             <Left>0.03556cm</Left>
             <Height>1.8cm</Height>
             <Width>17.52032cm</Width>
@@ -6910,7 +6910,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsCalcR</DataSetName>
-            <Top>19.83203cm</Top>
+            <Top>19.51453cm</Top>
             <Left>0.03556cm</Left>
             <Height>1.48448cm</Height>
             <Width>17.52032cm</Width>
@@ -7562,7 +7562,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsBonus</DataSetName>
-            <Top>17.85564cm</Top>
+            <Top>17.53814cm</Top>
             <Left>0.03556cm</Left>
             <Height>1.8cm</Height>
             <Width>16.82944cm</Width>
@@ -8069,7 +8069,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsSalary</DataSetName>
-            <Top>21.47443cm</Top>
+            <Top>21.15693cm</Top>
             <Left>0.0748cm</Left>
             <Height>1.2cm</Height>
             <Width>16.46076cm</Width>
@@ -8177,6 +8177,10 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="RIsAvPayUsed">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -8257,6 +8261,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>7</RowIndex>
           <ParameterName>RAvPayCalDay</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>7</RowIndex>
+          <ParameterName>RIsAvPayUsed</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

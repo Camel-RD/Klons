@@ -146,6 +146,44 @@ namespace KlonsLIB.Forms
         {
             return false;
         }
+        public static bool RenderToPdf(ReportViewerData rd, string filename)
+        {
+            try
+            {
+                var bytes = RenderToPdf(rd);
+                if (File.Exists(filename)) File.Delete(filename);
+                using (FileStream stream = new FileStream(filename, FileMode.Create))
+                {
+                    stream.Write(bytes, 0, bytes.Length);
+                }
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static byte[] RenderToPdf(ReportViewerData rd)
+        {
+            var rv = new ReportViewer();
+            foreach (var source in rd.Sources)
+            {
+                rv.LocalReport.DataSources.Add(new ReportDataSource(source.Key, source.Value));
+            }
+            //reportViewer1.LocalReport.ReportEmbeddedResource = "KlonsF.Reports.Report1.rdlc";
+            rv.LocalReport.ReportPath = MyData.GetBasePath() + "\\Reports\\" + rd.FileName + ".rdlc";
+            if (rd.ReportParameters != null)
+                rv.LocalReport.SetParameters(rd.ReportParameters);
+
+            rv.LocalReport.SubreportProcessing += (sender, e) =>
+            {
+                rd.SubreportProcessing(e);
+            };
+            var ret = rv.LocalReport.Render(format: "PDF", deviceInfo: "");
+            rv.Clear();
+            return ret;
+        }
 
     }
 }

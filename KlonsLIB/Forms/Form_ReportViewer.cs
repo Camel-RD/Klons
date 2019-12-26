@@ -41,7 +41,6 @@ namespace KlonsLIB.Forms
             if (reportViewerData.ReportParameters != null)
                 reportViewer1.LocalReport.SetParameters(reportViewerData.ReportParameters);
             reportViewer1.LocalReport.SubreportProcessing += reportViewer1_SubreportProcessing;
-            
         }
 
         private void reportViewer1_SubreportProcessing(object sender, SubreportProcessingEventArgs e)

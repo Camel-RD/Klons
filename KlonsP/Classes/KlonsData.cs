@@ -20,7 +20,7 @@ namespace KlonsP.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "011";
+        public string Version = "012";
         
         public string SettingsFileName = GetBasePath() + "\\Config\\SettingsP.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterListP.xml";

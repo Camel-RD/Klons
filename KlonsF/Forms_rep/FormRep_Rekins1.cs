@@ -23,12 +23,21 @@ namespace KlonsF.FormsReportParams
             InitializeComponent();
             CheckMyFontAndColors();
         }
-        public FormRep_Rekins1(int docid, int repid = 0)
+        
+        public FormRep_Rekins1(int docid, int repid)
         {
             InitializeComponent();
             CheckMyFontAndColors();
             this.docid = docid;
             this.repid = repid;
+        }
+        
+        public FormRep_Rekins1(int docid)
+        {
+            InitializeComponent();
+            CheckMyFontAndColors();
+            this.docid = docid;
+            this.repid = 0;
         }
 
         private int docid = -1;

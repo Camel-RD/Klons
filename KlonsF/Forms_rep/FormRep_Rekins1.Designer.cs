@@ -87,9 +87,9 @@ namespace KlonsF.FormsReportParams
             this.label2.Location = new System.Drawing.Point(8, 126);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Izrakstītāks:";
+            this.label2.Text = "Izrakstītājs:";
             // 
             // cmCancel
             // 
@@ -120,8 +120,6 @@ namespace KlonsF.FormsReportParams
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormRep_Rekins1";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Izrakstam rēķinu";
             this.Load += new System.EventHandler(this.FormRep_Rekins1_Load);

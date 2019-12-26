@@ -175,6 +175,15 @@ namespace KlonsA.Classes
             _FORAVPAYCALC_BRUTO += SumAvPay();
         }
 
+        public bool IsAvPayUsed()
+        {
+            return
+                (SumAvPay() + _SALARY_AVPAY_FREE_DAYS > 0.0M) ||
+                _VACATION_DAYS_CURRENT > 0 ||
+                _VACATION_DAYS_NEXT > 0 ||
+                _SICKDAYS > 0;
+        }
+
         public void GetRateDefs(KlonsADataSet.POSITIONS_RRow dr_amati_r, int calcdays, float calchours)
         {
             var rt = dr_amati_r.XRateType;

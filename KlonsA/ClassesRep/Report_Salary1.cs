@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,29 @@ namespace KlonsA.Classes
         public bool DoFullList = false;
         public int ValueNr = 0;
         public int Cursor = 0;
-
-
+        
         public static void MakeReport1(KlonsADataSet.SALARY_SHEETS_RRow dr_lapas_r)
+        {
+            var rd = MakeReportData(dr_lapas_r);
+            if (rd == null) return;
+            MyData.MyMainForm.ShowReport(rd);
+        }
+
+        public static bool SaveReportToPdf(KlonsADataSet.SALARY_SHEETS_RRow dr_lapas_r, string filename)
+        {
+            var rd = MakeReportData(dr_lapas_r);
+            if (rd == null) return false;
+            return ReportHelper.RenderToPdf(rd, filename);
+        }
+
+        public static ReportViewerData MakeReportData(KlonsADataSet.SALARY_SHEETS_RRow dr_lapas_r)
         {
             var sr = new SalarySheetRowInfo();
             var err = sr.SetUpFromRowX(dr_lapas_r);
             if (err.HasErrors)
             {
                 Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
-                return;
+                return null;
             }
             sr.CheckLinkedRows(dr_lapas_r.IDP);
 
@@ -38,7 +52,7 @@ namespace KlonsA.Classes
             if (err.HasErrors)
             {
                 Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
-                return;
+                return null;
             }
 
             var person = string.Format("{0} {1}, {2}", sr.DR_Person_r.FNAME,
@@ -53,7 +67,7 @@ namespace KlonsA.Classes
                 var sc0 = sc.LinkedSCI[0];
                 sc0.CheckBeforeReport();
 
-                sc0.AvPayCalc.AddCurMonthPay(sr.SalarySheet.YR, sr.SalarySheet.MT, sc.TotalSI._PAY);
+                sc0.AvPayCalc.SetCurMonthPay(sr.SalarySheet.YR, sr.SalarySheet.MT, sc.TotalSI._TOTAL_BEFORE_TAXES, sc.TotalSI._PAY);
 
                 rd.Sources["dsSickPay"] = sc0.SickDayCalc?.Rows;
                 rd.Sources["dsAvPay"] = sc0.AvPayCalc.ReportRows;
@@ -79,6 +93,7 @@ namespace KlonsA.Classes
                     "RPosTitle2", null,
                     "RPosTitle3", null,
                     "RPosTitle4", null,
+                    "RIsAvPayUsed", sc0.SI.IsAvPayUsed().ToString()
                     });
             }
             else
@@ -86,7 +101,7 @@ namespace KlonsA.Classes
                 var rep = sc.MakeReport1();
                 sc.CheckBeforeReport();
 
-                sc.AvPayCalc.AddCurMonthPay(sr.SalarySheet.YR, sr.SalarySheet.MT, sc.TotalSI._PAY);
+                sc.AvPayCalc.SetCurMonthPay(sr.SalarySheet.YR, sr.SalarySheet.MT, sc.TotalSI._TOTAL_BEFORE_TAXES, sc.TotalSI._PAY);
 
                 rd.Sources["dsSickPay"] = sc.SickDayCalc.Rows;
                 rd.Sources["dsAvPay"] = sc.AvPayCalc.ReportRows;
@@ -112,10 +127,10 @@ namespace KlonsA.Classes
                     "RPosTitle2", rep.Titles[2],
                     "RPosTitle3", rep.Titles[3],
                     "RPosTitle4", rep.Titles[4],
+                    "RIsAvPayUsed", sc.TotalSI.IsAvPayUsed().ToString()
                     });
             }
-
-            MyData.MyMainForm.ShowReport(rd);
+            return rd;
         }
 
         public SalaryCalcRow addr(string pc, decimal pv)

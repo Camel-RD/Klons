@@ -277,7 +277,11 @@ namespace KlonsA.Classes
             get { return GetParamBool("PersDataOnlyUsed").GetValueOrDefault(false); }
             set { SetParamBool("PersDataOnlyUsed", value); }
         }
-
+        public string SalPDFFolder
+        {
+            get { return GetParamStr("SalPDFFolder"); }
+            set { SetParamStr("SalPDFFolder", value); }
+        }
 
         private bool roundupset = false;
         private bool roundup = false;
