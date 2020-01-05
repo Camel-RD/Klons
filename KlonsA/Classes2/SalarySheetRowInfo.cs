@@ -793,7 +793,7 @@ namespace KlonsA.Classes
                 var dtp1 = dt2.AddDays(1);
                 var dtp2 = pi.DateLast;
                 if (dtp1 < pi.DateFirst) dtp1 = pi.DateFirst;
-                var dtpe = new DateTime(dtp1.Year, dtp1.Month + 1, 1).AddDays(-1);
+                var dtpe = dtp1.LastDayOfMonth();
                 if (dtp2 > dtpe) dtp2 = dtpe;
 
                 while (true)
@@ -808,7 +808,7 @@ namespace KlonsA.Classes
 
                     dtp1 = dtpe.AddDays(1);
                     dtp2 = pi.DateLast;
-                    dtpe = dtpe.AddDays(1).AddMonths(1).AddDays(-1);
+                    dtpe = dtp1.LastDayOfMonth();
                     if (dtp2 > dtpe) dtp2 = dtpe;
                 }
 

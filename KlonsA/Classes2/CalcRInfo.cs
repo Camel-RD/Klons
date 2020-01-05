@@ -82,8 +82,9 @@ namespace KlonsA.Classes
             CalendarDays = 0;
 
             var dr_likmes = dt1.Month == sr.SalarySheet.MT ?
-                sr.SalarySheet.DR_Likmes : 
-                DataTasks.GetRates(dt1.FirstDayOfMonth());
+                sr.SalarySheet.DR_Likmes : null;
+            if (dr_likmes == null)
+                dr_likmes = DataTasks.GetRates(dt1.FirstDayOfMonth());
 
             if (fPersonR.LinkedPeriods.Count == 0) return;
 

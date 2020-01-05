@@ -308,9 +308,10 @@ namespace KlonsLIB.Components
 
         private void CheckColumnIndexes()
         {
-            if(!this.DesignMode)
+            if (!this.DesignMode)
                 if (IsHandleCreated && !Focused && SelectionLength > 0)
-                    SelectionLength = 0;
+                    Select(0, 0);
+                    //SelectionLength = 0;
 
             if (m_ColumnNames == null || m_ColumnNames.Length == 0)
             {

@@ -87,7 +87,7 @@ namespace KlonsA.Forms
             this.tslPeriod});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(866, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(866, 29);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -121,7 +121,7 @@ namespace KlonsA.Forms
             this.tsbNew,
             this.tsbDelete,
             this.tsbSave});
-            this.bnavSar.Location = new System.Drawing.Point(0, 405);
+            this.bnavSar.Location = new System.Drawing.Point(0, 404);
             this.bnavSar.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnavSar.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnavSar.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -130,7 +130,7 @@ namespace KlonsA.Forms
             this.bnavSar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 2);
             this.bnavSar.PositionItem = this.bindingNavigatorPositionItem;
             this.bnavSar.SaveItem = null;
-            this.bnavSar.Size = new System.Drawing.Size(866, 34);
+            this.bnavSar.Size = new System.Drawing.Size(866, 35);
             this.bnavSar.TabIndex = 4;
             this.bnavSar.Text = "myBindingNavigator1";
             this.bnavSar.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavSar_ItemDeleting);
@@ -172,10 +172,11 @@ namespace KlonsA.Forms
             this.dgcID});
             this.dgvSar.DataSource = this.bsSar;
             this.dgvSar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSar.Location = new System.Drawing.Point(0, 28);
+            this.dgvSar.Location = new System.Drawing.Point(0, 29);
             this.dgvSar.Name = "dgvSar";
+            this.dgvSar.RowHeadersWidth = 53;
             this.dgvSar.RowTemplate.Height = 24;
-            this.dgvSar.Size = new System.Drawing.Size(866, 377);
+            this.dgvSar.Size = new System.Drawing.Size(866, 375);
             this.dgvSar.TabIndex = 6;
             this.dgvSar.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvSar_MyKeyDown);
             this.dgvSar.MyCheckForChanges += new System.EventHandler(this.dgvSar_MyCheckForChanges);
@@ -192,6 +193,7 @@ namespace KlonsA.Forms
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcYR.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcYR.HeaderText = "gads";
+            this.dgcYR.MinimumWidth = 7;
             this.dgcYR.Name = "dgcYR";
             this.dgcYR.ReadOnly = true;
             this.dgcYR.Width = 60;
@@ -202,6 +204,7 @@ namespace KlonsA.Forms
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcMT.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgcMT.HeaderText = "mēn.";
+            this.dgcMT.MinimumWidth = 7;
             this.dgcMT.Name = "dgcMT";
             this.dgcMT.ReadOnly = true;
             this.dgcMT.ToolTipText = "mēnesis";
@@ -213,6 +216,7 @@ namespace KlonsA.Forms
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcSNR.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgcSNR.HeaderText = "npk.";
+            this.dgcSNR.MinimumWidth = 7;
             this.dgcSNR.Name = "dgcSNR";
             this.dgcSNR.ToolTipText = "numurs pēc kārtas";
             this.dgcSNR.Width = 50;
@@ -223,6 +227,7 @@ namespace KlonsA.Forms
             dataGridViewCellStyle5.Format = "dd.MM.yyyy";
             this.dgcDT1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgcDT1.HeaderText = "datums no";
+            this.dgcDT1.MinimumWidth = 7;
             this.dgcDT1.Name = "dgcDT1";
             this.dgcDT1.ReadOnly = true;
             this.dgcDT1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -234,6 +239,7 @@ namespace KlonsA.Forms
             dataGridViewCellStyle6.Format = "dd.MM.yyyy";
             this.dgcDT2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgcDT2.HeaderText = "datums līdz";
+            this.dgcDT2.MinimumWidth = 7;
             this.dgcDT2.Name = "dgcDT2";
             this.dgcDT2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgcDT2.Width = 85;
@@ -242,6 +248,7 @@ namespace KlonsA.Forms
             // 
             this.dgcDescr.DataPropertyName = "DESCR";
             this.dgcDescr.HeaderText = "apraksts";
+            this.dgcDescr.MinimumWidth = 7;
             this.dgcDescr.Name = "dgcDescr";
             this.dgcDescr.Width = 200;
             // 
@@ -253,6 +260,7 @@ namespace KlonsA.Forms
             this.dgcDEP.DisplayStyleForCurrentCellOnly = true;
             this.dgcDEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dgcDEP.HeaderText = "struktūrv.";
+            this.dgcDEP.MinimumWidth = 7;
             this.dgcDEP.Name = "dgcDEP";
             this.dgcDEP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcDEP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -270,6 +278,7 @@ namespace KlonsA.Forms
             this.dgcIsTemp.DataPropertyName = "IS_TEMP";
             this.dgcIsTemp.FalseValue = "0";
             this.dgcIsTemp.HeaderText = "starpapr.";
+            this.dgcIsTemp.MinimumWidth = 7;
             this.dgcIsTemp.Name = "dgcIsTemp";
             this.dgcIsTemp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcIsTemp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -281,8 +290,10 @@ namespace KlonsA.Forms
             // 
             this.dgcID.DataPropertyName = "ID";
             this.dgcID.HeaderText = "ID";
+            this.dgcID.MinimumWidth = 7;
             this.dgcID.Name = "dgcID";
             this.dgcID.Visible = false;
+            this.dgcID.Width = 130;
             // 
             // bindingNavigatorCountItem
             // 
@@ -297,7 +308,7 @@ namespace KlonsA.Forms
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -306,13 +317,13 @@ namespace KlonsA.Forms
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -325,7 +336,7 @@ namespace KlonsA.Forms
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -333,7 +344,7 @@ namespace KlonsA.Forms
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -342,13 +353,13 @@ namespace KlonsA.Forms
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // tsbOpen
             // 
@@ -385,7 +396,7 @@ namespace KlonsA.Forms
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(25, 29);
+            this.tsbSave.Size = new System.Drawing.Size(30, 29);
             this.tsbSave.Text = "Saglabāt";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -414,6 +425,7 @@ namespace KlonsA.Forms
             this.myAdapterManager1.TableNames = new string[] {
         "SALARY_SHEETS",
         "SALARY_SHEETS_R",
+        "SALARY_PLUSMINUS",
         null};
             // 
             // Form_SalarySheets

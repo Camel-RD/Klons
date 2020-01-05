@@ -268,7 +268,10 @@ namespace KlonsA.Classes
             DR_algas_lapa.Delete();
             var drt = FindTotalListForPeriod();
             if (drt != null && !HasSalarySheetsForPeriod())
+            {
+                //DataTasks.DeleteSalarySheet(drt);
                 drt.Delete();
+            }
         }
 
         public bool HasSalarySheetsForPeriod()
