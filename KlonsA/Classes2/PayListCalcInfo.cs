@@ -768,7 +768,7 @@ namespace KlonsA.Classes
                 IINEX_EXP;
 
             pfx.HasProgressiveIIN = DT1 >= PayFx.ProgressiveIINStartDate;
-            pfx.HasTaxDoc = fromsr.UNTAXED_MINIMUM > 0.0M;
+            pfx.HasTaxDoc = pfx.IinEx > 0.0M;
 
             pfx.Pay = PAY_TAXED;
             pfx.PayNs = PAY_NOSAI;
@@ -798,7 +798,7 @@ namespace KlonsA.Classes
             pfx.UsedIinEx = pfx.IinEx;
 
             pfx.HasProgressiveIIN = DT1 >= PayFx.ProgressiveIINStartDate;
-            pfx.HasTaxDoc = UNTAXED_MINIMUM > 0.0M;
+            pfx.HasTaxDoc = pfx.IinEx > 0.0M;
 
             pfx.Pay = PAY_TAXED;
             pfx.PayNs = PAY_NOSAI;

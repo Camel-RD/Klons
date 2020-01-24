@@ -130,7 +130,7 @@ namespace KlonsA.Classes
                 var reprow = new SalaryRepRow2();
                 reprow.SetFrom(dr);
                 reprow.SNR = i + 1;
-
+                
                 switch (groupby)
                 {
                     case EGroupBy.YearAndMonth:
@@ -193,6 +193,7 @@ namespace KlonsA.Classes
         public decimal AdvanceOrDebt { get; set; } = 0.0M;
         public decimal Pay { get; set; } = 0.0M;
         public decimal PayT { get; set; } = 0.0M;
+        public decimal Paid { get; set; } = 0.0M;
 
         public void SetFrom(SalaryInfo si)
         {
@@ -254,6 +255,7 @@ namespace KlonsA.Classes
             Pay = dr.PAY;
             AdvanceOrDebt = dr.ADVANCE;
             PayT = dr.PAYT;
+            Paid = dr.PAID;
         }
 
     }

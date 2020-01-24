@@ -260,6 +260,11 @@ namespace KlonsA
             ShowForm(typeof(Form_Banks));
         }
 
+        private void kalendārsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(Form_Calendar));
+        }
+
         private void darbaLaikaPlānuSarakstsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;

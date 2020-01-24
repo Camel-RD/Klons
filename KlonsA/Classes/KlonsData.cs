@@ -19,7 +19,7 @@ namespace KlonsA.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "038";
+        public string Version = "039";
         
         public string SettingsFileName = GetBasePath() + "\\Config\\SettingsA.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterListA.xml";
@@ -40,6 +40,8 @@ namespace KlonsA.Classes
         public ErrorList ErrorInfoList { get; } = new ErrorList();
 
         public List<WeakReference> CollectedRefs = new List<WeakReference>();
+
+        public static int VersionRef(int ver) => ver;
 
         private KlonsData()
         {

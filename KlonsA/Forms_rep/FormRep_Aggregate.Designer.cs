@@ -52,6 +52,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbDepartment = new KlonsLIB.Components.MyMcFlatComboBox();
             this.bsDepartments = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -65,6 +66,7 @@
             this.cmTable = new System.Windows.Forms.Button();
             this.tbDate1 = new KlonsLIB.Components.MyTextBox();
             this.tbDate2 = new KlonsLIB.Components.MyTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,10 +93,10 @@
             this.dgcIINEX2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MinusAfterIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dhcAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcMinusAfterIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
+            this.dgcPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPositionsForPerson)).BeginInit();
@@ -122,7 +124,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 117);
+            this.panel1.Size = new System.Drawing.Size(981, 117);
             this.panel1.TabIndex = 0;
             // 
             // cbDepartment
@@ -278,6 +280,15 @@
             this.tbDate2.Size = new System.Drawing.Size(90, 22);
             this.tbDate2.TabIndex = 12;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(401, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Grupēt pa:";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -351,16 +362,18 @@
             this.dgcIINEX2,
             this.dgcIIN,
             this.dgcPAY,
-            this.MinusAfterIIN,
-            this.dhcAdvance,
-            this.dgcPayT});
+            this.dgcMinusAfterIIN,
+            this.dgcAdvance,
+            this.dgcPayT,
+            this.dgcPaid});
             this.dgvRows.DataSource = this.bsRows;
             this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRows.Location = new System.Drawing.Point(0, 117);
             this.dgvRows.Name = "dgvRows";
             this.dgvRows.ReadOnly = true;
+            this.dgvRows.RowHeadersWidth = 53;
             this.dgvRows.RowTemplate.Height = 24;
-            this.dgvRows.Size = new System.Drawing.Size(834, 275);
+            this.dgvRows.Size = new System.Drawing.Size(981, 275);
             this.dgvRows.TabIndex = 1;
             // 
             // dgcSNR
@@ -370,6 +383,7 @@
             this.dgcSNR.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcSNR.Frozen = true;
             this.dgcSNR.HeaderText = "nr";
+            this.dgcSNR.MinimumWidth = 7;
             this.dgcSNR.Name = "dgcSNR";
             this.dgcSNR.ReadOnly = true;
             this.dgcSNR.Width = 40;
@@ -379,6 +393,7 @@
             this.dgcCaption.DataPropertyName = "Caption";
             this.dgcCaption.Frozen = true;
             this.dgcCaption.HeaderText = "darbinieks / periods";
+            this.dgcCaption.MinimumWidth = 7;
             this.dgcCaption.Name = "dgcCaption";
             this.dgcCaption.ReadOnly = true;
             this.dgcCaption.Width = 200;
@@ -389,6 +404,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcWorkHours.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgcWorkHours.HeaderText = "st.";
+            this.dgcWorkHours.MinimumWidth = 7;
             this.dgcWorkHours.Name = "dgcWorkHours";
             this.dgcWorkHours.ReadOnly = true;
             this.dgcWorkHours.ToolTipText = "Nostrādātās stundas";
@@ -400,6 +416,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcWorkDays.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgcWorkDays.HeaderText = "dien.";
+            this.dgcWorkDays.MinimumWidth = 7;
             this.dgcWorkDays.Name = "dgcWorkDays";
             this.dgcWorkDays.ReadOnly = true;
             this.dgcWorkDays.ToolTipText = "Nostrādātās dienas";
@@ -412,6 +429,7 @@
             dataGridViewCellStyle5.Format = "N2";
             this.dgcWorkPay.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgcWorkPay.HeaderText = "darba samaksa";
+            this.dgcWorkPay.MinimumWidth = 7;
             this.dgcWorkPay.Name = "dgcWorkPay";
             this.dgcWorkPay.ReadOnly = true;
             this.dgcWorkPay.Width = 80;
@@ -423,6 +441,7 @@
             dataGridViewCellStyle6.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcSickPay.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgcSickPay.HeaderText = "slimības nauda";
+            this.dgcSickPay.MinimumWidth = 7;
             this.dgcSickPay.Name = "dgcSickPay";
             this.dgcSickPay.ReadOnly = true;
             this.dgcSickPay.Width = 80;
@@ -434,6 +453,7 @@
             dataGridViewCellStyle7.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcVacationPay.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgcVacationPay.HeaderText = "atvaļin. nauda";
+            this.dgcVacationPay.MinimumWidth = 7;
             this.dgcVacationPay.Name = "dgcVacationPay";
             this.dgcVacationPay.ReadOnly = true;
             this.dgcVacationPay.ToolTipText = "Atvaļinājuma nauda";
@@ -446,6 +466,7 @@
             dataGridViewCellStyle8.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcPlusTaxed.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgcPlusTaxed.HeaderText = "piem. apliek.";
+            this.dgcPlusTaxed.MinimumWidth = 7;
             this.dgcPlusTaxed.Name = "dgcPlusTaxed";
             this.dgcPlusTaxed.ReadOnly = true;
             this.dgcPlusTaxed.ToolTipText = "Ar nodokļiem apliekamās piemaksas";
@@ -458,6 +479,7 @@
             dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcPlusNotTaxed.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgcPlusNotTaxed.HeaderText = "piem. nepliek";
+            this.dgcPlusNotTaxed.MinimumWidth = 7;
             this.dgcPlusNotTaxed.Name = "dgcPlusNotTaxed";
             this.dgcPlusNotTaxed.ReadOnly = true;
             this.dgcPlusNotTaxed.ToolTipText = "Ar nodokļiem neapliekamās piemaksas";
@@ -470,6 +492,7 @@
             dataGridViewCellStyle10.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcAuthorsFees.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgcAuthorsFees.HeaderText = "autoratl.";
+            this.dgcAuthorsFees.MinimumWidth = 7;
             this.dgcAuthorsFees.Name = "dgcAuthorsFees";
             this.dgcAuthorsFees.ReadOnly = true;
             this.dgcAuthorsFees.ToolTipText = "Autoratlīdzība";
@@ -482,6 +505,7 @@
             dataGridViewCellStyle11.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcNoSAI.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgcNoSAI.HeaderText = "piem. nav SAI";
+            this.dgcNoSAI.MinimumWidth = 7;
             this.dgcNoSAI.Name = "dgcNoSAI";
             this.dgcNoSAI.ReadOnly = true;
             this.dgcNoSAI.ToolTipText = "Ar SAI neapliekamās piemaksas";
@@ -494,6 +518,7 @@
             dataGridViewCellStyle12.Format = "N2";
             this.dgcTotalPay.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgcTotalPay.HeaderText = "bruto alga";
+            this.dgcTotalPay.MinimumWidth = 7;
             this.dgcTotalPay.Name = "dgcTotalPay";
             this.dgcTotalPay.ReadOnly = true;
             this.dgcTotalPay.Width = 80;
@@ -505,6 +530,7 @@
             dataGridViewCellStyle13.Format = "N2";
             this.dgcForSAI.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgcForSAI.HeaderText = "apliek ar SAI";
+            this.dgcForSAI.MinimumWidth = 7;
             this.dgcForSAI.Name = "dgcForSAI";
             this.dgcForSAI.ReadOnly = true;
             this.dgcForSAI.ToolTipText = "Ar SAI apliekamie ienākumi";
@@ -517,6 +543,7 @@
             dataGridViewCellStyle14.Format = "N2";
             this.dgcDDSI.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgcDDSI.HeaderText = "d.d. SAI";
+            this.dgcDDSI.MinimumWidth = 7;
             this.dgcDDSI.Name = "dgcDDSI";
             this.dgcDDSI.ReadOnly = true;
             this.dgcDDSI.ToolTipText = "Darba devēja SAI";
@@ -529,6 +556,7 @@
             dataGridViewCellStyle15.Format = "N2";
             this.dgcDNSAI.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgcDNSAI.HeaderText = "d.ņ. SAI";
+            this.dgcDNSAI.MinimumWidth = 7;
             this.dgcDNSAI.Name = "dgcDNSAI";
             this.dgcDNSAI.ReadOnly = true;
             this.dgcDNSAI.ToolTipText = "Darba ņēmēja SAI";
@@ -541,6 +569,7 @@
             dataGridViewCellStyle16.Format = "N2";
             this.dgcUntaxedMinimum.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgcUntaxedMinimum.HeaderText = "neapliek min.";
+            this.dgcUntaxedMinimum.MinimumWidth = 7;
             this.dgcUntaxedMinimum.Name = "dgcUntaxedMinimum";
             this.dgcUntaxedMinimum.ReadOnly = true;
             this.dgcUntaxedMinimum.ToolTipText = "Neapliekamais minimums";
@@ -553,6 +582,7 @@
             dataGridViewCellStyle17.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcDepend.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgcDepend.HeaderText = "par apgādāj.";
+            this.dgcDepend.MinimumWidth = 7;
             this.dgcDepend.Name = "dgcDepend";
             this.dgcDepend.ReadOnly = true;
             this.dgcDepend.ToolTipText = "IIN atvieglojumi par apgādājamajiem";
@@ -565,6 +595,7 @@
             dataGridViewCellStyle18.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcIINEX2.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgcIINEX2.HeaderText = "pārējie IIN atv.";
+            this.dgcIINEX2.MinimumWidth = 7;
             this.dgcIINEX2.Name = "dgcIINEX2";
             this.dgcIINEX2.ReadOnly = true;
             this.dgcIINEX2.ToolTipText = "Pārējie IIN atvieglojumi";
@@ -577,6 +608,7 @@
             dataGridViewCellStyle19.Format = "N2";
             this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgcIIN.HeaderText = "IIN";
+            this.dgcIIN.MinimumWidth = 7;
             this.dgcIIN.Name = "dgcIIN";
             this.dgcIIN.ReadOnly = true;
             this.dgcIIN.Width = 80;
@@ -588,31 +620,35 @@
             dataGridViewCellStyle20.Format = "N2";
             this.dgcPAY.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgcPAY.HeaderText = "samaksa";
+            this.dgcPAY.MinimumWidth = 7;
             this.dgcPAY.Name = "dgcPAY";
             this.dgcPAY.ReadOnly = true;
             this.dgcPAY.Width = 80;
             // 
-            // MinusAfterIIN
+            // dgcMinusAfterIIN
             // 
+            this.dgcMinusAfterIIN.DataPropertyName = "MinusAfterIIN";
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle21.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.MinusAfterIIN.DefaultCellStyle = dataGridViewCellStyle21;
-            this.MinusAfterIIN.HeaderText = "atvilkumi";
-            this.MinusAfterIIN.Name = "MinusAfterIIN";
-            this.MinusAfterIIN.ReadOnly = true;
-            this.MinusAfterIIN.ToolTipText = "Atvilkumi pēc IIN";
-            this.MinusAfterIIN.Width = 80;
+            this.dgcMinusAfterIIN.DefaultCellStyle = dataGridViewCellStyle21;
+            this.dgcMinusAfterIIN.HeaderText = "atvilkumi";
+            this.dgcMinusAfterIIN.MinimumWidth = 7;
+            this.dgcMinusAfterIIN.Name = "dgcMinusAfterIIN";
+            this.dgcMinusAfterIIN.ReadOnly = true;
+            this.dgcMinusAfterIIN.ToolTipText = "Atvilkumi pēc IIN";
+            this.dgcMinusAfterIIN.Width = 80;
             // 
-            // dhcAdvance
+            // dgcAdvance
             // 
-            this.dhcAdvance.DataPropertyName = "Advance";
+            this.dgcAdvance.DataPropertyName = "AdvanceOrDebt";
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle22.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dhcAdvance.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dhcAdvance.HeaderText = "avansā";
-            this.dhcAdvance.Name = "dhcAdvance";
-            this.dhcAdvance.ReadOnly = true;
-            this.dhcAdvance.Width = 80;
+            this.dgcAdvance.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dgcAdvance.HeaderText = "avansā";
+            this.dgcAdvance.MinimumWidth = 7;
+            this.dgcAdvance.Name = "dgcAdvance";
+            this.dgcAdvance.ReadOnly = true;
+            this.dgcAdvance.Width = 80;
             // 
             // dgcPayT
             // 
@@ -621,24 +657,28 @@
             dataGridViewCellStyle23.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcPayT.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgcPayT.HeaderText = "kopā samaksa";
+            this.dgcPayT.MinimumWidth = 7;
             this.dgcPayT.Name = "dgcPayT";
             this.dgcPayT.ReadOnly = true;
             this.dgcPayT.Width = 80;
             // 
-            // label6
+            // dgcPaid
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(401, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 16);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Grupēt pa:";
+            this.dgcPaid.DataPropertyName = "PAID";
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle24.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcPaid.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dgcPaid.HeaderText = "izmaksāts";
+            this.dgcPaid.MinimumWidth = 7;
+            this.dgcPaid.Name = "dgcPaid";
+            this.dgcPaid.ReadOnly = true;
+            this.dgcPaid.Width = 80;
             // 
             // FormRep_Aggregate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 392);
+            this.ClientSize = new System.Drawing.Size(981, 392);
             this.Controls.Add(this.dgvRows);
             this.Controls.Add(this.panel1);
             this.Name = "FormRep_Aggregate";
@@ -676,6 +716,7 @@
         private KlonsLIB.Data.MyBindingSource bsDepartments;
         private KlonsLIB.Components.MyMcFlatComboBox cbDepartment;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSNR;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCaption;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWorkHours;
@@ -696,9 +737,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcIINEX2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcIIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPAY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MinusAfterIIN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dhcAdvance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcMinusAfterIIN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcAdvance;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPayT;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPaid;
     }
 }

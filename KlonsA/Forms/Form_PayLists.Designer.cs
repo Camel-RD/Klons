@@ -121,6 +121,8 @@ namespace KlonsA.Forms
             this.pārrēķinātSarakstuNemainotMaksājumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pārrēķinātDarbiniekamNemainotMaksājumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.rādītPaslēptSarakstuTabuluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rādītPaslēptDatuPaneliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -167,8 +169,15 @@ namespace KlonsA.Forms
             this.grRowS0 = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.grtPayRowDecimal = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.grtPayRowDecimalReadOnly = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
-            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.plFilter = new System.Windows.Forms.Panel();
+            this.cmFilter = new System.Windows.Forms.Button();
+            this.cbDep = new KlonsLIB.Components.MyMcFlatComboBox();
+            this.bsDep2 = new KlonsLIB.Data.MyBindingSource(this.components);
+            this.tbDate2 = new KlonsLIB.Components.MyTextBox();
+            this.tbDate1 = new KlonsLIB.Components.MyTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).BeginInit();
             this.bNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsLists)).BeginInit();
@@ -186,6 +195,8 @@ namespace KlonsA.Forms
             ((System.ComponentModel.ISupportInitialize)(this.myAdapterManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAmatiF)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.plFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDep2)).BeginInit();
             this.SuspendLayout();
             // 
             // bNav
@@ -288,7 +299,7 @@ namespace KlonsA.Forms
             this.dgvRows.Name = "dgvRows";
             this.dgvRows.RowHeadersWidth = 53;
             this.dgvRows.RowTemplate.Height = 24;
-            this.dgvRows.Size = new System.Drawing.Size(935, 204);
+            this.dgvRows.Size = new System.Drawing.Size(935, 188);
             this.dgvRows.TabIndex = 0;
             this.dgvRows.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRows_MyKeyDown);
             this.dgvRows.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvRows_CellBeginEdit);
@@ -643,7 +654,7 @@ namespace KlonsA.Forms
             this.dgvLists.Name = "dgvLists";
             this.dgvLists.RowHeadersWidth = 53;
             this.dgvLists.RowTemplate.Height = 24;
-            this.dgvLists.Size = new System.Drawing.Size(935, 181);
+            this.dgvLists.Size = new System.Drawing.Size(935, 166);
             this.dgvLists.TabIndex = 0;
             this.dgvLists.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLists_MyKeyDown);
             this.dgvLists.MyCheckForChanges += new System.EventHandler(this.dgvLists_MyCheckForChanges);
@@ -878,7 +889,7 @@ namespace KlonsA.Forms
             // mySplitContainer1
             // 
             this.mySplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mySplitContainer1.Location = new System.Drawing.Point(0, 29);
+            this.mySplitContainer1.Location = new System.Drawing.Point(0, 60);
             this.mySplitContainer1.Name = "mySplitContainer1";
             this.mySplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -889,8 +900,8 @@ namespace KlonsA.Forms
             // mySplitContainer1.Panel2
             // 
             this.mySplitContainer1.Panel2.Controls.Add(this.dgvRows);
-            this.mySplitContainer1.Size = new System.Drawing.Size(935, 390);
-            this.mySplitContainer1.SplitterDistance = 181;
+            this.mySplitContainer1.Size = new System.Drawing.Size(935, 359);
+            this.mySplitContainer1.SplitterDistance = 166;
             this.mySplitContainer1.SplitterWidth = 5;
             this.mySplitContainer1.TabIndex = 1;
             // 
@@ -899,9 +910,9 @@ namespace KlonsA.Forms
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maksājumuSarakstiToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 29);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(935, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1215, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -921,6 +932,7 @@ namespace KlonsA.Forms
             this.toolStripSeparator7,
             this.rādītPaslēptSarakstuTabuluToolStripMenuItem,
             this.rādītPaslēptDatuPaneliToolStripMenuItem,
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem,
             this.toolStripSeparator4,
             this.toolStripMenuItem1,
             this.toolStripSeparator5,
@@ -978,6 +990,18 @@ namespace KlonsA.Forms
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(546, 6);
+            // 
+            // pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem
+            // 
+            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Name = "pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem";
+            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Size = new System.Drawing.Size(549, 30);
+            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Text = "Pārrēķināt atlasītos sarakstus, nemainot maksājumu";
+            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Click += new System.EventHandler(this.PārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(546, 6);
             // 
             // rādītPaslēptSarakstuTabuluToolStripMenuItem
             // 
@@ -1227,7 +1251,7 @@ namespace KlonsA.Forms
             this.sgrPayRow.ColumnWidth3 = 120;
             this.sgrPayRow.Dock = System.Windows.Forms.DockStyle.Right;
             this.sgrPayRow.EnableSort = true;
-            this.sgrPayRow.Location = new System.Drawing.Point(935, 29);
+            this.sgrPayRow.Location = new System.Drawing.Point(935, 60);
             this.sgrPayRow.MyDataBC = this.payListRowData1;
             this.sgrPayRow.Name = "sgrPayRow";
             this.sgrPayRow.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
@@ -1258,7 +1282,7 @@ namespace KlonsA.Forms
             this.sgrPayRow.RowTemplateList.Add(this.grtPayRowDecimal);
             this.sgrPayRow.RowTemplateList.Add(this.grtPayRowDecimalReadOnly);
             this.sgrPayRow.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.sgrPayRow.Size = new System.Drawing.Size(280, 390);
+            this.sgrPayRow.Size = new System.Drawing.Size(280, 359);
             this.sgrPayRow.TabIndex = 4;
             this.sgrPayRow.TabStop = true;
             this.sgrPayRow.ToolTipText = "";
@@ -1510,29 +1534,115 @@ namespace KlonsA.Forms
             this.grtPayRowDecimalReadOnly.RowTitle = null;
             this.grtPayRowDecimalReadOnly.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
             // 
-            // pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem
+            // plFilter
             // 
-            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Name = "pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem";
-            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Size = new System.Drawing.Size(549, 30);
-            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Text = "Pārrēķināt atlasītos sarakstus, nemainot maksājumu";
-            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Click += new System.EventHandler(this.PārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem_Click);
+            this.plFilter.Controls.Add(this.cmFilter);
+            this.plFilter.Controls.Add(this.cbDep);
+            this.plFilter.Controls.Add(this.tbDate2);
+            this.plFilter.Controls.Add(this.tbDate1);
+            this.plFilter.Controls.Add(this.label2);
+            this.plFilter.Controls.Add(this.label1);
+            this.plFilter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plFilter.Location = new System.Drawing.Point(0, 29);
+            this.plFilter.Name = "plFilter";
+            this.plFilter.Size = new System.Drawing.Size(1215, 31);
+            this.plFilter.TabIndex = 5;
             // 
-            // toolStripSeparator7
+            // cmFilter
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(546, 6);
+            this.cmFilter.Location = new System.Drawing.Point(696, 4);
+            this.cmFilter.Name = "cmFilter";
+            this.cmFilter.Size = new System.Drawing.Size(75, 23);
+            this.cmFilter.TabIndex = 5;
+            this.cmFilter.Text = "Filtrēt";
+            this.cmFilter.UseVisualStyleBackColor = true;
+            this.cmFilter.Click += new System.EventHandler(this.cmFilter_Click);
+            // 
+            // cbDep
+            // 
+            this.cbDep.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cbDep.ColumnNames = new string[] {
+        "DESCR"};
+            this.cbDep.ColumnWidths = "100;100;100";
+            this.cbDep.DataSource = this.bsDep2;
+            this.cbDep.DisplayMember = "DESCR";
+            this.cbDep.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDep.DropDownHeight = 255;
+            this.cbDep.DropDownWidth = 124;
+            this.cbDep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDep.FormattingEnabled = true;
+            this.cbDep.GridLineColor = System.Drawing.Color.LightGray;
+            this.cbDep.GridLineHorizontal = false;
+            this.cbDep.GridLineVertical = false;
+            this.cbDep.IntegralHeight = false;
+            this.cbDep.Location = new System.Drawing.Point(394, 4);
+            this.cbDep.MaxDropDownItems = 15;
+            this.cbDep.Name = "cbDep";
+            this.cbDep.Size = new System.Drawing.Size(296, 23);
+            this.cbDep.TabIndex = 4;
+            this.cbDep.ValueMember = "ID";
+            // 
+            // bsDep2
+            // 
+            this.bsDep2.DataMember = "DEPARTMENTS";
+            this.bsDep2.MyDataSource = "KlonsData";
+            this.bsDep2.Sort = "ID";
+            // 
+            // tbDate2
+            // 
+            this.tbDate2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbDate2.IsDate = true;
+            this.tbDate2.Location = new System.Drawing.Point(169, 5);
+            this.tbDate2.Name = "tbDate2";
+            this.tbDate2.Size = new System.Drawing.Size(90, 22);
+            this.tbDate2.TabIndex = 2;
+            // 
+            // tbDate1
+            // 
+            this.tbDate1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbDate1.IsDate = true;
+            this.tbDate1.Location = new System.Drawing.Point(73, 5);
+            this.tbDate1.Name = "tbDate1";
+            this.tbDate1.Size = new System.Drawing.Size(90, 22);
+            this.tbDate1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(285, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "struktūrvienība:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Datums:";
+            // 
+            // rādītPaslēptFiltraPaneliToolStripMenuItem
+            // 
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem.Name = "rādītPaslēptFiltraPaneliToolStripMenuItem";
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem.Size = new System.Drawing.Size(549, 30);
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem.Text = "Rādīt / paslēpt filtra paneli";
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem.Click += new System.EventHandler(this.rādītPaslēptFiltraPaneliToolStripMenuItem_Click);
             // 
             // Form_PayLists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 452);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.mySplitContainer1);
             this.Controls.Add(this.sgrPayRow);
             this.Controls.Add(this.cbLists);
             this.Controls.Add(this.bNav);
+            this.Controls.Add(this.plFilter);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_PayLists";
             this.Text = "Maksājumu saraksti";
@@ -1558,6 +1668,9 @@ namespace KlonsA.Forms
             ((System.ComponentModel.ISupportInitialize)(this.bsAmatiF)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.plFilter.ResumeLayout(false);
+            this.plFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDep2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1679,5 +1792,14 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIDS;
         private System.Windows.Forms.ToolStripMenuItem pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.Panel plFilter;
+        private System.Windows.Forms.Button cmFilter;
+        private KlonsLIB.Components.MyMcFlatComboBox cbDep;
+        private KlonsLIB.Components.MyTextBox tbDate2;
+        private KlonsLIB.Components.MyTextBox tbDate1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private KlonsLIB.Data.MyBindingSource bsDep2;
+        private System.Windows.Forms.ToolStripMenuItem rādītPaslēptFiltraPaneliToolStripMenuItem;
     }
 }

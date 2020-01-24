@@ -65,7 +65,7 @@ namespace KlonsA.Classes
             if (PreparingReport)
                 SI._CALC_VER = SR.Row.CALC_VER;
             else
-                SI._CALC_VER = 1;
+                SI._CALC_VER = 2;
 
             var dt1 = SR.SalarySheet.DT1;
             var dt2 = SR.SalarySheet.DT2;
@@ -456,12 +456,29 @@ namespace KlonsA.Classes
             }
             else
             {
-                iinexempts = 0.0M;
-                SI._AMOUNT_BEFORE_IIN = payAfterSAI;
-                decimal iin = 
-                    (SI._AMOUNT_BEFORE_IIN + SI._DNSN_AMOUNT)* SI._RATE_IIN2 / 100.0M -
-                    SI._DNSN_AMOUNT * SI._RATE_IIN / 100.0M;
-                SI._IIN_AMOUNT = KlonsData.RoundA(iin, 2);
+                if (SI._CALC_VER < KlonsData.VersionRef(2))
+                {
+                    iinexempts = 0.0M;
+                    SI._AMOUNT_BEFORE_IIN = payAfterSAI - iinexempts;
+                    decimal iin =
+                        (SI._AMOUNT_BEFORE_IIN + SI._DNSN_AMOUNT) * SI._RATE_IIN2 / 100.0M -
+                        SI._DNSN_AMOUNT * SI._RATE_IIN / 100.0M;
+                    SI._IIN_AMOUNT = KlonsData.RoundA(iin, 2);
+                }
+                else
+                {
+                    SI._AMOUNT_BEFORE_IIN = payAfterSAI - iinexempts;
+                    decimal iin =
+                        (SI._AMOUNT_BEFORE_IIN + SI._DNSN_AMOUNT) * SI._RATE_IIN2 / 100.0M -
+                        SI._DNSN_AMOUNT * SI._RATE_IIN / 100.0M;
+                    if(iin < 0.0M)
+                    {
+                        iin = 0.0M;
+                        iinexempts = payAfterSAI + SI._DNSN_AMOUNT - SI._DNSN_AMOUNT * SI._RATE_IIN / SI._RATE_IIN2;
+                        iinexempts = KlonsData.RoundA(iinexempts, 2);
+                    }
+                    SI._IIN_AMOUNT = KlonsData.RoundA(iin, 2);
+                }
             }
 
             SI._AMOUNT_BEFORE_IIN = payAfterSAI - iinexempts;

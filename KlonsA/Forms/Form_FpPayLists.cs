@@ -107,14 +107,14 @@ namespace KlonsA.Forms
 
         }
 
-        public void FullRecalc(KlonsADataSet.FP_PAYLISTS_RRow dr)
+        public void FullRecalc(KlonsADataSet.FP_PAYLISTS_RRow dr, bool useiinrate = false)
         {
             decimal riin = 0M, rsidd = 0M, rsidn = 0M;
             decimal pay = 0M, sidd = 0M, sidn = 0M, iinex = 0m;
             decimal iinfrom = 0M, iin = 0M, cash = 0M;
 
             GetRates(dr.PAYDATE, dr.SIRATETP, out riin, out rsidd, out rsidn);
-            if (dr.IIN_RATE != 0.0M)
+            if (useiinrate || dr.IIN_RATE != 0.0M)
                 riin = dr.IIN_RATE;
             pay = dr.PAY0;
             if (dr.TAX_TP == 0)
@@ -156,13 +156,21 @@ namespace KlonsA.Forms
             var table = MyData.DataSetKlons.FP_PAYLISTS_R;
 
             bool dorecalc = false;
+            bool userate = false;
             decimal iinexperc = 0.0M;
             decimal iinrate = 23.0M;
 
             if (e.Column == table.INCOME_IDColumn)
             {
                 if (dr.INCOME_ID == "1003")
+                {
                     iinexperc = 15.0M;
+                }
+                else if (!string.IsNullOrEmpty(dr.INCOME_ID) && dr.INCOME_ID.StartsWith("3"))
+                {
+                    iinexperc = 0.0M;
+                    iinrate = 0.0M;
+                }
                 else if (dr.INCOME_ID == "1010")
                 {
                     iinexperc = 50.0M;
@@ -183,6 +191,7 @@ namespace KlonsA.Forms
                 {
                     dr.IIN_RATE = iinrate;
                     dorecalc = true;
+                    userate = true;
                 }
 
             }
@@ -199,6 +208,7 @@ namespace KlonsA.Forms
             if (e.Column == table.IIN_RATEColumn)
             {
                 dorecalc = true;
+                userate = true;
             }
 
             if (dorecalc ||
@@ -209,7 +219,7 @@ namespace KlonsA.Forms
                 e.Column == table.IINEX_PERCColumn ||
                 e.Column == table.IINEXColumn)
             {
-                FullRecalc(dr);
+                FullRecalc(dr, userate);
                 return;
             }
         }

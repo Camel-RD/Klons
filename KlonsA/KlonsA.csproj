@@ -143,6 +143,9 @@
     <Compile Include="Classes\MyXmlDoc.cs" />
     <Compile Include="Classes\ReportHelper.cs" />
     <Compile Include="Classes2\SomeDataDefs.cs" />
+    <Compile Include="Classes\SourceGridA.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\UpgradeHelper.cs" />
     <Compile Include="DataSets\KlonsADataSet.cs">
       <DependentUpon>KlonsADataSet.xsd</DependentUpon>
@@ -154,6 +157,12 @@
     </Compile>
     <Compile Include="DataSets\KlonsARepDataSet.cs">
       <DependentUpon>KlonsARepDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Calendar.Designer.cs">
+      <DependentUpon>Form_Calendar.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_PayFx.cs">
       <SubType>Form</SubType>
@@ -554,6 +563,10 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Forms\Form_Calendar.resx">
+      <DependentUpon>Form_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\SQLV039.txt" />
     <EmbeddedResource Include="SQL\SQLV037.txt" />
     <EmbeddedResource Include="Forms\Form_PaymentsByPerson.resx">
       <DependentUpon>Form_PaymentsByPerson.cs</DependentUpon>

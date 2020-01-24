@@ -147,8 +147,13 @@ namespace KlonsA.Classes
             }
             else
             {
-                UsedIinEx = 0.0M;
+                UsedIinEx = IinEx;
                 IIN = (Pay + PayNs - UsedIinEx) * Ir2 - DNS * Ir;
+                if(IIN < 0.0M)
+                {
+                    IIN = 0.0M;
+                    UsedIinEx = Pay + PayNs - DNS * Ir / Ir2;
+                }
                 return IIN;
             }
         }
@@ -197,8 +202,13 @@ namespace KlonsA.Classes
             }
             else
             {
-                UsedIinEx = 0.0M;
+                UsedIinEx = IinEx;
                 IIN = RoundA((Pay + PayNs - UsedIinEx) * Ir2 - DNS * Ir);
+                if (IIN < 0.0M)
+                {
+                    IIN = 0.0M;
+                    UsedIinEx = RoundA(Pay + PayNs - DNS * Ir / Ir2);
+                }
                 return IIN;
             }
         }
@@ -241,7 +251,7 @@ namespace KlonsA.Classes
         {
             if (!HasProgressiveIIN) return GetPayByIncCashA(dcash);
             if (HasTaxDoc) return GetPayByIncCashB(dcash);
-            return GetPayByIncCashC(dcash);
+            return GetPayByIncCashD(dcash);
         }
 
         public decimal GetPayByIncCashA(decimal dcash)
@@ -251,7 +261,7 @@ namespace KlonsA.Classes
             decimal calcpay = Pay;
             decimal dcashleft = dcash;
 
-            decimal px1 = (IinEx - PayNs) / (1.0M - Sr);
+            decimal px1 = (IinEx - PayNs) * Ir2 / (Ir2 - Sr * Ir);
 
             decimal dpay1 = px1 - calcpay;
             if (dpay1 > 0.0M)
@@ -267,7 +277,7 @@ namespace KlonsA.Classes
             if (dcashleft > 0.0M)
             {
                 decimal dcash2 = dcashleft;
-                dpay2 = dcash2 / (1 - Sr) / (1 - Ir);
+                dpay2 = dcash2 / (1 - Sr - Ir2 + Sr * Ir);
                 calcpay += dpay2;
                 dcashleft -= dcash2;
             }
@@ -350,11 +360,42 @@ namespace KlonsA.Classes
             return calcpay;
         }
 
+        public decimal GetPayByIncCashD(decimal dcash)
+        {
+            if (dcash <= 0.0M) return 0.0M;
+
+            decimal calcpay = Pay;
+            decimal dcashleft = dcash;
+
+            decimal px1 = (IinEx - PayNs) / (1.0M - Sr);
+
+            decimal dpay1 = px1 - calcpay;
+            if (dpay1 > 0.0M)
+            {
+                decimal dcash1 = dpay1 * (1 - Sr);
+                dcash1 = Math.Min(dcash1, dcashleft);
+                dpay1 = dcash1 / (1 - Sr);
+                calcpay += dpay1;
+                dcashleft -= dcash1;
+            }
+
+            decimal dpay2 = 0.0M;
+            if (dcashleft > 0.0M)
+            {
+                decimal dcash2 = dcashleft;
+                dpay2 = dcash2 / (1 - Sr) / (1 - Ir);
+                calcpay += dpay2;
+                dcashleft -= dcash2;
+            }
+
+            return calcpay;
+        }
+
         public decimal IncPayByIncCash(decimal dcash, decimal apay, decimal apayns, decimal apaynt)
         {
             if (!HasProgressiveIIN) return IncPayByIncCashA(dcash, apay, apayns, apaynt);
             if(HasTaxDoc) return IncPayByIncCashB(dcash, apay, apayns, apaynt);
-            return IncPayByIncCashC(dcash, apay, apayns, apaynt);
+            return IncPayByIncCashD(dcash, apay, apayns, apaynt);
         }
 
 
@@ -538,6 +579,60 @@ namespace KlonsA.Classes
             return dcash - dcashleft;
         }
 
+        public decimal IncPayByIncCashD(decimal dcash, decimal apay, decimal apayns, decimal apaynt)
+        {
+            if (dcash <= 0.0M) return 0.0M;
+
+            decimal calcpay = Pay + PayNs + PayNt;
+            decimal dcashleft = dcash;
+
+            decimal xx1 = ((IinEx - Pay - PayNs) * Ir2 + Pay * Sr * Ir) / ((apay + apayns) * Ir2 + apay * Sr * Ir);
+            decimal px1 = Pay + PayNs + PayNt;
+            decimal px2 = px1;
+            px1 += (apay + apayns + apaynt) * xx1;
+            px2 += apay + apayns + apaynt;
+
+            px1 = Math.Min(px1, px2);
+
+            decimal xs = 0.0M;
+            decimal x1 = 0M, x2 = 0M;
+            decimal dcash1 = 0M, dcash2 = 0M;
+
+            decimal dpay1 = px1 - calcpay;
+            if (dpay1 > 0.0M)
+            {
+                dcash1 = (apay * (1 - Sr) + apayns + apaynt) * xx1;
+                dcash1 = Math.Min(dcash1, dcashleft);
+                x1 = dcash1 / (apay * (1 - Sr) + apayns + apaynt);
+                x1 = Math.Min(1.0M, x1);
+                xs = x1;
+                dpay1 = (apay + apayns + apaynt) * x1;
+                Pay += apay * x1;
+                PayNs += apayns * x1;
+                PayNt += apaynt * x1;
+                calcpay += dpay1;
+                dcashleft -= dcash1;
+            }
+
+            decimal dpay2 = px2 - calcpay;
+            if (dpay2 > 0.0M && dcashleft > 0.0M)
+            {
+                dcash2 = dcashleft;
+                x2 = dcash2 / (apay * (1 - Sr - Ir2 + Sr*Ir) + apayns * (1 - Ir2) + apaynt);
+                x2 = Math.Min(1.0M - xs, x2);
+                xs += x2;
+                dpay2 = (apay + apayns + apaynt) * x2;
+                Pay += apay * x2;
+                PayNs += apayns * x2;
+                PayNt += apaynt * x2;
+                calcpay += dpay2;
+                dcashleft -= dcash2;
+            }
+
+            return dcash - dcashleft;
+
+        }
+
         public static decimal MakeExactSum(decimal sum, IEnumerable<PayFx> list,
             Func<PayFx, decimal> fgetval, Action<PayFx, decimal> fsetval)
         {
@@ -641,6 +736,7 @@ namespace KlonsA.Classes
         public static decimal GetIINMarginA(DateTime dt)
         {
             if (dt < ProgressiveIINStartDate) return 0.0M;
+            if (dt.Year <= 2020) return 500.0M;
             else return 440.0M;
         }
 
@@ -648,8 +744,8 @@ namespace KlonsA.Classes
         {
             if (dt.Year <= 2017) return 0.0M;
             if (dt.Year == 2018) return 1000.0M;
-            if (dt.Year == 2019) return 1100.0M;
-            if (dt.Year == 2020) return 1200.0M;
+            if (dt.Year == 2019) return 1320.0M;
+            if (dt.Year == 2020) return 1440.0M;
             else return 1200.0M;
         }
 

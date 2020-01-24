@@ -93,6 +93,38 @@ namespace KlonsA.Classes
             return (short)(e1.Max(d => d.SNR) + 1);
         }
 
+        public static List<int> CheckSalarySheetsTemplUsed(int yr, int mt, KlonsADataSet.SALARY_SHEET_TEMPLRow[] drs_sh)
+        {
+            var ret = new List<int>();
+            var table_sar = MyData.DataSetKlons.SALARY_SHEETS;
+            var table_sar_r = MyData.DataSetKlons.SALARY_SHEETS_R;
+            var dt1 = new DateTime(yr, mt, 1);
+            var dt2 = dt1.LastDayOfMonth();
+            var drs_tsr = table_sar.WhereX(
+                d =>
+                d.XKind == ESalarySheetKind.Normal &&
+                d.DT2 == dt2
+                ).SelectMany(d => d.GetSALARY_SHEETS_RRowsByFK_SALARY_SHEETS_R_IDS())
+                .ToArray();
+            foreach (var dr_sh in drs_sh)
+            {
+                var drs_sh_r = dr_sh.GetSALARY_SHEET_TEMPL_RRows();
+                foreach (var dr_sh_r in drs_sh_r)
+                {
+                    var drs_cur = drs_tsr.WhereX(
+                        d =>
+                        !d.IsIDPNull() &&
+                        !d.IsIDAMNull() &&
+                        d.IDP == dr_sh_r.IDP &&
+                        d.IDAM == dr_sh_r.IDAM);
+                    if (drs_cur.Any())
+                        if (!ret.Contains(dr_sh_r.IDAM))
+                            ret.Add(dr_sh_r.IDAM);
+                }
+            }
+            return ret;
+        }
+
         public static ErrorList MakeSalarySheetsFromTemplate(int yr, int mt, int idsh = int.MinValue)
         {
             var table_sar = MyData.DataSetKlons.SALARY_SHEETS;
@@ -110,15 +142,30 @@ namespace KlonsA.Classes
                 return error_list;
             }
 
+            KlonsADataSet.SALARY_SHEET_TEMPLRow[] drs_sh;
+            if (idsh > int.MinValue)
+                drs_sh = new[] { table_sh.FindByID(idsh) };
+            else
+                drs_sh = table_sh.WhereX(_ => true).OrderBy(d => d.SNR).ToArray();
+
+            if (drs_sh.Length == 0 || drs_sh[0] == null)
+            {
+                error_list.AddError(this_error_source, "Nav atrastas lapu saraksta sagataves.");
+                return error_list;
+            }
+
             var dt2 = (new DateTime(yr, mt, 1)).LastDayOfMonth();
 
-            var drs_sar = table_sar.WhereX(
-                d =>
-                d.DT2 == dt2);
-
-            if (drs_sar.Count() > 0)
+            var cur_idam = CheckSalarySheetsTemplUsed(yr, mt, drs_sh);
+            if (cur_idam.Count > 0)
             {
-                error_list.AddError(this_error_source, "Algas aprēķina lapu saraksts ir jau izveidots.");
+                var drp = MyData.DataSetKlons.POSITIONS.FindByID(cur_idam[0]).PERSONSRow;
+                string ser = "";
+                if (cur_idam.Count == 1)
+                    ser = $"Algas aprēķins priekš darbinieka {drp.YNAME} ir jau izveidots.";
+                else
+                    ser = $"Algas aprēķins priekš darbinieka {drp.YNAME} \nun vēl {cur_idam.Count - 1} darbiniekiem ir jau izveidots.";
+                error_list.AddError(this_error_source, ser);
                 return error_list;
             }
 
@@ -134,11 +181,6 @@ namespace KlonsA.Classes
                 return error_list;
             }
 
-            KlonsADataSet.SALARY_SHEET_TEMPLRow[] drs_sh;
-            if (idsh > int.MinValue)
-                drs_sh = new[] { table_sh.FindByID(idsh) };
-            else
-                drs_sh = table_sh.WhereX(_ => true).OrderBy(d => d.SNR).ToArray();
 
             foreach (var dr_sh in drs_sh)
             {
@@ -490,6 +532,34 @@ namespace KlonsA.Classes
             return (short)(e1.Max(d => d.SNR) + 1);
         }
 
+        public static List<int> CheckTimeSheetsTemplUsed(int yr, int mt, KlonsADataSet.TIMESHEET_TEMPLRow[] drs_sh)
+        {
+            var ret = new List<int>();
+            var table_sar = MyData.DataSetKlons.TIMESHEET_LISTS;
+            var table_sar_r = MyData.DataSetKlons.TIMESHEET_LISTS_R;
+            var drs_tsr = table_sar.WhereX(
+                d =>
+                d.YR == yr &&
+                d.MT == mt
+                ).SelectMany(d => d.GetTIMESHEET_LISTS_RRows())
+                .ToArray();
+            foreach (var dr_sh in drs_sh)
+            {
+                var drs_sh_r = dr_sh.GetTIMESHEET_TEMPL_RRows();
+                foreach (var dr_sh_r in drs_sh_r)
+                {
+                    var drs_cur = drs_tsr.WhereX(
+                        d =>
+                        d.IDP == dr_sh_r.IDP &&
+                        d.IDAM == dr_sh_r.IDAM);
+                    if (drs_cur.Any())
+                        if (!ret.Contains(dr_sh_r.IDAM))
+                            ret.Add(dr_sh_r.IDAM);
+                }
+            }
+            return ret;
+        }
+
         public static string MakeTimeSheetsFromTempl(int yr, int mt, int idsh = int.MinValue)
         {
             var table_sar = MyData.DataSetKlons.TIMESHEET_LISTS;
@@ -502,31 +572,35 @@ namespace KlonsA.Classes
             if (table_sh.Count == 0 || table_sh_r.Count == 0)
                 return "Nav izveidotas darba uzskaites lapu sagataves.";
 
-            var drs_sar = table_sar.WhereX(
-                d =>
-                d.YR == yr &&
-                d.MT == mt
-                ).ToArray();
-
-            if (drs_sar.Length > 0)
-                return string.Format("Darba laika saraksts priekš {0}.{1} ir jau izveidots.", yr, mt);
-
-            var ret = CheckPlans(yr, mt);
-            if (ret != "OK")
-                return ret;
-
-            int v1_colnr = table_darba_laiks.V1Column.Ordinal;
-            int d1_colnr = table_darba_laiks.D1Column.Ordinal;
-
             KlonsADataSet.TIMESHEET_TEMPLRow[] drs_sh = null;
             if (idsh == int.MinValue)
                 drs_sh = table_sh.WhereNotDeleted().OrderBy(d => d.SNR).ToArray();
             else
                 drs_sh = new[] { table_sh.FindByID(idsh) };
 
+            if (drs_sh.Length == 0 || drs_sh[0] == null)
+                return "Nav atrastas darba uzskaites lapu sagataves.";
+
+            var ret = CheckPlans(yr, mt);
+            if (ret != "OK")
+                return ret;
+
+            var cur_idam = CheckTimeSheetsTemplUsed(yr, mt, drs_sh);
+            if (cur_idam.Count > 0)
+            {
+                var drp = MyData.DataSetKlons.POSITIONS.FindByID(cur_idam[0]).PERSONSRow;
+                if(cur_idam.Count == 1)
+                    return $"Darba laika ieraksts priekš darbinieka {drp.YNAME} ir jau izveidots.";
+                else
+                    return $"Darba laika ieraksts priekš darbinieka {drp.YNAME} \nun vēl {cur_idam.Count - 1} darbiniekiem ir jau izveidots.";
+            }
+
+
+            int v1_colnr = table_darba_laiks.V1Column.Ordinal;
+            int d1_colnr = table_darba_laiks.D1Column.Ordinal;
             var snr = GetNextTimeSheetNr(yr);
 
-            foreach (var dr_sh in table_sh)
+            foreach (var dr_sh in drs_sh)
             {
                 var new_dr_sar = table_sar.NewTIMESHEET_LISTSRow();
 
@@ -876,16 +950,20 @@ namespace KlonsA.Classes
             if (table_templ.Count == 0 || table_templ_r.Count == 0)
                 return "Nav izveidotas maksājumu sarakstu sagataves.";
 
+            /*
             var drs_cur = table_lists
                 .WhereX(d => d.DT == dt)
                 .ToArray();
 
             if(drs_cur.Length > 0)
-                return string.Format("Maksāumu saraksts ar datumu {0:dd.MM.yyyy} ir jau izveidots.", dt);
+                return string.Format("Maksājumu saraksts ar datumu {0:dd.MM.yyyy} ir jau izveidots.", dt);
+            */
 
             int snr0 = GetNextPayListNr(yr);
 
             var drs_t = table_templ.WhereNotDeleted().OrderBy(d => d.SNR);
+
+            var new_lists_drs = new List<KlonsADataSet.PAYLISTSRow>();
 
             foreach (var dr_t in drs_t)
             {
@@ -901,6 +979,7 @@ namespace KlonsA.Classes
                 snr0++;
 
                 table_lists.Rows.Add(new_dr_list);
+                new_lists_drs.Add(new_dr_list);
 
                 var drs_t_r = dr_t.GetPAYLIST_TEMPL_RRows();
                 foreach(var dr_t_r in drs_t_r)
@@ -923,15 +1002,18 @@ namespace KlonsA.Classes
 
             if (dofill)
             {
-                FillPayListsA(dt, true);
+                foreach(var drs in new_lists_drs)
+                {
+                    FillPayListsA(dt, drs.ID, true);
 
-                er = UpdateTable(table_lists_r);
-                if (er != "OK") return er;
+                    er = UpdateTable(table_lists_r);
+                    if (er != "OK") return er;
 
-                FillPayListsB(dt);
+                    FillPayListsB(dt, drs.ID);
 
-                er = UpdateTable(table_lists_r);
-                if (er != "OK") return er;
+                    er = UpdateTable(table_lists_r);
+                    if (er != "OK") return er;
+                }
             }
 
             return "OK";
@@ -1016,20 +1098,20 @@ namespace KlonsA.Classes
 
         //FillPayListsA - updates only pay balance
         //FillPayListsB - after FillPayListsA updates list match
-        public static void FillPayListsA(DateTime dt, bool fullrecalc)
+        public static void FillPayListsA(DateTime dt,int ids, bool fullrecalc)
         {
             var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
             var ad = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.PAY_SALDOTableAdapter();
 
             var drs = table_lists_r
-                .WhereX(d => d.PAYLISTSRow.DT == dt)
+                .WhereX(d => d.PAYLISTSRow.ID == ids)
                 .ToArray();
 
             if (drs.Length == 0) return;
 
             var dt1 = dt.FirstDayOfMonth();
             if (dt == dt.LastDayOfMonth()) dt1 = dt.AddDays(1);
-            var table_paysaldo = ad.GetDataBy_SP_PAY_SALDO_03(dt, dt1);
+            var table_paysaldo = ad.GetDataBy_SP_PAY_SALDO_03(dt, dt1, ids);
 
             if (table_paysaldo.Count == 0) return;
 
@@ -1040,13 +1122,13 @@ namespace KlonsA.Classes
             }
         }
 
-        public static void FillPayListsB(DateTime dt)
+        public static void FillPayListsB(DateTime dt, int ids)
         {
             var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
             var ad = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.SP_PAY_MATCHLISTS_1XTableAdapter();
 
             var drs = table_lists_r
-                .WhereX(d => d.PAYLISTSRow.DT == dt)
+                .WhereX(d => d.PAYLISTSRow.ID == ids)
                 .ToArray();
 
             if (drs.Length == 0) return;
@@ -1054,7 +1136,7 @@ namespace KlonsA.Classes
             var dt1 = dt.FirstDayOfMonth();
             if (dt == dt.LastDayOfMonth()) dt1 = dt.AddDays(1);
 
-            var table_matchlists = ad.GetDataBy_SP_PAY_MATCHLISTS_14(dt);
+            var table_matchlists = ad.GetDataBy_SP_PAY_MATCHLISTS_14(dt, ids);
 
             if (table_matchlists.Count == 0) return;
 
@@ -1068,7 +1150,6 @@ namespace KlonsA.Classes
         public static void FillPayListA(int ids, bool fullrecalc)
         {
             var table_lists = MyData.DataSetKlons.PAYLISTS;
-            var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
             var ad = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.PAY_SALDOTableAdapter();
 
             var dr_s = table_lists.FindByID(ids);
@@ -1094,7 +1175,6 @@ namespace KlonsA.Classes
         public static void FillPayListB(int ids)
         {
             var table_lists = MyData.DataSetKlons.PAYLISTS;
-            var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
 
             var dr_s = table_lists.FindByID(ids);
             if (dr_s == null) return;
@@ -1120,7 +1200,6 @@ namespace KlonsA.Classes
 
         public static void FillPayListRowA(int id, bool fullrecalc)
         {
-            var table_lists = MyData.DataSetKlons.PAYLISTS;
             var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
             var ad = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.PAY_SALDOTableAdapter();
 
@@ -1133,7 +1212,7 @@ namespace KlonsA.Classes
             var dt1 = dt.FirstDayOfMonth();
             if (dt == dt.LastDayOfMonth()) dt1 = dt.AddDays(1);
 
-            var table_paysaldo = ad.GetDataBy_SP_PAY_SALDO_01(dr.IDAM, dt, dt1);
+            var table_paysaldo = ad.GetDataBy_SP_PAY_SALDO_01(dr.IDAM, dt, dt1, dr.IDS);
             if (table_paysaldo.Count == 0) return;
             var dr_ps = table_paysaldo[0];
 
@@ -1142,7 +1221,6 @@ namespace KlonsA.Classes
 
         public static void FillPayListRowB(int id)
         {
-            var table_lists = MyData.DataSetKlons.PAYLISTS;
             var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
 
             var dr = table_lists_r.FindByID(id);
@@ -1155,7 +1233,7 @@ namespace KlonsA.Classes
             if (dt == dt.LastDayOfMonth()) dt1 = dt.AddDays(1);
 
             var ad = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.SP_PAY_MATCHLISTS_1XTableAdapter();
-            var table_matchlists = ad.GetDataBy_SP_PAY_MATCHLISTS_12(dr.IDAM, dr.PAY, dt);
+            var table_matchlists = ad.GetDataBy_SP_PAY_MATCHLISTS_12(dr.IDAM, dr.PAY, dt, dr.IDS);
 
             if (table_matchlists.Count == 0) return;
 

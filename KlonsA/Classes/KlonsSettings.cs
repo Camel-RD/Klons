@@ -30,6 +30,7 @@ namespace KlonsA.Classes
 
         private bool showPersonList = false;
         private bool showPayDataPanel = false;
+        private bool showPayListFilterPanel = false;
         private bool showPayLists = false;
         private bool showFpPayDataPanel = false;
         private bool showFpPayLists = false;
@@ -282,6 +283,18 @@ namespace KlonsA.Classes
                 HasChanged = true;
             }
         }
+
+        public bool ShowPayListFilterPanel
+        {
+            get { return showPayListFilterPanel; }
+            set
+            {
+                if (showPayListFilterPanel == value) return;
+                showPayListFilterPanel = value;
+                HasChanged = true;
+            }
+        }
+
 
         public bool ShowFpPayDataPanel
         {

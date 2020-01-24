@@ -78,7 +78,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 22);
             this.label3.TabIndex = 3;
-            this.label3.Text = "versija 2019.12.#1";
+            this.label3.Text = "versija 2020.01.#1";
             // 
             // label4
             // 

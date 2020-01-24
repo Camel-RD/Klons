@@ -12,6 +12,7 @@ using KlonsLIB.Data;
 using KlonsLIB.Forms;
 using KlonsLIB.Misc;
 using KlonsLIB.Components;
+using System.Globalization;
 
 namespace KlonsA.Forms
 {
@@ -37,6 +38,7 @@ namespace KlonsA.Forms
         {
             ShowPayLists(MyData.Settings.ShowPayLists);
             ShowPayDataPanel(MyData.Settings.ShowPayDataPanel);
+            ShowFilterPanel(MyData.Settings.ShowPayListFilterPanel);
             tslPeriod.Text = DataLoader.GetPeriodStr();
             MyData.DataSetKlons.PAYLISTS_R.ColumnChanged += PAYLISTS_R_ColumnChanged;
             MyData.DataSetKlons.PAYLISTS_R.PAYLISTS_RRowChanged += PAYLISTS_R_PAYLISTS_RRowChanged;
@@ -274,7 +276,7 @@ namespace KlonsA.Forms
             */
 
                 var ad2 = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.SP_PAY_MATCHLISTS_1XTableAdapter();
-            var tab2 = ad2.GetDataBy_SP_PAY_MATCHLISTS_12(dr.IDAM, dr.PAY, dr.PAYLISTSRow.DT);
+            var tab2 = ad2.GetDataBy_SP_PAY_MATCHLISTS_12(dr.IDAM, dr.PAY, dr.PAYLISTSRow.DT, dr.IDS);
             var pr2 = tab2[0];
             DataTasks.FillPayRowC(dr, pr2);
   
@@ -768,6 +770,47 @@ namespace KlonsA.Forms
             rādītPaslēptDatuPaneliToolStripMenuItem.Checked = b;
         }
 
+        public void ShowFilterPanel(bool b)
+        {
+            plFilter.Visible = b;
+            MyData.Settings.ShowPayListFilterPanel = b;
+            rādītPaslēptFiltraPaneliToolStripMenuItem.Checked = b;
+        }
+
+        public void DoFilter()
+        {
+            DateTime dt1 = DateTime.MinValue;
+            DateTime dt2 = DateTime.MaxValue;
+            if (!string.IsNullOrEmpty(tbDate1.Text))
+                dt1 = Utils.StringToDate(tbDate1.Text).Value;
+            if (!string.IsNullOrEmpty(tbDate2.Text))
+                dt2 = Utils.StringToDate(tbDate2.Text).Value;
+            string iddep = null;
+            if (cbDep.SelectedIndex > -1 && cbDep.SelectedValue != null)
+                iddep = (string)cbDep.SelectedValue;
+            if (dt1 == DateTime.MinValue && dt2 == DateTime.MaxValue && cbDep == null)
+            {
+                bsLists.RemoveFilter();
+                return;
+            }
+            string fs = "";
+            string sdt1 = dt1.ToString("d", CultureInfo.InvariantCulture);
+            string sdt2 = dt2.ToString("d", CultureInfo.InvariantCulture);
+            if (dt1 != DateTime.MinValue && dt2 != DateTime.MaxValue)
+                fs = $"DT >= #{sdt1}# AND DT <= #{sdt2}#";
+            else if (dt1 != DateTime.MinValue)
+                fs = $"DT >= #{sdt1}#";
+            else
+                fs = $"DT <= #{sdt2}#";
+            if (iddep != null)
+            {
+                string fs1 = $"DEP = '{iddep}'";
+                if (fs == "") fs = fs1;
+                else fs = $"({fs}) AND ({fs1})";
+            }
+            bsLists.Filter = fs;
+        }
+
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             DeleteCurrent();
@@ -921,7 +964,7 @@ namespace KlonsA.Forms
             var dr = bsRows.CurrentDataRow as KlonsADataSet.PAYLISTS_RRow;
 
             var ad2 = new KlonsA.DataSets.KlonsARepDataSetTableAdapters.SP_PAY_MATCHLISTS_1XTableAdapter();
-            var tab2 = ad2.GetDataBy_SP_PAY_MATCHLISTS_12(dr.IDAM, dr.PAY, dr.PAYLISTSRow.DT);
+            var tab2 = ad2.GetDataBy_SP_PAY_MATCHLISTS_12(dr.IDAM, dr.PAY, dr.PAYLISTSRow.DT, dr.IDS);
             var dr2 = tab2[0];
             int idam = dr.IDAM;
             var dt = dr.PAYLISTSRow.DT;
@@ -1021,10 +1064,19 @@ namespace KlonsA.Forms
             ShowPayDataPanel(!sgrPayRow.Visible);
         }
 
+        private void rādītPaslēptFiltraPaneliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFilterPanel(!plFilter.Visible);
+        }
+
         private void tsbRenum_Click(object sender, EventArgs e)
         {
             RenumRows();
         }
 
+        private void cmFilter_Click(object sender, EventArgs e)
+        {
+            DoFilter();
+        }
     }
 }

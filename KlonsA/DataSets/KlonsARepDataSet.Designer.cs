@@ -2376,6 +2376,10 @@ namespace KlonsA.DataSets {
             
             private global::System.Data.DataColumn columnIIN;
             
+            private global::System.Data.DataColumn columnIDSHR1;
+            
+            private global::System.Data.DataColumn columnIDSHR2;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SP_PAY_MATCHLISTSDataTable() {
@@ -2491,6 +2495,22 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDSHR1Column {
+                get {
+                    return this.columnIDSHR1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDSHR2Column {
+                get {
+                    return this.columnIDSHR2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2526,7 +2546,7 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SP_PAY_MATCHLISTSRow AddSP_PAY_MATCHLISTSRow(int IDP, int IDAM, System.DateTime DT1, System.DateTime DT2, decimal PAY0, decimal PAY1, decimal PAY2, float R1, float R2, decimal IIN) {
+            public SP_PAY_MATCHLISTSRow AddSP_PAY_MATCHLISTSRow(int IDP, int IDAM, System.DateTime DT1, System.DateTime DT2, decimal PAY0, decimal PAY1, decimal PAY2, float R1, float R2, decimal IIN, int IDSHR1, int IDSHR2) {
                 SP_PAY_MATCHLISTSRow rowSP_PAY_MATCHLISTSRow = ((SP_PAY_MATCHLISTSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDP,
@@ -2538,7 +2558,9 @@ namespace KlonsA.DataSets {
                         PAY2,
                         R1,
                         R2,
-                        IIN};
+                        IIN,
+                        IDSHR1,
+                        IDSHR2};
                 rowSP_PAY_MATCHLISTSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_PAY_MATCHLISTSRow);
                 return rowSP_PAY_MATCHLISTSRow;
@@ -2578,6 +2600,8 @@ namespace KlonsA.DataSets {
                 this.columnR1 = base.Columns["R1"];
                 this.columnR2 = base.Columns["R2"];
                 this.columnIIN = base.Columns["IIN"];
+                this.columnIDSHR1 = base.Columns["IDSHR1"];
+                this.columnIDSHR2 = base.Columns["IDSHR2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2603,16 +2627,14 @@ namespace KlonsA.DataSets {
                 base.Columns.Add(this.columnR2);
                 this.columnIIN = new global::System.Data.DataColumn("IIN", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIIN);
+                this.columnIDSHR1 = new global::System.Data.DataColumn("IDSHR1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDSHR1);
+                this.columnIDSHR2 = new global::System.Data.DataColumn("IDSHR2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDSHR2);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIDAM}, true));
                 this.columnIDAM.AllowDBNull = false;
                 this.columnIDAM.Unique = true;
-                this.columnPAY0.AllowDBNull = false;
-                this.columnPAY1.AllowDBNull = false;
-                this.columnPAY2.AllowDBNull = false;
-                this.columnR1.AllowDBNull = false;
-                this.columnR2.AllowDBNull = false;
-                this.columnIIN.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6360,6 +6382,8 @@ namespace KlonsA.DataSets {
             
             private global::System.Data.DataColumn columnPAYT;
             
+            private global::System.Data.DataColumn columnPAID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SP_REP_AGGREGATEDataTable() {
@@ -6659,6 +6683,14 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PAIDColumn {
+                get {
+                    return this.columnPAID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6727,7 +6759,8 @@ namespace KlonsA.DataSets {
                         decimal MINUS_AFTER_IIN, 
                         decimal PAY, 
                         decimal ADVANCE, 
-                        decimal PAYT) {
+                        decimal PAYT, 
+                        decimal PAID) {
                 SP_REP_AGGREGATERow rowSP_REP_AGGREGATERow = ((SP_REP_AGGREGATERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDP,
@@ -6762,7 +6795,8 @@ namespace KlonsA.DataSets {
                         MINUS_AFTER_IIN,
                         PAY,
                         ADVANCE,
-                        PAYT};
+                        PAYT,
+                        PAID};
                 rowSP_REP_AGGREGATERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_REP_AGGREGATERow);
                 return rowSP_REP_AGGREGATERow;
@@ -6818,6 +6852,7 @@ namespace KlonsA.DataSets {
                 this.columnPAY = base.Columns["PAY"];
                 this.columnADVANCE = base.Columns["ADVANCE"];
                 this.columnPAYT = base.Columns["PAYT"];
+                this.columnPAID = base.Columns["PAID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6889,6 +6924,8 @@ namespace KlonsA.DataSets {
                 base.Columns.Add(this.columnADVANCE);
                 this.columnPAYT = new global::System.Data.DataColumn("PAYT", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPAYT);
+                this.columnPAID = new global::System.Data.DataColumn("PAID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPAID);
                 this.columnWORKHOURS.DefaultValue = ((float)(0F));
                 this.columnWORKDAYS.DefaultValue = ((int)(0));
                 this.columnWORKPAY.DefaultValue = ((decimal)(0m));
@@ -8604,7 +8641,12 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal PAY0 {
                 get {
-                    return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.PAY0Column]));
+                    try {
+                        return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.PAY0Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PAY0\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSP_PAY_MATCHLISTS.PAY0Column] = value;
@@ -8615,7 +8657,12 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal PAY1 {
                 get {
-                    return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.PAY1Column]));
+                    try {
+                        return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.PAY1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PAY1\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSP_PAY_MATCHLISTS.PAY1Column] = value;
@@ -8626,7 +8673,12 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal PAY2 {
                 get {
-                    return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.PAY2Column]));
+                    try {
+                        return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.PAY2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PAY2\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSP_PAY_MATCHLISTS.PAY2Column] = value;
@@ -8637,7 +8689,12 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public float R1 {
                 get {
-                    return ((float)(this[this.tableSP_PAY_MATCHLISTS.R1Column]));
+                    try {
+                        return ((float)(this[this.tableSP_PAY_MATCHLISTS.R1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'R1\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSP_PAY_MATCHLISTS.R1Column] = value;
@@ -8648,7 +8705,12 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public float R2 {
                 get {
-                    return ((float)(this[this.tableSP_PAY_MATCHLISTS.R2Column]));
+                    try {
+                        return ((float)(this[this.tableSP_PAY_MATCHLISTS.R2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'R2\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSP_PAY_MATCHLISTS.R2Column] = value;
@@ -8659,10 +8721,47 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal IIN {
                 get {
-                    return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.IINColumn]));
+                    try {
+                        return ((decimal)(this[this.tableSP_PAY_MATCHLISTS.IINColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IIN\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSP_PAY_MATCHLISTS.IINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int IDSHR1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSP_PAY_MATCHLISTS.IDSHR1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDSHR1\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PAY_MATCHLISTS.IDSHR1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int IDSHR2 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSP_PAY_MATCHLISTS.IDSHR2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDSHR2\' in table \'SP_PAY_MATCHLISTS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PAY_MATCHLISTS.IDSHR2Column] = value;
                 }
             }
             
@@ -8700,6 +8799,102 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDT2Null() {
                 this[this.tableSP_PAY_MATCHLISTS.DT2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPAY0Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.PAY0Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPAY0Null() {
+                this[this.tableSP_PAY_MATCHLISTS.PAY0Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPAY1Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.PAY1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPAY1Null() {
+                this[this.tableSP_PAY_MATCHLISTS.PAY1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPAY2Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.PAY2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPAY2Null() {
+                this[this.tableSP_PAY_MATCHLISTS.PAY2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsR1Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.R1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetR1Null() {
+                this[this.tableSP_PAY_MATCHLISTS.R1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsR2Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.R2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetR2Null() {
+                this[this.tableSP_PAY_MATCHLISTS.R2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIINNull() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.IINColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIINNull() {
+                this[this.tableSP_PAY_MATCHLISTS.IINColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDSHR1Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.IDSHR1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDSHR1Null() {
+                this[this.tableSP_PAY_MATCHLISTS.IDSHR1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDSHR2Null() {
+                return this.IsNull(this.tableSP_PAY_MATCHLISTS.IDSHR2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDSHR2Null() {
+                this[this.tableSP_PAY_MATCHLISTS.IDSHR2Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -13514,6 +13709,22 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal PAID {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_REP_AGGREGATE.PAIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PAID\' in table \'SP_REP_AGGREGATE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_REP_AGGREGATE.PAIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIDPNull() {
                 return this.IsNull(this.tableSP_REP_AGGREGATE.IDPColumn);
             }
@@ -13906,6 +14117,18 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPAYTNull() {
                 this[this.tableSP_REP_AGGREGATE.PAYTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPAIDNull() {
+                return this.IsNull(this.tableSP_REP_AGGREGATE.PAIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPAIDNull() {
+                this[this.tableSP_REP_AGGREGATE.PAIDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16154,6 +16377,13 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PIDPSH";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "\"SP_PAY_SALDO_02\"";
@@ -16197,13 +16427,20 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[2].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PIDPSH";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int FillBy_SP_PAY_SALDO_01(KlonsARepDataSet.PAY_SALDODataTable dataTable, global::System.Nullable<int> PIDAM, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET) {
+        public virtual int FillBy_SP_PAY_SALDO_01(KlonsARepDataSet.PAY_SALDODataTable dataTable, global::System.Nullable<int> PIDAM, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((PIDAM.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PIDAM.Value));
@@ -16222,6 +16459,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -16234,7 +16477,7 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual KlonsARepDataSet.PAY_SALDODataTable GetDataBy_SP_PAY_SALDO_01(global::System.Nullable<int> PIDAM, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET) {
+        public virtual KlonsARepDataSet.PAY_SALDODataTable GetDataBy_SP_PAY_SALDO_01(global::System.Nullable<int> PIDAM, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((PIDAM.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PIDAM.Value));
@@ -16253,6 +16496,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             KlonsARepDataSet.PAY_SALDODataTable dataTable = new KlonsARepDataSet.PAY_SALDODataTable();
             this.Adapter.Fill(dataTable);
@@ -16323,7 +16572,7 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy_SP_PAY_SALDO_03(KlonsARepDataSet.PAY_SALDODataTable dataTable, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET) {
+        public virtual int FillBy_SP_PAY_SALDO_03(KlonsARepDataSet.PAY_SALDODataTable dataTable, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((PDATE.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE.Value));
@@ -16336,6 +16585,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -16348,7 +16603,7 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual KlonsARepDataSet.PAY_SALDODataTable GetDataBy_SP_PAY_SALDO_03(global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET) {
+        public virtual KlonsARepDataSet.PAY_SALDODataTable GetDataBy_SP_PAY_SALDO_03(global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((PDATE.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE.Value));
@@ -16361,6 +16616,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             KlonsARepDataSet.PAY_SALDODataTable dataTable = new KlonsARepDataSet.PAY_SALDODataTable();
             this.Adapter.Fill(dataTable);
@@ -16499,6 +16760,8 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("R1", "R1");
             tableMapping.ColumnMappings.Add("R2", "R2");
             tableMapping.ColumnMappings.Add("IIN", "IIN");
+            tableMapping.ColumnMappings.Add("IDSHR1", "IDSHR1");
+            tableMapping.ColumnMappings.Add("IDSHR2", "IDSHR2");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -16534,6 +16797,13 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "PDATE";
             param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PIDPSH";
+            param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = null;
@@ -16581,13 +16851,20 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[2].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PIDPSH";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable GetData_SP_REP_PAY_MATCHLISTS_02(global::System.Nullable<int> PIDAM, global::System.Nullable<decimal> PPAY, global::System.Nullable<global::System.DateTime> PDATE) {
+        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable GetData_SP_REP_PAY_MATCHLISTS_02(global::System.Nullable<int> PIDAM, global::System.Nullable<decimal> PPAY, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((PIDAM.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PIDAM.Value));
@@ -16606,6 +16883,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable dataTable = new KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable();
             this.Adapter.Fill(dataTable);
@@ -16645,7 +16928,7 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable GetData_SP_REP_PAY_MATCHLISTS_04(global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET) {
+        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable GetData_SP_REP_PAY_MATCHLISTS_04(global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<global::System.DateTime> PDATET, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((PDATE.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE.Value));
@@ -16658,6 +16941,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable dataTable = new KlonsARepDataSet.SP_PAY_MATCHLISTSDataTable();
             this.Adapter.Fill(dataTable);
@@ -17256,6 +17545,13 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PIDPSH";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "\"SP_PAY_MATCHLISTS_13\"";
@@ -17285,13 +17581,20 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[2].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PIDPSH";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int FillBy_SP_PAY_MATCHLISTS_12(KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable dataTable, global::System.Nullable<int> PIDAM, global::System.Nullable<decimal> PPAY, global::System.Nullable<global::System.DateTime> PDATE) {
+        public virtual int FillBy_SP_PAY_MATCHLISTS_12(KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable dataTable, global::System.Nullable<int> PIDAM, global::System.Nullable<decimal> PPAY, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((PIDAM.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PIDAM.Value));
@@ -17310,6 +17613,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -17322,7 +17631,7 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable GetDataBy_SP_PAY_MATCHLISTS_12(global::System.Nullable<int> PIDAM, global::System.Nullable<decimal> PPAY, global::System.Nullable<global::System.DateTime> PDATE) {
+        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable GetDataBy_SP_PAY_MATCHLISTS_12(global::System.Nullable<int> PIDAM, global::System.Nullable<decimal> PPAY, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((PIDAM.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PIDAM.Value));
@@ -17341,6 +17650,12 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable dataTable = new KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable();
             this.Adapter.Fill(dataTable);
@@ -17399,13 +17714,19 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy_SP_PAY_MATCHLISTS_14(KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable dataTable, global::System.Nullable<global::System.DateTime> PDATE) {
+        public virtual int FillBy_SP_PAY_MATCHLISTS_14(KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable dataTable, global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((PDATE.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -17418,13 +17739,19 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable GetDataBy_SP_PAY_MATCHLISTS_14(global::System.Nullable<global::System.DateTime> PDATE) {
+        public virtual KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable GetDataBy_SP_PAY_MATCHLISTS_14(global::System.Nullable<global::System.DateTime> PDATE, global::System.Nullable<int> PIDPSH) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((PDATE.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((PIDPSH.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PIDPSH.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable dataTable = new KlonsARepDataSet.SP_PAY_MATCHLISTS_1XDataTable();
             this.Adapter.Fill(dataTable);
@@ -18225,6 +18552,7 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ADVANCE", "ADVANCE");
             tableMapping.ColumnMappings.Add("PAYT", "PAYT");
             tableMapping.ColumnMappings.Add("IDDEP", "IDDEP");
+            tableMapping.ColumnMappings.Add("PAID", "PAID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

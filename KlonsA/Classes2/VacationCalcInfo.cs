@@ -415,7 +415,7 @@ namespace KlonsA.Classes
             {
                 var dr_ev = fe.Item2 as KlonsADataSet.EVENTSRow;
                 if (dr_ev == null) continue;
-                if(calcver == 0)
+                if(calcver == KlonsData.VersionRef(0))
                     vt.Days += dr_ev.DAYS;
                 else
                     vt.Days += dr_ev.DAYS2;

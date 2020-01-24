@@ -289,7 +289,7 @@ namespace KlonsA.Classes
                     }
                     else
                     {
-                        if(calcver == 0)
+                        if(calcver == KlonsData.VersionRef(0))
                         {
                             wt.ExUntaxedMinimum = GetIINUntaxedMinimum(drpr.PERSONSRow, dt1);
                         }
