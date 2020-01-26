@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbDates = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbYR = new KlonsLIB.Components.MyMcFlatComboBox();
             this.grid = new KlonsA.Classes.SourceGridA();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbDates);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbYR);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -44,6 +46,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 27);
             this.panel1.TabIndex = 0;
+            // 
+            // lbDates
+            // 
+            this.lbDates.AutoSize = true;
+            this.lbDates.Location = new System.Drawing.Point(218, 6);
+            this.lbDates.Name = "lbDates";
+            this.lbDates.Size = new System.Drawing.Size(132, 16);
+            this.lbDates.TabIndex = 3;
+            this.lbDates.Text = "[ peles kreisais klik. ]";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Gads:";
             // 
             // cbYR
             // 
@@ -84,15 +104,6 @@
             this.grid.TabStop = true;
             this.grid.ToolTipText = "";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Gads:";
-            // 
             // Form_Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,5 +125,6 @@
         private KlonsLIB.Components.MyMcFlatComboBox cbYR;
         private Classes.SourceGridA grid;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbDates;
     }
 }
