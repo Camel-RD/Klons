@@ -586,7 +586,7 @@ namespace KlonsA.Classes
             decimal calcpay = Pay + PayNs + PayNt;
             decimal dcashleft = dcash;
 
-            decimal xx1 = ((IinEx - Pay - PayNs) * Ir2 + Pay * Sr * Ir) / ((apay + apayns) * Ir2 + apay * Sr * Ir);
+            decimal xx1 = ((IinEx - Pay - PayNs) * Ir2 + Pay * Sr * Ir) / ((apay + apayns) * Ir2 - apay * Sr * Ir);
             decimal px1 = Pay + PayNs + PayNt;
             decimal px2 = px1;
             px1 += (apay + apayns + apaynt) * xx1;

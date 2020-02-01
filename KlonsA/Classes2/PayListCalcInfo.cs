@@ -70,6 +70,8 @@ namespace KlonsA.Classes
             {
                 sr1.SetFromA1(dr_x);
                 paid1.SetFromA2(dr_x);
+                sr1.HAS_TAXDOC = DataTasks.IsPersonWithTaxDoc(dr.IDP, sr1.DT1, sr1.DT2);
+                paid1.HAS_TAXDOC = sr1.HAS_TAXDOC;
                 if (PreparingReport)
                 {
                     Dates1 = Utils.DateToString(sr1.DT1) + " - " + Utils.DateToString(sr1.DT2);
@@ -95,6 +97,8 @@ namespace KlonsA.Classes
             {
                 sr2.SetFromB1(dr_x);
                 paid2.SetFromB2(dr_x);
+                sr2.HAS_TAXDOC = DataTasks.IsPersonWithTaxDoc(dr.IDP, sr2.DT1, sr2.DT2);
+                paid2.HAS_TAXDOC = sr2.HAS_TAXDOC;
                 if (PreparingReport)
                 {
                     Dates2 = Utils.DateToString(sr2.DT1) + " - " + Utils.DateToString(sr2.DT2);
@@ -383,6 +387,9 @@ namespace KlonsA.Classes
         public decimal CASH { get; set; } = 0.0M;
         public decimal CASH_NOTPAID { get; set; } = 0.0M;
 
+        public bool? HAS_TAXDOC { get; set; } = null;
+
+
         public PayCalcRow() { }
 
         public PayCalcRow(string cap)
@@ -434,6 +441,8 @@ namespace KlonsA.Classes
             IIN = cr.IIN;
             CASH = cr.CASH;
             CASH_NOTPAID = cr.CASH_NOTPAID;
+
+            HAS_TAXDOC = cr.HAS_TAXDOC;
         }
 
         public void SubtractThat(PayCalcRow cr)
@@ -768,7 +777,10 @@ namespace KlonsA.Classes
                 IINEX_EXP;
 
             pfx.HasProgressiveIIN = DT1 >= PayFx.ProgressiveIINStartDate;
-            pfx.HasTaxDoc = pfx.IinEx > 0.0M;
+            if (HAS_TAXDOC == null)
+                pfx.HasTaxDoc = pfx.IinEx > 0.0M;
+            else
+                pfx.HasTaxDoc = HAS_TAXDOC.Value;
 
             pfx.Pay = PAY_TAXED;
             pfx.PayNs = PAY_NOSAI;
@@ -798,7 +810,10 @@ namespace KlonsA.Classes
             pfx.UsedIinEx = pfx.IinEx;
 
             pfx.HasProgressiveIIN = DT1 >= PayFx.ProgressiveIINStartDate;
-            pfx.HasTaxDoc = pfx.IinEx > 0.0M;
+            if (HAS_TAXDOC == null)
+                pfx.HasTaxDoc = pfx.IinEx > 0.0M;
+            else
+                pfx.HasTaxDoc = HAS_TAXDOC.Value;
 
             pfx.Pay = PAY_TAXED;
             pfx.PayNs = PAY_NOSAI;
@@ -835,6 +850,8 @@ namespace KlonsA.Classes
 
             IIN = pfx.IIN;
             CASH = pfx.Cash;
+
+            HAS_TAXDOC = pfx.HasTaxDoc;
         }
 
         public decimal RecalcCashNotPaid()

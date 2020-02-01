@@ -19,7 +19,7 @@ namespace KlonsA.Forms
             InitializeComponent();
             ForeColor = MyData.Settings.ColorTheme.ControlTextColor;
             BackColor = MyData.Settings.ColorTheme.ControlColor;
-            lbVersionStr.Text = MyData.VersionStr;
+            lbVersionStr.Text = "versija " + MyData.VersionStr;
         }
 
         private void button1_Click(object sender, EventArgs e)
