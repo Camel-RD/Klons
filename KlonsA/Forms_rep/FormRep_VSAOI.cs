@@ -39,6 +39,11 @@ namespace KlonsA.Forms
 
         private void FormRep_VSAOI_Load(object sender, EventArgs e)
         {
+            int yr = DateTime.Today.Year;
+            cbYear.Items.Clear();
+            for (int i = yr - 2; i <= yr + 1; i++)
+                cbYear.Items.Add(i.ToString());
+            cbYear.Text = yr.ToString();
             cbTp.SelectedIndex = 0;
             WindowState = FormWindowState.Maximized;
         }
@@ -258,7 +263,7 @@ namespace KlonsA.Forms
             xdoc.XE(DokDDZv2, "Sagatavotajs", tbName.Text);
             xdoc.XENZ(DokDDZv2, "Talrunis", tbPhoneNr.Text);
 
-            if (ReportData.Rows1.Count == 0) return xdoc;
+            if (ReportData == null || ReportData.Rows1.Count == 0) return xdoc;
 
             xdoc.XE(DokDDZv2, "Ienakumi", ReportData.TotalRow.Income);
             xdoc.XE(DokDDZv2, "Iemaksas", ReportData.TotalRow.SAI);
@@ -308,20 +313,7 @@ namespace KlonsA.Forms
             if (ReportRows == null)
                 ReportRows = new List<VSAOIReportRow1>();
 
-            var xdoc = MakeXML();
-            if (xdoc == null) return;
-            xdoc.Save();
-        }
-
-        private void DoXMLv2()
-        {
-            if (!CheckParams()) return;
-            SaveParams();
-
-            if (ReportRows == null)
-                ReportRows = new List<VSAOIReportRow1>();
-
-            var xdoc = MakeXMLV2();
+            var xdoc = Year < 2017 ? MakeXML() : MakeXMLV2();
             if (xdoc == null) return;
             xdoc.Save();
         }
@@ -348,13 +340,9 @@ namespace KlonsA.Forms
             FilterRows();
         }
 
-        private void cmXML_Click(object sender, EventArgs e)
+        private void miDoXML_Click(object sender, EventArgs e)
         {
             DoXML();
-        }
-        private void cmXMLv2_Click(object sender, EventArgs e)
-        {
-            DoXMLv2();
         }
 
         private void bnRows_ItemDeleting(object sender, CancelEventArgs e)

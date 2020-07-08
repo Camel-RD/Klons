@@ -23,6 +23,16 @@ namespace KlonsA.Forms
             InitializeComponent();
             CheckMyFontAndColors();
 
+            int yr = DateTime.Today.Year;
+            cbYr1.Items.Clear();
+            cbYr2.Items.Clear();
+            for (int i = yr - 5; i <= yr + 1; i++)
+            {
+                cbYr1.Items.Add(i.ToString());
+                cbYr2.Items.Add(i.ToString());
+            }
+
+
             if (DataLoader.DataLoaded)
             {
                 cbYr1.Text = DataLoader.LoadedDT1.Year.ToString();

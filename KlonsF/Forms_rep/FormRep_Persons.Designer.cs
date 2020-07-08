@@ -31,9 +31,10 @@ namespace KlonsF.FormsReportParams
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_Persons));
             this.cbAC = new KlonsLIB.Components.MyMcFlatComboBox();
-            this.bsAC = new KlonsLIB.Data.MyBindingSource();
+            this.bsAC = new KlonsLIB.Data.MyBindingSource(this.components);
             this.tbSD = new KlonsLIB.Components.MyTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbED = new KlonsLIB.Components.MyTextBox();
@@ -41,7 +42,7 @@ namespace KlonsF.FormsReportParams
             this.lbACName = new System.Windows.Forms.Label();
             this.cmDoIt = new System.Windows.Forms.Button();
             this.cbClid = new KlonsLIB.Components.MyMcFlatComboBox();
-            this.bsClid = new KlonsLIB.Data.MyBindingSource();
+            this.bsClid = new KlonsLIB.Data.MyBindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.lbClName = new System.Windows.Forms.Label();
             this.lbCm = new System.Windows.Forms.ListBox();
@@ -215,11 +216,12 @@ namespace KlonsF.FormsReportParams
             "Debitoru, kreditoru apgrozijumu pārskats pa kontiem",
             "Rēķinu saraksts",
             "Rēķinu un maksājumu saraksts",
-            "Neapmaksātie rēķini"});
+            "Neapmaksātie rēķini",
+            "Neapmaksātie rēķini - līdz norādītajam datumam"});
             this.lbCm.Location = new System.Drawing.Point(13, 118);
             this.lbCm.Margin = new System.Windows.Forms.Padding(2);
             this.lbCm.Name = "lbCm";
-            this.lbCm.Size = new System.Drawing.Size(338, 82);
+            this.lbCm.Size = new System.Drawing.Size(338, 98);
             this.lbCm.TabIndex = 6;
             this.lbCm.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbCm_MouseDoubleClick);
             // 
@@ -227,7 +229,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.myLabel1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.myLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myLabel1.Location = new System.Drawing.Point(13, 214);
+            this.myLabel1.Location = new System.Drawing.Point(10, 237);
             this.myLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myLabel1.Name = "myLabel1";
             this.myLabel1.Padding = new System.Windows.Forms.Padding(2);
@@ -239,7 +241,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 298);
+            this.ClientSize = new System.Drawing.Size(520, 324);
             this.CloseOnEscape = true;
             this.Controls.Add(this.myLabel1);
             this.Controls.Add(this.lbCm);

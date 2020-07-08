@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem1 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem2 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem3 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem4 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem5 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem6 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem7 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem8 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem9 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem10 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem11 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem12 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem13 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem14 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem15 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem16 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem17 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem18 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem19 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem20 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem21 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem22 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem23 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem24 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem25 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem26 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem27 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem28 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem29 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem30 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem31 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem32 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_VSAOI));
             this.label1 = new System.Windows.Forms.Label();
             this.cbYear = new KlonsLIB.Components.MyMcFlatComboBox();
@@ -84,9 +84,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.miTable = new System.Windows.Forms.ToolStripMenuItem();
             this.miReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miXMLv1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.miXMLv2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miDoXML = new System.Windows.Forms.ToolStripMenuItem();
             this.bnRows = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -132,15 +130,15 @@
             this.cbYear.GridLineHorizontal = false;
             this.cbYear.GridLineVertical = false;
             this.cbYear.IntegralHeight = false;
-            myItem1.Col1 = "2016";
-            myItem2.Col1 = "2017";
-            myItem3.Col1 = "2018";
-            myItem4.Col1 = "2019";
+            myItem17.Col1 = "2016";
+            myItem18.Col1 = "2017";
+            myItem19.Col1 = "2018";
+            myItem20.Col1 = "2019";
             this.cbYear.Items.AddRange(new object[] {
-            myItem1,
-            myItem2,
-            myItem3,
-            myItem4});
+            myItem17,
+            myItem18,
+            myItem19,
+            myItem20});
             this.cbYear.ItemStrings = new string[] {
         "2016",
         "2017",
@@ -169,31 +167,31 @@
             this.cbMonth.GridLineHorizontal = false;
             this.cbMonth.GridLineVertical = false;
             this.cbMonth.IntegralHeight = false;
-            myItem5.Col1 = "01";
-            myItem6.Col1 = "02";
-            myItem7.Col1 = "03";
-            myItem8.Col1 = "04";
-            myItem9.Col1 = "05";
-            myItem10.Col1 = "06";
-            myItem11.Col1 = "07";
-            myItem12.Col1 = "08";
-            myItem13.Col1 = "09";
-            myItem14.Col1 = "10";
-            myItem15.Col1 = "11";
-            myItem16.Col1 = "12";
+            myItem21.Col1 = "01";
+            myItem22.Col1 = "02";
+            myItem23.Col1 = "03";
+            myItem24.Col1 = "04";
+            myItem25.Col1 = "05";
+            myItem26.Col1 = "06";
+            myItem27.Col1 = "07";
+            myItem28.Col1 = "08";
+            myItem29.Col1 = "09";
+            myItem30.Col1 = "10";
+            myItem31.Col1 = "11";
+            myItem32.Col1 = "12";
             this.cbMonth.Items.AddRange(new object[] {
-            myItem5,
-            myItem6,
-            myItem7,
-            myItem8,
-            myItem9,
-            myItem10,
-            myItem11,
-            myItem12,
-            myItem13,
-            myItem14,
-            myItem15,
-            myItem16});
+            myItem21,
+            myItem22,
+            myItem23,
+            myItem24,
+            myItem25,
+            myItem26,
+            myItem27,
+            myItem28,
+            myItem29,
+            myItem30,
+            myItem31,
+            myItem32});
             this.cbMonth.ItemStrings = new string[] {
         "01",
         "02",
@@ -218,14 +216,14 @@
             // 
             this.dgvRep.AutoGenerateColumns = false;
             this.dgvRep.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgcPK,
@@ -242,14 +240,16 @@
             this.dgvRep.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRep.Location = new System.Drawing.Point(0, 106);
             this.dgvRep.Name = "dgvRep";
+            this.dgvRep.RowHeadersWidth = 53;
             this.dgvRep.RowTemplate.Height = 24;
-            this.dgvRep.Size = new System.Drawing.Size(901, 280);
+            this.dgvRep.Size = new System.Drawing.Size(901, 279);
             this.dgvRep.TabIndex = 1;
             // 
             // dgcPK
             // 
             this.dgcPK.DataPropertyName = "PK";
             this.dgcPK.HeaderText = "personas kods";
+            this.dgcPK.MinimumWidth = 7;
             this.dgcPK.Name = "dgcPK";
             this.dgcPK.Width = 120;
             // 
@@ -257,75 +257,83 @@
             // 
             this.dgcName.DataPropertyName = "Name";
             this.dgcName.HeaderText = "vārds, uzvārds";
+            this.dgcName.MinimumWidth = 7;
             this.dgcName.Name = "dgcName";
             this.dgcName.Width = 140;
             // 
             // dgcIncome
             // 
             this.dgcIncome.DataPropertyName = "Income";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.dgcIncome.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            this.dgcIncome.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgcIncome.HeaderText = "ienākumi";
+            this.dgcIncome.MinimumWidth = 7;
             this.dgcIncome.Name = "dgcIncome";
             this.dgcIncome.Width = 80;
             // 
             // dgcSAI
             // 
             this.dgcSAI.DataPropertyName = "SAI";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.dgcSAI.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N2";
+            this.dgcSAI.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgcSAI.HeaderText = "VSAOI";
+            this.dgcSAI.MinimumWidth = 7;
             this.dgcSAI.Name = "dgcSAI";
             this.dgcSAI.Width = 80;
             // 
             // ggcIncomeCorrect
             // 
             this.ggcIncomeCorrect.DataPropertyName = "IncomeCorrected";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "0.00;-0.00;\"\"";
-            this.ggcIncomeCorrect.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "0.00;-0.00;\"\"";
+            this.ggcIncomeCorrect.DefaultCellStyle = dataGridViewCellStyle12;
             this.ggcIncomeCorrect.HeaderText = "ienākumu korekcija";
+            this.ggcIncomeCorrect.MinimumWidth = 7;
             this.ggcIncomeCorrect.Name = "ggcIncomeCorrect";
             this.ggcIncomeCorrect.Width = 80;
             // 
             // dgcSAICorrect
             // 
             this.dgcSAICorrect.DataPropertyName = "SAICorrected";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "0.00;-0.00;\"\"";
-            this.dgcSAICorrect.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "0.00;-0.00;\"\"";
+            this.dgcSAICorrect.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgcSAICorrect.HeaderText = "VSAOI korekcija";
+            this.dgcSAICorrect.MinimumWidth = 7;
             this.dgcSAICorrect.Name = "dgcSAICorrect";
             this.dgcSAICorrect.Width = 80;
             // 
             // dgcIIN
             // 
             this.dgcIIN.DataPropertyName = "IIN";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgcIIN.HeaderText = "IIN";
+            this.dgcIIN.MinimumWidth = 7;
             this.dgcIIN.Name = "dgcIIN";
             this.dgcIIN.Width = 80;
             // 
             // dgcURVN
             // 
             this.dgcURVN.DataPropertyName = "URVN";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.dgcURVN.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.dgcURVN.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgcURVN.HeaderText = "URVN";
+            this.dgcURVN.MinimumWidth = 7;
             this.dgcURVN.Name = "dgcURVN";
             this.dgcURVN.Width = 60;
             // 
             // dgcHours
             // 
             this.dgcHours.DataPropertyName = "Hours";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcHours.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcHours.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgcHours.HeaderText = "stundas";
+            this.dgcHours.MinimumWidth = 7;
             this.dgcHours.Name = "dgcHours";
             this.dgcHours.Width = 60;
             // 
@@ -333,6 +341,7 @@
             // 
             this.dgcNr.DataPropertyName = "Nr";
             this.dgcNr.HeaderText = "nr";
+            this.dgcNr.MinimumWidth = 7;
             this.dgcNr.Name = "dgcNr";
             this.dgcNr.Visible = false;
             this.dgcNr.Width = 40;
@@ -485,49 +494,33 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miTable,
             this.miReport,
-            this.xMLToolStripMenuItem});
+            this.miDoXML});
             this.menuStrip1.Location = new System.Drawing.Point(0, 39);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(245, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(407, 33);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // miTable
             // 
             this.miTable.Name = "miTable";
-            this.miTable.Size = new System.Drawing.Size(77, 29);
+            this.miTable.Size = new System.Drawing.Size(79, 29);
             this.miTable.Text = "Atlasīt";
             this.miTable.Click += new System.EventHandler(this.cmTable_Click);
             // 
             // miReport
             // 
             this.miReport.Name = "miReport";
-            this.miReport.Size = new System.Drawing.Size(94, 29);
+            this.miReport.Size = new System.Drawing.Size(96, 29);
             this.miReport.Text = "Atskaite";
             this.miReport.Click += new System.EventHandler(this.cmReport_Click);
             // 
-            // xMLToolStripMenuItem
+            // miDoXML
             // 
-            this.xMLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miXMLv1,
-            this.miXMLv2});
-            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(66, 29);
-            this.xMLToolStripMenuItem.Text = "XML";
-            // 
-            // miXMLv1
-            // 
-            this.miXMLv1.Name = "miXMLv1";
-            this.miXMLv1.Size = new System.Drawing.Size(223, 30);
-            this.miXMLv1.Text = "līdz 01.01.2017";
-            this.miXMLv1.Click += new System.EventHandler(this.cmXML_Click);
-            // 
-            // miXMLv2
-            // 
-            this.miXMLv2.Name = "miXMLv2";
-            this.miXMLv2.Size = new System.Drawing.Size(223, 30);
-            this.miXMLv2.Text = "no 01.01.2017";
-            this.miXMLv2.Click += new System.EventHandler(this.cmXMLv2_Click);
+            this.miDoXML.Name = "miDoXML";
+            this.miDoXML.Size = new System.Drawing.Size(68, 29);
+            this.miDoXML.Text = "XML";
+            this.miDoXML.Click += new System.EventHandler(this.miDoXML_Click);
             // 
             // bnRows
             // 
@@ -551,7 +544,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bnRows.Location = new System.Drawing.Point(0, 386);
+            this.bnRows.Location = new System.Drawing.Point(0, 385);
             this.bnRows.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnRows.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnRows.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -559,7 +552,7 @@
             this.bnRows.Name = "bnRows";
             this.bnRows.PositionItem = this.bindingNavigatorPositionItem;
             this.bnRows.SaveItem = null;
-            this.bnRows.Size = new System.Drawing.Size(901, 32);
+            this.bnRows.Size = new System.Drawing.Size(901, 33);
             this.bnRows.TabIndex = 2;
             this.bnRows.Text = "myBindingNavigator1";
             this.bnRows.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnRows_ItemDeleting);
@@ -593,7 +586,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -602,13 +595,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -621,7 +614,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -629,7 +622,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -638,13 +631,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(30, 29);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // FormRep_VSAOI
             // 
@@ -707,9 +700,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem miTable;
         private System.Windows.Forms.ToolStripMenuItem miReport;
-        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem miXMLv1;
-        private System.Windows.Forms.ToolStripMenuItem miXMLv2;
+        private System.Windows.Forms.ToolStripMenuItem miDoXML;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcIncome;

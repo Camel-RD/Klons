@@ -78,9 +78,9 @@
             this.cbMt1.ColumnNames = new string[0];
             this.cbMt1.ColumnWidths = "35";
             this.cbMt1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbMt1.DropDownHeight = 204;
+            this.cbMt1.DropDownHeight = 221;
             this.cbMt1.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownListSimple;
-            this.cbMt1.DropDownWidth = 59;
+            this.cbMt1.DropDownWidth = 57;
             this.cbMt1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMt1.FormattingEnabled = true;
             this.cbMt1.GridLineColor = System.Drawing.Color.LightGray;
@@ -101,7 +101,7 @@
             "11",
             "12"});
             this.cbMt1.Location = new System.Drawing.Point(150, 31);
-            this.cbMt1.MaxDropDownItems = 12;
+            this.cbMt1.MaxDropDownItems = 13;
             this.cbMt1.Name = "cbMt1";
             this.cbMt1.Size = new System.Drawing.Size(57, 23);
             this.cbMt1.TabIndex = 1;
@@ -158,9 +158,9 @@
             this.cbMt2.ColumnNames = new string[0];
             this.cbMt2.ColumnWidths = "35";
             this.cbMt2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbMt2.DropDownHeight = 204;
+            this.cbMt2.DropDownHeight = 221;
             this.cbMt2.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownListSimple;
-            this.cbMt2.DropDownWidth = 59;
+            this.cbMt2.DropDownWidth = 57;
             this.cbMt2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMt2.FormattingEnabled = true;
             this.cbMt2.GridLineColor = System.Drawing.Color.LightGray;
@@ -181,7 +181,7 @@
             "11",
             "12"});
             this.cbMt2.Location = new System.Drawing.Point(150, 61);
-            this.cbMt2.MaxDropDownItems = 12;
+            this.cbMt2.MaxDropDownItems = 13;
             this.cbMt2.Name = "cbMt2";
             this.cbMt2.Size = new System.Drawing.Size(57, 23);
             this.cbMt2.TabIndex = 3;
@@ -286,8 +286,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_DataLoad";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Datu atlase";
             this.Load += new System.EventHandler(this.Form_DataLoad_Load);

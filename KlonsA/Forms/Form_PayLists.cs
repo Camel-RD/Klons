@@ -693,29 +693,6 @@ namespace KlonsA.Forms
             SaveData();
         }
 
-        public void RecalcAllLists()
-        {
-            if (bsLists.Count == 0) return;
-            if (!SaveBeforeProceed()) return;
-            foreach(var item in bsLists)
-            {
-                var dr = (item as DataRowView).Row as KlonsADataSet.PAYLISTSRow;
-                ignoreColumnChangeEvent = true;
-                DataTasks.FillPayListA(dr.ID, false);
-                if (!SaveData())
-                {
-                    ignoreColumnChangeEvent = false;
-                    return;
-                }
-                DataTasks.FillPayListB(dr.ID);
-                ignoreColumnChangeEvent = false;
-            }
-
-            dgvLists.Refresh();
-            SaveData();
-        }
-
-
         public void RecalcListB()
         {
             if (bsLists.Count == 0 || bsLists.Current == null) return;
@@ -740,6 +717,76 @@ namespace KlonsA.Forms
             SaveData();
         }
 
+        public void RecalcAllLists()
+        {
+            if (bsLists.Count == 0) return;
+            if (!SaveBeforeProceed()) return;
+            foreach (var item in bsLists)
+            {
+                var dr = (item as DataRowView).Row as KlonsADataSet.PAYLISTSRow;
+                ignoreColumnChangeEvent = true;
+                DataTasks.FillPayListA(dr.ID, false);
+                if (!SaveData())
+                {
+                    ignoreColumnChangeEvent = false;
+                    return;
+                }
+                DataTasks.FillPayListB(dr.ID);
+                ignoreColumnChangeEvent = false;
+            }
+
+            dgvLists.Refresh();
+            SaveData();
+        }
+
+        public void RecalcAskWhat()
+        {
+            if (bsLists.Count == 0) return;
+            if (!SaveBeforeProceed()) return;
+
+            bool rt = Form_PayListsRecalcParams.ShowDialog(out var datefrom, out var idp);
+            if (!rt) return;
+
+            foreach (var item in bsLists)
+            {
+                var dr_paylist = (item as DataRowView).Row as KlonsADataSet.PAYLISTSRow;
+                if (dr_paylist.DT < datefrom) continue;
+
+                if (idp == -1)
+                {
+                    ignoreColumnChangeEvent = true;
+                    DataTasks.FillPayListA(dr_paylist.ID, false);
+                    if (!SaveData())
+                    {
+                        ignoreColumnChangeEvent = false;
+                        return;
+                    }
+                    DataTasks.FillPayListB(dr_paylist.ID);
+                    ignoreColumnChangeEvent = false;
+                }
+                else
+                {
+                    var drs_paylistrow = dr_paylist.GetPAYLISTS_RRows();
+                    foreach (var dr_paylistrow in drs_paylistrow)
+                    {
+                        if (dr_paylistrow.IDP != idp) continue;
+                        ignoreColumnChangeEvent = true;
+                        DataTasks.FillPayListRowA(dr_paylistrow.ID, false);
+                        if (!SaveData())
+                        {
+                            ignoreColumnChangeEvent = false;
+                            return;
+                        }
+                        DataTasks.FillPayListRowB(dr_paylistrow.ID);
+                        ignoreColumnChangeEvent = false;
+
+                    }
+                }
+            }
+
+            dgvLists.Refresh();
+            SaveData();
+        }
 
         private void myMcFlatComboBox1_Format(object sender, ListControlConvertEventArgs e)
         {
@@ -1020,7 +1067,7 @@ namespace KlonsA.Forms
 
         private void PārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RecalcAllLists();
+            RecalcAskWhat();
         }
 
         private void miReport1_Click(object sender, EventArgs e)

@@ -244,6 +244,12 @@ namespace KlonsF.FormsReportParams
                     rd.FileName = "Report_Pers_4";
                     rtitle = "Neapmaksātie rēķini";
                     break;
+                case 5:
+                    ada1.FillBy_pers_16(MyData.DataSetKlonsRep.TRepA1, startDate, endDate, ac, clid);
+                    rd.Sources["DataSet1"] = MyData.DataSetKlonsRep.TRepA1;
+                    rd.FileName = "Report_Pers_4";
+                    rtitle = "Neapmaksātie rēķini";
+                    break;
             }
 
 
@@ -264,6 +270,7 @@ namespace KlonsF.FormsReportParams
                 case 2:
                 case 3:
                 case 4:
+                case 5:
                     rd.AddReportParameters(
                         new string[]
                         {

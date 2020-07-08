@@ -1,0 +1,147 @@
+﻿SET TERM ^ ;
+
+CREATE OR ALTER PROCEDURE SP_REP_PERS_16(
+  SDT DATE,
+  EDT DATE,
+  PAC VARCHAR(8) /* COLLATE UTF8 - default */,
+  PCLID VARCHAR(15) /* COLLATE UTF8 - default */)
+RETURNS (
+  ID TYPE OF COLUMN TREPA1.ID,
+  SPID TYPE OF COLUMN TREPA1.SPID,
+  I1 TYPE OF COLUMN TREPA1.I1 /* COLLATE UTF8 - default */,
+  NM TYPE OF COLUMN TREPA1.NM /* COLLATE UTF8 - default */,
+  DT TYPE OF COLUMN TREPA1.DT,
+  ST TYPE OF COLUMN TREPA1.ST /* COLLATE UTF8 - default */,
+  NR TYPE OF COLUMN TREPA1.NR /* COLLATE UTF8 - default */,
+  S1 TYPE OF COLUMN TREPA1.S1,
+  S2 TYPE OF COLUMN TREPA1.S2,
+  S3 TYPE OF COLUMN TREPA1.S3,
+  S4 TYPE OF COLUMN TREPA1.S4)
+AS
+begin
+-- neapmaksātās pavadzīmess no :sdt līdz :edt
+
+    FOR SELECT
+        gen_id(GEN_TREPA1_ID, 1) as ID,
+        current_connection as SPID,
+        T2.ClId AS i1,
+        Persons.Name AS nm,
+        T2.dt AS dt,
+        T2.DocSt AS st,
+        T2.DocNr AS nr,
+        T2.BDb AS s1,
+        T2.BCr AS s2,
+        0.0 AS s3, 
+        0.0 AS s4
+    FROM
+    (
+        SELECT ClId, COALESCE(MAX(dtx), MIN(dt)) AS dt, DocSt, DocNr, SUM(TDb) AS BDb, SUM(TCr) AS BCr
+        FROM
+        (
+            SELECT 
+                OPSd.ClId AS ClId,
+                OPSd.Dete AS dt,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                OPS.Summ AS TDb,
+                0.00 AS TCr,
+                iif(:pac starting '2', OPSd.Dete, null) as dtx
+
+            FROM 
+                OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcP21 ON OPS.AC11 = AcP21.AC
+            WHERE 
+                OPSD.dete BETWEEN :SDT AND :EDT AND
+                OPS.AC11 LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR OPSd.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                OPSd.ClId AS ClId,
+                OPSd.Dete AS dt,
+                OPSd.DocSt AS DocSt,
+                OPSd.DocNr AS DocNr,
+                0.00 AS TDb,
+                OPS.Summ AS TCr,
+                iif(:pac starting '5', OPSd.Dete, null) as dtx
+
+            FROM 
+                OPSd JOIN OPS ON OPSd.id = OPS.DocId
+                INNER JOIN AcP21 ON OPS.AC21 = AcP21.AC
+            WHERE 
+                OPSD.dete BETWEEN :SDT AND :EDT AND
+                OPS.AC21 LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR OPSd.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                DOCS0.ClId AS ClId,
+                DOCS0.Dete AS dt,
+                DOCS0.DocSt AS DocSt,
+                DOCS0.DocNr AS DocNr,
+                DOCS0.Summ AS TDb,
+                0.00 AS TCr,
+                iif(:pac starting '2', DOCS0.Dete, null) as dtx
+
+            FROM 
+                DOCS0
+                INNER JOIN AcP21 ON DOCS0.AC = AcP21.AC
+            WHERE 
+                DOCS0.Summ > 0.0 AND
+                DOCS0.AC LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR DOCS0.ClId = :pclid)
+
+            UNION ALL
+
+            SELECT 
+                DOCS0.ClId AS ClId,
+                DOCS0.Dete AS dt,
+                DOCS0.DocSt AS DocSt,
+                DOCS0.DocNr AS DocNr,
+                0.00 AS TDb,
+                -DOCS0.Summ AS TcR,
+                iif(:pac starting '5', DOCS0.Dete, null) as dtx
+
+            FROM 
+                DOCS0
+                INNER JOIN AcP21 ON DOCS0.AC = AcP21.AC
+            WHERE 
+                DOCS0.Summ < 0.0 AND
+                DOCS0.AC LIKE :pac AND
+                AcP21.id2 IN ('DB','KR') AND
+                (:pclid IS NULL OR DOCS0.ClId = :pclid)
+
+        ) AS T1
+
+        GROUP BY T1.ClId, T1.DocSt, T1.DocNr
+
+    ) AS T2    
+    
+    INNER JOIN Persons ON Persons.ClId = T2.Clid
+    
+    WHERE BDb <> BCr
+    ORDER BY i1, dt, nr
+
+    into
+        :id, :spid, :i1, :nm, :dt, :st, :nr,
+        :s1, :s2, :s3, :s4
+    do
+    begin
+        suspend;
+    end
+end
+^
+
+SET TERM ; ^
+
+GRANT EXECUTE ON PROCEDURE SP_REP_PERS_16 TO AIVARS;
+
+
+UPDATE Params
+SET PVALUE = '087'
+WHERE PNAME = 'version';

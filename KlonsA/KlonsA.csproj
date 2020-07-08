@@ -170,6 +170,12 @@
     <Compile Include="Forms\Form_PayFx.Designer.cs">
       <DependentUpon>Form_PayFx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_PayListsRecalcParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PayListsRecalcParams.Designer.cs">
+      <DependentUpon>Form_PayListsRecalcParams.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_PaymentsByPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -550,6 +556,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <None Include="klonsaver.txt" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -565,6 +572,9 @@
     </Content>
     <EmbeddedResource Include="Forms\Form_Calendar.resx">
       <DependentUpon>Form_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PayListsRecalcParams.resx">
+      <DependentUpon>Form_PayListsRecalcParams.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQL\SQLV039.txt" />
     <EmbeddedResource Include="SQL\SQLV037.txt" />

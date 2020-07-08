@@ -995,7 +995,7 @@ namespace KlonsA.Forms
             // 
             this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Name = "pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem";
             this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Size = new System.Drawing.Size(549, 30);
-            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Text = "Pārrēķināt atlasītos sarakstus, nemainot maksājumu";
+            this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Text = "Pārrēķināt datus, nemainot maksājumu ...";
             this.pārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem.Click += new System.EventHandler(this.PārrēķinātAtlasītosSarakstusNemainotMaksājumuToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
