@@ -61,6 +61,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bniSave = new System.Windows.Forms.ToolStripButton();
+            this.bniXMLImport = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsFilterPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRows)).BeginInit();
@@ -288,7 +289,8 @@
             this.bindingNavigatorSeparator2,
             this.bniAdd,
             this.bniDelete,
-            this.bniSave});
+            this.bniSave,
+            this.bniXMLImport});
             this.bNav.Location = new System.Drawing.Point(0, 347);
             this.bNav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bNav.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -388,10 +390,21 @@
             // 
             this.bniSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bniSave.Image = ((System.Drawing.Image)(resources.GetObject("bniSave.Image")));
+            this.bniSave.Margin = new System.Windows.Forms.Padding(0, 1, 5, 3);
             this.bniSave.Name = "bniSave";
             this.bniSave.Size = new System.Drawing.Size(30, 29);
             this.bniSave.Text = "Saglabāt";
             this.bniSave.Click += new System.EventHandler(this.bniSave_Click);
+            // 
+            // bniXMLImport
+            // 
+            this.bniXMLImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bniXMLImport.Image = ((System.Drawing.Image)(resources.GetObject("bniXMLImport.Image")));
+            this.bniXMLImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bniXMLImport.Name = "bniXMLImport";
+            this.bniXMLImport.Size = new System.Drawing.Size(157, 29);
+            this.bniXMLImport.Text = "EDS datu imorts";
+            this.bniXMLImport.Click += new System.EventHandler(this.bniXMLImport_Click);
             // 
             // Form_UntaxedMinimum
             // 
@@ -449,5 +462,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcIINRateType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
         private KlonsLIB.Components.MyTextBox tbDate2;
+        private System.Windows.Forms.ToolStripButton bniXMLImport;
     }
 }

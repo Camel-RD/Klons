@@ -126,6 +126,8 @@ namespace KlonsLIB.Misc
             return false;
         }
 
+        public static bool IsNOE(this string s) => string.IsNullOrEmpty(s);
+
         public static bool StringToDate(string value, out DateTime date)
         {
             return DateTime.TryParseExact(value, "d.M.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AssumeLocal, out date);

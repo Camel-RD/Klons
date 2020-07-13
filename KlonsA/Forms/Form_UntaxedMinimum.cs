@@ -205,11 +205,16 @@ namespace KlonsA.Forms
             dr.ID = (int)MyData.KlonsQueriesTableAdapter.SP_GEN_UNTAXED_MIN_ID();
         }
 
-        private void cmFilter_Click(object sender, EventArgs e)
+        public void DoCmFilte()
         {
             if (!SaveData()) return;
             DoFilter();
             CheckSave();
+        }
+
+        private void cmFilter_Click(object sender, EventArgs e)
+        {
+            DoCmFilte();
         }
 
         private void dgvRows_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -221,5 +226,10 @@ namespace KlonsA.Forms
             e.Row.Cells[dgcOnDate.Index].Value = dt;
         }
 
+        private void bniXMLImport_Click(object sender, EventArgs e)
+        {
+            if (!SaveData()) return;
+            var form = MyMainForm.ShowFormDialog(typeof(Form_UntaxedMinimumImport)) as Form_UntaxedMinimumImport;
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace KlonsA.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -23,23 +23,13 @@ namespace KlonsA.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=localhost;initial catalog=C:\\A1-docs\\c_net\\Klons\\K" +
-            "lonsA\\DB\\KLONSA_P.FDB;user id=aivars;password=parole;servertype=Default")]
-        public string ConnectionString1 {
-            get {
-                return ((string)(this["ConnectionString1"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>http://klons.id.lv/f/klonsaver.txt</string>
   <string>http://klons.id.lv/klonsaver.txt</string>
+  <string>https://raw.githubusercontent.com/Camel-RD/Klons/master/KlonsA/klonsaver.txt</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection KlonsVerURLS {
             get {
@@ -47,6 +37,17 @@ namespace KlonsA.Properties {
             }
             set {
                 this["KlonsVerURLS"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=localhost;initial catalog=D:\\A1-docs\\c_net\\Klons\\K" +
+            "lonsA\\DB\\KLONSAStr.FDB;user id=aivars;password=parole;servertype=Default")]
+        public string ConnectionString1 {
+            get {
+                return ((string)(this["ConnectionString1"]));
             }
         }
     }
