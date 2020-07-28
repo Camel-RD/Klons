@@ -240,7 +240,7 @@ namespace KlonsA.Forms
         {
             var xdoc = new MyXmlDoc();
 
-            XmlElement DokDDZv2 = xdoc.CreateElement("DokDDZv2");
+            XmlElement DokDDZv2 = xdoc.CreateElement("DokDDZv3");
             DokDDZv2.SetAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema"); ;
             DokDDZv2.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
             xdoc.AppendChild(DokDDZv2);

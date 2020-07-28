@@ -459,6 +459,7 @@
     <EmbeddedResource Include="SQL\SQLV084.txt" />
     <EmbeddedResource Include="SQL\SQLV083.txt" />
     <None Include="Pics\Empty.ico" />
+    <None Include="klonsver.txt" />
     <Content Include="Reports\Report_PVNZ_1.rdlc" />
     <Content Include="Reports\Report_Apgr_BilFormula.rdlc" />
     <Content Include="Reports\Report_Rekins_PZ_1.rdlc" />

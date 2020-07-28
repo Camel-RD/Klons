@@ -141,6 +141,7 @@ namespace KlonsA.Forms
         {
             UpdateDB();
             RefreshUntMinForm();
+            Close();
         }
 
         private void dgvRows_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
