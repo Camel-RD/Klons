@@ -1,0 +1,13 @@
+﻿UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('G01', 'Piegādāta prece (graudaugi un tehniskas kultūras)', 0, '41.1', 8, 21, 1, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('G02', 'Saņemta prece (graudaugi un tehniskas kultūras)', 0, 'R5', 23, 0, 8, 1, 0);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('G11', 'PVN par piegādāto prece (graudaugi un tehniskas kultūras)', 1, '41.1', 8, 22, 2, 1, 2);
+UPDATE OR INSERT INTO ACPVN (ID, NM, T, PZ1, PZ2, PZ2A, PZ3, PZ4, PZ5)
+  VALUES ('G12', 'PVN par saņemto prece (graudaugi un tehniskas kultūras)', 1, 'R5', 201, 0, 5, 1, 2);
+
+
+UPDATE Params
+SET PVALUE = '089'
+WHERE PNAME = 'version';
