@@ -473,5 +473,17 @@ namespace KlonsLIB.Forms
             base.ScaleControl(factor, specified);
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // MyFormBase
+            // 
+            this.ClientSize = new System.Drawing.Size(292, 264);
+            this.Name = "MyFormBase";
+            this.ShowIcon = false;
+            this.ResumeLayout(false);
+
+        }
     }
 }

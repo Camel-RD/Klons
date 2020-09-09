@@ -261,6 +261,9 @@
     <EmbeddedResource Include="Forms\Form_ReportViewer.resx">
       <DependentUpon>Form_ReportViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyFormBase.resx">
+      <DependentUpon>MyFormBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MyMessageBox.resx">
       <DependentUpon>MyMessageBox.cs</DependentUpon>
     </EmbeddedResource>

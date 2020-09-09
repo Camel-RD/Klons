@@ -99,6 +99,7 @@ namespace KlonsA
             {
                 this.WindowState = FormWindowState.Maximized;
             }
+            tsWindowList.Visible = MyData.Settings.ShowWindowListToolStrip;
         }
 
         private void Form_Main_Shown(object sender, EventArgs e)
@@ -200,6 +201,24 @@ namespace KlonsA
         public Form_Users ShowFormUsersDialog()
         {
             return ShowFormDialog(typeof(Form_Users)) as Form_Users;
+        }
+
+        private void sistēmaToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            rādītAtvērtoLoguSarakstuToolStripMenuItem.Checked = MyData.Settings.ShowWindowListToolStrip;
+        }
+
+        private void sistēmaToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            rādītAtvērtoLoguSarakstuToolStripMenuItem.Checked = MyData.Settings.ShowWindowListToolStrip;
+        }
+
+        private void rādītAtvērtoLoguSarakstuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool b = !rādītAtvērtoLoguSarakstuToolStripMenuItem.Checked;
+            rādītAtvērtoLoguSarakstuToolStripMenuItem.Checked = b;
+            MyData.Settings.ShowWindowListToolStrip = b;
+            tsWindowList.Visible = b;
         }
 
 

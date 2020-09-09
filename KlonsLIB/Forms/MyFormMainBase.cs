@@ -13,6 +13,7 @@ namespace KlonsLIB.Forms
         private ToolStrip _myChildToolStrip = null;
         private static MyMainFormBase myInstance = null;
         private ToolStripMenuItem _windowListToolStripMenuItem = null;
+        private ToolStrip _windowListToolStrip = null;
 
         public static MyMainFormBase MyInstance
         {
@@ -31,6 +32,10 @@ namespace KlonsLIB.Forms
             {
                 _windowListToolStripMenuItem.DropDownOpening += new EventHandler(this.logiToolStripMenuItem_DropDownOpening);
                 _windowListToolStripMenuItem.DropDownItemClicked += new ToolStripItemClickedEventHandler(this.logiToolStripMenuItem_DropDownItemClicked);
+            }
+            if (_windowListToolStrip != null)
+            {
+                _windowListToolStrip.ItemClicked += _windowListToolStrip_ItemClicked;
             }
         }
 
@@ -53,6 +58,8 @@ namespace KlonsLIB.Forms
                 MainMenuStrip.Renderer = new MyToolStripRenderer(MyColorTheme);
                 if (MyToolStrip != null)
                     MyToolStrip.Renderer = MainMenuStrip.Renderer;
+                if (MyWindowListToolStrip != null)
+                    MyWindowListToolStrip.Renderer = MainMenuStrip.Renderer;
             }
         }
 
@@ -89,6 +96,19 @@ namespace KlonsLIB.Forms
                 _windowListToolStripMenuItem = value;
             }
         }
+
+        [DefaultValue(null)]
+        [TypeConverter(typeof(ReferenceConverter))]
+        public virtual ToolStrip MyWindowListToolStrip
+        {
+            get { return _windowListToolStrip; }
+            set
+            {
+                if (value == _windowListToolStrip) return;
+                _windowListToolStrip = value;
+            }
+        }
+
 
         public bool CloseAllForms()
         {
@@ -196,6 +216,7 @@ namespace KlonsLIB.Forms
         {
             base.OnMdiChildActivate(e);
             FormMainBase_MdiChildActivate(this, e);
+            OnMyChildrenChanged();
         }
 
         private void FormMainBase_MdiChildActivate(object sender, EventArgs e)
@@ -247,6 +268,7 @@ namespace KlonsLIB.Forms
             if (!form.IsMyDialog)
             {
                 SelectLastForm();
+                OnMyChildrenChanged();
                 return;
             }
 
@@ -257,11 +279,50 @@ namespace KlonsLIB.Forms
                 if (_myChildren[i].IsMyDialog) break;
             }
             SelectLastForm();
+            OnMyChildrenChanged();
             return;
         }
 
-        private void logiToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        protected void UpdateWindowListToolStrip()
         {
+            if (_windowListToolStrip == null) return;
+            ToolStripItem mi;
+            Form f;
+            string s;
+            if (_windowListToolStrip.Items.Count > _myChildren.Count)
+            {
+                for (int i = 0; i < _windowListToolStrip.Items.Count - _myChildren.Count; i++)
+                    _windowListToolStrip.Items.RemoveAt(_windowListToolStrip.Items.Count - 1);
+            }
+            if (_windowListToolStrip.Items.Count < _myChildren.Count)
+            {
+                for (int i = 0; i < _myChildren.Count - _windowListToolStrip.Items.Count; i++)
+                {
+                    mi = _windowListToolStrip.Items.Add("");
+                    mi.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                }
+            }
+            for (int i = 0; i < _myChildren.Count; i++)
+            {
+                f = _myChildren[i];
+                //⬜ ❏
+                //s = string.Format("{0}: {1}", i, f.Text);
+                s = string.Format("❏ {0}", f.Text);
+                mi = _windowListToolStrip.Items[i];
+                if (mi.Text != s) mi.Text = s;
+                mi.Tag = i;
+                if (f == ActiveMdiChild)
+                    mi.Font = new Font(_windowListToolStrip.Font, FontStyle.Underline);
+                else
+                    mi.Font = _windowListToolStrip.Font;
+            }
+            ColorThemeHelper.ApplyToControlA(_windowListToolStrip, MyColorTheme);
+
+        }
+
+        protected void UpdateWindowListMenu()
+        {
+            if (_windowListToolStripMenuItem == null) return;
             _windowListToolStripMenuItem.DropDownItems.Clear();
             ToolStripMenuItem mi;
             Form f;
@@ -279,9 +340,28 @@ namespace KlonsLIB.Forms
             ColorThemeHelper.ApplyToControlA(_windowListToolStripMenuItem, MyColorTheme);
         }
 
+        protected virtual void OnMyChildrenChanged()
+        {
+            UpdateWindowListToolStrip();
+        }
+
+        private void logiToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            UpdateWindowListMenu();
+        }
+
         private void logiToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             int k = (int)e.ClickedItem.Tag;
+            Form f = _myChildren[k];
+            if (!f.Enabled) return;
+            f.Activate();
+        }
+
+        private void _windowListToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            int k = (int)e.ClickedItem.Tag;
+            if (k >= _myChildren.Count) return;
             Form f = _myChildren[k];
             if (!f.Enabled) return;
             f.Activate();
