@@ -6,9 +6,9 @@ Klons.Net ir bezmaksas grāmatvedības uzskaites programmu komplekts, kurā ieti
   - Pamatlīdzekļu uzskaites programma Klons-P.Net
 
 Lejuplādēt programmu pēdējo versiju [var šeit](https://github.com/Camel-RD/Klons/releases/latest):
-  - Klons-F.Net ver. 2020.08.#1 [lejuplādēt](https://github.com/Camel-RD/Klons/releases/download/2020.09-1/setup_klons.net.zip)
-  - Klons-A.Net ver. 2020.09.#1 [lejuplādēt](https://github.com/Camel-RD/Klons/releases/download/2020.09-1/setup_klons-A.net.zip)
-  - Klons-P.Net ver. 2019.12.#1 [lejuplādēt](https://github.com/Camel-RD/Klons/releases/download/2020.09-1/setup_klons-P.net.zip)
+  - Klons-F.Net ver. 2020.10.#1 [lejuplādēt](https://github.com/Camel-RD/Klons/releases/latest/download/setup_klons.net.zip)
+  - Klons-A.Net ver. 2020.09.#1 [lejuplādēt](https://github.com/Camel-RD/Klons/releases/latest/download/setup_klons-A.net.zip)
+  - Klons-P.Net ver. 2019.12.#1 [lejuplādēt](https://github.com/Camel-RD/Klons/releases/latest/download/setup_klons-P.net.zip)
 
 ## Finanšu uzskaites programma Klons-F.Net
 
