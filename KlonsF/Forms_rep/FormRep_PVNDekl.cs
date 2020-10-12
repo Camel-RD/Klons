@@ -720,6 +720,96 @@ namespace KlonsF.FormsReportParams
         }
 
 
+        // PVN deklarācijas tabula
+        private List<PVNRepRow> MakeTableRows()
+        {
+            var rows = new List<PVNRepRow>();
+            Action<int, bool, bool, string, string> AddRow = (nr, leftpadded, bold, textnr, text) =>
+            {
+                var row = new PVNRepRow()
+                {
+                    Nr = nr,
+                    LeftPadded = leftpadded,
+                    Bold = bold,
+                    TextNr = textnr,
+                    Text = text
+                };
+                rows.Add(row);
+            };
+
+            AddRow(40, false, true, "40", "KOPĒJĀ DARĪJUMU VĒRTĪBA (euro), no tās:");
+            AddRow(41, false, false, "41", "Ar PVN standartlikmi apliekamie darījumi");
+            AddRow(73, false, false, "411", "Iekšzemē veiktie darījumi, par kuriem nodokli maksā preču vai pakalpojumu saņēmējs");
+            AddRow(42, false, false, "42", "Ar PVN samazināto likmi apliekamie darījumi");
+            AddRow(73, false, false, "421", "Ar PVN samazināto likmi 5 procentu apmērā apliekamie darījumi");
+            AddRow(43, false, false, "43", "Ar PVN 0 % likmi apliekamie darījumi, tai skaitā:");
+            AddRow(44, true, false, "44", "darījumi, kas veikti brīvostās un SEZ");
+            AddRow(45, true, false, "45", "uz ES dalībvalstīm piegādātās preces");
+            AddRow(75, true, false, "451", "uz ES dalībvalstīm piegādātās preces, kas minētas likuma 42. panta sešpadsmitajā daļā");
+            AddRow(46, true, false, "46", "ārpuskopienas preču piegādes muitas noliktavās un brīvajās zonās");
+            AddRow(47, true, false, "47", "uz ES dalībvalstīm piegādātie jaunie transportlīdzekļi");
+            AddRow(48, true, false, "48", "par sniegtajiem pakalpojumiem");
+            AddRow(72, true, false, "481", "eksportētās preces");
+            AddRow(71, false, false, "482", "Citās valstīs veiktie darījumi");
+            AddRow(49, false, false, "49", "Ar PVN neapliekamie darījumi");
+            AddRow(50, false, false, "50", "No ES dalībvalstīm saņemtās preces  un pakalpojumi (standartlikme)");
+            AddRow(51, false, false, "51", "No ES dalībvalstīm saņemtās preces (samazinātā likme)");
+            AddRow(76, false, false, "511", "No ES dalībvalstīm saņemtās preces (PVN samazinātā likme 5 procentu apmērā)");
+            AddRow(0, false, true, "", "APRĒĶINĀTAIS PVN (euro):");
+            AddRow(52, false, false, "52", "Ar PVN standartlikmi apliekamiem darījumiem");
+            AddRow(53, false, false, "53", "Ar PVN samazināto likmi apliekamiem darījumiem");
+            AddRow(77, false, false, "531", "Ar PVN samazināto likmi 5 procentu apmērā apliekamiem darījumiem");
+            AddRow(54, false, false, "54", "Par saņemtajiem pakalpojumiem ");
+            AddRow(55, false, false, "55", "Ar PVN standartlikmi apliekamām precēm un pakalpojumiem, kas saņemti no ES dalībvalstīm");
+            AddRow(56, false, false, "56", "Ar PVN samazināto likmi apliekamām precēm, kas saņemtas no ES dalībvalstīm");
+            AddRow(78, false, false, "561", "Ar PVN samazināto likmi 5 procentu apmērā apliekamām precēm, kas saņemtas no ES dalībvalstīm");
+            AddRow(60, false, true, "60", "PVN SUMMA PAR SAŅEMTAJĀM PRECĒM UN PAKALPOJUMIEM ");
+            AddRow(0, false, true, "", "(euro), no tās:");
+            AddRow(61, false, false, "61", "Par importētajām precēm");
+            AddRow(62, false, false, "62", "Par precēm un pakalpojumiem iekšzemē");
+            AddRow(63, false, false, "63", "Aprēķinātā PVN summa saskaņā ar likuma 92.panta pirmās daļas 4.punktu (izņemot 64.rindu)");
+            AddRow(64, false, false, "64", "Aprēķinātā PVN summa par precēm un pakalpojumiem, kas saņemti no ES dalībvalstīm");
+            AddRow(65, false, false, "65", "Lauksaimniekiem izmaksātā kompensācija");
+            AddRow(66, false, false, "66", "PVN summa, kas nav atskaitāma kā priekšnodoklis");
+            AddRow(0, false, false, "", "Korekcijas");
+            AddRow(67, true, false, "67", "iepriekšējos taksācijas periodos samaksai valsts budžetā aprēķinātā nodokļa samazinājums ");
+            AddRow(57, true, false, "57", "iepriekšējos taksācijas periodos atskaitītā priekšnodokļa samazinājums");
+            AddRow(0, false, true, "", "KOPSUMMA");
+            AddRow(59, true, false, "(P)", "priekšnodoklis");
+            AddRow(69, true, false, "(S)", "aprēķinātais nodoklis");
+            AddRow(70, false, false, "70", "No valsts budžeta atmaksājamā nodokļa summa vai uz nākamo taksācijas periodu attiecināmā nodokļa summa, ja P > S");
+            AddRow(80, false, false, "80", "Valsts budžetā maksājamā nodokļa summa, ja P < S");
+
+            return rows;
+        }
+
+        private void FillTableRows(List<PVNRepRow> rows)
+        {
+            ROps2aTableAdapter ad = MyData.GetKlonsRepAdapter("ROps2a") as ROps2aTableAdapter;
+            if (ad == null) return;
+
+            ad.FillBy_pvn_10(MyData.DataSetKlonsRep.ROps2a, startDate, endDate);
+
+            DoCalc2018();
+
+            for(int i = 40; i < 100; i++)
+            {
+                decimal val = ax[i];
+                if (val == 0.0M) continue;
+                var row = rows.Where(x => x.Nr == i).FirstOrDefault();
+                if (row == null) continue;
+                row.Value = val;
+            }
+        }
+
+        private void DoPVNdeklT()
+        {
+            var rows = MakeTableRows();
+            FillTableRows(rows);
+            var form = MyMainForm.ShowForm(typeof(Form_PVN_Dekl)) as Form_PVN_Dekl;
+            form.SetData(rows);
+        }
+
         #region ========== XE functions ==========
 
         private XmlElement XE(string name, string text)
@@ -1378,6 +1468,9 @@ namespace KlonsF.FormsReportParams
                     case 8:
                         DoPVNPiel2Ta();
                         break;
+                    case 9:
+                        DoPVNdeklT();
+                        break;
                 }
             }
 
@@ -1468,6 +1561,11 @@ namespace KlonsF.FormsReportParams
             DoIt(8);
         }
 
+        private void miTabulePVNdeklarācija_Click(object sender, EventArgs e)
+        {
+            DoIt(9);
+        }
+
         private void xMLAtskaiteBezPVN2PielikumaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MyData.ReportHelper.CheckForErrors(() =>
@@ -1486,6 +1584,16 @@ namespace KlonsF.FormsReportParams
             });
         }
 
-
     }
+
+    public class PVNRepRow
+    {
+        public int Nr { get; set; } = 0;
+        public string TextNr { get; set; } = "";
+        public string Text { get; set; } = "";
+        public bool LeftPadded { get; set; } = false;
+        public bool Bold { get; set; } = false;
+        public decimal Value { get; set; } = 0.0M;
+    }
+
 }

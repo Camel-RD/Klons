@@ -111,6 +111,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>klonsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_PVN_Dekl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PVN_Dekl.Designer.cs">
+      <DependentUpon>Form_PVN_Dekl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms_rep\FormRep_PVNZ1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +461,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\Form_PVN_Dekl.resx">
+      <DependentUpon>Form_PVN_Dekl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SQL\SQLV089.txt" />
     <EmbeddedResource Include="SQL\SQLV087.txt" />
     <EmbeddedResource Include="SQL\SQLV084.txt" />
