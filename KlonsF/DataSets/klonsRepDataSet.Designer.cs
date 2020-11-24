@@ -1507,16 +1507,16 @@ namespace KlonsF.DataSets {
                 this.columnDocNr.MaxLength = 15;
                 this.columnClId.MaxLength = 15;
                 this.columnClId2.MaxLength = 15;
-                this.columnName.MaxLength = 50;
-                this.columnName2.MaxLength = 50;
+                this.columnName.MaxLength = 100;
+                this.columnName2.MaxLength = 100;
                 this.columnRegNr.MaxLength = 15;
                 this.columnRegNr2.MaxLength = 15;
                 this.columnDescr.MaxLength = 80;
                 this.columnDescr2.MaxLength = 300;
                 this.columnAc1.MaxLength = 8;
                 this.columnAc2.MaxLength = 8;
-                this.columnSAc1.MaxLength = 50;
-                this.columnSAc2.MaxLength = 50;
+                this.columnSAc1.MaxLength = 100;
+                this.columnSAc2.MaxLength = 100;
                 this.columnSummC.DefaultValue = ((decimal)(0m));
                 this.columnCur.DefaultValue = ((string)("EUR"));
                 this.columnCur.MaxLength = 3;
@@ -2054,7 +2054,7 @@ namespace KlonsF.DataSets {
                 this.columnTDb.DefaultValue = ((decimal)(0m));
                 this.columnTCr.DefaultValue = ((decimal)(0m));
                 this.columnClId.MaxLength = 15;
-                this.columnName1.MaxLength = 50;
+                this.columnName1.MaxLength = 100;
                 this.columnRegNr.MaxLength = 15;
                 this.columnRName.MaxLength = 150;
                 this.columnADb.DefaultValue = ((decimal)(0m));
@@ -2435,7 +2435,7 @@ namespace KlonsF.DataSets {
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnAc.MaxLength = 8;
-                this.columnName.MaxLength = 50;
+                this.columnName.MaxLength = 100;
                 this.columnB0.DefaultValue = ((decimal)(0m));
                 this.columnSDb.DefaultValue = ((decimal)(0m));
                 this.columnSCr.DefaultValue = ((decimal)(0m));
@@ -2801,7 +2801,7 @@ namespace KlonsF.DataSets {
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnRAc.MaxLength = 8;
-                this.columnName.MaxLength = 50;
+                this.columnName.MaxLength = 100;
                 this.columnSDb.DefaultValue = ((decimal)(0m));
                 this.columnSCr.DefaultValue = ((decimal)(0m));
                 this.columnAC1.MaxLength = 8;
@@ -3208,7 +3208,7 @@ namespace KlonsF.DataSets {
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columni1.MaxLength = 15;
-                this.columnnm.MaxLength = 50;
+                this.columnnm.MaxLength = 100;
                 this.columnst.MaxLength = 6;
                 this.columnnr.MaxLength = 15;
                 this.columns1.DefaultValue = ((decimal)(0m));
@@ -4432,7 +4432,7 @@ namespace KlonsF.DataSets {
                 this.columnDocNr.MaxLength = 15;
                 this.columnDocStr.MaxLength = 200;
                 this.columnClId.MaxLength = 15;
-                this.columnName.MaxLength = 50;
+                this.columnName.MaxLength = 100;
                 this.columnRegNr.MaxLength = 15;
                 this.columnDescr.MaxLength = 80;
                 this.columnAc1.MaxLength = 8;
@@ -6851,8 +6851,8 @@ namespace KlonsF.DataSets {
                 this.columnad.MaxLength = 3;
                 this.columnAC1.MaxLength = 15;
                 this.columnAC2.MaxLength = 15;
-                this.columnACN1.MaxLength = 50;
-                this.columnACN2.MaxLength = 50;
+                this.columnACN1.MaxLength = 100;
+                this.columnACN2.MaxLength = 100;
                 this.columnM1.DefaultValue = ((decimal)(0m));
                 this.columnM2.DefaultValue = ((decimal)(0m));
                 this.columnM3.DefaultValue = ((decimal)(0m));
@@ -8794,7 +8794,7 @@ namespace KlonsF.DataSets {
                 this.columnDOCNR.MaxLength = 15;
                 this.columnDOCSTR.MaxLength = 200;
                 this.columnCLID.MaxLength = 15;
-                this.columnNAME.MaxLength = 50;
+                this.columnNAME.MaxLength = 100;
                 this.columnREGNR.MaxLength = 15;
                 this.columnDESCR.MaxLength = 80;
                 this.columnA11.MaxLength = 8;
@@ -9353,7 +9353,7 @@ namespace KlonsF.DataSets {
                 this.columnTDb.DefaultValue = ((decimal)(0m));
                 this.columnTCr.DefaultValue = ((decimal)(0m));
                 this.columnClId.MaxLength = 15;
-                this.columnName1.MaxLength = 50;
+                this.columnName1.MaxLength = 100;
                 this.columnRegNr.MaxLength = 15;
                 this.columnRName.MaxLength = 150;
                 this.columnADb.DefaultValue = ((decimal)(0m));

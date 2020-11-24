@@ -1169,7 +1169,7 @@ namespace KlonsA.Forms
                 msg += $"Datums: {Utils.DateToString(dt)}\n\n";
                 msg += $"Pienākas atvaļinājuma dienas: {rrvd.ToUse}\n";
                 msg += $"Izmantotās atvaļinājuma dienas: {rrvd.Used}\n";
-                msg += $"Neizmantotās atvaļinājuma dienas: {rrvd.ToUse}\n";
+                msg += $"Neizmantotās atvaļinājuma dienas: {rrvd.ToUse - rrvd.Used}\n";
                 msg += $"Kompensētās atvaļinājuma dienas: {rrvd.Compansated}\n";
                 msg += $"Atlikušās atvaļinājuma dienas: {rrvd.NotUsed}";
                 MyMainForm.ShowInfo(msg, "Atvaļinājuma dati:");

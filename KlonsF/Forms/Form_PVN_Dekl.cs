@@ -27,6 +27,7 @@ namespace KlonsF.Forms
         {
             DataRows = rows;
             dgvRows.DataSource = rows;
+            dgvRows.AutoResizeRows();
         }
 
         private void dgvRows_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

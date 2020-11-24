@@ -461,6 +461,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="SQL\SQLV091.txt" />
     <EmbeddedResource Include="Forms\Form_PVN_Dekl.resx">
       <DependentUpon>Form_PVN_Dekl.cs</DependentUpon>
     </EmbeddedResource>

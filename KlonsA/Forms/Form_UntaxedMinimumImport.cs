@@ -31,7 +31,7 @@ namespace KlonsA.Forms
 
         }
 
-        NM_e_gramatinas EGramatinas = null;
+        nm_e_gramatinas EGramatinas = null;
         List<UntMinImportData> Changes = null;
 
 

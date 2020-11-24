@@ -19,7 +19,7 @@ namespace KlonsA.Classes
     {
         KlonsData MyData => KlonsData.St;
 
-        public NM_e_gramatinas EGramatinas = null;
+        public nm_e_gramatinas EGramatinas = null;
         public List<UntMinImportData> UntMinChanges = null;
 
         private T DeserializeA<T>(string serializedResults)
@@ -29,11 +29,11 @@ namespace KlonsA.Classes
                 return (T)serializer.Deserialize(stringReader);
         }
 
-        public NM_e_gramatinas Deserialize(string xmltext)
+        public nm_e_gramatinas Deserialize(string xmltext)
         {
             try
             {
-                return DeserializeA<NM_e_gramatinas>(xmltext);
+                return DeserializeA<nm_e_gramatinas>(xmltext);
             }
             catch (Exception ex)
             {
@@ -54,11 +54,11 @@ namespace KlonsA.Classes
             return drs[0];
         }
 
-        public void MatchPersonLists(NM_e_gramatinas egrm,
-            out Dictionary<NM_e_gramatinasGigv, KlonsADataSet.PERSONSRow> dict,
+        public void MatchPersonLists(nm_e_gramatinas egrm,
+            out Dictionary<nm_e_gramatinasGigv, KlonsADataSet.PERSONSRow> dict,
             out List<string> missingnames)
         {
-            dict = new Dictionary<NM_e_gramatinasGigv, KlonsADataSet.PERSONSRow>();
+            dict = new Dictionary<nm_e_gramatinasGigv, KlonsADataSet.PERSONSRow>();
             missingnames = new List<string>();
             foreach (var grm in egrm.gigv)
             {
@@ -120,7 +120,7 @@ namespace KlonsA.Classes
             return ret;
         }
 
-        private PeriodInfo GetUntMinFromEgrm(NM_e_gramatinasGigv egrm, DateTime dt1, DateTime dt2)
+        private PeriodInfo GetUntMinFromEgrm(nm_e_gramatinasGigv egrm, DateTime dt1, DateTime dt2)
         {
             var um0 = new UntMinData();
             um0.Dt1 = dt1;
@@ -147,7 +147,7 @@ namespace KlonsA.Classes
                     var rt = new UntMinData()
                     {
                         Dt1 = d.datums_no,
-                        Dt2 = d.datums_lidzSpecified ? d.datums_lidz : dt2,
+                        Dt2 = d.datums_lidzSpecified ? d.datums_lidz.Value : dt2,
                         UntMin = (decimal)d.summa
                     };
                     if (rt.Dt1 < dt1) rt.Dt1 = dt1;
@@ -174,7 +174,7 @@ namespace KlonsA.Classes
             return ret;
         }
 
-        private PeriodInfo GetIINRateFromEgrm(NM_e_gramatinasGigv egrm, DateTime dt1, DateTime dt2)
+        private PeriodInfo GetIINRateFromEgrm(nm_e_gramatinasGigv egrm, DateTime dt1, DateTime dt2)
         {
             var um0 = new UntMinData();
             um0.Dt1 = dt1;
@@ -193,7 +193,7 @@ namespace KlonsA.Classes
             var ret3 = new UntMinData()
             {
                 Dt1 = egrm_iinlikme.datums_no,
-                Dt2 = egrm_iinlikme.datums_lidzSpecified ? egrm_iinlikme.datums_lidz : dt2,
+                Dt2 = egrm_iinlikme.datums_lidzSpecified ? egrm_iinlikme.datums_lidz.Value : dt2,
                 IINRateType = 1
             };
             if (ret3.Dt1 < dt1) ret3.Dt1 = dt1;

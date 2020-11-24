@@ -2,14 +2,10 @@
 
 namespace KlonsF.DataSets
 {
+}
 
-
-    public partial class klonsDataSet
-    {
-        partial class BalA3DataTable
-        {
-        }
-    }
+namespace KlonsF.DataSets
+{
 }
 
 namespace KlonsF.DataSets.klonsDataSetTableAdapters

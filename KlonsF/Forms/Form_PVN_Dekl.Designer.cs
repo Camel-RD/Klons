@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
             this.dgcText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +63,8 @@
             // dgcText
             // 
             this.dgcText.DataPropertyName = "Text";
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcText.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgcText.HeaderText = "Deklarācijas rinda";
             this.dgcText.MinimumWidth = 7;
             this.dgcText.Name = "dgcText";
@@ -71,8 +74,8 @@
             // dgcNr
             // 
             this.dgcNr.DataPropertyName = "TextNr";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcNr.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcNr.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcNr.HeaderText = "Nr.";
             this.dgcNr.MinimumWidth = 7;
             this.dgcNr.Name = "dgcNr";
@@ -82,9 +85,9 @@
             // dgcValue
             // 
             this.dgcValue.DataPropertyName = "Value";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcValue.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcValue.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgcValue.HeaderText = "Summa";
             this.dgcValue.MinimumWidth = 7;
             this.dgcValue.Name = "dgcValue";
