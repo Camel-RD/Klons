@@ -55,7 +55,7 @@
             this.lbTitle.Location = new System.Drawing.Point(10, 9);
             this.lbTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(319, 62);
+            this.lbTitle.Size = new System.Drawing.Size(362, 70);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "Klons-P.Net";
             // 
@@ -65,7 +65,7 @@
             this.label2.Location = new System.Drawing.Point(19, 145);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(294, 22);
+            this.label2.Size = new System.Drawing.Size(324, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Pamatlīdzekļu uzskaites programma";
             // 
@@ -76,9 +76,9 @@
             this.label3.Location = new System.Drawing.Point(178, 80);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 22);
+            this.label3.Size = new System.Drawing.Size(171, 25);
             this.label3.TabIndex = 3;
-            this.label3.Text = "versija 2019.12.#1";
+            this.label3.Text = "versija 2020.12.#1";
             // 
             // label4
             // 
@@ -86,13 +86,13 @@
             this.label4.Location = new System.Drawing.Point(21, 205);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(243, 44);
+            this.label4.Size = new System.Drawing.Size(267, 50);
             this.label4.TabIndex = 4;
             this.label4.Text = "Autors: Aivars Ikaunieks\r\ne-pasts: aivars.ik@gmail.com";
             // 
             // Form_About
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(355, 332);
             this.CloseOnEscape = true;

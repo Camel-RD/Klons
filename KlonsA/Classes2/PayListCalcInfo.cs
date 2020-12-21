@@ -761,8 +761,6 @@ namespace KlonsA.Classes
             pfx.Ir2 = IIN_RATE2 / 100.0M;
             pfx.Sr = SI_RATE / 100.0M;
             pfx.IM = PayFx.GetIINMargin(DT1);
-            pfx.IMa = PayFx.GetIINMarginA(DT1);
-            pfx.IMb = PayFx.GetIINMarginB(DT1);
 
             pfx.IinEx = 
                 fromsr.UNTAXED_MINIMUM + 
@@ -798,8 +796,6 @@ namespace KlonsA.Classes
             pfx.Ir2 = IIN_RATE2 / 100.0M;
             pfx.Sr = SI_RATE / 100.0M;
             pfx.IM = PayFx.GetIINMargin(DT1);
-            pfx.IMa = PayFx.GetIINMarginA(DT1);
-            pfx.IMb = PayFx.GetIINMarginB(DT1);
 
             pfx.IinEx =
                 UNTAXED_MINIMUM +

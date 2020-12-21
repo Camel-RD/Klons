@@ -525,7 +525,7 @@ namespace KlonsA.Classes
                     continue;
                 }
 
-                if (dt2 > this.DateFirst && dt1 < this.DateFirst &&
+                if (dt2 > this.DateFirst && dt1 <= this.DateFirst &&
                     !object.ReferenceEquals(it0, itd))
                 {
                     new_per = new PeriodInfo()

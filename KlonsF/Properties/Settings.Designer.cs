@@ -12,7 +12,7 @@ namespace KlonsF.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -49,9 +49,8 @@ namespace KlonsF.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>http://klons.id.lv/f/klonsver.txt</string>
-  <string>http://klons.id.lv/klonsver.txt</string>
   <string>https://raw.githubusercontent.com/Camel-RD/Klons/master/KlonsF/klonsver.txt</string>
+  <string>http://klons.id.lv/klonsver.txt</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection KlonsVerURLS {
             get {

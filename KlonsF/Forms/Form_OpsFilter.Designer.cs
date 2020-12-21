@@ -93,10 +93,10 @@ namespace KlonsF.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 4);
+            this.label1.Location = new System.Drawing.Point(98, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 16);
+            this.label1.Size = new System.Drawing.Size(14, 20);
             this.label1.TabIndex = 19;
             this.label1.Text = "-";
             // 
@@ -115,7 +115,7 @@ namespace KlonsF.Forms
             this.tsbDocs});
             this.myToolStrip.Location = new System.Drawing.Point(0, 0);
             this.myToolStrip.Name = "myToolStrip";
-            this.myToolStrip.Size = new System.Drawing.Size(738, 26);
+            this.myToolStrip.Size = new System.Drawing.Size(830, 32);
             this.myToolStrip.TabIndex = 17;
             this.myToolStrip.Text = "toolStrip1";
             this.myToolStrip.Visible = false;
@@ -126,7 +126,7 @@ namespace KlonsF.Forms
             this.tsbFilter.Image = ((System.Drawing.Image)(resources.GetObject("tsbFilter.Image")));
             this.tsbFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFilter.Name = "tsbFilter";
-            this.tsbFilter.Size = new System.Drawing.Size(63, 23);
+            this.tsbFilter.Size = new System.Drawing.Size(72, 27);
             this.tsbFilter.Text = "&Filtrēt";
             this.tsbFilter.Click += new System.EventHandler(this.tsbFilter_Click);
             // 
@@ -136,7 +136,7 @@ namespace KlonsF.Forms
             this.tsbFilterDocs.Image = ((System.Drawing.Image)(resources.GetObject("tsbFilterDocs.Image")));
             this.tsbFilterDocs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFilterDocs.Name = "tsbFilterDocs";
-            this.tsbFilterDocs.Size = new System.Drawing.Size(181, 23);
+            this.tsbFilterDocs.Size = new System.Drawing.Size(201, 27);
             this.tsbFilterDocs.Text = "&Atlasīt dokumentus";
             this.tsbFilterDocs.Click += new System.EventHandler(this.tsbFilterDocs_Click);
             // 
@@ -146,7 +146,7 @@ namespace KlonsF.Forms
             this.tsbFindInDocs.Image = ((System.Drawing.Image)(resources.GetObject("tsbFindInDocs.Image")));
             this.tsbFindInDocs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFindInDocs.Name = "tsbFindInDocs";
-            this.tsbFindInDocs.Size = new System.Drawing.Size(179, 23);
+            this.tsbFindInDocs.Size = new System.Drawing.Size(200, 27);
             this.tsbFindInDocs.Text = "Atrast dokumentos";
             this.tsbFindInDocs.Click += new System.EventHandler(this.tsbFindInDocs_Click);
             // 
@@ -157,20 +157,20 @@ namespace KlonsF.Forms
             this.ierakstuIzrakstsToolStripMenuItem});
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(97, 23);
+            this.toolStripButton1.Size = new System.Drawing.Size(107, 27);
             this.toolStripButton1.Text = "Izdrukai";
             // 
             // dokumentuSarakstsToolStripMenuItem
             // 
             this.dokumentuSarakstsToolStripMenuItem.Name = "dokumentuSarakstsToolStripMenuItem";
-            this.dokumentuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(270, 30);
+            this.dokumentuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(310, 38);
             this.dokumentuSarakstsToolStripMenuItem.Text = "Dokumentu saraksts";
             this.dokumentuSarakstsToolStripMenuItem.Click += new System.EventHandler(this.dokumentuSarakstsToolStripMenuItem_Click);
             // 
             // ierakstuIzrakstsToolStripMenuItem
             // 
             this.ierakstuIzrakstsToolStripMenuItem.Name = "ierakstuIzrakstsToolStripMenuItem";
-            this.ierakstuIzrakstsToolStripMenuItem.Size = new System.Drawing.Size(270, 30);
+            this.ierakstuIzrakstsToolStripMenuItem.Size = new System.Drawing.Size(310, 38);
             this.ierakstuIzrakstsToolStripMenuItem.Text = "Ierakstu izraksts";
             this.ierakstuIzrakstsToolStripMenuItem.Click += new System.EventHandler(this.ierakstuIzrakstsToolStripMenuItem_Click);
             // 
@@ -180,17 +180,17 @@ namespace KlonsF.Forms
             this.tsbDocs.Image = ((System.Drawing.Image)(resources.GetObject("tsbDocs.Image")));
             this.tsbDocs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDocs.Name = "tsbDocs";
-            this.tsbDocs.Size = new System.Drawing.Size(109, 23);
+            this.tsbDocs.Size = new System.Drawing.Size(123, 27);
             this.tsbDocs.Text = "&Dokumenti";
             this.tsbDocs.Click += new System.EventHandler(this.tsbDocs_Click);
             // 
             // cmAndOr
             // 
             this.cmAndOr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmAndOr.Location = new System.Drawing.Point(2, 34);
+            this.cmAndOr.Location = new System.Drawing.Point(2, 42);
             this.cmAndOr.Margin = new System.Windows.Forms.Padding(2);
             this.cmAndOr.Name = "cmAndOr";
-            this.cmAndOr.Size = new System.Drawing.Size(42, 29);
+            this.cmAndOr.Size = new System.Drawing.Size(47, 36);
             this.cmAndOr.TabIndex = 10;
             this.cmAndOr.Text = "vai";
             this.cmAndOr.UseVisualStyleBackColor = true;
@@ -228,11 +228,13 @@ namespace KlonsF.Forms
             this.dgcAC25,
             this.dgcQV});
             this.dgvOPS.DataSource = this.bs_vwOPS;
-            this.dgvOPS.Location = new System.Drawing.Point(2, 77);
+            this.dgvOPS.Location = new System.Drawing.Point(2, 96);
             this.dgvOPS.Margin = new System.Windows.Forms.Padding(2);
             this.dgvOPS.Name = "dgvOPS";
             this.dgvOPS.ReadOnly = true;
-            this.dgvOPS.Size = new System.Drawing.Size(747, 301);
+            this.dgvOPS.RowHeadersWidth = 62;
+            this.dgvOPS.RowTemplate.Height = 28;
+            this.dgvOPS.Size = new System.Drawing.Size(840, 376);
             this.dgvOPS.TabIndex = 18;
             this.dgvOPS.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dgvOPS_CellToolTipTextNeeded);
             // 
@@ -240,9 +242,10 @@ namespace KlonsF.Forms
             // 
             this.dgcZNR.DataPropertyName = "ZNR";
             this.dgcZNR.HeaderText = "N.p.k.";
+            this.dgcZNR.MinimumWidth = 9;
             this.dgcZNR.Name = "dgcZNR";
             this.dgcZNR.ReadOnly = true;
-            this.dgcZNR.Width = 56;
+            this.dgcZNR.Width = 63;
             // 
             // dgcDate
             // 
@@ -250,65 +253,73 @@ namespace KlonsF.Forms
             dataGridViewCellStyle1.Format = "dd.MM.yyyy";
             this.dgcDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgcDate.HeaderText = "Datums";
+            this.dgcDate.MinimumWidth = 9;
             this.dgcDate.Name = "dgcDate";
             this.dgcDate.ReadOnly = true;
-            this.dgcDate.Width = 88;
+            this.dgcDate.Width = 99;
             // 
             // dgcDocTyp
             // 
             this.dgcDocTyp.DataPropertyName = "DocTyp";
             this.dgcDocTyp.HeaderText = "Dok.veids";
+            this.dgcDocTyp.MinimumWidth = 9;
             this.dgcDocTyp.Name = "dgcDocTyp";
             this.dgcDocTyp.ReadOnly = true;
-            this.dgcDocTyp.Width = 64;
+            this.dgcDocTyp.Width = 72;
             // 
             // dgcDocSt
             // 
             this.dgcDocSt.DataPropertyName = "DocSt";
             this.dgcDocSt.HeaderText = "Sērija";
+            this.dgcDocSt.MinimumWidth = 9;
             this.dgcDocSt.Name = "dgcDocSt";
             this.dgcDocSt.ReadOnly = true;
-            this.dgcDocSt.Width = 40;
+            this.dgcDocSt.Width = 45;
             // 
             // dgcDocNr
             // 
             this.dgcDocNr.DataPropertyName = "DocNr";
             this.dgcDocNr.HeaderText = "Dok.nr.";
+            this.dgcDocNr.MinimumWidth = 9;
             this.dgcDocNr.Name = "dgcDocNr";
             this.dgcDocNr.ReadOnly = true;
-            this.dgcDocNr.Width = 80;
+            this.dgcDocNr.Width = 90;
             // 
             // dgcClid
             // 
             this.dgcClid.DataPropertyName = "ClId";
             this.dgcClid.HeaderText = "Persona";
+            this.dgcClid.MinimumWidth = 9;
             this.dgcClid.Name = "dgcClid";
             this.dgcClid.ReadOnly = true;
-            this.dgcClid.Width = 96;
+            this.dgcClid.Width = 108;
             // 
             // dgcDescr
             // 
             this.dgcDescr.DataPropertyName = "Descr";
             this.dgcDescr.HeaderText = "Apraksta";
+            this.dgcDescr.MinimumWidth = 9;
             this.dgcDescr.Name = "dgcDescr";
             this.dgcDescr.ReadOnly = true;
-            this.dgcDescr.Width = 128;
+            this.dgcDescr.Width = 144;
             // 
             // dgcAC11
             // 
             this.dgcAC11.DataPropertyName = "AC11";
             this.dgcAC11.HeaderText = "Debets";
+            this.dgcAC11.MinimumWidth = 9;
             this.dgcAC11.Name = "dgcAC11";
             this.dgcAC11.ReadOnly = true;
-            this.dgcAC11.Width = 64;
+            this.dgcAC11.Width = 72;
             // 
             // dgcAC21
             // 
             this.dgcAC21.DataPropertyName = "AC21";
             this.dgcAC21.HeaderText = "Kredīts";
+            this.dgcAC21.MinimumWidth = 9;
             this.dgcAC21.Name = "dgcAC21";
             this.dgcAC21.ReadOnly = true;
-            this.dgcAC21.Width = 64;
+            this.dgcAC21.Width = 72;
             // 
             // sgcSumm
             // 
@@ -318,81 +329,91 @@ namespace KlonsF.Forms
             dataGridViewCellStyle2.NullValue = null;
             this.sgcSumm.DefaultCellStyle = dataGridViewCellStyle2;
             this.sgcSumm.HeaderText = "Summa";
+            this.sgcSumm.MinimumWidth = 9;
             this.sgcSumm.Name = "sgcSumm";
             this.sgcSumm.ReadOnly = true;
-            this.sgcSumm.Width = 80;
+            this.sgcSumm.Width = 90;
             // 
             // dgcAC12
             // 
             this.dgcAC12.DataPropertyName = "AC12";
             this.dgcAC12.HeaderText = "D2";
+            this.dgcAC12.MinimumWidth = 9;
             this.dgcAC12.Name = "dgcAC12";
             this.dgcAC12.ReadOnly = true;
-            this.dgcAC12.Width = 64;
+            this.dgcAC12.Width = 72;
             // 
             // dgcAC13
             // 
             this.dgcAC13.DataPropertyName = "AC13";
             this.dgcAC13.HeaderText = "D3";
+            this.dgcAC13.MinimumWidth = 9;
             this.dgcAC13.Name = "dgcAC13";
             this.dgcAC13.ReadOnly = true;
-            this.dgcAC13.Width = 40;
+            this.dgcAC13.Width = 45;
             // 
             // dgcAC14
             // 
             this.dgcAC14.DataPropertyName = "AC14";
             this.dgcAC14.HeaderText = "D4";
+            this.dgcAC14.MinimumWidth = 9;
             this.dgcAC14.Name = "dgcAC14";
             this.dgcAC14.ReadOnly = true;
-            this.dgcAC14.Width = 64;
+            this.dgcAC14.Width = 72;
             // 
             // dgcAC15
             // 
             this.dgcAC15.DataPropertyName = "AC15";
             this.dgcAC15.HeaderText = "D5";
+            this.dgcAC15.MinimumWidth = 9;
             this.dgcAC15.Name = "dgcAC15";
             this.dgcAC15.ReadOnly = true;
-            this.dgcAC15.Width = 48;
+            this.dgcAC15.Width = 54;
             // 
             // dgcAC22
             // 
             this.dgcAC22.DataPropertyName = "AC22";
             this.dgcAC22.HeaderText = "K2";
+            this.dgcAC22.MinimumWidth = 9;
             this.dgcAC22.Name = "dgcAC22";
             this.dgcAC22.ReadOnly = true;
-            this.dgcAC22.Width = 64;
+            this.dgcAC22.Width = 72;
             // 
             // dgcAC23
             // 
             this.dgcAC23.DataPropertyName = "AC23";
             this.dgcAC23.HeaderText = "K3";
+            this.dgcAC23.MinimumWidth = 9;
             this.dgcAC23.Name = "dgcAC23";
             this.dgcAC23.ReadOnly = true;
-            this.dgcAC23.Width = 40;
+            this.dgcAC23.Width = 45;
             // 
             // dgcAC24
             // 
             this.dgcAC24.DataPropertyName = "AC24";
             this.dgcAC24.HeaderText = "K4";
+            this.dgcAC24.MinimumWidth = 9;
             this.dgcAC24.Name = "dgcAC24";
             this.dgcAC24.ReadOnly = true;
-            this.dgcAC24.Width = 64;
+            this.dgcAC24.Width = 72;
             // 
             // dgcAC25
             // 
             this.dgcAC25.DataPropertyName = "AC25";
             this.dgcAC25.HeaderText = "K5";
+            this.dgcAC25.MinimumWidth = 9;
             this.dgcAC25.Name = "dgcAC25";
             this.dgcAC25.ReadOnly = true;
-            this.dgcAC25.Width = 48;
+            this.dgcAC25.Width = 54;
             // 
             // dgcQV
             // 
             this.dgcQV.DataPropertyName = "QV";
             this.dgcQV.HeaderText = "Daudzums";
+            this.dgcQV.MinimumWidth = 9;
             this.dgcQV.Name = "dgcQV";
             this.dgcQV.ReadOnly = true;
-            this.dgcQV.Width = 80;
+            this.dgcQV.Width = 90;
             // 
             // bs_vwOPS
             // 
@@ -410,19 +431,19 @@ namespace KlonsF.Forms
             this.cbAC25.ColumnWidths = "100;400";
             this.cbAC25.DisplayMember = "idx";
             this.cbAC25.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC25.DropDownHeight = 255;
-            this.cbAC25.DropDownWidth = 524;
+            this.cbAC25.DropDownHeight = 315;
+            this.cbAC25.DropDownWidth = 594;
             this.cbAC25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC25.FormattingEnabled = true;
             this.cbAC25.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC25.GridLineHorizontal = false;
             this.cbAC25.GridLineVertical = true;
             this.cbAC25.IntegralHeight = false;
-            this.cbAC25.Location = new System.Drawing.Point(352, 50);
+            this.cbAC25.Location = new System.Drawing.Point(396, 62);
             this.cbAC25.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC25.MaxDropDownItems = 15;
             this.cbAC25.Name = "cbAC25";
-            this.cbAC25.Size = new System.Drawing.Size(71, 23);
+            this.cbAC25.Size = new System.Drawing.Size(79, 27);
             this.cbAC25.TabIndex = 15;
             this.cbAC25.ValueMember = "idx";
             this.cbAC25.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -437,19 +458,19 @@ namespace KlonsF.Forms
             this.cbAC24.ColumnWidths = "100;400";
             this.cbAC24.DisplayMember = "idx";
             this.cbAC24.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC24.DropDownHeight = 255;
-            this.cbAC24.DropDownWidth = 524;
+            this.cbAC24.DropDownHeight = 315;
+            this.cbAC24.DropDownWidth = 594;
             this.cbAC24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC24.FormattingEnabled = true;
             this.cbAC24.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC24.GridLineHorizontal = false;
             this.cbAC24.GridLineVertical = true;
             this.cbAC24.IntegralHeight = false;
-            this.cbAC24.Location = new System.Drawing.Point(277, 50);
+            this.cbAC24.Location = new System.Drawing.Point(312, 62);
             this.cbAC24.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC24.MaxDropDownItems = 15;
             this.cbAC24.Name = "cbAC24";
-            this.cbAC24.Size = new System.Drawing.Size(71, 23);
+            this.cbAC24.Size = new System.Drawing.Size(79, 27);
             this.cbAC24.TabIndex = 14;
             this.cbAC24.ValueMember = "idx";
             this.cbAC24.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -464,19 +485,19 @@ namespace KlonsF.Forms
             this.cbAC23.ColumnWidths = "100;400";
             this.cbAC23.DisplayMember = "idx";
             this.cbAC23.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC23.DropDownHeight = 255;
-            this.cbAC23.DropDownWidth = 524;
+            this.cbAC23.DropDownHeight = 315;
+            this.cbAC23.DropDownWidth = 594;
             this.cbAC23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC23.FormattingEnabled = true;
             this.cbAC23.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC23.GridLineHorizontal = false;
             this.cbAC23.GridLineVertical = true;
             this.cbAC23.IntegralHeight = false;
-            this.cbAC23.Location = new System.Drawing.Point(202, 50);
+            this.cbAC23.Location = new System.Drawing.Point(227, 62);
             this.cbAC23.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC23.MaxDropDownItems = 15;
             this.cbAC23.Name = "cbAC23";
-            this.cbAC23.Size = new System.Drawing.Size(71, 23);
+            this.cbAC23.Size = new System.Drawing.Size(79, 27);
             this.cbAC23.TabIndex = 13;
             this.cbAC23.ValueMember = "idx";
             this.cbAC23.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -491,19 +512,19 @@ namespace KlonsF.Forms
             this.cbAC22.ColumnWidths = "100;400";
             this.cbAC22.DisplayMember = "AC";
             this.cbAC22.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC22.DropDownHeight = 255;
-            this.cbAC22.DropDownWidth = 524;
+            this.cbAC22.DropDownHeight = 315;
+            this.cbAC22.DropDownWidth = 594;
             this.cbAC22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC22.FormattingEnabled = true;
             this.cbAC22.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC22.GridLineHorizontal = false;
             this.cbAC22.GridLineVertical = true;
             this.cbAC22.IntegralHeight = false;
-            this.cbAC22.Location = new System.Drawing.Point(126, 50);
+            this.cbAC22.Location = new System.Drawing.Point(142, 62);
             this.cbAC22.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC22.MaxDropDownItems = 15;
             this.cbAC22.Name = "cbAC22";
-            this.cbAC22.Size = new System.Drawing.Size(71, 23);
+            this.cbAC22.Size = new System.Drawing.Size(79, 27);
             this.cbAC22.TabIndex = 12;
             this.cbAC22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
             this.cbAC22.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbAC_MouseDoubleClick);
@@ -517,19 +538,19 @@ namespace KlonsF.Forms
             this.cbAC21.ColumnWidths = "100;400";
             this.cbAC21.DisplayMember = "AC";
             this.cbAC21.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC21.DropDownHeight = 255;
-            this.cbAC21.DropDownWidth = 524;
+            this.cbAC21.DropDownHeight = 315;
+            this.cbAC21.DropDownWidth = 594;
             this.cbAC21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC21.FormattingEnabled = true;
             this.cbAC21.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC21.GridLineHorizontal = false;
             this.cbAC21.GridLineVertical = true;
             this.cbAC21.IntegralHeight = false;
-            this.cbAC21.Location = new System.Drawing.Point(51, 50);
+            this.cbAC21.Location = new System.Drawing.Point(57, 62);
             this.cbAC21.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC21.MaxDropDownItems = 15;
             this.cbAC21.Name = "cbAC21";
-            this.cbAC21.Size = new System.Drawing.Size(71, 23);
+            this.cbAC21.Size = new System.Drawing.Size(79, 27);
             this.cbAC21.TabIndex = 11;
             this.cbAC21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
             this.cbAC21.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbAC_MouseDoubleClick);
@@ -543,19 +564,19 @@ namespace KlonsF.Forms
             this.cbAC15.ColumnWidths = "100;400";
             this.cbAC15.DisplayMember = "idx";
             this.cbAC15.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC15.DropDownHeight = 255;
-            this.cbAC15.DropDownWidth = 524;
+            this.cbAC15.DropDownHeight = 315;
+            this.cbAC15.DropDownWidth = 594;
             this.cbAC15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC15.FormattingEnabled = true;
             this.cbAC15.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC15.GridLineHorizontal = false;
             this.cbAC15.GridLineVertical = true;
             this.cbAC15.IntegralHeight = false;
-            this.cbAC15.Location = new System.Drawing.Point(352, 26);
+            this.cbAC15.Location = new System.Drawing.Point(396, 32);
             this.cbAC15.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC15.MaxDropDownItems = 15;
             this.cbAC15.Name = "cbAC15";
-            this.cbAC15.Size = new System.Drawing.Size(71, 23);
+            this.cbAC15.Size = new System.Drawing.Size(79, 27);
             this.cbAC15.TabIndex = 9;
             this.cbAC15.ValueMember = "idx";
             this.cbAC15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -570,19 +591,19 @@ namespace KlonsF.Forms
             this.cbAC14.ColumnWidths = "100;400";
             this.cbAC14.DisplayMember = "idx";
             this.cbAC14.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC14.DropDownHeight = 255;
-            this.cbAC14.DropDownWidth = 524;
+            this.cbAC14.DropDownHeight = 315;
+            this.cbAC14.DropDownWidth = 594;
             this.cbAC14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC14.FormattingEnabled = true;
             this.cbAC14.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC14.GridLineHorizontal = false;
             this.cbAC14.GridLineVertical = true;
             this.cbAC14.IntegralHeight = false;
-            this.cbAC14.Location = new System.Drawing.Point(277, 26);
+            this.cbAC14.Location = new System.Drawing.Point(312, 32);
             this.cbAC14.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC14.MaxDropDownItems = 15;
             this.cbAC14.Name = "cbAC14";
-            this.cbAC14.Size = new System.Drawing.Size(71, 23);
+            this.cbAC14.Size = new System.Drawing.Size(79, 27);
             this.cbAC14.TabIndex = 8;
             this.cbAC14.ValueMember = "idx";
             this.cbAC14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -597,19 +618,19 @@ namespace KlonsF.Forms
             this.cbAC13.ColumnWidths = "100;400";
             this.cbAC13.DisplayMember = "idx";
             this.cbAC13.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC13.DropDownHeight = 255;
-            this.cbAC13.DropDownWidth = 524;
+            this.cbAC13.DropDownHeight = 315;
+            this.cbAC13.DropDownWidth = 594;
             this.cbAC13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC13.FormattingEnabled = true;
             this.cbAC13.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC13.GridLineHorizontal = false;
             this.cbAC13.GridLineVertical = true;
             this.cbAC13.IntegralHeight = false;
-            this.cbAC13.Location = new System.Drawing.Point(202, 26);
+            this.cbAC13.Location = new System.Drawing.Point(227, 32);
             this.cbAC13.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC13.MaxDropDownItems = 15;
             this.cbAC13.Name = "cbAC13";
-            this.cbAC13.Size = new System.Drawing.Size(71, 23);
+            this.cbAC13.Size = new System.Drawing.Size(79, 27);
             this.cbAC13.TabIndex = 7;
             this.cbAC13.ValueMember = "idx";
             this.cbAC13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -624,19 +645,19 @@ namespace KlonsF.Forms
             this.cbAC12.ColumnWidths = "100;400";
             this.cbAC12.DisplayMember = "AC";
             this.cbAC12.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC12.DropDownHeight = 255;
-            this.cbAC12.DropDownWidth = 524;
+            this.cbAC12.DropDownHeight = 315;
+            this.cbAC12.DropDownWidth = 594;
             this.cbAC12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC12.FormattingEnabled = true;
             this.cbAC12.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC12.GridLineHorizontal = false;
             this.cbAC12.GridLineVertical = true;
             this.cbAC12.IntegralHeight = false;
-            this.cbAC12.Location = new System.Drawing.Point(126, 26);
+            this.cbAC12.Location = new System.Drawing.Point(142, 32);
             this.cbAC12.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC12.MaxDropDownItems = 15;
             this.cbAC12.Name = "cbAC12";
-            this.cbAC12.Size = new System.Drawing.Size(71, 23);
+            this.cbAC12.Size = new System.Drawing.Size(79, 27);
             this.cbAC12.TabIndex = 6;
             this.cbAC12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
             this.cbAC12.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbAC_MouseDoubleClick);
@@ -650,19 +671,19 @@ namespace KlonsF.Forms
             this.cbAC11.ColumnWidths = "100;400";
             this.cbAC11.DisplayMember = "AC";
             this.cbAC11.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC11.DropDownHeight = 255;
-            this.cbAC11.DropDownWidth = 524;
+            this.cbAC11.DropDownHeight = 315;
+            this.cbAC11.DropDownWidth = 594;
             this.cbAC11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC11.FormattingEnabled = true;
             this.cbAC11.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbAC11.GridLineHorizontal = false;
             this.cbAC11.GridLineVertical = true;
             this.cbAC11.IntegralHeight = false;
-            this.cbAC11.Location = new System.Drawing.Point(51, 26);
+            this.cbAC11.Location = new System.Drawing.Point(57, 32);
             this.cbAC11.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC11.MaxDropDownItems = 15;
             this.cbAC11.Name = "cbAC11";
-            this.cbAC11.Size = new System.Drawing.Size(71, 23);
+            this.cbAC11.Size = new System.Drawing.Size(79, 27);
             this.cbAC11.TabIndex = 5;
             this.cbAC11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
             this.cbAC11.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbAC_MouseDoubleClick);
@@ -670,10 +691,10 @@ namespace KlonsF.Forms
             // tbText
             // 
             this.tbText.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbText.Location = new System.Drawing.Point(312, 2);
+            this.tbText.Location = new System.Drawing.Point(351, 2);
             this.tbText.Margin = new System.Windows.Forms.Padding(2);
             this.tbText.Name = "tbText";
-            this.tbText.Size = new System.Drawing.Size(84, 22);
+            this.tbText.Size = new System.Drawing.Size(94, 26);
             this.tbText.TabIndex = 3;
             this.tbText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
             // 
@@ -686,19 +707,19 @@ namespace KlonsF.Forms
             this.cbClid.ColumnWidths = "120;400";
             this.cbClid.DisplayMember = "clid";
             this.cbClid.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbClid.DropDownHeight = 255;
-            this.cbClid.DropDownWidth = 544;
+            this.cbClid.DropDownHeight = 315;
+            this.cbClid.DropDownWidth = 616;
             this.cbClid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbClid.FormattingEnabled = true;
             this.cbClid.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbClid.GridLineHorizontal = false;
             this.cbClid.GridLineVertical = true;
             this.cbClid.IntegralHeight = false;
-            this.cbClid.Location = new System.Drawing.Point(205, 2);
+            this.cbClid.Location = new System.Drawing.Point(231, 2);
             this.cbClid.Margin = new System.Windows.Forms.Padding(2);
             this.cbClid.MaxDropDownItems = 15;
             this.cbClid.Name = "cbClid";
-            this.cbClid.Size = new System.Drawing.Size(103, 23);
+            this.cbClid.Size = new System.Drawing.Size(115, 27);
             this.cbClid.TabIndex = 2;
             this.cbClid.ValueMember = "clid";
             this.cbClid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -707,9 +728,10 @@ namespace KlonsF.Forms
             // tbDate2
             // 
             this.tbDate2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbDate2.Location = new System.Drawing.Point(102, 2);
+            this.tbDate2.Location = new System.Drawing.Point(115, 2);
+            this.tbDate2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate2.Name = "tbDate2";
-            this.tbDate2.Size = new System.Drawing.Size(80, 22);
+            this.tbDate2.Size = new System.Drawing.Size(90, 26);
             this.tbDate2.TabIndex = 1;
             this.tbDate2.Text = "01.01.2014";
             this.tbDate2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -719,8 +741,9 @@ namespace KlonsF.Forms
             // 
             this.tbDate1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate1.Location = new System.Drawing.Point(2, 2);
+            this.tbDate1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate1.Name = "tbDate1";
-            this.tbDate1.Size = new System.Drawing.Size(80, 22);
+            this.tbDate1.Size = new System.Drawing.Size(90, 26);
             this.tbDate1.TabIndex = 0;
             this.tbDate1.Text = "01.01.2014";
             this.tbDate1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -730,21 +753,21 @@ namespace KlonsF.Forms
             // 
             this.tbSum.BackColor = System.Drawing.SystemColors.Control;
             this.tbSum.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbSum.Location = new System.Drawing.Point(496, 50);
+            this.tbSum.Location = new System.Drawing.Point(558, 62);
             this.tbSum.Margin = new System.Windows.Forms.Padding(2);
             this.tbSum.Name = "tbSum";
             this.tbSum.ReadOnly = true;
-            this.tbSum.Size = new System.Drawing.Size(95, 22);
+            this.tbSum.Size = new System.Drawing.Size(107, 26);
             this.tbSum.TabIndex = 17;
             this.tbSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(429, 53);
+            this.label2.Location = new System.Drawing.Point(483, 66);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 16;
             this.label2.Text = "Summa:";
             // 
@@ -757,19 +780,19 @@ namespace KlonsF.Forms
             this.cbDocGr.ColumnWidths = "100;400";
             this.cbDocGr.DisplayMember = "id";
             this.cbDocGr.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbDocGr.DropDownHeight = 255;
-            this.cbDocGr.DropDownWidth = 524;
+            this.cbDocGr.DropDownHeight = 315;
+            this.cbDocGr.DropDownWidth = 594;
             this.cbDocGr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDocGr.FormattingEnabled = true;
             this.cbDocGr.GridLineColor = System.Drawing.SystemColors.WindowText;
             this.cbDocGr.GridLineHorizontal = false;
             this.cbDocGr.GridLineVertical = true;
             this.cbDocGr.IntegralHeight = false;
-            this.cbDocGr.Location = new System.Drawing.Point(400, 2);
+            this.cbDocGr.Location = new System.Drawing.Point(450, 2);
             this.cbDocGr.Margin = new System.Windows.Forms.Padding(2);
             this.cbDocGr.MaxDropDownItems = 15;
             this.cbDocGr.Name = "cbDocGr";
-            this.cbDocGr.Size = new System.Drawing.Size(110, 23);
+            this.cbDocGr.Size = new System.Drawing.Size(123, 27);
             this.cbDocGr.TabIndex = 4;
             this.cbDocGr.ValueMember = "id";
             this.cbDocGr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.control_KeyDown);
@@ -777,9 +800,9 @@ namespace KlonsF.Forms
             // 
             // Form_OpsFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 379);
+            this.ClientSize = new System.Drawing.Size(846, 474);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmAndOr);
             this.Controls.Add(this.dgvOPS);
@@ -801,6 +824,7 @@ namespace KlonsF.Forms
             this.Controls.Add(this.tbDate2);
             this.Controls.Add(this.tbDate1);
             this.Controls.Add(this.myToolStrip);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MyToolStrip = this.myToolStrip;
             this.Name = "Form_OpsFilter";
             this.Text = "Ierakstu žurnāls";

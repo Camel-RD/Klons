@@ -147,7 +147,7 @@ namespace KlonsA.Classes
                     var rt = new UntMinData()
                     {
                         Dt1 = d.datums_no,
-                        Dt2 = d.datums_lidzSpecified ? d.datums_lidz.Value : dt2,
+                        Dt2 = d.datums_lidzSpecified && d.datums_lidz != null ? d.datums_lidz.Value : dt2,
                         UntMin = (decimal)d.summa
                     };
                     if (rt.Dt1 < dt1) rt.Dt1 = dt1;
@@ -193,7 +193,7 @@ namespace KlonsA.Classes
             var ret3 = new UntMinData()
             {
                 Dt1 = egrm_iinlikme.datums_no,
-                Dt2 = egrm_iinlikme.datums_lidzSpecified ? egrm_iinlikme.datums_lidz.Value : dt2,
+                Dt2 = egrm_iinlikme.datums_lidzSpecified && egrm_iinlikme.datums_lidz != null ? egrm_iinlikme.datums_lidz.Value : dt2,
                 IINRateType = 1
             };
             if (ret3.Dt1 < dt1) ret3.Dt1 = dt1;

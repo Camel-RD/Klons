@@ -115,11 +115,11 @@ namespace KlonsLIB.Forms
         {
             WindowColor = Color.FromArgb(255, 255, 255);
             WindowTextColor = Color.FromArgb(0, 0, 0);
-            ControlColor = Color.FromArgb(200, 200, 200);
+            ControlColor = Color.FromArgb(220, 220, 220);
             ControlTextColor = Color.FromArgb(0, 0, 0);
-            ControlColorLight = Color.FromArgb(100, 100, 100);
-            ControlColorDark = Color.FromArgb(100, 100, 100);
-            ControlColorDarkDark = Color.FromArgb(50, 50, 50);
+            ControlColorLight = Color.FromArgb(150, 150, 150);
+            ControlColorDark = Color.FromArgb(150, 150, 150);
+            ControlColorDarkDark = Color.FromArgb(70, 70, 70);
             MenuHighlight = Color.FromArgb(240, 240, 240);
             BorderColor = ControlColorDarkDark;
             UsingSystemColors = false;

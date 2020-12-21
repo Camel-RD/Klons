@@ -126,9 +126,11 @@ namespace KlonsA.Forms
             this.myGrid1.ColumnWidth1 = 20;
             this.myGrid1.ColumnWidth2 = 400;
             this.myGrid1.ColumnWidth3 = 100;
+            this.myGrid1.DefaultHeight = 25;
             this.myGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myGrid1.EnableSort = true;
             this.myGrid1.Location = new System.Drawing.Point(0, 0);
+            this.myGrid1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.myGrid1.MyDataBC = this.LikmesData1;
             this.myGrid1.Name = "myGrid1";
             this.myGrid1.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
@@ -160,7 +162,7 @@ namespace KlonsA.Forms
             this.myGrid1.RowList.Add(this.row_URN);
             this.myGrid1.RowTemplateList.Add(this.sharedTextBox);
             this.myGrid1.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.myGrid1.Size = new System.Drawing.Size(708, 334);
+            this.myGrid1.Size = new System.Drawing.Size(796, 419);
             this.myGrid1.TabIndex = 0;
             this.myGrid1.TabStop = true;
             this.myGrid1.ToolTipText = "";
@@ -305,8 +307,8 @@ namespace KlonsA.Forms
             // 
             this.row_MinPayHour.DataMember = "MIN_PAY_HOUR";
             this.row_MinPayHour.DataSource = this.bsLikmes;
-            this.row_MinPayHour.EditorTemplateName = "";
-            this.row_MinPayHour.FormatString = "0.000";
+            this.row_MinPayHour.EditorTemplateName = "sharedTextBox";
+            this.row_MinPayHour.FormatString = "";
             this.row_MinPayHour.GridPropertyName = "_MIN_PAY_HOUR";
             this.row_MinPayHour.Name = "row_MinPayHour";
             this.row_MinPayHour.RowTitle = "Minimālā stundas likme";
@@ -514,7 +516,6 @@ namespace KlonsA.Forms
             // 
             // sharedTextBox
             // 
-            this.sharedTextBox.DataMember = null;
             this.sharedTextBox.Name = "sharedTextBox";
             this.sharedTextBox.RowTitle = null;
             this.sharedTextBox.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
@@ -539,7 +540,7 @@ namespace KlonsA.Forms
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.tsbSave});
-            this.bnavLikmes.Location = new System.Drawing.Point(0, 334);
+            this.bnavLikmes.Location = new System.Drawing.Point(0, 419);
             this.bnavLikmes.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnavLikmes.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnavLikmes.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -547,7 +548,7 @@ namespace KlonsA.Forms
             this.bnavLikmes.Name = "bnavLikmes";
             this.bnavLikmes.PositionItem = null;
             this.bnavLikmes.SaveItem = null;
-            this.bnavLikmes.Size = new System.Drawing.Size(708, 32);
+            this.bnavLikmes.Size = new System.Drawing.Size(796, 39);
             this.bnavLikmes.TabIndex = 1;
             this.bnavLikmes.Text = "myBindingNavigator1";
             this.bnavLikmes.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavLikmes_ItemDeleting);
@@ -558,7 +559,7 @@ namespace KlonsA.Forms
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -567,18 +568,18 @@ namespace KlonsA.Forms
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -586,7 +587,7 @@ namespace KlonsA.Forms
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -595,20 +596,20 @@ namespace KlonsA.Forms
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(90, 34);
             this.bindingNavigatorAddNewItem.Text = "Jauns";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
@@ -617,7 +618,7 @@ namespace KlonsA.Forms
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(91, 34);
             this.bindingNavigatorDeleteItem.Text = "Dzēst";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
@@ -627,7 +628,7 @@ namespace KlonsA.Forms
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(25, 29);
+            this.tsbSave.Size = new System.Drawing.Size(34, 34);
             this.tsbSave.Text = "toolStripButton1";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -641,30 +642,32 @@ namespace KlonsA.Forms
             this.cbDates.DataSource = this.bsLikmes;
             this.cbDates.DisplayMember = "ONDATE";
             this.cbDates.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbDates.DropDownHeight = 136;
+            this.cbDates.DropDownHeight = 168;
             this.cbDates.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownListSimple;
-            this.cbDates.DropDownWidth = 124;
+            this.cbDates.DropDownWidth = 144;
             this.cbDates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDates.FormattingEnabled = true;
             this.cbDates.GridLineColor = System.Drawing.Color.LightGray;
             this.cbDates.GridLineHorizontal = false;
             this.cbDates.GridLineVertical = false;
             this.cbDates.IntegralHeight = false;
-            this.cbDates.Location = new System.Drawing.Point(366, 340);
+            this.cbDates.Location = new System.Drawing.Point(412, 425);
+            this.cbDates.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbDates.Name = "cbDates";
-            this.cbDates.Size = new System.Drawing.Size(100, 23);
+            this.cbDates.Size = new System.Drawing.Size(112, 27);
             this.cbDates.TabIndex = 13;
             this.cbDates.ValueMember = "ONDATE";
             this.cbDates.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cbDates_Format);
             // 
             // Form_Rates
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 366);
+            this.ClientSize = new System.Drawing.Size(796, 458);
             this.Controls.Add(this.cbDates);
             this.Controls.Add(this.myGrid1);
             this.Controls.Add(this.bnavLikmes);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_Rates";
             this.Text = "Form_Likmes";
             this.Load += new System.EventHandler(this.Form_Rates_Load);

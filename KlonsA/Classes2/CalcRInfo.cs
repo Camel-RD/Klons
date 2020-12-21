@@ -35,8 +35,6 @@ namespace KlonsA.Classes
         public decimal RateIIN = 0.0M;
         public decimal RateIIN2 = 0.0M;
         public decimal IINMargin = 1667.0M;
-        public decimal IINMarginA = 440.0M;
-        public decimal IINMarginB = 1000.0M;
         public bool IsPensioner = false;
         public bool HasTaxDoc = false;
         public bool UseProgresiveIINRate = false;
@@ -66,8 +64,6 @@ namespace KlonsA.Classes
                 throw new ArgumentException("Bad call.");
 
             IINMargin = PayFx.GetIINMargin(dt1);
-            IINMarginA = PayFx.GetIINMarginA(dt1);
-            IINMarginB = PayFx.GetIINMarginB(dt1);
 
             var fPersonR = sr.PersonR.FilterListWithDates(dt1, dt2);
             var fHireFire = sr.Events.HireFire.FilterListWithDates(dt1, dt2);

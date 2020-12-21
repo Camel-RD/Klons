@@ -684,6 +684,7 @@ namespace KlonsF.Forms
                 {
                     OPSd_Enable_SetDocSums = false;
                     SetDocSums1(dr, dr.Summ, dr.Dete);
+                    SetDocSums3(dr, dr.Summ, dr.Dete);
                     GetDocSums2(dr, out sum, out pvn);
                     if (dr.Summ != sum) dr.Summ = sum;
                     if (dr.PVN != pvn) dr.PVN = pvn;
@@ -893,6 +894,83 @@ namespace KlonsF.Forms
             dr = opsrows[k2];
 
             dr.SummC = sum;
+        }
+
+        private void SetDocSums3(klonsDataSet.OPSdRow docrow
+            , decimal sum, DateTime date)
+        {
+            if (docrow == null) return;
+            klonsDataSet.OPSRow dr;
+
+            var opsrows = docrow.GetOPSRows();
+            if (opsrows == null || opsrows.Length != 3) return;
+
+            int kpvn = -1;
+            int ksum = -1;
+            int ksum0 = -1;
+
+            for (int i = 0; i < 3; i++)
+            {
+                dr = opsrows[i];
+
+                if (IsPVNx(dr.AC15, dr.AC25))
+                {
+                    if (kpvn > -1) return;
+                    kpvn = i;
+                }
+            }
+            if (kpvn == -1) return;
+
+            for (int i = 0; i < 3; i++)
+            {
+                dr = opsrows[i];
+
+                if (dr.AC15 == "0" && dr.AC25.IsNOE() ||
+                    dr.AC15.IsNOE() && dr.AC25 == "0")
+                {
+                    if (ksum0 > -1) return;
+                    ksum0 = i;
+                }
+            }
+            if (ksum0 == -1) return;
+
+            for(int i = 0; i < 3; i++)
+            {
+                if (i != kpvn && i != ksum0)
+                {
+                    ksum = i;
+                    break;
+                }
+            }
+
+            decimal dpvn = 0.0M;
+            decimal dsum = 0.0M;
+            decimal dsum0 = 0.0M;
+
+            dr = opsrows[kpvn];
+
+            decimal t = GetPVNRateAX(dr.AC15, dr.AC25, date);
+            if (t == 0) return;
+
+            if (IsGoodPVNx(dr.AC15, dr.AC25))
+            {
+                dsum0 = Math.Round(sum * 0.5M, 2);
+                dsum = sum - dsum0;
+                dsum = Math.Round(dsum / (1.0M + t / 100.0M), 2);
+                dpvn = sum - dsum0 - dsum;
+            }
+            else
+            {
+                return;
+            }
+
+            dr.SummC = dpvn;
+
+            dr = opsrows[ksum];
+            dr.SummC = dsum;
+
+            dr = opsrows[ksum0];
+            dr.SummC = dsum0;
         }
 
         private void dgvDocs_RowValidated(object sender, DataGridViewCellEventArgs e)

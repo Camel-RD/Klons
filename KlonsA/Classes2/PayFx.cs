@@ -26,8 +26,6 @@ namespace KlonsA.Classes
         public bool HasTaxDoc { get; set; } = false;
 
         public decimal IM = 1667.0M;
-        public decimal IMa = -1.0M; //440.0M
-        public decimal IMb = -1.0M; //1000.0M
         public static readonly DateTime ProgressiveIINStartDate = new DateTime(2018, 1, 1);
 
         public PayFx(bool hasProgressiveIIN = true)
@@ -62,8 +60,6 @@ namespace KlonsA.Classes
             Ir2 = from.Ir2;
             Sr = from.Sr;
             IM = from.IM;
-            IMa = from.IMa;
-            IMb = from.IMb;
             HasTaxDoc = from.HasTaxDoc;
             HasProgressiveIIN = from.HasProgressiveIIN;
         }
@@ -74,8 +70,6 @@ namespace KlonsA.Classes
             Ir2 = from.RateIIN2 / 100.0M;
             Sr = from.RateDNSN / 100.0M;
             IM = from.IINMargin;
-            IMa = from.IINMarginA;
-            IMb = from.IINMarginB;
             HasTaxDoc = from.HasTaxDoc;
             HasProgressiveIIN = from.UseProgresiveIINRate;
             IinEx = from.ExDivided.SumIINExemptsAll();
@@ -119,9 +113,6 @@ namespace KlonsA.Classes
                 IIN = (Pay + PayNs - DNS - UsedIinEx) * Ir;
                 return IIN;
             }
-
-            if(IMa == -1.0M || IMb == -1.0M)
-                throw new Exception("Nav norādīti IIN neapliekamā minimuma sliekšņi.");
 
             if (HasTaxDoc)
             {
@@ -173,9 +164,6 @@ namespace KlonsA.Classes
                 IIN = RoundA(IIN);
                 return IIN;
             }
-
-            if (IMa == -1.0M || IMb == -1.0M)
-                throw new Exception("Nav norādīti IIN neapliekamā minimuma sliekšņi.");
 
             if (HasTaxDoc)
             {
@@ -733,21 +721,6 @@ namespace KlonsA.Classes
             else return 1667.0M;
         }
 
-        public static decimal GetIINMarginA(DateTime dt)
-        {
-            if (dt < ProgressiveIINStartDate) return 0.0M;
-            if (dt.Year <= 2020) return 500.0M;
-            else return 440.0M;
-        }
-
-        public static decimal GetIINMarginB(DateTime dt)
-        {
-            if (dt.Year <= 2017) return 0.0M;
-            if (dt.Year == 2018) return 1000.0M;
-            if (dt.Year == 2019) return 1320.0M;
-            if (dt.Year == 2020) return 1440.0M;
-            else return 1200.0M;
-        }
 
     }
 }

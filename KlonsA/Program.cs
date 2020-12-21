@@ -14,10 +14,14 @@ namespace KlonsA
         [STAThread]
         static void Main()
         {
+            if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
             //Application.EnableVisualStyles();
             SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_Main());
         }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }

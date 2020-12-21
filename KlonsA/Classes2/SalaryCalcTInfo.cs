@@ -208,8 +208,6 @@ namespace KlonsA.Classes
                 curbruto: curbruto,
                 brutonosai: TotalSI._PLUS_NOSAI,
                 brutomargin: CalcR.IINMargin,
-                brutomargina: CalcR.IINMarginA,
-                brutomarginb: CalcR.IINMarginB,
                 useprogressiveiin: CalcR.UseProgresiveIINRate,
                 hastaxdoc: CalcR.HasTaxDoc,
                 iinrate1: TotalSI._RATE_IIN,

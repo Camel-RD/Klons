@@ -54,7 +54,7 @@
             this.lbTitle.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.lbTitle.Location = new System.Drawing.Point(31, 9);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(273, 62);
+            this.lbTitle.Size = new System.Drawing.Size(310, 70);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "Klons.Net";
             // 
@@ -63,7 +63,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(316, 44);
+            this.label2.Size = new System.Drawing.Size(339, 50);
             this.label2.TabIndex = 2;
             this.label2.Text = "Maza grāmatvedības programma\r\n                             mazam uzņēmumam";
             // 
@@ -73,22 +73,22 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label3.Location = new System.Drawing.Point(178, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 22);
+            this.label3.Size = new System.Drawing.Size(171, 25);
             this.label3.TabIndex = 3;
-            this.label3.Text = "versija 2020.11.#1";
+            this.label3.Text = "versija 2020.12.#1";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(21, 205);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(243, 44);
+            this.label4.Size = new System.Drawing.Size(267, 50);
             this.label4.TabIndex = 4;
             this.label4.Text = "Autors: Aivars Ikaunieks\r\ne-pasts: aivars.ik@gmail.com";
             // 
             // Form_About
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 333);
             this.CloseOnEscape = true;

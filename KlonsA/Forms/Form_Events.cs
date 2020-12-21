@@ -26,6 +26,7 @@ namespace KlonsA.Forms
         private void Form_Events_Load(object sender, EventArgs e)
         {
             cbFilterEvent2.SelectedValue = null;
+            cbFilterMode.SelectedValue = "0";
         }
 
         private void SetupToolStrips()
@@ -34,6 +35,7 @@ namespace KlonsA.Forms
             InsertInToolStrip(toolStrip1, tbDT2, 2);
             InsertInToolStrip(toolStrip1, cbFilterEvent, 4);
             InsertInToolStrip(toolStrip1, cbFilterEvent2, 5);
+            InsertInToolStrip(toolStrip1, cbFilterMode, 6);
         }
 
         private void dgvEvents_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -71,6 +73,8 @@ namespace KlonsA.Forms
         private bool filterEventCodes = false;
         private bool filterEventCodes2 = false;
         private int eventid1, eventid2;
+        enum EFilterMode { ByFirstDate, ByState};
+        private EFilterMode FilterMode = EFilterMode.ByFirstDate;
 
         private string CheckFilterParams()
         {
@@ -98,6 +102,8 @@ namespace KlonsA.Forms
                 filterEventCodes2 = true;
             }
 
+            FilterMode = cbFilterMode.SelectedValue as string == "0" ? EFilterMode.ByFirstDate : EFilterMode.ByState;
+
             date1 = dt1;
             date2 = dt2;
 
@@ -112,20 +118,24 @@ namespace KlonsA.Forms
                 MyMainForm.ShowWarning(ret);
                 return;
             }
-            var fs = string.Format("DATE1 >= #{0:M/d/yyyy}# and DATE1 <= #{1:M/d/yyyy}#", date1, date2);
+            string fs;
+            if(FilterMode == EFilterMode.ByFirstDate)
+                fs = $"DATE1 >= #{date1:M/d/yyyy}# and DATE1 <= #{date2:M/d/yyyy}#";
+            else
+                fs = $"DATE1 <= #{date2:M/d/yyyy}# and (DATE2 is not null) and DATE2 >= #{date1:M/d/yyyy}#";
             if (filterEventCodes)
             {
                 if (string.IsNullOrEmpty(fs))
-                    fs = string.Format("(IDN = {0})", eventid1);
+                    fs = $"(IDN = {eventid1})";
                 else
-                    fs = string.Format("({0}) and (IDN = {1})", fs, eventid1);
+                    fs = $"({fs}) and (IDN = {eventid1})";
             }
             if (filterEventCodes2)
             {
                 if (string.IsNullOrEmpty(fs))
-                    fs = string.Format("(IDN2 = {0})", eventid2);
+                    fs = $"(IDN2 = {eventid2})";
                 else
-                    fs = string.Format("({0}) and (IDN2 = {1})", fs, eventid2);
+                    fs = $"({fs}) and (IDN2 = {eventid2})";
             }
             bsEvents.Filter = fs;
         }
