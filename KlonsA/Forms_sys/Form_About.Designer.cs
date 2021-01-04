@@ -38,7 +38,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(112, 272);
+            this.button1.Location = new System.Drawing.Point(131, 271);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 48);
@@ -55,7 +55,7 @@
             this.lbTitle.Location = new System.Drawing.Point(10, 9);
             this.lbTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(323, 62);
+            this.lbTitle.Size = new System.Drawing.Size(366, 70);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "Klons A.Net";
             // 
@@ -65,7 +65,7 @@
             this.label2.Location = new System.Drawing.Point(19, 145);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 22);
+            this.label2.Size = new System.Drawing.Size(243, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Algu uzskaites programma";
             // 
@@ -76,7 +76,7 @@
             this.lbVersionStr.Location = new System.Drawing.Point(178, 80);
             this.lbVersionStr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbVersionStr.Name = "lbVersionStr";
-            this.lbVersionStr.Size = new System.Drawing.Size(157, 22);
+            this.lbVersionStr.Size = new System.Drawing.Size(171, 25);
             this.lbVersionStr.TabIndex = 3;
             this.lbVersionStr.Text = "versija 2020.01.#2";
             // 
@@ -86,15 +86,15 @@
             this.label4.Location = new System.Drawing.Point(21, 205);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(243, 44);
+            this.label4.Size = new System.Drawing.Size(267, 50);
             this.label4.TabIndex = 4;
             this.label4.Text = "Autors: Aivars Ikaunieks\r\ne-pasts: aivars.ik@gmail.com";
             // 
             // Form_About
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 332);
+            this.ClientSize = new System.Drawing.Size(384, 332);
             this.CloseOnEscape = true;
             this.ControlBox = false;
             this.Controls.Add(this.label4);
