@@ -107,7 +107,8 @@ namespace KlonsLIB.Forms
                 return;
             }
 
-            base.OnRenderToolStripBorder(e);
+            if (!(e.ToolStrip is ToolStrip))
+                base.OnRenderToolStripBorder(e);
         }
 
         private void RenderToolStripDropDownBorder(ToolStripRenderEventArgs e)

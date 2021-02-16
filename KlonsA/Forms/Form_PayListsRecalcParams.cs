@@ -28,6 +28,7 @@ namespace KlonsA.Forms
         {
             cbPerson.Text = null;
             tbDate1.Text = Utils.DateToString(DateFrom);
+            tbDate1.SelectAll();
         }
 
         public DateTime DateFrom = DateTime.MinValue;

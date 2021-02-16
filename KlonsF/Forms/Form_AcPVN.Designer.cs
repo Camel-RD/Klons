@@ -63,10 +63,10 @@ namespace KlonsF.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Kods:";
             // 
@@ -75,11 +75,11 @@ namespace KlonsF.Forms
             this.tbIdx.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbIdx.DataMember = null;
             this.tbIdx.DataSource = this.bsAcP5;
-            this.tbIdx.Location = new System.Drawing.Point(54, 6);
+            this.tbIdx.Location = new System.Drawing.Point(61, 8);
             this.tbIdx.Margin = new System.Windows.Forms.Padding(2);
             this.tbIdx.Name = "tbIdx";
             this.tbIdx.SelectedIndex = -1;
-            this.tbIdx.Size = new System.Drawing.Size(80, 22);
+            this.tbIdx.Size = new System.Drawing.Size(90, 26);
             this.tbIdx.TabIndex = 0;
             this.tbIdx.RowSelectedEvent += new KlonsLIB.Components.RowSelectedEventHandler(this.tbIdx_RowSelectedEvent);
             this.tbIdx.Enter += new System.EventHandler(this.tbIdx_Enter);
@@ -106,10 +106,12 @@ namespace KlonsF.Forms
             this.dgcIdx,
             this.dgcName});
             this.dgvAcPVN.DataSource = this.bsAcP5;
-            this.dgvAcPVN.Location = new System.Drawing.Point(0, 32);
+            this.dgvAcPVN.Location = new System.Drawing.Point(0, 40);
             this.dgvAcPVN.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAcPVN.Name = "dgvAcPVN";
-            this.dgvAcPVN.Size = new System.Drawing.Size(465, 283);
+            this.dgvAcPVN.RowHeadersWidth = 62;
+            this.dgvAcPVN.RowTemplate.Height = 28;
+            this.dgvAcPVN.Size = new System.Drawing.Size(523, 354);
             this.dgvAcPVN.TabIndex = 2;
             this.dgvAcPVN.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAcPVN_MyKeyDown);
             this.dgvAcPVN.MyCheckForChanges += new System.EventHandler(this.dgvAcPVN_MyCheckForChanges);
@@ -130,11 +132,12 @@ namespace KlonsF.Forms
             this.dgcIdx.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownList;
             this.dgcIdx.HeaderText = "kods";
             this.dgcIdx.MaxDropDownItems = 15;
+            this.dgcIdx.MinimumWidth = 9;
             this.dgcIdx.Name = "dgcIdx";
             this.dgcIdx.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcIdx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcIdx.ValueMember = "id";
-            this.dgcIdx.Width = 64;
+            this.dgcIdx.Width = 72;
             // 
             // bsAcPVN
             // 
@@ -148,8 +151,9 @@ namespace KlonsF.Forms
             this.dgcName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgcName.DataPropertyName = "Name";
             this.dgcName.HeaderText = "nosaukums";
+            this.dgcName.MinimumWidth = 9;
             this.dgcName.Name = "dgcName";
-            this.dgcName.Width = 109;
+            this.dgcName.Width = 127;
             // 
             // bnavAcp5
             // 
@@ -160,7 +164,7 @@ namespace KlonsF.Forms
             this.bnavAcp5.DataGrid = this.dgvAcPVN;
             this.bnavAcp5.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bnavAcp5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bnavAcp5.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.bnavAcp5.ImageScalingSize = new System.Drawing.Size(23, 26);
             this.bnavAcp5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -174,7 +178,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.tsbSave});
-            this.bnavAcp5.Location = new System.Drawing.Point(0, 310);
+            this.bnavAcp5.Location = new System.Drawing.Point(0, 389);
             this.bnavAcp5.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnavAcp5.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnavAcp5.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -182,7 +186,7 @@ namespace KlonsF.Forms
             this.bnavAcp5.Name = "bnavAcp5";
             this.bnavAcp5.PositionItem = this.bindingNavigatorPositionItem;
             this.bnavAcp5.SaveItem = null;
-            this.bnavAcp5.Size = new System.Drawing.Size(465, 32);
+            this.bnavAcp5.Size = new System.Drawing.Size(523, 39);
             this.bnavAcp5.TabIndex = 3;
             this.bnavAcp5.Text = "bindingNavigator1";
             this.bnavAcp5.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavAcp5_ItemDeleting);
@@ -192,14 +196,14 @@ namespace KlonsF.Forms
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(92, 34);
             this.bindingNavigatorAddNewItem.Text = "Jauns";
             this.bindingNavigatorAddNewItem.ToolTipText = "Jauns (Shift+Insert)";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(76, 34);
             this.bindingNavigatorCountItem.Text = " no {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Skaits";
             // 
@@ -208,7 +212,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(93, 34);
             this.bindingNavigatorDeleteItem.Text = "Dzēst";
             this.bindingNavigatorDeleteItem.ToolTipText = "Dzēst (Ctrl+Delete)";
             // 
@@ -218,7 +222,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -227,27 +231,27 @@ namespace KlonsF.Forms
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(41, 30);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(46, 37);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -255,7 +259,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -264,32 +268,33 @@ namespace KlonsF.Forms
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // tsbSave
             // 
             this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(25, 29);
+            this.tsbSave.Size = new System.Drawing.Size(34, 34);
             this.tsbSave.Text = "Saglabāt datus";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // Form_AcPVN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 342);
+            this.ClientSize = new System.Drawing.Size(523, 428);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbIdx);
             this.Controls.Add(this.dgvAcPVN);
             this.Controls.Add(this.bnavAcp5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_AcPVN";
             this.Text = "Kontējuma PVN pazīmes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

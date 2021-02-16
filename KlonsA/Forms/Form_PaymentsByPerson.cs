@@ -24,10 +24,16 @@ namespace KlonsA.Forms
         }
 
         public List<PersonPayRow> PersonPayRows = new List<PersonPayRow>();
+        public int AddPercent = 0;
 
         private void Form_PaymentsByPerson_Load(object sender, EventArgs e)
         {
             cbPerson.Text = null;
+            if (!MyData.Settings.SpecialFeatures)
+            {
+                miMaksājumuPārskats.Visible = false;
+                dgcCalcVal.Visible = false;
+            }
         }
 
         public void DoFilter()
@@ -66,12 +72,15 @@ namespace KlonsA.Forms
                     d.PAYLISTSRow.DT >= dt1 &&
                     d.PAYLISTSRow.DT <= dt2)
                 .OrderBy(d => d.PAYLISTSRow.DT)
+                .ThenBy(d => d.PAYLISTSRow.SNR)
+                .ThenBy(d => d.PAYLISTSRow.ID)
                 .ToList();
 
             foreach(var dr_pay in drs_pay)
             {
                 var pprow = new PersonPayRow()
                 {
+                    RowId = dr_pay.ID,
                     PersonPayRowType = EPersonPayRowType.Pay,
                     Date = dr_pay.PAYLISTSRow.DT,
                     ListDescription = dr_pay.PAYLISTSRow.DESCR,
@@ -106,6 +115,7 @@ namespace KlonsA.Forms
             {
                 var pprow = new PersonPayRow()
                 {
+                    RowId = dr_salary_r.ID,
                     PersonPayRowType = EPersonPayRowType.Calc,
                     Date = dr_salary_r.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.DT2,
                     ListDescription = dr_salary_r.SALARY_SHEETSRowByFK_SALARY_SHEETS_R_IDS.DESCR,
@@ -127,9 +137,148 @@ namespace KlonsA.Forms
             bsRows.DataSource = PersonPayRows;
         }
 
+        private bool IsKaseRow(PersonPayRow row)
+        {
+            string descr = row.ListDescription;
+            if (descr.IsNOE()) return false;
+            string s = descr.ToLower();
+            return s.Contains("kase") || s.Contains("kasē");
+        }
+
+        public void CheckKase(List<PersonPayRow> rows, int last_pay_percent = 0)
+        {
+            var rows_pay = rows
+                .Where(x =>
+                    x.PersonPayRowType == EPersonPayRowType.Pay)
+                .ToList();
+            var rows_kase = rows
+                .Where(x => 
+                    x.PersonPayRowType == EPersonPayRowType.Pay &&
+                    IsKaseRow(x))
+                .ToList();
+            if (rows_kase.Count == 0) return;
+
+            decimal[] xdiff = new decimal[rows_pay.Count];
+            decimal v1 = 0.0M;
+            for (int i = 0; i < rows_pay.Count; i++)
+            {
+                var row = rows_pay[i];
+                if (IsKaseRow(row))
+                    v1 += row.PayT;
+                xdiff[i] = row.Diff + v1;
+            }
+
+            var last_calc_row = rows
+                .Where(x => x.PersonPayRowType == EPersonPayRowType.Calc)
+                .LastOrDefault();
+
+            var last_pay_row = rows_pay.Last();
+            decimal add_to_last = 0.0M;
+            if (last_calc_row != null && last_pay_row.Date <= last_calc_row.Date)
+            {
+                add_to_last = Math.Round(last_calc_row.CalcT * (decimal)last_pay_percent / 100.0M, 0);
+                xdiff[xdiff.Length - 1] += add_to_last;
+            }
+
+            decimal[] calc_min = new decimal[xdiff.Length];
+            decimal min1 = xdiff[xdiff.Length - 1];
+            calc_min[calc_min.Length - 1] = min1;
+            for (int i = xdiff.Length - 2; i >= 0; i--)
+            {
+                decimal v = Math.Max(xdiff[i], 0.0M);
+                if(v < min1) min1 = v;
+                calc_min[i] = min1;
+            }
+
+            decimal to_pay_left = xdiff[xdiff.Length - 1];
+            to_pay_left = Math.Max(to_pay_left, 0.0M);
+            decimal paid = 0.0M;
+            for (int i = 0; i < xdiff.Length; i++)
+            {
+                var pay_row = rows_pay[i];
+                if (IsKaseRow(pay_row))
+                {
+                    decimal calcv = xdiff[i] - paid;
+                    calcv = Math.Min(calcv, calc_min[i] - paid);
+                    calcv = Math.Max(calcv, 0.0M);
+                    calcv = Math.Min(calcv, to_pay_left);
+                    to_pay_left -= calcv;
+                    paid += calcv;
+                    pay_row.CalcVal = calcv;
+                }
+                pay_row.Diff = xdiff[i] - paid;
+                if (i == xdiff.Length - 1)
+                    pay_row.Diff -= add_to_last;
+            }
+        }
+
+        public string SaveCalcVal(List<PersonPayRow> rows)
+        {
+            var rows_kase = rows
+                .Where(x =>
+                    x.PersonPayRowType == EPersonPayRowType.Pay &&
+                    IsKaseRow(x))
+                .ToList();
+            if (rows_kase.Count == 0) return "Nav datu";
+
+            var table_payrows = MyData.DataSetKlons.PAYLISTS_R;
+
+            var dbrows = rows_kase
+                .Select(x => table_payrows.FindByID(x.RowId))
+                .ToList();
+            if (dbrows.Contains(null))
+                return "Neizdevās saglabāt datus";
+            
+            for (int i = 0; i < rows_kase.Count; i++)
+            {
+                var row = rows_kase[i];
+                var dbrow = dbrows[i];
+                dbrow.TPAY = row.CalcVal;
+            }
+
+            return "OK";
+        }
+
         private void CmFilter_Click(object sender, EventArgs e)
         {
             DoFilter();
+        }
+
+        private void miKasesMaksājumuSarēķins_Click(object sender, EventArgs e)
+        {
+            if (PersonPayRows == null || PersonPayRows.Count == 0) return;
+            DoFilter();
+            if (PersonPayRows == null || PersonPayRows.Count == 0) return;
+            CheckKase(PersonPayRows, AddPercent);
+            sgvRows.Refresh();
+        }
+
+        private void miAvansaMaksājumaProcentsNoPēdējāsAlgas_Click(object sender, EventArgs e)
+        {
+            var f = new Form_InputBox("", "Norādi procentus avansa maksājumam no pēdējās algas", AddPercent.ToString());
+            var rt = f.ShowDialog();
+            if (rt != DialogResult.OK) return;
+            string s = f.SelectedValue;
+            if (!int.TryParse(s, out int p)) return;
+            if (p < 0 || p > 100) return;
+            AddPercent = p;
+        }
+
+        private void miSaglabātSarēķinātosKasesMaksājumus_Click(object sender, EventArgs e)
+        {
+            if (PersonPayRows == null || PersonPayRows.Count == 0) return;
+            var rt = SaveCalcVal(PersonPayRows);
+            if(rt != "OK")
+            {
+                MyMainForm.ShowWarning(rt);
+                return;
+            }
+            MyMainForm.ShowInfo("Dati saglabāti.\nNeaizmirsti veikt maksājumu sarakstu pārrēķinu");
+        }
+
+        private void miMaksājumuPārskats_DropDownOpening(object sender, EventArgs e)
+        {
+            miAvansaMaksājumaProcentsNoPēdējāsAlgas.Text = $"Avansa maksājuma procents no pēdējās algas: {AddPercent}%";
         }
     }
 
@@ -139,8 +288,15 @@ namespace KlonsA.Forms
         Pay = 1
     }
 
+    public enum EPersonPayRowType2
+    {
+        Kase = 0,
+        Banka = 1
+    }
+
     public class PersonPayRow
     {
+        public int RowId = 0;
         public EPersonPayRowType PersonPayRowType { get; set; }
         public DateTime Date { get; set; }
         public string ListDescription { get; set; } = null;
@@ -157,5 +313,6 @@ namespace KlonsA.Forms
         public decimal Diff { get; set; } = 0.0M;
         public decimal CalcIIN { get; set; } = 0.0M;
         public decimal TakeIIN { get; set; } = 0.0M;
+        public decimal CalcVal { get; set; } = 0.0M;
     }
 }

@@ -169,7 +169,7 @@ namespace KlonsLIB.Forms
                 if (c is ToolStrip || c is MenuStrip)
                 {
                     c.Font = this.Font;
-                    foreach(var ti in (c as ToolStrip).Items)
+                    foreach (var ti in (c as ToolStrip).Items)
                     {
                         if (ti is ToolStripComboBox)
                             (ti as ToolStripComboBox).Font = this.Font;
@@ -471,6 +471,25 @@ namespace KlonsLIB.Forms
                 DPIFactor = g.DpiX / 125f;
             }
             base.ScaleControl(factor, specified);
+
+            foreach (Control c in this.Controls)
+            {
+                if (c is ToolStrip && !(c is MenuStrip))
+                {
+                    ScaleToolStrip(c as ToolStrip);
+                }
+            }
+        }
+
+        protected void ScaleToolStrip(ToolStrip tsp)
+        {
+            if (DPIFactor != -1.0f)
+            {
+                var imgsz = tsp.ImageScalingSize;
+                imgsz.Width = (int)((float)imgsz.Width * ScaleFactor.Width);
+                imgsz.Height = (int)((float)imgsz.Height * ScaleFactor.Height);
+                tsp.ImageScalingSize = imgsz;
+            }
         }
 
         private void InitializeComponent()

@@ -99,7 +99,7 @@ namespace KlonsF.Forms
             this.bnavB0.DataGrid = this.dgvBal0;
             this.bnavB0.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bnavB0.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bnavB0.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.bnavB0.ImageScalingSize = new System.Drawing.Size(23, 26);
             this.bnavB0.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -113,14 +113,15 @@ namespace KlonsF.Forms
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.tsbSave});
-            this.bnavB0.Location = new System.Drawing.Point(0, 366);
+            this.bnavB0.Location = new System.Drawing.Point(0, 459);
             this.bnavB0.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnavB0.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnavB0.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bnavB0.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnavB0.Name = "bnavB0";
             this.bnavB0.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnavB0.Size = new System.Drawing.Size(806, 32);
+            this.bnavB0.SaveItem = null;
+            this.bnavB0.Size = new System.Drawing.Size(907, 39);
             this.bnavB0.TabIndex = 6;
             this.bnavB0.Text = "bindingNavigator1";
             this.bnavB0.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavB0_ItemDeleting);
@@ -130,13 +131,13 @@ namespace KlonsF.Forms
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(92, 34);
             this.bindingNavigatorAddNewItem.Text = "Jauns";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(76, 34);
             this.bindingNavigatorCountItem.Text = " no {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Skaits";
             // 
@@ -160,10 +161,12 @@ namespace KlonsF.Forms
             this.dgcSummD,
             this.dgcSummC});
             this.dgvBal0.DataSource = this.bsBal0;
-            this.dgvBal0.Location = new System.Drawing.Point(0, 32);
+            this.dgvBal0.Location = new System.Drawing.Point(0, 40);
             this.dgvBal0.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBal0.Name = "dgvBal0";
-            this.dgvBal0.Size = new System.Drawing.Size(806, 332);
+            this.dgvBal0.RowHeadersWidth = 62;
+            this.dgvBal0.RowTemplate.Height = 28;
+            this.dgvBal0.Size = new System.Drawing.Size(907, 415);
             this.dgvBal0.TabIndex = 1;
             this.dgvBal0.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvBal0_MyKeyDown);
             this.dgvBal0.MyCheckForChanges += new System.EventHandler(this.dgvBal0_MyCheckForChanges);
@@ -176,18 +179,20 @@ namespace KlonsF.Forms
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
             this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 80;
+            this.dataGridViewTextBoxColumn1.Width = 90;
             // 
             // dgcBal0AC11
             // 
             this.dgcBal0AC11.DataPropertyName = "AC11";
             this.dgcBal0AC11.HeaderText = "konts";
+            this.dgcBal0AC11.MinimumWidth = 9;
             this.dgcBal0AC11.Name = "dgcBal0AC11";
             this.dgcBal0AC11.ToolTipText = "Bilances konts";
-            this.dgcBal0AC11.Width = 64;
+            this.dgcBal0AC11.Width = 72;
             // 
             // dgcBal0AC24
             // 
@@ -200,12 +205,13 @@ namespace KlonsF.Forms
             this.dgcBal0AC24.DisplayMember = "idx";
             this.dgcBal0AC24.HeaderText = "paz.4";
             this.dgcBal0AC24.MaxDropDownItems = 15;
+            this.dgcBal0AC24.MinimumWidth = 9;
             this.dgcBal0AC24.Name = "dgcBal0AC24";
             this.dgcBal0AC24.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcBal0AC24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcBal0AC24.ToolTipText = "Kontējuma 4. pazīme";
             this.dgcBal0AC24.ValueMember = "idx";
-            this.dgcBal0AC24.Width = 64;
+            this.dgcBal0AC24.Width = 72;
             // 
             // bsAc24
             // 
@@ -224,11 +230,12 @@ namespace KlonsF.Forms
             this.dgcBal0Clid.DisplayMember = "clid";
             this.dgcBal0Clid.HeaderText = "perosna";
             this.dgcBal0Clid.MaxDropDownItems = 15;
+            this.dgcBal0Clid.MinimumWidth = 9;
             this.dgcBal0Clid.Name = "dgcBal0Clid";
             this.dgcBal0Clid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcBal0Clid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcBal0Clid.ValueMember = "clid";
-            this.dgcBal0Clid.Width = 104;
+            this.dgcBal0Clid.Width = 117;
             // 
             // bsClisd
             // 
@@ -243,9 +250,10 @@ namespace KlonsF.Forms
             dataGridViewCellStyle1.Format = "N2";
             this.dgcSummDC.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgcSummDC.HeaderText = "debetā";
+            this.dgcSummDC.MinimumWidth = 9;
             this.dgcSummDC.Name = "dgcSummDC";
             this.dgcSummDC.ToolTipText = "summa debetā, norādītajā valūtā";
-            this.dgcSummDC.Width = 96;
+            this.dgcSummDC.Width = 108;
             // 
             // dgcSummCC
             // 
@@ -254,18 +262,20 @@ namespace KlonsF.Forms
             dataGridViewCellStyle2.Format = "N2";
             this.dgcSummCC.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcSummCC.HeaderText = "kredītā";
+            this.dgcSummCC.MinimumWidth = 9;
             this.dgcSummCC.Name = "dgcSummCC";
             this.dgcSummCC.ToolTipText = "summa kredītā, norādītajā valūtā";
-            this.dgcSummCC.Width = 96;
+            this.dgcSummCC.Width = 108;
             // 
             // dgcCur
             // 
             this.dgcCur.DataPropertyName = "Cur";
             this.dgcCur.HeaderText = "valūta";
             this.dgcCur.MaxInputLength = 3;
+            this.dgcCur.MinimumWidth = 9;
             this.dgcCur.Name = "dgcCur";
             this.dgcCur.ToolTipText = "valūta (EUR, USD, RUR, ...)";
-            this.dgcCur.Width = 48;
+            this.dgcCur.Width = 54;
             // 
             // dgcCurRate
             // 
@@ -273,9 +283,10 @@ namespace KlonsF.Forms
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.dgcCurRate.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgcCurRate.HeaderText = "kurss";
+            this.dgcCurRate.MinimumWidth = 9;
             this.dgcCurRate.Name = "dgcCurRate";
             this.dgcCurRate.ToolTipText = "valūtas kurss";
-            this.dgcCurRate.Width = 64;
+            this.dgcCurRate.Width = 72;
             // 
             // dgcSummD
             // 
@@ -284,10 +295,11 @@ namespace KlonsF.Forms
             dataGridViewCellStyle4.Format = "N2";
             this.dgcSummD.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgcSummD.HeaderText = "debetā";
+            this.dgcSummD.MinimumWidth = 9;
             this.dgcSummD.Name = "dgcSummD";
             this.dgcSummD.ReadOnly = true;
             this.dgcSummD.ToolTipText = "summa debetā EUR";
-            this.dgcSummD.Width = 96;
+            this.dgcSummD.Width = 108;
             // 
             // dgcSummC
             // 
@@ -297,17 +309,18 @@ namespace KlonsF.Forms
             dataGridViewCellStyle5.NullValue = null;
             this.dgcSummC.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgcSummC.HeaderText = "kredītā";
+            this.dgcSummC.MinimumWidth = 9;
             this.dgcSummC.Name = "dgcSummC";
             this.dgcSummC.ReadOnly = true;
             this.dgcSummC.ToolTipText = "summa kredītā EUR";
-            this.dgcSummC.Width = 96;
+            this.dgcSummC.Width = 108;
             // 
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(93, 34);
             this.bindingNavigatorDeleteItem.Text = "Dzēst";
             // 
             // bindingNavigatorMoveFirstItem
@@ -316,7 +329,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -325,27 +338,27 @@ namespace KlonsF.Forms
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(41, 30);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(46, 37);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -353,7 +366,7 @@ namespace KlonsF.Forms
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -362,30 +375,30 @@ namespace KlonsF.Forms
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // tsbSave
             // 
             this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(25, 29);
+            this.tsbSave.Size = new System.Drawing.Size(34, 34);
             this.tsbSave.Text = "Saglabāt datus";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.Location = new System.Drawing.Point(7, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Kods:";
             // 
@@ -395,11 +408,11 @@ namespace KlonsF.Forms
             this.tbAcc.ColumnNr = 1;
             this.tbAcc.DataMember = null;
             this.tbAcc.DataSource = this.bsAc21;
-            this.tbAcc.Location = new System.Drawing.Point(55, 6);
+            this.tbAcc.Location = new System.Drawing.Point(62, 8);
             this.tbAcc.Margin = new System.Windows.Forms.Padding(2);
             this.tbAcc.Name = "tbAcc";
             this.tbAcc.SelectedIndex = -1;
-            this.tbAcc.Size = new System.Drawing.Size(82, 22);
+            this.tbAcc.Size = new System.Drawing.Size(92, 26);
             this.tbAcc.TabIndex = 0;
             // 
             // bsAc21
@@ -412,11 +425,11 @@ namespace KlonsF.Forms
             // 
             this.lbSumDeb.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbSumDeb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbSumDeb.Location = new System.Drawing.Point(237, 6);
+            this.lbSumDeb.Location = new System.Drawing.Point(267, 8);
             this.lbSumDeb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSumDeb.Name = "lbSumDeb";
             this.lbSumDeb.Padding = new System.Windows.Forms.Padding(2);
-            this.lbSumDeb.Size = new System.Drawing.Size(106, 21);
+            this.lbSumDeb.Size = new System.Drawing.Size(119, 26);
             this.lbSumDeb.TabIndex = 4;
             this.lbSumDeb.Text = "0.00";
             this.lbSumDeb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -425,11 +438,11 @@ namespace KlonsF.Forms
             // 
             this.lbSumKred.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbSumKred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbSumKred.Location = new System.Drawing.Point(347, 6);
+            this.lbSumKred.Location = new System.Drawing.Point(390, 8);
             this.lbSumKred.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSumKred.Name = "lbSumKred";
             this.lbSumKred.Padding = new System.Windows.Forms.Padding(2);
-            this.lbSumKred.Size = new System.Drawing.Size(106, 21);
+            this.lbSumKred.Size = new System.Drawing.Size(119, 26);
             this.lbSumKred.TabIndex = 5;
             this.lbSumKred.Text = "0.00";
             this.lbSumKred.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -437,19 +450,19 @@ namespace KlonsF.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, 7);
+            this.label2.Location = new System.Drawing.Point(160, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
+            this.label2.Size = new System.Drawing.Size(101, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Kopsummas:";
             // 
             // Form_Bal0
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(806, 398);
+            this.ClientSize = new System.Drawing.Size(907, 498);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbSumKred);
             this.Controls.Add(this.lbSumDeb);
@@ -457,6 +470,7 @@ namespace KlonsF.Forms
             this.Controls.Add(this.tbAcc);
             this.Controls.Add(this.dgvBal0);
             this.Controls.Add(this.bnavB0);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_Bal0";
             this.Text = "Sākuma atlikumi";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
