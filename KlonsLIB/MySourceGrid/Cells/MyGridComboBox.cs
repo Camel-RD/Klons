@@ -94,7 +94,8 @@ namespace KlonsLIB.MySourceGrid.Cells
             }
             set
             {
-                if (SelectedValue == value) return;
+                //--- just to be sure
+                //if (SelectedValue == value) return;
                 SelectedValue = value;
             }
         }

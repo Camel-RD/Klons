@@ -681,6 +681,8 @@ namespace KlonsP.Forms
             RecalcItem(dr_new_item);
             SaveData();
             SelectItem(dr_new_item.ID);
+            if (bsItems.Count == 1)
+                CheckChildGrid();
         }
 
         public void AddEvent()
