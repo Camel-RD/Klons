@@ -111,6 +111,32 @@ namespace KlonsLIB.Forms
                 base.OnRenderToolStripBorder(e);
         }
 
+        protected override void OnRenderItemImage(ToolStripItemImageRenderEventArgs e)
+        {
+            var item = e.Item;
+            if (item.GetType().FullName == "System.Windows.Forms.MdiControlStrip+SystemMenuItem")
+            {
+                Rectangle bounds = new Rectangle(Point.Empty, item.Size);
+                //var re = new ToolStripArrowRenderEventArgs(e.Graphics, item, bounds, item.ForeColor, ArrowDirection.Down);
+                //DrawArrow(re);
+                using (Brush brush = new SolidBrush(item.ForeColor))
+                {
+
+                    Point middle = new Point(bounds.Left + bounds.Width / 2, bounds.Top + bounds.Height / 2);
+                    Point[] arrow = null;
+                    int offsetx = (int)(((float)bounds.Width) * 0.2f);
+                    int offsety = (int)(((float)bounds.Height) * 0.1f);
+                    arrow = new Point[] {
+                             new Point(middle.X - offsetx, middle.Y - offsety),
+                             new Point(middle.X + offsetx, middle.Y - offsety),
+                             new Point(middle.X, middle.Y + offsety) };
+                    e.Graphics.FillPolygon(brush, arrow);
+                }
+                return;
+            }
+            base.OnRenderItemImage(e);
+        }
+
         private void RenderToolStripDropDownBorder(ToolStripRenderEventArgs e)
         {
             ToolStripDropDown toolStripDropDown = e.ToolStrip as ToolStripDropDown;

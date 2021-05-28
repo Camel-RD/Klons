@@ -346,6 +346,47 @@ namespace KlonsA.Classes
 
         }
 
+        public void CountSickDays2(DateTime dt1, DateTime dt2, 
+            out int sickdaysA, out int sickdaysB, out int sickdaysN)
+        {
+            int i1 = dt1.Day;
+            int i2 = dt2.Day;
+            sickdaysA = 0;
+            sickdaysB = 0;
+            sickdaysN = 0;
+
+            for (int i = i1; i <= i2; i++)
+            {
+                bool factdayadded = false;
+
+                for (int j = 0; j < this.Count; j++)
+                {
+                    var dlset = this[j];
+
+                    var daycodeplan = dlset.Plan.DxPlan[i - 1];
+                    var daycodefact = dlset.Fact.DxFact[i - 1];
+
+                    if (daycodeplan == EDayPlanId.None) continue;
+                    if (daycodefact == EDayFactId.X || daycodefact == EDayFactId.None) continue;
+
+                    var isPlanWorkDay = daycodeplan == EDayPlanId.DD || daycodeplan == EDayPlanId.DDSD;
+
+                    var isFactSickDay = SomeDataDefs.IsSickDay(daycodefact);
+
+                    if (!isPlanWorkDay) continue;
+
+                    if (!factdayadded && isFactSickDay)
+                    {
+                        if (daycodefact == EDayFactId.SA) sickdaysA++;
+                        if (daycodefact == EDayFactId.SB) sickdaysB++;
+                        if (daycodefact == EDayFactId.SN) sickdaysN++;
+                        factdayadded = true;
+                    }
+
+                }
+            }
+        }
+
 
         public int CountVacationDays(DateTime dt1, DateTime dt2)
         {

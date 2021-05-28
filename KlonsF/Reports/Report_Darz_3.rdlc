@@ -4314,7 +4314,6 @@ ReportItems!tbBA6.Value</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -6632,7 +6631,7 @@ ReportItems!tbBA6.Value</Value>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>proporcionāli sadalāmie izdevumi</Value>
+                                    <Value>ar saimniecisko darbību nesaistītās izmaksas</Value>
                                     <Style />
                                   </TextRun>
                                 </TextRuns>

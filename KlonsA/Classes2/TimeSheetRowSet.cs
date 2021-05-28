@@ -40,6 +40,13 @@ namespace KlonsA.Classes
             list.CountSickDays(sdci, dt1, dt2, skipdays);
         }
 
+        public void CountSickDays2(DateTime dt1, DateTime dt2,
+            out int sickdaysA, out int sickdaysB, out int sickdaysN)
+        {
+            var list = new TimeSheetRowSetList() { this };
+            list.CountSickDays2(dt1, dt2, out sickdaysA, out sickdaysB, out sickdaysN);
+        }
+
         public void CountVacationTime(VacationCalcRow vcr)
         {
             int days = 0;

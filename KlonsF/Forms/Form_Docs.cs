@@ -685,6 +685,7 @@ namespace KlonsF.Forms
                     OPSd_Enable_SetDocSums = false;
                     SetDocSums1(dr, dr.Summ, dr.Dete);
                     SetDocSums3(dr, dr.Summ, dr.Dete);
+                    SetDocSums4(dr, dr.Summ, dr.Dete);
                     GetDocSums2(dr, out sum, out pvn);
                     if (dr.Summ != sum) dr.Summ = sum;
                     if (dr.PVN != pvn) dr.PVN = pvn;
@@ -972,6 +973,31 @@ namespace KlonsF.Forms
             dr = opsrows[ksum0];
             dr.SummC = dsum0;
         }
+
+        private void SetDocSums4(klonsDataSet.OPSdRow docrow
+            , decimal sum, DateTime date)
+        {
+            if (docrow == null) return;
+            klonsDataSet.OPSRow dr;
+
+            var opsrows = docrow.GetOPSRows();
+            if (opsrows == null || opsrows.Length != 2) return;
+
+            var dr1 = opsrows[0];
+            var dr2 = opsrows[1];
+
+            if (dr1.AC11 != dr2.AC11) return;
+            if (!dr1.AC11.StartsWith("7")) return;
+            if (dr1.AC13.IsNOE() || dr2.AC13.IsNOE()) return;
+            if (!dr1.AC15.IsNOE() != !dr1.AC25.IsNOE()) return;
+            if (!dr2.AC15.IsNOE() != !dr2.AC25.IsNOE()) return;
+
+            decimal dsum1 = Math.Round(sum * 0.5M, 2);
+            decimal dsum2 = sum - dsum1;
+            dr1.SummC = dsum1;
+            dr2.SummC = dsum2;
+        }
+
 
         private void dgvDocs_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
@@ -2104,6 +2130,34 @@ namespace KlonsF.Forms
         {
             dgvOps.Enabled = !(dgvDocs.CurrentRow == null || dgvDocs.RowCount == 1 ||
                                dgvDocs.CurrentRow.IsNewRow);
+        }
+
+        private void dgvDocs_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDocs.SelectedCells.Count == 0) return;
+            if (IsLoading || IsFormClosing || dgvDocs.RowCount == 1 || dgvDocs.SelectedCells.Count == 1)
+            {
+                tsbSum.Visible = false;
+                return;
+            }
+            var rowids = new List<int>();
+            for (int i = 0; i < dgvDocs.SelectedCells.Count; i++)
+            {
+                var datacell = dgvDocs.SelectedCells[i];
+                if (datacell.RowIndex == dgvDocs.NewRowIndex) continue;
+                if (!rowids.Contains(datacell.RowIndex))
+                    rowids.Add(datacell.RowIndex);
+            }
+            if (rowids.Count < 2)
+            {
+                tsbSum.Visible = false;
+                return;
+            }
+            var sum = rowids
+                .Select(x => (decimal)(dgvDocs.Rows[x].Cells[dgcDocsSumm.Index].Value))
+                .Sum();
+            tsbSum.Text = sum.ToString("N2");
+            tsbSum.Visible = true;
         }
 
         public void SearchId(int id)

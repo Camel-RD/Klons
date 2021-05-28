@@ -102,6 +102,7 @@ namespace KlonsF.Forms
             this.tsbSearchPrev = new System.Windows.Forms.ToolStripButton();
             this.tsbSearch = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchNext = new System.Windows.Forms.ToolStripButton();
+            this.tsbSum = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tbsRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -156,8 +157,8 @@ namespace KlonsF.Forms
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvOps);
             this.splitContainer1.Panel2MinSize = 125;
-            this.splitContainer1.Size = new System.Drawing.Size(990, 403);
-            this.splitContainer1.SplitterDistance = 195;
+            this.splitContainer1.Size = new System.Drawing.Size(1306, 403);
+            this.splitContainer1.SplitterDistance = 187;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -190,7 +191,7 @@ namespace KlonsF.Forms
             this.dgvDocs.Name = "dgvDocs";
             this.dgvDocs.RowHeadersWidth = 62;
             this.dgvDocs.RowTemplate.Height = 28;
-            this.dgvDocs.Size = new System.Drawing.Size(990, 195);
+            this.dgvDocs.Size = new System.Drawing.Size(1306, 187);
             this.dgvDocs.TabIndex = 2;
             this.dgvDocs.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDocs_MyKeyDown);
             this.dgvDocs.MyCheckForChanges += new System.EventHandler(this.dgvDocs_MyCheckForChanges);
@@ -201,6 +202,7 @@ namespace KlonsF.Forms
             this.dgvDocs.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDocs_DataError);
             this.dgvDocs.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDocs_DefaultValuesNeeded);
             this.dgvDocs.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocs_RowValidated);
+            this.dgvDocs.SelectionChanged += new System.EventHandler(this.dgvDocs_SelectionChanged);
             this.dgvDocs.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDocs_UserDeletingRow);
             this.dgvDocs.Enter += new System.EventHandler(this.dgvDocs_Enter);
             this.dgvDocs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDocs_KeyDown);
@@ -455,7 +457,7 @@ namespace KlonsF.Forms
             this.dgvOps.Name = "dgvOps";
             this.dgvOps.RowHeadersWidth = 62;
             this.dgvOps.RowTemplate.Height = 28;
-            this.dgvOps.Size = new System.Drawing.Size(990, 202);
+            this.dgvOps.Size = new System.Drawing.Size(1306, 210);
             this.dgvOps.TabIndex = 3;
             this.dgvOps.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvOps_MyKeyDown);
             this.dgvOps.MyCheckForChanges += new System.EventHandler(this.dgvOps_MyCheckForChanges);
@@ -662,7 +664,8 @@ namespace KlonsF.Forms
             this.oPSdBindingNavigatorSaveItem,
             this.tsbSearchPrev,
             this.tsbSearch,
-            this.tsbSearchNext});
+            this.tsbSearchNext,
+            this.tsbSum});
             this.bnavNav.Location = new System.Drawing.Point(0, 403);
             this.bnavNav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnavNav.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -671,7 +674,7 @@ namespace KlonsF.Forms
             this.bnavNav.Name = "bnavNav";
             this.bnavNav.PositionItem = this.bindingNavigatorPositionItem;
             this.bnavNav.SaveItem = null;
-            this.bnavNav.Size = new System.Drawing.Size(990, 39);
+            this.bnavNav.Size = new System.Drawing.Size(1306, 39);
             this.bnavNav.TabIndex = 0;
             this.bnavNav.Text = "bindingNavigator1";
             this.bnavNav.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnavNav_ItemDeleting);
@@ -829,6 +832,15 @@ namespace KlonsF.Forms
             this.tsbSearchNext.Text = "Move next";
             this.tsbSearchNext.ToolTipText = "Iet uz nākošo";
             this.tsbSearchNext.Click += new System.EventHandler(this.tsbSearchNext_Click);
+            // 
+            // tsbSum
+            // 
+            this.tsbSum.AutoSize = false;
+            this.tsbSum.Name = "tsbSum";
+            this.tsbSum.Size = new System.Drawing.Size(100, 34);
+            this.tsbSum.Text = "0.00";
+            this.tsbSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tsbSum.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // toolStrip1
             // 
@@ -998,7 +1010,7 @@ namespace KlonsF.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(990, 442);
+            this.ClientSize = new System.Drawing.Size(1306, 442);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.bnavNav);
@@ -1114,5 +1126,6 @@ namespace KlonsF.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsZU;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsZDt;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsNL;
+        private System.Windows.Forms.ToolStripTextBox tsbSum;
     }
 }

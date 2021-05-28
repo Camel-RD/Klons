@@ -36,6 +36,7 @@ namespace KlonsA.Classes
             foreach (var dr_r in drs_r)
             {
                 var trr = new TimeReportRow2();
+                var trr2 = new TimeReportRow2a(trr);
 
                 var pdat = DataTasks.GetPersonNameAndPK(dr_r.IDP);
                 var postitle = DataTasks.GetPositionTitle(dr_r.IDAM);
@@ -46,16 +47,18 @@ namespace KlonsA.Classes
                 rowset.CountPlan(trr, dt1, dt2);
                 rowset.CountFact(trr, dt1, dt2);
 
-                sickc.Clear();
-                rowset.CountSickDays(sickc, dt1, dt2, 0);
-                trr._SICKDAYS = sickc.DaysCount;
+                rowset.CountSickDays2(dt1, dt2, out int sickdaysA, out int sickdaysB, out int sickdaysN);
+                trr._SICKDAYS = sickdaysA;
+                trr2.SickdaysA = sickdaysA;
+                trr2.SickdaysB = sickdaysB;
+                trr2.SickdaysN = sickdaysN;
 
                 rowset.CountVacationTime(dt1, dt2, out vacdays, out vachours);
                 trr._VACATION_DAYS_CURRENT = vacdays;
                 trr._VACATION_HOURS_CURRENT = vachours;
 
                 ReportRows.Add(trr);
-                ReportRowsA.Add(new TimeReportRow2a(trr));
+                ReportRowsA.Add(trr2);
             }
 
             ShowReport(dt1.Year, dt1.Month, dr_sar.DESCR);
@@ -158,7 +161,7 @@ namespace KlonsA.Classes
         public float PlanHours => Row._PLAN_HOURS;
         public float PlanHoursNight => Row._PLAN_HOURS_NIGHT;
         public float PlanHoursOvertime => Row._PLAN_HOURS_OVERTIME;
-        public int FactDays => Row._FACT_DAYS;
+        public int FactDays => Row._FACT_DAYS - FactAvpayFreeDays;
         public float FactHours => Row._FACT_HOURS;
         public float FactHoursNight => Row._FACT_HOURS_NIGHT;
         public float FactHoursOvertime => Row._FACT_HOURS_OVERTIME;
@@ -179,6 +182,9 @@ namespace KlonsA.Classes
         public float FactHolidaysHoursNight => Row._FACT_HOLIDAYS_HOURS_NIGHT;
         public float FactHolidaysHoursOvertime => Row._FACT_HOLIDAYS_HOURS_OVERTIME;
         public int Sickdays => Row._SICKDAYS;
+        public int SickdaysA { get; set; } = 0;
+        public int SickdaysB { get; set; } = 0;
+        public int SickdaysN { get; set; } = 0;
         public int AccidentDays => Row._ACCIDENT_DAYS;
         public int AverageIncomeDays => Row._AVERAGE_INCOME_DAYS;
         public int FactAvpayFreeDays => Row._FACT_AVPAY_FREE_DAYS;
