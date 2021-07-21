@@ -1077,8 +1077,9 @@ namespace KlonsA.Classes
                         ).FirstOrDefault() != null)
                 .ToArray();
 
-            if (drs_cur.Length > 0)
-                return string.Format("Viens no darbiniekiem ir jau iekļauts\nmaksāumu sarakstā ar datumu {0:dd.MM.yyyy}.", dt);
+            // vajadzētu darboties arī vairākiem maksājumiem vienā datumā
+            //if (drs_cur.Length > 0)
+            //    return string.Format("Viens no darbiniekiem ir jau iekļauts\nmaksāumu sarakstā ar datumu {0:dd.MM.yyyy}.", dt);
 
             var new_dr_list = table_lists.NewPAYLISTSRow();
 

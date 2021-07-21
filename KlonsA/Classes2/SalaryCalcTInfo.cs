@@ -79,6 +79,7 @@ namespace KlonsA.Classes
                 err = sci.FillRow();
                 err_list.AddRange(err);
                 SRS.TotalPersonPay = sci.SI;
+
                 return err_list;
             }
 

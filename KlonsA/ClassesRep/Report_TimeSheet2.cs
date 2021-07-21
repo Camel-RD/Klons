@@ -162,7 +162,7 @@ namespace KlonsA.Classes
         public float PlanHoursNight => Row._PLAN_HOURS_NIGHT;
         public float PlanHoursOvertime => Row._PLAN_HOURS_OVERTIME;
         public int FactDays => Row._FACT_DAYS - FactAvpayFreeDays;
-        public float FactHours => Row._FACT_HOURS;
+        public float FactHours => Row._FACT_HOURS - FactAvpayFreeHours;
         public float FactHoursNight => Row._FACT_HOURS_NIGHT;
         public float FactHoursOvertime => Row._FACT_HOURS_OVERTIME;
         public int PlanWorkDays => Row._PLAN_WORK_DAYS;

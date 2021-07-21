@@ -690,12 +690,20 @@ namespace KlonsA.Forms
         private void dgvLapa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex > bsSarR.Count) return;
-            if(e.ColumnIndex == dgcSarAvPay.Index)
+            if (e.ColumnIndex == dgcSarSalary.Index)
+            {
+                var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
+                if (dr == null) return;
+                decimal val = dr.SALARY - dr.SALARY_AVPAY_FREE_DAYS;
+                e.Value = val.ToString("# ##0.00;-# ##0.00;\"\"");
+                e.FormattingApplied = true;
+                return;
+            }
+            if (e.ColumnIndex == dgcSarWorkAvPay.Index)
             {
                 var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
                 if (dr == null) return;
                 decimal val = 
-                    dr.SALARY_AVPAY_FREE_DAYS +
                     dr.SALARY_AVPAY_WORK_DAYS +
                     dr.SALARY_AVPAY_WORK_DAYS_OVERTIME +
                     dr.SALARY_AVPAY_HOLIDAYS +
@@ -1124,7 +1132,6 @@ namespace KlonsA.Forms
 
             if (vc == null) return;
 
-
             var person = string.Format("{0} {1}, {2}", sr.DR_Person_r.FNAME,
                 sr.DR_Person_r.LNAME, sr.GetPositionTitle().Nz().ToLower());
             var period = string.Format("{0:dd.MM.yyyy} - {1:dd.MM.yyyy}",
@@ -1133,6 +1140,56 @@ namespace KlonsA.Forms
         }
 
         private void darbaSamaksasAprēķinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (bsSarR.Current == null) return;
+            var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
+            if (dr_lapas_r == null) return;
+
+            var sr = new SalarySheetRowInfo();
+            var err = sr.SetUpFromRowX(dr_lapas_r);
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                return;
+            }
+            sr.CheckLinkedRows(dr_lapas_r.IDP);
+
+            var sc = new SalaryCalcTInfo(sr.SalarySheetRowSet, new SalaryInfo(), true);
+            err = sc.FillRow();
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
+                return;
+            }
+
+            var person = string.Format("{0} {1}, {2}", sr.DR_Person_r.FNAME,
+                sr.DR_Person_r.LNAME, sr.GetPositionTitle().Nz().ToLower());
+            var period = string.Format("{0:dd.MM.yyyy} - {1:dd.MM.yyyy}",
+                sr.SalarySheet.DT1, sr.SalarySheet.DT2);
+
+            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne)
+            {
+                var wc = sc.LinkedSCI[0].WorkPayCalc;
+                if (wc == null) return;
+                Form_WorkPayCalc.Show(wc, person, period);
+            }
+            else if (dr_lapas_r.XType == ESalarySheetRowType.Total)
+            {
+                var wc = sc.WorkPayCalc;
+                if (wc == null) return;
+                Form_WorkPayCalc.Show(wc, person, period);
+            }
+            else
+            {
+                var wc = sc.LinkedSCI
+                    .Where(d => d.SR.Row == dr_lapas_r)
+                    .FirstOrDefault()?.WorkPayCalc;
+                if (wc == null) return;
+                Form_WorkPayCalc.Show(wc, person, period);
+            }
+        }
+
+        /*private void darbaSamaksasAprēķinsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
@@ -1164,7 +1221,7 @@ namespace KlonsA.Forms
             var period = string.Format("{0:dd.MM.yyyy} - {1:dd.MM.yyyy}",
                 sr.SalarySheet.DT1, sr.SalarySheet.DT2);
             Form_WorkPayCalc.Show(wc, person, period);
-        }
+        }*/
 
         private void miAprekinaSeciba_Click(object sender, EventArgs e)
         {

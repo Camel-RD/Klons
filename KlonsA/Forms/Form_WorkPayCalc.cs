@@ -22,7 +22,8 @@ namespace KlonsA.Forms
             CheckMyFontAndColors();
         }
 
-        private WorkPayCalcTInfo WorkPayCalcInfo = null;
+        private WorkPayCalcInfo WorkPayCalcInfo = null;
+        private WorkPayCalcTInfo WorkPayCalcTInfo = null;
         private List<WorkPayCalcRow1> Rows2 = null;
         private string Person = null;
         private string Period = null;
@@ -33,6 +34,21 @@ namespace KlonsA.Forms
         }
 
         public static void Show(WorkPayCalcTInfo wc, string person, string period)
+        {
+            var fm = new Form_WorkPayCalc();
+            fm.WorkPayCalcTInfo = wc;
+            fm.Rows2 = wc.GetRows2();
+            fm.Person = person;
+            fm.Period = period;
+            fm.dgvSar.AutoGenerateColumns = false;
+            fm.dgvSar.DataSource = fm.Rows2;
+            fm.tbRateHour.Text = wc.AvPayRateHour.ToString("N4");
+            fm.tbRateDay.Text = wc.AvPayRateDay.ToString("N4");
+            fm.lbTitle.Text = string.Format("Darbinieks: {0}, periods: {1}", person, period);
+            fm.ShowDialog(fm.MyMainForm);
+        }
+
+        public static void Show(WorkPayCalcInfo wc, string person, string period)
         {
             var fm = new Form_WorkPayCalc();
             fm.WorkPayCalcInfo = wc;

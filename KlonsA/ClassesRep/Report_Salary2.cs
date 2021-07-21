@@ -166,11 +166,16 @@ namespace KlonsA.Classes
         public int SNR { get; set; } = 0;
         public string Caption { get; set; } = "";
         public string Caption2 { get; set; } = "";
-        public int WorkDays { get; set; } = 0;
         public float WorkHours { get; set; } = 0.0f;
+        public int WorkDays { get; set; } = 0;
+        public int FreeAvPayDays { get; set; } = 0;
+        public float VacationDays { get; set; } = 0f;
+        public int SickDays { get; set; } = 0;
         public decimal WorkPay { get; set; } = 0.0M;
         public decimal SickPay { get; set; } = 0.0M;
         public decimal VacationPay { get; set; } = 0.0M;
+        public decimal FreeAvPay { get; set; } = 0.0M;
+        public decimal WorkAvPay { get; set; } = 0.0M;
         public decimal PlusTaxed { get; set; } = 0.0M;
         public decimal PlusNotTaxed { get; set; } = 0.0M;
         public decimal PlusAuthorsFees { get; set; } = 0.0M;
@@ -202,11 +207,28 @@ namespace KlonsA.Classes
             Caption2 = string.Format("{0} {1}", si._FNAME, si._LNAME);
             WorkDays = si._FACT_DAYS;
             WorkHours = si._FACT_HOURS;
-            WorkPay = si._SALARY;
+            FreeAvPayDays = si._FACT_AVPAY_FREE_DAYS;
+            VacationDays = si._VACATION_DAYS_CURRENT;
+            SickDays = si._SICKDAYS;
+            WorkPay = si._SALARY - si._SALARY_AVPAY_FREE_DAYS;
             SickPay = si._SICKDAYS_PAY;
             VacationPay = si._VACATION_PAY_CURRENT;
-            PlusTaxed = si._PLUS_TAXED + si._PLUS_PF_TAXED + si._PLUS_LI_TAXED + si._PLUS_HI_TAXED;
-            PlusNotTaxed = si._PLUS_NOTTAXED + si._PLUS_PF_NOTTAXED + si._PLUS_LI_NOTTAXED + si._PLUS_HI_NOTTAXED;
+            FreeAvPay = si._SALARY_AVPAY_FREE_DAYS;
+            WorkAvPay = 
+                si._SALARY_AVPAY_HOLIDAYS + 
+                si._SALARY_AVPAY_HOLIDAYS_OVERTIME + 
+                si._SALARY_AVPAY_WORK_DAYS + 
+                si._SALARY_AVPAY_WORK_DAYS_OVERTIME;
+            PlusTaxed = 
+                si._PLUS_TAXED + 
+                si._PLUS_PF_TAXED + 
+                si._PLUS_LI_TAXED + 
+                si._PLUS_HI_TAXED;
+            PlusNotTaxed = 
+                si._PLUS_NOTTAXED + 
+                si._PLUS_PF_NOTTAXED + 
+                si._PLUS_LI_NOTTAXED + 
+                si._PLUS_HI_NOTTAXED;
             PlusNoSAI = si._PLUS_NOSAI;
             PlusAuthorsFees = si._PLUS_AUTHORS_FEES;
             TotalPay = si._TOTAL_BEFORE_TAXES;
@@ -231,9 +253,14 @@ namespace KlonsA.Classes
         {
             WorkDays = dr.WORKDAYS;
             WorkHours = dr.WORKHOURS;
-            WorkPay = dr.WORKPAY;
+            FreeAvPayDays = dr.FREEAVPAYDAYS;
+            VacationDays = dr.VACATIONDAYS;
+            SickDays = dr.SICKDAYS;
+            WorkPay = dr.WORKPAY - dr.FREEAVPAY;
             SickPay = dr.SICKPAY;
             VacationPay = dr.VACATIONPAY;
+            FreeAvPay = dr.FREEAVPAY;
+            WorkAvPay = dr.WORKAVPAY;
             PlusTaxed = dr.PLUS_TAXED;
             PlusNotTaxed = dr.PLUS_NOTTAXED;
             PlusNoSAI = dr.PLUS_NOSAI;

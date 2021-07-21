@@ -1,0 +1,782 @@
+﻿SET TERM ^ ;
+
+ALTER PROCEDURE SP_REP_AGGREGATE_01(
+  PDT1 DATE,
+  PDT2 DATE,
+  PIDP INTEGER,
+  PIDAM INTEGER,
+  PRETYRMT INTEGER,
+  PRETIDP INTEGER,
+  PRETIDAM INTEGER)
+RETURNS (
+  IDP /* TYPE OF COLUMN SALARY_SHEETS_R.IDP */ INTEGER,
+  IDAM /* TYPE OF COLUMN SALARY_SHEETS_R.IDAM */ INTEGER,
+  IDDEP /* TYPE OF COLUMN DEPARTMENTS.ID */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  YR /* TYPE OF COLUMN SALARY_SHEETS.YR */ INTEGER,
+  MT /* TYPE OF COLUMN SALARY_SHEETS.MT */ INTEGER,
+  WORKHOURS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_HOURS */ FLOAT,
+  WORKDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS */ INTEGER,
+  FREEAVPAYDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS */ INTEGER,
+  VACATIONDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.VACATION_DAYS_CURRENT */ FLOAT,
+  SICKDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS */ INTEGER,
+  WORKPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  SICKPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  VACATIONPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  FREEAVPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  WORKAVPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  PLUS_TAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_TAXED */ NUMERIC(15,2),
+  PLUS_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOTTAXED */ NUMERIC(15,2),
+  PLUS_AUTHORS_FEES /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_AUTHORS_FEES */ NUMERIC(15,2),
+  PLUS_NOSAI /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOSAI */ NUMERIC(15,2),
+  TOTALPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  FORSAI /* TYPE OF COLUMN SALARY_SHEETS_R.AMOUNT_BEFORE_SN */ NUMERIC(15,2),
+  DNSN_AMOUNT /* TYPE OF COLUMN SALARY_SHEETS_R.DNSN_AMOUNT */ NUMERIC(15,2),
+  DDSN_AMOUNT /* TYPE OF COLUMN SALARY_SHEETS_R.DDSN_AMOUNT */ NUMERIC(15,2),
+  UNTAXED_MINIMUM /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_UNTAXED_MINIMUM */ NUMERIC(15,2),
+  IIN_EXEMPT_DEPENDANTS /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_DEPENDANTS */ NUMERIC(15,2),
+  IIN_EXEMPT_INVALIDITY /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_INVALIDITY */ NUMERIC(15,2),
+  IIN_EXEMPT_NATIONAL_MOVEMENT /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_NATIONAL_MOVEMENT */ NUMERIC(15,2),
+  IIN_EXEMPT_RETALIATION /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_RETALIATION */ NUMERIC(15,2),
+  IIN_EXEMPT_EXPENSES /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_EXPENSES */ NUMERIC(15,2),
+  PLUS_PF_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_PF_NOTTAXED */ NUMERIC(15,2),
+  PLUS_LI_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_LI_NOTTAXED */ NUMERIC(15,2),
+  PLUS_HI_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_HI_NOTTAXED */ NUMERIC(15,2),
+  IIN_AMOUNT /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_AMOUNT */ NUMERIC(15,2),
+  MINUS_BEFORE_IIN /* TYPE OF COLUMN SALARY_SHEETS_R.MINUS_BEFORE_IIN */ NUMERIC(15,2),
+  MINUS_AFTER_IIN /* TYPE OF COLUMN SALARY_SHEETS_R.MINUS_AFTER_IIN */ NUMERIC(15,2),
+  PAY /* TYPE OF COLUMN SALARY_SHEETS_R.PAY */ NUMERIC(15,2),
+  ADVANCE /* TYPE OF COLUMN SALARY_SHEETS_R.ADVANCE */ NUMERIC(15,2),
+  PAYT /* TYPE OF COLUMN SALARY_SHEETS_R.PAYT */ NUMERIC(15,2),
+  PAID /* TYPE OF COLUMN PAYLISTS_R.TPAY */ NUMERIC(15,2))
+AS
+BEGIN
+  SUSPEND;
+END
+^
+
+ALTER PROCEDURE SP_REP_AGGREGATE_02(
+  PDT1 DATE,
+  PDT2 DATE,
+  PIDDEP /* TYPE OF COLUMN DEPARTMENTS.ID */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  PRETYRMT INTEGER,
+  PRETIDP INTEGER,
+  PRETIDAM INTEGER,
+  PRETIDDEP INTEGER)
+RETURNS (
+  IDP /* TYPE OF COLUMN SALARY_SHEETS_R.IDP */ INTEGER,
+  IDAM /* TYPE OF COLUMN SALARY_SHEETS_R.IDAM */ INTEGER,
+  IDDEP /* TYPE OF COLUMN DEPARTMENTS.ID */ VARCHAR(15) /* COLLATE UTF8 - default */,
+  YR /* TYPE OF COLUMN SALARY_SHEETS.YR */ INTEGER,
+  MT /* TYPE OF COLUMN SALARY_SHEETS.MT */ INTEGER,
+  WORKHOURS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_HOURS */ FLOAT,
+  WORKDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS */ INTEGER,
+  FREEAVPAYDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS */ INTEGER,
+  VACATIONDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.VACATION_DAYS_CURRENT */ FLOAT,
+  SICKDAYS /* TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS */ INTEGER,
+  WORKPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  SICKPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  VACATIONPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  FREEAVPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  WORKAVPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  PLUS_TAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_TAXED */ NUMERIC(15,2),
+  PLUS_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOTTAXED */ NUMERIC(15,2),
+  PLUS_AUTHORS_FEES /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_AUTHORS_FEES */ NUMERIC(15,2),
+  PLUS_NOSAI /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOSAI */ NUMERIC(15,2),
+  TOTALPAY /* TYPE OF COLUMN SALARY_SHEETS_R.SALARY */ NUMERIC(15,2),
+  FORSAI /* TYPE OF COLUMN SALARY_SHEETS_R.AMOUNT_BEFORE_SN */ NUMERIC(15,2),
+  DNSN_AMOUNT /* TYPE OF COLUMN SALARY_SHEETS_R.DNSN_AMOUNT */ NUMERIC(15,2),
+  DDSN_AMOUNT /* TYPE OF COLUMN SALARY_SHEETS_R.DDSN_AMOUNT */ NUMERIC(15,2),
+  UNTAXED_MINIMUM /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_UNTAXED_MINIMUM */ NUMERIC(15,2),
+  IIN_EXEMPT_DEPENDANTS /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_DEPENDANTS */ NUMERIC(15,2),
+  IIN_EXEMPT_INVALIDITY /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_INVALIDITY */ NUMERIC(15,2),
+  IIN_EXEMPT_NATIONAL_MOVEMENT /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_NATIONAL_MOVEMENT */ NUMERIC(15,2),
+  IIN_EXEMPT_RETALIATION /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_RETALIATION */ NUMERIC(15,2),
+  IIN_EXEMPT_EXPENSES /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_EXPENSES */ NUMERIC(15,2),
+  PLUS_PF_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_PF_NOTTAXED */ NUMERIC(15,2),
+  PLUS_LI_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_LI_NOTTAXED */ NUMERIC(15,2),
+  PLUS_HI_NOTTAXED /* TYPE OF COLUMN SALARY_SHEETS_R.PLUS_HI_NOTTAXED */ NUMERIC(15,2),
+  IIN_AMOUNT /* TYPE OF COLUMN SALARY_SHEETS_R.IIN_AMOUNT */ NUMERIC(15,2),
+  MINUS_BEFORE_IIN /* TYPE OF COLUMN SALARY_SHEETS_R.MINUS_BEFORE_IIN */ NUMERIC(15,2),
+  MINUS_AFTER_IIN /* TYPE OF COLUMN SALARY_SHEETS_R.MINUS_AFTER_IIN */ NUMERIC(15,2),
+  PAY /* TYPE OF COLUMN SALARY_SHEETS_R.PAY */ NUMERIC(15,2),
+  ADVANCE /* TYPE OF COLUMN SALARY_SHEETS_R.ADVANCE */ NUMERIC(15,2),
+  PAYT /* TYPE OF COLUMN SALARY_SHEETS_R.PAYT */ NUMERIC(15,2),
+  PAID /* TYPE OF COLUMN PAYLISTS_R.TPAY */ NUMERIC(15,2))
+AS
+BEGIN
+  SUSPEND;
+END
+^
+
+ALTER PROCEDURE SP_REP_AGGREGATE_01(
+  PDT1 DATE,
+  PDT2 DATE,
+  PIDP INTEGER,
+  PIDAM INTEGER,
+  PRETYRMT INTEGER,
+  PRETIDP INTEGER,
+  PRETIDAM INTEGER)
+RETURNS (
+  IDP TYPE OF COLUMN SALARY_SHEETS_R.IDP,
+  IDAM TYPE OF COLUMN SALARY_SHEETS_R.IDAM,
+  IDDEP TYPE OF COLUMN DEPARTMENTS.ID /* COLLATE UTF8 - default */,
+  YR TYPE OF COLUMN SALARY_SHEETS.YR,
+  MT TYPE OF COLUMN SALARY_SHEETS.MT,
+  WORKHOURS TYPE OF COLUMN SALARY_SHEETS_R.FACT_HOURS,
+  WORKDAYS TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS,
+  FREEAVPAYDAYS TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS,
+  VACATIONDAYS TYPE OF COLUMN SALARY_SHEETS_R.VACATION_DAYS_CURRENT,
+  SICKDAYS TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS,
+  WORKPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  SICKPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  VACATIONPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  FREEAVPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  WORKAVPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  PLUS_TAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_TAXED,
+  PLUS_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOTTAXED,
+  PLUS_AUTHORS_FEES TYPE OF COLUMN SALARY_SHEETS_R.PLUS_AUTHORS_FEES,
+  PLUS_NOSAI TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOSAI,
+  TOTALPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  FORSAI TYPE OF COLUMN SALARY_SHEETS_R.AMOUNT_BEFORE_SN,
+  DNSN_AMOUNT TYPE OF COLUMN SALARY_SHEETS_R.DNSN_AMOUNT,
+  DDSN_AMOUNT TYPE OF COLUMN SALARY_SHEETS_R.DDSN_AMOUNT,
+  UNTAXED_MINIMUM TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_UNTAXED_MINIMUM,
+  IIN_EXEMPT_DEPENDANTS TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_DEPENDANTS,
+  IIN_EXEMPT_INVALIDITY TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_INVALIDITY,
+  IIN_EXEMPT_NATIONAL_MOVEMENT TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_NATIONAL_MOVEMENT,
+  IIN_EXEMPT_RETALIATION TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_RETALIATION,
+  IIN_EXEMPT_EXPENSES TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_EXPENSES,
+  PLUS_PF_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_PF_NOTTAXED,
+  PLUS_LI_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_LI_NOTTAXED,
+  PLUS_HI_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_HI_NOTTAXED,
+  IIN_AMOUNT TYPE OF COLUMN SALARY_SHEETS_R.IIN_AMOUNT,
+  MINUS_BEFORE_IIN TYPE OF COLUMN SALARY_SHEETS_R.MINUS_BEFORE_IIN,
+  MINUS_AFTER_IIN TYPE OF COLUMN SALARY_SHEETS_R.MINUS_AFTER_IIN,
+  PAY TYPE OF COLUMN SALARY_SHEETS_R.PAY,
+  ADVANCE TYPE OF COLUMN SALARY_SHEETS_R.ADVANCE,
+  PAYT TYPE OF COLUMN SALARY_SHEETS_R.PAYT,
+  PAID TYPE OF COLUMN PAYLISTS_R.TPAY)
+AS
+begin
+    for select
+        ridp,
+        ridam,
+        null as iddep,
+
+        ryr,
+        rmt,
+
+        sum(rworkhours) as tworkhours,
+        sum(rworkdays) as tworkdays,
+
+        sum(rfreeavpaydays) as tfreeavpaydays,
+        sum(rvacationdays) as tvacationdays,
+        sum(rsickdays) as tsickdays,
+
+        sum(rworkpay) as tworkpay,
+        sum(rsickpay) as tsickpay,
+        sum(rvacationpay) as tvacationpay,
+        sum(rfreeavpay) as tfreeavpay,
+        sum(rworkavpay) as tworkavpay,
+
+        sum(rplus_taxed) as tplus_taxed,
+        sum(rplus_nottaxed) as tplus_nottaxed,
+        sum(rplus_authors_fees) as tplus_authors_fees,
+        sum(rplus_nosai) as tplus_nosai,
+
+        sum(rtotalpay) as ttotalpay,
+
+        sum(rforsai) as tforsai,
+
+        sum(rdnsn_amount) as tdnsn_amount,
+        sum(rddsn_amount) as tddsn_amount,
+
+        sum(runtaxed_minimum) as tuntaxed_minimum,
+        sum(riin_exempt_dependants) as tiin_exempt_dependants,
+        sum(riin_exempt_invalidity) as tiin_exempt_invalidity,
+        sum(riin_exempt_national_movement) as tiin_exempt_national_movement,
+        sum(riin_exempt_retaliation) as tiin_exempt_retaliation,
+        sum(riin_exempt_expenses) as tiin_exempt_expenses,
+
+        sum(rplus_pf_nottaxed) as tplus_pf_nottaxed,
+        sum(rplus_li_nottaxed) as tplus_li_nottaxed,
+        sum(rplus_hi_nottaxed) as tplus_hi_nottaxed,
+
+        sum(riin_amount) as tiin_amount,
+
+        sum(rminus_before_iin) as tminus_before_iin,
+        sum(rminus_after_iin) as tminus_after_iin,
+
+        sum(rpay) as tpay,
+        sum(radvance) as tadvance,
+        sum(rpayt) as tpayt,
+        sum(rpaid) as tpaid
+    from
+    (
+
+        select
+            iif(:pretidp = 0, null, salary_sheets_R.idp) as ridp,
+            iif(:pretidam = 0, null, salary_sheets_R.idam) as ridam,
+
+            iif(:pretyrmt = 0, null, salary_sheets.yr) as ryr,
+            iif(:pretyrmt = 0, null, salary_sheets.mt) as rmt,
+
+            salary_sheets_R.fact_hours as rworkhours,
+            salary_sheets_R.fact_days as rworkdays,
+
+            salary_sheets_R.fact_avpay_free_days as rfreeavpaydays,
+            salary_sheets_R.vacation_days_current as rvacationdays,
+            salary_sheets_R.sickdays as rsickdays,
+
+            salary_sheets_R.salary as rworkpay,
+            salary_sheets_R.sickdays_pay as rsickpay,
+            salary_sheets_R.vacation_pay_current as rvacationpay,
+            salary_sheets_R.salary_avpay_free_days as rfreeavpay,
+
+            salary_sheets_R.salary_avpay_work_days +
+                salary_sheets_R.salary_avpay_work_days_overtime +
+                salary_sheets_R.salary_avpay_holidays +
+                salary_sheets_R.salary_avpay_holidays_overtime as rworkavpay,
+
+            salary_sheets_r.plus_taxed +
+                salary_sheets_r.plus_pf_taxed +
+                salary_sheets_r.plus_li_taxed +
+                salary_sheets_r.plus_hi_taxed as rplus_taxed,
+
+            salary_sheets_r.plus_nottaxed +
+                salary_sheets_r.plus_pf_nottaxed +
+                salary_sheets_r.plus_li_nottaxed +
+                salary_sheets_r.plus_hi_nottaxed as rplus_nottaxed,
+
+            salary_sheets_r.plus_authors_fees as rplus_authors_fees,
+            salary_sheets_r.plus_nosai as rplus_nosai,
+
+            salary_sheets_R.total_before_taxes as rtotalpay,
+
+            salary_sheets_R.amount_before_sn as rforsai,
+
+            salary_sheets_r.dnsn_amount as rdnsn_amount,
+            salary_sheets_r.ddsn_amount as rddsn_amount,
+
+            salary_sheets_r.iin_exempt_untaxed_minimum as runtaxed_minimum,
+            salary_sheets_r.iin_exempt_dependants as riin_exempt_dependants,
+            salary_sheets_r.iin_exempt_invalidity as riin_exempt_invalidity,
+            salary_sheets_r.iin_exempt_national_movement as riin_exempt_national_movement,
+            salary_sheets_r.iin_exempt_retaliation as riin_exempt_retaliation,
+            salary_sheets_r.iin_exempt_expenses as riin_exempt_expenses,
+
+            salary_sheets_r.plus_pf_nottaxed as rplus_pf_nottaxed,
+            salary_sheets_r.plus_li_nottaxed as rplus_li_nottaxed,
+            salary_sheets_r.plus_hi_nottaxed as rplus_hi_nottaxed,
+
+            salary_sheets_r.iin_amount as riin_amount,
+
+            salary_sheets_r.minus_before_iin as rminus_before_iin,
+            salary_sheets_r.minus_after_iin as rminus_after_iin,
+
+            salary_sheets_r.pay as rpay,
+            salary_sheets_r.advance as radvance,
+            salary_sheets_r.payt as rpayt,
+            0.0 as rpaid
+    
+        from salary_sheets
+        inner join salary_sheets_r on salary_sheets.id = salary_sheets_r.ids
+
+        where
+            (salary_sheets.dt2 between :pdt1 and :pdt2) AND
+            ((:pidp is null) OR (salary_sheets_r.idp = :pidp)) AND
+            ((:pidam is null) OR (salary_sheets_r.idam = :pidam)) AND
+            (salary_sheets.is_temp = 0) AND
+            (salary_sheets.kind = 0)
+
+        union all
+
+        select
+            iif(:pretidp = 0, null, paylists_R.idp) as ridp,
+            iif(:pretidam = 0, null, paylists_R.idam) as ridam,
+
+            iif(:pretyrmt = 0, null, paylists.yr) as ryr,
+            iif(:pretyrmt = 0, null, paylists.mt) as rmt,
+
+            0 as rworkhours,
+            0 as rworkdays,
+
+            0 as rfreeavpaydays,
+            0 as rvacationdays,
+            0 as sickdays,
+
+            0.0 as rworkpay,
+            0.0 as rsickpay,
+            0.0 as rvacationpay,
+            0.0 as rfreeavpay,
+            0.0 as rworkavpay,
+
+            0.0 as rplus_taxed,
+
+            0.0 as rplus_nottaxed,
+
+            0.0 as rplus_authors_fees,
+            0.0 as rplus_nosai,
+
+            0.0 as rtotalpay,
+
+            0.0 as rforsai,
+
+            0.0 as rdnsn_amount,
+            0.0 as rddsn_amount,
+
+            0.0 as runtaxed_minimum,
+            0.0 as riin_exempt_dependants,
+            0.0 as riin_exempt_invalidity,
+            0.0 as riin_exempt_national_movement,
+            0.0 as riin_exempt_retaliation,
+            0.0 as riin_exempt_expenses,
+
+            0.0 as rplus_pf_nottaxed,
+            0.0 as rplus_li_nottaxed,
+            0.0 as rplus_hi_nottaxed,
+
+            0.0 as riin_amount,
+
+            0.0 as rminus_before_iin,
+            0.0 as rminus_after_iin,
+
+            0.0 as rpay,
+            0.0 as radvance,
+            0.0 as rpayt,
+            paylists_r.tpay as rpaid
+    
+        from paylists
+        inner join paylists_r on paylists.id = paylists_r.ids
+
+        where
+            (paylists.dt between :pdt1 and :pdt2) AND
+            ((:pidp is null) OR (paylists_r.idp = :pidp)) AND
+            ((:pidam is null) OR (paylists_r.idam = :pidam))
+
+    )
+    group by ridp, ridam, ryr, rmt
+    order by ryr, rmt
+
+    into
+        :idp,
+        :idam,
+        :iddep,
+
+        :yr,
+        :mt, 
+
+        :workhours,
+        :workdays,
+
+        :freeavpaydays,
+        :vacationdays,
+        :sickdays,
+
+        :workpay,
+        :sickpay, 
+        :vacationpay, 
+        :freeavpay,
+        :workavpay,
+
+        :plus_taxed,
+        :plus_nottaxed,
+        :plus_authors_fees,
+        :plus_nosai,
+
+        :totalpay,
+
+        :forsai,
+
+        :dnsn_amount,
+        :ddsn_amount,
+
+        :untaxed_minimum,
+        :iin_exempt_dependants,
+        :iin_exempt_invalidity,
+        :iin_exempt_national_movement,
+        :iin_exempt_retaliation,
+        :iin_exempt_expenses,
+
+        :plus_pf_nottaxed,
+        :plus_li_nottaxed,
+        :plus_hi_nottaxed,
+
+        :iin_amount,
+
+        :minus_before_iin,
+        :minus_after_iin,
+
+        :pay,
+        :advance,
+        :payt,
+
+        :paid
+  do
+  begin
+    suspend;
+  end
+end
+^
+
+ALTER PROCEDURE SP_REP_AGGREGATE_02(
+  PDT1 DATE,
+  PDT2 DATE,
+  PIDDEP TYPE OF COLUMN DEPARTMENTS.ID /* COLLATE UTF8 - default */,
+  PRETYRMT INTEGER,
+  PRETIDP INTEGER,
+  PRETIDAM INTEGER,
+  PRETIDDEP INTEGER)
+RETURNS (
+  IDP TYPE OF COLUMN SALARY_SHEETS_R.IDP,
+  IDAM TYPE OF COLUMN SALARY_SHEETS_R.IDAM,
+  IDDEP TYPE OF COLUMN DEPARTMENTS.ID /* COLLATE UTF8 - default */,
+  YR TYPE OF COLUMN SALARY_SHEETS.YR,
+  MT TYPE OF COLUMN SALARY_SHEETS.MT,
+  WORKHOURS TYPE OF COLUMN SALARY_SHEETS_R.FACT_HOURS,
+  WORKDAYS TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS,
+  FREEAVPAYDAYS TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS,
+  VACATIONDAYS TYPE OF COLUMN SALARY_SHEETS_R.VACATION_DAYS_CURRENT,
+  SICKDAYS TYPE OF COLUMN SALARY_SHEETS_R.FACT_DAYS,
+  WORKPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  SICKPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  VACATIONPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  FREEAVPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  WORKAVPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  PLUS_TAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_TAXED,
+  PLUS_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOTTAXED,
+  PLUS_AUTHORS_FEES TYPE OF COLUMN SALARY_SHEETS_R.PLUS_AUTHORS_FEES,
+  PLUS_NOSAI TYPE OF COLUMN SALARY_SHEETS_R.PLUS_NOSAI,
+  TOTALPAY TYPE OF COLUMN SALARY_SHEETS_R.SALARY,
+  FORSAI TYPE OF COLUMN SALARY_SHEETS_R.AMOUNT_BEFORE_SN,
+  DNSN_AMOUNT TYPE OF COLUMN SALARY_SHEETS_R.DNSN_AMOUNT,
+  DDSN_AMOUNT TYPE OF COLUMN SALARY_SHEETS_R.DDSN_AMOUNT,
+  UNTAXED_MINIMUM TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_UNTAXED_MINIMUM,
+  IIN_EXEMPT_DEPENDANTS TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_DEPENDANTS,
+  IIN_EXEMPT_INVALIDITY TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_INVALIDITY,
+  IIN_EXEMPT_NATIONAL_MOVEMENT TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_NATIONAL_MOVEMENT,
+  IIN_EXEMPT_RETALIATION TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_RETALIATION,
+  IIN_EXEMPT_EXPENSES TYPE OF COLUMN SALARY_SHEETS_R.IIN_EXEMPT_EXPENSES,
+  PLUS_PF_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_PF_NOTTAXED,
+  PLUS_LI_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_LI_NOTTAXED,
+  PLUS_HI_NOTTAXED TYPE OF COLUMN SALARY_SHEETS_R.PLUS_HI_NOTTAXED,
+  IIN_AMOUNT TYPE OF COLUMN SALARY_SHEETS_R.IIN_AMOUNT,
+  MINUS_BEFORE_IIN TYPE OF COLUMN SALARY_SHEETS_R.MINUS_BEFORE_IIN,
+  MINUS_AFTER_IIN TYPE OF COLUMN SALARY_SHEETS_R.MINUS_AFTER_IIN,
+  PAY TYPE OF COLUMN SALARY_SHEETS_R.PAY,
+  ADVANCE TYPE OF COLUMN SALARY_SHEETS_R.ADVANCE,
+  PAYT TYPE OF COLUMN SALARY_SHEETS_R.PAYT,
+  PAID TYPE OF COLUMN PAYLISTS_R.TPAY)
+AS
+begin
+    for select
+        ridp,
+        ridam,
+        riddep,
+
+        ryr,
+        rmt,
+
+        sum(rworkhours) as tworkhours,
+        sum(rworkdays) as tworkdays,
+
+        sum(rfreeavpaydays) as tfreeavpaydays,
+        sum(rvacationdays) as tvacationdays,
+        sum(rsickdays) as tsickdays,
+
+        sum(rworkpay) as tworkpay,
+        sum(rsickpay) as tsickpay,
+        sum(rvacationpay) as tvacationpay,
+        sum(rfreeavpay) as tfreeavpay,
+        sum(rworkavpay) as tworkavpay,
+
+        sum(rplus_taxed) as tplus_taxed,
+        sum(rplus_nottaxed) as tplus_nottaxed,
+        sum(rplus_authors_fees) as tplus_authors_fees,
+        sum(rplus_nosai) as tplus_nosai,
+
+        sum(rtotalpay) as ttotalpay,
+
+        sum(rforsai) as tforsai,
+
+        sum(rdnsn_amount) as tdnsn_amount,
+        sum(rddsn_amount) as tddsn_amount,
+
+        sum(runtaxed_minimum) as tuntaxed_minimum,
+        sum(riin_exempt_dependants) as tiin_exempt_dependants,
+        sum(riin_exempt_invalidity) as tiin_exempt_invalidity,
+        sum(riin_exempt_national_movement) as tiin_exempt_national_movement,
+        sum(riin_exempt_retaliation) as tiin_exempt_retaliation,
+        sum(riin_exempt_expenses) as tiin_exempt_expenses,
+
+        sum(rplus_pf_nottaxed) as tplus_pf_nottaxed,
+        sum(rplus_li_nottaxed) as tplus_li_nottaxed,
+        sum(rplus_hi_nottaxed) as tplus_hi_nottaxed,
+
+        sum(riin_amount) as tiin_amount,
+
+        sum(rminus_before_iin) as tminus_before_iin,
+        sum(rminus_after_iin) as tminus_after_iin,
+
+        sum(rpay) as tpay,
+        sum(radvance) as tadvance,
+        sum(rpayt) as tpayt,
+
+        sum(rpaid) as tpaid
+    from
+    (
+
+        select
+            iif(:pretidp = 0, null, salary_sheets_R.idp) as ridp,
+            iif(:pretidam = 0, null, salary_sheets_R.idam) as ridam,
+            iif(:pretiddep = 0, null, TPOS2.iddep) as riddep,
+
+            iif(:pretyrmt = 0, null, salary_sheets.yr) as ryr,
+            iif(:pretyrmt = 0, null, salary_sheets.mt) as rmt,
+
+            salary_sheets_R.fact_hours as rworkhours,
+            salary_sheets_R.fact_days as rworkdays,
+
+            salary_sheets_R.fact_avpay_free_days as rfreeavpaydays,
+            salary_sheets_R.vacation_days_current as rvacationdays,
+            salary_sheets_R.sickdays as rsickdays,
+
+            salary_sheets_R.salary as rworkpay,
+            salary_sheets_R.sickdays_pay as rsickpay,
+            salary_sheets_R.vacation_pay_current as rvacationpay,
+            salary_sheets_R.salary_avpay_free_days as rfreeavpay,
+
+            salary_sheets_R.salary_avpay_work_days +
+                salary_sheets_R.salary_avpay_work_days_overtime +
+                salary_sheets_R.salary_avpay_holidays +
+                salary_sheets_R.salary_avpay_holidays_overtime as rworkavpay,
+
+            salary_sheets_r.plus_taxed +
+                salary_sheets_r.plus_pf_taxed +
+                salary_sheets_r.plus_li_taxed +
+                salary_sheets_r.plus_hi_taxed as rplus_taxed,
+
+            salary_sheets_r.plus_nottaxed +
+                salary_sheets_r.plus_pf_nottaxed +
+                salary_sheets_r.plus_li_nottaxed +
+                salary_sheets_r.plus_hi_nottaxed as rplus_nottaxed,
+
+            salary_sheets_r.plus_authors_fees as rplus_authors_fees,
+            salary_sheets_r.plus_nosai as rplus_nosai,
+
+            salary_sheets_R.total_before_taxes as rtotalpay,
+
+            salary_sheets_R.amount_before_sn as rforsai,
+
+            salary_sheets_r.dnsn_amount as rdnsn_amount,
+            salary_sheets_r.ddsn_amount as rddsn_amount,
+
+            salary_sheets_r.iin_exempt_untaxed_minimum as runtaxed_minimum,
+            salary_sheets_r.iin_exempt_dependants as riin_exempt_dependants,
+            salary_sheets_r.iin_exempt_invalidity as riin_exempt_invalidity,
+            salary_sheets_r.iin_exempt_national_movement as riin_exempt_national_movement,
+            salary_sheets_r.iin_exempt_retaliation as riin_exempt_retaliation,
+            salary_sheets_r.iin_exempt_expenses as riin_exempt_expenses,
+
+            salary_sheets_r.plus_pf_nottaxed as rplus_pf_nottaxed,
+            salary_sheets_r.plus_li_nottaxed as rplus_li_nottaxed,
+            salary_sheets_r.plus_hi_nottaxed as rplus_hi_nottaxed,
+
+            salary_sheets_r.iin_amount as riin_amount,
+
+            salary_sheets_r.minus_before_iin as rminus_before_iin,
+            salary_sheets_r.minus_after_iin as rminus_after_iin,
+
+            salary_sheets_r.pay as rpay,
+            salary_sheets_r.advance as radvance,
+            salary_sheets_r.payt as rpayt,
+            0.0 as rpaid
+    
+        from salary_sheets
+        inner join salary_sheets_r on salary_sheets.id = salary_sheets_r.ids
+
+        inner join
+        (
+            select TPOS1.id, TPOS1.idam, positions_r.iddep
+            from positions_r
+            inner join 
+            (
+                select salary_sheets_r.id, salary_sheets_r.idam, max(positions_r.edit_date) as posdt
+                from salary_sheets
+                inner join salary_sheets_r
+                    on salary_sheets.id = salary_sheets_r.ids AND
+                        (salary_sheets.dt2 between :pdt1 and :pdt2)
+                inner join positions_r
+                    on salary_sheets_r.idam = positions_r.ida AND
+                        positions_r.edit_date <= salary_sheets.dt2
+                group by salary_sheets_r.id, salary_sheets_r.idam
+            ) as TPOS1
+            on positions_r.ida = TPOS1.idam
+        ) as TPOS2
+        on salary_sheets_r.id = TPOS2.id
+
+        where
+            (salary_sheets.dt2 between :pdt1 and :pdt2) AND
+            ((:piddep is null) or (TPOS2.iddep = :piddep)) AND
+            (salary_sheets.is_temp = 0) AND
+            (salary_sheets.kind = 0)
+
+
+        union all
+
+
+        select
+            iif(:pretidp = 0, null, paylists_R.idp) as ridp,
+            iif(:pretidam = 0, null, paylists_R.idam) as ridam,
+            iif(:pretiddep = 0, null, TPOS2.iddep) as riddep,
+
+            iif(:pretyrmt = 0, null, paylists.yr) as ryr,
+            iif(:pretyrmt = 0, null, paylists.mt) as rmt,
+
+            0 as rworkhours,
+            0 as rworkdays,
+
+            0 as rfreeavpaydays,
+            0 as rvacationdays,
+            0 as sickdays,
+
+            0.0 as rworkpay,
+            0.0 as rsickpay,
+            0.0 as rvacationpay,
+            0.0 as rfreeavpay,
+            0.0 as rworkavpay,
+
+            0.0 as rplus_taxed,
+
+            0.0 as rplus_nottaxed,
+
+            0.0 as rplus_authors_fees,
+            0.0 as rplus_nosai,
+
+            0.0 as rtotalpay,
+
+            0.0 as rforsai,
+
+            0.0 as rdnsn_amount,
+            0.0 as rddsn_amount,
+
+            0.0 as runtaxed_minimum,
+            0.0 as riin_exempt_dependants,
+            0.0 as riin_exempt_invalidity,
+            0.0 as riin_exempt_national_movement,
+            0.0 as riin_exempt_retaliation,
+            0.0 as riin_exempt_expenses,
+
+            0.0 as rplus_pf_nottaxed,
+            0.0 as rplus_li_nottaxed,
+            0.0 as rplus_hi_nottaxed,
+
+            0.0 as riin_amount,
+
+            0.0 as rminus_before_iin,
+            0.0 as rminus_after_iin,
+
+            0.0 as rpay,
+            0.0 as radvance,
+            0.0 as rpayt,
+            paylists_r.tpay as rpaid
+    
+        from paylists
+        inner join paylists_r on paylists.id = paylists_r.ids
+
+        inner join
+        (
+            select TPOS1.id, TPOS1.idam, positions_r.iddep
+            from positions_r
+            inner join 
+            (
+                select paylists_r.id, paylists_r.idam, max(positions_r.edit_date) as posdt
+                from paylists
+                inner join paylists_r
+                    on paylists.id = paylists_r.ids AND
+                        (paylists.dt between :pdt1 and :pdt2)
+                inner join positions_r
+                    on paylists_r.idam = positions_r.ida AND
+                        positions_r.edit_date <= paylists.dt
+                group by paylists_r.id, paylists_r.idam
+            ) as TPOS1
+            on positions_r.ida = TPOS1.idam
+        ) as TPOS2
+        on paylists_r.id = TPOS2.id
+
+        where
+            (paylists.dt between :pdt1 and :pdt2) AND
+            ((:piddep is null) or (TPOS2.iddep = :piddep))
+
+
+    )
+    group by ridp, ridam, riddep, ryr, rmt
+    order by ryr, rmt
+
+    into
+        :idp,
+        :idam,
+        :iddep,
+        :yr,
+        :mt, 
+
+        :workhours,
+        :workdays,
+
+        :freeavpaydays,
+        :vacationdays,
+        :sickdays,
+
+        :workpay,
+        :sickpay, 
+        :vacationpay, 
+        :freeavpay,
+        :workavpay,
+
+        :plus_taxed,
+        :plus_nottaxed,
+        :plus_authors_fees,
+        :plus_nosai,
+
+        :totalpay,
+
+        :forsai,
+
+        :dnsn_amount,
+        :ddsn_amount,
+
+        :untaxed_minimum,
+        :iin_exempt_dependants,
+        :iin_exempt_invalidity,
+        :iin_exempt_national_movement,
+        :iin_exempt_retaliation,
+        :iin_exempt_expenses,
+
+        :plus_pf_nottaxed,
+        :plus_li_nottaxed,
+        :plus_hi_nottaxed,
+
+        :iin_amount,
+
+        :minus_before_iin,
+        :minus_after_iin,
+
+        :pay,
+        :advance,
+        :payt,
+
+        :paid
+  do
+  begin
+    suspend;
+  end
+end
+^
+
+
+SET TERM ; ^
+
+  
+UPDATE Params
+SET PVALUE = '049'
+WHERE PNAME = 'version';

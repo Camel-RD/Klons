@@ -72,12 +72,43 @@ namespace KlonsA.Classes
             if (PreparingReport && !AvPayCalcRequired) PrepareListT();
         }
 
+        public void SummAvPayTime2(SalaryInfo totalsi, SalaryInfo[] sis)
+        {
+            totalsi.FACT_AVPAY_FREE_DAYS_2 = 0;
+            totalsi.FACT_AVPAY_FREE_HOURS_2 = 0.0f;
+            totalsi.FACT_AVPAY_WORK_DAYS_2 = 0;
+            totalsi.FACT_AVPAY_WORKINHOLIDAYS_2 = 0;
+            totalsi.FACT_AVPAY_HOURS_2 = 0.0f;
+            totalsi.FACT_AVPAY_HOURS_OVERTIME_2 = 0.0f;
+            totalsi.FACT_AVPAY_HOLIDAYS_HOURS_2 = 0.0f;
+            totalsi.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2 = 0.0f;
+
+            for (int i = 0; i < sis.Length; i++)
+            {
+                var si = sis[i];
+                totalsi.FACT_AVPAY_FREE_DAYS_2 += si.FACT_AVPAY_FREE_DAYS_2;
+                totalsi.FACT_AVPAY_FREE_HOURS_2 += si.FACT_AVPAY_FREE_HOURS_2;
+                totalsi.FACT_AVPAY_WORK_DAYS_2 += si.FACT_AVPAY_WORK_DAYS_2;
+                totalsi.FACT_AVPAY_WORKINHOLIDAYS_2 += si.FACT_AVPAY_WORKINHOLIDAYS_2;
+                totalsi.FACT_AVPAY_HOURS_2 += si.FACT_AVPAY_HOURS_2;
+                totalsi.FACT_AVPAY_HOURS_OVERTIME_2 += si.FACT_AVPAY_HOURS_OVERTIME_2;
+                totalsi.FACT_AVPAY_HOLIDAYS_HOURS_2 += si.FACT_AVPAY_HOLIDAYS_HOURS_2;
+                totalsi.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2 += si.FACT_AVPAY_HOLIDAYS_HOURS_OVERT_2;
+            }
+        }
+
         public ErrorList CalcWorkPayTAvPay(SalaryCalcTInfo scti)
         {
             if (!AvPayCalcRequired) return new ErrorList();
             TotalRow = scti.TotalSI;
             //TotalRow.ClearSalaryAvPayPart();
-            scti.LinkedSCI[0].WorkPayCalc.DoAvPay(scti.SRS.TotalRow, TotalRow, null);
+            
+            var sis = scti.LinkedSCI.Select(x => x.SI).ToArray();
+            SummAvPayTime2(TotalRow, sis);
+
+            //uses avcalc from LinkedSCI[0] and applies to TotalRow
+            LinkedWorkPayCalcs[0].DoAvPay(scti.SRS.TotalRow, TotalRow, null);
+
             for (int i = 0; i < scti.LinkedSCI.Length; i++)
             {
                 var lsci = scti.LinkedSCI[i];
@@ -161,27 +192,34 @@ namespace KlonsA.Classes
             TotalRow._SALARY = TotalRow.SumSalary();
             TotalRow.SumForAvPay();
 
-            if (PreparingReport && !AvPayCalcRequired) PrepareListT();
-
-            if (AvPayCalcRequired)
+            if (AvPayCalcRequired) 
                 CalcWorkPayAvPay(sr, TotalRow);
+
+            if (PreparingReport) 
+                PrepareListT();
         }
 
         private void CalcWorkPayAvPay(SalarySheetRowSetInfo sr, SalaryInfo si)
         {
             TotalRow = si;
+
+            var sis = LinkedWorkPayCalcs.Select(x => x.TotalRow).ToArray();
+            SummAvPayTime2(TotalRow, sis);
+
+            LinkedWorkPayCalcs[0].DoAvPay(sr.TotalRow, TotalRow, null);
+
             for (int i = 0; i < sr.LinkedRows.Length; i++)
             {
                 var lr = sr.LinkedRows[i];
                 var wpc = LinkedWorkPayCalcs[i];
                 wpc.CalcPayWithAvPay(lr, TotalRow);
-                TotalRow.AddSalaryAvPayPart(wpc.TotalRow);
+                //TotalRow.AddSalaryAvPayPart(wpc.TotalRow);
             }
 
             TotalRow._SALARY = TotalRow.SumSalary();
             TotalRow.AddAvPay();
 
-            if (PreparingReport && !AvPayCalcRequired) PrepareListT();
+            MakeAvPayExactSum();
         }
 
         public void SetAvPayFrom(SalaryCalcInfo sc)
