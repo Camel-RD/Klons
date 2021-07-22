@@ -1125,6 +1125,33 @@ namespace KlonsA.Classes
             return "OK";
         }
 
+        public static ErrorList CheckPayListIDs(int ids)
+        {
+            var err = new ErrorList();
+            var table_lists = MyData.DataSetKlons.PAYLISTS;
+
+            var dr_s = table_lists.FindByID(ids);
+            if (dr_s == null) return err;
+
+            var drs = dr_s.GetPAYLISTS_RRows();
+            if (drs.Length == 0) return err;
+
+            var baddrs = drs
+                .GroupBy(x => (x.IDP, x.IDAM))
+                .Where(x => x.Count() > 1)
+                .Select(x => x.First())
+                .ToList();
+
+            string errsrc = $"Maskājumu saraksts {dr_s.SNR} {dr_s.DT:dd.MM.yyyy}";
+            foreach(var dr in baddrs)
+            {
+                var errstr = $"Darbiniekam divi maksājumi vienā sarakstā: {dr.PERSONSRow.ZNAME}, {dr.POSITIONSRow.TITLE}";
+                err.AddError(errsrc, errstr);
+            }
+
+            return err;
+        }
+
         //FillPayListsA - updates only pay balance
         //FillPayListsB - after FillPayListsA updates list match
         public static void FillPayListsA(DateTime dt,int ids, bool fullrecalc)

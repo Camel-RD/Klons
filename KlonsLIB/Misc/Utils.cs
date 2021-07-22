@@ -572,7 +572,7 @@ namespace KlonsLIB.Misc
 
         public static void SetDGVShowCellToolTips(this Form f, bool b)
         {
-            SetDGVShowCellToolTipsA(f, b);
+            //SetDGVShowCellToolTipsA(f, b);
         }
 
         public static string AsString(this object o)

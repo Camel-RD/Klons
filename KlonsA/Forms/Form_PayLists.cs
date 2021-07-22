@@ -657,11 +657,25 @@ namespace KlonsA.Forms
             SaveData();
         }
 
+        public bool CheckPayListIDs(int ids)
+        {
+            var err = DataTasks.CheckPayListIDs(ids);
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                return false;
+            }
+            return true;
+        }
+
         public void RecalcListA(bool fullrecalc)
         {
             if (bsLists.Count == 0 || bsLists.Current == null) return;
             if (!SaveBeforeProceed()) return;
             var dr = (bsLists.Current as DataRowView).Row as KlonsADataSet.PAYLISTSRow;
+
+            if (!CheckPayListIDs(dr.ID)) return;
+
             ignoreColumnChangeEvent = true;
             DataTasks.FillPayListA(dr.ID, fullrecalc);
             if (!SaveData())
@@ -680,6 +694,9 @@ namespace KlonsA.Forms
             if (bsRows.Count == 0 || bsRows.Current == null) return;
             if (!SaveBeforeProceed()) return;
             var dr = (bsRows.Current as DataRowView).Row as KlonsADataSet.PAYLISTS_RRow;
+
+            if (!CheckPayListIDs(dr.IDS)) return;
+
             ignoreColumnChangeEvent = true;
             DataTasks.FillPayListRowA(dr.ID, fullrecalc);
             if (!SaveData())
@@ -698,6 +715,9 @@ namespace KlonsA.Forms
             if (bsLists.Count == 0 || bsLists.Current == null) return;
             if (!SaveBeforeProceed()) return;
             var dr = (bsLists.Current as DataRowView).Row as KlonsADataSet.PAYLISTSRow;
+
+            if (!CheckPayListIDs(dr.ID)) return;
+
             ignoreColumnChangeEvent = true;
             DataTasks.FillPayListB(dr.ID);
             ignoreColumnChangeEvent = false;
@@ -710,6 +730,9 @@ namespace KlonsA.Forms
             if (bsRows.Count == 0 || bsRows.Current == null) return;
             if (!SaveBeforeProceed()) return;
             var dr = (bsRows.Current as DataRowView).Row as KlonsADataSet.PAYLISTS_RRow;
+            
+            if (!CheckPayListIDs(dr.IDS)) return;
+            
             ignoreColumnChangeEvent = true;
             DataTasks.FillPayListRowB(dr.ID);
             ignoreColumnChangeEvent = false;

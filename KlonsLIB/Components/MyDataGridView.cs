@@ -82,6 +82,8 @@ namespace KlonsLIB.Components
             ContextMenuStrip = myContextMenuStrip;
 
             SetMyToolTip();
+
+            ShowCellToolTips = false;
         }
 
         protected void SetMyToolTip()

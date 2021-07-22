@@ -55,10 +55,13 @@
             this.dgvErrorList.DataSource = this.bsErr;
             this.dgvErrorList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvErrorList.Location = new System.Drawing.Point(0, 0);
+            this.dgvErrorList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvErrorList.Name = "dgvErrorList";
             this.dgvErrorList.ReadOnly = true;
-            this.dgvErrorList.RowTemplate.Height = 24;
-            this.dgvErrorList.Size = new System.Drawing.Size(635, 297);
+            this.dgvErrorList.RowHeadersWidth = 62;
+            this.dgvErrorList.RowTemplate.Height = 29;
+            this.dgvErrorList.ShowCellToolTips = false;
+            this.dgvErrorList.Size = new System.Drawing.Size(714, 371);
             this.dgvErrorList.TabIndex = 0;
             // 
             // dgcSource
@@ -67,10 +70,10 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcSource.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgcSource.HeaderText = "kļūdas avots";
-            this.dgcSource.MinimumWidth = 100;
+            this.dgcSource.MinimumWidth = 112;
             this.dgcSource.Name = "dgcSource";
             this.dgcSource.ReadOnly = true;
-            this.dgcSource.Width = 150;
+            this.dgcSource.Width = 168;
             // 
             // dgcMessage
             // 
@@ -78,17 +81,18 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcMessage.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcMessage.HeaderText = "kļūdas paziņojums";
-            this.dgcMessage.MinimumWidth = 200;
+            this.dgcMessage.MinimumWidth = 225;
             this.dgcMessage.Name = "dgcMessage";
             this.dgcMessage.ReadOnly = true;
-            this.dgcMessage.Width = 300;
+            this.dgcMessage.Width = 420;
             // 
             // Form_ErrorList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 297);
+            this.ClientSize = new System.Drawing.Size(714, 371);
             this.Controls.Add(this.dgvErrorList);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_ErrorList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kļūdas paziņojumi";
