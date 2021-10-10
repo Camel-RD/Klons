@@ -110,7 +110,7 @@ namespace KlonsF
             if (string.Compare(v, ver) < 0)
             {
                 ShowInfo("Ir pieejama jauna programmas versija.\n" +
-                         "To var lejuplādēt interneta lapā www.kastanis.biz.");
+                         "To var lejuplādēt interneta lapā www.klons.id.lv.");
             }
         }
 
