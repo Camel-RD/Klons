@@ -157,13 +157,15 @@ namespace KlonsA.Classes
 
             cret1 = BonusCalc.CalcProcT(this, EBonusFrom.FromPayAndVacSick, 
                 d=> 
-                d._SALARY + 
+                d._SALARY +
+                d._SALARY_AVPAY_FREE_DAYS +
                 d._SICKDAYS_PAY + 
                 d._VACATION_PAY_CURRENT);
 
             cret2 = BonusCalc.CalcProcT(this, EBonusFrom.FromPayBeforeSAI,
                 d =>
                 d._SALARY +
+                d._SALARY_AVPAY_FREE_DAYS +
                 d._SICKDAYS_PAY +
                 d._VACATION_PAY_CURRENT +
                 d._PLUS_TAXED);
@@ -252,6 +254,9 @@ namespace KlonsA.Classes
 
             PFxB.DoPayFxB_Salary(TotalSI._SALARY, GetValues(d => d._SALARY));
             PFxB.DoPayFxB_Bonus(PFxB.TempCRets0);
+            PFxB.DoPayFxB_AvPay(
+                TotalSI._SALARY_AVPAY_FREE_DAYS,
+                GetValues(d => d._SALARY_AVPAY_FREE_DAYS));
             PFxB.DoPayFxB_SickPay(
                 TotalSI._SICKDAYS_PAY,
                 GetValues(d => d._SICKDAYS_PAY));
@@ -530,6 +535,7 @@ namespace KlonsA.Classes
 
             decimal pay1 =
                 SI._SALARY +
+                SI._SALARY_AVPAY_FREE_DAYS +
                 SI._SICKDAYS_PAY +
                 SI._VACATION_PAY_CURRENT +
                 SI._PLUS_TAXED;

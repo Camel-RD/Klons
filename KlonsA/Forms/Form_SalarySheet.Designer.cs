@@ -1920,7 +1920,6 @@ namespace KlonsA.Forms
             // 
             // grtInt
             // 
-            this.grtInt.DataMember = null;
             this.grtInt.Name = "grtInt";
             this.grtInt.ReadOnly = true;
             this.grtInt.RowTitle = null;
@@ -1928,7 +1927,6 @@ namespace KlonsA.Forms
             // 
             // grtInt16
             // 
-            this.grtInt16.DataMember = null;
             this.grtInt16.Name = "grtInt16";
             this.grtInt16.ReadOnly = true;
             this.grtInt16.RowTitle = null;
@@ -1936,7 +1934,6 @@ namespace KlonsA.Forms
             // 
             // grtDouble
             // 
-            this.grtDouble.DataMember = null;
             this.grtDouble.Name = "grtDouble";
             this.grtDouble.ReadOnly = true;
             this.grtDouble.RowTitle = null;
@@ -1944,14 +1941,12 @@ namespace KlonsA.Forms
             // 
             // grDecimal
             // 
-            this.grDecimal.DataMember = null;
             this.grDecimal.Name = "grDecimal";
             this.grDecimal.RowTitle = null;
             this.grDecimal.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grString
             // 
-            this.grString.DataMember = null;
             this.grString.Name = "grString";
             this.grString.ReadOnly = true;
             this.grString.RowTitle = null;
@@ -1959,6 +1954,7 @@ namespace KlonsA.Forms
             // 
             // grDecimalProc
             // 
+            this.grDecimalProc.DataMember = null;
             this.grDecimalProc.FormatString = "0.00\\%";
             this.grDecimalProc.Name = "grDecimalProc";
             this.grDecimalProc.ReadOnly = true;
@@ -1967,7 +1963,6 @@ namespace KlonsA.Forms
             // 
             // grSingle
             // 
-            this.grSingle.DataMember = null;
             this.grSingle.Name = "grSingle";
             this.grSingle.ReadOnly = true;
             this.grSingle.RowTitle = null;
@@ -2792,7 +2787,6 @@ namespace KlonsA.Forms
             // 
             // grDecimalReadOnly
             // 
-            this.grDecimalReadOnly.DataMember = null;
             this.grDecimalReadOnly.Name = "grDecimalReadOnly";
             this.grDecimalReadOnly.ReadOnly = true;
             this.grDecimalReadOnly.RowTitle = null;
@@ -2952,6 +2946,7 @@ namespace KlonsA.Forms
             this.dgvLapa.Name = "dgvLapa";
             this.dgvLapa.RowHeadersWidth = 30;
             this.dgvLapa.RowTemplate.Height = 29;
+            this.dgvLapa.ShowCellToolTips = false;
             this.dgvLapa.Size = new System.Drawing.Size(737, 398);
             this.dgvLapa.TabIndex = 1;
             this.dgvLapa.MyCheckForChanges += new System.EventHandler(this.dgvLapa_MyCheckForChanges);
@@ -3263,6 +3258,7 @@ namespace KlonsA.Forms
             this.dgvPapildsummas.Name = "dgvPapildsummas";
             this.dgvPapildsummas.RowHeadersWidth = 30;
             this.dgvPapildsummas.RowTemplate.Height = 29;
+            this.dgvPapildsummas.ShowCellToolTips = false;
             this.dgvPapildsummas.Size = new System.Drawing.Size(737, 115);
             this.dgvPapildsummas.TabIndex = 0;
             this.dgvPapildsummas.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvPapildsummas_CellBeginEdit);

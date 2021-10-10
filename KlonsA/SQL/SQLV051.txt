@@ -1,0 +1,9 @@
+﻿UPDATE salary_sheets_r
+SET salary = salary - salary_avpay_free_days;
+
+UPDATE salary_sheets_r_hist
+SET salary = salary - salary_avpay_free_days;
+  
+UPDATE Params
+SET PVALUE = '051'
+WHERE PNAME = 'version';

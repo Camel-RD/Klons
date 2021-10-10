@@ -210,7 +210,7 @@ namespace KlonsA.Classes
             FreeAvPayDays = si._FACT_AVPAY_FREE_DAYS;
             VacationDays = si._VACATION_DAYS_CURRENT;
             SickDays = si._SICKDAYS;
-            WorkPay = si._SALARY - si._SALARY_AVPAY_FREE_DAYS;
+            WorkPay = si._SALARY;
             SickPay = si._SICKDAYS_PAY;
             VacationPay = si._VACATION_PAY_CURRENT;
             FreeAvPay = si._SALARY_AVPAY_FREE_DAYS;
@@ -256,7 +256,7 @@ namespace KlonsA.Classes
             FreeAvPayDays = dr.FREEAVPAYDAYS;
             VacationDays = dr.VACATIONDAYS;
             SickDays = dr.SICKDAYS;
-            WorkPay = dr.WORKPAY - dr.FREEAVPAY;
+            WorkPay = dr.WORKPAY;
             SickPay = dr.SICKPAY;
             VacationPay = dr.VACATIONPAY;
             FreeAvPay = dr.FREEAVPAY;

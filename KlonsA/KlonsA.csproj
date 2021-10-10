@@ -564,6 +564,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="SQL\SQLV051.txt" />
     <EmbeddedResource Include="SQL\SQLV049.txt" />
     <EmbeddedResource Include="SQL\SQLV048.txt" />
     <None Include="klonsaver.txt" />

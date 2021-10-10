@@ -120,6 +120,7 @@ namespace KlonsA.Classes
 
             decimal pay1 = 
                 SI._SALARY +
+                SI._SALARY_AVPAY_FREE_DAYS +
                 SI._SICKDAYS_PAY +
                 SI._VACATION_PAY_CURRENT;
 
@@ -173,7 +174,7 @@ namespace KlonsA.Classes
 
             decimal iinexempts1b = iinexempts1;
 
-            List< PayFx2> rpfx = null;
+            List<PayFx2> rpfx = null;
             var plusfromendbruto = BonusCalc.CalcFromEndC(si: SI,
                 totalinex: iinexempts1,
                 curbruto: curbruto,
@@ -225,6 +226,7 @@ namespace KlonsA.Classes
 
             PFxA.DoPayFxA_Salary(SI._SALARY);
             PFxA.DoPayFxA_Bonus(PFxA.TempRows0);
+            PFxA.DoPayFxA_AvPay(SI._SALARY_AVPAY_FREE_DAYS);
             PFxA.DoPayFxA_SickPay(SI._SICKDAYS_PAY);
             PFxA.DoPayFxA_Vacation(SI._VACATION_PAY_CURRENT, SI._VACATION_PAY_PREV);
             CorrectVacCash();
@@ -386,6 +388,7 @@ namespace KlonsA.Classes
         {
             decimal pay1 =
                 SI._SALARY +
+                SI._SALARY_AVPAY_FREE_DAYS +
                 SI._SICKDAYS_PAY +
                 SI._VACATION_PAY_CURRENT +
                 SI._PLUS_TAXED;

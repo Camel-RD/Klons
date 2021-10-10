@@ -145,7 +145,6 @@ namespace KlonsA.Classes
                 _SALARY_HOLIDAYS_DAY +
                 _SALARY_HOLIDAYS_NIGHT +
                 _SALARY_HOLIDAYS_OVERTIME +
-                _SALARY_AVPAY_FREE_DAYS +
                 _SALARY_AVPAY_WORK_DAYS +
                 _SALARY_AVPAY_WORK_DAYS_OVERTIME +
                 _SALARY_AVPAY_HOLIDAYS +
@@ -153,7 +152,7 @@ namespace KlonsA.Classes
                 _SALARY_PIECEWORK;
         }
 
-        public decimal SumAvPay()
+        public decimal SumAvWorkPay()
         {
             return 
                 _SALARY_AVPAY_WORK_DAYS +
@@ -165,20 +164,20 @@ namespace KlonsA.Classes
 
         public void SumForAvPay()
         {
-            _FORAVPAYCALC_BRUTO = SumSalary() - _SALARY_AVPAY_FREE_DAYS;
+            _FORAVPAYCALC_BRUTO = SumSalary();
             _FORAVPAYCALC_DAYS = _FACT_WORK_DAYS;
             _FORAVPAYCALC_HOURS = _FACT_WORK_HOURS;
         }
 
         public void AddAvPay()
         {
-            _FORAVPAYCALC_BRUTO += SumAvPay();
+            _FORAVPAYCALC_BRUTO += SumAvWorkPay();
         }
 
         public bool IsAvPayUsed()
         {
             return
-                (SumAvPay() + _SALARY_AVPAY_FREE_DAYS > 0.0M) ||
+                (SumAvWorkPay() + _SALARY_AVPAY_FREE_DAYS > 0.0M) ||
                 _VACATION_DAYS_CURRENT > 0 ||
                 _VACATION_DAYS_NEXT > 0 ||
                 _SICKDAYS > 0;

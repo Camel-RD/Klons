@@ -690,15 +690,6 @@ namespace KlonsA.Forms
         private void dgvLapa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex > bsSarR.Count) return;
-            if (e.ColumnIndex == dgcSarSalary.Index)
-            {
-                var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
-                if (dr == null) return;
-                decimal val = dr.SALARY - dr.SALARY_AVPAY_FREE_DAYS;
-                e.Value = val.ToString("# ##0.00;-# ##0.00;\"\"");
-                e.FormattingApplied = true;
-                return;
-            }
             if (e.ColumnIndex == dgcSarWorkAvPay.Index)
             {
                 var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
