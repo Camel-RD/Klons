@@ -269,7 +269,7 @@ namespace KlonsF.FormsReportParams
             this.tsbNextMonth});
             this.toolStrip1.Location = new System.Drawing.Point(367, 47);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(118, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(72, 28);
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -277,6 +277,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.tsbPrevMonth.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbPrevMonth.Image = ((System.Drawing.Image)(resources.GetObject("tsbPrevMonth.Image")));
+            this.tsbPrevMonth.Margin = new System.Windows.Forms.Padding(0);
             this.tsbPrevMonth.Name = "tsbPrevMonth";
             this.tsbPrevMonth.RightToLeftAutoMirrorImage = true;
             this.tsbPrevMonth.Size = new System.Drawing.Size(34, 28);
@@ -287,6 +288,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.tsbNextMonth.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbNextMonth.Image = ((System.Drawing.Image)(resources.GetObject("tsbNextMonth.Image")));
+            this.tsbNextMonth.Margin = new System.Windows.Forms.Padding(0);
             this.tsbNextMonth.Name = "tsbNextMonth";
             this.tsbNextMonth.RightToLeftAutoMirrorImage = true;
             this.tsbNextMonth.Size = new System.Drawing.Size(34, 28);
@@ -298,7 +300,7 @@ namespace KlonsF.FormsReportParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 378);
+            this.ClientSize = new System.Drawing.Size(684, 378);
             this.CloseOnEscape = true;
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.myLabel1);

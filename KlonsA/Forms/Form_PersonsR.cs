@@ -82,10 +82,15 @@ namespace KlonsA.Forms
             MyData.DataSetKlons.POSITIONS_PLUSMINUS.ColumnChanged += POSITIONS_PLUSMINUS_ColumnChanged;
 
             LoadSettings();
-
             CheckEventsForAll();
+            CheckPersonRedRows();
 
             this.bsPersonsR.CurrentChanged += new System.EventHandler(this.bsPersonsR_CurrentChanged);
+
+            if (!mySplitContainer1.Panel1Collapsed)
+            {
+
+            }
         }
 
         public void LoadSettings()

@@ -32,11 +32,12 @@ namespace KlonsF.FormsReportParams
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem1 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem2 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem3 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem4 = new KlonsLIB.Components.MyMcComboBox.MyItem();
-            KlonsLIB.Components.MyMcComboBox.MyItem myItem5 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem6 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem7 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem8 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem9 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            KlonsLIB.Components.MyMcComboBox.MyItem myItem10 = new KlonsLIB.Components.MyMcComboBox.MyItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRep_Apgr1));
             this.cbAC = new KlonsLIB.Components.MyMcFlatComboBox();
             this.bsAC = new KlonsLIB.Data.MyBindingSource(this.components);
             this.tbSD = new KlonsLIB.Components.MyTextBox();
@@ -49,7 +50,11 @@ namespace KlonsF.FormsReportParams
             this.label3 = new System.Windows.Forms.Label();
             this.myLabel1 = new KlonsLIB.Components.MyLabel();
             this.cmTable = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbPrevMonth = new System.Windows.Forms.ToolStripButton();
+            this.tsbNextMonth = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.bsAC)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbAC
@@ -62,19 +67,19 @@ namespace KlonsF.FormsReportParams
             this.cbAC.DataSource = this.bsAC;
             this.cbAC.DisplayMember = "AC";
             this.cbAC.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbAC.DropDownHeight = 255;
-            this.cbAC.DropDownWidth = 524;
+            this.cbAC.DropDownHeight = 315;
+            this.cbAC.DropDownWidth = 594;
             this.cbAC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAC.FormattingEnabled = true;
             this.cbAC.GridLineColor = System.Drawing.Color.LightGray;
             this.cbAC.GridLineHorizontal = false;
             this.cbAC.GridLineVertical = false;
             this.cbAC.IntegralHeight = false;
-            this.cbAC.Location = new System.Drawing.Point(152, 85);
+            this.cbAC.Location = new System.Drawing.Point(171, 106);
             this.cbAC.Margin = new System.Windows.Forms.Padding(2);
             this.cbAC.MaxDropDownItems = 15;
             this.cbAC.Name = "cbAC";
-            this.cbAC.Size = new System.Drawing.Size(104, 23);
+            this.cbAC.Size = new System.Drawing.Size(116, 27);
             this.cbAC.TabIndex = 2;
             this.cbAC.ValueMember = "AC";
             this.cbAC.SelectedIndexChanged += new System.EventHandler(this.cbAC_SelectedIndexChanged);
@@ -92,20 +97,20 @@ namespace KlonsF.FormsReportParams
             // 
             this.tbSD.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbSD.IsDate = true;
-            this.tbSD.Location = new System.Drawing.Point(152, 38);
+            this.tbSD.Location = new System.Drawing.Point(171, 48);
             this.tbSD.Margin = new System.Windows.Forms.Padding(2);
             this.tbSD.Name = "tbSD";
-            this.tbSD.Size = new System.Drawing.Size(80, 22);
+            this.tbSD.Size = new System.Drawing.Size(90, 26);
             this.tbSD.TabIndex = 0;
             this.tbSD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 38);
+            this.label1.Location = new System.Drawing.Point(20, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 16);
+            this.label1.Size = new System.Drawing.Size(137, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Datums (no - līdz):";
             // 
@@ -113,38 +118,38 @@ namespace KlonsF.FormsReportParams
             // 
             this.tbED.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbED.IsDate = true;
-            this.tbED.Location = new System.Drawing.Point(238, 38);
+            this.tbED.Location = new System.Drawing.Point(268, 48);
             this.tbED.Margin = new System.Windows.Forms.Padding(2);
             this.tbED.Name = "tbED";
-            this.tbED.Size = new System.Drawing.Size(80, 22);
+            this.tbED.Size = new System.Drawing.Size(90, 26);
             this.tbED.TabIndex = 1;
             this.tbED.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 87);
+            this.label2.Location = new System.Drawing.Point(20, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Konts:";
             // 
             // lbACName
             // 
-            this.lbACName.Location = new System.Drawing.Point(157, 110);
+            this.lbACName.Location = new System.Drawing.Point(177, 138);
             this.lbACName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbACName.Name = "lbACName";
-            this.lbACName.Size = new System.Drawing.Size(332, 18);
+            this.lbACName.Size = new System.Drawing.Size(374, 22);
             this.lbACName.TabIndex = 9;
             this.lbACName.Text = "Konts:";
             // 
             // cmDoIt
             // 
-            this.cmDoIt.Location = new System.Drawing.Point(321, 135);
+            this.cmDoIt.Location = new System.Drawing.Point(361, 169);
             this.cmDoIt.Margin = new System.Windows.Forms.Padding(2);
             this.cmDoIt.Name = "cmDoIt";
-            this.cmDoIt.Size = new System.Drawing.Size(124, 57);
+            this.cmDoIt.Size = new System.Drawing.Size(140, 71);
             this.cmDoIt.TabIndex = 4;
             this.cmDoIt.Text = "Atskaiti";
             this.cmDoIt.UseVisualStyleBackColor = true;
@@ -159,36 +164,36 @@ namespace KlonsF.FormsReportParams
             this.cbCharCount.ColumnWidths = "80";
             this.cbCharCount.DisplayMember = "col1";
             this.cbCharCount.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbCharCount.DropDownHeight = 136;
+            this.cbCharCount.DropDownHeight = 168;
             this.cbCharCount.DropDownStyle = KlonsLIB.Components.MyMcComboBox.CustomDropDownStyle.DropDownListSimple;
-            this.cbCharCount.DropDownWidth = 104;
+            this.cbCharCount.DropDownWidth = 121;
             this.cbCharCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbCharCount.FormattingEnabled = true;
             this.cbCharCount.GridLineColor = System.Drawing.Color.LightGray;
             this.cbCharCount.GridLineHorizontal = false;
             this.cbCharCount.GridLineVertical = false;
             this.cbCharCount.IntegralHeight = false;
-            myItem1.Col1 = "*";
-            myItem2.Col1 = "1";
-            myItem3.Col1 = "2";
-            myItem4.Col1 = "3";
-            myItem5.Col1 = "4";
+            myItem6.Col1 = "*";
+            myItem7.Col1 = "1";
+            myItem8.Col1 = "2";
+            myItem9.Col1 = "3";
+            myItem10.Col1 = "4";
             this.cbCharCount.Items.AddRange(new object[] {
-            myItem1,
-            myItem2,
-            myItem3,
-            myItem4,
-            myItem5});
+            myItem6,
+            myItem7,
+            myItem8,
+            myItem9,
+            myItem10});
             this.cbCharCount.ItemStrings = new string[] {
         "*",
         "1",
         "2",
         "3",
         "4"};
-            this.cbCharCount.Location = new System.Drawing.Point(152, 152);
+            this.cbCharCount.Location = new System.Drawing.Point(171, 190);
             this.cbCharCount.Margin = new System.Windows.Forms.Padding(2);
             this.cbCharCount.Name = "cbCharCount";
-            this.cbCharCount.Size = new System.Drawing.Size(67, 23);
+            this.cbCharCount.Size = new System.Drawing.Size(75, 27);
             this.cbCharCount.TabIndex = 3;
             this.cbCharCount.ValueMember = "col1";
             this.cbCharCount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
@@ -196,10 +201,10 @@ namespace KlonsF.FormsReportParams
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 154);
+            this.label3.Location = new System.Drawing.Point(20, 192);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 16);
+            this.label3.Size = new System.Drawing.Size(140, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Konta zīmju skaits:";
             // 
@@ -208,32 +213,71 @@ namespace KlonsF.FormsReportParams
             this.myLabel1.AutoSize = true;
             this.myLabel1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.myLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myLabel1.Location = new System.Drawing.Point(26, 200);
+            this.myLabel1.Location = new System.Drawing.Point(29, 250);
             this.myLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myLabel1.Name = "myLabel1";
-            this.myLabel1.Padding = new System.Windows.Forms.Padding(8);
-            this.myLabel1.Size = new System.Drawing.Size(199, 48);
+            this.myLabel1.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.myLabel1.Size = new System.Drawing.Size(234, 60);
             this.myLabel1.TabIndex = 8;
             this.myLabel1.Text = "Lai dabūtu atskaiti par visiem \r\nkontiem, lodzinā jāieliek \'*\'";
             // 
             // cmTable
             // 
-            this.cmTable.Location = new System.Drawing.Point(321, 200);
+            this.cmTable.Location = new System.Drawing.Point(361, 250);
             this.cmTable.Margin = new System.Windows.Forms.Padding(2);
             this.cmTable.Name = "cmTable";
-            this.cmTable.Size = new System.Drawing.Size(124, 57);
+            this.cmTable.Size = new System.Drawing.Size(140, 71);
             this.cmTable.TabIndex = 4;
             this.cmTable.Text = "Tabula";
             this.cmTable.UseVisualStyleBackColor = true;
             this.cmTable.Click += new System.EventHandler(this.cmTable_Click);
             this.cmTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AllowMerge = false;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbPrevMonth,
+            this.tsbNextMonth});
+            this.toolStrip1.Location = new System.Drawing.Point(364, 46);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(118, 28);
+            this.toolStrip1.TabIndex = 15;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbPrevMonth
+            // 
+            this.tsbPrevMonth.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPrevMonth.Image = ((System.Drawing.Image)(resources.GetObject("tsbPrevMonth.Image")));
+            this.tsbPrevMonth.Margin = new System.Windows.Forms.Padding(0);
+            this.tsbPrevMonth.Name = "tsbPrevMonth";
+            this.tsbPrevMonth.RightToLeftAutoMirrorImage = true;
+            this.tsbPrevMonth.Size = new System.Drawing.Size(34, 28);
+            this.tsbPrevMonth.Text = "iepriekšējais mēnesis";
+            this.tsbPrevMonth.Click += new System.EventHandler(this.tsbPrevMonth_Click);
+            // 
+            // tsbNextMonth
+            // 
+            this.tsbNextMonth.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNextMonth.Image = ((System.Drawing.Image)(resources.GetObject("tsbNextMonth.Image")));
+            this.tsbNextMonth.Margin = new System.Windows.Forms.Padding(0);
+            this.tsbNextMonth.Name = "tsbNextMonth";
+            this.tsbNextMonth.RightToLeftAutoMirrorImage = true;
+            this.tsbNextMonth.Size = new System.Drawing.Size(34, 28);
+            this.tsbNextMonth.Text = "nākošais mēnesis";
+            this.tsbNextMonth.ToolTipText = "Iet uz nākošo";
+            this.tsbNextMonth.Click += new System.EventHandler(this.tsbNextMonth_Click);
+            // 
             // FormRep_Apgr1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 276);
+            this.ClientSize = new System.Drawing.Size(573, 345);
             this.CloseOnEscape = true;
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.myLabel1);
             this.Controls.Add(this.cbCharCount);
             this.Controls.Add(this.cmTable);
@@ -245,11 +289,14 @@ namespace KlonsF.FormsReportParams
             this.Controls.Add(this.tbED);
             this.Controls.Add(this.tbSD);
             this.Controls.Add(this.cbAC);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormRep_Apgr1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Apgrozijumu pārskata parametri";
             this.Load += new System.EventHandler(this.FormRepApgr1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsAC)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +316,8 @@ namespace KlonsF.FormsReportParams
         private System.Windows.Forms.Label label3;
         private MyLabel myLabel1;
         private System.Windows.Forms.Button cmTable;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbPrevMonth;
+        private System.Windows.Forms.ToolStripButton tsbNextMonth;
     }
 }

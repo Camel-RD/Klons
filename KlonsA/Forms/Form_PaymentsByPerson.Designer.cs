@@ -58,17 +58,17 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.miMaksājumuPārskats = new System.Windows.Forms.ToolStripMenuItem();
-            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas = new System.Windows.Forms.ToolStripMenuItem();
-            this.miKasesMaksājumuSarēķins = new System.Windows.Forms.ToolStripMenuItem();
-            this.miSaglabātSarēķinātosKasesMaksājumus = new System.Windows.Forms.ToolStripMenuItem();
             this.cmFilter = new System.Windows.Forms.Button();
             this.cbPerson = new KlonsLIB.Components.MyMcFlatComboBox();
             this.tbDate2 = new KlonsLIB.Components.MyTextBox();
             this.tbDate1 = new KlonsLIB.Components.MyTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.miMaksājumuPārskats = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas = new System.Windows.Forms.ToolStripMenuItem();
+            this.miKasesMaksājumuSarēķins = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaglabātSarēķinātosKasesMaksājumus = new System.Windows.Forms.ToolStripMenuItem();
             this.sgvRows = new KlonsLIB.Components.MyDataGridView();
             this.dgcDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcListDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -215,49 +215,6 @@
             this.panel1.Size = new System.Drawing.Size(1271, 39);
             this.panel1.TabIndex = 1;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miMaksājumuPārskats});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1271, 38);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // miMaksājumuPārskats
-            // 
-            this.miMaksājumuPārskats.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas,
-            this.miKasesMaksājumuSarēķins,
-            this.miSaglabātSarēķinātosKasesMaksājumus});
-            this.miMaksājumuPārskats.Name = "miMaksājumuPārskats";
-            this.miMaksājumuPārskats.Size = new System.Drawing.Size(224, 34);
-            this.miMaksājumuPārskats.Text = "Maksājumu pārskats";
-            this.miMaksājumuPārskats.DropDownOpening += new System.EventHandler(this.miMaksājumuPārskats_DropDownOpening);
-            // 
-            // miAvansaMaksājumaProcentsNoPēdējāsAlgas
-            // 
-            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Name = "miAvansaMaksājumaProcentsNoPēdējāsAlgas";
-            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Size = new System.Drawing.Size(555, 38);
-            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Text = "Avansa maksājuma procents no pēdējās algas";
-            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Click += new System.EventHandler(this.miAvansaMaksājumaProcentsNoPēdējāsAlgas_Click);
-            // 
-            // miKasesMaksājumuSarēķins
-            // 
-            this.miKasesMaksājumuSarēķins.Name = "miKasesMaksājumuSarēķins";
-            this.miKasesMaksājumuSarēķins.Size = new System.Drawing.Size(555, 38);
-            this.miKasesMaksājumuSarēķins.Text = "Kases maksājumu sarēķins";
-            this.miKasesMaksājumuSarēķins.Click += new System.EventHandler(this.miKasesMaksājumuSarēķins_Click);
-            // 
-            // miSaglabātSarēķinātosKasesMaksājumus
-            // 
-            this.miSaglabātSarēķinātosKasesMaksājumus.Name = "miSaglabātSarēķinātosKasesMaksājumus";
-            this.miSaglabātSarēķinātosKasesMaksājumus.Size = new System.Drawing.Size(555, 38);
-            this.miSaglabātSarēķinātosKasesMaksājumus.Text = "Saglabāt sarēķinātos kases maksājumus";
-            this.miSaglabātSarēķinātosKasesMaksājumus.Click += new System.EventHandler(this.miSaglabātSarēķinātosKasesMaksājumus_Click);
-            // 
             // cmFilter
             // 
             this.cmFilter.Location = new System.Drawing.Point(717, 5);
@@ -334,6 +291,49 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Datums:";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miMaksājumuPārskats});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1271, 38);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // miMaksājumuPārskats
+            // 
+            this.miMaksājumuPārskats.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas,
+            this.miKasesMaksājumuSarēķins,
+            this.miSaglabātSarēķinātosKasesMaksājumus});
+            this.miMaksājumuPārskats.Name = "miMaksājumuPārskats";
+            this.miMaksājumuPārskats.Size = new System.Drawing.Size(224, 34);
+            this.miMaksājumuPārskats.Text = "Maksājumu pārskats";
+            this.miMaksājumuPārskats.DropDownOpening += new System.EventHandler(this.miMaksājumuPārskats_DropDownOpening);
+            // 
+            // miAvansaMaksājumaProcentsNoPēdējāsAlgas
+            // 
+            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Name = "miAvansaMaksājumaProcentsNoPēdējāsAlgas";
+            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Size = new System.Drawing.Size(555, 38);
+            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Text = "Avansa maksājuma procents no pēdējās algas";
+            this.miAvansaMaksājumaProcentsNoPēdējāsAlgas.Click += new System.EventHandler(this.miAvansaMaksājumaProcentsNoPēdējāsAlgas_Click);
+            // 
+            // miKasesMaksājumuSarēķins
+            // 
+            this.miKasesMaksājumuSarēķins.Name = "miKasesMaksājumuSarēķins";
+            this.miKasesMaksājumuSarēķins.Size = new System.Drawing.Size(555, 38);
+            this.miKasesMaksājumuSarēķins.Text = "Kases maksājumu sarēķins";
+            this.miKasesMaksājumuSarēķins.Click += new System.EventHandler(this.miKasesMaksājumuSarēķins_Click);
+            // 
+            // miSaglabātSarēķinātosKasesMaksājumus
+            // 
+            this.miSaglabātSarēķinātosKasesMaksājumus.Name = "miSaglabātSarēķinātosKasesMaksājumus";
+            this.miSaglabātSarēķinātosKasesMaksājumus.Size = new System.Drawing.Size(555, 38);
+            this.miSaglabātSarēķinātosKasesMaksājumus.Text = "Saglabāt sarēķinātos kases maksājumus";
+            this.miSaglabātSarēķinātosKasesMaksājumus.Click += new System.EventHandler(this.miSaglabātSarēķinātosKasesMaksājumus_Click);
+            // 
             // sgvRows
             // 
             this.sgvRows.AllowUserToAddRows = false;
@@ -375,6 +375,7 @@
             this.sgvRows.ReadOnly = true;
             this.sgvRows.RowHeadersWidth = 53;
             this.sgvRows.RowTemplate.Height = 29;
+            this.sgvRows.ShowCellToolTips = false;
             this.sgvRows.Size = new System.Drawing.Size(1271, 486);
             this.sgvRows.TabIndex = 2;
             // 
@@ -395,6 +396,7 @@
             // dgcListDescr
             // 
             this.dgcListDescr.DataPropertyName = "ListDescription";
+            this.dgcListDescr.Frozen = true;
             this.dgcListDescr.HeaderText = "apraksts";
             this.dgcListDescr.MinimumWidth = 7;
             this.dgcListDescr.Name = "dgcListDescr";
@@ -641,6 +643,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem miMaksājumuPārskats;
         private System.Windows.Forms.ToolStripMenuItem miKasesMaksājumuSarēķins;
+        private System.Windows.Forms.ToolStripMenuItem miAvansaMaksājumaProcentsNoPēdējāsAlgas;
+        private System.Windows.Forms.ToolStripMenuItem miSaglabātSarēķinātosKasesMaksājumus;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcListDescr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPosTitle;
@@ -657,7 +661,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCalcIIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTakeIIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCalcVal;
-        private System.Windows.Forms.ToolStripMenuItem miAvansaMaksājumaProcentsNoPēdējāsAlgas;
-        private System.Windows.Forms.ToolStripMenuItem miSaglabātSarēķinātosKasesMaksājumus;
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -471,13 +473,19 @@ namespace KlonsLIB.Forms
                 DPIFactor = g.DpiX / 125f;
             }
             base.ScaleControl(factor, specified);
-
-            foreach (Control c in this.Controls)
+            ScaleControlA(this.Controls.Cast<Control>());
+        }
+        
+        protected void ScaleControlA(IEnumerable<Control> cs)
+        {
+            foreach (Control c in cs)
             {
                 if (c is ToolStrip && !(c is MenuStrip))
                 {
                     ScaleToolStrip(c as ToolStrip);
+                    return;
                 }
+                ScaleControlA(c.Controls.Cast<Control>());
             }
         }
 

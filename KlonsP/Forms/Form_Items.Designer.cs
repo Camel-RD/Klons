@@ -248,9 +248,11 @@
             this.sgrEvents.ColumnWidth1 = 20;
             this.sgrEvents.ColumnWidth2 = 150;
             this.sgrEvents.ColumnWidth3 = 100;
+            this.sgrEvents.DefaultHeight = 25;
             this.sgrEvents.Dock = System.Windows.Forms.DockStyle.Right;
             this.sgrEvents.EnableSort = true;
-            this.sgrEvents.Location = new System.Drawing.Point(816, 48);
+            this.sgrEvents.Location = new System.Drawing.Point(918, 60);
+            this.sgrEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sgrEvents.MyDataBC = this.itemsEventsData1;
             this.sgrEvents.Name = "sgrEvents";
             this.sgrEvents.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
@@ -293,7 +295,7 @@
             this.sgrEvents.RowTemplateList.Add(this.grtStringReadOnly);
             this.sgrEvents.RowTemplateList.Add(this.grtString);
             this.sgrEvents.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.sgrEvents.Size = new System.Drawing.Size(290, 387);
+            this.sgrEvents.Size = new System.Drawing.Size(326, 485);
             this.sgrEvents.TabIndex = 0;
             this.sgrEvents.TabStop = true;
             this.sgrEvents.ToolTipText = "";
@@ -452,7 +454,6 @@
             this.grEvent.GridPropertyName = "fEVENT";
             this.grEvent.ListDisplayMember = "CODE";
             this.grEvent.ListSource = this.bsEvents;
-            this.grEvent.ListStrings = null;
             this.grEvent.ListValueMember = "ID";
             this.grEvent.Name = "grEvent";
             this.grEvent.ReadOnly = true;
@@ -531,7 +532,6 @@
             this.grCat1.GridPropertyName = "fCAT1";
             this.grCat1.ListDisplayMember = "CODE";
             this.grCat1.ListSource = this.bsCat1;
-            this.grCat1.ListStrings = null;
             this.grCat1.ListValueMember = "ID";
             this.grCat1.Name = "grCat1";
             this.grCat1.RowTitle = "Kategorija";
@@ -554,7 +554,6 @@
             this.grCatD.GridPropertyName = "fCATD";
             this.grCatD.ListDisplayMember = "CODE";
             this.grCatD.ListSource = this.bsCatD;
-            this.grCatD.ListStrings = null;
             this.grCatD.ListValueMember = "ID";
             this.grCatD.Name = "grCatD";
             this.grCatD.RowTitle = "Nolietojuma kat.";
@@ -577,7 +576,6 @@
             this.grCatT.GridPropertyName = "fCATT";
             this.grCatT.ListDisplayMember = "CODE";
             this.grCatT.ListSource = this.bsCatT;
-            this.grCatT.ListStrings = null;
             this.grCatT.ListValueMember = "ID";
             this.grCatT.Name = "grCatT";
             this.grCatT.RowTitle = "Nod.nol.kat.";
@@ -600,7 +598,6 @@
             this.grDepartment.GridPropertyName = "fDEPARTMENT";
             this.grDepartment.ListDisplayMember = "CODE";
             this.grDepartment.ListSource = this.bsDepartments;
-            this.grDepartment.ListStrings = null;
             this.grDepartment.ListValueMember = "ID";
             this.grDepartment.Name = "grDepartment";
             this.grDepartment.RowTitle = "Struktūrvienība";
@@ -623,7 +620,6 @@
             this.grPlace.GridPropertyName = "fPLACE";
             this.grPlace.ListDisplayMember = "CODE";
             this.grPlace.ListSource = this.bsPlaces;
-            this.grPlace.ListStrings = null;
             this.grPlace.ListValueMember = "ID";
             this.grPlace.Name = "grPlace";
             this.grPlace.RowTitle = "Atrodas";
@@ -774,7 +770,7 @@
             this.grTaxRate.GridPropertyName = "fTAX_RATE";
             this.grTaxRate.Name = "grTaxRate";
             this.grTaxRate.ReadOnly = true;
-            this.grTaxRate.RowTitle = "Loliet. likme nod.vaj.";
+            this.grTaxRate.RowTitle = "Noliet. likme nod.vaj.";
             this.grTaxRate.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Single;
             // 
             // grTaxEach
@@ -797,6 +793,7 @@
             // 
             // grtStringReadOnly
             // 
+            this.grtStringReadOnly.DataMember = null;
             this.grtStringReadOnly.Name = "grtStringReadOnly";
             this.grtStringReadOnly.ReadOnly = true;
             this.grtStringReadOnly.RowTitle = null;
@@ -804,6 +801,7 @@
             // 
             // grtString
             // 
+            this.grtString.DataMember = null;
             this.grtString.Name = "grtString";
             this.grtString.RowTitle = null;
             this.grtString.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.String;
@@ -816,7 +814,7 @@
             this.bnNav.CountItemFormat = " no {0}";
             this.bnNav.DeleteItem = null;
             this.bnNav.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bnNav.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.bnNav.ImageScalingSize = new System.Drawing.Size(23, 26);
             this.bnNav.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslActiveTable,
             this.bindingNavigatorMoveFirstItem,
@@ -833,7 +831,7 @@
             this.bindingNavigatorSaveItem,
             this.tsbInfo,
             this.toolStripLabel1});
-            this.bnNav.Location = new System.Drawing.Point(0, 435);
+            this.bnNav.Location = new System.Drawing.Point(0, 545);
             this.bnNav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnNav.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnNav.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -841,7 +839,7 @@
             this.bnNav.Name = "bnNav";
             this.bnNav.PositionItem = this.bindingNavigatorPositionItem;
             this.bnNav.SaveItem = this.bindingNavigatorSaveItem;
-            this.bnNav.Size = new System.Drawing.Size(1106, 32);
+            this.bnNav.Size = new System.Drawing.Size(1244, 39);
             this.bnNav.TabIndex = 1;
             this.bnNav.Text = "myBindingNavigator1";
             this.bnNav.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnNav_ItemDeleting);
@@ -850,14 +848,14 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(76, 34);
             this.bindingNavigatorCountItem.Text = " no {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Ierakstu skaits";
             // 
             // tslActiveTable
             // 
             this.tslActiveTable.Name = "tslActiveTable";
-            this.tslActiveTable.Size = new System.Drawing.Size(132, 29);
+            this.tslActiveTable.Size = new System.Drawing.Size(143, 34);
             this.tslActiveTable.Text = "Pamatlīdzekļi:";
             // 
             // bindingNavigatorMoveFirstItem
@@ -866,7 +864,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -875,26 +873,26 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 30);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(56, 37);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -902,7 +900,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -911,20 +909,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(92, 34);
             this.bindingNavigatorAddNewItem.Text = "Jauns";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
@@ -933,7 +931,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(93, 34);
             this.bindingNavigatorDeleteItem.Text = "Dzēst";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
@@ -943,7 +941,7 @@
             this.bindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorSaveItem.Image")));
             this.bindingNavigatorSaveItem.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
             this.bindingNavigatorSaveItem.Name = "bindingNavigatorSaveItem";
-            this.bindingNavigatorSaveItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 36);
             this.bindingNavigatorSaveItem.Text = "Saglabāt";
             // 
             // tsbInfo
@@ -953,7 +951,7 @@
             this.tsbInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbInfo.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
             this.tsbInfo.Name = "tsbInfo";
-            this.tsbInfo.Size = new System.Drawing.Size(25, 29);
+            this.tsbInfo.Size = new System.Drawing.Size(34, 36);
             this.tsbInfo.Text = "Info";
             this.tsbInfo.Click += new System.EventHandler(this.tsbInfo_Click);
             // 
@@ -961,7 +959,7 @@
             // 
             this.toolStripLabel1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(85, 29);
+            this.toolStripLabel1.Size = new System.Drawing.Size(91, 36);
             this.toolStripLabel1.Text = "Datums:";
             // 
             // dgvEvents
@@ -1013,9 +1011,12 @@
             this.dgvEvents.DataSource = this.bsRows;
             this.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEvents.Location = new System.Drawing.Point(0, 0);
+            this.dgvEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvEvents.Name = "dgvEvents";
-            this.dgvEvents.RowTemplate.Height = 24;
-            this.dgvEvents.Size = new System.Drawing.Size(816, 145);
+            this.dgvEvents.RowHeadersWidth = 62;
+            this.dgvEvents.RowTemplate.Height = 29;
+            this.dgvEvents.ShowCellToolTips = false;
+            this.dgvEvents.Size = new System.Drawing.Size(918, 181);
             this.dgvEvents.TabIndex = 0;
             this.dgvEvents.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvEvents_MyKeyDown);
             this.dgvEvents.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvEvents_CellBeginEdit);
@@ -1034,10 +1035,11 @@
             this.dgcEventsSNR.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcEventsSNR.Frozen = true;
             this.dgcEventsSNR.HeaderText = "Npk";
+            this.dgcEventsSNR.MinimumWidth = 9;
             this.dgcEventsSNR.Name = "dgcEventsSNR";
             this.dgcEventsSNR.ReadOnly = true;
             this.dgcEventsSNR.ToolTipText = "Numurs pēc kārtas";
-            this.dgcEventsSNR.Width = 40;
+            this.dgcEventsSNR.Width = 45;
             // 
             // dgcEventsEvent
             // 
@@ -1053,13 +1055,14 @@
             this.dgcEventsEvent.Frozen = true;
             this.dgcEventsEvent.HeaderText = "Not. kods";
             this.dgcEventsEvent.MaxDropDownItems = 15;
+            this.dgcEventsEvent.MinimumWidth = 9;
             this.dgcEventsEvent.Name = "dgcEventsEvent";
             this.dgcEventsEvent.ReadOnly = true;
             this.dgcEventsEvent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsEvent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsEvent.ToolTipText = "Notikuma kods";
             this.dgcEventsEvent.ValueMember = "ID";
-            this.dgcEventsEvent.Width = 80;
+            this.dgcEventsEvent.Width = 90;
             // 
             // dgcEventsDT
             // 
@@ -1068,10 +1071,11 @@
             this.dgcEventsDT.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgcEventsDT.Frozen = true;
             this.dgcEventsDT.HeaderText = "Datums";
+            this.dgcEventsDT.MinimumWidth = 9;
             this.dgcEventsDT.Name = "dgcEventsDT";
             this.dgcEventsDT.ReadOnly = true;
             this.dgcEventsDT.ToolTipText = "Notikuma datums";
-            this.dgcEventsDT.Width = 85;
+            this.dgcEventsDT.Width = 95;
             // 
             // dgcEventsDtReg
             // 
@@ -1079,23 +1083,27 @@
             dataGridViewCellStyle4.Format = "dd.MM.yyyy";
             this.dgcEventsDtReg.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgcEventsDtReg.HeaderText = "Reģ.dat.";
+            this.dgcEventsDtReg.MinimumWidth = 9;
             this.dgcEventsDtReg.Name = "dgcEventsDtReg";
             this.dgcEventsDtReg.ToolTipText = "Reģistrācijas datums";
-            this.dgcEventsDtReg.Width = 85;
+            this.dgcEventsDtReg.Width = 95;
             // 
             // dgcEventsDescr
             // 
             this.dgcEventsDescr.DataPropertyName = "DESCR";
             this.dgcEventsDescr.HeaderText = "Apraksts";
+            this.dgcEventsDescr.MinimumWidth = 9;
             this.dgcEventsDescr.Name = "dgcEventsDescr";
-            this.dgcEventsDescr.Width = 150;
+            this.dgcEventsDescr.Width = 168;
             // 
             // dgcEventsDocNr
             // 
             this.dgcEventsDocNr.DataPropertyName = "DOCNR";
             this.dgcEventsDocNr.HeaderText = "Dok.nr.";
+            this.dgcEventsDocNr.MinimumWidth = 9;
             this.dgcEventsDocNr.Name = "dgcEventsDocNr";
             this.dgcEventsDocNr.ToolTipText = "Dokumenta numurs";
+            this.dgcEventsDocNr.Width = 168;
             // 
             // dgcEventsCat1
             // 
@@ -1109,11 +1117,13 @@
             this.dgcEventsCat1.DisplayStyleForCurrentCellOnly = true;
             this.dgcEventsCat1.HeaderText = "Kat.";
             this.dgcEventsCat1.MaxDropDownItems = 15;
+            this.dgcEventsCat1.MinimumWidth = 9;
             this.dgcEventsCat1.Name = "dgcEventsCat1";
             this.dgcEventsCat1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsCat1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsCat1.ToolTipText = "Pamatlīdzekļu kategorija";
             this.dgcEventsCat1.ValueMember = "ID";
+            this.dgcEventsCat1.Width = 168;
             // 
             // dgcEventsCatD
             // 
@@ -1127,11 +1137,13 @@
             this.dgcEventsCatD.DisplayStyleForCurrentCellOnly = true;
             this.dgcEventsCatD.HeaderText = "Nol. kat.";
             this.dgcEventsCatD.MaxDropDownItems = 15;
+            this.dgcEventsCatD.MinimumWidth = 9;
             this.dgcEventsCatD.Name = "dgcEventsCatD";
             this.dgcEventsCatD.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsCatD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsCatD.ToolTipText = "Nolietojuma kategorija";
             this.dgcEventsCatD.ValueMember = "ID";
+            this.dgcEventsCatD.Width = 168;
             // 
             // dgcEventsCatT
             // 
@@ -1145,11 +1157,13 @@
             this.dgcEventsCatT.DisplayStyleForCurrentCellOnly = true;
             this.dgcEventsCatT.HeaderText = "Nod. kat.";
             this.dgcEventsCatT.MaxDropDownItems = 15;
+            this.dgcEventsCatT.MinimumWidth = 9;
             this.dgcEventsCatT.Name = "dgcEventsCatT";
             this.dgcEventsCatT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsCatT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsCatT.ToolTipText = "Nolietojuma kategorija nodokļu vajadzībām";
             this.dgcEventsCatT.ValueMember = "ID";
+            this.dgcEventsCatT.Width = 168;
             // 
             // dgcEventsDepartment
             // 
@@ -1163,11 +1177,13 @@
             this.dgcEventsDepartment.DisplayStyleForCurrentCellOnly = true;
             this.dgcEventsDepartment.HeaderText = "Str.v.";
             this.dgcEventsDepartment.MaxDropDownItems = 15;
+            this.dgcEventsDepartment.MinimumWidth = 9;
             this.dgcEventsDepartment.Name = "dgcEventsDepartment";
             this.dgcEventsDepartment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsDepartment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsDepartment.ToolTipText = "Struktūrvienība";
             this.dgcEventsDepartment.ValueMember = "ID";
+            this.dgcEventsDepartment.Width = 168;
             // 
             // dgcEventsPlace
             // 
@@ -1181,11 +1197,13 @@
             this.dgcEventsPlace.DisplayStyleForCurrentCellOnly = true;
             this.dgcEventsPlace.HeaderText = "Atrodas";
             this.dgcEventsPlace.MaxDropDownItems = 15;
+            this.dgcEventsPlace.MinimumWidth = 9;
             this.dgcEventsPlace.Name = "dgcEventsPlace";
             this.dgcEventsPlace.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsPlace.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsPlace.ToolTipText = "Atrašanās vieta";
             this.dgcEventsPlace.ValueMember = "ID";
+            this.dgcEventsPlace.Width = 168;
             // 
             // dgcEventsValue0
             // 
@@ -1194,9 +1212,10 @@
             dataGridViewCellStyle5.Format = "N2";
             this.dgcEventsValue0.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgcEventsValue0.HeaderText = "Ieg.v.";
+            this.dgcEventsValue0.MinimumWidth = 9;
             this.dgcEventsValue0.Name = "dgcEventsValue0";
             this.dgcEventsValue0.ToolTipText = "Iegādes vērtība uz datumu";
-            this.dgcEventsValue0.Width = 80;
+            this.dgcEventsValue0.Width = 90;
             // 
             // dgcEventsDeprec0
             // 
@@ -1205,9 +1224,10 @@
             dataGridViewCellStyle6.Format = "N2";
             this.dgcEventsDeprec0.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgcEventsDeprec0.HeaderText = "Uzrkr. noliet.";
+            this.dgcEventsDeprec0.MinimumWidth = 9;
             this.dgcEventsDeprec0.Name = "dgcEventsDeprec0";
             this.dgcEventsDeprec0.ToolTipText = "Uzkrātais nolietojums";
-            this.dgcEventsDeprec0.Width = 80;
+            this.dgcEventsDeprec0.Width = 90;
             // 
             // dgcEventsValueC
             // 
@@ -1216,8 +1236,9 @@
             dataGridViewCellStyle7.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcEventsValueC.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgcEventsValueC.HeaderText = "ieg.v. +/-";
+            this.dgcEventsValueC.MinimumWidth = 9;
             this.dgcEventsValueC.Name = "dgcEventsValueC";
-            this.dgcEventsValueC.Width = 80;
+            this.dgcEventsValueC.Width = 90;
             // 
             // dgcEventsDeprecC
             // 
@@ -1226,8 +1247,9 @@
             dataGridViewCellStyle8.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcEventsDeprecC.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgcEventsDeprecC.HeaderText = "Uzkr.nol. +/-";
+            this.dgcEventsDeprecC.MinimumWidth = 9;
             this.dgcEventsDeprecC.Name = "dgcEventsDeprecC";
-            this.dgcEventsDeprecC.Width = 80;
+            this.dgcEventsDeprecC.Width = 90;
             // 
             // dgcEventsSellValue
             // 
@@ -1236,9 +1258,10 @@
             dataGridViewCellStyle9.Format = "N2";
             this.dgcEventsSellValue.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgcEventsSellValue.HeaderText = "Pārd.v.";
+            this.dgcEventsSellValue.MinimumWidth = 9;
             this.dgcEventsSellValue.Name = "dgcEventsSellValue";
             this.dgcEventsSellValue.ToolTipText = "Pārdošanas vērtība";
-            this.dgcEventsSellValue.Width = 80;
+            this.dgcEventsSellValue.Width = 90;
             // 
             // dgcEventsMtTotal
             // 
@@ -1246,10 +1269,11 @@
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcEventsMtTotal.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgcEventsMtTotal.HeaderText = "Mēn.";
+            this.dgcEventsMtTotal.MinimumWidth = 9;
             this.dgcEventsMtTotal.Name = "dgcEventsMtTotal";
             this.dgcEventsMtTotal.ReadOnly = true;
             this.dgcEventsMtTotal.ToolTipText = "Nolietojuma periods mēnešos";
-            this.dgcEventsMtTotal.Width = 40;
+            this.dgcEventsMtTotal.Width = 45;
             // 
             // dgcEventsMtUsed
             // 
@@ -1257,9 +1281,10 @@
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcEventsMtUsed.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgcEventsMtUsed.HeaderText = "Mēn. izm.";
+            this.dgcEventsMtUsed.MinimumWidth = 9;
             this.dgcEventsMtUsed.Name = "dgcEventsMtUsed";
             this.dgcEventsMtUsed.ToolTipText = "Izmantotais nolietojuma periods mēnešos";
-            this.dgcEventsMtUsed.Width = 40;
+            this.dgcEventsMtUsed.Width = 45;
             // 
             // dgcEventsRateD
             // 
@@ -1268,10 +1293,11 @@
             dataGridViewCellStyle12.Format = "%";
             this.dgcEventsRateD.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgcEventsRateD.HeaderText = "Nol. likme";
+            this.dgcEventsRateD.MinimumWidth = 9;
             this.dgcEventsRateD.Name = "dgcEventsRateD";
             this.dgcEventsRateD.ReadOnly = true;
             this.dgcEventsRateD.ToolTipText = "Nolietojuma likme";
-            this.dgcEventsRateD.Width = 40;
+            this.dgcEventsRateD.Width = 45;
             // 
             // dgcEventsRateDMt
             // 
@@ -1280,10 +1306,11 @@
             dataGridViewCellStyle13.Format = "N2";
             this.dgcEventsRateDMt.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgcEventsRateDMt.HeaderText = "Nol.likme mēnesī";
+            this.dgcEventsRateDMt.MinimumWidth = 9;
             this.dgcEventsRateDMt.Name = "dgcEventsRateDMt";
             this.dgcEventsRateDMt.ReadOnly = true;
             this.dgcEventsRateDMt.ToolTipText = "Nolietojama likme mēnesī";
-            this.dgcEventsRateDMt.Width = 80;
+            this.dgcEventsRateDMt.Width = 90;
             // 
             // dgcEventsTaxValC
             // 
@@ -1292,9 +1319,10 @@
             dataGridViewCellStyle14.Format = "# ##0.00;-# ##0.00;\"\"";
             this.dgcEventsTaxValC.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgcEventsTaxValC.HeaderText = "Nod.nol. +/-";
+            this.dgcEventsTaxValC.MinimumWidth = 9;
             this.dgcEventsTaxValC.Name = "dgcEventsTaxValC";
             this.dgcEventsTaxValC.ToolTipText = "Vērtības izmaiņas nodokļa vajadzībām";
-            this.dgcEventsTaxValC.Width = 80;
+            this.dgcEventsTaxValC.Width = 90;
             // 
             // dgcEventsTaxVal
             // 
@@ -1303,9 +1331,10 @@
             dataGridViewCellStyle15.Format = "N2";
             this.dgcEventsTaxVal.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgcEventsTaxVal.HeaderText = "Nod.nol.";
+            this.dgcEventsTaxVal.MinimumWidth = 9;
             this.dgcEventsTaxVal.Name = "dgcEventsTaxVal";
             this.dgcEventsTaxVal.ToolTipText = "Vērtība nodokļa vajadzībām";
-            this.dgcEventsTaxVal.Width = 80;
+            this.dgcEventsTaxVal.Width = 90;
             // 
             // dgcEventsTaxValLeft
             // 
@@ -1314,9 +1343,10 @@
             dataGridViewCellStyle16.Format = "N2";
             this.dgcEventsTaxValLeft.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgcEventsTaxValLeft.HeaderText = "Nod.nol. atl.v.";
+            this.dgcEventsTaxValLeft.MinimumWidth = 9;
             this.dgcEventsTaxValLeft.Name = "dgcEventsTaxValLeft";
             this.dgcEventsTaxValLeft.ToolTipText = "Atlikusī vērtība nodokļa vajadzībām";
-            this.dgcEventsTaxValLeft.Width = 80;
+            this.dgcEventsTaxValLeft.Width = 90;
             // 
             // dgcEventsTaxRate
             // 
@@ -1324,53 +1354,63 @@
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcEventsTaxRate.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgcEventsTaxRate.HeaderText = "Nod.nol. likme";
+            this.dgcEventsTaxRate.MinimumWidth = 9;
             this.dgcEventsTaxRate.Name = "dgcEventsTaxRate";
             this.dgcEventsTaxRate.ReadOnly = true;
             this.dgcEventsTaxRate.ToolTipText = "Nolietojuma likme nodokļu vajadzībām";
-            this.dgcEventsTaxRate.Width = 60;
+            this.dgcEventsTaxRate.Width = 67;
             // 
             // dgcEventsTaxEach
             // 
             this.dgcEventsTaxEach.DataPropertyName = "TAX_EACH";
             this.dgcEventsTaxEach.FalseValue = "0";
             this.dgcEventsTaxEach.HeaderText = "Nod.nol. katru";
+            this.dgcEventsTaxEach.MinimumWidth = 9;
             this.dgcEventsTaxEach.Name = "dgcEventsTaxEach";
             this.dgcEventsTaxEach.ReadOnly = true;
             this.dgcEventsTaxEach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcEventsTaxEach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcEventsTaxEach.ToolTipText = "Nolietojumu nodokļu vajadzībām rēķina katram pamatlīdzeklim atsevišķi";
             this.dgcEventsTaxEach.TrueValue = "1";
-            this.dgcEventsTaxEach.Width = 60;
+            this.dgcEventsTaxEach.Width = 67;
             // 
             // dgcEventsZDT
             // 
             this.dgcEventsZDT.DataPropertyName = "ZDT";
             this.dgcEventsZDT.HeaderText = "ZDT";
+            this.dgcEventsZDT.MinimumWidth = 9;
             this.dgcEventsZDT.Name = "dgcEventsZDT";
             this.dgcEventsZDT.ReadOnly = true;
             this.dgcEventsZDT.Visible = false;
+            this.dgcEventsZDT.Width = 168;
             // 
             // dgcEventsZU
             // 
             this.dgcEventsZU.DataPropertyName = "ZU";
             this.dgcEventsZU.HeaderText = "ZU";
+            this.dgcEventsZU.MinimumWidth = 9;
             this.dgcEventsZU.Name = "dgcEventsZU";
             this.dgcEventsZU.ReadOnly = true;
             this.dgcEventsZU.Visible = false;
+            this.dgcEventsZU.Width = 168;
             // 
             // dgcEventsID
             // 
             this.dgcEventsID.DataPropertyName = "ID";
             this.dgcEventsID.HeaderText = "ID";
+            this.dgcEventsID.MinimumWidth = 9;
             this.dgcEventsID.Name = "dgcEventsID";
             this.dgcEventsID.Visible = false;
+            this.dgcEventsID.Width = 168;
             // 
             // dgcEventsIDIT
             // 
             this.dgcEventsIDIT.DataPropertyName = "IDIT";
             this.dgcEventsIDIT.HeaderText = "IDIT";
+            this.dgcEventsIDIT.MinimumWidth = 9;
             this.dgcEventsIDIT.Name = "dgcEventsIDIT";
             this.dgcEventsIDIT.Visible = false;
+            this.dgcEventsIDIT.Width = 168;
             // 
             // dgvItems
             // 
@@ -1410,9 +1450,12 @@
             this.dgvItems.DataSource = this.bsItems;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvItems.Name = "dgvItems";
-            this.dgvItems.RowTemplate.Height = 24;
-            this.dgvItems.Size = new System.Drawing.Size(816, 238);
+            this.dgvItems.RowHeadersWidth = 62;
+            this.dgvItems.RowTemplate.Height = 29;
+            this.dgvItems.ShowCellToolTips = false;
+            this.dgvItems.Size = new System.Drawing.Size(918, 299);
             this.dgvItems.TabIndex = 0;
             this.dgvItems.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvItems_MyKeyDown);
             this.dgvItems.MyCheckForChanges += new System.EventHandler(this.dgvItems_MyCheckForChanges);
@@ -1426,16 +1469,18 @@
             // 
             this.dgcItemsRegNr.DataPropertyName = "REG_NR";
             this.dgcItemsRegNr.HeaderText = "Rēg. nr.";
+            this.dgcItemsRegNr.MinimumWidth = 9;
             this.dgcItemsRegNr.Name = "dgcItemsRegNr";
             this.dgcItemsRegNr.ToolTipText = "Reģistrācijas numurs";
-            this.dgcItemsRegNr.Width = 60;
+            this.dgcItemsRegNr.Width = 67;
             // 
             // dgcItemsName
             // 
             this.dgcItemsName.DataPropertyName = "NAME";
             this.dgcItemsName.HeaderText = "Nosaukums";
+            this.dgcItemsName.MinimumWidth = 9;
             this.dgcItemsName.Name = "dgcItemsName";
-            this.dgcItemsName.Width = 200;
+            this.dgcItemsName.Width = 225;
             // 
             // dgcItemsDate1
             // 
@@ -1443,10 +1488,11 @@
             dataGridViewCellStyle19.Format = "dd.MM.yyyy";
             this.dgcItemsDate1.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgcItemsDate1.HeaderText = "Uzņemts";
+            this.dgcItemsDate1.MinimumWidth = 9;
             this.dgcItemsDate1.Name = "dgcItemsDate1";
             this.dgcItemsDate1.ReadOnly = true;
             this.dgcItemsDate1.ToolTipText = "Uzņemts uzskaitē";
-            this.dgcItemsDate1.Width = 85;
+            this.dgcItemsDate1.Width = 95;
             // 
             // dgcItemsDate2
             // 
@@ -1454,18 +1500,20 @@
             dataGridViewCellStyle20.Format = "dd.MM.yyyy";
             this.dgcItemsDate2.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgcItemsDate2.HeaderText = "Izslēgts";
+            this.dgcItemsDate2.MinimumWidth = 9;
             this.dgcItemsDate2.Name = "dgcItemsDate2";
             this.dgcItemsDate2.ReadOnly = true;
             this.dgcItemsDate2.ToolTipText = "Izslēgts no uzskaites";
-            this.dgcItemsDate2.Width = 85;
+            this.dgcItemsDate2.Width = 95;
             // 
             // dgcItemsState
             // 
             this.dgcItemsState.DataPropertyName = "TSTATE";
             this.dgcItemsState.HeaderText = "Status";
+            this.dgcItemsState.MinimumWidth = 9;
             this.dgcItemsState.Name = "dgcItemsState";
             this.dgcItemsState.ReadOnly = true;
-            this.dgcItemsState.Width = 80;
+            this.dgcItemsState.Width = 90;
             // 
             // dgcItemsValue0
             // 
@@ -1474,10 +1522,11 @@
             dataGridViewCellStyle21.Format = "N2";
             this.dgcItemsValue0.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgcItemsValue0.HeaderText = "Iegādes vērtība";
+            this.dgcItemsValue0.MinimumWidth = 9;
             this.dgcItemsValue0.Name = "dgcItemsValue0";
             this.dgcItemsValue0.ReadOnly = true;
             this.dgcItemsValue0.ToolTipText = "Iegādes vērtība";
-            this.dgcItemsValue0.Width = 80;
+            this.dgcItemsValue0.Width = 90;
             // 
             // dgcItemsDepre
             // 
@@ -1486,11 +1535,12 @@
             dataGridViewCellStyle22.Format = "N2";
             this.dgcItemsDepre.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgcItemsDepre.HeaderText = "Uzkr. noliet.";
+            this.dgcItemsDepre.MinimumWidth = 9;
             this.dgcItemsDepre.Name = "dgcItemsDepre";
             this.dgcItemsDepre.ReadOnly = true;
             this.dgcItemsDepre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgcItemsDepre.ToolTipText = "Uzkrātais nolietojums";
-            this.dgcItemsDepre.Width = 80;
+            this.dgcItemsDepre.Width = 90;
             // 
             // dgcItemsValueLeft
             // 
@@ -1499,10 +1549,11 @@
             dataGridViewCellStyle23.Format = "N2";
             this.dgcItemsValueLeft.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgcItemsValueLeft.HeaderText = "Atl. vērtība";
+            this.dgcItemsValueLeft.MinimumWidth = 9;
             this.dgcItemsValueLeft.Name = "dgcItemsValueLeft";
             this.dgcItemsValueLeft.ReadOnly = true;
             this.dgcItemsValueLeft.ToolTipText = "Atlikusī vērtība";
-            this.dgcItemsValueLeft.Width = 80;
+            this.dgcItemsValueLeft.Width = 90;
             // 
             // dgcItemsCat1
             // 
@@ -1511,12 +1562,14 @@
             this.dgcItemsCat1.DisplayMember = "CODE";
             this.dgcItemsCat1.DisplayStyleForCurrentCellOnly = true;
             this.dgcItemsCat1.HeaderText = "Kat.";
+            this.dgcItemsCat1.MinimumWidth = 9;
             this.dgcItemsCat1.Name = "dgcItemsCat1";
             this.dgcItemsCat1.ReadOnly = true;
             this.dgcItemsCat1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcItemsCat1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcItemsCat1.ToolTipText = "Pamatlīdzekļu kategorija";
             this.dgcItemsCat1.ValueMember = "ID";
+            this.dgcItemsCat1.Width = 168;
             // 
             // dgcItemsCatD
             // 
@@ -1525,12 +1578,14 @@
             this.dgcItemsCatD.DisplayMember = "CODE";
             this.dgcItemsCatD.DisplayStyleForCurrentCellOnly = true;
             this.dgcItemsCatD.HeaderText = "Nol. kat.";
+            this.dgcItemsCatD.MinimumWidth = 9;
             this.dgcItemsCatD.Name = "dgcItemsCatD";
             this.dgcItemsCatD.ReadOnly = true;
             this.dgcItemsCatD.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcItemsCatD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcItemsCatD.ToolTipText = "Nolietojuma kategorija";
             this.dgcItemsCatD.ValueMember = "ID";
+            this.dgcItemsCatD.Width = 168;
             // 
             // dgcItemsCatT
             // 
@@ -1539,11 +1594,13 @@
             this.dgcItemsCatT.DisplayMember = "CODE";
             this.dgcItemsCatT.DisplayStyleForCurrentCellOnly = true;
             this.dgcItemsCatT.HeaderText = "Nod. kat.";
+            this.dgcItemsCatT.MinimumWidth = 9;
             this.dgcItemsCatT.Name = "dgcItemsCatT";
             this.dgcItemsCatT.ReadOnly = true;
             this.dgcItemsCatT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcItemsCatT.ToolTipText = "Nolietojuma kategorija nodokļu vajadzībām";
             this.dgcItemsCatT.ValueMember = "ID";
+            this.dgcItemsCatT.Width = 168;
             // 
             // dgcItemsDepartment
             // 
@@ -1552,12 +1609,14 @@
             this.dgcItemsDepartment.DisplayMember = "CODE";
             this.dgcItemsDepartment.DisplayStyleForCurrentCellOnly = true;
             this.dgcItemsDepartment.HeaderText = "Str.v.";
+            this.dgcItemsDepartment.MinimumWidth = 9;
             this.dgcItemsDepartment.Name = "dgcItemsDepartment";
             this.dgcItemsDepartment.ReadOnly = true;
             this.dgcItemsDepartment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcItemsDepartment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcItemsDepartment.ToolTipText = "Struktūrvienība";
             this.dgcItemsDepartment.ValueMember = "ID";
+            this.dgcItemsDepartment.Width = 168;
             // 
             // dgcItemsPlace
             // 
@@ -1566,66 +1625,81 @@
             this.dgcItemsPlace.DisplayMember = "CODE";
             this.dgcItemsPlace.DisplayStyleForCurrentCellOnly = true;
             this.dgcItemsPlace.HeaderText = "Atrodas";
+            this.dgcItemsPlace.MinimumWidth = 9;
             this.dgcItemsPlace.Name = "dgcItemsPlace";
             this.dgcItemsPlace.ReadOnly = true;
             this.dgcItemsPlace.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcItemsPlace.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcItemsPlace.ToolTipText = "Atrašanās vieta";
             this.dgcItemsPlace.ValueMember = "ID";
+            this.dgcItemsPlace.Width = 168;
             // 
             // dgcItemsError
             // 
             this.dgcItemsError.DataPropertyName = "TERROR";
             this.dgcItemsError.HeaderText = "Kļudas paziņojums";
+            this.dgcItemsError.MinimumWidth = 9;
             this.dgcItemsError.Name = "dgcItemsError";
             this.dgcItemsError.ReadOnly = true;
-            this.dgcItemsError.Width = 200;
+            this.dgcItemsError.Width = 225;
             // 
             // dgcItemsOPT
             // 
             this.dgcItemsOPT.DataPropertyName = "TSTATE";
             this.dgcItemsOPT.HeaderText = "OPT";
+            this.dgcItemsOPT.MinimumWidth = 9;
             this.dgcItemsOPT.Name = "dgcItemsOPT";
             this.dgcItemsOPT.Visible = false;
+            this.dgcItemsOPT.Width = 168;
             // 
             // dgcItemsID
             // 
             this.dgcItemsID.DataPropertyName = "ID";
             this.dgcItemsID.HeaderText = "ID";
+            this.dgcItemsID.MinimumWidth = 9;
             this.dgcItemsID.Name = "dgcItemsID";
             this.dgcItemsID.Visible = false;
+            this.dgcItemsID.Width = 168;
             // 
             // dgcItemsZDT
             // 
             this.dgcItemsZDT.DataPropertyName = "ZDT";
             this.dgcItemsZDT.HeaderText = "ZDT";
+            this.dgcItemsZDT.MinimumWidth = 9;
             this.dgcItemsZDT.Name = "dgcItemsZDT";
             this.dgcItemsZDT.Visible = false;
+            this.dgcItemsZDT.Width = 168;
             // 
             // dgcItemsZU
             // 
             this.dgcItemsZU.DataPropertyName = "ZU";
             this.dgcItemsZU.HeaderText = "ZU";
+            this.dgcItemsZU.MinimumWidth = 9;
             this.dgcItemsZU.Name = "dgcItemsZU";
             this.dgcItemsZU.Visible = false;
+            this.dgcItemsZU.Width = 168;
             // 
             // mySplitContainer1
             // 
             this.mySplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mySplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.mySplitContainer1.Location = new System.Drawing.Point(0, 48);
+            this.mySplitContainer1.Location = new System.Drawing.Point(0, 60);
+            this.mySplitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mySplitContainer1.Name = "mySplitContainer1";
             this.mySplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // mySplitContainer1.Panel1
             // 
             this.mySplitContainer1.Panel1.Controls.Add(this.dgvItems);
+            this.mySplitContainer1.Panel1MinSize = 31;
             // 
             // mySplitContainer1.Panel2
             // 
             this.mySplitContainer1.Panel2.Controls.Add(this.dgvEvents);
-            this.mySplitContainer1.Size = new System.Drawing.Size(816, 387);
-            this.mySplitContainer1.SplitterDistance = 238;
+            this.mySplitContainer1.Panel2MinSize = 31;
+            this.mySplitContainer1.Size = new System.Drawing.Size(918, 485);
+            this.mySplitContainer1.SplitterDistance = 299;
+            this.mySplitContainer1.SplitterWidth = 5;
             this.mySplitContainer1.TabIndex = 2;
             // 
             // myAdapterManager1
@@ -1648,7 +1722,8 @@
             this.pamatlīdzekļuSarakstsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1106, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1244, 41);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -1671,77 +1746,77 @@
             this.kartiņaToolStripMenuItem,
             this.kartītesToolStripMenuItem});
             this.pamatlīdzekļuSarakstsToolStripMenuItem.Name = "pamatlīdzekļuSarakstsToolStripMenuItem";
-            this.pamatlīdzekļuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(223, 29);
+            this.pamatlīdzekļuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(242, 37);
             this.pamatlīdzekļuSarakstsToolStripMenuItem.Text = "Pamatlīdzekļu saraksts";
             // 
             // pārrēķinātToolStripMenuItem
             // 
             this.pārrēķinātToolStripMenuItem.Name = "pārrēķinātToolStripMenuItem";
-            this.pārrēķinātToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.pārrēķinātToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.pārrēķinātToolStripMenuItem.Text = "Pārrēķināt";
             this.pārrēķinātToolStripMenuItem.Click += new System.EventHandler(this.pārrēķinātToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(397, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(462, 6);
             // 
             // jaunsPamatlīdzeklisToolStripMenuItem
             // 
             this.jaunsPamatlīdzeklisToolStripMenuItem.Name = "jaunsPamatlīdzeklisToolStripMenuItem";
-            this.jaunsPamatlīdzeklisToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.jaunsPamatlīdzeklisToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.jaunsPamatlīdzeklisToolStripMenuItem.Text = "Jauns pamatlīdzeklis";
             this.jaunsPamatlīdzeklisToolStripMenuItem.Click += new System.EventHandler(this.jaunsPamatlīdzeklisToolStripMenuItem_Click);
             // 
             // jaunsNotikumsToolStripMenuItem
             // 
             this.jaunsNotikumsToolStripMenuItem.Name = "jaunsNotikumsToolStripMenuItem";
-            this.jaunsNotikumsToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.jaunsNotikumsToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.jaunsNotikumsToolStripMenuItem.Text = "Jauns notikums";
             this.jaunsNotikumsToolStripMenuItem.Click += new System.EventHandler(this.jaunsNotikumsToolStripMenuItem_Click);
             // 
             // amortizētāsAizstāšanasIzmaksasToolStripMenuItem
             // 
             this.amortizētāsAizstāšanasIzmaksasToolStripMenuItem.Name = "amortizētāsAizstāšanasIzmaksasToolStripMenuItem";
-            this.amortizētāsAizstāšanasIzmaksasToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.amortizētāsAizstāšanasIzmaksasToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.amortizētāsAizstāšanasIzmaksasToolStripMenuItem.Text = "Amortizētās aizstāšanas izmaksas";
             this.amortizētāsAizstāšanasIzmaksasToolStripMenuItem.Click += new System.EventHandler(this.amortizētāsAizstāšanasIzmaksasToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(397, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(462, 6);
             // 
             // meklētPamatlīdzekliToolStripMenuItem
             // 
             this.meklētPamatlīdzekliToolStripMenuItem.Name = "meklētPamatlīdzekliToolStripMenuItem";
-            this.meklētPamatlīdzekliToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.meklētPamatlīdzekliToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.meklētPamatlīdzekliToolStripMenuItem.Text = "Meklēt pamatlīdzekli (Ctrl + F)";
             this.meklētPamatlīdzekliToolStripMenuItem.Click += new System.EventHandler(this.meklētPamatlīdzekliToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(397, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(462, 6);
             // 
             // rādītPaslēptDatuPaneliToolStripMenuItem
             // 
             this.rādītPaslēptDatuPaneliToolStripMenuItem.Name = "rādītPaslēptDatuPaneliToolStripMenuItem";
-            this.rādītPaslēptDatuPaneliToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.rādītPaslēptDatuPaneliToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.rādītPaslēptDatuPaneliToolStripMenuItem.Text = "Rādīt / paslēpt datu paneli (Ctrl + D)";
             this.rādītPaslēptDatuPaneliToolStripMenuItem.Click += new System.EventHandler(this.rādītPaslēptDatuPaneliToolStripMenuItem_Click);
             // 
             // rādītPaslēptFiltraPaneliToolStripMenuItem
             // 
             this.rādītPaslēptFiltraPaneliToolStripMenuItem.Name = "rādītPaslēptFiltraPaneliToolStripMenuItem";
-            this.rādītPaslēptFiltraPaneliToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.rādītPaslēptFiltraPaneliToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.rādītPaslēptFiltraPaneliToolStripMenuItem.Text = "Rādīt / paslēpt filtra paneli (Ctrl + G)";
             this.rādītPaslēptFiltraPaneliToolStripMenuItem.Click += new System.EventHandler(this.rādītPaslēptFiltraPaneliToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(397, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(462, 6);
             // 
             // aprēķinaIzklātsToolStripMenuItem
             // 
@@ -1749,20 +1824,20 @@
             this.paMēnešiemToolStripMenuItem,
             this.paGadiemToolStripMenuItem});
             this.aprēķinaIzklātsToolStripMenuItem.Name = "aprēķinaIzklātsToolStripMenuItem";
-            this.aprēķinaIzklātsToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.aprēķinaIzklātsToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.aprēķinaIzklātsToolStripMenuItem.Text = "Aprēķina izklāts";
             // 
             // paMēnešiemToolStripMenuItem
             // 
             this.paMēnešiemToolStripMenuItem.Name = "paMēnešiemToolStripMenuItem";
-            this.paMēnešiemToolStripMenuItem.Size = new System.Drawing.Size(209, 30);
+            this.paMēnešiemToolStripMenuItem.Size = new System.Drawing.Size(246, 38);
             this.paMēnešiemToolStripMenuItem.Text = "pa mēnešiem";
             this.paMēnešiemToolStripMenuItem.Click += new System.EventHandler(this.aprēķinaIzklāstsPaMēnešiemToolStripMenuItem_Click);
             // 
             // paGadiemToolStripMenuItem
             // 
             this.paGadiemToolStripMenuItem.Name = "paGadiemToolStripMenuItem";
-            this.paGadiemToolStripMenuItem.Size = new System.Drawing.Size(209, 30);
+            this.paGadiemToolStripMenuItem.Size = new System.Drawing.Size(246, 38);
             this.paGadiemToolStripMenuItem.Text = "pa gadiem";
             this.paGadiemToolStripMenuItem.Click += new System.EventHandler(this.aprēķinaIzklāstsPaGadiemToolStripMenuItem_Click);
             // 
@@ -1777,51 +1852,51 @@
             this.toolStripSeparator6,
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem});
             this.kartiņaToolStripMenuItem.Name = "kartiņaToolStripMenuItem";
-            this.kartiņaToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.kartiņaToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.kartiņaToolStripMenuItem.Text = "Kartīte";
             // 
             // miKartiņaTabula
             // 
             this.miKartiņaTabula.Name = "miKartiņaTabula";
-            this.miKartiņaTabula.Size = new System.Drawing.Size(453, 30);
+            this.miKartiņaTabula.Size = new System.Drawing.Size(517, 38);
             this.miKartiņaTabula.Text = "Tabula";
             this.miKartiņaTabula.Click += new System.EventHandler(this.miKartiņaTabula_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(450, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(514, 6);
             // 
             // izdruka1ToolStripMenuItem
             // 
             this.izdruka1ToolStripMenuItem.Name = "izdruka1ToolStripMenuItem";
-            this.izdruka1ToolStripMenuItem.Size = new System.Drawing.Size(453, 30);
+            this.izdruka1ToolStripMenuItem.Size = new System.Drawing.Size(517, 38);
             this.izdruka1ToolStripMenuItem.Text = "Izdruka 1";
             this.izdruka1ToolStripMenuItem.Click += new System.EventHandler(this.izdruka1ToolStripMenuItem_Click);
             // 
             // izdruka2ToolStripMenuItem
             // 
             this.izdruka2ToolStripMenuItem.Name = "izdruka2ToolStripMenuItem";
-            this.izdruka2ToolStripMenuItem.Size = new System.Drawing.Size(453, 30);
+            this.izdruka2ToolStripMenuItem.Size = new System.Drawing.Size(517, 38);
             this.izdruka2ToolStripMenuItem.Text = "Izdruka 2 (kustības pārskats)";
             this.izdruka2ToolStripMenuItem.Click += new System.EventHandler(this.izdruka2ToolStripMenuItem_Click);
             // 
             // izdruka3ToolStripMenuItem
             // 
             this.izdruka3ToolStripMenuItem.Name = "izdruka3ToolStripMenuItem";
-            this.izdruka3ToolStripMenuItem.Size = new System.Drawing.Size(453, 30);
+            this.izdruka3ToolStripMenuItem.Size = new System.Drawing.Size(517, 38);
             this.izdruka3ToolStripMenuItem.Text = "Izdruka 3 (kustības pārskats + nodokļiem)";
             this.izdruka3ToolStripMenuItem.Click += new System.EventHandler(this.izdruka3ToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(450, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(514, 6);
             // 
             // nolietojumsNodokļaVajadzībāmToolStripMenuItem
             // 
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem.Name = "nolietojumsNodokļaVajadzībāmToolStripMenuItem";
-            this.nolietojumsNodokļaVajadzībāmToolStripMenuItem.Size = new System.Drawing.Size(453, 30);
+            this.nolietojumsNodokļaVajadzībāmToolStripMenuItem.Size = new System.Drawing.Size(517, 38);
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem.Text = "Nolietojums nodokļa vajadzībām";
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem.Click += new System.EventHandler(this.nolietojumsNodokļaVajadzībāmToolStripMenuItem_Click);
             // 
@@ -1831,20 +1906,20 @@
             this.izdruka1VisiemToolStripMenuItem1,
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1});
             this.kartītesToolStripMenuItem.Name = "kartītesToolStripMenuItem";
-            this.kartītesToolStripMenuItem.Size = new System.Drawing.Size(400, 30);
+            this.kartītesToolStripMenuItem.Size = new System.Drawing.Size(465, 38);
             this.kartītesToolStripMenuItem.Text = "Kartītes pamatlīdzekļiem";
             // 
             // izdruka1VisiemToolStripMenuItem1
             // 
             this.izdruka1VisiemToolStripMenuItem1.Name = "izdruka1VisiemToolStripMenuItem1";
-            this.izdruka1VisiemToolStripMenuItem1.Size = new System.Drawing.Size(371, 30);
+            this.izdruka1VisiemToolStripMenuItem1.Size = new System.Drawing.Size(431, 38);
             this.izdruka1VisiemToolStripMenuItem1.Text = "Izdruka 1";
             this.izdruka1VisiemToolStripMenuItem1.Click += new System.EventHandler(this.izdruka1VisiemToolStripMenuItem1_Click);
             // 
             // nolietojumsNodokļaVajadzībāmToolStripMenuItem1
             // 
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1.Name = "nolietojumsNodokļaVajadzībāmToolStripMenuItem1";
-            this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1.Size = new System.Drawing.Size(371, 30);
+            this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1.Size = new System.Drawing.Size(431, 38);
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1.Text = "Nolietojums nodokļa vajadzībām";
             this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1.Click += new System.EventHandler(this.nolietojumsNodokļaVajadzībāmToolStripMenuItem1_Click);
             // 
@@ -1853,8 +1928,9 @@
             this.pnFilter.Controls.Add(this.dgvFilter);
             this.pnFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnFilter.Location = new System.Drawing.Point(0, 0);
+            this.pnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnFilter.Name = "pnFilter";
-            this.pnFilter.Size = new System.Drawing.Size(1106, 48);
+            this.pnFilter.Size = new System.Drawing.Size(1244, 60);
             this.pnFilter.TabIndex = 6;
             // 
             // dgvFilter
@@ -1885,10 +1961,13 @@
             this.dgvFilter.DataSource = this.bsFilter;
             this.dgvFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFilter.Location = new System.Drawing.Point(0, 0);
+            this.dgvFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvFilter.Name = "dgvFilter";
             this.dgvFilter.RowHeadersVisible = false;
-            this.dgvFilter.RowTemplate.Height = 24;
-            this.dgvFilter.Size = new System.Drawing.Size(1106, 48);
+            this.dgvFilter.RowHeadersWidth = 62;
+            this.dgvFilter.RowTemplate.Height = 29;
+            this.dgvFilter.ShowCellToolTips = false;
+            this.dgvFilter.Size = new System.Drawing.Size(1244, 60);
             this.dgvFilter.TabIndex = 8;
             this.dgvFilter.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilter_CellDoubleClick);
             this.dgvFilter.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilter_CellEndEdit);
@@ -1901,9 +1980,10 @@
             dataGridViewCellStyle25.Format = "dd.MM.yyyy";
             this.dgcFilterDate.DefaultCellStyle = dataGridViewCellStyle25;
             this.dgcFilterDate.HeaderText = "Datums";
+            this.dgcFilterDate.MinimumWidth = 9;
             this.dgcFilterDate.Name = "dgcFilterDate";
             this.dgcFilterDate.ToolTipText = "Aprēķina datums";
-            this.dgcFilterDate.Width = 80;
+            this.dgcFilterDate.Width = 90;
             // 
             // dgcFilterSate
             // 
@@ -1912,9 +1992,10 @@
             this.dgcFilterSate.DataPropertyName = "fSTATE";
             this.dgcFilterSate.DisplayStyleForCurrentCellOnly = true;
             this.dgcFilterSate.HeaderText = "Status";
+            this.dgcFilterSate.MinimumWidth = 9;
             this.dgcFilterSate.Name = "dgcFilterSate";
             this.dgcFilterSate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcFilterSate.Width = 80;
+            this.dgcFilterSate.Width = 90;
             // 
             // dgcFilterCat1
             // 
@@ -1928,9 +2009,11 @@
             this.dgcFilterCat1.DisplayStyleForCurrentCellOnly = true;
             this.dgcFilterCat1.HeaderText = "Kat.";
             this.dgcFilterCat1.MaxDropDownItems = 15;
+            this.dgcFilterCat1.MinimumWidth = 9;
             this.dgcFilterCat1.Name = "dgcFilterCat1";
             this.dgcFilterCat1.ToolTipText = "Uzskaites kategorija";
             this.dgcFilterCat1.ValueMember = "ID";
+            this.dgcFilterCat1.Width = 168;
             // 
             // bsfCat1
             // 
@@ -1950,9 +2033,11 @@
             this.dgcFilterCatD.DisplayStyleForCurrentCellOnly = true;
             this.dgcFilterCatD.HeaderText = "Nol. kat.";
             this.dgcFilterCatD.MaxDropDownItems = 15;
+            this.dgcFilterCatD.MinimumWidth = 9;
             this.dgcFilterCatD.Name = "dgcFilterCatD";
             this.dgcFilterCatD.ToolTipText = "Nolietojuma kategorija";
             this.dgcFilterCatD.ValueMember = "ID";
+            this.dgcFilterCatD.Width = 168;
             // 
             // bsfCatD
             // 
@@ -1972,9 +2057,11 @@
             this.dgcFilterCatT.DisplayStyleForCurrentCellOnly = true;
             this.dgcFilterCatT.HeaderText = "Nod. nol. kat.";
             this.dgcFilterCatT.MaxDropDownItems = 15;
+            this.dgcFilterCatT.MinimumWidth = 9;
             this.dgcFilterCatT.Name = "dgcFilterCatT";
             this.dgcFilterCatT.ToolTipText = "Nolietojuma kategorija nodokļu vajadzībām";
             this.dgcFilterCatT.ValueMember = "ID";
+            this.dgcFilterCatT.Width = 168;
             // 
             // bsfCatT
             // 
@@ -1994,9 +2081,11 @@
             this.dgcFilterDepartment.DisplayStyleForCurrentCellOnly = true;
             this.dgcFilterDepartment.HeaderText = "Struktūrv.";
             this.dgcFilterDepartment.MaxDropDownItems = 15;
+            this.dgcFilterDepartment.MinimumWidth = 9;
             this.dgcFilterDepartment.Name = "dgcFilterDepartment";
             this.dgcFilterDepartment.ToolTipText = "Struktūrvienība";
             this.dgcFilterDepartment.ValueMember = "ID";
+            this.dgcFilterDepartment.Width = 168;
             // 
             // bsfDepartments
             // 
@@ -2016,8 +2105,10 @@
             this.dgcFilterPlace.DisplayStyleForCurrentCellOnly = true;
             this.dgcFilterPlace.HeaderText = "Atrodas";
             this.dgcFilterPlace.MaxDropDownItems = 15;
+            this.dgcFilterPlace.MinimumWidth = 9;
             this.dgcFilterPlace.Name = "dgcFilterPlace";
             this.dgcFilterPlace.ValueMember = "ID";
+            this.dgcFilterPlace.Width = 168;
             // 
             // bsfPlaces
             // 
@@ -2046,17 +2137,18 @@
             // 
             this.tbDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate.IsDate = true;
-            this.tbDate.Location = new System.Drawing.Point(908, 445);
+            this.tbDate.Location = new System.Drawing.Point(1022, 556);
+            this.tbDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(80, 22);
+            this.tbDate.Size = new System.Drawing.Size(90, 26);
             this.tbDate.TabIndex = 7;
             this.tbDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDate_KeyDown);
             // 
             // Form_Items
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 467);
+            this.ClientSize = new System.Drawing.Size(1244, 584);
             this.Controls.Add(this.tbDate);
             this.Controls.Add(this.mySplitContainer1);
             this.Controls.Add(this.sgrEvents);
@@ -2064,6 +2156,7 @@
             this.Controls.Add(this.pnFilter);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_Items";
             this.Text = "Pamatlīdzekļu sraksts";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Items_FormClosed);

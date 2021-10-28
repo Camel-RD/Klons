@@ -220,5 +220,23 @@ namespace KlonsF.FormsReportParams
         {
             DoIt(false);
         }
+
+        private void tsbPrevMonth_Click(object sender, EventArgs e)
+        {
+            if (Check() != "OK") return;
+            var dt2 = startDate.FirstDayOfMonth().AddDays(-1);
+            var dt1 = dt2.FirstDayOfMonth();
+            tbSD.Text = Utils.DateToString(dt1);
+            tbED.Text = Utils.DateToString(dt2);
+        }
+
+        private void tsbNextMonth_Click(object sender, EventArgs e)
+        {
+            if (Check() != "OK") return;
+            var dt1 = startDate.LastDayOfMonth().AddDays(1);
+            var dt2 = dt1.LastDayOfMonth();
+            tbSD.Text = Utils.DateToString(dt1);
+            tbED.Text = Utils.DateToString(dt2);
+        }
     }
 }

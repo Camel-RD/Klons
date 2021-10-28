@@ -418,5 +418,26 @@ namespace KlonsP.Forms
             if (tbDate2.Text != tx)
                 tbDate2.Text = tx;
         }
+
+        private void tsbPrevMonth_Click(object sender, EventArgs e)
+        {
+            var er = CheckParams();
+            if (er != "OK") return;
+            var dt2 = DT1.FirstDayOfMonth().AddDays(-1);
+            var dt1 = dt2.FirstDayOfMonth();
+            tbDate1.Text = Utils.DateToString(dt1);
+            tbDate2.Text = Utils.DateToString(dt2);
+
+        }
+
+        private void tsbNextMonth_Click(object sender, EventArgs e)
+        {
+            var er = CheckParams();
+            if (er != "OK") return;
+            var dt1 = DT1.LastDayOfMonth().AddDays(1);
+            var dt2 = dt1.LastDayOfMonth();
+            tbDate1.Text = Utils.DateToString(dt1);
+            tbDate2.Text = Utils.DateToString(dt2);
+        }
     }
 }

@@ -284,6 +284,7 @@ namespace KlonsA.Forms
 
         private void dgvPapildsummas_Enter(object sender, EventArgs e)
         {
+            dgvPapildsummas.Focus();
             ActiveList = 1;
             tslLabel.Text = "Papildsummas:";
             if (tabControl1.SelectedIndex != 1)
