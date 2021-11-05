@@ -1,4 +1,4 @@
-namespace KlonsA.Forms
+﻿namespace KlonsA.Forms
 {
     partial class Form_Events
     {

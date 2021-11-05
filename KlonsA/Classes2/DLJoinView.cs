@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -135,7 +135,7 @@ namespace KlonsA.Classes
             {
                 er =
                     "Nevar izveidot ierakstu darbiniekam un amatam,\n" +
-                    "jo tâds ieraksts ğajâ mçnesî jau ir izveidots.";
+                    "jo tÄds ieraksts Å¡ajÄ mÄ“nesÃ® jau ir izveidots.";
                 return er;
             }
 
@@ -225,7 +225,7 @@ namespace KlonsA.Classes
                     }
 
                     act_copy_darba_laiks_row_data(dr_darba_laiks, new_dr_dl_pl);
-                    act_add_row(dr_darba_laiks);
+                    act_add_row(new_dr_dl_pl);
                 }
             }
             else
@@ -434,8 +434,8 @@ namespace KlonsA.Classes
                 ).Count() > 0;
                 if (has_it)
                 {
-                    er ="Nevar mainît ierakstam darbinieku un amatu,\n" +
-                        "jo tâds ieraksts ğajâ mçnesî jau ir izveidots.";
+                    er ="Nevar mainÃ®t ierakstam darbinieku un amatu,\n" +
+                        "jo tÄds ieraksts Å¡ajÄ mÄ“nesÄ« jau ir izveidots.";
                     return er;
                 }
             }

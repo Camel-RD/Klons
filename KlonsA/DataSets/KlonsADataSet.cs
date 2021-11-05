@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using KlonsA.Classes;
 using System.Linq;
 using System.Text;

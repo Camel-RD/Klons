@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using SourceGrid.Cells.Controllers;
 using SourceGrid;
@@ -81,7 +81,7 @@ namespace KlonsLIB.MySourceGrid
             //MICK(2)
             sender.Grid.ShowCell(sender.Position, false);
 
-			//Getsione dell'edit sul focus, non lo metto all'interno della cella perch� un utente potrebbe chiamare direttamente il metodo SetFocusCell senza passare dalla cella
+			//Getsione dell'edit sul focus, non lo metto all'interno della cella perchè un utente potrebbe chiamare direttamente il metodo SetFocusCell senza passare dalla cella
 			if ( sender.Cell.Editor != null && (sender.Cell.Editor.EditableMode & EditableMode.Focus) == EditableMode.Focus)
 				sender.StartEdit();
 

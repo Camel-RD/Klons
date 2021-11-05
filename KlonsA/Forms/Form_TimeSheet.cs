@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -419,7 +419,7 @@ namespace KlonsA.Forms
             {
                 return d.YR == row.YR && d.MT == row.MT &&
                 (d.XKind1 == EKind1.PlanGroupDay || d.XKind1 == EKind1.PlanIndividualDay) &&
-                d.IDP == plid;
+                (!d.IsIDPNull() && d.IDP == plid);
             });
             return rr.FirstOrDefault() != null;
         }

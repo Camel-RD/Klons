@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -105,7 +105,7 @@ namespace KlonsA.Classes
                 SI._SALARY_AVPAY_HOLIDAYS +
                 SI._SALARY_AVPAY_HOLIDAYS_OVERTIME;
 
-            //vid.izpeÔÚas dienas, slimÓbas, atvaÔin‚juma nauda
+            //vid.izpe√Ø√≤as dienas, slim√Æbas, atva√ØinƒÅjuma nauda
             var err = FillRowVcSdc();
             if (err.HasErrors) return err_list;
 
@@ -244,7 +244,7 @@ namespace KlonsA.Classes
                 SI._PLUS_NP_NOTTAXED +
                 SI._PLUS_NP_NOSAI;
 
-            //---NegatÓva izmaks‚jam‚ summa ir OK
+            //---Negat√Æva izmaksƒÅjamƒÅ summa ir OK
             SI._VACATION_ADVANCE_CURRENT = -SI._VACATION_ADVANCE_PREV;
 
             SI._VACATION_ADVANCE_NEXT =

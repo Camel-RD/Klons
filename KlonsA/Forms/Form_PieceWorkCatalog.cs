@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -258,7 +258,7 @@ namespace KlonsA.Forms
             catch (Exception e)
             {
                 CheckSave();
-                Form_Error.ShowException(e, "Neizdev‚s saglab‚t izmaiÚas.");
+                Form_Error.ShowException(e, "NeizdevƒÅs saglabƒÅt izmai≈Üas.");
                 return false;
             }
             return true;

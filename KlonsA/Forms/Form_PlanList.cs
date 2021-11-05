@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -133,7 +133,7 @@ namespace KlonsA.Forms
         {
             if (MyMainForm.FindForm(typeof(Form_Plan)) != null)
             {
-                MyMainForm.ShowWarning("Vispirms j‚aizver froma [Darba laika koppl‚ns].");
+                MyMainForm.ShowWarning("Vispirms jƒÅaizver forma [Darba laika kopplƒÅns].");
                 return false; ;
             }
             return true;

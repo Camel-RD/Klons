@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 namespace Validation
 {
 	[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]

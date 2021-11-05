@@ -1,4 +1,4 @@
-using KlonsLIB.Components;
+﻿using KlonsLIB.Components;
 
 namespace KlonsA.Forms
 {
