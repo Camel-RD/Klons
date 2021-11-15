@@ -109,6 +109,7 @@ namespace KlonsP.Forms
                     MyData.Settings.WindowPos = "normal";
                 }
                 MyData.SaveSettings();
+                FirebirdSql.Data.FirebirdClient.FbConnection.ClearAllPools();
             }
             catch (Exception) { }
         }

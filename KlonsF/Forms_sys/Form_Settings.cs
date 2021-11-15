@@ -46,6 +46,10 @@ namespace KlonsF.Forms
             int k = colorThemeIds.IndexOf(colorThemeId);
             if (k > -1)
                 cbColors.SelectedIndex = k;
+            cbBackUpPlan.SelectedIndex = (int)MyData.Settings.BackUpPlanX;
+            var backupfolder = MyData.Settings.BackUpFolder.Nz();
+            if (backupfolder == "") backupfolder = "DB-backup";
+            tbBackUpFolder.Text = backupfolder;
         }
 
         private bool SaveMyData()
@@ -61,6 +65,10 @@ namespace KlonsF.Forms
             MyData.Settings.InWine = chInWine.Checked ? "YES" : "NO";
             MyData.Settings.FormFont = this.Font;
             MyData.Settings.ColorThemeId = colorThemeId;
+            MyData.Settings.BackUpPlan = cbBackUpPlan.SelectedIndex;
+            var backupfolder = tbBackUpFolder.Text.Nz();
+            if (backupfolder == "DB-backup") backupfolder = "";
+            MyData.Settings.BackUpFolder = backupfolder;
             return true;
         }
         private void FormSettings_Load(object sender, EventArgs e)
@@ -146,5 +154,15 @@ namespace KlonsF.Forms
             ApplyColorTheme(colorThemeIds[k]);
         }
 
+        private void cmBrowseForBackUpFolder_Click(object sender, EventArgs e)
+        {
+            var fbd = new FolderBrowserDialog()
+            {
+                Description = "Norādi mapi rezerves failu kopēšanai:"
+            };
+            var rt = fbd.ShowDialog(MyMainForm);
+            if (rt != DialogResult.OK) return;
+            tbBackUpFolder.Text = fbd.SelectedPath;
+        }
     }
 }

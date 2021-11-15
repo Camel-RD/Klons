@@ -23,6 +23,7 @@ namespace KlonsF.Forms
             Font f = lbTitle.Font;
             CheckMyFontAndColors();
             lbTitle.Font = new Font(f.FontFamily, f.Size * ScaleFactor.Height, f.Style);
+            lbVersionStr.Text = "versija " + MyData.VersionStr;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_UntaxedMinimum));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmFilter = new System.Windows.Forms.Button();
@@ -81,15 +81,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(732, 31);
+            this.panel1.Size = new System.Drawing.Size(824, 39);
             this.panel1.TabIndex = 0;
             // 
             // cmFilter
             // 
-            this.cmFilter.Location = new System.Drawing.Point(637, 4);
+            this.cmFilter.Location = new System.Drawing.Point(717, 5);
+            this.cmFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmFilter.Name = "cmFilter";
-            this.cmFilter.Size = new System.Drawing.Size(75, 23);
+            this.cmFilter.Size = new System.Drawing.Size(84, 29);
             this.cmFilter.TabIndex = 5;
             this.cmFilter.Text = "Filtrēt";
             this.cmFilter.UseVisualStyleBackColor = true;
@@ -106,18 +108,19 @@
             this.cbPerson.DataSource = this.bsFilterPerson;
             this.cbPerson.DisplayMember = "YNAME";
             this.cbPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbPerson.DropDownHeight = 255;
-            this.cbPerson.DropDownWidth = 324;
+            this.cbPerson.DropDownHeight = 315;
+            this.cbPerson.DropDownWidth = 328;
             this.cbPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPerson.FormattingEnabled = true;
             this.cbPerson.GridLineColor = System.Drawing.Color.LightGray;
             this.cbPerson.GridLineHorizontal = false;
             this.cbPerson.GridLineVertical = false;
             this.cbPerson.IntegralHeight = false;
-            this.cbPerson.Location = new System.Drawing.Point(372, 4);
+            this.cbPerson.Location = new System.Drawing.Point(418, 5);
+            this.cbPerson.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbPerson.MaxDropDownItems = 15;
             this.cbPerson.Name = "cbPerson";
-            this.cbPerson.Size = new System.Drawing.Size(257, 23);
+            this.cbPerson.Size = new System.Drawing.Size(289, 27);
             this.cbPerson.TabIndex = 4;
             this.cbPerson.ValueMember = "ID";
             // 
@@ -131,35 +134,37 @@
             // 
             this.tbDate2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate2.IsDate = true;
-            this.tbDate2.Location = new System.Drawing.Point(169, 5);
+            this.tbDate2.Location = new System.Drawing.Point(190, 6);
+            this.tbDate2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate2.Name = "tbDate2";
-            this.tbDate2.Size = new System.Drawing.Size(90, 22);
+            this.tbDate2.Size = new System.Drawing.Size(101, 26);
             this.tbDate2.TabIndex = 2;
             // 
             // tbDate1
             // 
             this.tbDate1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate1.IsDate = true;
-            this.tbDate1.Location = new System.Drawing.Point(73, 5);
+            this.tbDate1.Location = new System.Drawing.Point(82, 6);
+            this.tbDate1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate1.Name = "tbDate1";
-            this.tbDate1.Size = new System.Drawing.Size(90, 22);
+            this.tbDate1.Size = new System.Drawing.Size(101, 26);
             this.tbDate1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(285, 7);
+            this.label2.Location = new System.Drawing.Point(321, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "darbinieks:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.Location = new System.Drawing.Point(7, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 16);
+            this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Datums:";
             // 
@@ -167,6 +172,7 @@
             // 
             this.bsRows.AutoSaveOnDelete = true;
             this.bsRows.DataMember = "UNTAXED_MIN";
+            this.bsRows.Filter = "";
             this.bsRows.MyDataSource = "KlonsData";
             this.bsRows.Sort = "ONDATE";
             this.bsRows.UseDataGridView = this.dgvRows;
@@ -186,11 +192,13 @@
             this.dgcID});
             this.dgvRows.DataSource = this.bsRows;
             this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRows.Location = new System.Drawing.Point(0, 31);
+            this.dgvRows.Location = new System.Drawing.Point(0, 39);
+            this.dgvRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRows.Name = "dgvRows";
             this.dgvRows.RowHeadersWidth = 53;
-            this.dgvRows.RowTemplate.Height = 24;
-            this.dgvRows.Size = new System.Drawing.Size(732, 316);
+            this.dgvRows.RowTemplate.Height = 29;
+            this.dgvRows.ShowCellToolTips = false;
+            this.dgvRows.Size = new System.Drawing.Size(824, 397);
             this.dgvRows.TabIndex = 1;
             this.dgvRows.MyCheckForChanges += new System.EventHandler(this.dgvRows_MyCheckForChanges);
             this.dgvRows.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvRows_CellParsing);
@@ -201,12 +209,12 @@
             // dgcOnDate
             // 
             this.dgcOnDate.DataPropertyName = "ONDATE";
-            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
-            this.dgcOnDate.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "dd.MM.yyyy";
+            this.dgcOnDate.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgcOnDate.HeaderText = "datums";
             this.dgcOnDate.MinimumWidth = 7;
             this.dgcOnDate.Name = "dgcOnDate";
-            this.dgcOnDate.Width = 90;
+            this.dgcOnDate.Width = 101;
             // 
             // dgcIDP
             // 
@@ -227,25 +235,25 @@
             this.dgcIDP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcIDP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcIDP.ValueMember = "ID";
-            this.dgcIDP.Width = 300;
+            this.dgcIDP.Width = 337;
             // 
             // bsPerson
             // 
             this.bsPerson.DataMember = "PERSONS";
-            this.bsPerson.Filter = "USED=1";
+            this.bsPerson.Filter = "";
             this.bsPerson.MyDataSource = "KlonsData";
             this.bsPerson.Sort = "YNAME";
             // 
             // dgcUntaxedMin
             // 
             this.dgcUntaxedMin.DataPropertyName = "UNTAXED_MIN";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.dgcUntaxedMin.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.dgcUntaxedMin.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgcUntaxedMin.HeaderText = "summa";
             this.dgcUntaxedMin.MinimumWidth = 7;
             this.dgcUntaxedMin.Name = "dgcUntaxedMin";
-            this.dgcUntaxedMin.Width = 130;
+            this.dgcUntaxedMin.Width = 146;
             // 
             // dgcIINRateType
             // 
@@ -256,7 +264,7 @@
             this.dgcIINRateType.MinimumWidth = 7;
             this.dgcIINRateType.Name = "dgcIINRateType";
             this.dgcIINRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcIINRateType.Width = 130;
+            this.dgcIINRateType.Width = 146;
             // 
             // dgcID
             // 
@@ -265,7 +273,7 @@
             this.dgcID.MinimumWidth = 7;
             this.dgcID.Name = "dgcID";
             this.dgcID.Visible = false;
-            this.dgcID.Width = 50;
+            this.dgcID.Width = 56;
             // 
             // bNav
             // 
@@ -276,7 +284,7 @@
             this.bNav.DataGrid = this.dgvRows;
             this.bNav.DeleteItem = this.bniDelete;
             this.bNav.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bNav.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.bNav.ImageScalingSize = new System.Drawing.Size(23, 26);
             this.bNav.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -291,7 +299,7 @@
             this.bniDelete,
             this.bniSave,
             this.bniXMLImport});
-            this.bNav.Location = new System.Drawing.Point(0, 347);
+            this.bNav.Location = new System.Drawing.Point(0, 436);
             this.bNav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bNav.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bNav.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -299,7 +307,7 @@
             this.bNav.Name = "bNav";
             this.bNav.PositionItem = this.bindingNavigatorPositionItem;
             this.bNav.SaveItem = this.bniSave;
-            this.bNav.Size = new System.Drawing.Size(732, 33);
+            this.bNav.Size = new System.Drawing.Size(824, 39);
             this.bNav.TabIndex = 2;
             this.bNav.Text = "myBindingNavigator1";
             this.bNav.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bNav_ItemDeleting);
@@ -309,13 +317,13 @@
             this.bniAdd.Image = ((System.Drawing.Image)(resources.GetObject("bniAdd.Image")));
             this.bniAdd.Name = "bniAdd";
             this.bniAdd.RightToLeftAutoMirrorImage = true;
-            this.bniAdd.Size = new System.Drawing.Size(91, 29);
+            this.bniAdd.Size = new System.Drawing.Size(92, 34);
             this.bniAdd.Text = "Jauns";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(76, 34);
             this.bindingNavigatorCountItem.Text = " no {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Ierakstu skaits";
             // 
@@ -324,7 +332,7 @@
             this.bniDelete.Image = ((System.Drawing.Image)(resources.GetObject("bniDelete.Image")));
             this.bniDelete.Name = "bniDelete";
             this.bniDelete.RightToLeftAutoMirrorImage = true;
-            this.bniDelete.Size = new System.Drawing.Size(87, 29);
+            this.bniDelete.Size = new System.Drawing.Size(93, 34);
             this.bniDelete.Text = "Dzēst";
             // 
             // bindingNavigatorMoveFirstItem
@@ -333,7 +341,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(30, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -342,26 +350,26 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(30, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 30);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(56, 37);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -369,7 +377,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(30, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -378,13 +386,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(30, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // bniSave
             // 
@@ -392,7 +400,7 @@
             this.bniSave.Image = ((System.Drawing.Image)(resources.GetObject("bniSave.Image")));
             this.bniSave.Margin = new System.Windows.Forms.Padding(0, 1, 5, 3);
             this.bniSave.Name = "bniSave";
-            this.bniSave.Size = new System.Drawing.Size(30, 29);
+            this.bniSave.Size = new System.Drawing.Size(34, 35);
             this.bniSave.Text = "Saglabāt";
             this.bniSave.Click += new System.EventHandler(this.bniSave_Click);
             // 
@@ -402,18 +410,19 @@
             this.bniXMLImport.Image = ((System.Drawing.Image)(resources.GetObject("bniXMLImport.Image")));
             this.bniXMLImport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bniXMLImport.Name = "bniXMLImport";
-            this.bniXMLImport.Size = new System.Drawing.Size(157, 29);
+            this.bniXMLImport.Size = new System.Drawing.Size(171, 34);
             this.bniXMLImport.Text = "EDS datu imorts";
             this.bniXMLImport.Click += new System.EventHandler(this.bniXMLImport_Click);
             // 
             // Form_UntaxedMinimum
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 380);
+            this.ClientSize = new System.Drawing.Size(824, 475);
             this.Controls.Add(this.dgvRows);
             this.Controls.Add(this.bNav);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_UntaxedMinimum";
             this.Text = "Neapliekmais minimums";
             this.Load += new System.EventHandler(this.Form_UntaxedMinimum_Load);

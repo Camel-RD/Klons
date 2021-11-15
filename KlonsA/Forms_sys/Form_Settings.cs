@@ -39,6 +39,11 @@ namespace KlonsA.Forms
             tbMt.Text = MyData.Params.LoadMonths.ToString();
             chHideTotalSheet.Checked = MyData.Params.HideTotalSheets;
             chIIN.Checked = MyData.Params.IINSimple;
+
+            cbBackUpPlan.SelectedIndex = (int)MyData.Settings.BackUpPlanX;
+            var backupfolder = MyData.Settings.BackUpFolder.Nz();
+            if (backupfolder == "") backupfolder = "DB-backup";
+            tbBackUpFolder.Text = backupfolder;
         }
 
         private bool SaveMyData()
@@ -57,6 +62,11 @@ namespace KlonsA.Forms
             }
             MyData.Params.HideTotalSheets = chHideTotalSheet.Checked;
             MyData.Params.IINSimple = chIIN.Checked;
+
+            MyData.Settings.BackUpPlan = cbBackUpPlan.SelectedIndex;
+            var backupfolder = tbBackUpFolder.Text.Nz();
+            if (backupfolder == "DB-backup") backupfolder = "";
+            MyData.Settings.BackUpFolder = backupfolder;
 
             return true;
         }
@@ -142,6 +152,17 @@ namespace KlonsA.Forms
             int k = cbColors.SelectedIndex;
             if (k < 0 || k > 3) return;
             ApplyColorTheme(colorThemeIds[k]);
+        }
+
+        private void cmBrowseForBackUpFolder_Click(object sender, EventArgs e)
+        {
+            var fbd = new FolderBrowserDialog()
+            {
+                Description = "Norādi mapi rezerves failu kopēšanai:"
+            };
+            var rt = fbd.ShowDialog(MyMainForm);
+            if (rt != DialogResult.OK) return;
+            tbBackUpFolder.Text = fbd.SelectedPath;
         }
     }
 }

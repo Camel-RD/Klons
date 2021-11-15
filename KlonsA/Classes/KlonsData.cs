@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.IO;
+using FirebirdSql.Data.FirebirdClient;
 using KlonsA.DataSets;
 using KlonsLIB.Data;
 using KlonsLIB.Forms;
@@ -19,12 +20,15 @@ namespace KlonsA.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "053";
-        public string VersionStr = "2021.11.#1";
+        public string Version = "054";
+        public string VersionStr = "2021.11.#2";
 
         public string SettingsFileName = GetBasePath() + "\\Config\\SettingsA.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterListA.xml";
         public string FolderForXMLReports = GetBasePath() + "\\XMLReports";
+        private string FolderForDBBackUp = GetBasePath() + "\\DB-backup";
+        public string FolderForFbEmbed25 = GetBasePath() + "\\FbEmbed25";
+        public string FolderForFbEmbed4 = GetBasePath() + "\\FbEmbed4";
 
         public float SalaryCalcHistoryInterval = 1.0f;
 
@@ -88,20 +92,11 @@ namespace KlonsA.Classes
 
         public bool ConnectTo(MasterEntry me, string username, string userpsw)
         {
-            string filename;
-            if (string.IsNullOrEmpty(me.Path))
-            {
-                filename = GetBaseDBPath();
-            }
-            else
-            {
-                filename = me.Path;
-                filename = filename.Replace("@", GetBaseDBPath());
-            }
-            filename += "\\" + me.FileName;
+            string filename = GetFileName(me);
+
             if (!File.Exists(filename))
             {
-                throw new Exception("Nav faila: " + filename);
+                throw new Exception($"Nav faila: [{filename}]");
             }
 
             if (CurrentDBTag != null)
@@ -133,35 +128,69 @@ namespace KlonsA.Classes
             
             _dataSetHelpers["KlonsRep"] = _klonsRepDataSetHelper;
 
-            string s = MasterList.GetTemplateByName(me.ConnStr);
-            if (string.IsNullOrEmpty(s))
+            string newconnstr = MasterList.GetTemplateByName(me.ConnStr);
+            if (string.IsNullOrEmpty(newconnstr))
             {
-                /*
-                s = @"Data Source=(LocalDB)\v11.0; " +
-                    "AttachDbFilename={0}; " +
-                    "Integrated Security=True; " +
-                    "Connect Timeout=30; " +
-                    "Workstation ID={1}";
-                 */
-                s = "character set=UTF8;" +
+                newconnstr = "character set=UTF8;" +
                     "data source=localhost;" +
                     @"initial catalog={0};" +
                     "user id=aivars;" +
                     "password=parole";
             }
 
-            s = string.Format(s, filename, username);
-            
+            newconnstr = string.Format(newconnstr, filename, username);
+            var s1 = CheckConnectionString(newconnstr);
+            if (s1 == null)
+                throw new Exception($"Nekorekti pieslēguma dati:\n{newconnstr}");
+            newconnstr = s1;
+
             _currentUserName = username;
 
-            _klonsDataSetHelper.ConnectTo(s);
-            _klonsRepDataSetHelper.ConnectTo(s);
+            _klonsDataSetHelper.ConnectTo(newconnstr);
+            _klonsRepDataSetHelper.ConnectTo(newconnstr);
 
             KlonsTableAdapterManager.TUSERSTableAdapter.Connection.StateChange += Connection_StateChange;
             KlonsTableAdapterManager.TUSERSTableAdapter.Connection.Open();
 
             CurrentDBTag = new MasterEntry(me);
             return true;
+        }
+
+        public string GetFileName(MasterEntry me)
+        {
+            string filename;
+            if (string.IsNullOrEmpty(me.Path))
+            {
+                filename = GetBaseDBPath();
+            }
+            else
+            {
+                filename = me.Path;
+                filename = filename.Replace("@", GetBaseDBPath());
+            }
+            filename += "\\" + me.FileName;
+            return filename;
+        }
+
+        public string CheckConnectionString(string constr)
+        {
+            try
+            {
+                var csb = new FbConnectionStringBuilder(constr);
+                if (csb.ClientLibrary == "fbembed.dll")
+                {
+                    csb.ClientLibrary = $"{FolderForFbEmbed25}\\fbembed.dll";
+                }
+                else if (csb.ClientLibrary == "fbclient.dll")
+                {
+                    csb.ClientLibrary = $"{FolderForFbEmbed4}\\fbclient.dll";
+                }
+                return csb.ToString();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         private void Connection_StateChange(object sender, StateChangeEventArgs e)
@@ -332,6 +361,14 @@ namespace KlonsA.Classes
         public string GetBaseDBPath()
         {
             return GetBasePath() + "\\" + Settings.BaseDBPathX;
+        }
+
+        public string GetBackUpFolder()
+        {
+            string backupfolder = Settings.BackUpFolder;
+            if (backupfolder.IsNOE() || backupfolder == "DB-backup")
+                backupfolder = FolderForDBBackUp;
+            return backupfolder;
         }
 
         public void CreateNewDB(string name, string descr)

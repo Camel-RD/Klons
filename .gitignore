@@ -6,16 +6,23 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.fdb
+*.zip
 Shit/
 Html/
 Help/
 Output/
 Afterthought.Amender/*.xml
 LIB/*.xml
-*.fdb
 KlonsF/Config/*.xml
 KlonsA/Config/*.xml
 KlonsP/Config/*.xml
+KlonsF/DB-backup/*.*
+KlonsA/DB-backup/*.*
+KlonsP/DB-backup/*.*
+KlonsF/FBembed25
+KlonsA/FBembed25
+KlonsP/FBembed25
 KlonsM/
 DataObjectsM/
 

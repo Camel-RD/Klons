@@ -1,0 +1,628 @@
+ALTER TABLE OPSD ALTER COLUMN ZDT SET DEFAULT LOCALTIMESTAMP(0);
+
+SET TERM ^ ;
+
+ALTER PROCEDURE SP_OPS_DELETE_LOG(
+  ID INTEGER,
+  USR VARCHAR(15) /* COLLATE UTF8 - default */,
+  ORIGINAL_DOCID INTEGER,
+  ORIGINAL_AC11 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC12 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC13 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC14 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC15 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC21 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC22 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC23 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC24 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC25 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMMC NUMERIC(15,4),
+  ORIGINAL_CUR VARCHAR(3) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMM NUMERIC(15,4),
+  ORIGINAL_QV FLOAT,
+  ORIGINAL_ZDT TIMESTAMP)
+AS
+DECLARE idl INT;
+    DECLARE now timestamp;
+    DECLARE xdt timestamp;
+BEGIN
+    now = localtimestamp(0);
+    xdt = dateadd(-1 hour to now);
+
+    IF (:Original_ZDt IS NULL OR :Original_ZDt < xdt)
+    THEN BEGIN
+        INSERT INTO LOPS 
+            (dtl, dtld, usl, id, DocId,
+            AC11, AC12, AC13, AC14, AC15,
+            AC21, AC22, AC23, AC24, AC25,
+            SummC, Cur, Summ, QV)
+        VALUES 
+        (
+            :now,
+            :now,
+            :Usr,
+            :id,
+            :Original_DocId, 
+            :Original_AC11,
+            :Original_AC12, 
+            :Original_AC13, 
+            :Original_AC14, 
+            :Original_AC15, 
+            :Original_AC21, 
+            :Original_AC22, 
+            :Original_AC23, 
+            :Original_AC24, 
+            :Original_AC25, 
+            :Original_SummC, 
+            :Original_Cur, 
+            :Original_Summ, 
+            :Original_QV
+        );
+    END
+    ELSE BEGIN
+
+        UPDATE LOPS
+        SET 
+            dtld = :now
+        WHERE LOPS.id = :id;
+
+    END
+END
+^
+
+ALTER PROCEDURE SP_OPS_INSERT(
+  PID INTEGER,
+  PDOCID INTEGER,
+  PDESCR VARCHAR(50) /* COLLATE UTF8 - default */,
+  PAC11 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC12 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC13 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PAC14 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC15 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PAC21 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC22 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC23 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PAC24 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC25 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PSUMMC NUMERIC(15,4),
+  PCUR VARCHAR(3) /* COLLATE UTF8 - default */,
+  PSUMM NUMERIC(15,4),
+  PQV FLOAT,
+  PNL SMALLINT)
+RETURNS (
+  ID TYPE OF COLUMN OPS.ID,
+  DOCID TYPE OF COLUMN OPS.DOCID,
+  DESCR TYPE OF COLUMN OPS.DESCR /* COLLATE UTF8 - default */,
+  AC11 TYPE OF COLUMN OPS.AC11 /* COLLATE UTF8 - default */,
+  AC12 TYPE OF COLUMN OPS.AC12 /* COLLATE UTF8 - default */,
+  AC13 TYPE OF COLUMN OPS.AC13 /* COLLATE UTF8 - default */,
+  AC14 TYPE OF COLUMN OPS.AC14 /* COLLATE UTF8 - default */,
+  AC15 TYPE OF COLUMN OPS.AC15 /* COLLATE UTF8 - default */,
+  AC21 TYPE OF COLUMN OPS.AC21 /* COLLATE UTF8 - default */,
+  AC22 TYPE OF COLUMN OPS.AC22 /* COLLATE UTF8 - default */,
+  AC23 TYPE OF COLUMN OPS.AC23 /* COLLATE UTF8 - default */,
+  AC24 TYPE OF COLUMN OPS.AC24 /* COLLATE UTF8 - default */,
+  AC25 TYPE OF COLUMN OPS.AC25 /* COLLATE UTF8 - default */,
+  SUMMC TYPE OF COLUMN OPS.SUMMC,
+  CUR TYPE OF COLUMN OPS.CUR /* COLLATE UTF8 - default */,
+  SUMM TYPE OF COLUMN OPS.SUMM,
+  QV TYPE OF COLUMN OPS.QV,
+  NL TYPE OF COLUMN OPS.NL,
+  ZDT TYPE OF COLUMN OPS.ZDT)
+AS
+declare newid int;
+begin
+    INSERT INTO OPS
+        (id, ZDt, DocId, Descr,
+        AC11, AC12, AC13, AC14, AC15, 
+        AC21, AC22, AC23, AC24, AC25, 
+        SummC, Cur, Summ, QV, NL) 
+    VALUES 
+        (:pid, localtimestamp(0), :pDocId, :pDescr,
+        :pAC11, :pAC12, :pAC13, :pAC14, :pAC15,
+        :pAC21, :pAC22, :pAC23, :pAC24, :pAC25,
+        :pSummC, :pCur, :pSumm, :pQV, :pNL)
+    RETURNING
+        id, DocId, Descr, 
+        AC11, AC12, AC13, AC14, AC15, 
+        AC21, AC22, AC23, AC24, AC25, 
+        SummC, Cur, Summ, QV, NL, ZDt
+    INTO
+        :id, :DocId, :Descr,
+        :AC11, :AC12, :AC13, :AC14, :AC15, 
+        :AC21, :AC22, :AC23, :AC24, :AC25, 
+        :SummC, :Cur, :Summ, :QV, :NL, :ZDt;
+
+end
+^
+
+ALTER PROCEDURE SP_OPS_UPDATE(
+  PDOCID INTEGER,
+  PDESCR VARCHAR(50) /* COLLATE UTF8 - default */,
+  PAC11 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC12 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC13 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PAC14 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC15 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PAC21 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC22 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC23 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PAC24 VARCHAR(8) /* COLLATE UTF8 - default */,
+  PAC25 VARCHAR(5) /* COLLATE UTF8 - default */,
+  PSUMMC NUMERIC(15,4),
+  PCUR VARCHAR(3) /* COLLATE UTF8 - default */,
+  PSUMM NUMERIC(15,4),
+  PQV FLOAT,
+  PNL SMALLINT,
+  ORIGINAL_ID INTEGER,
+  ORIGINAL_DOCID INTEGER,
+  ISNULL_DESCR INTEGER,
+  ORIGINAL_DESCR VARCHAR(50) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC11 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ISNULL_AC12 INTEGER,
+  ORIGINAL_AC12 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ISNULL_AC13 INTEGER,
+  ORIGINAL_AC13 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ISNULL_AC14 INTEGER,
+  ORIGINAL_AC14 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ISNULL_AC15 INTEGER,
+  ORIGINAL_AC15 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC21 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ISNULL_AC22 INTEGER,
+  ORIGINAL_AC22 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ISNULL_AC23 INTEGER,
+  ORIGINAL_AC23 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ISNULL_AC24 INTEGER,
+  ORIGINAL_AC24 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ISNULL_AC25 INTEGER,
+  ORIGINAL_AC25 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMMC NUMERIC(15,4),
+  ORIGINAL_CUR VARCHAR(3) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMM NUMERIC(15,4),
+  ISNULL_QV INTEGER,
+  ORIGINAL_QV FLOAT,
+  ISNULL_NL INTEGER,
+  ORIGINAL_NL SMALLINT,
+  ISNULL_ZDT INTEGER,
+  ORIGINAL_ZDT TIMESTAMP,
+  PID INTEGER)
+RETURNS (
+  ID TYPE OF COLUMN OPS.ID,
+  DOCID TYPE OF COLUMN OPS.DOCID,
+  DESCR TYPE OF COLUMN OPS.DESCR /* COLLATE UTF8 - default */,
+  AC11 TYPE OF COLUMN OPS.AC11 /* COLLATE UTF8 - default */,
+  AC12 TYPE OF COLUMN OPS.AC12 /* COLLATE UTF8 - default */,
+  AC13 TYPE OF COLUMN OPS.AC13 /* COLLATE UTF8 - default */,
+  AC14 TYPE OF COLUMN OPS.AC14 /* COLLATE UTF8 - default */,
+  AC15 TYPE OF COLUMN OPS.AC15 /* COLLATE UTF8 - default */,
+  AC21 TYPE OF COLUMN OPS.AC21 /* COLLATE UTF8 - default */,
+  AC22 TYPE OF COLUMN OPS.AC22 /* COLLATE UTF8 - default */,
+  AC23 TYPE OF COLUMN OPS.AC23 /* COLLATE UTF8 - default */,
+  AC24 TYPE OF COLUMN OPS.AC24 /* COLLATE UTF8 - default */,
+  AC25 TYPE OF COLUMN OPS.AC25 /* COLLATE UTF8 - default */,
+  SUMMC TYPE OF COLUMN OPS.SUMMC,
+  CUR TYPE OF COLUMN OPS.CUR /* COLLATE UTF8 - default */,
+  SUMM TYPE OF COLUMN OPS.SUMM,
+  QV TYPE OF COLUMN OPS.QV,
+  NL TYPE OF COLUMN OPS.NL,
+  ZDT TYPE OF COLUMN OPS.ZDT)
+AS
+declare variable VUSER varchar(50);
+    declare variable O_ZDT timestamp;
+begin
+
+    UPDATE OPS
+    SET 
+        DocId = :pDocId,
+        Descr = :pDescr,
+        AC11 = :pAC11,
+        AC12 = :pAC12,
+        AC13 = :pAC13,
+        AC14 = :pAC14,
+        AC15 = :pAC15,
+        AC21 = :pAC21,
+        AC22 = :pAC22,
+        AC23 = :pAC23,
+        AC24 = :pAC24,
+        AC25 = :pAC25,
+        SummC = :pSummC,
+        Cur = :pCur,
+        Summ = :pSumm,
+        QV = :pQV,
+        NL = :pNL,
+        ZDt = localtimestamp(0)
+    WHERE (
+        (id = :Original_id) AND
+        (DocId = :Original_DocId) AND
+        ((:IsNull_Descr = 1 AND Descr IS NULL) OR (Descr = :Original_Descr)) AND
+        (AC11 = :Original_AC11) AND
+        ((:IsNull_AC12 = 1 AND AC12 IS NULL) OR (AC12 = :Original_AC12)) AND
+        ((:IsNull_AC13 = 1 AND AC13 IS NULL) OR (AC13 = :Original_AC13)) AND
+        ((:IsNull_AC14 = 1 AND AC14 IS NULL) OR (AC14 = :Original_AC14)) AND
+        ((:IsNull_AC15 = 1 AND AC15 IS NULL) OR (AC15 = :Original_AC15)) AND
+        (AC21 = :Original_AC21) AND
+        ((:IsNull_AC22 = 1 AND AC22 IS NULL) OR (AC22 = :Original_AC22)) AND
+        ((:IsNull_AC23 = 1 AND AC23 IS NULL) OR (AC23 = :Original_AC23)) AND
+        ((:IsNull_AC24 = 1 AND AC24 IS NULL) OR (AC24 = :Original_AC24)) AND
+        ((:IsNull_AC25 = 1 AND AC25 IS NULL) OR (AC25 = :Original_AC25)) AND
+        (SummC = :Original_SummC) AND
+        (Cur = :Original_Cur) AND
+        (Summ = :Original_Summ) AND
+        ((:IsNull_QV = 1 AND QV IS NULL) OR (QV = :Original_QV))
+    );
+
+    O_ZDt = ORIGINAL_ZDT;
+    IF (ISNULL_ZDT = 1) THEN
+    BEGIN
+        O_ZDt = null;
+    END
+
+    VUSER = rdb$get_context('USER_SESSION', 'UserName');
+    if(VUSER is null) then VUSER = User;
+
+     execute procedure sp_ops_update_log(
+        :Original_id,
+        :vuser,
+        :Original_DocId, 
+        :Original_AC11, 
+        :Original_AC12, 
+        :Original_AC13, 
+        :Original_AC14, 
+        :Original_AC15, 
+        :Original_AC21, 
+        :Original_AC22, 
+        :Original_AC23, 
+        :Original_AC24, 
+        :Original_AC25, 
+        :Original_SummC, 
+        :Original_Cur, 
+        :Original_Summ, 
+        :Original_QV,
+        :O_ZDt);
+
+
+    SELECT 
+        id, DocId, Descr, 
+        AC11, AC12, AC13, AC14, AC15, 
+        AC21, AC22, AC23, AC24, AC25, 
+        SummC, Cur, Summ, QV, NL, ZDt
+    FROM OPS 
+    WHERE (id = :pid)
+    INTO
+        :id, :DocId, :Descr,
+        :AC11, :AC12, :AC13, :AC14, :AC15, 
+        :AC21, :AC22, :AC23, :AC24, :AC25, 
+        :SummC, :Cur, :Summ, :QV, :NL, :ZDt;
+
+end
+^
+
+ALTER PROCEDURE SP_OPS_UPDATE_LOG(
+  ID INTEGER,
+  USR VARCHAR(15) /* COLLATE UTF8 - default */,
+  ORIGINAL_DOCID INTEGER,
+  ORIGINAL_AC11 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC12 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC13 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC14 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC15 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC21 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC22 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC23 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC24 VARCHAR(8) /* COLLATE UTF8 - default */,
+  ORIGINAL_AC25 VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMMC NUMERIC(15,4),
+  ORIGINAL_CUR VARCHAR(3) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMM NUMERIC(15,4),
+  ORIGINAL_QV FLOAT,
+  ORIGINAL_ZDT TIMESTAMP)
+AS
+declare variable IDL integer;
+    declare variable NOW timestamp;
+    declare variable XDT timestamp;
+BEGIN
+    now = localtimestamp(0);
+    xdt = dateadd(-1 hour to now);
+
+    IF (:Original_ZDt IS NULL OR :Original_ZDt < xdt)
+    THEN BEGIN
+        INSERT INTO LOPS 
+            (dtl, usl, id, DocId,
+            AC11, AC12, AC13, AC14, AC15,
+            AC21, AC22, AC23, AC24, AC25,
+            SummC, Cur, Summ, QV)
+        VALUES 
+        (
+            :now,
+            :Usr,
+            :id,
+            :Original_DocId, 
+            :Original_AC11,
+            :Original_AC12, 
+            :Original_AC13, 
+            :Original_AC14, 
+            :Original_AC15, 
+            :Original_AC21, 
+            :Original_AC22, 
+            :Original_AC23, 
+            :Original_AC24, 
+            :Original_AC25, 
+            :Original_SummC, 
+            :Original_Cur, 
+            :Original_Summ, 
+            :Original_QV
+        );
+    END
+END
+^
+
+ALTER PROCEDURE SP_OPSD_INSERT(
+  PID INTEGER,
+  PDETE DATE,
+  PNRX VARCHAR(5) /* COLLATE UTF8 - default */,
+  PDOCTYP VARCHAR(10) /* COLLATE UTF8 - default */,
+  PDOCST VARCHAR(6) /* COLLATE UTF8 - default */,
+  PDOCNR VARCHAR(15) /* COLLATE UTF8 - default */,
+  PCLID VARCHAR(15) /* COLLATE UTF8 - default */,
+  PCLID2 VARCHAR(15) /* COLLATE UTF8 - default */,
+  PDESCR VARCHAR(80) /* COLLATE UTF8 - default */,
+  PSUMM NUMERIC(15,4),
+  PPVN NUMERIC(15,4),
+  POPT INTEGER,
+  PZNR INTEGER,
+  PZU VARCHAR(20) /* COLLATE UTF8 - default */,
+  PZDT TIMESTAMP,
+  PDT2 DATE,
+  PNL SMALLINT)
+RETURNS (
+  ID TYPE OF COLUMN OPSD.ID,
+  DETE TYPE OF COLUMN OPSD.DETE,
+  NRX TYPE OF COLUMN OPSD.NRX /* COLLATE UTF8 - default */,
+  DOCTYP TYPE OF COLUMN OPSD.DOCTYP /* COLLATE UTF8 - default */,
+  DOCST TYPE OF COLUMN OPSD.DOCST /* COLLATE UTF8 - default */,
+  DOCNR TYPE OF COLUMN OPSD.DOCNR /* COLLATE UTF8 - default */,
+  CLID TYPE OF COLUMN OPSD.CLID /* COLLATE UTF8 - default */,
+  CLID2 TYPE OF COLUMN OPSD.CLID2 /* COLLATE UTF8 - default */,
+  DESCR TYPE OF COLUMN OPSD.DESCR /* COLLATE UTF8 - default */,
+  SUMM TYPE OF COLUMN OPSD.SUMM,
+  PVN TYPE OF COLUMN OPSD.PVN,
+  OPT TYPE OF COLUMN OPSD.OPT,
+  ZNR TYPE OF COLUMN OPSD.ZNR,
+  ZU TYPE OF COLUMN OPSD.ZU /* COLLATE UTF8 - default */,
+  ZDT TYPE OF COLUMN OPSD.ZDT,
+  DT2 TYPE OF COLUMN OPSD.DT2,
+  YR TYPE OF COLUMN OPSD.YR,
+  NL TYPE OF COLUMN OPSD.NL)
+AS
+begin
+    INSERT INTO OPSd
+        (id, DETE, NrX, DocTyp, DocSt, DocNr,
+        ClId, ClId2, Descr, Summ, PVN,
+        Opt, ZNR, ZU, ZDt, DT2, NL)
+    VALUES
+        (:pid, :pDete, :pNrX, :pDocTyp, :pDocSt, :pDocNr,
+        :pClId, :pClId2, :pDescr, :pSumm, :pPVN,
+        :pOpt, :pznr, :pZU, localtimestamp(0), :pDT2, 0)
+    RETURNING
+        id, DETE,  nrx, doctyp, docst, docnr,
+        clid, clid2, descr, summ, pvn,
+        opt, znr, zu, zdt, dt2, nl, yr
+    INTO
+        :id, :DETE, :nrx, :doctyp, :docst, :docnr,
+        :clid, :clid2, :descr, :summ, :pvn,
+        :opt, :znr, :zu, :zdt, :dt2, :nl, :yr;
+
+    suspend;
+
+end
+^
+
+ALTER PROCEDURE SP_OPSD_UPDATE(
+  PDETE DATE,
+  PNRX VARCHAR(5) /* COLLATE UTF8 - default */,
+  PDOCTYP VARCHAR(10) /* COLLATE UTF8 - default */,
+  PDOCST VARCHAR(6) /* COLLATE UTF8 - default */,
+  PDOCNR VARCHAR(15) /* COLLATE UTF8 - default */,
+  PCLID VARCHAR(15) /* COLLATE UTF8 - default */,
+  PCLID2 VARCHAR(15) /* COLLATE UTF8 - default */,
+  PDESCR VARCHAR(80) /* COLLATE UTF8 - default */,
+  PSUMM NUMERIC(15,4),
+  PPVN NUMERIC(15,4),
+  POPT INTEGER,
+  PZNR INTEGER,
+  PZU VARCHAR(20) /* COLLATE UTF8 - default */,
+  PZDT TIMESTAMP,
+  PDT2 DATE,
+  PNL SMALLINT,
+  ORIGINAL_ID INTEGER,
+  ORIGINAL_DATE DATE,
+  ISNULL_NRX INTEGER,
+  ORIGINAL_NRX VARCHAR(5) /* COLLATE UTF8 - default */,
+  ISNULL_DOCTYP INTEGER,
+  ORIGINAL_DOCTYP VARCHAR(10) /* COLLATE UTF8 - default */,
+  ISNULL_DOCST INTEGER,
+  ORIGINAL_DOCST VARCHAR(6) /* COLLATE UTF8 - default */,
+  ISNULL_DOCNR INTEGER,
+  ORIGINAL_DOCNR VARCHAR(15) /* COLLATE UTF8 - default */,
+  ISNULL_CLID INTEGER,
+  ORIGINAL_CLID VARCHAR(15) /* COLLATE UTF8 - default */,
+  ISNULL_CLID2 INTEGER,
+  ORIGINAL_CLID2 VARCHAR(15) /* COLLATE UTF8 - default */,
+  ISNULL_DESCR INTEGER,
+  ORIGINAL_DESCR VARCHAR(80) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMM NUMERIC(15,4),
+  ORIGINAL_PVN NUMERIC(15,4),
+  ISNULL_OPT INTEGER,
+  ORIGINAL_OPT INTEGER,
+  ORIGINAL_ZNR INTEGER,
+  ISNULL_ZU INTEGER,
+  ORIGINAL_ZU VARCHAR(20) /* COLLATE UTF8 - default */,
+  ISNULL_ZDT INTEGER,
+  ORIGINAL_ZDT TIMESTAMP,
+  ISNULL_DT2 INTEGER,
+  ORIGINAL_DT2 DATE,
+  ISNULL_NL INTEGER,
+  ORIGINAL_NL SMALLINT,
+  ISNULL_YR INTEGER,
+  ORIGINAL_YR INTEGER,
+  PID INTEGER)
+RETURNS (
+  ID TYPE OF COLUMN OPSD.ID,
+  DETE TYPE OF COLUMN OPSD.DETE,
+  NRX TYPE OF COLUMN OPSD.NRX /* COLLATE UTF8 - default */,
+  DOCTYP TYPE OF COLUMN OPSD.DOCTYP /* COLLATE UTF8 - default */,
+  DOCST TYPE OF COLUMN OPSD.DOCST /* COLLATE UTF8 - default */,
+  DOCNR TYPE OF COLUMN OPSD.DOCNR /* COLLATE UTF8 - default */,
+  CLID TYPE OF COLUMN OPSD.CLID /* COLLATE UTF8 - default */,
+  CLID2 TYPE OF COLUMN OPSD.CLID2 /* COLLATE UTF8 - default */,
+  DESCR TYPE OF COLUMN OPSD.DESCR /* COLLATE UTF8 - default */,
+  SUMM TYPE OF COLUMN OPSD.SUMM,
+  PVN TYPE OF COLUMN OPSD.PVN,
+  OPT TYPE OF COLUMN OPSD.OPT,
+  ZNR TYPE OF COLUMN OPSD.ZNR,
+  ZU TYPE OF COLUMN OPSD.ZU /* COLLATE UTF8 - default */,
+  ZDT TYPE OF COLUMN OPSD.ZDT,
+  DT2 TYPE OF COLUMN OPSD.DT2,
+  YR TYPE OF COLUMN OPSD.YR,
+  NL TYPE OF COLUMN OPSD.NL)
+AS
+declare variable XYR integer;
+declare variable NEXTNR integer;
+declare variable VUSER varchar(50);
+declare variable O_ZDT timestamp;
+begin
+    /*
+    xyr = EXTRACT(YEAR FROM :pDete);
+    NEXTNR = :Original_ZNR;
+
+    IF (:Original_yr <> xyr) THEN
+    BEGIN
+        EXECUTE PROCEDURE  sp_opsd_getNextNrForYearA(:xyr) returning_values :nextnr;
+        IF (NEXTNR = -1) THEN
+        BEGIN
+            exception my_exception_badyearvalue;
+            EXIT;
+        END
+    END
+    */
+    --VUSER = USER;
+    VUSER = PZU;
+
+    UPDATE OPSd
+    SET 
+        DETE = :pDete,
+        NrX = :pNrX,
+        DocTyp = :pDocTyp,
+        DocSt = :pDocSt,
+        DocNr = :pDocNr,
+        ClId = :pClId,
+        ClId2 = :pClId2,
+        Descr = :pDescr,
+        Summ = :pSumm,
+        PVN = :pPVN,
+        Opt = :pOpt,
+        ZNR = :pznr,
+        ZU = :VUSER,
+        ZDt = localtimestamp(0),
+        DT2 = :pDT2,
+        NL = :pNL
+    WHERE 
+    (
+        (id = :Original_id) AND 
+        (DETE = :Original_Date) AND
+        ((:IsNull_NrX = 1 AND NrX IS NULL) OR (NrX = :Original_NrX)) AND 
+        ((:IsNull_DocTyp = 1 AND DocTyp IS NULL) OR (DocTyp = :Original_DocTyp)) AND 
+        ((:IsNull_DocSt = 1 AND DocSt IS NULL) OR (DocSt = :Original_DocSt)) AND 
+        ((:IsNull_DocNr = 1 AND DocNr IS NULL) OR (DocNr = :Original_DocNr)) AND 
+        ((:IsNull_ClId = 1 AND ClId IS NULL) OR (ClId = :Original_ClId)) AND 
+        ((:IsNull_ClId2 = 1 AND ClId2 IS NULL) OR (ClId2 = :Original_ClId2)) AND 
+        ((:IsNull_Descr = 1 AND Descr IS NULL) OR (Descr = :Original_Descr)) AND 
+        (Summ = :Original_Summ) AND 
+        (PVN = :Original_PVN) AND 
+        (ZNR = :Original_ZNR) AND 
+        ((:IsNull_DT2 = 1 AND DT2 IS NULL) OR (DT2 = :Original_DT2))
+    );
+
+    O_ZDt = :Original_ZDt;
+    IF (:IsNull_ZDt = 1) THEN
+    BEGIN
+        O_ZDt = null;
+    END
+
+    EXECUTE PROCEDURE sp_opsd_update_log(
+            :Original_id,
+            :VUSER,
+            :Original_Date, 
+            :Original_NrX, 
+            :Original_DocTyp, 
+            :Original_DocSt, 
+            :Original_DocNr, 
+            :Original_ClId, 
+            :Original_ClId2, 
+            :Original_Descr, 
+            :Original_Summ, 
+            :Original_PVN, 
+            :Original_ZNR,
+            :O_ZDt);
+
+
+end
+^
+
+ALTER PROCEDURE SP_OPSD_UPDATE_LOG(
+  ID INTEGER,
+  USR VARCHAR(15) /* COLLATE UTF8 - default */,
+  ORIGINAL_DATE DATE,
+  ORIGINAL_NRX VARCHAR(5) /* COLLATE UTF8 - default */,
+  ORIGINAL_DOCTYP VARCHAR(10) /* COLLATE UTF8 - default */,
+  ORIGINAL_DOCST VARCHAR(6) /* COLLATE UTF8 - default */,
+  ORIGINAL_DOCNR VARCHAR(15) /* COLLATE UTF8 - default */,
+  ORIGINAL_CLID VARCHAR(15) /* COLLATE UTF8 - default */,
+  ORIGINAL_CLID2 VARCHAR(15) /* COLLATE UTF8 - default */,
+  ORIGINAL_DESCR VARCHAR(80) /* COLLATE UTF8 - default */,
+  ORIGINAL_SUMM NUMERIC(15,4),
+  ORIGINAL_PVN NUMERIC(15,4),
+  ORIGINAL_ZNR INTEGER,
+  ORIGINAL_ZDT TIMESTAMP)
+AS
+declare variable NOW timestamp;
+    declare variable XDT timestamp;
+begin
+    now = localtimestamp(0);
+    xdt = dateadd(-1 hour to now);
+
+    IF (:Original_ZDt IS NULL OR :Original_ZDt < xdt)
+    THEN BEGIN
+        INSERT INTO LOPSD
+            (id, ZDt, ZU, DETE, NrX,
+            DocTyp, DocSt, DocNr,
+            ClId, ClId2, Descr, Summ, PVN, ZNR)
+        VALUES (
+            :id,
+            :now,
+            :Usr,
+            :Original_Date, 
+            :Original_NrX, 
+            :Original_DocTyp, 
+            :Original_DocSt, 
+            :Original_DocNr, 
+            :Original_ClId, 
+            :Original_ClId2, 
+            :Original_Descr, 
+            :Original_Summ, 
+            :Original_PVN, 
+            :Original_ZNR
+            );
+
+    END
+
+end
+^
+
+
+SET TERM ; ^
+
+
+UPDATE Params
+SET PVALUE = '095'
+WHERE PNAME = 'version';

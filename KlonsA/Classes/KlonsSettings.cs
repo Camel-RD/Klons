@@ -48,6 +48,9 @@ namespace KlonsA.Classes
         private int reportZoom = 100;
         private string windowPos = "normal"; // normal, max
 
+        private int backUpPlan = 1;
+        private string backUpFolder = "";
+
         public static bool DesignMode
         {
             get
@@ -387,6 +390,42 @@ namespace KlonsA.Classes
             }
         }
 
+        public int BackUpPlan
+        {
+            get { return backUpPlan; }
+            set
+            {
+                if (backUpPlan == value) return;
+                backUpPlan = value;
+                HasChanged = true;
+            }
+        }
+
+        [XmlIgnore]
+        public EBackUpPlan BackUpPlanX
+        {
+            get
+            {
+                if (BackUpPlan < 0 || BackUpPlan > 3) BackUpPlan = 1;
+                return (EBackUpPlan)BackUpPlan;
+            }
+            set
+            {
+                BackUpPlan = (int)value;
+            }
+        }
+
+        public string BackUpFolder
+        {
+            get { return backUpFolder; }
+            set
+            {
+                if (backUpFolder == value) return;
+                backUpFolder = value;
+                HasChanged = true;
+            }
+        }
+
         public static KlonsSettings LoadSettings(string filename)
         {
             KlonsSettings settings = new KlonsSettings();
@@ -434,4 +473,10 @@ namespace KlonsA.Classes
         }
 
     }
+
+    public enum EBackUpPlan
+    {
+        Never, WhenUpgrading, Daily, WhenConnecting
+    }
+
 }

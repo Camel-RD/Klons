@@ -31,7 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbVersionStr = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -69,16 +69,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Pamatlīdzekļu uzskaites programma";
             // 
-            // label3
+            // lbVersionStr
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label3.Location = new System.Drawing.Point(178, 80);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(171, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "versija 2021.10.#1";
+            this.lbVersionStr.AutoSize = true;
+            this.lbVersionStr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.lbVersionStr.Location = new System.Drawing.Point(178, 80);
+            this.lbVersionStr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbVersionStr.Name = "lbVersionStr";
+            this.lbVersionStr.Size = new System.Drawing.Size(171, 25);
+            this.lbVersionStr.TabIndex = 3;
+            this.lbVersionStr.Text = "versija 2021.10.#1";
             // 
             // label4
             // 
@@ -98,7 +98,7 @@
             this.CloseOnEscape = true;
             this.ControlBox = false;
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbVersionStr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.button1);
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbVersionStr;
         private System.Windows.Forms.Label label4;
     }
 }
