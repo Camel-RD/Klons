@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -193,6 +194,16 @@ namespace KlonsP.Forms
         private void nomainītSaimniecībuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeDB();
+        }
+        private void atvērtProgrammasMapiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = KlonsData.GetBasePath();
+            try { Process.Start(myfolder); }catch(Exception) { }
+        }
+        private void atvērtRezervesKopijuMapiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = MyData.GetBackUpFolder();
+            try { Process.Start(myfolder); } catch (Exception) { }
         }
         private void aizvērtToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -16,6 +16,7 @@ using KlonsF.FormsReportParams;
 using KlonsLIB.Forms;
 using KlonsLIB.Misc;
 using KlonsF.UI;
+using System.Diagnostics;
 
 namespace KlonsF
 {
@@ -297,6 +298,16 @@ namespace KlonsF
             if (!CloseAllForms()) return;
             ShowFormDialog(typeof(Form_Import));
         }
+        private void atvērtProgrammasMapiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = KlonsData.GetBasePath();
+            try{Process.Start(myfolder);}catch(Exception){}
+        }
+        private void atvērtRezervesKopijuMapiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = MyData.GetBackUpFolder();
+            try { Process.Start(myfolder); } catch (Exception) { }
+        }
         private void aizvērtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CloseAllForms()) return;
@@ -453,6 +464,7 @@ namespace KlonsF
         }
 
         #endregion
+
 
     }
 }

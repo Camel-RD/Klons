@@ -225,10 +225,34 @@ namespace KlonsA
 
         #region **********  Menu clicks ******************
 
+        private void nomainītSaimniecībuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeDB();
+        }
         private void kāStrādāsimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CloseAllForms()) return;
             ShowFormSettings();
+        }
+        private void rādītPēdējāsKļūdasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = ShowForm(typeof(Form_ErrorList)) as Form_ErrorList;
+            f.SetMyDataErrorList();
+        }
+        private void atvērtProgrammasMapiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = KlonsData.GetBasePath();
+            try { Process.Start(myfolder); }catch(Exception) { }
+        }
+        private void atvērtRezervesKopijuMapiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = MyData.GetBackUpFolder();
+            try { Process.Start(myfolder); } catch (Exception) { }
+        }
+        private void aizvērtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CloseAllForms()) return;
+            Application.Exit();
         }
         private void miRepStats_Click(object sender, EventArgs e)
         {
@@ -255,54 +279,45 @@ namespace KlonsA
             if (!CheckData()) return;
             ShowForm(typeof(Form_TeritorialCodes));
         }
-
         private void profesijuKlasifikatorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Professions));
         }
-
         private void struktūrvienībasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Departments));
         }
-
         private void svētkuDienasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Holidays));
         }
-
         private void bankasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Banks));
         }
-
         private void kalendārsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(typeof(Form_Calendar));
         }
-
         private void darbaLaikaPlānuSarakstsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PlanList));
         }
-
         private void darbaLaikaPlānsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Plan));
         }
-
         private void darbaLaikaUzskaitesLapusagatavesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_TimeSheetTempl));
         }
-
         private void darbaLaikaUzskaitesLapasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
@@ -313,13 +328,11 @@ namespace KlonsA
             if (!CheckData()) return;
             ShowForm(typeof(Form_TimeSheet));
         }
-
         private void darbiniekiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Persons));
         }
-
         private void darbiniekuDatiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
@@ -335,19 +348,16 @@ namespace KlonsA
             if (!CheckData()) return;
             ShowForm(typeof(Form_UntaxedMinimum));
         }
-
         private void notikumuIzklāstsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_Events));
         }
-
         private void neizmantotāsAtvaļinājumaDienasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(FormRep_VacDays));
         }
-
         private void personuSarakstsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
@@ -363,99 +373,68 @@ namespace KlonsA
             if (!CheckData()) return;
             ShowForm(typeof(Form_PastData));
         }
-
         private void form1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new Form1()).Show();
         }
-
         private void ziņuKodiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_ReportCodes));
         }
-
         private void algasAprēķinaLapusagatavesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_SalarySheetTempl));
         }
-
         private void algasAprēķinaLapuSarakstsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_SalarySheets));
         }
-
         private void algasAprēķinaLapasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_SalarySheet));
         }
-
         private void darbaUzskaiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PieceWork));
         }
-
         private void katalogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PieceWorkCatalog));
         }
-
         private void katalogaStruktūraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PieceWorkCatStruct));
         }
-
         private void sarakstusagatavesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PayListsTempl));
         }
-
         private void mkasājumuSarakstiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PayLists));
         }
-
         private void PārskatsPaPersonāmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
             ShowForm(typeof(Form_PaymentsByPerson));
         }
-
         private void atlasītDatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadData();
         }
-
-        private void nomainītSaimniecībuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeDB();
-        }
-
-        private void rādītPēdējāsKļūdasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var f = ShowForm(typeof(Form_ErrorList)) as Form_ErrorList;
-            f.SetMyDataErrorList();
-        }
-
         private void ziņasParUzņēmumuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(typeof(Form_CompanyData));
         }
-
-        private void aizvērtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!CloseAllForms()) return;
-            Application.Exit();
-        }
-
         private void ziņasParDarbaŅēmējiemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MyData.ReportHelper.WarnIfHasChanges();
@@ -497,6 +476,7 @@ namespace KlonsA
             string s = KlonsData.GetBasePath() + "\\Klons-A.chm";
             Help.ShowHelp(null, s, "\\Klons-A.chm::/Svarigakie_taustioi.htm");
         }
+
 
         #endregion **********  Menu clicks
 

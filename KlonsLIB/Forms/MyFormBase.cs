@@ -483,9 +483,11 @@ namespace KlonsLIB.Forms
                 if (c is ToolStrip && !(c is MenuStrip))
                 {
                     ScaleToolStrip(c as ToolStrip);
-                    return;
                 }
-                ScaleControlA(c.Controls.Cast<Control>());
+                else
+                {
+                    ScaleControlA(c.Controls.Cast<Control>());
+                }
             }
         }
 
