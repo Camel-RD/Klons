@@ -47,17 +47,23 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=7.1.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
-      <HintPath>..\KlonsF\packages\FirebirdSql.Data.FirebirdClient.7.1.1\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=7.10.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.7.10.1\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\KlonsA\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -79,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\ListBoxDragDropHelper.cs" />
+    <Compile Include="Components\MyButtonNoSelect.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Components\MySplitContainer.cs">
       <SubType>Component</SubType>
     </Compile>

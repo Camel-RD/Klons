@@ -25,6 +25,8 @@ KlonsA/FBembed25
 KlonsP/FBembed25
 KlonsM/
 DataObjectsM/
+KlonsT/
+DataObjectsT/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

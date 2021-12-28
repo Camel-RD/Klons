@@ -418,8 +418,6 @@ namespace KlonsLIB.Data
             return true;
         }
 
-        
-
         public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value,
             Attribute[] attributes)
         {

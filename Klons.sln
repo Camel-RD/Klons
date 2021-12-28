@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlonsA", "KlonsA\KlonsA.csproj", "{658A84BC-A941-4B97-88B0-77AB4F46D646}"
 EndProject
@@ -22,6 +22,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyReportLib", "MyReportLib\MyReportLib.csproj", "{40E4DBBA-D70A-4B6A-9497-CD4516918361}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToOutput", "ToOutput\ToOutput.csproj", "{558AA6FF-1CB0-4FBC-A57B-76F1D1FC47D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlonsM", "KlonsM\KlonsM.csproj", "{F637C8BD-A701-4B4B-BF87-27677AD88232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataObjectsM", "DataObjectsM\DataObjectsM.csproj", "{3EA389DE-4B50-4EEF-AE8E-F44684726902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlonsT", "KlonsT\KlonsT.csproj", "{DD42C455-50A2-4C8F-9A20-01ED13D6580C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,8 +96,29 @@ Global
 		{558AA6FF-1CB0-4FBC-A57B-76F1D1FC47D3}.Output|Any CPU.Build.0 = Output|Any CPU
 		{558AA6FF-1CB0-4FBC-A57B-76F1D1FC47D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{558AA6FF-1CB0-4FBC-A57B-76F1D1FC47D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F637C8BD-A701-4B4B-BF87-27677AD88232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F637C8BD-A701-4B4B-BF87-27677AD88232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F637C8BD-A701-4B4B-BF87-27677AD88232}.Output|Any CPU.ActiveCfg = Output|Any CPU
+		{F637C8BD-A701-4B4B-BF87-27677AD88232}.Output|Any CPU.Build.0 = Output|Any CPU
+		{F637C8BD-A701-4B4B-BF87-27677AD88232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F637C8BD-A701-4B4B-BF87-27677AD88232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA389DE-4B50-4EEF-AE8E-F44684726902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA389DE-4B50-4EEF-AE8E-F44684726902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA389DE-4B50-4EEF-AE8E-F44684726902}.Output|Any CPU.ActiveCfg = Output|Any CPU
+		{3EA389DE-4B50-4EEF-AE8E-F44684726902}.Output|Any CPU.Build.0 = Output|Any CPU
+		{3EA389DE-4B50-4EEF-AE8E-F44684726902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA389DE-4B50-4EEF-AE8E-F44684726902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD42C455-50A2-4C8F-9A20-01ED13D6580C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD42C455-50A2-4C8F-9A20-01ED13D6580C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD42C455-50A2-4C8F-9A20-01ED13D6580C}.Output|Any CPU.ActiveCfg = Output|Any CPU
+		{DD42C455-50A2-4C8F-9A20-01ED13D6580C}.Output|Any CPU.Build.0 = Output|Any CPU
+		{DD42C455-50A2-4C8F-9A20-01ED13D6580C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD42C455-50A2-4C8F-9A20-01ED13D6580C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA46CE1E-F4B2-4064-8108-3DFC4439329E}
 	EndGlobalSection
 EndGlobal
