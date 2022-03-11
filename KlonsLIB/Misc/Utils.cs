@@ -202,7 +202,7 @@ namespace KlonsLIB.Misc
                 yr--;
                 mt = 12 - mt;
             }
-            if (mt > 12)
+            else if (mt > 12)
             {
                 yr++;
                 mt = mt - 12;

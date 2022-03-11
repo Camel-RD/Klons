@@ -140,17 +140,18 @@ namespace KlonsF.Forms
                       || (sac21 == null && sac22 == null && sac23 == null && sac24 == null && sac25 == null);
             
             MyData.DataSetKlons.vw_OPS.Clear();
+            var vw_OPSTableAdapter = new vw_OPSTableAdapter();
             if (cmAndOr.Text == "un" || b1)
             {
 
-                this.vw_OPSTableAdapter.FillByAndFilter(MyData.DataSetKlons.vw_OPS,
+                vw_OPSTableAdapter.FillByAndFilter(MyData.DataSetKlons.vw_OPS,
                     dt1, dt2, stext, sclid,
                     sac11, sac12, sac13, sac14, sac15,
                     sac21, sac22, sac23, sac24, sac25, sdocgr);
             }
             else
             {
-                this.vw_OPSTableAdapter.FillByOrFilter(MyData.DataSetKlons.vw_OPS,
+                vw_OPSTableAdapter.FillByOrFilter(MyData.DataSetKlons.vw_OPS,
                     dt1, dt2, stext, sclid,
                     sac11, sac12, sac13, sac14, sac15,
                     sac21, sac22, sac23, sac24, sac25, sdocgr);

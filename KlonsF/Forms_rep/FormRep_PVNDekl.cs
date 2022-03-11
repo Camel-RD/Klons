@@ -316,7 +316,8 @@ namespace KlonsF.FormsReportParams
             //rinda 421
             ax[74] = sc("102");
             //rinda 411
-            ax[73] = sc("K041") + sc("K051") + sc("B01") + sc("D01") + sc("B03") + sc("D03") + sc("M01");
+            ax[73] = sc("K041") + sc("K051") + sc("B01") + sc("D01") + sc("B03") + 
+                sc("D03") + sc("M01") + sc("G01");
             ax[44] = sc("111");
             ax[45] = sc("112") + sc("K044") + sc("K053");
             //rinda 451
@@ -336,7 +337,7 @@ namespace KlonsF.FormsReportParams
             ax[76] = sc("132");
 
             ax[40] = ax[41] + ax[42] + ax[73] + ax[74] + ax[43] +
-                     ax[49] + ax[50] + ax[51] + ax[76] + ax[72];
+                     ax[49] + ax[72];
 
             ax[52] = MRound(ax[41] * 0.21M);
             ax[53] = MRound(ax[42] * 0.12M);
@@ -368,7 +369,8 @@ namespace KlonsF.FormsReportParams
                     ax[77] = sc("202");
                 }
             }
-            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("B14") + sd("D14") + sd("M12");
+            ax[52] = ax[52] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + 
+                sd("B14") + sd("D14") + sd("M12") + sd("G12");
             ax[53] = ax[53];
 
             ax[54] = sc("211");
@@ -382,7 +384,8 @@ namespace KlonsF.FormsReportParams
                      sc("304") + sc("305") + sc("306") + sc("307") + sc("308") + 
                      sc("361");
 
-            ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + sc("B14") + sc("D14") + sc("M12");
+            ax[57] = ax[57] + sc("K101") + sc("K105") + sc("B12") + sc("D12") + 
+                sc("B14") + sc("D14") + sc("M12") + sc("G12");
 
             //ax[58] = sc("251")
 
@@ -392,7 +395,8 @@ namespace KlonsF.FormsReportParams
                      sd("305") + sd("306") + sd("307") + sd("308") + 
                      sd("361");
 
-            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + sd("B14") + sd("D14") + sd("M12");
+            ax[62] = ax[62] + sd("K101") + sd("K105") + sd("B12") + sd("D12") + 
+                sd("B14") + sd("D14") + sd("M12") + sd("G12");
             ax[63] = sd("321");
             ax[64] = sd("331") + sd("332");
             ax[65] = sd("304");
@@ -775,8 +779,8 @@ namespace KlonsF.FormsReportParams
             AddRow(67, true, false, "67", "iepriekšējos taksācijas periodos samaksai valsts budžetā aprēķinātā nodokļa samazinājums ");
             AddRow(57, true, false, "57", "iepriekšējos taksācijas periodos atskaitītā priekšnodokļa samazinājums");
             AddRow(0, false, true, "", "KOPSUMMA");
-            AddRow(59, true, false, "(P)", "priekšnodoklis");
-            AddRow(69, true, false, "(S)", "aprēķinātais nodoklis");
+            AddRow(69, true, false, "(P)", "priekšnodoklis");
+            AddRow(59, true, false, "(S)", "aprēķinātais nodoklis");
             AddRow(70, false, false, "70", "No valsts budžeta atmaksājamā nodokļa summa vai uz nākamo taksācijas periodu attiecināmā nodokļa summa, ja P > S");
             AddRow(80, false, false, "80", "Valsts budžetā maksājamā nodokļa summa, ja P < S");
 
