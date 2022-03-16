@@ -133,7 +133,11 @@ namespace KlonsA.Classes
             }
 
             sbruto += si._FORAVPAYCALC_BRUTO;
-            sbruto2 += si._TOTAL_BEFORE_TAXES;
+            //jo aprēķina laikā kopējā bruto alga nav zināma
+            if (sh.YR > 2022 || sh.YR == 2022 && sh.MT > 2)
+                sbruto2 += si._FORAVPAYCALC_BRUTO;
+            else
+                sbruto2 += si._TOTAL_BEFORE_TAXES;
             sdays += si._FORAVPAYCALC_DAYS;
             splandays += si._PLAN_WORK_DAYS;
             shours += si._FORAVPAYCALC_HOURS;

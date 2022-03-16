@@ -303,26 +303,42 @@ namespace KlonsA.Classes
             }
             if (PFxA.PFx_vacation != null)
             {
-                VacationCalc.VcrCurrent.IINEX = PFxA.PFx_vacation.UsedIinEx;
-                VacationCalc.VcrCurrent.IIN = PFxA.PFx_vacation.IIN;
-                VacationCalc.VcrCurrent.Cash = PFxA.PFx_vacation.Cash;
-
-                if (VacationCalc.VcrCompensation.Pay > 0.0M && VacationCalc.VcrCurrent.Pay > 0.0M)
+                if (VacationCalc.VcrCompensation.Pay != 0.0M && VacationCalc.VcrCurrent.Pay == 0.0M)
+                {
+                    VacationCalc.VcrCompensation.IINEX = PFxA.PFx_vacation.UsedIinEx;
+                    VacationCalc.VcrCompensation.IIN = PFxA.PFx_vacation.IIN;
+                    VacationCalc.VcrCompensation.Cash = PFxA.PFx_vacation.Cash;
+                }
+                else if (VacationCalc.VcrCompensation.Pay == 0.0M && VacationCalc.VcrCurrent.Pay != 0.0M)
+                {
+                    VacationCalc.VcrCurrent.IINEX = PFxA.PFx_vacation.UsedIinEx;
+                    VacationCalc.VcrCurrent.IIN = PFxA.PFx_vacation.IIN;
+                    VacationCalc.VcrCurrent.Cash = PFxA.PFx_vacation.Cash;
+                }
+                else if (VacationCalc.VcrCompensation.Pay != 0.0M && VacationCalc.VcrCurrent.Pay != 0.0M)
                 {
                     decimal r =
                         VacationCalc.VcrCompensation.Pay /
-                        VacationCalc.VcrCurrent.Pay;
+                        (VacationCalc.VcrCurrent.Pay + VacationCalc.VcrCompensation.Pay);
 
-                    VacationCalc.VcrCompensation.IINEX = VacationCalc.VcrCurrent.IINEX * r;
-                    VacationCalc.VcrCompensation.IIN = VacationCalc.VcrCurrent.IIN * r;
+                    VacationCalc.VcrCompensation.IINEX = PFxA.PFx_vacation.UsedIinEx * r;
+                    VacationCalc.VcrCompensation.IIN = PFxA.PFx_vacation.IIN * r;
 
                     VacationCalc.VcrCompensation.IINEX = KlonsData.RoundA(VacationCalc.VcrCompensation.IINEX, 2);
                     VacationCalc.VcrCompensation.IIN = KlonsData.RoundA(VacationCalc.VcrCompensation.IIN, 2);
+
+                    VacationCalc.VcrCurrent.IINEX = PFxA.PFx_vacation.UsedIinEx - VacationCalc.VcrCompensation.IINEX;
+                    VacationCalc.VcrCurrent.IIN = PFxA.PFx_vacation.IIN - VacationCalc.VcrCompensation.IIN;
 
                     VacationCalc.VcrCompensation.Cash =
                         VacationCalc.VcrCompensation.Pay -
                         VacationCalc.VcrCompensation.DNS -
                         VacationCalc.VcrCompensation.IIN;
+
+                    VacationCalc.VcrCurrent.Cash =
+                        VacationCalc.VcrCurrent.Pay -
+                        VacationCalc.VcrCurrent.DNS -
+                        VacationCalc.VcrCurrent.IIN;
                 }
             }
         }

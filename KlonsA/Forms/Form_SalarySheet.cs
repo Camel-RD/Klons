@@ -1038,20 +1038,37 @@ namespace KlonsA.Forms
             SaveData();
         }
 
-
         private void vidējāsIzpeļņasAprēķinsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (bsSarR.Current == null) return;
             var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
             if (dr_lapas_r == null) return;
 
-            var ap = new AvPayCalcInfo(true);
-            var err = ap.CalcList(dr_lapas_r);
+            var sr = new SalarySheetRowInfo();
+            var err = sr.SetUpFromRowX(dr_lapas_r);
             if (err.HasErrors)
             {
                 Form_ErrorList.ShowErrorList(MyMainForm, err);
                 return;
             }
+            sr.CheckLinkedRows(dr_lapas_r.IDP);
+
+            var sc = new SalaryCalcTInfo(sr.SalarySheetRowSet, new SalaryInfo(), true);
+            err = sc.FillRow();
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyData.MyMainForm, err);
+                return;
+            }
+
+            AvPayCalcInfo ap = null;
+
+            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne) ap = sc.LinkedSCI[0].AvPayCalc;
+            else if (dr_lapas_r.XType == ESalarySheetRowType.Total) ap = sc.AvPayCalc;
+            else ap = sc.LinkedSCI.Where(d => d.SR.Row == dr_lapas_r).FirstOrDefault()?.AvPayCalc;
+
+            if (ap == null) return;
+
             Form_AvPayCalc.Show(ap);
         }
 
