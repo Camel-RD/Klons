@@ -692,7 +692,7 @@ namespace KlonsA.Forms
                 {
                     var dt3 = (DateTime)odt3;
                     if (dt3.Year < 1950 || dt3.Year > 2100 ||
-                        (odt1 != null && (DateTime)odt1 <= dt3))
+                        (odt1 != null && (DateTime)odt1 < dt3))
                         baddates = true;
                 }
             }

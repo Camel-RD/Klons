@@ -663,6 +663,8 @@ namespace KlonsA.Classes
             si._VACATION_IIN_NEXT = VcrNext.IIN;
             si._VACATION_IIN_REDUCE_NEXT = IINReverse;
 
+            si._VACATION_DAYS_COMP = VcrCompensation.Days;
+            si._VACATION_PAY_COMP = VcrCompensation.Pay;
         }
 
     }

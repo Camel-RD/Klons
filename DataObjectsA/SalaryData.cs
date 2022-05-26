@@ -129,6 +129,8 @@ namespace DataObjectsA
         public decimal _VACATION_DNS_PREV { get; set; } = 0.0M;
         public decimal _VACATION_DDS_PREV { get; set; } = 0.0M;
         public decimal _VACATION_IIN_PREV { get; set; } = 0.0M;
+        public float _VACATION_DAYS_COMP { get; set; } = 0.0f;
+        public decimal _VACATION_PAY_COMP { get; set; } = 0.0M;
 
         public decimal _PLUS_TAXED { get; set; } = 0.0M;
         public decimal _PLUS_NOTTAXED { get; set; } = 0.0M;

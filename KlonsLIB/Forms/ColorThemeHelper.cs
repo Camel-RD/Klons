@@ -384,6 +384,18 @@ namespace KlonsLIB.Forms
                 var mygrid = c as MyGrid;
                 mygrid.ApplyColorTheme(mycolortheme);
             }
+            else if (c is FlatRichTextBox)
+            {
+                var frb = c as FlatRichTextBox;
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
+                c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
+                frb.BorderColor = mycolortheme.GetColor(frb.BorderColor, mycolortheme.BorderColor);
+            }
+            else
+            {
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
+                c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
+            }
         }
 
         public static Color ColorBetween(Color color1, Color color2, float factor)

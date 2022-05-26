@@ -6334,6 +6334,8 @@ namespace KlonsA.DataSets {
             
             private global::System.Data.DataColumn columnVACATIONDAYS;
             
+            private global::System.Data.DataColumn columnVACATIONDAYSCOMP;
+            
             private global::System.Data.DataColumn columnSICKDAYS;
             
             private global::System.Data.DataColumn columnWORKPAY;
@@ -6341,6 +6343,8 @@ namespace KlonsA.DataSets {
             private global::System.Data.DataColumn columnSICKPAY;
             
             private global::System.Data.DataColumn columnVACATIONPAY;
+            
+            private global::System.Data.DataColumn columnVACATIONPAYCOMP;
             
             private global::System.Data.DataColumn columnFREEAVPAY;
             
@@ -6501,6 +6505,14 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VACATIONDAYSCOMPColumn {
+                get {
+                    return this.columnVACATIONDAYSCOMP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn SICKDAYSColumn {
                 get {
                     return this.columnSICKDAYS;
@@ -6528,6 +6540,14 @@ namespace KlonsA.DataSets {
             public global::System.Data.DataColumn VACATIONPAYColumn {
                 get {
                     return this.columnVACATIONPAY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VACATIONPAYCOMPColumn {
+                get {
+                    return this.columnVACATIONPAYCOMP;
                 }
             }
             
@@ -6786,10 +6806,12 @@ namespace KlonsA.DataSets {
                         int WORKDAYS, 
                         int FREEAVPAYDAYS, 
                         float VACATIONDAYS, 
+                        float VACATIONDAYSCOMP, 
                         int SICKDAYS, 
                         decimal WORKPAY, 
                         decimal SICKPAY, 
                         decimal VACATIONPAY, 
+                        decimal VACATIONPAYCOMP, 
                         decimal FREEAVPAY, 
                         decimal WORKAVPAY, 
                         decimal PLUS_TAXED, 
@@ -6827,10 +6849,12 @@ namespace KlonsA.DataSets {
                         WORKDAYS,
                         FREEAVPAYDAYS,
                         VACATIONDAYS,
+                        VACATIONDAYSCOMP,
                         SICKDAYS,
                         WORKPAY,
                         SICKPAY,
                         VACATIONPAY,
+                        VACATIONPAYCOMP,
                         FREEAVPAY,
                         WORKAVPAY,
                         PLUS_TAXED,
@@ -6888,10 +6912,12 @@ namespace KlonsA.DataSets {
                 this.columnWORKDAYS = base.Columns["WORKDAYS"];
                 this.columnFREEAVPAYDAYS = base.Columns["FREEAVPAYDAYS"];
                 this.columnVACATIONDAYS = base.Columns["VACATIONDAYS"];
+                this.columnVACATIONDAYSCOMP = base.Columns["VACATIONDAYSCOMP"];
                 this.columnSICKDAYS = base.Columns["SICKDAYS"];
                 this.columnWORKPAY = base.Columns["WORKPAY"];
                 this.columnSICKPAY = base.Columns["SICKPAY"];
                 this.columnVACATIONPAY = base.Columns["VACATIONPAY"];
+                this.columnVACATIONPAYCOMP = base.Columns["VACATIONPAYCOMP"];
                 this.columnFREEAVPAY = base.Columns["FREEAVPAY"];
                 this.columnWORKAVPAY = base.Columns["WORKAVPAY"];
                 this.columnPLUS_TAXED = base.Columns["PLUS_TAXED"];
@@ -6941,6 +6967,8 @@ namespace KlonsA.DataSets {
                 base.Columns.Add(this.columnFREEAVPAYDAYS);
                 this.columnVACATIONDAYS = new global::System.Data.DataColumn("VACATIONDAYS", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVACATIONDAYS);
+                this.columnVACATIONDAYSCOMP = new global::System.Data.DataColumn("VACATIONDAYSCOMP", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVACATIONDAYSCOMP);
                 this.columnSICKDAYS = new global::System.Data.DataColumn("SICKDAYS", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSICKDAYS);
                 this.columnWORKPAY = new global::System.Data.DataColumn("WORKPAY", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -6949,6 +6977,8 @@ namespace KlonsA.DataSets {
                 base.Columns.Add(this.columnSICKPAY);
                 this.columnVACATIONPAY = new global::System.Data.DataColumn("VACATIONPAY", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVACATIONPAY);
+                this.columnVACATIONPAYCOMP = new global::System.Data.DataColumn("VACATIONPAYCOMP", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVACATIONPAYCOMP);
                 this.columnFREEAVPAY = new global::System.Data.DataColumn("FREEAVPAY", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFREEAVPAY);
                 this.columnWORKAVPAY = new global::System.Data.DataColumn("WORKAVPAY", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -7005,10 +7035,12 @@ namespace KlonsA.DataSets {
                 this.columnWORKDAYS.DefaultValue = ((int)(0));
                 this.columnFREEAVPAYDAYS.DefaultValue = ((int)(0));
                 this.columnVACATIONDAYS.DefaultValue = ((float)(0F));
+                this.columnVACATIONDAYSCOMP.DefaultValue = ((float)(0F));
                 this.columnSICKDAYS.DefaultValue = ((int)(0));
                 this.columnWORKPAY.DefaultValue = ((decimal)(0m));
                 this.columnSICKPAY.DefaultValue = ((decimal)(0m));
                 this.columnVACATIONPAY.DefaultValue = ((decimal)(0m));
+                this.columnVACATIONPAYCOMP.DefaultValue = ((decimal)(0m));
                 this.columnFREEAVPAY.DefaultValue = ((decimal)(0m));
                 this.columnWORKAVPAY.DefaultValue = ((decimal)(0m));
                 this.columnPLUS_TAXED.DefaultValue = ((decimal)(0m));
@@ -13400,6 +13432,22 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public float VACATIONDAYSCOMP {
+                get {
+                    try {
+                        return ((float)(this[this.tableSP_REP_AGGREGATE.VACATIONDAYSCOMPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VACATIONDAYSCOMP\' in table \'SP_REP_AGGREGATE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_REP_AGGREGATE.VACATIONDAYSCOMPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int SICKDAYS {
                 get {
                     try {
@@ -13459,6 +13507,22 @@ namespace KlonsA.DataSets {
                 }
                 set {
                     this[this.tableSP_REP_AGGREGATE.VACATIONPAYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal VACATIONPAYCOMP {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_REP_AGGREGATE.VACATIONPAYCOMPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VACATIONPAYCOMP\' in table \'SP_REP_AGGREGATE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_REP_AGGREGATE.VACATIONPAYCOMPColumn] = value;
                 }
             }
             
@@ -13993,6 +14057,18 @@ namespace KlonsA.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVACATIONDAYSCOMPNull() {
+                return this.IsNull(this.tableSP_REP_AGGREGATE.VACATIONDAYSCOMPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVACATIONDAYSCOMPNull() {
+                this[this.tableSP_REP_AGGREGATE.VACATIONDAYSCOMPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSICKDAYSNull() {
                 return this.IsNull(this.tableSP_REP_AGGREGATE.SICKDAYSColumn);
             }
@@ -14037,6 +14113,18 @@ namespace KlonsA.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetVACATIONPAYNull() {
                 this[this.tableSP_REP_AGGREGATE.VACATIONPAYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVACATIONPAYCOMPNull() {
+                return this.IsNull(this.tableSP_REP_AGGREGATE.VACATIONPAYCOMPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVACATIONPAYCOMPNull() {
+                this[this.tableSP_REP_AGGREGATE.VACATIONPAYCOMPColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18778,6 +18866,8 @@ namespace KlonsA.DataSets.KlonsARepDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("FREEAVPAYDAYS", "FREEAVPAYDAYS");
             tableMapping.ColumnMappings.Add("SICKDAYS", "SICKDAYS");
             tableMapping.ColumnMappings.Add("VACATIONDAYS", "VACATIONDAYS");
+            tableMapping.ColumnMappings.Add("VACATIONDAYSCOMP", "VACATIONDAYSCOMP");
+            tableMapping.ColumnMappings.Add("VACATIONPAYCOMP", "VACATIONPAYCOMP");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

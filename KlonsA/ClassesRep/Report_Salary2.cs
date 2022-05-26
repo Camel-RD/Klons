@@ -170,10 +170,12 @@ namespace KlonsA.Classes
         public int WorkDays { get; set; } = 0;
         public int FreeAvPayDays { get; set; } = 0;
         public float VacationDays { get; set; } = 0f;
+        public float VacationDaysComp { get; set; } = 0f;
         public int SickDays { get; set; } = 0;
         public decimal WorkPay { get; set; } = 0.0M;
         public decimal SickPay { get; set; } = 0.0M;
         public decimal VacationPay { get; set; } = 0.0M;
+        public decimal VacationPayComp { get; set; } = 0.0M;
         public decimal FreeAvPay { get; set; } = 0.0M;
         public decimal WorkAvPay { get; set; } = 0.0M;
         public decimal PlusTaxed { get; set; } = 0.0M;
@@ -209,10 +211,12 @@ namespace KlonsA.Classes
             WorkHours = si._FACT_HOURS;
             FreeAvPayDays = si._FACT_AVPAY_FREE_DAYS;
             VacationDays = si._VACATION_DAYS_CURRENT;
+            VacationDaysComp = si._VACATION_DAYS_COMP;
             SickDays = si._SICKDAYS;
             WorkPay = si._SALARY;
             SickPay = si._SICKDAYS_PAY;
             VacationPay = si._VACATION_PAY_CURRENT;
+            VacationPayComp = si._VACATION_PAY_COMP;
             FreeAvPay = si._SALARY_AVPAY_FREE_DAYS;
             WorkAvPay = 
                 si._SALARY_AVPAY_HOLIDAYS + 
@@ -255,10 +259,12 @@ namespace KlonsA.Classes
             WorkHours = dr.WORKHOURS;
             FreeAvPayDays = dr.FREEAVPAYDAYS;
             VacationDays = dr.VACATIONDAYS;
+            VacationDaysComp = dr.VACATIONDAYSCOMP;
             SickDays = dr.SICKDAYS;
             WorkPay = dr.WORKPAY;
             SickPay = dr.SICKPAY;
             VacationPay = dr.VACATIONPAY;
+            VacationPayComp = dr.VACATIONPAYCOMP;
             FreeAvPay = dr.FREEAVPAY;
             WorkAvPay = dr.WORKAVPAY;
             PlusTaxed = dr.PLUS_TAXED;

@@ -574,6 +574,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="SQL\SQLV058.txt" />
     <EmbeddedResource Include="SQL\SQLV056.txt" />
     <EmbeddedResource Include="SQL\SQLV051.txt" />
     <EmbeddedResource Include="SQL\SQLV049.txt" />

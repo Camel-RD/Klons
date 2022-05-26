@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SalarySheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,8 +53,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.salaryData1 = new DataObjectsA.SalaryData();
             this.bsLapas = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsSarR = new KlonsLIB.Data.MyBindingSource2(this.components);
@@ -188,6 +189,8 @@
             this.grSalaryAvPayTitle = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTitle();
             this.grVacationTitle = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTitle();
             this.grVacationHoursCurrent = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
+            this.grVacationDaysComp = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
+            this.grVacationPayComp = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.grVacationTitleNext = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTitle();
             this.grVacationHoursNext = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA();
             this.grVacationTitlePrev = new KlonsLIB.MySourceGrid.GridRows.MyGridRowTitle();
@@ -232,28 +235,6 @@
             this.grbIsInAvpay = new KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox();
             this.splitContainer2 = new KlonsLIB.Components.MySplitContainer();
             this.dgvLapa = new KlonsLIB.Components.MyDataGridView();
-            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPositionTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarAvPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarVacation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarSickPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPlusTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarWorkAvPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarDnSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarUntaxedMinimum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarDependants = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarIINEx2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPapildsummas = new KlonsLIB.Components.MyDataGridView();
             this.dgcPsDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -288,6 +269,29 @@
             this.miShoeBonusList = new System.Windows.Forms.ToolStripMenuItem();
             this.miRādītDarbiniekuAmatus = new System.Windows.Forms.ToolStripMenuItem();
             this.miShowDataPanel = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgcSarSnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPositionTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarFactDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarFactAvPayFreeDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarsFactHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarAvPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarVacation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarSickPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPlusTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarWorkAvPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarTotalBeforeTaxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarDnSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarSNAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarUntaxedMinimum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarDependants = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarIINEx2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarIIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarAdvance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSarPayT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsLapas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSarR2)).BeginInit();
@@ -777,6 +781,7 @@
             0,
             0,
             65536});
+            this.salaryData1._VACATION_DAYS_COMP = 0F;
             this.salaryData1._VACATION_DAYS_CURRENT = 0F;
             this.salaryData1._VACATION_DAYS_NEXT = 0F;
             this.salaryData1._VACATION_DDS_NEXT = new decimal(new int[] {
@@ -812,6 +817,11 @@
             0,
             65536});
             this.salaryData1._VACATION_IIN_REDUCE_NEXT = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
+            this.salaryData1._VACATION_PAY_COMP = new decimal(new int[] {
             0,
             0,
             0,
@@ -2224,6 +2234,8 @@
             this.sgrAprekins.RowList.Add(this.grVacationDaysCurrent);
             this.sgrAprekins.RowList.Add(this.grVacationHoursCurrent);
             this.sgrAprekins.RowList.Add(this.grVacationPayCurrent);
+            this.sgrAprekins.RowList.Add(this.grVacationDaysComp);
+            this.sgrAprekins.RowList.Add(this.grVacationPayComp);
             this.sgrAprekins.RowList.Add(this.grVacationTitleNext);
             this.sgrAprekins.RowList.Add(this.grVacationDaysNext);
             this.sgrAprekins.RowList.Add(this.grVacationHoursNext);
@@ -2446,6 +2458,28 @@
             this.grVacationHoursCurrent.ReadOnly = true;
             this.grVacationHoursCurrent.RowTitle = "Stundas";
             this.grVacationHoursCurrent.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Single;
+            // 
+            // grVacationDaysComp
+            // 
+            this.grVacationDaysComp.DataMember = "VACATION_DAYS_COMP";
+            this.grVacationDaysComp.DataSource = this.bsSarR2;
+            this.grVacationDaysComp.EditorTemplateName = "grSingle";
+            this.grVacationDaysComp.GridPropertyName = "_VACATION_DAYS_COMP";
+            this.grVacationDaysComp.Name = "grVacationDaysComp";
+            this.grVacationDaysComp.ReadOnly = true;
+            this.grVacationDaysComp.RowTitle = "Kompensētās dienas";
+            this.grVacationDaysComp.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Single;
+            // 
+            // grVacationPayComp
+            // 
+            this.grVacationPayComp.DataMember = "VACATION_PAY_COMP";
+            this.grVacationPayComp.DataSource = this.bsSarR2;
+            this.grVacationPayComp.EditorTemplateName = "grDecimalReadOnly";
+            this.grVacationPayComp.GridPropertyName = "_VACATION_PAY_COMP";
+            this.grVacationPayComp.Name = "grVacationPayComp";
+            this.grVacationPayComp.ReadOnly = true;
+            this.grVacationPayComp.RowTitle = "Kompensācijas summa";
+            this.grVacationPayComp.RowValueType = KlonsLIB.MySourceGrid.GridRows.EMyGridRowValueType.Decimal;
             // 
             // grVacationTitleNext
             // 
@@ -2921,6 +2955,7 @@
             this.dgcSarName,
             this.dgcSarPositionTitle,
             this.dgcSarFactDays,
+            this.dgcSarFactAvPayFreeDays,
             this.dgcSarsFactHours,
             this.dgcSarSalary,
             this.dgcSarAvPay,
@@ -2953,276 +2988,6 @@
             this.dgvLapa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLapa_CellFormatting);
             this.dgvLapa.Enter += new System.EventHandler(this.dgvLapa_Enter);
             // 
-            // dgcSarSnr
-            // 
-            this.dgcSarSnr.DataPropertyName = "SNR";
-            this.dgcSarSnr.Frozen = true;
-            this.dgcSarSnr.HeaderText = "npk.";
-            this.dgcSarSnr.MinimumWidth = 7;
-            this.dgcSarSnr.Name = "dgcSarSnr";
-            this.dgcSarSnr.ReadOnly = true;
-            this.dgcSarSnr.Width = 45;
-            // 
-            // dgcSarName
-            // 
-            this.dgcSarName.DataPropertyName = "YNAME";
-            this.dgcSarName.Frozen = true;
-            this.dgcSarName.HeaderText = "darbineiks";
-            this.dgcSarName.MinimumWidth = 7;
-            this.dgcSarName.Name = "dgcSarName";
-            this.dgcSarName.ReadOnly = true;
-            this.dgcSarName.Width = 168;
-            // 
-            // dgcSarPositionTitle
-            // 
-            this.dgcSarPositionTitle.DataPropertyName = "POSITION_TITLE";
-            this.dgcSarPositionTitle.HeaderText = "amats";
-            this.dgcSarPositionTitle.MinimumWidth = 7;
-            this.dgcSarPositionTitle.Name = "dgcSarPositionTitle";
-            this.dgcSarPositionTitle.ReadOnly = true;
-            this.dgcSarPositionTitle.Width = 168;
-            // 
-            // dgcSarFactDays
-            // 
-            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcSarFactDays.HeaderText = "dienas";
-            this.dgcSarFactDays.MinimumWidth = 7;
-            this.dgcSarFactDays.Name = "dgcSarFactDays";
-            this.dgcSarFactDays.ReadOnly = true;
-            this.dgcSarFactDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarFactDays.Width = 67;
-            // 
-            // dgcSarsFactHours
-            // 
-            this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcSarsFactHours.HeaderText = "stundas";
-            this.dgcSarsFactHours.MinimumWidth = 7;
-            this.dgcSarsFactHours.Name = "dgcSarsFactHours";
-            this.dgcSarsFactHours.ReadOnly = true;
-            this.dgcSarsFactHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarsFactHours.Width = 67;
-            // 
-            // dgcSarSalary
-            // 
-            this.dgcSarSalary.DataPropertyName = "SALARY";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.dgcSarSalary.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgcSarSalary.HeaderText = "par darbu";
-            this.dgcSarSalary.MinimumWidth = 7;
-            this.dgcSarSalary.Name = "dgcSarSalary";
-            this.dgcSarSalary.ReadOnly = true;
-            this.dgcSarSalary.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarSalary.Width = 90;
-            // 
-            // dgcSarAvPay
-            // 
-            this.dgcSarAvPay.DataPropertyName = "SALARY_AVPAY_FREE_DAYS";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarAvPay.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcSarAvPay.HeaderText = "par VI d.";
-            this.dgcSarAvPay.MinimumWidth = 7;
-            this.dgcSarAvPay.Name = "dgcSarAvPay";
-            this.dgcSarAvPay.ReadOnly = true;
-            this.dgcSarAvPay.ToolTipText = "par vidējās izpeļņas brivdienām";
-            this.dgcSarAvPay.Width = 90;
-            // 
-            // dgcSarVacation
-            // 
-            this.dgcSarVacation.DataPropertyName = "VACATION_PAY_CURRENT";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarVacation.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcSarVacation.HeaderText = "atvaļin.n.";
-            this.dgcSarVacation.MinimumWidth = 7;
-            this.dgcSarVacation.Name = "dgcSarVacation";
-            this.dgcSarVacation.ReadOnly = true;
-            this.dgcSarVacation.ToolTipText = "atvaļinājuma nauda";
-            this.dgcSarVacation.Width = 90;
-            // 
-            // dgcSarSickPay
-            // 
-            this.dgcSarSickPay.DataPropertyName = "SICKDAYS_PAY";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarSickPay.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgcSarSickPay.HeaderText = "slimīb.n.";
-            this.dgcSarSickPay.MinimumWidth = 7;
-            this.dgcSarSickPay.Name = "dgcSarSickPay";
-            this.dgcSarSickPay.ReadOnly = true;
-            this.dgcSarSickPay.ToolTipText = "slimības nauda";
-            this.dgcSarSickPay.Width = 90;
-            // 
-            // dgcSarPlusTotal
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarPlusTotal.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgcSarPlusTotal.HeaderText = "piemaksas";
-            this.dgcSarPlusTotal.MinimumWidth = 7;
-            this.dgcSarPlusTotal.Name = "dgcSarPlusTotal";
-            this.dgcSarPlusTotal.ReadOnly = true;
-            this.dgcSarPlusTotal.ToolTipText = "piemaksu kopsumma";
-            this.dgcSarPlusTotal.Width = 90;
-            // 
-            // dgcSarWorkAvPay
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarWorkAvPay.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgcSarWorkAvPay.HeaderText = "VI darbd.";
-            this.dgcSarWorkAvPay.MinimumWidth = 8;
-            this.dgcSarWorkAvPay.Name = "dgcSarWorkAvPay";
-            this.dgcSarWorkAvPay.ReadOnly = true;
-            this.dgcSarWorkAvPay.ToolTipText = "t.sk. par VI darbdienām";
-            this.dgcSarWorkAvPay.Visible = false;
-            this.dgcSarWorkAvPay.Width = 90;
-            // 
-            // dgcSarTotalBeforeTaxes
-            // 
-            this.dgcSarTotalBeforeTaxes.DataPropertyName = "TOTAL_BEFORE_TAXES";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            this.dgcSarTotalBeforeTaxes.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgcSarTotalBeforeTaxes.HeaderText = "ieņ. kopā";
-            this.dgcSarTotalBeforeTaxes.MinimumWidth = 7;
-            this.dgcSarTotalBeforeTaxes.Name = "dgcSarTotalBeforeTaxes";
-            this.dgcSarTotalBeforeTaxes.ReadOnly = true;
-            this.dgcSarTotalBeforeTaxes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarTotalBeforeTaxes.Width = 90;
-            // 
-            // dgcSarDnSNAmount
-            // 
-            this.dgcSarDnSNAmount.DataPropertyName = "DNSN_AMOUNT";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            this.dgcSarDnSNAmount.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgcSarDnSNAmount.HeaderText = "SI d.ņ.";
-            this.dgcSarDnSNAmount.MinimumWidth = 7;
-            this.dgcSarDnSNAmount.Name = "dgcSarDnSNAmount";
-            this.dgcSarDnSNAmount.ReadOnly = true;
-            this.dgcSarDnSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarDnSNAmount.ToolTipText = "darba ņēmēja VSAOI";
-            this.dgcSarDnSNAmount.Width = 90;
-            // 
-            // dgcSarSNAmount
-            // 
-            this.dgcSarSNAmount.DataPropertyName = "SN_AMOUNT";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            this.dgcSarSNAmount.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgcSarSNAmount.HeaderText = "SI";
-            this.dgcSarSNAmount.MinimumWidth = 7;
-            this.dgcSarSNAmount.Name = "dgcSarSNAmount";
-            this.dgcSarSNAmount.ReadOnly = true;
-            this.dgcSarSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarSNAmount.ToolTipText = "kopā VSAOI";
-            this.dgcSarSNAmount.Width = 90;
-            // 
-            // dgcSarUntaxedMinimum
-            // 
-            this.dgcSarUntaxedMinimum.DataPropertyName = "IIN_EXEMPT_UNTAXED_MINIMUM";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarUntaxedMinimum.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dgcSarUntaxedMinimum.HeaderText = "neapliek. min.";
-            this.dgcSarUntaxedMinimum.MinimumWidth = 7;
-            this.dgcSarUntaxedMinimum.Name = "dgcSarUntaxedMinimum";
-            this.dgcSarUntaxedMinimum.ReadOnly = true;
-            this.dgcSarUntaxedMinimum.ToolTipText = "neapliekamais minimums";
-            this.dgcSarUntaxedMinimum.Width = 90;
-            // 
-            // dgcSarDependants
-            // 
-            this.dgcSarDependants.DataPropertyName = "IIN_EXEMPT_DEPENDANTS";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarDependants.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dgcSarDependants.HeaderText = "par apgād.";
-            this.dgcSarDependants.MinimumWidth = 7;
-            this.dgcSarDependants.Name = "dgcSarDependants";
-            this.dgcSarDependants.ReadOnly = true;
-            this.dgcSarDependants.ToolTipText = "atvieglojumi par apgādājamajiem";
-            this.dgcSarDependants.Width = 90;
-            // 
-            // dgcSarIINEx2
-            // 
-            this.dgcSarIINEx2.DataPropertyName = "IIN_EXEMPT_2";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarIINEx2.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dgcSarIINEx2.HeaderText = "citi atv.";
-            this.dgcSarIINEx2.MinimumWidth = 7;
-            this.dgcSarIINEx2.Name = "dgcSarIINEx2";
-            this.dgcSarIINEx2.ReadOnly = true;
-            this.dgcSarIINEx2.ToolTipText = "citi atvieglojumi";
-            this.dgcSarIINEx2.Width = 90;
-            // 
-            // dgcSarIIN
-            // 
-            this.dgcSarIIN.DataPropertyName = "IIN_AMOUNT";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N2";
-            this.dgcSarIIN.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dgcSarIIN.HeaderText = "IIN";
-            this.dgcSarIIN.MinimumWidth = 7;
-            this.dgcSarIIN.Name = "dgcSarIIN";
-            this.dgcSarIIN.ReadOnly = true;
-            this.dgcSarIIN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarIIN.Width = 90;
-            // 
-            // dgcSarPay
-            // 
-            this.dgcSarPay.DataPropertyName = "PAY";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            this.dgcSarPay.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dgcSarPay.HeaderText = "izmaksai";
-            this.dgcSarPay.MinimumWidth = 7;
-            this.dgcSarPay.Name = "dgcSarPay";
-            this.dgcSarPay.ReadOnly = true;
-            this.dgcSarPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcSarPay.Width = 90;
-            // 
-            // dgcSarAdvance
-            // 
-            this.dgcSarAdvance.DataPropertyName = "ADVANCE";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSarAdvance.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dgcSarAdvance.HeaderText = "avansā";
-            this.dgcSarAdvance.MinimumWidth = 7;
-            this.dgcSarAdvance.Name = "dgcSarAdvance";
-            this.dgcSarAdvance.ReadOnly = true;
-            this.dgcSarAdvance.ToolTipText = "Avansā izmaksājamā summa";
-            this.dgcSarAdvance.Width = 90;
-            // 
-            // dgcSarPayT
-            // 
-            this.dgcSarPayT.DataPropertyName = "PAYT";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "N2";
-            this.dgcSarPayT.DefaultCellStyle = dataGridViewCellStyle19;
-            this.dgcSarPayT.HeaderText = "kopā izm.";
-            this.dgcSarPayT.MinimumWidth = 7;
-            this.dgcSarPayT.Name = "dgcSarPayT";
-            this.dgcSarPayT.ReadOnly = true;
-            this.dgcSarPayT.Width = 90;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 7;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            this.iDDataGridViewTextBoxColumn.Width = 146;
-            // 
             // dgvPapildsummas
             // 
             this.dgvPapildsummas.AllowUserToAddRows = false;
@@ -3230,14 +2995,14 @@
             this.dgvPapildsummas.AutoGenerateColumns = false;
             this.dgvPapildsummas.AutoSave = false;
             this.dgvPapildsummas.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPapildsummas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.488F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPapildsummas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvPapildsummas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPapildsummas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgcPsDescr,
@@ -3277,10 +3042,10 @@
             // dgcPsRate
             // 
             this.dgcPsRate.DataPropertyName = "RATE";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = null;
-            this.dgcPsRate.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N2";
+            dataGridViewCellStyle22.NullValue = null;
+            this.dgcPsRate.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgcPsRate.HeaderText = "likme";
             this.dgcPsRate.MinimumWidth = 7;
             this.dgcPsRate.Name = "dgcPsRate";
@@ -3300,9 +3065,9 @@
             // dgcPsAmount
             // 
             this.dgcPsAmount.DataPropertyName = "AMOUNT";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "N2";
-            this.dgcPsAmount.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N2";
+            this.dgcPsAmount.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgcPsAmount.HeaderText = "summa";
             this.dgcPsAmount.MinimumWidth = 7;
             this.dgcPsAmount.Name = "dgcPsAmount";
@@ -3560,6 +3325,289 @@
             this.miShowDataPanel.Size = new System.Drawing.Size(515, 38);
             this.miShowDataPanel.Text = "Rādīt datu paneli (Ctrl+D)";
             this.miShowDataPanel.Click += new System.EventHandler(this.MiShowDataPanel_Click);
+            // 
+            // dgcSarSnr
+            // 
+            this.dgcSarSnr.DataPropertyName = "SNR";
+            this.dgcSarSnr.Frozen = true;
+            this.dgcSarSnr.HeaderText = "npk.";
+            this.dgcSarSnr.MinimumWidth = 7;
+            this.dgcSarSnr.Name = "dgcSarSnr";
+            this.dgcSarSnr.ReadOnly = true;
+            this.dgcSarSnr.Width = 45;
+            // 
+            // dgcSarName
+            // 
+            this.dgcSarName.DataPropertyName = "YNAME";
+            this.dgcSarName.Frozen = true;
+            this.dgcSarName.HeaderText = "darbineiks";
+            this.dgcSarName.MinimumWidth = 7;
+            this.dgcSarName.Name = "dgcSarName";
+            this.dgcSarName.ReadOnly = true;
+            this.dgcSarName.Width = 168;
+            // 
+            // dgcSarPositionTitle
+            // 
+            this.dgcSarPositionTitle.DataPropertyName = "POSITION_TITLE";
+            this.dgcSarPositionTitle.HeaderText = "amats";
+            this.dgcSarPositionTitle.MinimumWidth = 7;
+            this.dgcSarPositionTitle.Name = "dgcSarPositionTitle";
+            this.dgcSarPositionTitle.ReadOnly = true;
+            this.dgcSarPositionTitle.Width = 168;
+            // 
+            // dgcSarFactDays
+            // 
+            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcSarFactDays.HeaderText = "dienas";
+            this.dgcSarFactDays.MinimumWidth = 7;
+            this.dgcSarFactDays.Name = "dgcSarFactDays";
+            this.dgcSarFactDays.ReadOnly = true;
+            this.dgcSarFactDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarFactDays.Width = 67;
+            // 
+            // dgcSarFactAvPayFreeDays
+            // 
+            this.dgcSarFactAvPayFreeDays.DataPropertyName = "FACT_AVPAY_FREE_DAYS";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarFactAvPayFreeDays.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcSarFactAvPayFreeDays.HeaderText = "t.sk. svētku d.";
+            this.dgcSarFactAvPayFreeDays.MinimumWidth = 8;
+            this.dgcSarFactAvPayFreeDays.Name = "dgcSarFactAvPayFreeDays";
+            this.dgcSarFactAvPayFreeDays.ReadOnly = true;
+            this.dgcSarFactAvPayFreeDays.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarFactAvPayFreeDays.ToolTipText = "apmaksātās svētku dienas";
+            this.dgcSarFactAvPayFreeDays.Width = 80;
+            // 
+            // dgcSarsFactHours
+            // 
+            this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgcSarsFactHours.HeaderText = "stundas";
+            this.dgcSarsFactHours.MinimumWidth = 7;
+            this.dgcSarsFactHours.Name = "dgcSarsFactHours";
+            this.dgcSarsFactHours.ReadOnly = true;
+            this.dgcSarsFactHours.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarsFactHours.Width = 67;
+            // 
+            // dgcSarSalary
+            // 
+            this.dgcSarSalary.DataPropertyName = "SALARY";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.dgcSarSalary.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgcSarSalary.HeaderText = "par darbu";
+            this.dgcSarSalary.MinimumWidth = 7;
+            this.dgcSarSalary.Name = "dgcSarSalary";
+            this.dgcSarSalary.ReadOnly = true;
+            this.dgcSarSalary.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarSalary.Width = 90;
+            // 
+            // dgcSarAvPay
+            // 
+            this.dgcSarAvPay.DataPropertyName = "SALARY_AVPAY_FREE_DAYS";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarAvPay.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcSarAvPay.HeaderText = "par VI brīvd.";
+            this.dgcSarAvPay.MinimumWidth = 7;
+            this.dgcSarAvPay.Name = "dgcSarAvPay";
+            this.dgcSarAvPay.ReadOnly = true;
+            this.dgcSarAvPay.ToolTipText = "par vidējās izpeļņas brivdienām";
+            this.dgcSarAvPay.Width = 90;
+            // 
+            // dgcSarVacation
+            // 
+            this.dgcSarVacation.DataPropertyName = "VACATION_PAY_CURRENT";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarVacation.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcSarVacation.HeaderText = "atvaļin.n.";
+            this.dgcSarVacation.MinimumWidth = 7;
+            this.dgcSarVacation.Name = "dgcSarVacation";
+            this.dgcSarVacation.ReadOnly = true;
+            this.dgcSarVacation.ToolTipText = "atvaļinājuma nauda";
+            this.dgcSarVacation.Width = 90;
+            // 
+            // dgcSarSickPay
+            // 
+            this.dgcSarSickPay.DataPropertyName = "SICKDAYS_PAY";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarSickPay.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgcSarSickPay.HeaderText = "slimīb.n.";
+            this.dgcSarSickPay.MinimumWidth = 7;
+            this.dgcSarSickPay.Name = "dgcSarSickPay";
+            this.dgcSarSickPay.ReadOnly = true;
+            this.dgcSarSickPay.ToolTipText = "slimības nauda";
+            this.dgcSarSickPay.Width = 90;
+            // 
+            // dgcSarPlusTotal
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarPlusTotal.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgcSarPlusTotal.HeaderText = "piemaksas";
+            this.dgcSarPlusTotal.MinimumWidth = 7;
+            this.dgcSarPlusTotal.Name = "dgcSarPlusTotal";
+            this.dgcSarPlusTotal.ReadOnly = true;
+            this.dgcSarPlusTotal.ToolTipText = "piemaksu kopsumma";
+            this.dgcSarPlusTotal.Width = 90;
+            // 
+            // dgcSarWorkAvPay
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarWorkAvPay.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgcSarWorkAvPay.HeaderText = "VI darbd.";
+            this.dgcSarWorkAvPay.MinimumWidth = 8;
+            this.dgcSarWorkAvPay.Name = "dgcSarWorkAvPay";
+            this.dgcSarWorkAvPay.ReadOnly = true;
+            this.dgcSarWorkAvPay.ToolTipText = "t.sk. par VI darbdienām";
+            this.dgcSarWorkAvPay.Visible = false;
+            this.dgcSarWorkAvPay.Width = 90;
+            // 
+            // dgcSarTotalBeforeTaxes
+            // 
+            this.dgcSarTotalBeforeTaxes.DataPropertyName = "TOTAL_BEFORE_TAXES";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N2";
+            this.dgcSarTotalBeforeTaxes.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgcSarTotalBeforeTaxes.HeaderText = "ieņ. kopā";
+            this.dgcSarTotalBeforeTaxes.MinimumWidth = 7;
+            this.dgcSarTotalBeforeTaxes.Name = "dgcSarTotalBeforeTaxes";
+            this.dgcSarTotalBeforeTaxes.ReadOnly = true;
+            this.dgcSarTotalBeforeTaxes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarTotalBeforeTaxes.Width = 90;
+            // 
+            // dgcSarDnSNAmount
+            // 
+            this.dgcSarDnSNAmount.DataPropertyName = "DNSN_AMOUNT";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            this.dgcSarDnSNAmount.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgcSarDnSNAmount.HeaderText = "SI d.ņ.";
+            this.dgcSarDnSNAmount.MinimumWidth = 7;
+            this.dgcSarDnSNAmount.Name = "dgcSarDnSNAmount";
+            this.dgcSarDnSNAmount.ReadOnly = true;
+            this.dgcSarDnSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarDnSNAmount.ToolTipText = "darba ņēmēja VSAOI";
+            this.dgcSarDnSNAmount.Width = 90;
+            // 
+            // dgcSarSNAmount
+            // 
+            this.dgcSarSNAmount.DataPropertyName = "SN_AMOUNT";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.dgcSarSNAmount.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgcSarSNAmount.HeaderText = "SI";
+            this.dgcSarSNAmount.MinimumWidth = 7;
+            this.dgcSarSNAmount.Name = "dgcSarSNAmount";
+            this.dgcSarSNAmount.ReadOnly = true;
+            this.dgcSarSNAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarSNAmount.ToolTipText = "kopā VSAOI";
+            this.dgcSarSNAmount.Width = 90;
+            // 
+            // dgcSarUntaxedMinimum
+            // 
+            this.dgcSarUntaxedMinimum.DataPropertyName = "IIN_EXEMPT_UNTAXED_MINIMUM";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarUntaxedMinimum.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgcSarUntaxedMinimum.HeaderText = "neapliek. min.";
+            this.dgcSarUntaxedMinimum.MinimumWidth = 7;
+            this.dgcSarUntaxedMinimum.Name = "dgcSarUntaxedMinimum";
+            this.dgcSarUntaxedMinimum.ReadOnly = true;
+            this.dgcSarUntaxedMinimum.ToolTipText = "neapliekamais minimums";
+            this.dgcSarUntaxedMinimum.Width = 90;
+            // 
+            // dgcSarDependants
+            // 
+            this.dgcSarDependants.DataPropertyName = "IIN_EXEMPT_DEPENDANTS";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarDependants.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgcSarDependants.HeaderText = "par apgād.";
+            this.dgcSarDependants.MinimumWidth = 7;
+            this.dgcSarDependants.Name = "dgcSarDependants";
+            this.dgcSarDependants.ReadOnly = true;
+            this.dgcSarDependants.ToolTipText = "atvieglojumi par apgādājamajiem";
+            this.dgcSarDependants.Width = 90;
+            // 
+            // dgcSarIINEx2
+            // 
+            this.dgcSarIINEx2.DataPropertyName = "IIN_EXEMPT_2";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarIINEx2.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgcSarIINEx2.HeaderText = "citi atv.";
+            this.dgcSarIINEx2.MinimumWidth = 7;
+            this.dgcSarIINEx2.Name = "dgcSarIINEx2";
+            this.dgcSarIINEx2.ReadOnly = true;
+            this.dgcSarIINEx2.ToolTipText = "citi atvieglojumi";
+            this.dgcSarIINEx2.Width = 90;
+            // 
+            // dgcSarIIN
+            // 
+            this.dgcSarIIN.DataPropertyName = "IIN_AMOUNT";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            this.dgcSarIIN.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgcSarIIN.HeaderText = "IIN";
+            this.dgcSarIIN.MinimumWidth = 7;
+            this.dgcSarIIN.Name = "dgcSarIIN";
+            this.dgcSarIIN.ReadOnly = true;
+            this.dgcSarIIN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarIIN.Width = 90;
+            // 
+            // dgcSarPay
+            // 
+            this.dgcSarPay.DataPropertyName = "PAY";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "N2";
+            this.dgcSarPay.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dgcSarPay.HeaderText = "izmaksai";
+            this.dgcSarPay.MinimumWidth = 7;
+            this.dgcSarPay.Name = "dgcSarPay";
+            this.dgcSarPay.ReadOnly = true;
+            this.dgcSarPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcSarPay.Width = 90;
+            // 
+            // dgcSarAdvance
+            // 
+            this.dgcSarAdvance.DataPropertyName = "ADVANCE";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSarAdvance.DefaultCellStyle = dataGridViewCellStyle19;
+            this.dgcSarAdvance.HeaderText = "avansā";
+            this.dgcSarAdvance.MinimumWidth = 7;
+            this.dgcSarAdvance.Name = "dgcSarAdvance";
+            this.dgcSarAdvance.ReadOnly = true;
+            this.dgcSarAdvance.ToolTipText = "Avansā izmaksājamā summa";
+            this.dgcSarAdvance.Width = 90;
+            // 
+            // dgcSarPayT
+            // 
+            this.dgcSarPayT.DataPropertyName = "PAYT";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            this.dgcSarPayT.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dgcSarPayT.HeaderText = "kopā izm.";
+            this.dgcSarPayT.MinimumWidth = 7;
+            this.dgcSarPayT.Name = "dgcSarPayT";
+            this.dgcSarPayT.ReadOnly = true;
+            this.dgcSarPayT.Width = 90;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 7;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            this.iDDataGridViewTextBoxColumn.Width = 146;
             // 
             // Form_SalarySheet
             // 
@@ -3823,10 +3871,13 @@
         private System.Windows.Forms.ToolStripMenuItem rādītAprēķinaIzmaiņuVēsturiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miShowDataPanel;
         private System.Windows.Forms.ToolStripMenuItem aprēķinaIzklāstsSaglabātVisiemUzPDFToolStripMenuItem;
+        private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grVacationDaysComp;
+        private KlonsLIB.MySourceGrid.GridRows.MyGridRowTextBoxA grVacationPayComp;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarSnr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarPositionTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarFactDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarFactAvPayFreeDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarsFactHours;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarSalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSarAvPay;

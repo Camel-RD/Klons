@@ -58,6 +58,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbDepartment = new KlonsLIB.Components.MyMcFlatComboBox();
             this.bsDepartments = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -84,12 +86,14 @@
             this.dgcWorkDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcFreeAvPayDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcVacatinDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcVacatinDaysComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcSickDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcWorkPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcWorkAvPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcFreeAvPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcSickPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcVacationPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcVacationPayComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPlusTaxed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPlusNotTaxed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcAuthorsFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -367,12 +371,14 @@
             this.dgcWorkDays,
             this.dgcFreeAvPayDays,
             this.dgcVacatinDays,
+            this.dgcVacatinDaysComp,
             this.dgcSickDays,
             this.dgcWorkPay,
             this.dgcWorkAvPay,
             this.dgcFreeAvPay,
             this.dgcSickPay,
             this.dgcVacationPay,
+            this.dgcVacationPayComp,
             this.dgcPlusTaxed,
             this.dgcPlusNotTaxed,
             this.dgcAuthorsFees,
@@ -398,6 +404,7 @@
             this.dgvRows.ReadOnly = true;
             this.dgvRows.RowHeadersWidth = 53;
             this.dgvRows.RowTemplate.Height = 29;
+            this.dgvRows.ShowCellToolTips = false;
             this.dgvRows.Size = new System.Drawing.Size(1104, 344);
             this.dgvRows.TabIndex = 1;
             // 
@@ -452,7 +459,7 @@
             this.dgcFreeAvPayDays.DataPropertyName = "FreeAvPayDays";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcFreeAvPayDays.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcFreeAvPayDays.HeaderText = "VI brīvd.";
+            this.dgcFreeAvPayDays.HeaderText = "t.sk. VI brīvd.";
             this.dgcFreeAvPayDays.MinimumWidth = 8;
             this.dgcFreeAvPayDays.Name = "dgcFreeAvPayDays";
             this.dgcFreeAvPayDays.ReadOnly = true;
@@ -471,11 +478,23 @@
             this.dgcVacatinDays.ToolTipText = "atvaļinājuma dienas";
             this.dgcVacatinDays.Width = 60;
             // 
+            // dgcVacatinDaysComp
+            // 
+            this.dgcVacatinDaysComp.DataPropertyName = "VacationDaysComp";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcVacatinDaysComp.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgcVacatinDaysComp.HeaderText = "komp. atv. d.";
+            this.dgcVacatinDaysComp.MinimumWidth = 8;
+            this.dgcVacatinDaysComp.Name = "dgcVacatinDaysComp";
+            this.dgcVacatinDaysComp.ReadOnly = true;
+            this.dgcVacatinDaysComp.ToolTipText = "kompensētās atvaļinājuma dienas";
+            this.dgcVacatinDaysComp.Width = 60;
+            // 
             // dgcSickDays
             // 
             this.dgcSickDays.DataPropertyName = "SickDays";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgcSickDays.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgcSickDays.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgcSickDays.HeaderText = "slimības d.";
             this.dgcSickDays.MinimumWidth = 8;
             this.dgcSickDays.Name = "dgcSickDays";
@@ -486,9 +505,9 @@
             // dgcWorkPay
             // 
             this.dgcWorkPay.DataPropertyName = "WorkPay";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.dgcWorkPay.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            this.dgcWorkPay.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgcWorkPay.HeaderText = "darba samaksa";
             this.dgcWorkPay.MinimumWidth = 7;
             this.dgcWorkPay.Name = "dgcWorkPay";
@@ -498,9 +517,9 @@
             // dgcWorkAvPay
             // 
             this.dgcWorkAvPay.DataPropertyName = "WorkAvPay";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcWorkAvPay.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcWorkAvPay.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgcWorkAvPay.HeaderText = "par VI darbd.";
             this.dgcWorkAvPay.MinimumWidth = 8;
             this.dgcWorkAvPay.Name = "dgcWorkAvPay";
@@ -512,9 +531,9 @@
             // dgcFreeAvPay
             // 
             this.dgcFreeAvPay.DataPropertyName = "FreeAvPay";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcFreeAvPay.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcFreeAvPay.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgcFreeAvPay.HeaderText = "par VI brīvd.";
             this.dgcFreeAvPay.MinimumWidth = 8;
             this.dgcFreeAvPay.Name = "dgcFreeAvPay";
@@ -525,9 +544,9 @@
             // dgcSickPay
             // 
             this.dgcSickPay.DataPropertyName = "SickPay";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcSickPay.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcSickPay.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgcSickPay.HeaderText = "slimības nauda";
             this.dgcSickPay.MinimumWidth = 7;
             this.dgcSickPay.Name = "dgcSickPay";
@@ -537,9 +556,9 @@
             // dgcVacationPay
             // 
             this.dgcVacationPay.DataPropertyName = "VacationPay";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcVacationPay.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcVacationPay.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgcVacationPay.HeaderText = "atvaļin. nauda";
             this.dgcVacationPay.MinimumWidth = 7;
             this.dgcVacationPay.Name = "dgcVacationPay";
@@ -547,12 +566,25 @@
             this.dgcVacationPay.ToolTipText = "Atvaļinājuma nauda";
             this.dgcVacationPay.Width = 90;
             // 
+            // dgcVacationPayComp
+            // 
+            this.dgcVacationPayComp.DataPropertyName = "VacationPayComp";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcVacationPayComp.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgcVacationPayComp.HeaderText = "atvaļin. komp.";
+            this.dgcVacationPayComp.MinimumWidth = 8;
+            this.dgcVacationPayComp.Name = "dgcVacationPayComp";
+            this.dgcVacationPayComp.ReadOnly = true;
+            this.dgcVacationPayComp.ToolTipText = "neizmantotā atvaļinājuma kompensācija";
+            this.dgcVacationPayComp.Width = 90;
+            // 
             // dgcPlusTaxed
             // 
             this.dgcPlusTaxed.DataPropertyName = "PlusTaxed";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcPlusTaxed.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcPlusTaxed.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgcPlusTaxed.HeaderText = "piem. apliek.";
             this.dgcPlusTaxed.MinimumWidth = 7;
             this.dgcPlusTaxed.Name = "dgcPlusTaxed";
@@ -563,9 +595,9 @@
             // dgcPlusNotTaxed
             // 
             this.dgcPlusNotTaxed.DataPropertyName = "PlusNotTaxed";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcPlusNotTaxed.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcPlusNotTaxed.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgcPlusNotTaxed.HeaderText = "piem. nepliek";
             this.dgcPlusNotTaxed.MinimumWidth = 7;
             this.dgcPlusNotTaxed.Name = "dgcPlusNotTaxed";
@@ -576,9 +608,9 @@
             // dgcAuthorsFees
             // 
             this.dgcAuthorsFees.DataPropertyName = "PlusAuthorsFees";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcAuthorsFees.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcAuthorsFees.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgcAuthorsFees.HeaderText = "autoratl.";
             this.dgcAuthorsFees.MinimumWidth = 7;
             this.dgcAuthorsFees.Name = "dgcAuthorsFees";
@@ -589,9 +621,9 @@
             // dgcNoSAI
             // 
             this.dgcNoSAI.DataPropertyName = "PlusNoSAI";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcNoSAI.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcNoSAI.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgcNoSAI.HeaderText = "piem. nav SAI";
             this.dgcNoSAI.MinimumWidth = 7;
             this.dgcNoSAI.Name = "dgcNoSAI";
@@ -602,9 +634,9 @@
             // dgcTotalPay
             // 
             this.dgcTotalPay.DataPropertyName = "TotalPay";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            this.dgcTotalPay.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "N2";
+            this.dgcTotalPay.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgcTotalPay.HeaderText = "bruto alga";
             this.dgcTotalPay.MinimumWidth = 7;
             this.dgcTotalPay.Name = "dgcTotalPay";
@@ -614,9 +646,9 @@
             // dgcForSAI
             // 
             this.dgcForSAI.DataPropertyName = "ForSAI";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            this.dgcForSAI.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            this.dgcForSAI.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgcForSAI.HeaderText = "apliek ar SAI";
             this.dgcForSAI.MinimumWidth = 7;
             this.dgcForSAI.Name = "dgcForSAI";
@@ -627,9 +659,9 @@
             // dgcDDSI
             // 
             this.dgcDDSI.DataPropertyName = "DDSAI";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "N2";
-            this.dgcDDSI.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N2";
+            this.dgcDDSI.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgcDDSI.HeaderText = "d.d. SAI";
             this.dgcDDSI.MinimumWidth = 7;
             this.dgcDDSI.Name = "dgcDDSI";
@@ -640,9 +672,9 @@
             // dgcDNSAI
             // 
             this.dgcDNSAI.DataPropertyName = "DNSAI";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Format = "N2";
-            this.dgcDNSAI.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N2";
+            this.dgcDNSAI.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgcDNSAI.HeaderText = "d.ņ. SAI";
             this.dgcDNSAI.MinimumWidth = 7;
             this.dgcDNSAI.Name = "dgcDNSAI";
@@ -653,9 +685,9 @@
             // dgcUntaxedMinimum
             // 
             this.dgcUntaxedMinimum.DataPropertyName = "UntaxedMinimum";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "N2";
-            this.dgcUntaxedMinimum.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N2";
+            this.dgcUntaxedMinimum.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgcUntaxedMinimum.HeaderText = "neapliek min.";
             this.dgcUntaxedMinimum.MinimumWidth = 7;
             this.dgcUntaxedMinimum.Name = "dgcUntaxedMinimum";
@@ -666,9 +698,9 @@
             // dgcDepend
             // 
             this.dgcDepend.DataPropertyName = "ExDependants";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcDepend.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle24.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcDepend.DefaultCellStyle = dataGridViewCellStyle24;
             this.dgcDepend.HeaderText = "par apgādāj.";
             this.dgcDepend.MinimumWidth = 7;
             this.dgcDepend.Name = "dgcDepend";
@@ -679,9 +711,9 @@
             // dgcIINEX2
             // 
             this.dgcIINEX2.DataPropertyName = "Ex2";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcIINEX2.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle25.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcIINEX2.DefaultCellStyle = dataGridViewCellStyle25;
             this.dgcIINEX2.HeaderText = "pārējie IIN atv.";
             this.dgcIINEX2.MinimumWidth = 7;
             this.dgcIINEX2.Name = "dgcIINEX2";
@@ -692,9 +724,9 @@
             // dgcIIN
             // 
             this.dgcIIN.DataPropertyName = "IIN";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.Format = "N2";
-            this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle26.Format = "N2";
+            this.dgcIIN.DefaultCellStyle = dataGridViewCellStyle26;
             this.dgcIIN.HeaderText = "IIN";
             this.dgcIIN.MinimumWidth = 7;
             this.dgcIIN.Name = "dgcIIN";
@@ -704,9 +736,9 @@
             // dgcPAY
             // 
             this.dgcPAY.DataPropertyName = "Pay";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.Format = "N2";
-            this.dgcPAY.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle27.Format = "N2";
+            this.dgcPAY.DefaultCellStyle = dataGridViewCellStyle27;
             this.dgcPAY.HeaderText = "samaksa";
             this.dgcPAY.MinimumWidth = 7;
             this.dgcPAY.Name = "dgcPAY";
@@ -716,9 +748,9 @@
             // dgcMinusAfterIIN
             // 
             this.dgcMinusAfterIIN.DataPropertyName = "MinusAfterIIN";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcMinusAfterIIN.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle28.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcMinusAfterIIN.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgcMinusAfterIIN.HeaderText = "atvilkumi";
             this.dgcMinusAfterIIN.MinimumWidth = 7;
             this.dgcMinusAfterIIN.Name = "dgcMinusAfterIIN";
@@ -729,9 +761,9 @@
             // dgcAdvance
             // 
             this.dgcAdvance.DataPropertyName = "AdvanceOrDebt";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcAdvance.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle29.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcAdvance.DefaultCellStyle = dataGridViewCellStyle29;
             this.dgcAdvance.HeaderText = "avansā";
             this.dgcAdvance.MinimumWidth = 7;
             this.dgcAdvance.Name = "dgcAdvance";
@@ -741,9 +773,9 @@
             // dgcPayT
             // 
             this.dgcPayT.DataPropertyName = "PayT";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle28.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcPayT.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle30.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcPayT.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgcPayT.HeaderText = "kopā samaksa";
             this.dgcPayT.MinimumWidth = 7;
             this.dgcPayT.Name = "dgcPayT";
@@ -753,9 +785,9 @@
             // dgcPaid
             // 
             this.dgcPaid.DataPropertyName = "PAID";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Format = "# ##0.00;-# ##0.00;\"\"";
-            this.dgcPaid.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle31.Format = "# ##0.00;-# ##0.00;\"\"";
+            this.dgcPaid.DefaultCellStyle = dataGridViewCellStyle31;
             this.dgcPaid.HeaderText = "izmaksāts";
             this.dgcPaid.MinimumWidth = 7;
             this.dgcPaid.Name = "dgcPaid";
@@ -812,12 +844,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWorkDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcFreeAvPayDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcVacatinDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcVacatinDaysComp;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSickDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWorkPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWorkAvPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcFreeAvPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSickPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcVacationPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcVacationPayComp;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPlusTaxed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPlusNotTaxed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAuthorsFees;
