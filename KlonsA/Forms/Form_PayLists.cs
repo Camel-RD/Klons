@@ -1148,5 +1148,18 @@ namespace KlonsA.Forms
         {
             DoFilter();
         }
+
+        private void sarakstaImportsNoTekstaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fm = new Form_PayListImport();
+            if (fm.ShowDialog(MyMainForm) != DialogResult.OK) return;
+            var rows = fm.ListRows;
+            var err = DataTasks.MakePayListFromImportData(rows);
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                return;
+            }
+        }
     }
 }

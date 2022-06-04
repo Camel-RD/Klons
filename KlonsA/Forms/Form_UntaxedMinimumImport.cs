@@ -31,7 +31,6 @@ namespace KlonsA.Forms
 
         }
 
-        nm_e_gramatinas EGramatinas = null;
         List<UntMinImportData> Changes = null;
 
 
@@ -53,10 +52,11 @@ namespace KlonsA.Forms
 
             var ofd = new OpenFileDialog();
             ofd.Filter = "XML faili (*.xml)|*.xml";
-            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             ofd.CheckFileExists = true;
             ofd.Multiselect = false;
             ofd.Title = "Norādi EDS pārskata xml failu";
+            ofd.RestoreDirectory = true;
             if (ofd.ShowDialog(MyMainForm) != DialogResult.OK) return;
             var fnm = ofd.FileName;
 

@@ -49,6 +49,10 @@ namespace KlonsF.Classes
         private int backUpPlan = 1;
         private string backUpFolder = "";
 
+        private bool opsShowFullPersonName = false;
+        private bool opsShowPersonsRegNum = false;
+        private bool opsShowPersonsPVNRegNum = false;
+
         public static bool DesignMode
         {
             get
@@ -359,6 +363,38 @@ namespace KlonsF.Classes
             }
         }
 
+        public bool OpsShowFullPersonName
+        {
+            get { return opsShowFullPersonName; }
+            set
+            {
+                if (opsShowFullPersonName == value) return;
+                opsShowFullPersonName = value;
+                HasChanged = true;
+            }
+        }
+
+        public bool OpsShowPersonsRegNum
+        {
+            get { return opsShowPersonsRegNum; }
+            set
+            {
+                if (opsShowPersonsRegNum == value) return;
+                opsShowPersonsRegNum = value;
+                HasChanged = true;
+            }
+        }
+
+        public bool OpsShowPersonsPVNRegNum
+        {
+            get { return opsShowPersonsPVNRegNum; }
+            set
+            {
+                if (opsShowPersonsPVNRegNum == value) return;
+                opsShowPersonsPVNRegNum = value;
+                HasChanged = true;
+            }
+        }
 
         public static KlonsSettings LoadSettings(string filename)
         {

@@ -11625,6 +11625,8 @@ namespace KlonsF.DataSets {
             
             private global::System.Data.DataColumn columnRegNr;
             
+            private global::System.Data.DataColumn columnPVNRegNr;
+            
             private global::System.Data.DataColumn columnClId2;
             
             private global::System.Data.DataColumn columnName2;
@@ -11789,6 +11791,14 @@ namespace KlonsF.DataSets {
             public global::System.Data.DataColumn RegNrColumn {
                 get {
                     return this.columnRegNr;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PVNRegNrColumn {
+                get {
+                    return this.columnPVNRegNr;
                 }
             }
             
@@ -11993,6 +12003,7 @@ namespace KlonsF.DataSets {
                         string ClId, 
                         string Name, 
                         string RegNr, 
+                        string PVNRegNr, 
                         string ClId2, 
                         string Name2, 
                         string RegNr2, 
@@ -12026,6 +12037,7 @@ namespace KlonsF.DataSets {
                         ClId,
                         Name,
                         RegNr,
+                        PVNRegNr,
                         ClId2,
                         Name2,
                         RegNr2,
@@ -12086,6 +12098,7 @@ namespace KlonsF.DataSets {
                 this.columnClId = base.Columns["ClId"];
                 this.columnName = base.Columns["Name"];
                 this.columnRegNr = base.Columns["RegNr"];
+                this.columnPVNRegNr = base.Columns["PVNRegNr"];
                 this.columnClId2 = base.Columns["ClId2"];
                 this.columnName2 = base.Columns["Name2"];
                 this.columnRegNr2 = base.Columns["RegNr2"];
@@ -12134,6 +12147,8 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columnName);
                 this.columnRegNr = new global::System.Data.DataColumn("RegNr", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegNr);
+                this.columnPVNRegNr = new global::System.Data.DataColumn("PVNRegNr", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPVNRegNr);
                 this.columnClId2 = new global::System.Data.DataColumn("ClId2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnClId2);
                 this.columnName2 = new global::System.Data.DataColumn("Name2", typeof(string), null, global::System.Data.MappingType.Element);
@@ -18551,6 +18566,22 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PVNRegNr {
+                get {
+                    if (this.IsPVNRegNrNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tablevw_OPS.PVNRegNrColumn]));
+                    }
+                }
+                set {
+                    this[this.tablevw_OPS.PVNRegNrColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string ClId2 {
                 get {
                     try {
@@ -18922,6 +18953,18 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRegNrNull() {
                 this[this.tablevw_OPS.RegNrColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPVNRegNrNull() {
+                return this.IsNull(this.tablevw_OPS.PVNRegNrColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPVNRegNrNull() {
+                this[this.tablevw_OPS.PVNRegNrColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -42935,6 +42978,7 @@ WHERE  (CLID = @Original_CLID) AND (@IsNull_NAME = 1 AND NAME IS NULL OR
             tableMapping.ColumnMappings.Add("SUMM", "Summ");
             tableMapping.ColumnMappings.Add("QV", "QV");
             tableMapping.ColumnMappings.Add("DESCR2", "Descr2");
+            tableMapping.ColumnMappings.Add("PVNREGNR", "PVNRegNr");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -42945,27 +42989,27 @@ WHERE  (CLID = @Original_CLID) AND (@IsNull_NAME = 1 AND NAME IS NULL OR
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "ID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "DocId";
+            param.SourceColumn = "DOCID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DETE";
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
             param.IsNullable = true;
-            param.SourceColumn = "Dete";
+            param.SourceColumn = "DETE";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NRX";
             param.Size = 5;
             param.IsNullable = true;
-            param.SourceColumn = "NrX";
+            param.SourceColumn = "NRX";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ZNR";
@@ -42978,67 +43022,67 @@ WHERE  (CLID = @Original_CLID) AND (@IsNull_NAME = 1 AND NAME IS NULL OR
             param.ParameterName = "@DOCTYP";
             param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp";
+            param.SourceColumn = "DOCTYP";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCST";
             param.Size = 6;
             param.IsNullable = true;
-            param.SourceColumn = "DocSt";
+            param.SourceColumn = "DOCST";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "DocNr";
+            param.SourceColumn = "DOCNR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCTYP2";
             param.Size = 10;
             param.IsNullable = true;
-            param.SourceColumn = "DocTyp2";
+            param.SourceColumn = "DOCTYP2";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CLID";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId";
+            param.SourceColumn = "CLID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NAME";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "NAME";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@REGNR";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr";
+            param.SourceColumn = "REGNR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CLID2";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "ClId2";
+            param.SourceColumn = "CLID2";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@NAME2";
             param.Size = 50;
             param.IsNullable = true;
-            param.SourceColumn = "Name2";
+            param.SourceColumn = "NAME2";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@REGNR2";
             param.Size = 15;
             param.IsNullable = true;
-            param.SourceColumn = "RegNr2";
+            param.SourceColumn = "REGNR2";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DESCR";
             param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr";
+            param.SourceColumn = "DESCR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@AC11";
@@ -43105,20 +43149,20 @@ WHERE  (CLID = @Original_CLID) AND (@IsNull_NAME = 1 AND NAME IS NULL OR
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "SummC";
+            param.SourceColumn = "SUMMC";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CUR";
             param.Size = 3;
             param.IsNullable = true;
-            param.SourceColumn = "Cur";
+            param.SourceColumn = "CUR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@SUMM";
             param.DbType = global::System.Data.DbType.Decimal;
             param.Size = 8;
             param.IsNullable = true;
-            param.SourceColumn = "Summ";
+            param.SourceColumn = "SUMM";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@QV";
@@ -43129,9 +43173,9 @@ WHERE  (CLID = @Original_CLID) AND (@IsNull_NAME = 1 AND NAME IS NULL OR
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DESCR2";
-            param.Size = 50;
+            param.Size = 80;
             param.IsNullable = true;
-            param.SourceColumn = "Descr2";
+            param.SourceColumn = "DESCR2";
             this._adapter.InsertCommand.Parameters.Add(param);
         }
         
@@ -43148,7 +43192,9 @@ WHERE  (CLID = @Original_CLID) AND (@IsNull_NAME = 1 AND NAME IS NULL OR
             this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[3];
             this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ""ID"", ""DOCID"", ""DETE"", ""NRX"", ""ZNR"", ""DOCTYP"", ""DOCST"", ""DOCNR"", ""DOCTYP2"", ""CLID"", ""NAME"", ""REGNR"", ""CLID2"", ""NAME2"", ""REGNR2"", ""DESCR"", ""AC11"", ""AC12"", ""AC13"", ""AC14"", ""AC15"", ""AC21"", ""AC22"", ""AC23"", ""AC24"", ""AC25"", ""SUMMC"", ""CUR"", ""SUMM"", ""QV"", ""DESCR2"" FROM ""VW_OPS""";
+            this._commandCollection[0].CommandText = "SELECT ID, DOCID, DETE, NRX, ZNR, DOCTYP, DOCST, DOCNR, DOCTYP2, CLID, NAME, REGN" +
+                "R, NULL AS PVNREGNR, CLID2, NAME2, REGNR2, DESCR, AC11, AC12, AC13, AC14, AC15, " +
+                "AC21, AC22, AC23, AC24, AC25, SUMMC, CUR, SUMM, QV, DESCR2\r\nFROM   VW_OPS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[1].Connection = this.Connection;

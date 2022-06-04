@@ -7,6 +7,7 @@ using KlonsA.DataSets;
 using KlonsLIB.Misc;
 using KlonsLIB.Data;
 using KlonsA.DataSets.KlonsADataSetTableAdapters;
+using DataObjectsA;
 
 namespace KlonsA.Classes
 {
@@ -1121,6 +1122,75 @@ namespace KlonsA.Classes
                 er = UpdateTable(table_lists_r);
                 if (er != "OK") return er;
             }
+
+            return "OK";
+        }
+        
+        public static ErrorList MakePayListFromImportData(IList<PaylistImportRow> rows)
+        {
+            var er = new ErrorList();
+            var drsbydate = rows
+                .GroupBy(x => x.Date)
+                .OrderBy(x => x.Key);
+            foreach(var dr_gr in drsbydate)
+            {
+                var drs = dr_gr.ToList();
+                var dt = drs[0].Date.Value;
+                var rt = MakePayListFromImportData(dt, dt.Year, dt.Month, drs);
+                if(rt != "OK")
+                {
+                    er.AddError("Saraksts: " + Utils.DateToString(dt), rt);
+                }
+            }
+            return er;
+        }
+
+        public static string MakePayListFromImportData(DateTime dt, int yr, int mt, IList<PaylistImportRow> rows)
+        {
+            var table_lists = MyData.DataSetKlons.PAYLISTS;
+            var table_lists_r = MyData.DataSetKlons.PAYLISTS_R;
+
+            if (rows.Count == 0)
+                return "Datu saraksts tukšs.";
+
+            var new_dr_list = table_lists.NewPAYLISTSRow();
+
+            new_dr_list.DT = dt;
+            new_dr_list.SNR = GetNextPayListNr(yr);
+            new_dr_list.YR = yr;
+            new_dr_list.MT = mt;
+
+            table_lists.Rows.Add(new_dr_list);
+
+            int k = 1;
+            foreach (var dr_data in rows)
+            {
+                var new_dr_list_r = table_lists_r.NewPAYLISTS_RRow();
+
+                new_dr_list_r.IDS = new_dr_list.ID;
+                new_dr_list_r.IDP = dr_data.IDP.Value;
+                new_dr_list_r.IDAM = dr_data.IDAM.Value;
+                new_dr_list_r.TPAY = dr_data.Amount;
+                new_dr_list_r.SNR = k;
+
+                table_lists_r.Rows.Add(new_dr_list_r);
+                k++;
+            }
+
+            var er = UpdateTable(table_lists);
+            if (er != "OK") return er;
+            er = UpdateTable(table_lists_r);
+            if (er != "OK") return er;
+
+            FillPayListA(new_dr_list.ID, false);
+
+            er = UpdateTable(table_lists_r);
+            if (er != "OK") return er;
+
+            FillPayListB(new_dr_list.ID);
+
+            er = UpdateTable(table_lists_r);
+            if (er != "OK") return er;
 
             return "OK";
         }

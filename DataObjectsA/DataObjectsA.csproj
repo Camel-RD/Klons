@@ -76,6 +76,7 @@
     <Compile Include="LikmesData.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PaylistImportRow.cs" />
     <Compile Include="PayListRowData.cs">
       <SubType>Component</SubType>
     </Compile>

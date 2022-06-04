@@ -71,6 +71,14 @@ namespace KlonsF.Forms
             cbDocGr.Text = MyData.Params.ODOCGR;
 
             cmAndOr.Text = MyData.Params.OOR? "vai" : "un";
+
+            rādītPilnuPersonasNosaukumuToolStripMenuItem.Checked = MyData.Settings.OpsShowFullPersonName;
+            rādītPersonasReģistrācijasNumuruToolStripMenuItem.Checked = MyData.Settings.OpsShowPersonsRegNum;
+            rādītPersonasPVNReģistrācijasNumuruToolStripMenuItem.Checked = MyData.Settings.OpsShowPersonsPVNRegNum;
+
+            dgcClid.DataPropertyName = MyData.Settings.OpsShowFullPersonName ? "Name" : "Clid";
+            dgcRegNr.Visible = MyData.Settings.OpsShowPersonsRegNum;
+            dgcPVNRegNr.Visible = MyData.Settings.OpsShowPersonsPVNRegNum;
         }
 
         public override void SaveParams()
@@ -620,8 +628,23 @@ namespace KlonsF.Forms
                 e.ToolTipText = MyData.GetAc5Name(s);
                 return;
             }
-
         }
+
+        private void dgvOPS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            return;
+            if (e.ColumnIndex == dgcClid.Index)
+            {
+                if (!MyData.Settings.OpsShowFullPersonName) return;
+                string clid = e.Value as string;
+                if (clid.IsNOE()) return;
+                var dr_person = MyData.DataSetKlons.Persons.FindByClId(clid);
+                if (dr_person == null) return;
+                e.Value = dr_person.Name;
+                e.FormattingApplied = true;
+            }
+        }
+
 
         private void tsbDocs_Click(object sender, EventArgs e)
         {
@@ -682,6 +705,33 @@ namespace KlonsF.Forms
                 return;
             }
             tb.Text = Utils.DateToString(dt);
+        }
+
+        private void rādītPilnuPersonasNosaukumuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool b = !rādītPilnuPersonasNosaukumuToolStripMenuItem.Checked;
+            rādītPilnuPersonasNosaukumuToolStripMenuItem.Checked = b;
+            MyData.Settings.OpsShowFullPersonName = b;
+            int w = b ? 200 : 110;
+            w = (int)((float)w * ScaleFactor.Width);
+            dgcClid.DataPropertyName = b ? "Name" : "Clid";
+            dgcClid.Width = w;
+        }
+
+        private void rādītPersonasReģistrācijasNumuruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool b = !rādītPersonasReģistrācijasNumuruToolStripMenuItem.Checked;
+            rādītPersonasReģistrācijasNumuruToolStripMenuItem.Checked = b;
+            MyData.Settings.OpsShowPersonsRegNum = b;
+            dgcRegNr.Visible = b;
+        }
+
+        private void rādītPersonasPVNReģistrācijasNumuruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool b = !rādītPersonasPVNReģistrācijasNumuruToolStripMenuItem.Checked;
+            rādītPersonasPVNReģistrācijasNumuruToolStripMenuItem.Checked = b;
+            MyData.Settings.OpsShowPersonsPVNRegNum = b;
+            dgcPVNRegNr.Visible = b;
         }
     }
 }

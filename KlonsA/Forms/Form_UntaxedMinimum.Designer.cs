@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_UntaxedMinimum));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmFilter = new System.Windows.Forms.Button();
             this.cbPerson = new KlonsLIB.Components.MyMcFlatComboBox();
@@ -42,12 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bsRows = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
-            this.dgcOnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIDP = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
             this.bsPerson = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcUntaxedMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIINRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bNav = new KlonsLIB.Components.MyBindingNavigator();
             this.bniAdd = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -62,6 +57,11 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bniSave = new System.Windows.Forms.ToolStripButton();
             this.bniXMLImport = new System.Windows.Forms.ToolStripButton();
+            this.dgcOnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIDP = new KlonsLIB.Components.MyDgvMcComboBoxColumn();
+            this.dgcUntaxedMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcIINRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsFilterPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRows)).BeginInit();
@@ -206,74 +206,12 @@
             this.dgvRows.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvRows_UserDeletingRow);
             this.dgvRows.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRows_KeyDown);
             // 
-            // dgcOnDate
-            // 
-            this.dgcOnDate.DataPropertyName = "ONDATE";
-            dataGridViewCellStyle5.Format = "dd.MM.yyyy";
-            this.dgcOnDate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcOnDate.HeaderText = "datums";
-            this.dgcOnDate.MinimumWidth = 7;
-            this.dgcOnDate.Name = "dgcOnDate";
-            this.dgcOnDate.Width = 101;
-            // 
-            // dgcIDP
-            // 
-            this.dgcIDP.ColumnNames = new string[] {
-        "FNAME",
-        "LNAME",
-        "PK"};
-            this.dgcIDP.ColumnWidths = "100;100;100";
-            this.dgcIDP.DataPropertyName = "IDP";
-            this.dgcIDP.DataSource = this.bsPerson;
-            this.dgcIDP.DisplayMember = "YNAME";
-            this.dgcIDP.DisplayStyleForCurrentCellOnly = true;
-            this.dgcIDP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcIDP.HeaderText = "darbinieks";
-            this.dgcIDP.MaxDropDownItems = 15;
-            this.dgcIDP.MinimumWidth = 7;
-            this.dgcIDP.Name = "dgcIDP";
-            this.dgcIDP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcIDP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcIDP.ValueMember = "ID";
-            this.dgcIDP.Width = 337;
-            // 
             // bsPerson
             // 
             this.bsPerson.DataMember = "PERSONS";
             this.bsPerson.Filter = "";
             this.bsPerson.MyDataSource = "KlonsData";
             this.bsPerson.Sort = "YNAME";
-            // 
-            // dgcUntaxedMin
-            // 
-            this.dgcUntaxedMin.DataPropertyName = "UNTAXED_MIN";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.dgcUntaxedMin.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcUntaxedMin.HeaderText = "summa";
-            this.dgcUntaxedMin.MinimumWidth = 7;
-            this.dgcUntaxedMin.Name = "dgcUntaxedMin";
-            this.dgcUntaxedMin.Width = 146;
-            // 
-            // dgcIINRateType
-            // 
-            this.dgcIINRateType.DataPropertyName = "IIN_RATE_TYPE";
-            this.dgcIINRateType.DisplayStyleForCurrentCellOnly = true;
-            this.dgcIINRateType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dgcIINRateType.HeaderText = "likme";
-            this.dgcIINRateType.MinimumWidth = 7;
-            this.dgcIINRateType.Name = "dgcIINRateType";
-            this.dgcIINRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcIINRateType.Width = 146;
-            // 
-            // dgcID
-            // 
-            this.dgcID.DataPropertyName = "ID";
-            this.dgcID.HeaderText = "ID";
-            this.dgcID.MinimumWidth = 7;
-            this.dgcID.Name = "dgcID";
-            this.dgcID.Visible = false;
-            this.dgcID.Width = 56;
             // 
             // bNav
             // 
@@ -414,6 +352,68 @@
             this.bniXMLImport.Text = "EDS datu imorts";
             this.bniXMLImport.Click += new System.EventHandler(this.bniXMLImport_Click);
             // 
+            // dgcOnDate
+            // 
+            this.dgcOnDate.DataPropertyName = "ONDATE";
+            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
+            this.dgcOnDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgcOnDate.HeaderText = "datums";
+            this.dgcOnDate.MinimumWidth = 7;
+            this.dgcOnDate.Name = "dgcOnDate";
+            this.dgcOnDate.Width = 101;
+            // 
+            // dgcIDP
+            // 
+            this.dgcIDP.ColumnNames = new string[] {
+        "FNAME",
+        "LNAME",
+        "PK"};
+            this.dgcIDP.ColumnWidths = "100;100;100";
+            this.dgcIDP.DataPropertyName = "IDP";
+            this.dgcIDP.DataSource = this.bsPerson;
+            this.dgcIDP.DisplayMember = "YNAME";
+            this.dgcIDP.DisplayStyleForCurrentCellOnly = true;
+            this.dgcIDP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcIDP.HeaderText = "darbinieks";
+            this.dgcIDP.MaxDropDownItems = 15;
+            this.dgcIDP.MinimumWidth = 7;
+            this.dgcIDP.Name = "dgcIDP";
+            this.dgcIDP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcIDP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcIDP.ValueMember = "ID";
+            this.dgcIDP.Width = 250;
+            // 
+            // dgcUntaxedMin
+            // 
+            this.dgcUntaxedMin.DataPropertyName = "UNTAXED_MIN";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.dgcUntaxedMin.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcUntaxedMin.HeaderText = "summa";
+            this.dgcUntaxedMin.MinimumWidth = 7;
+            this.dgcUntaxedMin.Name = "dgcUntaxedMin";
+            this.dgcUntaxedMin.Width = 110;
+            // 
+            // dgcIINRateType
+            // 
+            this.dgcIINRateType.DataPropertyName = "IIN_RATE_TYPE";
+            this.dgcIINRateType.DisplayStyleForCurrentCellOnly = true;
+            this.dgcIINRateType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dgcIINRateType.HeaderText = "likme";
+            this.dgcIINRateType.MinimumWidth = 7;
+            this.dgcIINRateType.Name = "dgcIINRateType";
+            this.dgcIINRateType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcIINRateType.Width = 90;
+            // 
+            // dgcID
+            // 
+            this.dgcID.DataPropertyName = "ID";
+            this.dgcID.HeaderText = "ID";
+            this.dgcID.MinimumWidth = 7;
+            this.dgcID.Name = "dgcID";
+            this.dgcID.Visible = false;
+            this.dgcID.Width = 56;
+            // 
             // Form_UntaxedMinimum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -465,12 +465,12 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton bniSave;
+        private KlonsLIB.Components.MyTextBox tbDate2;
+        private System.Windows.Forms.ToolStripButton bniXMLImport;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcOnDate;
         private KlonsLIB.Components.MyDgvMcComboBoxColumn dgcIDP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcUntaxedMin;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcIINRateType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
-        private KlonsLIB.Components.MyTextBox tbDate2;
-        private System.Windows.Forms.ToolStripButton bniXMLImport;
     }
 }

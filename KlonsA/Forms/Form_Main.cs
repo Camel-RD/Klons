@@ -343,6 +343,11 @@ namespace KlonsA
             }
             ShowForm(typeof(Form_PersonsR));
         }
+        private void izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CheckData()) return;
+            ShowForm(typeof(Form_PersonsR_Egr));
+        }
         private void miNeapliekamaisMinimums_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
