@@ -346,7 +346,12 @@ namespace KlonsA
         private void izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
-            ShowForm(typeof(Form_PersonsR_Egr));
+            ShowForm(typeof(Form_Persons_Egr));
+        }
+        private void darbaNespējasLapasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CheckData()) return;
+            ShowForm(typeof(Form_Persons_DN_lapas));
         }
         private void miNeapliekamaisMinimums_Click(object sender, EventArgs e)
         {

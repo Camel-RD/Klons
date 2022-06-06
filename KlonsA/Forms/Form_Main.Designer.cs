@@ -47,7 +47,10 @@
             this.darbiniekiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.darbiniekuDatiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darbiniekiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.miNeapliekamaisMinimums = new System.Windows.Forms.ToolStripMenuItem();
+            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darbaNespējasLapasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.notikumuIzklāstsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,7 +111,6 @@
             this.parProgrammuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDownloader1 = new KlonsLIB.Components.ADownloader();
             this.tsWindowList = new System.Windows.Forms.ToolStrip();
-            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -251,8 +253,10 @@
             this.darbiniekiToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.darbiniekuDatiToolStripMenuItem,
             this.darbiniekiToolStripMenuItem,
+            this.toolStripSeparator15,
             this.miNeapliekamaisMinimums,
             this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem,
+            this.darbaNespējasLapasToolStripMenuItem,
             this.toolStripSeparator6,
             this.notikumuIzklāstsToolStripMenuItem,
             this.neizmantotāsAtvaļinājumaDienasToolStripMenuItem,
@@ -277,12 +281,31 @@
             this.darbiniekiToolStripMenuItem.Text = "Darbinieku saraksts";
             this.darbiniekiToolStripMenuItem.Click += new System.EventHandler(this.darbiniekiToolStripMenuItem_Click);
             // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(583, 6);
+            // 
             // miNeapliekamaisMinimums
             // 
             this.miNeapliekamaisMinimums.Name = "miNeapliekamaisMinimums";
             this.miNeapliekamaisMinimums.Size = new System.Drawing.Size(586, 38);
             this.miNeapliekamaisMinimums.Text = "Neapliekamais minimums";
             this.miNeapliekamaisMinimums.Click += new System.EventHandler(this.miNeapliekamaisMinimums_Click);
+            // 
+            // izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem
+            // 
+            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Name = "izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem";
+            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Size = new System.Drawing.Size(586, 38);
+            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Text = "Izmaiņas nodokļu maksātāja grāmatiņās (no EDS)";
+            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Click += new System.EventHandler(this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem_Click);
+            // 
+            // darbaNespējasLapasToolStripMenuItem
+            // 
+            this.darbaNespējasLapasToolStripMenuItem.Name = "darbaNespējasLapasToolStripMenuItem";
+            this.darbaNespējasLapasToolStripMenuItem.Size = new System.Drawing.Size(586, 38);
+            this.darbaNespējasLapasToolStripMenuItem.Text = "Darba nespējas lapas (no EDS)";
+            this.darbaNespējasLapasToolStripMenuItem.Click += new System.EventHandler(this.darbaNespējasLapasToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -727,13 +750,6 @@
             this.tsWindowList.TabIndex = 2;
             this.tsWindowList.Text = "toolStrip1";
             // 
-            // izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem
-            // 
-            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Name = "izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem";
-            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Size = new System.Drawing.Size(586, 38);
-            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Text = "Izmaiņas nodokļu maksātāja grāmatiņās (no EDS)";
-            this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem.Click += new System.EventHandler(this.izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem_Click);
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -844,6 +860,8 @@
         private System.Windows.Forms.ToolStripMenuItem atvērtProgrammasMapiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atvērtRezervesKopijuMapiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem darbaNespējasLapasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
     }
 }
 

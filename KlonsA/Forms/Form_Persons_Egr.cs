@@ -15,9 +15,9 @@ using KlonsLIB.Misc;
 
 namespace KlonsA.Forms
 {
-    public partial class Form_PersonsR_Egr : MyFormBaseA
+    public partial class Form_Persons_Egr : MyFormBaseA
     {
-        public Form_PersonsR_Egr()
+        public Form_Persons_Egr()
         {
             InitializeComponent();
             CheckMyFontAndColors();

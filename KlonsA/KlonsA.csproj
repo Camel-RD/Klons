@@ -99,6 +99,8 @@
     <Compile Include="Classes2\CalcRInfo.cs" />
     <Compile Include="Classes2\DataLoader.cs" />
     <Compile Include="Classes2\DateList.cs" />
+    <Compile Include="Classes2\eds_dn_lapas.cs" />
+    <Compile Include="Classes2\eds_dn_lapas_import.cs" />
     <Compile Include="Classes2\nm_e_gramatinas.cs" />
     <Compile Include="Classes2\nm_e_gram_import.cs" />
     <Compile Include="Classes2\PayFx.cs" />
@@ -200,11 +202,17 @@
     <Compile Include="Forms\Form_PaymentsByPerson.Designer.cs">
       <DependentUpon>Form_PaymentsByPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form_PersonsR_Egr.cs">
+    <Compile Include="Forms\Form_Persons_DN_lapas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_PersonsR_Egr.Designer.cs">
-      <DependentUpon>Form_PersonsR_Egr.cs</DependentUpon>
+    <Compile Include="Forms\Form_Persons_DN_lapas.Designer.cs">
+      <DependentUpon>Form_Persons_DN_lapas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Persons_Egr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Persons_Egr.Designer.cs">
+      <DependentUpon>Form_Persons_Egr.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_SalarySheetRowHistory.cs">
       <SubType>Form</SubType>
@@ -589,8 +597,11 @@
     <EmbeddedResource Include="Forms\Form_PayListImport.resx">
       <DependentUpon>Form_PayListImport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_PersonsR_Egr.resx">
-      <DependentUpon>Form_PersonsR_Egr.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Form_Persons_DN_lapas.resx">
+      <DependentUpon>Form_Persons_DN_lapas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Persons_Egr.resx">
+      <DependentUpon>Form_Persons_Egr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQL\SQLV058.txt" />
     <EmbeddedResource Include="SQL\SQLV056.txt" />
