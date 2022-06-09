@@ -265,15 +265,18 @@ namespace KlonsA.Classes
 
         public void SetCurMonthPay(int yr, int mt, decimal bruto, decimal pay)
         {
+            decimal ds2 = 0.0M;
             foreach (var rr in ReportRows)
             {
                 if (rr.Year == yr && rr.Month == mt)
                 {
+                    ds2 = bruto - rr.Salary2;
                     rr.Salary2 = bruto;
                     rr.Pay = pay;
                 }
             }
             TotalRow.Pay += pay;
+            TotalRow.Salary2 += ds2;
         }
 
         public void SetAvPayTo(SalaryCalcInfo sc)
