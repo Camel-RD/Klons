@@ -1061,16 +1061,44 @@ namespace KlonsA.Forms
                 return;
             }
 
-            AvPayCalcInfo ap = null;
+            AvPayCalcInfo ap;
 
-            if (dr_lapas_r.XType == ESalarySheetRowType.OnlyOne) ap = sc.LinkedSCI[0].AvPayCalc;
-            else if (dr_lapas_r.XType == ESalarySheetRowType.Total) ap = sc.AvPayCalc;
-            else ap = sc.LinkedSCI.Where(d => d.SR.Row == dr_lapas_r).FirstOrDefault()?.AvPayCalc;
+            if (sr.IsSingleRow())
+            {
+                var sc0 = sc.LinkedSCI[0];
+                sc0.CheckBeforeReport();
+                sc0.AvPayCalc.SetCurMonthPay(sr.SalarySheet.YR, sr.SalarySheet.MT, sc.TotalSI._TOTAL_BEFORE_TAXES, sc.TotalSI._PAY);
+                ap = sc0.AvPayCalc;
+            }
+            else
+            {
+                sc.CheckBeforeReport();
+                sc.AvPayCalc.SetCurMonthPay(sr.SalarySheet.YR, sr.SalarySheet.MT, sc.TotalSI._TOTAL_BEFORE_TAXES, sc.TotalSI._PAY);
+                ap = sc.AvPayCalc;
+            }
 
             if (ap == null) return;
 
             Form_AvPayCalc.Show(ap);
         }
+
+        /*
+        private void vidējāsIzpeļņasAprēķinsToolStripMenuItem_Click2(object sender, EventArgs e)
+        {
+            if (bsSarR.Current == null) return;
+            var dr_lapas_r = (bsSarR.Current as DataRowView)?.Row as KlonsADataSet.SALARY_SHEETS_RRow;
+            if (dr_lapas_r == null) return;
+
+            var ap = new AvPayCalcInfo(true);
+            var err = ap.CalcList(dr_lapas_r);
+            if (err.HasErrors)
+            {
+                Form_ErrorList.ShowErrorList(MyMainForm, err);
+                return;
+            }
+            Form_AvPayCalc.Show(ap);
+        }
+        */
 
         private void slimībasNaudasAprēķinsToolStripMenuItem_Click(object sender, EventArgs e)
         {

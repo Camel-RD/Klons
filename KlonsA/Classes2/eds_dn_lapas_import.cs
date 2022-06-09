@@ -287,6 +287,7 @@ namespace KlonsA.Classes
             var ret = new List<DNLapaImportData>();
             foreach (var lapa_eds in data_eds)
             {
+                if (lapa_eds.Veids.IsNOE()) continue;
                 var ret1 = new DNLapaImportData()
                 {
                     EDS_Dt1 = lapa_eds.Dt1,
