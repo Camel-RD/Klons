@@ -323,6 +323,11 @@ namespace KlonsA
             if (!CheckData()) return;
             ShowForm(typeof(Form_TimeSheets));
         }
+        private void darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CheckData()) return;
+            ShowForm(typeof(Form_TimeSheet_Person));
+        }
         private void darbaLaikaUzskaitesLapaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;

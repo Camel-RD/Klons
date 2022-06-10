@@ -51,18 +51,22 @@ namespace KlonsA.Classes
             Vacation = new DataGridViewCellStyle(dgv.DefaultCellStyle);
             Vacation.ForeColor = VacationFore;
             Vacation.BackColor = VacationBack;
+            Vacation.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             SickDay = new DataGridViewCellStyle(dgv.DefaultCellStyle);
             SickDay.ForeColor = SickDayFore;
             SickDay.BackColor = SickDayBack;
+            SickDay.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             FreeDay = new DataGridViewCellStyle(dgv.DefaultCellStyle);
             FreeDay.ForeColor = FreeDayFore;
             FreeDay.BackColor = FreeDayBack;
+            FreeDay.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             HolyDay = new DataGridViewCellStyle(dgv.DefaultCellStyle);
             HolyDay.ForeColor = HolyDayFore;
             HolyDay.BackColor = HolyDayBack;
+            HolyDay.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
     }

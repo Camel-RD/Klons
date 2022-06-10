@@ -111,6 +111,7 @@
             this.parProgrammuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDownloader1 = new KlonsLIB.Components.ADownloader();
             this.tsWindowList = new System.Windows.Forms.ToolStrip();
+            this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -354,6 +355,7 @@
             this.darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem,
             this.darbaLaikaUzskaitesLapasToolStripMenuItem,
             this.toolStripSeparator10,
+            this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem,
             this.darbaLaikaUzskaitesLapaToolStripMenuItem});
             this.darbaLaikaUzskaiteToolStripMenuItem.Name = "darbaLaikaUzskaiteToolStripMenuItem";
             this.darbaLaikaUzskaiteToolStripMenuItem.Size = new System.Drawing.Size(363, 38);
@@ -362,45 +364,45 @@
             // darbaLaikaPlānuSarakstsToolStripMenuItem
             // 
             this.darbaLaikaPlānuSarakstsToolStripMenuItem.Name = "darbaLaikaPlānuSarakstsToolStripMenuItem";
-            this.darbaLaikaPlānuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(462, 38);
+            this.darbaLaikaPlānuSarakstsToolStripMenuItem.Size = new System.Drawing.Size(464, 38);
             this.darbaLaikaPlānuSarakstsToolStripMenuItem.Text = "Darba laika plānu saraksts";
             this.darbaLaikaPlānuSarakstsToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaPlānuSarakstsToolStripMenuItem_Click);
             // 
             // darbaLaikaPlānsToolStripMenuItem
             // 
             this.darbaLaikaPlānsToolStripMenuItem.Name = "darbaLaikaPlānsToolStripMenuItem";
-            this.darbaLaikaPlānsToolStripMenuItem.Size = new System.Drawing.Size(462, 38);
+            this.darbaLaikaPlānsToolStripMenuItem.Size = new System.Drawing.Size(464, 38);
             this.darbaLaikaPlānsToolStripMenuItem.Text = "Darba laika plāns";
             this.darbaLaikaPlānsToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaPlānsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(459, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(461, 6);
             // 
             // darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem
             // 
             this.darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem.Name = "darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem";
-            this.darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem.Size = new System.Drawing.Size(462, 38);
+            this.darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem.Size = new System.Drawing.Size(464, 38);
             this.darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem.Text = "Darba laika uzskaites lapu sagataves";
             this.darbaLaikaUzskaitesLapuŠabloniToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaUzskaitesLapusagatavesToolStripMenuItem_Click);
             // 
             // darbaLaikaUzskaitesLapasToolStripMenuItem
             // 
             this.darbaLaikaUzskaitesLapasToolStripMenuItem.Name = "darbaLaikaUzskaitesLapasToolStripMenuItem";
-            this.darbaLaikaUzskaitesLapasToolStripMenuItem.Size = new System.Drawing.Size(462, 38);
+            this.darbaLaikaUzskaitesLapasToolStripMenuItem.Size = new System.Drawing.Size(464, 38);
             this.darbaLaikaUzskaitesLapasToolStripMenuItem.Text = "Darba laika uzskaites lapas";
             this.darbaLaikaUzskaitesLapasToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaUzskaitesLapasToolStripMenuItem_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(459, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(461, 6);
             // 
             // darbaLaikaUzskaitesLapaToolStripMenuItem
             // 
             this.darbaLaikaUzskaitesLapaToolStripMenuItem.Name = "darbaLaikaUzskaitesLapaToolStripMenuItem";
-            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Size = new System.Drawing.Size(462, 38);
+            this.darbaLaikaUzskaitesLapaToolStripMenuItem.Size = new System.Drawing.Size(464, 38);
             this.darbaLaikaUzskaitesLapaToolStripMenuItem.Text = "Darba laika uzskaites lapa";
             this.darbaLaikaUzskaitesLapaToolStripMenuItem.Click += new System.EventHandler(this.darbaLaikaUzskaitesLapaToolStripMenuItem_Click);
             // 
@@ -750,6 +752,13 @@
             this.tsWindowList.TabIndex = 2;
             this.tsWindowList.Text = "toolStrip1";
             // 
+            // darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem
+            // 
+            this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem.Name = "darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem";
+            this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem.Size = new System.Drawing.Size(464, 38);
+            this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem.Text = "Darbinieka darba laika uzskaites dati";
+            this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem.Click += new System.EventHandler(this.darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -862,6 +871,7 @@
         private System.Windows.Forms.ToolStripMenuItem izmaiņasNodokļuMaksātājaGrāmatiņāsnoEDSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darbaNespējasLapasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripMenuItem darbiniekaDarbaLaikaUzskaitesDatiToolStripMenuItem;
     }
 }
 

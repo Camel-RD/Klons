@@ -281,15 +281,15 @@ namespace KlonsA.Forms
 
         private void tsbPrevMonth_Click(object sender, EventArgs e)
         {
-            int k = cbPage.SelectedIndex + 1;
-            if (k > 2) k = 0;
+            int k = cbPage.SelectedIndex - 1;
+            if (k < 0) k = 2;
             cbPage.SelectedIndex = k;
         }
 
         private void tsbNextMonth_Click(object sender, EventArgs e)
         {
-            int k = cbPage.SelectedIndex - 1;
-            if (k < 0) k = 2;
+            int k = cbPage.SelectedIndex + 1;
+            if (k > 2) k = 0;
             cbPage.SelectedIndex = k;
         }
     }
