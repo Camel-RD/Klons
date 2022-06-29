@@ -38,9 +38,11 @@ namespace KlonsF
             this.datuLabojumuReģistriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dokumentuLabojumiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontējumuLabojumiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.datuEksportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datuImportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.atvērtProgrammasMapiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atvērtRezervesKopijuMapiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aizvērtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reģistriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,9 +95,10 @@ namespace KlonsF
             this.parProgrammuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myToolStrip = new System.Windows.Forms.ToolStrip();
             this.aDownloader1 = new KlonsLIB.Components.ADownloader();
-            this.atvērtProgrammasMapiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atvērtRezervesKopijuMapiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.meklētIzmaiņasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.izmestNesaglabātāsIzmaiņasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,13 +124,14 @@ namespace KlonsF
             this.nomainītSaimniecībuToolStripMenuItem,
             this.kāStrādāsimToolStripMenuItem,
             this.datuLabojumuReģistriToolStripMenuItem,
-            this.toolStripSeparator4,
+            this.toolStripSeparator11,
             this.datuEksportsToolStripMenuItem,
             this.datuImportsToolStripMenuItem,
             this.toolStripSeparator9,
             this.atvērtProgrammasMapiToolStripMenuItem,
             this.atvērtRezervesKopijuMapiToolStripMenuItem,
             this.toolStripSeparator8,
+            this.izmestNesaglabātāsIzmaiņasToolStripMenuItem,
             this.aizvērtToolStripMenuItem});
             this.sistēmaToolStripMenuItem.Name = "sistēmaToolStripMenuItem";
             this.sistēmaToolStripMenuItem.Size = new System.Drawing.Size(104, 34);
@@ -136,14 +140,14 @@ namespace KlonsF
             // nomainītSaimniecībuToolStripMenuItem
             // 
             this.nomainītSaimniecībuToolStripMenuItem.Name = "nomainītSaimniecībuToolStripMenuItem";
-            this.nomainītSaimniecībuToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
+            this.nomainītSaimniecībuToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
             this.nomainītSaimniecībuToolStripMenuItem.Text = "Nomainīt saimniecību";
             this.nomainītSaimniecībuToolStripMenuItem.Click += new System.EventHandler(this.nomainītSaimniecībuToolStripMenuItem_Click);
             // 
             // kāStrādāsimToolStripMenuItem
             // 
             this.kāStrādāsimToolStripMenuItem.Name = "kāStrādāsimToolStripMenuItem";
-            this.kāStrādāsimToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
+            this.kāStrādāsimToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
             this.kāStrādāsimToolStripMenuItem.Text = "Kā strādāsim?";
             this.kāStrādāsimToolStripMenuItem.Click += new System.EventHandler(this.kāStrādāsimToolStripMenuItem_Click);
             // 
@@ -151,9 +155,11 @@ namespace KlonsF
             // 
             this.datuLabojumuReģistriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dokumentuLabojumiToolStripMenuItem,
-            this.kontējumuLabojumiToolStripMenuItem});
+            this.kontējumuLabojumiToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.meklētIzmaiņasToolStripMenuItem1});
             this.datuLabojumuReģistriToolStripMenuItem.Name = "datuLabojumuReģistriToolStripMenuItem";
-            this.datuLabojumuReģistriToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
+            this.datuLabojumuReģistriToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
             this.datuLabojumuReģistriToolStripMenuItem.Text = "Datu labojumu reģistri";
             // 
             // dokumentuLabojumiToolStripMenuItem
@@ -170,34 +176,48 @@ namespace KlonsF
             this.kontējumuLabojumiToolStripMenuItem.Text = "Kontējumu labojumi";
             this.kontējumuLabojumiToolStripMenuItem.Click += new System.EventHandler(this.kontējumuLabojumiToolStripMenuItem_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(379, 6);
-            // 
             // datuEksportsToolStripMenuItem
             // 
             this.datuEksportsToolStripMenuItem.Name = "datuEksportsToolStripMenuItem";
-            this.datuEksportsToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
+            this.datuEksportsToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
             this.datuEksportsToolStripMenuItem.Text = "Datu eksports";
             this.datuEksportsToolStripMenuItem.Click += new System.EventHandler(this.datuEksportsToolStripMenuItem_Click);
             // 
             // datuImportsToolStripMenuItem
             // 
             this.datuImportsToolStripMenuItem.Name = "datuImportsToolStripMenuItem";
-            this.datuImportsToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
+            this.datuImportsToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
             this.datuImportsToolStripMenuItem.Text = "Datu imports";
             this.datuImportsToolStripMenuItem.Click += new System.EventHandler(this.datuImportsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(394, 6);
+            // 
+            // atvērtProgrammasMapiToolStripMenuItem
+            // 
+            this.atvērtProgrammasMapiToolStripMenuItem.Name = "atvērtProgrammasMapiToolStripMenuItem";
+            this.atvērtProgrammasMapiToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
+            this.atvērtProgrammasMapiToolStripMenuItem.Text = "Atvērt programmas mapi";
+            this.atvērtProgrammasMapiToolStripMenuItem.Click += new System.EventHandler(this.atvērtProgrammasMapiToolStripMenuItem_Click);
+            // 
+            // atvērtRezervesKopijuMapiToolStripMenuItem
+            // 
+            this.atvērtRezervesKopijuMapiToolStripMenuItem.Name = "atvērtRezervesKopijuMapiToolStripMenuItem";
+            this.atvērtRezervesKopijuMapiToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
+            this.atvērtRezervesKopijuMapiToolStripMenuItem.Text = "Atvērt rezerves kopiju mapi";
+            this.atvērtRezervesKopijuMapiToolStripMenuItem.Click += new System.EventHandler(this.atvērtRezervesKopijuMapiToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(379, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(394, 6);
             // 
             // aizvērtToolStripMenuItem
             // 
             this.aizvērtToolStripMenuItem.Name = "aizvērtToolStripMenuItem";
-            this.aizvērtToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
+            this.aizvērtToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
             this.aizvērtToolStripMenuItem.Text = "Aizvērt";
             this.aizvērtToolStripMenuItem.Click += new System.EventHandler(this.aizvērtToolStripMenuItem_Click);
             // 
@@ -585,24 +605,29 @@ namespace KlonsF
             this.aDownloader1.DataReceived += new System.EventHandler(this.aDownloader1_DataReceived);
             this.aDownloader1.DownloadFailed += new System.EventHandler(this.aDownloader1_DownloadFailed);
             // 
-            // atvērtProgrammasMapiToolStripMenuItem
+            // meklētIzmaiņasToolStripMenuItem1
             // 
-            this.atvērtProgrammasMapiToolStripMenuItem.Name = "atvērtProgrammasMapiToolStripMenuItem";
-            this.atvērtProgrammasMapiToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
-            this.atvērtProgrammasMapiToolStripMenuItem.Text = "Atvērt programmas mapi";
-            this.atvērtProgrammasMapiToolStripMenuItem.Click += new System.EventHandler(this.atvērtProgrammasMapiToolStripMenuItem_Click);
+            this.meklētIzmaiņasToolStripMenuItem1.Name = "meklētIzmaiņasToolStripMenuItem1";
+            this.meklētIzmaiņasToolStripMenuItem1.Size = new System.Drawing.Size(318, 38);
+            this.meklētIzmaiņasToolStripMenuItem1.Text = "Meklēt izmaiņas";
+            this.meklētIzmaiņasToolStripMenuItem1.Click += new System.EventHandler(this.meklētIzmaiņasToolStripMenuItem1_Click);
             // 
-            // atvērtRezervesKopijuMapiToolStripMenuItem
+            // toolStripSeparator10
             // 
-            this.atvērtRezervesKopijuMapiToolStripMenuItem.Name = "atvērtRezervesKopijuMapiToolStripMenuItem";
-            this.atvērtRezervesKopijuMapiToolStripMenuItem.Size = new System.Drawing.Size(382, 38);
-            this.atvērtRezervesKopijuMapiToolStripMenuItem.Text = "Atvērt rezerves kopiju mapi";
-            this.atvērtRezervesKopijuMapiToolStripMenuItem.Click += new System.EventHandler(this.atvērtRezervesKopijuMapiToolStripMenuItem_Click);
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(315, 6);
             // 
-            // toolStripSeparator9
+            // izmestNesaglabātāsIzmaiņasToolStripMenuItem
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(379, 6);
+            this.izmestNesaglabātāsIzmaiņasToolStripMenuItem.Name = "izmestNesaglabātāsIzmaiņasToolStripMenuItem";
+            this.izmestNesaglabātāsIzmaiņasToolStripMenuItem.Size = new System.Drawing.Size(397, 38);
+            this.izmestNesaglabātāsIzmaiņasToolStripMenuItem.Text = "Izmest nesaglabātās izmaiņas";
+            this.izmestNesaglabātāsIzmaiņasToolStripMenuItem.Click += new System.EventHandler(this.izmestNesaglabātāsIzmaiņasToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(394, 6);
             // 
             // Form_Main
             // 
@@ -655,7 +680,6 @@ namespace KlonsF
         private System.Windows.Forms.ToolStripMenuItem kontējumuLabojumiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aizvērtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kāStrādāsimToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem apgrozijumaPārskatiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kontuKorespondenceToolStripMenuItem;
@@ -697,5 +721,9 @@ namespace KlonsF
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem atvērtProgrammasMapiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atvērtRezervesKopijuMapiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem meklētIzmaiņasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem izmestNesaglabātāsIzmaiņasToolStripMenuItem;
     }
 }

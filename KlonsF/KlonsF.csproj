@@ -130,6 +130,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>klonsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_LogDiff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LogDiff.Designer.cs">
+      <DependentUpon>Form_LogDiff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_LogDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LogDoc.Designer.cs">
+      <DependentUpon>Form_LogDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_PVN_Dekl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -480,6 +492,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="SQL\SQLV099.txt" />
+    <EmbeddedResource Include="Forms\Form_LogDiff.resx">
+      <DependentUpon>Form_LogDiff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_LogDoc.resx">
+      <DependentUpon>Form_LogDoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SQL\SQLV097.txt" />
     <EmbeddedResource Include="SQL\SQLV095.txt" />
     <EmbeddedResource Include="SQL\SQLV091.txt" />

@@ -288,6 +288,10 @@ namespace KlonsF
         {
             ShowForm(typeof(Form_LOPS));
         }
+        private void meklētIzmaiņasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(Form_LogDiff));
+        }
         private void datuEksportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CloseAllForms()) return;
@@ -307,6 +311,10 @@ namespace KlonsF
         {
             var myfolder = MyData.GetBackUpFolder();
             try { Process.Start(myfolder); } catch (Exception) { }
+        }
+        private void izmestNesaglabātāsIzmaiņasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyData.DataSetKlons.RejectChanges();
         }
         private void aizvērtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -463,8 +471,7 @@ namespace KlonsF
             Help.ShowHelp(null, s, "apraksts.chm::/svarigakietaustini.htm");
         }
 
+
         #endregion
-
-
     }
 }

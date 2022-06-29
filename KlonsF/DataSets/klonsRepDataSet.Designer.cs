@@ -58,6 +58,8 @@ namespace KlonsF.DataSets {
         
         private SP_REP_BAL_22DataTable tableSP_REP_BAL_22;
         
+        private SP_DIFF_12DataTable tableSP_DIFF_12;
+        
         private global::System.Data.DataRelation relationTRepOPSd_TRepOPS;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -138,6 +140,9 @@ namespace KlonsF.DataSets {
                 }
                 if ((ds.Tables["SP_REP_BAL_22"] != null)) {
                     base.Tables.Add(new SP_REP_BAL_22DataTable(ds.Tables["SP_REP_BAL_22"]));
+                }
+                if ((ds.Tables["SP_DIFF_12"] != null)) {
+                    base.Tables.Add(new SP_DIFF_12DataTable(ds.Tables["SP_DIFF_12"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -329,6 +334,16 @@ namespace KlonsF.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SP_DIFF_12DataTable SP_DIFF_12 {
+            get {
+                return this.tableSP_DIFF_12;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -444,6 +459,9 @@ namespace KlonsF.DataSets {
                 }
                 if ((ds.Tables["SP_REP_BAL_22"] != null)) {
                     base.Tables.Add(new SP_REP_BAL_22DataTable(ds.Tables["SP_REP_BAL_22"]));
+                }
+                if ((ds.Tables["SP_DIFF_12"] != null)) {
+                    base.Tables.Add(new SP_DIFF_12DataTable(ds.Tables["SP_DIFF_12"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -580,6 +598,12 @@ namespace KlonsF.DataSets {
                     this.tableSP_REP_BAL_22.InitVars();
                 }
             }
+            this.tableSP_DIFF_12 = ((SP_DIFF_12DataTable)(base.Tables["SP_DIFF_12"]));
+            if ((initTable == true)) {
+                if ((this.tableSP_DIFF_12 != null)) {
+                    this.tableSP_DIFF_12.InitVars();
+                }
+            }
             this.relationTRepOPSd_TRepOPS = this.Relations["TRepOPSd_TRepOPS"];
         }
         
@@ -625,6 +649,8 @@ namespace KlonsF.DataSets {
             base.Tables.Add(this.tableROps2a1);
             this.tableSP_REP_BAL_22 = new SP_REP_BAL_22DataTable();
             base.Tables.Add(this.tableSP_REP_BAL_22);
+            this.tableSP_DIFF_12 = new SP_DIFF_12DataTable();
+            base.Tables.Add(this.tableSP_DIFF_12);
             this.relationTRepOPSd_TRepOPS = new global::System.Data.DataRelation("TRepOPSd_TRepOPS", new global::System.Data.DataColumn[] {
                         this.tableTRepOPSd.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTRepOPS.DocIdColumn}, false);
@@ -735,6 +761,12 @@ namespace KlonsF.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeSP_DIFF_12() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -838,6 +870,9 @@ namespace KlonsF.DataSets {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void SP_REP_BAL_22RowChangeEventHandler(object sender, SP_REP_BAL_22RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void SP_DIFF_12RowChangeEventHandler(object sender, SP_DIFF_12RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9990,6 +10025,808 @@ namespace KlonsF.DataSets {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SP_DIFF_12DataTable : global::System.Data.TypedTableBase<SP_DIFF_12Row> {
+            
+            private global::System.Data.DataColumn columnTP;
+            
+            private global::System.Data.DataColumn columnDOCID;
+            
+            private global::System.Data.DataColumn columnROWID;
+            
+            private global::System.Data.DataColumn columnDOCDTL;
+            
+            private global::System.Data.DataColumn columnDOCDTLD;
+            
+            private global::System.Data.DataColumn columnDOCODT;
+            
+            private global::System.Data.DataColumn columnROWDTL;
+            
+            private global::System.Data.DataColumn columnROWDTLD;
+            
+            private global::System.Data.DataColumn columnROWODT;
+            
+            private global::System.Data.DataColumn columnDETE;
+            
+            private global::System.Data.DataColumn columnZNR;
+            
+            private global::System.Data.DataColumn columnNRX;
+            
+            private global::System.Data.DataColumn columnDOCTYP;
+            
+            private global::System.Data.DataColumn columnDOCST;
+            
+            private global::System.Data.DataColumn columnDOCNR;
+            
+            private global::System.Data.DataColumn columnDOCTYP2;
+            
+            private global::System.Data.DataColumn columnCLID;
+            
+            private global::System.Data.DataColumn columnCLID2;
+            
+            private global::System.Data.DataColumn columnDESCR;
+            
+            private global::System.Data.DataColumn columnDOCSUMM;
+            
+            private global::System.Data.DataColumn columnDOCPVN;
+            
+            private global::System.Data.DataColumn columnAC11;
+            
+            private global::System.Data.DataColumn columnAC12;
+            
+            private global::System.Data.DataColumn columnAC13;
+            
+            private global::System.Data.DataColumn columnAC14;
+            
+            private global::System.Data.DataColumn columnAC15;
+            
+            private global::System.Data.DataColumn columnAC21;
+            
+            private global::System.Data.DataColumn columnAC22;
+            
+            private global::System.Data.DataColumn columnAC23;
+            
+            private global::System.Data.DataColumn columnAC24;
+            
+            private global::System.Data.DataColumn columnAC25;
+            
+            private global::System.Data.DataColumn columnSUMMC;
+            
+            private global::System.Data.DataColumn columnCUR;
+            
+            private global::System.Data.DataColumn columnSUMM;
+            
+            private global::System.Data.DataColumn columnQV;
+            
+            private global::System.Data.DataColumn columnDESCR2;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SP_DIFF_12DataTable() {
+                this.TableName = "SP_DIFF_12";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal SP_DIFF_12DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected SP_DIFF_12DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TPColumn {
+                get {
+                    return this.columnTP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCIDColumn {
+                get {
+                    return this.columnDOCID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ROWIDColumn {
+                get {
+                    return this.columnROWID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCDTLColumn {
+                get {
+                    return this.columnDOCDTL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCDTLDColumn {
+                get {
+                    return this.columnDOCDTLD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCODTColumn {
+                get {
+                    return this.columnDOCODT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ROWDTLColumn {
+                get {
+                    return this.columnROWDTL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ROWDTLDColumn {
+                get {
+                    return this.columnROWDTLD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ROWODTColumn {
+                get {
+                    return this.columnROWODT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DETEColumn {
+                get {
+                    return this.columnDETE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ZNRColumn {
+                get {
+                    return this.columnZNR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NRXColumn {
+                get {
+                    return this.columnNRX;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCTYPColumn {
+                get {
+                    return this.columnDOCTYP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCSTColumn {
+                get {
+                    return this.columnDOCST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCNRColumn {
+                get {
+                    return this.columnDOCNR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCTYP2Column {
+                get {
+                    return this.columnDOCTYP2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CLIDColumn {
+                get {
+                    return this.columnCLID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CLID2Column {
+                get {
+                    return this.columnCLID2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DESCRColumn {
+                get {
+                    return this.columnDESCR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCSUMMColumn {
+                get {
+                    return this.columnDOCSUMM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DOCPVNColumn {
+                get {
+                    return this.columnDOCPVN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC11Column {
+                get {
+                    return this.columnAC11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC12Column {
+                get {
+                    return this.columnAC12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC13Column {
+                get {
+                    return this.columnAC13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC14Column {
+                get {
+                    return this.columnAC14;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC15Column {
+                get {
+                    return this.columnAC15;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC21Column {
+                get {
+                    return this.columnAC21;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC22Column {
+                get {
+                    return this.columnAC22;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC23Column {
+                get {
+                    return this.columnAC23;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC24Column {
+                get {
+                    return this.columnAC24;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AC25Column {
+                get {
+                    return this.columnAC25;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SUMMCColumn {
+                get {
+                    return this.columnSUMMC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CURColumn {
+                get {
+                    return this.columnCUR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SUMMColumn {
+                get {
+                    return this.columnSUMM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QVColumn {
+                get {
+                    return this.columnQV;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DESCR2Column {
+                get {
+                    return this.columnDESCR2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SP_DIFF_12Row this[int index] {
+                get {
+                    return ((SP_DIFF_12Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SP_DIFF_12RowChangeEventHandler SP_DIFF_12RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SP_DIFF_12RowChangeEventHandler SP_DIFF_12RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SP_DIFF_12RowChangeEventHandler SP_DIFF_12RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SP_DIFF_12RowChangeEventHandler SP_DIFF_12RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddSP_DIFF_12Row(SP_DIFF_12Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SP_DIFF_12Row AddSP_DIFF_12Row(
+                        int TP, 
+                        int DOCID, 
+                        int ROWID, 
+                        System.DateTime DOCDTL, 
+                        System.DateTime DOCDTLD, 
+                        System.DateTime DOCODT, 
+                        System.DateTime ROWDTL, 
+                        System.DateTime ROWDTLD, 
+                        System.DateTime ROWODT, 
+                        System.DateTime DETE, 
+                        int ZNR, 
+                        string NRX, 
+                        string DOCTYP, 
+                        string DOCST, 
+                        string DOCNR, 
+                        string DOCTYP2, 
+                        string CLID, 
+                        string CLID2, 
+                        string DESCR, 
+                        decimal DOCSUMM, 
+                        decimal DOCPVN, 
+                        string AC11, 
+                        string AC12, 
+                        string AC13, 
+                        string AC14, 
+                        string AC15, 
+                        string AC21, 
+                        string AC22, 
+                        string AC23, 
+                        string AC24, 
+                        string AC25, 
+                        decimal SUMMC, 
+                        string CUR, 
+                        decimal SUMM, 
+                        float QV, 
+                        string DESCR2) {
+                SP_DIFF_12Row rowSP_DIFF_12Row = ((SP_DIFF_12Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        TP,
+                        DOCID,
+                        ROWID,
+                        DOCDTL,
+                        DOCDTLD,
+                        DOCODT,
+                        ROWDTL,
+                        ROWDTLD,
+                        ROWODT,
+                        DETE,
+                        ZNR,
+                        NRX,
+                        DOCTYP,
+                        DOCST,
+                        DOCNR,
+                        DOCTYP2,
+                        CLID,
+                        CLID2,
+                        DESCR,
+                        DOCSUMM,
+                        DOCPVN,
+                        AC11,
+                        AC12,
+                        AC13,
+                        AC14,
+                        AC15,
+                        AC21,
+                        AC22,
+                        AC23,
+                        AC24,
+                        AC25,
+                        SUMMC,
+                        CUR,
+                        SUMM,
+                        QV,
+                        DESCR2};
+                rowSP_DIFF_12Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_DIFF_12Row);
+                return rowSP_DIFF_12Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SP_DIFF_12DataTable cln = ((SP_DIFF_12DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SP_DIFF_12DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnTP = base.Columns["TP"];
+                this.columnDOCID = base.Columns["DOCID"];
+                this.columnROWID = base.Columns["ROWID"];
+                this.columnDOCDTL = base.Columns["DOCDTL"];
+                this.columnDOCDTLD = base.Columns["DOCDTLD"];
+                this.columnDOCODT = base.Columns["DOCODT"];
+                this.columnROWDTL = base.Columns["ROWDTL"];
+                this.columnROWDTLD = base.Columns["ROWDTLD"];
+                this.columnROWODT = base.Columns["ROWODT"];
+                this.columnDETE = base.Columns["DETE"];
+                this.columnZNR = base.Columns["ZNR"];
+                this.columnNRX = base.Columns["NRX"];
+                this.columnDOCTYP = base.Columns["DOCTYP"];
+                this.columnDOCST = base.Columns["DOCST"];
+                this.columnDOCNR = base.Columns["DOCNR"];
+                this.columnDOCTYP2 = base.Columns["DOCTYP2"];
+                this.columnCLID = base.Columns["CLID"];
+                this.columnCLID2 = base.Columns["CLID2"];
+                this.columnDESCR = base.Columns["DESCR"];
+                this.columnDOCSUMM = base.Columns["DOCSUMM"];
+                this.columnDOCPVN = base.Columns["DOCPVN"];
+                this.columnAC11 = base.Columns["AC11"];
+                this.columnAC12 = base.Columns["AC12"];
+                this.columnAC13 = base.Columns["AC13"];
+                this.columnAC14 = base.Columns["AC14"];
+                this.columnAC15 = base.Columns["AC15"];
+                this.columnAC21 = base.Columns["AC21"];
+                this.columnAC22 = base.Columns["AC22"];
+                this.columnAC23 = base.Columns["AC23"];
+                this.columnAC24 = base.Columns["AC24"];
+                this.columnAC25 = base.Columns["AC25"];
+                this.columnSUMMC = base.Columns["SUMMC"];
+                this.columnCUR = base.Columns["CUR"];
+                this.columnSUMM = base.Columns["SUMM"];
+                this.columnQV = base.Columns["QV"];
+                this.columnDESCR2 = base.Columns["DESCR2"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnTP = new global::System.Data.DataColumn("TP", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTP);
+                this.columnDOCID = new global::System.Data.DataColumn("DOCID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCID);
+                this.columnROWID = new global::System.Data.DataColumn("ROWID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROWID);
+                this.columnDOCDTL = new global::System.Data.DataColumn("DOCDTL", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCDTL);
+                this.columnDOCDTLD = new global::System.Data.DataColumn("DOCDTLD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCDTLD);
+                this.columnDOCODT = new global::System.Data.DataColumn("DOCODT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCODT);
+                this.columnROWDTL = new global::System.Data.DataColumn("ROWDTL", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROWDTL);
+                this.columnROWDTLD = new global::System.Data.DataColumn("ROWDTLD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROWDTLD);
+                this.columnROWODT = new global::System.Data.DataColumn("ROWODT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROWODT);
+                this.columnDETE = new global::System.Data.DataColumn("DETE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDETE);
+                this.columnZNR = new global::System.Data.DataColumn("ZNR", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZNR);
+                this.columnNRX = new global::System.Data.DataColumn("NRX", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNRX);
+                this.columnDOCTYP = new global::System.Data.DataColumn("DOCTYP", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCTYP);
+                this.columnDOCST = new global::System.Data.DataColumn("DOCST", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCST);
+                this.columnDOCNR = new global::System.Data.DataColumn("DOCNR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCNR);
+                this.columnDOCTYP2 = new global::System.Data.DataColumn("DOCTYP2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCTYP2);
+                this.columnCLID = new global::System.Data.DataColumn("CLID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCLID);
+                this.columnCLID2 = new global::System.Data.DataColumn("CLID2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCLID2);
+                this.columnDESCR = new global::System.Data.DataColumn("DESCR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCR);
+                this.columnDOCSUMM = new global::System.Data.DataColumn("DOCSUMM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCSUMM);
+                this.columnDOCPVN = new global::System.Data.DataColumn("DOCPVN", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCPVN);
+                this.columnAC11 = new global::System.Data.DataColumn("AC11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC11);
+                this.columnAC12 = new global::System.Data.DataColumn("AC12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC12);
+                this.columnAC13 = new global::System.Data.DataColumn("AC13", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC13);
+                this.columnAC14 = new global::System.Data.DataColumn("AC14", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC14);
+                this.columnAC15 = new global::System.Data.DataColumn("AC15", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC15);
+                this.columnAC21 = new global::System.Data.DataColumn("AC21", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC21);
+                this.columnAC22 = new global::System.Data.DataColumn("AC22", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC22);
+                this.columnAC23 = new global::System.Data.DataColumn("AC23", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC23);
+                this.columnAC24 = new global::System.Data.DataColumn("AC24", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC24);
+                this.columnAC25 = new global::System.Data.DataColumn("AC25", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAC25);
+                this.columnSUMMC = new global::System.Data.DataColumn("SUMMC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUMMC);
+                this.columnCUR = new global::System.Data.DataColumn("CUR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCUR);
+                this.columnSUMM = new global::System.Data.DataColumn("SUMM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUMM);
+                this.columnQV = new global::System.Data.DataColumn("QV", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQV);
+                this.columnDESCR2 = new global::System.Data.DataColumn("DESCR2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCR2);
+                this.columnTP.AllowDBNull = false;
+                this.columnDOCID.AllowDBNull = false;
+                this.columnROWID.AllowDBNull = false;
+                this.columnDETE.AllowDBNull = false;
+                this.columnNRX.MaxLength = 5;
+                this.columnDOCTYP.MaxLength = 10;
+                this.columnDOCST.MaxLength = 6;
+                this.columnDOCNR.MaxLength = 15;
+                this.columnDOCTYP2.MaxLength = 10;
+                this.columnCLID.MaxLength = 15;
+                this.columnCLID2.MaxLength = 15;
+                this.columnDESCR.MaxLength = 80;
+                this.columnDOCSUMM.AllowDBNull = false;
+                this.columnDOCPVN.AllowDBNull = false;
+                this.columnAC11.MaxLength = 8;
+                this.columnAC12.MaxLength = 8;
+                this.columnAC13.MaxLength = 5;
+                this.columnAC14.MaxLength = 8;
+                this.columnAC15.MaxLength = 5;
+                this.columnAC21.MaxLength = 8;
+                this.columnAC22.MaxLength = 8;
+                this.columnAC23.MaxLength = 5;
+                this.columnAC24.MaxLength = 8;
+                this.columnAC25.MaxLength = 5;
+                this.columnSUMMC.AllowDBNull = false;
+                this.columnCUR.MaxLength = 3;
+                this.columnSUMM.AllowDBNull = false;
+                this.columnQV.AllowDBNull = false;
+                this.columnDESCR2.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SP_DIFF_12Row NewSP_DIFF_12Row() {
+                return ((SP_DIFF_12Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SP_DIFF_12Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SP_DIFF_12Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SP_DIFF_12RowChanged != null)) {
+                    this.SP_DIFF_12RowChanged(this, new SP_DIFF_12RowChangeEvent(((SP_DIFF_12Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SP_DIFF_12RowChanging != null)) {
+                    this.SP_DIFF_12RowChanging(this, new SP_DIFF_12RowChangeEvent(((SP_DIFF_12Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SP_DIFF_12RowDeleted != null)) {
+                    this.SP_DIFF_12RowDeleted(this, new SP_DIFF_12RowChangeEvent(((SP_DIFF_12Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SP_DIFF_12RowDeleting != null)) {
+                    this.SP_DIFF_12RowDeleting(this, new SP_DIFF_12RowChangeEvent(((SP_DIFF_12Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveSP_DIFF_12Row(SP_DIFF_12Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                klonsRepDataSet ds = new klonsRepDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SP_DIFF_12DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ROps1aRow : global::System.Data.DataRow {
@@ -18638,6 +19475,876 @@ namespace KlonsF.DataSets {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SP_DIFF_12Row : global::System.Data.DataRow {
+            
+            private SP_DIFF_12DataTable tableSP_DIFF_12;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal SP_DIFF_12Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSP_DIFF_12 = ((SP_DIFF_12DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int TP {
+                get {
+                    return ((int)(this[this.tableSP_DIFF_12.TPColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.TPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int DOCID {
+                get {
+                    return ((int)(this[this.tableSP_DIFF_12.DOCIDColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ROWID {
+                get {
+                    return ((int)(this[this.tableSP_DIFF_12.ROWIDColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.ROWIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DOCDTL {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_DIFF_12.DOCDTLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DOCDTL\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCDTLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DOCDTLD {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_DIFF_12.DOCDTLDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DOCDTLD\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCDTLDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DOCODT {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_DIFF_12.DOCODTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DOCODT\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCODTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ROWDTL {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_DIFF_12.ROWDTLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ROWDTL\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.ROWDTLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ROWDTLD {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_DIFF_12.ROWDTLDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ROWDTLD\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.ROWDTLDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ROWODT {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_DIFF_12.ROWODTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ROWODT\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.ROWODTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DETE {
+                get {
+                    return ((global::System.DateTime)(this[this.tableSP_DIFF_12.DETEColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DETEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ZNR {
+                get {
+                    try {
+                        return ((int)(this[this.tableSP_DIFF_12.ZNRColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ZNR\' in table \'SP_DIFF_12\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.ZNRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NRX {
+                get {
+                    if (this.IsNRXNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.NRXColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.NRXColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DOCTYP {
+                get {
+                    if (this.IsDOCTYPNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.DOCTYPColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCTYPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DOCST {
+                get {
+                    if (this.IsDOCSTNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.DOCSTColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCSTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DOCNR {
+                get {
+                    if (this.IsDOCNRNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.DOCNRColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCNRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DOCTYP2 {
+                get {
+                    if (this.IsDOCTYP2Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.DOCTYP2Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCTYP2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CLID {
+                get {
+                    if (this.IsCLIDNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.CLIDColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.CLIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CLID2 {
+                get {
+                    if (this.IsCLID2Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.CLID2Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.CLID2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DESCR {
+                get {
+                    if (this.IsDESCRNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.DESCRColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DESCRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal DOCSUMM {
+                get {
+                    return ((decimal)(this[this.tableSP_DIFF_12.DOCSUMMColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCSUMMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal DOCPVN {
+                get {
+                    return ((decimal)(this[this.tableSP_DIFF_12.DOCPVNColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DOCPVNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC11 {
+                get {
+                    if (this.IsAC11Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC11Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC12 {
+                get {
+                    if (this.IsAC12Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC12Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC13 {
+                get {
+                    if (this.IsAC13Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC13Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC14 {
+                get {
+                    if (this.IsAC14Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC14Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC14Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC15 {
+                get {
+                    if (this.IsAC15Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC15Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC15Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC21 {
+                get {
+                    if (this.IsAC21Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC21Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC21Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC22 {
+                get {
+                    if (this.IsAC22Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC22Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC22Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC23 {
+                get {
+                    if (this.IsAC23Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC23Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC23Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC24 {
+                get {
+                    if (this.IsAC24Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC24Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC24Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AC25 {
+                get {
+                    if (this.IsAC25Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.AC25Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.AC25Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal SUMMC {
+                get {
+                    return ((decimal)(this[this.tableSP_DIFF_12.SUMMCColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.SUMMCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CUR {
+                get {
+                    if (this.IsCURNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.CURColumn]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.CURColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal SUMM {
+                get {
+                    return ((decimal)(this[this.tableSP_DIFF_12.SUMMColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.SUMMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public float QV {
+                get {
+                    return ((float)(this[this.tableSP_DIFF_12.QVColumn]));
+                }
+                set {
+                    this[this.tableSP_DIFF_12.QVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DESCR2 {
+                get {
+                    if (this.IsDESCR2Null()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableSP_DIFF_12.DESCR2Column]));
+                    }
+                }
+                set {
+                    this[this.tableSP_DIFF_12.DESCR2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCDTLNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCDTLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCDTLNull() {
+                this[this.tableSP_DIFF_12.DOCDTLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCDTLDNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCDTLDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCDTLDNull() {
+                this[this.tableSP_DIFF_12.DOCDTLDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCODTNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCODTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCODTNull() {
+                this[this.tableSP_DIFF_12.DOCODTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsROWDTLNull() {
+                return this.IsNull(this.tableSP_DIFF_12.ROWDTLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetROWDTLNull() {
+                this[this.tableSP_DIFF_12.ROWDTLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsROWDTLDNull() {
+                return this.IsNull(this.tableSP_DIFF_12.ROWDTLDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetROWDTLDNull() {
+                this[this.tableSP_DIFF_12.ROWDTLDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsROWODTNull() {
+                return this.IsNull(this.tableSP_DIFF_12.ROWODTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetROWODTNull() {
+                this[this.tableSP_DIFF_12.ROWODTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsZNRNull() {
+                return this.IsNull(this.tableSP_DIFF_12.ZNRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetZNRNull() {
+                this[this.tableSP_DIFF_12.ZNRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNRXNull() {
+                return this.IsNull(this.tableSP_DIFF_12.NRXColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNRXNull() {
+                this[this.tableSP_DIFF_12.NRXColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCTYPNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCTYPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCTYPNull() {
+                this[this.tableSP_DIFF_12.DOCTYPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCSTNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCSTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCSTNull() {
+                this[this.tableSP_DIFF_12.DOCSTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCNRNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCNRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCNRNull() {
+                this[this.tableSP_DIFF_12.DOCNRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDOCTYP2Null() {
+                return this.IsNull(this.tableSP_DIFF_12.DOCTYP2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDOCTYP2Null() {
+                this[this.tableSP_DIFF_12.DOCTYP2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCLIDNull() {
+                return this.IsNull(this.tableSP_DIFF_12.CLIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCLIDNull() {
+                this[this.tableSP_DIFF_12.CLIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCLID2Null() {
+                return this.IsNull(this.tableSP_DIFF_12.CLID2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCLID2Null() {
+                this[this.tableSP_DIFF_12.CLID2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDESCRNull() {
+                return this.IsNull(this.tableSP_DIFF_12.DESCRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDESCRNull() {
+                this[this.tableSP_DIFF_12.DESCRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC11Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC11Null() {
+                this[this.tableSP_DIFF_12.AC11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC12Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC12Null() {
+                this[this.tableSP_DIFF_12.AC12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC13Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC13Null() {
+                this[this.tableSP_DIFF_12.AC13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC14Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC14Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC14Null() {
+                this[this.tableSP_DIFF_12.AC14Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC15Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC15Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC15Null() {
+                this[this.tableSP_DIFF_12.AC15Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC21Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC21Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC21Null() {
+                this[this.tableSP_DIFF_12.AC21Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC22Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC22Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC22Null() {
+                this[this.tableSP_DIFF_12.AC22Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC23Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC23Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC23Null() {
+                this[this.tableSP_DIFF_12.AC23Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC24Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC24Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC24Null() {
+                this[this.tableSP_DIFF_12.AC24Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAC25Null() {
+                return this.IsNull(this.tableSP_DIFF_12.AC25Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAC25Null() {
+                this[this.tableSP_DIFF_12.AC25Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCURNull() {
+                return this.IsNull(this.tableSP_DIFF_12.CURColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCURNull() {
+                this[this.tableSP_DIFF_12.CURColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDESCR2Null() {
+                return this.IsNull(this.tableSP_DIFF_12.DESCR2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDESCR2Null() {
+                this[this.tableSP_DIFF_12.DESCR2Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -19201,6 +20908,40 @@ namespace KlonsF.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SP_REP_BAL_22Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class SP_DIFF_12RowChangeEvent : global::System.EventArgs {
+            
+            private SP_DIFF_12Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SP_DIFF_12RowChangeEvent(SP_DIFF_12Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SP_DIFF_12Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -51823,6 +53564,373 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SP_DIFF_12TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::FirebirdSql.Data.FirebirdClient.FbDataAdapter _adapter;
+        
+        private global::FirebirdSql.Data.FirebirdClient.FbConnection _connection;
+        
+        private global::FirebirdSql.Data.FirebirdClient.FbTransaction _transaction;
+        
+        private global::FirebirdSql.Data.FirebirdClient.FbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public SP_DIFF_12TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::FirebirdSql.Data.FirebirdClient.FbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::FirebirdSql.Data.FirebirdClient.FbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::FirebirdSql.Data.FirebirdClient.FbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::FirebirdSql.Data.FirebirdClient.FbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::FirebirdSql.Data.FirebirdClient.FbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::FirebirdSql.Data.FirebirdClient.FbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SP_DIFF_12";
+            tableMapping.ColumnMappings.Add("TP", "TP");
+            tableMapping.ColumnMappings.Add("DOCID", "DOCID");
+            tableMapping.ColumnMappings.Add("ROWID", "ROWID");
+            tableMapping.ColumnMappings.Add("DOCDTL", "DOCDTL");
+            tableMapping.ColumnMappings.Add("DOCDTLD", "DOCDTLD");
+            tableMapping.ColumnMappings.Add("DOCODT", "DOCODT");
+            tableMapping.ColumnMappings.Add("ROWDTL", "ROWDTL");
+            tableMapping.ColumnMappings.Add("ROWDTLD", "ROWDTLD");
+            tableMapping.ColumnMappings.Add("ROWODT", "ROWODT");
+            tableMapping.ColumnMappings.Add("DETE", "DETE");
+            tableMapping.ColumnMappings.Add("ZNR", "ZNR");
+            tableMapping.ColumnMappings.Add("NRX", "NRX");
+            tableMapping.ColumnMappings.Add("DOCTYP", "DOCTYP");
+            tableMapping.ColumnMappings.Add("DOCST", "DOCST");
+            tableMapping.ColumnMappings.Add("DOCNR", "DOCNR");
+            tableMapping.ColumnMappings.Add("DOCTYP2", "DOCTYP2");
+            tableMapping.ColumnMappings.Add("CLID", "CLID");
+            tableMapping.ColumnMappings.Add("CLID2", "CLID2");
+            tableMapping.ColumnMappings.Add("DESCR", "DESCR");
+            tableMapping.ColumnMappings.Add("DOCSUMM", "DOCSUMM");
+            tableMapping.ColumnMappings.Add("DOCPVN", "DOCPVN");
+            tableMapping.ColumnMappings.Add("AC11", "AC11");
+            tableMapping.ColumnMappings.Add("AC12", "AC12");
+            tableMapping.ColumnMappings.Add("AC13", "AC13");
+            tableMapping.ColumnMappings.Add("AC14", "AC14");
+            tableMapping.ColumnMappings.Add("AC15", "AC15");
+            tableMapping.ColumnMappings.Add("AC21", "AC21");
+            tableMapping.ColumnMappings.Add("AC22", "AC22");
+            tableMapping.ColumnMappings.Add("AC23", "AC23");
+            tableMapping.ColumnMappings.Add("AC24", "AC24");
+            tableMapping.ColumnMappings.Add("AC25", "AC25");
+            tableMapping.ColumnMappings.Add("SUMMC", "SUMMC");
+            tableMapping.ColumnMappings.Add("CUR", "CUR");
+            tableMapping.ColumnMappings.Add("SUMM", "SUMM");
+            tableMapping.ColumnMappings.Add("QV", "QV");
+            tableMapping.ColumnMappings.Add("DESCR2", "DESCR2");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::FirebirdSql.Data.FirebirdClient.FbConnection();
+            this._connection.ConnectionString = global::KlonsF.Properties.Settings.Default.ConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[1];
+            this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "\"SP_DIFF_12\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PDATE1";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PDATE2";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PDATE3";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PCLID";
+            param.Size = 15;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC1";
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC2";
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC3";
+            param.Size = 5;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC4";
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC5";
+            param.Size = 5;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill_SP_DIFF_12(klonsRepDataSet.SP_DIFF_12DataTable dataTable, global::System.Nullable<global::System.DateTime> PDATE1, global::System.Nullable<global::System.DateTime> PDATE2, global::System.Nullable<global::System.DateTime> PDATE3, string PCLID, string PAC1, string PAC2, string PAC3, string PAC4, string PAC5) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PDATE1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((PDATE2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(PDATE2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PDATE3.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(PDATE3.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PCLID == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PCLID));
+            }
+            if ((PAC1 == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(PAC1));
+            }
+            if ((PAC2 == null)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(PAC2));
+            }
+            if ((PAC3 == null)) {
+                this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(PAC3));
+            }
+            if ((PAC4 == null)) {
+                this.Adapter.SelectCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[7].Value = ((string)(PAC4));
+            }
+            if ((PAC5 == null)) {
+                this.Adapter.SelectCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[8].Value = ((string)(PAC5));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual klonsRepDataSet.SP_DIFF_12DataTable GetData_SP_DIFF_12(global::System.Nullable<global::System.DateTime> PDATE1, global::System.Nullable<global::System.DateTime> PDATE2, global::System.Nullable<global::System.DateTime> PDATE3, string PCLID, string PAC1, string PAC2, string PAC3, string PAC4, string PAC5) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PDATE1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(PDATE1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((PDATE2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(PDATE2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PDATE3.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(PDATE3.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PCLID == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PCLID));
+            }
+            if ((PAC1 == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(PAC1));
+            }
+            if ((PAC2 == null)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(PAC2));
+            }
+            if ((PAC3 == null)) {
+                this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(PAC3));
+            }
+            if ((PAC4 == null)) {
+                this.Adapter.SelectCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[7].Value = ((string)(PAC4));
+            }
+            if ((PAC5 == null)) {
+                this.Adapter.SelectCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[8].Value = ((string)(PAC5));
+            }
+            klonsRepDataSet.SP_DIFF_12DataTable dataTable = new klonsRepDataSet.SP_DIFF_12DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -52309,6 +54417,15 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._tRepDarz2TableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TRepDarz2.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tRepDarz2TableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._tRepDarz1TableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TRepDarz1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -52360,15 +54477,6 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._rOps2aTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tRepDarz2TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TRepDarz2.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tRepDarz2TableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -52446,6 +54554,14 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._tRepDarz2TableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TRepDarz2.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tRepDarz2TableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._tRepDarz1TableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TRepDarz1.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -52494,14 +54610,6 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tRepDarz2TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TRepDarz2.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tRepDarz2TableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -52512,14 +54620,6 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(klonsRepDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tRepDarz2TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TRepDarz2.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tRepDarz2TableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._rOps2aTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ROps2a.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -52565,6 +54665,14 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tRepDarz1TableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tRepDarz2TableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TRepDarz2.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tRepDarz2TableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

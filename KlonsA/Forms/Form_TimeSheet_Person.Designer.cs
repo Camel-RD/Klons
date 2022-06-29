@@ -84,7 +84,6 @@ namespace KlonsA.Forms
             this.cbPerson = new KlonsLIB.Components.MyMcFlatComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
-            this.myStyleDefs1 = new KlonsA.Classes.MyStyleDefs();
             this.dgcCaption = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcKind = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,6 +118,7 @@ namespace KlonsA.Forms
             this.dgcD29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcD30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcD31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.myStyleDefs1 = new KlonsA.Classes.MyStyleDefs();
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).BeginInit();
             this.bNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsRows)).BeginInit();
@@ -360,21 +360,6 @@ namespace KlonsA.Forms
             this.dgvRows.TabIndex = 3;
             this.dgvRows.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRows_CellFormatting);
             this.dgvRows.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvRows_CellPainting);
-            // 
-            // myStyleDefs1
-            // 
-            this.myStyleDefs1.FreeDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(116)))), ((int)(((byte)(197)))));
-            this.myStyleDefs1.FreeDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.HeaderHolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(113)))), ((int)(((byte)(0)))));
-            this.myStyleDefs1.HeaderHolyDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.HeaderWeekEndBack = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
-            this.myStyleDefs1.HeaderWeekEndFore = System.Drawing.Color.White;
-            this.myStyleDefs1.HolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
-            this.myStyleDefs1.HolyDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.SickDayBack = System.Drawing.Color.IndianRed;
-            this.myStyleDefs1.SickDayFore = System.Drawing.Color.White;
-            this.myStyleDefs1.VacationBack = System.Drawing.Color.YellowGreen;
-            this.myStyleDefs1.VacationFore = System.Drawing.Color.White;
             // 
             // dgcCaption
             // 
@@ -753,6 +738,21 @@ namespace KlonsA.Forms
             this.dgcD31.ReadOnly = true;
             this.dgcD31.Width = 30;
             // 
+            // myStyleDefs1
+            // 
+            this.myStyleDefs1.FreeDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(116)))), ((int)(((byte)(197)))));
+            this.myStyleDefs1.FreeDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.HeaderHolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(113)))), ((int)(((byte)(0)))));
+            this.myStyleDefs1.HeaderHolyDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.HeaderWeekEndBack = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
+            this.myStyleDefs1.HeaderWeekEndFore = System.Drawing.Color.White;
+            this.myStyleDefs1.HolyDayBack = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
+            this.myStyleDefs1.HolyDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.SickDayBack = System.Drawing.Color.IndianRed;
+            this.myStyleDefs1.SickDayFore = System.Drawing.Color.White;
+            this.myStyleDefs1.VacationBack = System.Drawing.Color.YellowGreen;
+            this.myStyleDefs1.VacationFore = System.Drawing.Color.White;
+            // 
             // Form_TimeSheet_Person
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -762,7 +762,7 @@ namespace KlonsA.Forms
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bNav);
             this.Name = "Form_TimeSheet_Person";
-            this.Text = "Form_TimeSheet_Person";
+            this.Text = "Darbinieka darba laiks";
             this.Load += new System.EventHandler(this.Form_TimeSheet_Person_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).EndInit();
             this.bNav.ResumeLayout(false);

@@ -120,5 +120,14 @@ namespace KlonsF.Forms
         {
             tsbSearch.SelectAll();
         }
+
+        private void tsbDocLog_Click(object sender, EventArgs e)
+        {
+            if (bsLOPSd.DataSource == null || bsLOPSd.Count == 0 || bsLOPSd.Position == -1) return;
+            var row = (bsLOPSd.Current as DataRowView).Row as DataSets.klonsDataSet.LOPSDRow;
+            if (row == null) return;
+            var frm = MyMainForm.ShowForm(typeof(Form_LogDoc)) as Form_LogDoc;
+            frm.GetData2(row.id);
+        }
     }
 }

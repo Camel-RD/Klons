@@ -635,5 +635,15 @@ namespace KlonsLIB.Components
             if (cellClickEventArgs.RowIndex >= Rows.Count) return;
             base.OnCellClick(cellClickEventArgs);
         }
+
+
+        public void DisableAllColumnSorting()
+        {
+            foreach (DataGridViewColumn column in Columns)
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
     }
+
+
 }

@@ -86,11 +86,11 @@ namespace KlonsF.DataSets {
         
         private DOCS0DataTable tableDOCS0;
         
-        private global::System.Data.DataRelation relationFK_BAL0_CLID_PERSONS_CLID1;
+        private global::System.Data.DataRelation relationFK_BAL0_AC4_ACP24_IDX1;
         
         private global::System.Data.DataRelation relationFK_BAL0_AC1_ACP21_AC1;
         
-        private global::System.Data.DataRelation relationFK_BAL0_AC4_ACP24_IDX1;
+        private global::System.Data.DataRelation relationFK_BAL0_CLID_PERSONS_CLID1;
         
         private global::System.Data.DataRelation relationFK_BALA2_BALID_BALA1_BALID;
         
@@ -98,27 +98,27 @@ namespace KlonsF.DataSets {
         
         private global::System.Data.DataRelation relationFK_DOCTYPB_IDA_DOCTYPA_ID;
         
-        private global::System.Data.DataRelation relationFK_OPS_AC22_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC21_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC12_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC11_ACP21_AC1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC24_ACP24_IDX1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC14_ACP24_IDX1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_DOCID_OPSD_ID;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC23_ACP23_IDX1;
-        
-        private global::System.Data.DataRelation relationFK_OPS_AC13_ACP23_IDX1;
+        private global::System.Data.DataRelation relationFK_OPS_AC25_ACP25_IDX1;
         
         private global::System.Data.DataRelation relationFK_OPS_AC15_ACP25_IDX1;
         
-        private global::System.Data.DataRelation relationFK_OPS_AC25_ACP25_IDX1;
+        private global::System.Data.DataRelation relationFK_OPS_AC13_ACP23_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC23_ACP23_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_DOCID_OPSD_ID;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC14_ACP24_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC24_ACP24_IDX1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC11_ACP21_AC1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC12_ACP21_AC1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC21_ACP21_AC1;
+        
+        private global::System.Data.DataRelation relationFK_OPS_AC22_ACP21_AC1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -948,23 +948,23 @@ namespace KlonsF.DataSets {
                     this.tableDOCS0.InitVars();
                 }
             }
-            this.relationFK_BAL0_CLID_PERSONS_CLID1 = this.Relations["FK_BAL0_CLID_PERSONS_CLID1"];
-            this.relationFK_BAL0_AC1_ACP21_AC1 = this.Relations["FK_BAL0_AC1_ACP21_AC1"];
             this.relationFK_BAL0_AC4_ACP24_IDX1 = this.Relations["FK_BAL0_AC4_ACP24_IDX1"];
+            this.relationFK_BAL0_AC1_ACP21_AC1 = this.Relations["FK_BAL0_AC1_ACP21_AC1"];
+            this.relationFK_BAL0_CLID_PERSONS_CLID1 = this.Relations["FK_BAL0_CLID_PERSONS_CLID1"];
             this.relationFK_BALA2_BALID_BALA1_BALID = this.Relations["FK_BALA2_BALID_BALA1_BALID"];
             this.relationFK_BALA3_ID2_BALA2_ID = this.Relations["FK_BALA3_ID2_BALA2_ID"];
             this.relationFK_DOCTYPB_IDA_DOCTYPA_ID = this.Relations["FK_DOCTYPB_IDA_DOCTYPA_ID"];
-            this.relationFK_OPS_AC22_ACP21_AC1 = this.Relations["FK_OPS_AC22_ACP21_AC1"];
-            this.relationFK_OPS_AC21_ACP21_AC1 = this.Relations["FK_OPS_AC21_ACP21_AC1"];
-            this.relationFK_OPS_AC12_ACP21_AC1 = this.Relations["FK_OPS_AC12_ACP21_AC1"];
-            this.relationFK_OPS_AC11_ACP21_AC1 = this.Relations["FK_OPS_AC11_ACP21_AC1"];
-            this.relationFK_OPS_AC24_ACP24_IDX1 = this.Relations["FK_OPS_AC24_ACP24_IDX1"];
-            this.relationFK_OPS_AC14_ACP24_IDX1 = this.Relations["FK_OPS_AC14_ACP24_IDX1"];
-            this.relationFK_OPS_DOCID_OPSD_ID = this.Relations["FK_OPS_DOCID_OPSD_ID"];
-            this.relationFK_OPS_AC23_ACP23_IDX1 = this.Relations["FK_OPS_AC23_ACP23_IDX1"];
-            this.relationFK_OPS_AC13_ACP23_IDX1 = this.Relations["FK_OPS_AC13_ACP23_IDX1"];
-            this.relationFK_OPS_AC15_ACP25_IDX1 = this.Relations["FK_OPS_AC15_ACP25_IDX1"];
             this.relationFK_OPS_AC25_ACP25_IDX1 = this.Relations["FK_OPS_AC25_ACP25_IDX1"];
+            this.relationFK_OPS_AC15_ACP25_IDX1 = this.Relations["FK_OPS_AC15_ACP25_IDX1"];
+            this.relationFK_OPS_AC13_ACP23_IDX1 = this.Relations["FK_OPS_AC13_ACP23_IDX1"];
+            this.relationFK_OPS_AC23_ACP23_IDX1 = this.Relations["FK_OPS_AC23_ACP23_IDX1"];
+            this.relationFK_OPS_DOCID_OPSD_ID = this.Relations["FK_OPS_DOCID_OPSD_ID"];
+            this.relationFK_OPS_AC14_ACP24_IDX1 = this.Relations["FK_OPS_AC14_ACP24_IDX1"];
+            this.relationFK_OPS_AC24_ACP24_IDX1 = this.Relations["FK_OPS_AC24_ACP24_IDX1"];
+            this.relationFK_OPS_AC11_ACP21_AC1 = this.Relations["FK_OPS_AC11_ACP21_AC1"];
+            this.relationFK_OPS_AC12_ACP21_AC1 = this.Relations["FK_OPS_AC12_ACP21_AC1"];
+            this.relationFK_OPS_AC21_ACP21_AC1 = this.Relations["FK_OPS_AC21_ACP21_AC1"];
+            this.relationFK_OPS_AC22_ACP21_AC1 = this.Relations["FK_OPS_AC22_ACP21_AC1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1038,9 +1038,9 @@ namespace KlonsF.DataSets {
             this.tableDOCS0 = new DOCS0DataTable();
             base.Tables.Add(this.tableDOCS0);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.ClIdColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_AC4_ACP24_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.AC24Column});
             this.tableBal0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1052,9 +1052,9 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_AC4_ACP24_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.AC24Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_BAL0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.ClIdColumn});
             this.tableBal0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1073,13 +1073,6 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCTYPB_IDA_DOCTYPA_ID", new global::System.Data.DataColumn[] {
-                        this.tableDocTypA.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDocTypB.idAColumn});
-            this.tableDocTypB.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCTYPB_ID_DOCTYP_ID", new global::System.Data.DataColumn[] {
                         this.tableDocTyp.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableDocTypB.idColumn});
@@ -1087,65 +1080,16 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC22_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC22Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC21_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC21Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC12_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC12Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC11_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC11Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC24_ACP24_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC24Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC14_ACP24_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC14Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
-                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.DocIdColumn});
-            this.tableOPS.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCTYPB_IDA_DOCTYPA_ID", new global::System.Data.DataColumn[] {
+                        this.tableDocTypA.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDocTypB.idAColumn});
+            this.tableDocTypB.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC23_ACP23_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC23Column});
-            this.tableOPS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC13_ACP23_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC13Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC25_ACP25_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC25Column});
             this.tableOPS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1157,16 +1101,72 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC25_ACP25_IDX", new global::System.Data.DataColumn[] {
-                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC25Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC13_ACP23_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC13Column});
             this.tableOPS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_CLID2_PERSONS_CLID", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPSd.ClId2Column});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC23_ACP23_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC23Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
+                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.DocIdColumn});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC14_ACP24_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC14Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC24_ACP24_IDX", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC24Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC11_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC11Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC12_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC12Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC21_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC21Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPS_AC22_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC22Column});
+            this.tableOPS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_DOCTYP_DOCTYP_ID", new global::System.Data.DataColumn[] {
+                        this.tableDocTyp.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPSd.DocTypColumn});
             this.tableOPSd.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1178,9 +1178,9 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_DOCTYP_DOCTYP_ID", new global::System.Data.DataColumn[] {
-                        this.tableDocTyp.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPSd.DocTypColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_OPSD_CLID2_PERSONS_CLID", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPSd.ClId2Column});
             this.tableOPSd.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1192,9 +1192,9 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDOCS0.CLIDColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_AC_ACP21_AC", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDOCS0.ACColumn});
             this.tableDOCS0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1206,25 +1206,25 @@ namespace KlonsF.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_AC_ACP21_AC", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDOCS0.ACColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_DOCS0_CLID_PERSONS_CLID", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDOCS0.CLIDColumn});
             this.tableDOCS0.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            this.relationFK_BAL0_CLID_PERSONS_CLID1 = new global::System.Data.DataRelation("FK_BAL0_CLID_PERSONS_CLID1", new global::System.Data.DataColumn[] {
-                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.ClIdColumn}, false);
-            this.Relations.Add(this.relationFK_BAL0_CLID_PERSONS_CLID1);
-            this.relationFK_BAL0_AC1_ACP21_AC1 = new global::System.Data.DataRelation("FK_BAL0_AC1_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBal0.AC11Column}, false);
-            this.Relations.Add(this.relationFK_BAL0_AC1_ACP21_AC1);
             this.relationFK_BAL0_AC4_ACP24_IDX1 = new global::System.Data.DataRelation("FK_BAL0_AC4_ACP24_IDX1", new global::System.Data.DataColumn[] {
                         this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
                         this.tableBal0.AC24Column}, false);
             this.Relations.Add(this.relationFK_BAL0_AC4_ACP24_IDX1);
+            this.relationFK_BAL0_AC1_ACP21_AC1 = new global::System.Data.DataRelation("FK_BAL0_AC1_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.AC11Column}, false);
+            this.Relations.Add(this.relationFK_BAL0_AC1_ACP21_AC1);
+            this.relationFK_BAL0_CLID_PERSONS_CLID1 = new global::System.Data.DataRelation("FK_BAL0_CLID_PERSONS_CLID1", new global::System.Data.DataColumn[] {
+                        this.tablePersons.ClIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBal0.ClIdColumn}, false);
+            this.Relations.Add(this.relationFK_BAL0_CLID_PERSONS_CLID1);
             this.relationFK_BALA2_BALID_BALA1_BALID = new global::System.Data.DataRelation("FK_BALA2_BALID_BALA1_BALID", new global::System.Data.DataColumn[] {
                         this.tableBalA1.balidColumn}, new global::System.Data.DataColumn[] {
                         this.tableBalA2.balidColumn}, false);
@@ -1237,50 +1237,50 @@ namespace KlonsF.DataSets {
                         this.tableDocTypA.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableDocTypB.idAColumn}, false);
             this.Relations.Add(this.relationFK_DOCTYPB_IDA_DOCTYPA_ID);
-            this.relationFK_OPS_AC22_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC22_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC22Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC22_ACP21_AC1);
-            this.relationFK_OPS_AC21_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC21_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC21Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC21_ACP21_AC1);
-            this.relationFK_OPS_AC12_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC12_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC12Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC12_ACP21_AC1);
-            this.relationFK_OPS_AC11_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC11_ACP21_AC1", new global::System.Data.DataColumn[] {
-                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC11Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC11_ACP21_AC1);
-            this.relationFK_OPS_AC24_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC24_ACP24_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC24Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC24_ACP24_IDX1);
-            this.relationFK_OPS_AC14_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC14_ACP24_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC14Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC14_ACP24_IDX1);
-            this.relationFK_OPS_DOCID_OPSD_ID = new global::System.Data.DataRelation("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
-                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.DocIdColumn}, false);
-            this.Relations.Add(this.relationFK_OPS_DOCID_OPSD_ID);
-            this.relationFK_OPS_AC23_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC23_ACP23_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC23Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC23_ACP23_IDX1);
-            this.relationFK_OPS_AC13_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC13_ACP23_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC13Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC13_ACP23_IDX1);
-            this.relationFK_OPS_AC15_ACP25_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC15_ACP25_IDX1", new global::System.Data.DataColumn[] {
-                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOPS.AC15Column}, false);
-            this.Relations.Add(this.relationFK_OPS_AC15_ACP25_IDX1);
             this.relationFK_OPS_AC25_ACP25_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC25_ACP25_IDX1", new global::System.Data.DataColumn[] {
                         this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
                         this.tableOPS.AC25Column}, false);
             this.Relations.Add(this.relationFK_OPS_AC25_ACP25_IDX1);
+            this.relationFK_OPS_AC15_ACP25_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC15_ACP25_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcp25.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC15Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC15_ACP25_IDX1);
+            this.relationFK_OPS_AC13_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC13_ACP23_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC13Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC13_ACP23_IDX1);
+            this.relationFK_OPS_AC23_ACP23_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC23_ACP23_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcp23.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC23Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC23_ACP23_IDX1);
+            this.relationFK_OPS_DOCID_OPSD_ID = new global::System.Data.DataRelation("FK_OPS_DOCID_OPSD_ID", new global::System.Data.DataColumn[] {
+                        this.tableOPSd.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.DocIdColumn}, false);
+            this.Relations.Add(this.relationFK_OPS_DOCID_OPSD_ID);
+            this.relationFK_OPS_AC14_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC14_ACP24_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC14Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC14_ACP24_IDX1);
+            this.relationFK_OPS_AC24_ACP24_IDX1 = new global::System.Data.DataRelation("FK_OPS_AC24_ACP24_IDX1", new global::System.Data.DataColumn[] {
+                        this.tableAcP24.idxColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC24Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC24_ACP24_IDX1);
+            this.relationFK_OPS_AC11_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC11_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC11Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC11_ACP21_AC1);
+            this.relationFK_OPS_AC12_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC12_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC12Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC12_ACP21_AC1);
+            this.relationFK_OPS_AC21_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC21_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC21Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC21_ACP21_AC1);
+            this.relationFK_OPS_AC22_ACP21_AC1 = new global::System.Data.DataRelation("FK_OPS_AC22_ACP21_AC1", new global::System.Data.DataColumn[] {
+                        this.tableAcP21.ACColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOPS.AC22Column}, false);
+            this.Relations.Add(this.relationFK_OPS_AC22_ACP21_AC1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7332,7 +7332,7 @@ namespace KlonsF.DataSets {
             
             private global::System.Data.DataColumn columnNL;
             
-            private global::System.Data.DataColumn columnTPL;
+            private global::System.Data.DataColumn columnODT;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -7545,9 +7545,9 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TPLColumn {
+            public global::System.Data.DataColumn ODTColumn {
                 get {
-                    return this.columnTPL;
+                    return this.columnODT;
                 }
             }
             
@@ -7593,7 +7593,7 @@ namespace KlonsF.DataSets {
                         System.DateTime dtl, 
                         System.DateTime dtld, 
                         string usl, 
-                        byte tpl, 
+                        int tpl, 
                         int DocId, 
                         string AC11, 
                         string AC12, 
@@ -7610,7 +7610,7 @@ namespace KlonsF.DataSets {
                         decimal Summ, 
                         float QV, 
                         short NL, 
-                        int TPL1) {
+                        System.DateTime ODT) {
                 LOPSRow rowLOPSRow = ((LOPSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7635,7 +7635,7 @@ namespace KlonsF.DataSets {
                         Summ,
                         QV,
                         NL,
-                        TPL1};
+                        ODT};
                 rowLOPSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLOPSRow);
                 return rowLOPSRow;
@@ -7687,7 +7687,7 @@ namespace KlonsF.DataSets {
                 this.columnSumm = base.Columns["Summ"];
                 this.columnQV = base.Columns["QV"];
                 this.columnNL = base.Columns["NL"];
-                this.columnTPL = base.Columns["TPL"];
+                this.columnODT = base.Columns["ODT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7703,7 +7703,7 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columndtld);
                 this.columnusl = new global::System.Data.DataColumn("usl", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusl);
-                this.columntpl = new global::System.Data.DataColumn("tpl", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columntpl = new global::System.Data.DataColumn("tpl", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntpl);
                 this.columnDocId = new global::System.Data.DataColumn("DocId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDocId);
@@ -7737,8 +7737,8 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columnQV);
                 this.columnNL = new global::System.Data.DataColumn("NL", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNL);
-                this.columnTPL = new global::System.Data.DataColumn("TPL", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTPL);
+                this.columnODT = new global::System.Data.DataColumn("ODT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnODT);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidl}, true));
                 this.columnidl.AutoIncrement = true;
@@ -7936,9 +7936,9 @@ namespace KlonsF.DataSets {
             
             private global::System.Data.DataColumn columnNL;
             
-            private global::System.Data.DataColumn columnTPL;
-            
             private global::System.Data.DataColumn columnOPT;
+            
+            private global::System.Data.DataColumn columnODT;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -8135,17 +8135,17 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TPLColumn {
+            public global::System.Data.DataColumn OPTColumn {
                 get {
-                    return this.columnTPL;
+                    return this.columnOPT;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OPTColumn {
+            public global::System.Data.DataColumn ODTColumn {
                 get {
-                    return this.columnOPT;
+                    return this.columnODT;
                 }
             }
             
@@ -8190,7 +8190,7 @@ namespace KlonsF.DataSets {
                         int id, 
                         System.DateTime dtld, 
                         string usl, 
-                        byte tpl, 
+                        int tpl, 
                         System.DateTime Dete, 
                         string NrX, 
                         string DocTyp, 
@@ -8206,8 +8206,8 @@ namespace KlonsF.DataSets {
                         string ZU, 
                         System.DateTime ZDt, 
                         short NL, 
-                        int TPL1, 
-                        int OPT1) {
+                        int OPT1, 
+                        System.DateTime ODT) {
                 LOPSDRow rowLOPSDRow = ((LOPSDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -8230,8 +8230,8 @@ namespace KlonsF.DataSets {
                         ZU,
                         ZDt,
                         NL,
-                        TPL1,
-                        OPT1};
+                        OPT1,
+                        ODT};
                 rowLOPSDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLOPSDRow);
                 return rowLOPSDRow;
@@ -8281,8 +8281,8 @@ namespace KlonsF.DataSets {
                 this.columnZU = base.Columns["ZU"];
                 this.columnZDt = base.Columns["ZDt"];
                 this.columnNL = base.Columns["NL"];
-                this.columnTPL = base.Columns["TPL"];
                 this.columnOPT = base.Columns["OPT"];
+                this.columnODT = base.Columns["ODT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8296,7 +8296,7 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columndtld);
                 this.columnusl = new global::System.Data.DataColumn("usl", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusl);
-                this.columntpl = new global::System.Data.DataColumn("tpl", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columntpl = new global::System.Data.DataColumn("tpl", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntpl);
                 this.columnDete = new global::System.Data.DataColumn("Dete", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDete);
@@ -8328,10 +8328,10 @@ namespace KlonsF.DataSets {
                 base.Columns.Add(this.columnZDt);
                 this.columnNL = new global::System.Data.DataColumn("NL", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNL);
-                this.columnTPL = new global::System.Data.DataColumn("TPL", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTPL);
                 this.columnOPT = new global::System.Data.DataColumn("OPT", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOPT);
+                this.columnODT = new global::System.Data.DataColumn("ODT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnODT);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidl}, true));
                 this.columnidl.AutoIncrement = true;
@@ -13266,23 +13266,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC22_ACP21_AC1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"] == null)) {
+            public OPSRow[] GetOPSRowsByFK_OPS_AC11_ACP21_AC1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC21_ACP21_AC1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"])));
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"])));
                 }
             }
             
@@ -13299,12 +13288,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC11_ACP21_AC1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"] == null)) {
+            public OPSRow[] GetOPSRowsByFK_OPS_AC21_ACP21_AC1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC11_ACP21_AC1"])));
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC21_ACP21_AC1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC22_ACP21_AC1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC22_ACP21_AC1"])));
                 }
             }
             
@@ -13431,23 +13431,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC23_ACP23_IDX1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OPSRow[] GetOPSRowsByFK_OPS_AC13_ACP23_IDX1() {
                 if ((this.Table.ChildRelations["FK_OPS_AC13_ACP23_IDX1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
                     return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC13_ACP23_IDX1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC23_ACP23_IDX1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC23_ACP23_IDX1"])));
                 }
             }
         }
@@ -13563,23 +13563,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC24_ACP24_IDX1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OPSRow[] GetOPSRowsByFK_OPS_AC14_ACP24_IDX1() {
                 if ((this.Table.ChildRelations["FK_OPS_AC14_ACP24_IDX1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
                     return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC14_ACP24_IDX1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC24_ACP24_IDX1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC24_ACP24_IDX1"])));
                 }
             }
             
@@ -13678,23 +13678,23 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSRow[] GetOPSRowsByFK_OPS_AC15_ACP25_IDX1() {
-                if ((this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"] == null)) {
-                    return new OPSRow[0];
-                }
-                else {
-                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OPSRow[] GetOPSRowsByFK_OPS_AC25_ACP25_IDX1() {
                 if ((this.Table.ChildRelations["FK_OPS_AC25_ACP25_IDX1"] == null)) {
                     return new OPSRow[0];
                 }
                 else {
                     return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC25_ACP25_IDX1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OPSRow[] GetOPSRowsByFK_OPS_AC15_ACP25_IDX1() {
+                if ((this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"] == null)) {
+                    return new OPSRow[0];
+                }
+                else {
+                    return ((OPSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OPS_AC15_ACP25_IDX1"])));
                 }
             }
         }
@@ -14193,12 +14193,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PersonsRow PersonsRow {
+            public AcP24Row AcP24Row {
                 get {
-                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"])));
+                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"]);
                 }
             }
             
@@ -14215,12 +14215,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP24Row AcP24Row {
+            public PersonsRow PersonsRow {
                 get {
-                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"])));
+                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_AC4_ACP24_IDX1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAL0_CLID_PERSONS_CLID1"]);
                 }
             }
             
@@ -15480,11 +15480,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string usl {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.uslColumn]));
+                    if (this.IsuslNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'usl\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.uslColumn]));
                     }
                 }
                 set {
@@ -15494,10 +15494,10 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte tpl {
+            public int tpl {
                 get {
                     try {
-                        return ((byte)(this[this.tableLOPS.tplColumn]));
+                        return ((int)(this[this.tableLOPS.tplColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'tpl\' in table \'LOPS\' is DBNull.", e);
@@ -15539,11 +15539,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC12 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC12Column]));
+                    if (this.IsAC12Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC12\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC12Column]));
                     }
                 }
                 set {
@@ -15555,11 +15555,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC13 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC13Column]));
+                    if (this.IsAC13Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC13\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC13Column]));
                     }
                 }
                 set {
@@ -15571,11 +15571,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC14 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC14Column]));
+                    if (this.IsAC14Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC14\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC14Column]));
                     }
                 }
                 set {
@@ -15587,11 +15587,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC15 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC15Column]));
+                    if (this.IsAC15Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC15\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC15Column]));
                     }
                 }
                 set {
@@ -15614,11 +15614,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC22 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC22Column]));
+                    if (this.IsAC22Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC22\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC22Column]));
                     }
                 }
                 set {
@@ -15630,11 +15630,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC23 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC23Column]));
+                    if (this.IsAC23Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC23\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC23Column]));
                     }
                 }
                 set {
@@ -15646,11 +15646,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC24 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC24Column]));
+                    if (this.IsAC24Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC24\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC24Column]));
                     }
                 }
                 set {
@@ -15662,11 +15662,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AC25 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPS.AC25Column]));
+                    if (this.IsAC25Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AC25\' in table \'LOPS\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPS.AC25Column]));
                     }
                 }
                 set {
@@ -15741,17 +15741,17 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int TPL {
+            public System.DateTime ODT {
                 get {
                     try {
-                        return ((int)(this[this.tableLOPS.TPLColumn]));
+                        return ((global::System.DateTime)(this[this.tableLOPS.ODTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TPL\' in table \'LOPS\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ODT\' in table \'LOPS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLOPS.TPLColumn] = value;
+                    this[this.tableLOPS.ODTColumn] = value;
                 }
             }
             
@@ -15949,14 +15949,14 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTPLNull() {
-                return this.IsNull(this.tableLOPS.TPLColumn);
+            public bool IsODTNull() {
+                return this.IsNull(this.tableLOPS.ODTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTPLNull() {
-                this[this.tableLOPS.TPLColumn] = global::System.Convert.DBNull;
+            public void SetODTNull() {
+                this[this.tableLOPS.ODTColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16021,11 +16021,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string usl {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.uslColumn]));
+                    if (this.IsuslNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'usl\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.uslColumn]));
                     }
                 }
                 set {
@@ -16035,10 +16035,10 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte tpl {
+            public int tpl {
                 get {
                     try {
-                        return ((byte)(this[this.tableLOPSD.tplColumn]));
+                        return ((int)(this[this.tableLOPSD.tplColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'tpl\' in table \'LOPSD\' is DBNull.", e);
@@ -16069,11 +16069,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string NrX {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.NrXColumn]));
+                    if (this.IsNrXNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NrX\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.NrXColumn]));
                     }
                 }
                 set {
@@ -16085,11 +16085,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string DocTyp {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.DocTypColumn]));
+                    if (this.IsDocTypNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DocTyp\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.DocTypColumn]));
                     }
                 }
                 set {
@@ -16101,11 +16101,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string DocSt {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.DocStColumn]));
+                    if (this.IsDocStNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DocSt\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.DocStColumn]));
                     }
                 }
                 set {
@@ -16117,11 +16117,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string DocNr {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.DocNrColumn]));
+                    if (this.IsDocNrNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DocNr\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.DocNrColumn]));
                     }
                 }
                 set {
@@ -16133,11 +16133,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string ClId {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.ClIdColumn]));
+                    if (this.IsClIdNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ClId\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.ClIdColumn]));
                     }
                 }
                 set {
@@ -16149,11 +16149,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string ClId2 {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.ClId2Column]));
+                    if (this.IsClId2Null()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ClId2\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.ClId2Column]));
                     }
                 }
                 set {
@@ -16165,11 +16165,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Descr {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.DescrColumn]));
+                    if (this.IsDescrNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descr\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.DescrColumn]));
                     }
                 }
                 set {
@@ -16240,11 +16240,11 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string ZU {
                 get {
-                    try {
-                        return ((string)(this[this.tableLOPSD.ZUColumn]));
+                    if (this.IsZUNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ZU\' in table \'LOPSD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableLOPSD.ZUColumn]));
                     }
                 }
                 set {
@@ -16286,22 +16286,6 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int TPL {
-                get {
-                    try {
-                        return ((int)(this[this.tableLOPSD.TPLColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TPL\' in table \'LOPSD\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLOPSD.TPLColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int OPT {
                 get {
                     try {
@@ -16313,6 +16297,22 @@ namespace KlonsF.DataSets {
                 }
                 set {
                     this[this.tableLOPSD.OPTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ODT {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableLOPSD.ODTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ODT\' in table \'LOPSD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOPSD.ODTColumn] = value;
                 }
             }
             
@@ -16534,18 +16534,6 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTPLNull() {
-                return this.IsNull(this.tableLOPSD.TPLColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTPLNull() {
-                this[this.tableLOPSD.TPLColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsOPTNull() {
                 return this.IsNull(this.tableLOPSD.OPTColumn);
             }
@@ -16554,6 +16542,18 @@ namespace KlonsF.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetOPTNull() {
                 this[this.tableLOPSD.OPTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsODTNull() {
+                return this.IsNull(this.tableLOPSD.ODTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetODTNull() {
+                this[this.tableLOPSD.ODTColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16924,100 +16924,12 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC22_ACP21_AC1 {
+            public Acp25Row Acp25RowByFK_OPS_AC25_ACP25_IDX1 {
                 get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"])));
+                    return ((Acp25Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC21_ACP21_AC1 {
-                get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC12_ACP21_AC1 {
-                get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP21Row AcP21RowByFK_OPS_AC11_ACP21_AC1 {
-                get {
-                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP24Row AcP24RowByFK_OPS_AC24_ACP24_IDX1 {
-                get {
-                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcP24Row AcP24RowByFK_OPS_AC14_ACP24_IDX1 {
-                get {
-                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OPSdRow OPSdRow {
-                get {
-                    return ((OPSdRow)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Acp23Row Acp23RowByFK_OPS_AC23_ACP23_IDX1 {
-                get {
-                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Acp23Row Acp23RowByFK_OPS_AC13_ACP23_IDX1 {
-                get {
-                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"]);
                 }
             }
             
@@ -17034,12 +16946,100 @@ namespace KlonsF.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Acp25Row Acp25RowByFK_OPS_AC25_ACP25_IDX1 {
+            public Acp23Row Acp23RowByFK_OPS_AC13_ACP23_IDX1 {
                 get {
-                    return ((Acp25Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"])));
+                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC25_ACP25_IDX1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC13_ACP23_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Acp23Row Acp23RowByFK_OPS_AC23_ACP23_IDX1 {
+                get {
+                    return ((Acp23Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC23_ACP23_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OPSdRow OPSdRow {
+                get {
+                    return ((OPSdRow)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_DOCID_OPSD_ID"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AcP24Row AcP24RowByFK_OPS_AC14_ACP24_IDX1 {
+                get {
+                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC14_ACP24_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AcP24Row AcP24RowByFK_OPS_AC24_ACP24_IDX1 {
+                get {
+                    return ((AcP24Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC24_ACP24_IDX1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC11_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC11_ACP21_AC1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC12_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC12_ACP21_AC1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC21_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC21_ACP21_AC1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AcP21Row AcP21RowByFK_OPS_AC22_ACP21_AC1 {
+                get {
+                    return ((AcP21Row)(this.GetParentRow(this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OPS_AC22_ACP21_AC1"]);
                 }
             }
             
@@ -31116,11 +31116,12 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("SUMM", "Summ");
             tableMapping.ColumnMappings.Add("QV", "QV");
             tableMapping.ColumnMappings.Add("NL", "NL");
-            tableMapping.ColumnMappings.Add("TPL", "TPL");
+            tableMapping.ColumnMappings.Add("ODT", "ODT");
+            tableMapping.ColumnMappings.Add("TPL", "tpl");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""LOPS"" WHERE ((""IDL"" = @Original_IDL) AND ((@IsNull_ID = 1 AND ""ID"" IS NULL) OR (""ID"" = @Original_ID)) AND ((@IsNull_DTL = 1 AND ""DTL"" IS NULL) OR (""DTL"" = @Original_DTL)) AND ((@IsNull_DTLD = 1 AND ""DTLD"" IS NULL) OR (""DTLD"" = @Original_DTLD)) AND ((@IsNull_USL = 1 AND ""USL"" IS NULL) OR (""USL"" = @Original_USL)) AND ((@IsNull_TPL = 1 AND ""TPL"" IS NULL) OR (""TPL"" = @Original_TPL)) AND ((@IsNull_DOCID = 1 AND ""DOCID"" IS NULL) OR (""DOCID"" = @Original_DOCID)) AND (""AC11"" = @Original_AC11) AND ((@IsNull_AC12 = 1 AND ""AC12"" IS NULL) OR (""AC12"" = @Original_AC12)) AND ((@IsNull_AC13 = 1 AND ""AC13"" IS NULL) OR (""AC13"" = @Original_AC13)) AND ((@IsNull_AC14 = 1 AND ""AC14"" IS NULL) OR (""AC14"" = @Original_AC14)) AND ((@IsNull_AC15 = 1 AND ""AC15"" IS NULL) OR (""AC15"" = @Original_AC15)) AND (""AC21"" = @Original_AC21) AND ((@IsNull_AC22 = 1 AND ""AC22"" IS NULL) OR (""AC22"" = @Original_AC22)) AND ((@IsNull_AC23 = 1 AND ""AC23"" IS NULL) OR (""AC23"" = @Original_AC23)) AND ((@IsNull_AC24 = 1 AND ""AC24"" IS NULL) OR (""AC24"" = @Original_AC24)) AND ((@IsNull_AC25 = 1 AND ""AC25"" IS NULL) OR (""AC25"" = @Original_AC25)) AND (""SUMMC"" = @Original_SUMMC) AND (""CUR"" = @Original_CUR) AND (""SUMM"" = @Original_SUMM) AND ((@IsNull_QV = 1 AND ""QV"" IS NULL) OR (""QV"" = @Original_QV)) AND ((@IsNull_NL = 1 AND ""NL"" IS NULL) OR (""NL"" = @Original_NL)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""LOPS"" WHERE ((""IDL"" = @Original_IDL) AND ((@IsNull_ID = 1 AND ""ID"" IS NULL) OR (""ID"" = @Original_ID)) AND ((@IsNull_DTL = 1 AND ""DTL"" IS NULL) OR (""DTL"" = @Original_DTL)) AND ((@IsNull_DTLD = 1 AND ""DTLD"" IS NULL) OR (""DTLD"" = @Original_DTLD)) AND ((@IsNull_USL = 1 AND ""USL"" IS NULL) OR (""USL"" = @Original_USL)) AND ((@IsNull_DOCID = 1 AND ""DOCID"" IS NULL) OR (""DOCID"" = @Original_DOCID)) AND (""AC11"" = @Original_AC11) AND ((@IsNull_AC12 = 1 AND ""AC12"" IS NULL) OR (""AC12"" = @Original_AC12)) AND ((@IsNull_AC13 = 1 AND ""AC13"" IS NULL) OR (""AC13"" = @Original_AC13)) AND ((@IsNull_AC14 = 1 AND ""AC14"" IS NULL) OR (""AC14"" = @Original_AC14)) AND ((@IsNull_AC15 = 1 AND ""AC15"" IS NULL) OR (""AC15"" = @Original_AC15)) AND (""AC21"" = @Original_AC21) AND ((@IsNull_AC22 = 1 AND ""AC22"" IS NULL) OR (""AC22"" = @Original_AC22)) AND ((@IsNull_AC23 = 1 AND ""AC23"" IS NULL) OR (""AC23"" = @Original_AC23)) AND ((@IsNull_AC24 = 1 AND ""AC24"" IS NULL) OR (""AC24"" = @Original_AC24)) AND ((@IsNull_AC25 = 1 AND ""AC25"" IS NULL) OR (""AC25"" = @Original_AC25)) AND (""SUMMC"" = @Original_SUMMC) AND (""CUR"" = @Original_CUR) AND (""SUMM"" = @Original_SUMM) AND ((@IsNull_QV = 1 AND ""QV"" IS NULL) OR (""QV"" = @Original_QV)) AND ((@IsNull_NL = 1 AND ""NL"" IS NULL) OR (""NL"" = @Original_NL)) AND ((@IsNull_ODT = 1 AND ""ODT"" IS NULL) OR (""ODT"" = @Original_ODT)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_IDL";
@@ -31198,23 +31199,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
@@ -31430,9 +31414,26 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "NL";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_ODT";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""LOPS"" (""IDL"", ""ID"", ""DTL"", ""DTLD"", ""USL"", ""TPL"", ""DOCID"", ""AC11"", ""AC12"", ""AC13"", ""AC14"", ""AC15"", ""AC21"", ""AC22"", ""AC23"", ""AC24"", ""AC25"", ""SUMMC"", ""CUR"", ""SUMM"", ""QV"", ""NL"") VALUES (@IDL, @ID, @DTL, @DTLD, @USL, @TPL, @DOCID, @AC11, @AC12, @AC13, @AC14, @AC15, @AC21, @AC22, @AC23, @AC24, @AC25, @SUMMC, @CUR, @SUMM, @QV, @NL)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""LOPS"" (""IDL"", ""ID"", ""DTL"", ""DTLD"", ""USL"", ""DOCID"", ""AC11"", ""AC12"", ""AC13"", ""AC14"", ""AC15"", ""AC21"", ""AC22"", ""AC23"", ""AC24"", ""AC25"", ""SUMMC"", ""CUR"", ""SUMM"", ""QV"", ""NL"", ""ODT"") VALUES (@IDL, @ID, @DTL, @DTLD, @USL, @DOCID, @AC11, @AC12, @AC13, @AC14, @AC15, @AC21, @AC22, @AC23, @AC24, @AC25, @SUMMC, @CUR, @SUMM, @QV, @NL, @ODT)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IDL";
@@ -31469,13 +31470,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "USL";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
@@ -31576,29 +31570,36 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "NL";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE \"LOPS\" SET \"IDL\" = @IDL, \"ID\" = @ID, \"DTL\" = @DTL, \"DTLD\" = @DTLD, \"USL\" =" +
-                " @USL, \"TPL\" = @TPL, \"DOCID\" = @DOCID, \"AC11\" = @AC11, \"AC12\" = @AC12, \"AC13\" = " +
-                "@AC13, \"AC14\" = @AC14, \"AC15\" = @AC15, \"AC21\" = @AC21, \"AC22\" = @AC22, \"AC23\" = " +
-                "@AC23, \"AC24\" = @AC24, \"AC25\" = @AC25, \"SUMMC\" = @SUMMC, \"CUR\" = @CUR, \"SUMM\" = " +
-                "@SUMM, \"QV\" = @QV, \"NL\" = @NL WHERE ((\"IDL\" = @Original_IDL) AND ((@IsNull_ID = " +
+                " @USL, \"DOCID\" = @DOCID, \"AC11\" = @AC11, \"AC12\" = @AC12, \"AC13\" = @AC13, \"AC14\" " +
+                "= @AC14, \"AC15\" = @AC15, \"AC21\" = @AC21, \"AC22\" = @AC22, \"AC23\" = @AC23, \"AC24\" " +
+                "= @AC24, \"AC25\" = @AC25, \"SUMMC\" = @SUMMC, \"CUR\" = @CUR, \"SUMM\" = @SUMM, \"QV\" = " +
+                "@QV, \"NL\" = @NL, \"ODT\" = @ODT WHERE ((\"IDL\" = @Original_IDL) AND ((@IsNull_ID = " +
                 "1 AND \"ID\" IS NULL) OR (\"ID\" = @Original_ID)) AND ((@IsNull_DTL = 1 AND \"DTL\" IS" +
                 " NULL) OR (\"DTL\" = @Original_DTL)) AND ((@IsNull_DTLD = 1 AND \"DTLD\" IS NULL) OR" +
                 " (\"DTLD\" = @Original_DTLD)) AND ((@IsNull_USL = 1 AND \"USL\" IS NULL) OR (\"USL\" =" +
-                " @Original_USL)) AND ((@IsNull_TPL = 1 AND \"TPL\" IS NULL) OR (\"TPL\" = @Original_" +
-                "TPL)) AND ((@IsNull_DOCID = 1 AND \"DOCID\" IS NULL) OR (\"DOCID\" = @Original_DOCID" +
-                ")) AND (\"AC11\" = @Original_AC11) AND ((@IsNull_AC12 = 1 AND \"AC12\" IS NULL) OR (" +
-                "\"AC12\" = @Original_AC12)) AND ((@IsNull_AC13 = 1 AND \"AC13\" IS NULL) OR (\"AC13\" " +
-                "= @Original_AC13)) AND ((@IsNull_AC14 = 1 AND \"AC14\" IS NULL) OR (\"AC14\" = @Orig" +
-                "inal_AC14)) AND ((@IsNull_AC15 = 1 AND \"AC15\" IS NULL) OR (\"AC15\" = @Original_AC" +
-                "15)) AND (\"AC21\" = @Original_AC21) AND ((@IsNull_AC22 = 1 AND \"AC22\" IS NULL) OR" +
-                " (\"AC22\" = @Original_AC22)) AND ((@IsNull_AC23 = 1 AND \"AC23\" IS NULL) OR (\"AC23" +
-                "\" = @Original_AC23)) AND ((@IsNull_AC24 = 1 AND \"AC24\" IS NULL) OR (\"AC24\" = @Or" +
-                "iginal_AC24)) AND ((@IsNull_AC25 = 1 AND \"AC25\" IS NULL) OR (\"AC25\" = @Original_" +
-                "AC25)) AND (\"SUMMC\" = @Original_SUMMC) AND (\"CUR\" = @Original_CUR) AND (\"SUMM\" =" +
-                " @Original_SUMM) AND ((@IsNull_QV = 1 AND \"QV\" IS NULL) OR (\"QV\" = @Original_QV)" +
-                ") AND ((@IsNull_NL = 1 AND \"NL\" IS NULL) OR (\"NL\" = @Original_NL)))";
+                " @Original_USL)) AND ((@IsNull_DOCID = 1 AND \"DOCID\" IS NULL) OR (\"DOCID\" = @Ori" +
+                "ginal_DOCID)) AND (\"AC11\" = @Original_AC11) AND ((@IsNull_AC12 = 1 AND \"AC12\" IS" +
+                " NULL) OR (\"AC12\" = @Original_AC12)) AND ((@IsNull_AC13 = 1 AND \"AC13\" IS NULL) " +
+                "OR (\"AC13\" = @Original_AC13)) AND ((@IsNull_AC14 = 1 AND \"AC14\" IS NULL) OR (\"AC" +
+                "14\" = @Original_AC14)) AND ((@IsNull_AC15 = 1 AND \"AC15\" IS NULL) OR (\"AC15\" = @" +
+                "Original_AC15)) AND (\"AC21\" = @Original_AC21) AND ((@IsNull_AC22 = 1 AND \"AC22\" " +
+                "IS NULL) OR (\"AC22\" = @Original_AC22)) AND ((@IsNull_AC23 = 1 AND \"AC23\" IS NULL" +
+                ") OR (\"AC23\" = @Original_AC23)) AND ((@IsNull_AC24 = 1 AND \"AC24\" IS NULL) OR (\"" +
+                "AC24\" = @Original_AC24)) AND ((@IsNull_AC25 = 1 AND \"AC25\" IS NULL) OR (\"AC25\" =" +
+                " @Original_AC25)) AND (\"SUMMC\" = @Original_SUMMC) AND (\"CUR\" = @Original_CUR) AN" +
+                "D (\"SUMM\" = @Original_SUMM) AND ((@IsNull_QV = 1 AND \"QV\" IS NULL) OR (\"QV\" = @O" +
+                "riginal_QV)) AND ((@IsNull_NL = 1 AND \"NL\" IS NULL) OR (\"NL\" = @Original_NL)) AN" +
+                "D ((@IsNull_ODT = 1 AND \"ODT\" IS NULL) OR (\"ODT\" = @Original_ODT)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IDL";
@@ -31635,13 +31636,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "USL";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
@@ -31741,6 +31735,13 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "NL";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_IDL";
@@ -31818,23 +31819,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DOCID";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
@@ -32050,6 +32034,23 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "NL";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_ODT";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32062,12 +32063,23 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[1];
+            this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[2];
             this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDL, ID, DTL, DTLD, USL, TPL, DOCID, AC11, AC12, AC13, AC14, AC15, AC21, A" +
-                "C22, AC23, AC24, AC25, SUMMC, CUR, SUMM, QV, NL\r\nFROM    LOPS\r\nORDER BY IDL";
+            this._commandCollection[0].CommandText = "SELECT IDL, ID, DTL, DTLD, USL, DOCID, AC11, AC12, AC13, AC14, AC15, AC21, AC22, " +
+                "AC23, AC24, AC25, SUMMC, CUR, SUMM, QV, NL, ODT FROM LOPS ORDER BY IDL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "\"SP_DIFF_02\"";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PDOCID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32089,6 +32101,42 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual klonsDataSet.LOPSDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            klonsDataSet.LOPSDataTable dataTable = new klonsDataSet.LOPSDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_SP_DIFF_02(klonsDataSet.LOPSDataTable dataTable, global::System.Nullable<int> PDOCID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PDOCID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PDOCID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual klonsDataSet.LOPSDataTable GetDataBy_SP_DIFF_02(global::System.Nullable<int> PDOCID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PDOCID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PDOCID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             klonsDataSet.LOPSDataTable dataTable = new klonsDataSet.LOPSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -32133,7 +32181,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     global::System.Nullable<global::System.DateTime> Original_DTL, 
                     global::System.Nullable<global::System.DateTime> Original_DTLD, 
                     string Original_USL, 
-                    global::System.Nullable<int> Original_TPL, 
                     global::System.Nullable<int> Original_DOCID, 
                     string Original_AC11, 
                     string Original_AC12, 
@@ -32149,7 +32196,8 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     string Original_CUR, 
                     decimal Original_SUMM, 
                     global::System.Nullable<float> Original_QV, 
-                    global::System.Nullable<short> Original_NL) {
+                    global::System.Nullable<short> Original_NL, 
+                    global::System.Nullable<global::System.DateTime> Original_ODT) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IDL));
             if ((Original_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -32183,117 +32231,117 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_USL));
             }
-            if ((Original_TPL.HasValue == true)) {
+            if ((Original_DOCID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_TPL.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_DOCID.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_DOCID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_DOCID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
             if ((Original_AC11 == null)) {
                 throw new global::System.ArgumentNullException("Original_AC11");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_AC11));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_AC11));
             }
             if ((Original_AC12 == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_AC12));
+            }
+            if ((Original_AC13 == null)) {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_AC12));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_AC13));
             }
-            if ((Original_AC13 == null)) {
+            if ((Original_AC14 == null)) {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_AC13));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_AC14));
             }
-            if ((Original_AC14 == null)) {
+            if ((Original_AC15 == null)) {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_AC14));
-            }
-            if ((Original_AC15 == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_AC15));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_AC15));
             }
             if ((Original_AC21 == null)) {
                 throw new global::System.ArgumentNullException("Original_AC21");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_AC21));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_AC21));
             }
             if ((Original_AC22 == null)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_AC22));
+            }
+            if ((Original_AC23 == null)) {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_AC22));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_AC23));
             }
-            if ((Original_AC23 == null)) {
+            if ((Original_AC24 == null)) {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_AC23));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_AC24));
             }
-            if ((Original_AC24 == null)) {
+            if ((Original_AC25 == null)) {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_AC24));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_AC25));
             }
-            if ((Original_AC25 == null)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_AC25));
-            }
-            this.Adapter.DeleteCommand.Parameters[31].Value = ((decimal)(Original_SUMMC));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((decimal)(Original_SUMMC));
             if ((Original_CUR == null)) {
                 throw new global::System.ArgumentNullException("Original_CUR");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_CUR));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_CUR));
             }
-            this.Adapter.DeleteCommand.Parameters[33].Value = ((decimal)(Original_SUMM));
+            this.Adapter.DeleteCommand.Parameters[31].Value = ((decimal)(Original_SUMM));
             if ((Original_QV.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((float)(Original_QV.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NL.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((float)(Original_QV.Value));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((short)(Original_NL.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((Original_NL.HasValue == true)) {
+            if ((Original_ODT.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((short)(Original_NL.Value));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((System.DateTime)(Original_ODT.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
@@ -32325,7 +32373,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     global::System.Nullable<global::System.DateTime> DTL, 
                     global::System.Nullable<global::System.DateTime> DTLD, 
                     string USL, 
-                    global::System.Nullable<int> TPL, 
                     global::System.Nullable<int> DOCID, 
                     string AC11, 
                     string AC12, 
@@ -32341,7 +32388,8 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     string CUR, 
                     decimal SUMM, 
                     global::System.Nullable<float> QV, 
-                    global::System.Nullable<short> NL) {
+                    global::System.Nullable<short> NL, 
+                    global::System.Nullable<global::System.DateTime> ODT) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IDL));
             if ((ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID.Value));
@@ -32367,94 +32415,94 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(USL));
             }
-            if ((TPL.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(TPL.Value));
+            if ((DOCID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(DOCID.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((DOCID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(DOCID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((AC11 == null)) {
                 throw new global::System.ArgumentNullException("AC11");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(AC11));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(AC11));
             }
             if ((AC12 == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(AC12));
+            }
+            if ((AC13 == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(AC12));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(AC13));
             }
-            if ((AC13 == null)) {
+            if ((AC14 == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(AC13));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(AC14));
             }
-            if ((AC14 == null)) {
+            if ((AC15 == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(AC14));
-            }
-            if ((AC15 == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(AC15));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(AC15));
             }
             if ((AC21 == null)) {
                 throw new global::System.ArgumentNullException("AC21");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(AC21));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(AC21));
             }
             if ((AC22 == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(AC22));
+            }
+            if ((AC23 == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(AC22));
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(AC23));
             }
-            if ((AC23 == null)) {
+            if ((AC24 == null)) {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(AC23));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(AC24));
             }
-            if ((AC24 == null)) {
+            if ((AC25 == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(AC24));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(AC25));
             }
-            if ((AC25 == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(AC25));
-            }
-            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(SUMMC));
+            this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(SUMMC));
             if ((CUR == null)) {
                 throw new global::System.ArgumentNullException("CUR");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(CUR));
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(CUR));
             }
-            this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(SUMM));
+            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(SUMM));
             if ((QV.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((float)(QV.Value));
+                this.Adapter.InsertCommand.Parameters[19].Value = ((float)(QV.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((NL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((short)(NL.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((NL.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((short)(NL.Value));
+            if ((ODT.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((System.DateTime)(ODT.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
@@ -32485,7 +32533,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     global::System.Nullable<global::System.DateTime> DTL, 
                     global::System.Nullable<global::System.DateTime> DTLD, 
                     string USL, 
-                    global::System.Nullable<int> TPL, 
                     global::System.Nullable<int> DOCID, 
                     string AC11, 
                     string AC12, 
@@ -32502,12 +32549,12 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     decimal SUMM, 
                     global::System.Nullable<float> QV, 
                     global::System.Nullable<short> NL, 
+                    global::System.Nullable<global::System.DateTime> ODT, 
                     int Original_IDL, 
                     global::System.Nullable<int> Original_ID, 
                     global::System.Nullable<global::System.DateTime> Original_DTL, 
                     global::System.Nullable<global::System.DateTime> Original_DTLD, 
                     string Original_USL, 
-                    global::System.Nullable<int> Original_TPL, 
                     global::System.Nullable<int> Original_DOCID, 
                     string Original_AC11, 
                     string Original_AC12, 
@@ -32523,7 +32570,8 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     string Original_CUR, 
                     decimal Original_SUMM, 
                     global::System.Nullable<float> Original_QV, 
-                    global::System.Nullable<short> Original_NL) {
+                    global::System.Nullable<short> Original_NL, 
+                    global::System.Nullable<global::System.DateTime> Original_ODT) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IDL));
             if ((ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID.Value));
@@ -32549,94 +32597,94 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(USL));
             }
-            if ((TPL.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(TPL.Value));
+            if ((DOCID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(DOCID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((DOCID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(DOCID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((AC11 == null)) {
                 throw new global::System.ArgumentNullException("AC11");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(AC11));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(AC11));
             }
             if ((AC12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(AC12));
+            }
+            if ((AC13 == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(AC12));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(AC13));
             }
-            if ((AC13 == null)) {
+            if ((AC14 == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(AC13));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(AC14));
             }
-            if ((AC14 == null)) {
+            if ((AC15 == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(AC14));
-            }
-            if ((AC15 == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(AC15));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(AC15));
             }
             if ((AC21 == null)) {
                 throw new global::System.ArgumentNullException("AC21");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(AC21));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(AC21));
             }
             if ((AC22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(AC22));
+            }
+            if ((AC23 == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(AC22));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(AC23));
             }
-            if ((AC23 == null)) {
+            if ((AC24 == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(AC23));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(AC24));
             }
-            if ((AC24 == null)) {
+            if ((AC25 == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(AC24));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(AC25));
             }
-            if ((AC25 == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(AC25));
-            }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(SUMMC));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(SUMMC));
             if ((CUR == null)) {
                 throw new global::System.ArgumentNullException("CUR");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(CUR));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(CUR));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(SUMM));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(SUMM));
             if ((QV.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((float)(QV.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((float)(QV.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((NL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((short)(NL.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((NL.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((short)(NL.Value));
+            if ((ODT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(ODT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
@@ -32674,117 +32722,117 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_USL));
             }
-            if ((Original_TPL.HasValue == true)) {
+            if ((Original_DOCID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_TPL.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_DOCID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((Original_DOCID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_DOCID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
             if ((Original_AC11 == null)) {
                 throw new global::System.ArgumentNullException("Original_AC11");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_AC11));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_AC11));
             }
             if ((Original_AC12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_AC12));
+            }
+            if ((Original_AC13 == null)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_AC12));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_AC13));
             }
-            if ((Original_AC13 == null)) {
+            if ((Original_AC14 == null)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_AC13));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_AC14));
             }
-            if ((Original_AC14 == null)) {
+            if ((Original_AC15 == null)) {
                 this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_AC14));
-            }
-            if ((Original_AC15 == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_AC15));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_AC15));
             }
             if ((Original_AC21 == null)) {
                 throw new global::System.ArgumentNullException("Original_AC21");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_AC21));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_AC21));
             }
             if ((Original_AC22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_AC22));
+            }
+            if ((Original_AC23 == null)) {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_AC22));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_AC23));
             }
-            if ((Original_AC23 == null)) {
+            if ((Original_AC24 == null)) {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_AC23));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_AC24));
             }
-            if ((Original_AC24 == null)) {
+            if ((Original_AC25 == null)) {
                 this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_AC24));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_AC25));
             }
-            if ((Original_AC25 == null)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_AC25));
-            }
-            this.Adapter.UpdateCommand.Parameters[53].Value = ((decimal)(Original_SUMMC));
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((decimal)(Original_SUMMC));
             if ((Original_CUR == null)) {
                 throw new global::System.ArgumentNullException("Original_CUR");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_CUR));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_CUR));
             }
-            this.Adapter.UpdateCommand.Parameters[55].Value = ((decimal)(Original_SUMM));
+            this.Adapter.UpdateCommand.Parameters[53].Value = ((decimal)(Original_SUMM));
             if ((Original_QV.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((float)(Original_QV.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NL.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((float)(Original_QV.Value));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((short)(Original_NL.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
-            if ((Original_NL.HasValue == true)) {
+            if ((Original_ODT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((short)(Original_NL.Value));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((System.DateTime)(Original_ODT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
@@ -32946,12 +32994,13 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ZU", "ZU");
             tableMapping.ColumnMappings.Add("ZDT", "ZDt");
             tableMapping.ColumnMappings.Add("NL", "NL");
-            tableMapping.ColumnMappings.Add("TPL", "TPL");
             tableMapping.ColumnMappings.Add("OPT", "OPT");
+            tableMapping.ColumnMappings.Add("ODT", "ODT");
+            tableMapping.ColumnMappings.Add("TPL", "tpl");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""LOPSD"" WHERE ((""IDL"" = @Original_IDL) AND ((@IsNull_ID = 1 AND ""ID"" IS NULL) OR (""ID"" = @Original_ID)) AND ((@IsNull_DTLD = 1 AND ""DTLD"" IS NULL) OR (""DTLD"" = @Original_DTLD)) AND ((@IsNull_USL = 1 AND ""USL"" IS NULL) OR (""USL"" = @Original_USL)) AND ((@IsNull_TPL = 1 AND ""TPL"" IS NULL) OR (""TPL"" = @Original_TPL)) AND ((@IsNull_DETE = 1 AND ""DETE"" IS NULL) OR (""DETE"" = @Original_DETE)) AND ((@IsNull_NRX = 1 AND ""NRX"" IS NULL) OR (""NRX"" = @Original_NRX)) AND ((@IsNull_DOCTYP = 1 AND ""DOCTYP"" IS NULL) OR (""DOCTYP"" = @Original_DOCTYP)) AND ((@IsNull_DOCST = 1 AND ""DOCST"" IS NULL) OR (""DOCST"" = @Original_DOCST)) AND ((@IsNull_DOCNR = 1 AND ""DOCNR"" IS NULL) OR (""DOCNR"" = @Original_DOCNR)) AND ((@IsNull_CLID = 1 AND ""CLID"" IS NULL) OR (""CLID"" = @Original_CLID)) AND ((@IsNull_CLID2 = 1 AND ""CLID2"" IS NULL) OR (""CLID2"" = @Original_CLID2)) AND ((@IsNull_DESCR = 1 AND ""DESCR"" IS NULL) OR (""DESCR"" = @Original_DESCR)) AND ((@IsNull_SUMM = 1 AND ""SUMM"" IS NULL) OR (""SUMM"" = @Original_SUMM)) AND ((@IsNull_PVN = 1 AND ""PVN"" IS NULL) OR (""PVN"" = @Original_PVN)) AND ((@IsNull_OPT = 1 AND ""OPT"" IS NULL) OR (""OPT"" = @Original_OPT)) AND (""ZNR"" = @Original_ZNR) AND ((@IsNull_ZU = 1 AND ""ZU"" IS NULL) OR (""ZU"" = @Original_ZU)) AND ((@IsNull_ZDT = 1 AND ""ZDT"" IS NULL) OR (""ZDT"" = @Original_ZDT)) AND ((@IsNull_NL = 1 AND ""NL"" IS NULL) OR (""NL"" = @Original_NL)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""LOPSD"" WHERE ((""IDL"" = @Original_IDL) AND ((@IsNull_ID = 1 AND ""ID"" IS NULL) OR (""ID"" = @Original_ID)) AND ((@IsNull_DTLD = 1 AND ""DTLD"" IS NULL) OR (""DTLD"" = @Original_DTLD)) AND ((@IsNull_USL = 1 AND ""USL"" IS NULL) OR (""USL"" = @Original_USL)) AND ((@IsNull_DETE = 1 AND ""DETE"" IS NULL) OR (""DETE"" = @Original_DETE)) AND ((@IsNull_NRX = 1 AND ""NRX"" IS NULL) OR (""NRX"" = @Original_NRX)) AND ((@IsNull_DOCTYP = 1 AND ""DOCTYP"" IS NULL) OR (""DOCTYP"" = @Original_DOCTYP)) AND ((@IsNull_DOCST = 1 AND ""DOCST"" IS NULL) OR (""DOCST"" = @Original_DOCST)) AND ((@IsNull_DOCNR = 1 AND ""DOCNR"" IS NULL) OR (""DOCNR"" = @Original_DOCNR)) AND ((@IsNull_CLID = 1 AND ""CLID"" IS NULL) OR (""CLID"" = @Original_CLID)) AND ((@IsNull_CLID2 = 1 AND ""CLID2"" IS NULL) OR (""CLID2"" = @Original_CLID2)) AND ((@IsNull_DESCR = 1 AND ""DESCR"" IS NULL) OR (""DESCR"" = @Original_DESCR)) AND ((@IsNull_SUMM = 1 AND ""SUMM"" IS NULL) OR (""SUMM"" = @Original_SUMM)) AND ((@IsNull_PVN = 1 AND ""PVN"" IS NULL) OR (""PVN"" = @Original_PVN)) AND ((@IsNull_OPT = 1 AND ""OPT"" IS NULL) OR (""OPT"" = @Original_OPT)) AND (""ZNR"" = @Original_ZNR) AND ((@IsNull_ZU = 1 AND ""ZU"" IS NULL) OR (""ZU"" = @Original_ZU)) AND ((@IsNull_ZDT = 1 AND ""ZDT"" IS NULL) OR (""ZDT"" = @Original_ZDT)) AND ((@IsNull_NL = 1 AND ""NL"" IS NULL) OR (""NL"" = @Original_NL)) AND ((@IsNull_ODT = 1 AND ""ODT"" IS NULL) OR (""ODT"" = @Original_ODT)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_IDL";
@@ -33012,23 +33061,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DETE";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
@@ -33266,9 +33298,26 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "NL";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_ODT";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""LOPSD"" (""IDL"", ""ID"", ""DTLD"", ""USL"", ""TPL"", ""DETE"", ""NRX"", ""DOCTYP"", ""DOCST"", ""DOCNR"", ""CLID"", ""CLID2"", ""DESCR"", ""SUMM"", ""PVN"", ""OPT"", ""ZNR"", ""ZU"", ""ZDT"", ""NL"") VALUES (@IDL, @ID, @DTLD, @USL, @TPL, @DETE, @NRX, @DOCTYP, @DOCST, @DOCNR, @CLID, @CLID2, @DESCR, @SUMM, @PVN, @OPT, @ZNR, @ZU, @ZDT, @NL)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""LOPSD"" (""IDL"", ""ID"", ""DTLD"", ""USL"", ""DETE"", ""NRX"", ""DOCTYP"", ""DOCST"", ""DOCNR"", ""CLID"", ""CLID2"", ""DESCR"", ""SUMM"", ""PVN"", ""OPT"", ""ZNR"", ""ZU"", ""ZDT"", ""NL"", ""ODT"") VALUES (@IDL, @ID, @DTLD, @USL, @DETE, @NRX, @DOCTYP, @DOCST, @DOCNR, @CLID, @CLID2, @DESCR, @SUMM, @PVN, @OPT, @ZNR, @ZU, @ZDT, @NL, @ODT)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IDL";
@@ -33298,13 +33347,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "USL";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DETE";
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
@@ -33401,29 +33443,36 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "NL";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"LOPSD\" SET \"IDL\" = @IDL, \"ID\" = @ID, \"DTLD\" = @DTLD, \"USL\" = @USL, \"TPL\" " +
-                "= @TPL, \"DETE\" = @DETE, \"NRX\" = @NRX, \"DOCTYP\" = @DOCTYP, \"DOCST\" = @DOCST, \"DOC" +
-                "NR\" = @DOCNR, \"CLID\" = @CLID, \"CLID2\" = @CLID2, \"DESCR\" = @DESCR, \"SUMM\" = @SUMM" +
-                ", \"PVN\" = @PVN, \"OPT\" = @OPT, \"ZNR\" = @ZNR, \"ZU\" = @ZU, \"ZDT\" = @ZDT, \"NL\" = @NL" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"LOPSD\" SET \"IDL\" = @IDL, \"ID\" = @ID, \"DTLD\" = @DTLD, \"USL\" = @USL, \"DETE\"" +
+                " = @DETE, \"NRX\" = @NRX, \"DOCTYP\" = @DOCTYP, \"DOCST\" = @DOCST, \"DOCNR\" = @DOCNR, " +
+                "\"CLID\" = @CLID, \"CLID2\" = @CLID2, \"DESCR\" = @DESCR, \"SUMM\" = @SUMM, \"PVN\" = @PVN" +
+                ", \"OPT\" = @OPT, \"ZNR\" = @ZNR, \"ZU\" = @ZU, \"ZDT\" = @ZDT, \"NL\" = @NL, \"ODT\" = @ODT" +
                 " WHERE ((\"IDL\" = @Original_IDL) AND ((@IsNull_ID = 1 AND \"ID\" IS NULL) OR (\"ID\" " +
                 "= @Original_ID)) AND ((@IsNull_DTLD = 1 AND \"DTLD\" IS NULL) OR (\"DTLD\" = @Origin" +
                 "al_DTLD)) AND ((@IsNull_USL = 1 AND \"USL\" IS NULL) OR (\"USL\" = @Original_USL)) A" +
-                "ND ((@IsNull_TPL = 1 AND \"TPL\" IS NULL) OR (\"TPL\" = @Original_TPL)) AND ((@IsNul" +
-                "l_DETE = 1 AND \"DETE\" IS NULL) OR (\"DETE\" = @Original_DETE)) AND ((@IsNull_NRX =" +
-                " 1 AND \"NRX\" IS NULL) OR (\"NRX\" = @Original_NRX)) AND ((@IsNull_DOCTYP = 1 AND \"" +
-                "DOCTYP\" IS NULL) OR (\"DOCTYP\" = @Original_DOCTYP)) AND ((@IsNull_DOCST = 1 AND \"" +
-                "DOCST\" IS NULL) OR (\"DOCST\" = @Original_DOCST)) AND ((@IsNull_DOCNR = 1 AND \"DOC" +
-                "NR\" IS NULL) OR (\"DOCNR\" = @Original_DOCNR)) AND ((@IsNull_CLID = 1 AND \"CLID\" I" +
-                "S NULL) OR (\"CLID\" = @Original_CLID)) AND ((@IsNull_CLID2 = 1 AND \"CLID2\" IS NUL" +
-                "L) OR (\"CLID2\" = @Original_CLID2)) AND ((@IsNull_DESCR = 1 AND \"DESCR\" IS NULL) " +
-                "OR (\"DESCR\" = @Original_DESCR)) AND ((@IsNull_SUMM = 1 AND \"SUMM\" IS NULL) OR (\"" +
-                "SUMM\" = @Original_SUMM)) AND ((@IsNull_PVN = 1 AND \"PVN\" IS NULL) OR (\"PVN\" = @O" +
-                "riginal_PVN)) AND ((@IsNull_OPT = 1 AND \"OPT\" IS NULL) OR (\"OPT\" = @Original_OPT" +
-                ")) AND (\"ZNR\" = @Original_ZNR) AND ((@IsNull_ZU = 1 AND \"ZU\" IS NULL) OR (\"ZU\" =" +
-                " @Original_ZU)) AND ((@IsNull_ZDT = 1 AND \"ZDT\" IS NULL) OR (\"ZDT\" = @Original_Z" +
-                "DT)) AND ((@IsNull_NL = 1 AND \"NL\" IS NULL) OR (\"NL\" = @Original_NL)))";
+                "ND ((@IsNull_DETE = 1 AND \"DETE\" IS NULL) OR (\"DETE\" = @Original_DETE)) AND ((@I" +
+                "sNull_NRX = 1 AND \"NRX\" IS NULL) OR (\"NRX\" = @Original_NRX)) AND ((@IsNull_DOCTY" +
+                "P = 1 AND \"DOCTYP\" IS NULL) OR (\"DOCTYP\" = @Original_DOCTYP)) AND ((@IsNull_DOCS" +
+                "T = 1 AND \"DOCST\" IS NULL) OR (\"DOCST\" = @Original_DOCST)) AND ((@IsNull_DOCNR =" +
+                " 1 AND \"DOCNR\" IS NULL) OR (\"DOCNR\" = @Original_DOCNR)) AND ((@IsNull_CLID = 1 A" +
+                "ND \"CLID\" IS NULL) OR (\"CLID\" = @Original_CLID)) AND ((@IsNull_CLID2 = 1 AND \"CL" +
+                "ID2\" IS NULL) OR (\"CLID2\" = @Original_CLID2)) AND ((@IsNull_DESCR = 1 AND \"DESCR" +
+                "\" IS NULL) OR (\"DESCR\" = @Original_DESCR)) AND ((@IsNull_SUMM = 1 AND \"SUMM\" IS " +
+                "NULL) OR (\"SUMM\" = @Original_SUMM)) AND ((@IsNull_PVN = 1 AND \"PVN\" IS NULL) OR " +
+                "(\"PVN\" = @Original_PVN)) AND ((@IsNull_OPT = 1 AND \"OPT\" IS NULL) OR (\"OPT\" = @O" +
+                "riginal_OPT)) AND (\"ZNR\" = @Original_ZNR) AND ((@IsNull_ZU = 1 AND \"ZU\" IS NULL)" +
+                " OR (\"ZU\" = @Original_ZU)) AND ((@IsNull_ZDT = 1 AND \"ZDT\" IS NULL) OR (\"ZDT\" = " +
+                "@Original_ZDT)) AND ((@IsNull_NL = 1 AND \"NL\" IS NULL) OR (\"NL\" = @Original_NL))" +
+                " AND ((@IsNull_ODT = 1 AND \"ODT\" IS NULL) OR (\"ODT\" = @Original_ODT)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IDL";
@@ -33453,13 +33502,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "USL";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@DETE";
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
@@ -33555,6 +33597,13 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "NL";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_IDL";
@@ -33615,23 +33664,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@IsNull_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
-            param.ParameterName = "@Original_TPL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.Size = 4;
-            param.IsNullable = true;
-            param.SourceColumn = "TPL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@IsNull_DETE";
             param.DbType = global::System.Data.DbType.Int32;
             param.Size = 4;
@@ -33869,6 +33901,23 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             param.SourceColumn = "NL";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@IsNull_ODT";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_ODT";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = "ODT";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33881,12 +33930,23 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[1];
+            this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[2];
             this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDL, ID, DTLD, USL, TPL, DETE, NRX, DOCTYP, DOCST, DOCNR, CLID, CLID2, DES" +
-                "CR, SUMM, PVN, OPT, ZNR, ZU, ZDT, NL\r\nFROM    LOPSD\r\nORDER BY IDL";
+            this._commandCollection[0].CommandText = "SELECT IDL, ID, DTLD, USL, DETE, NRX, DOCTYP, DOCST, DOCNR, CLID, CLID2, DESCR, S" +
+                "UMM, PVN, OPT, ZNR, ZU, ZDT, NL, ODT FROM LOPSD ORDER BY IDL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "\"SP_DIFF_01\"";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PDOCID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33908,6 +33968,42 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual klonsDataSet.LOPSDDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            klonsDataSet.LOPSDDataTable dataTable = new klonsDataSet.LOPSDDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_SP_DIFF_01(klonsDataSet.LOPSDDataTable dataTable, global::System.Nullable<int> PDOCID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PDOCID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PDOCID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual klonsDataSet.LOPSDDataTable GetDataBy_SP_DIFF_01(global::System.Nullable<int> PDOCID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PDOCID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PDOCID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             klonsDataSet.LOPSDDataTable dataTable = new klonsDataSet.LOPSDDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -33951,7 +34047,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     global::System.Nullable<int> Original_ID, 
                     global::System.Nullable<global::System.DateTime> Original_DTLD, 
                     string Original_USL, 
-                    global::System.Nullable<int> Original_TPL, 
                     global::System.Nullable<global::System.DateTime> Original_DETE, 
                     string Original_NRX, 
                     string Original_DOCTYP, 
@@ -33966,7 +34061,8 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     int Original_ZNR, 
                     string Original_ZU, 
                     global::System.Nullable<global::System.DateTime> Original_ZDT, 
-                    global::System.Nullable<short> Original_NL) {
+                    global::System.Nullable<short> Original_NL, 
+                    global::System.Nullable<global::System.DateTime> Original_ODT) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IDL));
             if ((Original_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -33992,122 +34088,122 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_USL));
             }
-            if ((Original_TPL.HasValue == true)) {
+            if ((Original_DETE.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_TPL.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_DETE.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_DETE.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_DETE.Value));
-            }
-            else {
+            if ((Original_NRX == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_NRX == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_NRX));
+            }
+            if ((Original_DOCTYP == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_NRX));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_DOCTYP));
             }
-            if ((Original_DOCTYP == null)) {
+            if ((Original_DOCST == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_DOCTYP));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_DOCST));
             }
-            if ((Original_DOCST == null)) {
+            if ((Original_DOCNR == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_DOCST));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_DOCNR));
             }
-            if ((Original_DOCNR == null)) {
+            if ((Original_CLID == null)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_DOCNR));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_CLID));
             }
-            if ((Original_CLID == null)) {
+            if ((Original_CLID2 == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_CLID));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_CLID2));
             }
-            if ((Original_CLID2 == null)) {
+            if ((Original_DESCR == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_CLID2));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_DESCR));
             }
-            if ((Original_DESCR == null)) {
+            if ((Original_SUMM.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_SUMM.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_DESCR));
-            }
-            if ((Original_SUMM.HasValue == true)) {
+            if ((Original_PVN.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_SUMM.Value));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_PVN.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((Original_PVN.HasValue == true)) {
+            if ((Original_OPT.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((decimal)(Original_PVN.Value));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_OPT.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_OPT.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_OPT.Value));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((int)(Original_ZNR));
+            if ((Original_ZU == null)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_ZU));
             }
-            this.Adapter.DeleteCommand.Parameters[31].Value = ((int)(Original_ZNR));
-            if ((Original_ZU == null)) {
+            if ((Original_ZDT.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(Original_ZDT.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_ZU));
-            }
-            if ((Original_ZDT.HasValue == true)) {
+            if ((Original_NL.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((System.DateTime)(Original_ZDT.Value));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((short)(Original_NL.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((Original_NL.HasValue == true)) {
+            if ((Original_ODT.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((short)(Original_NL.Value));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((System.DateTime)(Original_ODT.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
@@ -34138,7 +34234,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     global::System.Nullable<int> ID, 
                     global::System.Nullable<global::System.DateTime> DTLD, 
                     string USL, 
-                    global::System.Nullable<int> TPL, 
                     global::System.Nullable<global::System.DateTime> DETE, 
                     string NRX, 
                     string DOCTYP, 
@@ -34153,7 +34248,8 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     int ZNR, 
                     string ZU, 
                     global::System.Nullable<global::System.DateTime> ZDT, 
-                    global::System.Nullable<short> NL) {
+                    global::System.Nullable<short> NL, 
+                    global::System.Nullable<global::System.DateTime> ODT) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IDL));
             if ((ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID.Value));
@@ -34173,93 +34269,93 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(USL));
             }
-            if ((TPL.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(TPL.Value));
+            if ((DETE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(DETE.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((DETE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(DETE.Value));
-            }
-            else {
+            if ((NRX == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((NRX == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(NRX));
+            }
+            if ((DOCTYP == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(NRX));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(DOCTYP));
             }
-            if ((DOCTYP == null)) {
+            if ((DOCST == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(DOCTYP));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(DOCST));
             }
-            if ((DOCST == null)) {
+            if ((DOCNR == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(DOCST));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(DOCNR));
             }
-            if ((DOCNR == null)) {
+            if ((CLID == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(DOCNR));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(CLID));
             }
-            if ((CLID == null)) {
+            if ((CLID2 == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(CLID));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(CLID2));
             }
-            if ((CLID2 == null)) {
+            if ((DESCR == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(CLID2));
-            }
-            if ((DESCR == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(DESCR));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(DESCR));
             }
             if ((SUMM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(SUMM.Value));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((decimal)(SUMM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((PVN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(PVN.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((PVN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(PVN.Value));
+            if ((OPT.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(OPT.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((OPT.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((int)(OPT.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[16].Value = ((int)(ZNR));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((int)(ZNR));
             if ((ZU == null)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(ZU));
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(ZU));
             }
             if ((ZDT.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(ZDT.Value));
+                this.Adapter.InsertCommand.Parameters[17].Value = ((System.DateTime)(ZDT.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((NL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((short)(NL.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((NL.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((short)(NL.Value));
+            if ((ODT.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((System.DateTime)(ODT.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
@@ -34289,7 +34385,6 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     global::System.Nullable<int> ID, 
                     global::System.Nullable<global::System.DateTime> DTLD, 
                     string USL, 
-                    global::System.Nullable<int> TPL, 
                     global::System.Nullable<global::System.DateTime> DETE, 
                     string NRX, 
                     string DOCTYP, 
@@ -34305,11 +34400,11 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     string ZU, 
                     global::System.Nullable<global::System.DateTime> ZDT, 
                     global::System.Nullable<short> NL, 
+                    global::System.Nullable<global::System.DateTime> ODT, 
                     int Original_IDL, 
                     global::System.Nullable<int> Original_ID, 
                     global::System.Nullable<global::System.DateTime> Original_DTLD, 
                     string Original_USL, 
-                    global::System.Nullable<int> Original_TPL, 
                     global::System.Nullable<global::System.DateTime> Original_DETE, 
                     string Original_NRX, 
                     string Original_DOCTYP, 
@@ -34324,7 +34419,8 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                     int Original_ZNR, 
                     string Original_ZU, 
                     global::System.Nullable<global::System.DateTime> Original_ZDT, 
-                    global::System.Nullable<short> Original_NL) {
+                    global::System.Nullable<short> Original_NL, 
+                    global::System.Nullable<global::System.DateTime> Original_ODT) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IDL));
             if ((ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID.Value));
@@ -34344,93 +34440,93 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(USL));
             }
-            if ((TPL.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(TPL.Value));
+            if ((DETE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(DETE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((DETE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(DETE.Value));
-            }
-            else {
+            if ((NRX == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((NRX == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(NRX));
+            }
+            if ((DOCTYP == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(NRX));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(DOCTYP));
             }
-            if ((DOCTYP == null)) {
+            if ((DOCST == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(DOCTYP));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(DOCST));
             }
-            if ((DOCST == null)) {
+            if ((DOCNR == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(DOCST));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(DOCNR));
             }
-            if ((DOCNR == null)) {
+            if ((CLID == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(DOCNR));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(CLID));
             }
-            if ((CLID == null)) {
+            if ((CLID2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(CLID));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(CLID2));
             }
-            if ((CLID2 == null)) {
+            if ((DESCR == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(CLID2));
-            }
-            if ((DESCR == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(DESCR));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(DESCR));
             }
             if ((SUMM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(SUMM.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(SUMM.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((PVN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(PVN.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((PVN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(PVN.Value));
+            if ((OPT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(OPT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((OPT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(OPT.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(ZNR));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(ZNR));
             if ((ZU == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(ZU));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(ZU));
             }
             if ((ZDT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(ZDT.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(ZDT.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((NL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((short)(NL.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((NL.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((short)(NL.Value));
+            if ((ODT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(ODT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
@@ -34460,122 +34556,122 @@ namespace KlonsF.DataSets.klonsDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_USL));
             }
-            if ((Original_TPL.HasValue == true)) {
+            if ((Original_DETE.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_TPL.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(Original_DETE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_DETE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_DETE.Value));
-            }
-            else {
+            if ((Original_NRX == null)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
-            if ((Original_NRX == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_NRX));
+            }
+            if ((Original_DOCTYP == null)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_NRX));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_DOCTYP));
             }
-            if ((Original_DOCTYP == null)) {
+            if ((Original_DOCST == null)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_DOCTYP));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_DOCST));
             }
-            if ((Original_DOCST == null)) {
+            if ((Original_DOCNR == null)) {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_DOCST));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_DOCNR));
             }
-            if ((Original_DOCNR == null)) {
+            if ((Original_CLID == null)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_DOCNR));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_CLID));
             }
-            if ((Original_CLID == null)) {
+            if ((Original_CLID2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_CLID));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_CLID2));
             }
-            if ((Original_CLID2 == null)) {
+            if ((Original_DESCR == null)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_CLID2));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_DESCR));
             }
-            if ((Original_DESCR == null)) {
+            if ((Original_SUMM.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((decimal)(Original_SUMM.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_DESCR));
-            }
-            if ((Original_SUMM.HasValue == true)) {
+            if ((Original_PVN.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(Original_SUMM.Value));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(Original_PVN.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
-            if ((Original_PVN.HasValue == true)) {
+            if ((Original_OPT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(Original_PVN.Value));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(Original_OPT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
-            if ((Original_OPT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(Original_OPT.Value));
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_ZNR));
+            if ((Original_ZU == null)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_ZU));
             }
-            this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_ZNR));
-            if ((Original_ZU == null)) {
+            if ((Original_ZDT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((System.DateTime)(Original_ZDT.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_ZU));
-            }
-            if ((Original_ZDT.HasValue == true)) {
+            if ((Original_NL.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((System.DateTime)(Original_ZDT.Value));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((short)(Original_NL.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
-            if ((Original_NL.HasValue == true)) {
+            if ((Original_ODT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((short)(Original_NL.Value));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((System.DateTime)(Original_ODT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
