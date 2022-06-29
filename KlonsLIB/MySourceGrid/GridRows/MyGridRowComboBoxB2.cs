@@ -50,25 +50,28 @@ namespace KlonsLIB.MySourceGrid.GridRows
         {
             get
             {
-                var grid = this.GridRow.Grid as MyGrid;
-                return grid[this.GridRow.Index + 1, 1];
+                var grid = Grid;
+                return grid[RowNr + 1, CaptionColumnNr];
             }
         }
 
-        public override void MakeRow(SourceGrid.GridRow gridrow)
+        public override void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
-            this.GridRow = gridrow;
-            if (gridrow != null)
-                this.Grid = gridrow.Grid as MyGrid;
-            int i = GridRow.Index;
+            Grid = gridrow.Grid as MyGrid;
+            RowNr = gridrow.Index;
+            ColNr = colnr;
+            int i = RowNr;
 
-            MakeFirstCell();
+            if (Grid.RowHeadersUsed)
+            {
+                MakeFirstCell();
+                MakeFirstCell(1);
+            }
             var caption = MakeCaptionCell();
             caption.SetSpan(1, 2);
 
-            MakeFirstCell(1);
             var datacell = MakeDataCell();
-            Grid[i + 1, 1] = datacell;
+            Grid[i + 1, CaptionColumnNr] = datacell;
             datacell.SetSpan(1, 2);
             MyEditor = datacell.Editor;
         }

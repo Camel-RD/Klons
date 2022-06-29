@@ -37,7 +37,7 @@
             this.tbName = new KlonsLIB.Components.MyTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbDate = new KlonsLIB.Components.MyTextBox();
-            this.chAddEvent = new System.Windows.Forms.CheckBox();
+            this.chAddEvent = new KlonsLIB.Components.MyCheckBox();
             this.cbCat1 = new KlonsLIB.Components.MyMcFlatComboBox();
             this.bsCat1 = new KlonsLIB.Data.MyBindingSource(this.components);
             this.cbCatD = new KlonsLIB.Components.MyMcFlatComboBox();
@@ -564,7 +564,7 @@
         private KlonsLIB.Components.MyTextBox tbName;
         private System.Windows.Forms.Label label3;
         private KlonsLIB.Components.MyTextBox tbDate;
-        private System.Windows.Forms.CheckBox chAddEvent;
+        private KlonsLIB.Components.MyCheckBox chAddEvent;
         private KlonsLIB.Components.MyMcFlatComboBox cbCat1;
         private KlonsLIB.Components.MyMcFlatComboBox cbCatD;
         private KlonsLIB.Components.MyMcFlatComboBox cbCatT;

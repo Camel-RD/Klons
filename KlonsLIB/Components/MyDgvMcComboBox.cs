@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace KlonsLIB.Components
 {
+    [ToolboxItem(false)]
     public class MyDgvMcComboBox : DataGridViewComboBoxEditingControl
     {
 

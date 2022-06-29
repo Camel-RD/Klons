@@ -46,7 +46,7 @@ namespace KlonsA.Forms
             this.dgcLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new MyDgvCheckBoxColumn();
             this.dgcUsedDt1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcUsedDt2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnavNav = new KlonsLIB.Components.MyBindingNavigator();
@@ -76,7 +76,7 @@ namespace KlonsA.Forms
             this.dgcAmatiTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcAmatiDep = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsDep = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcAmatiUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcAmatiUsed = new MyDgvCheckBoxColumn();
             this.dgcAmatiUsedDt1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcAmatiUsedDt2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsAmati = new KlonsLIB.Data.MyBindingSource2(this.components);
@@ -656,13 +656,13 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBirthDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPK;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private MyDgvCheckBoxColumn dgcUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcUsedDt1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcUsedDt2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAmatiID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAmatiTitle;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcAmatiDep;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcAmatiUsed;
+        private MyDgvCheckBoxColumn dgcAmatiUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAmatiUsedDt1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAmatiUsedDt2;
     }

@@ -144,7 +144,7 @@
             this.dgcEventsTaxVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsTaxValLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcEventsTaxEach = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcEventsTaxEach = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcEventsZDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsZU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1016,7 +1016,7 @@
             this.dgvEvents.RowHeadersWidth = 62;
             this.dgvEvents.RowTemplate.Height = 29;
             this.dgvEvents.ShowCellToolTips = false;
-            this.dgvEvents.Size = new System.Drawing.Size(918, 181);
+            this.dgvEvents.Size = new System.Drawing.Size(918, 183);
             this.dgvEvents.TabIndex = 0;
             this.dgvEvents.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvEvents_MyKeyDown);
             this.dgvEvents.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvEvents_CellBeginEdit);
@@ -1455,7 +1455,7 @@
             this.dgvItems.RowHeadersWidth = 62;
             this.dgvItems.RowTemplate.Height = 29;
             this.dgvItems.ShowCellToolTips = false;
-            this.dgvItems.Size = new System.Drawing.Size(918, 299);
+            this.dgvItems.Size = new System.Drawing.Size(918, 297);
             this.dgvItems.TabIndex = 0;
             this.dgvItems.MyKeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvItems_MyKeyDown);
             this.dgvItems.MyCheckForChanges += new System.EventHandler(this.dgvItems_MyCheckForChanges);
@@ -1698,7 +1698,7 @@
             this.mySplitContainer1.Panel2.Controls.Add(this.dgvEvents);
             this.mySplitContainer1.Panel2MinSize = 31;
             this.mySplitContainer1.Size = new System.Drawing.Size(918, 485);
-            this.mySplitContainer1.SplitterDistance = 299;
+            this.mySplitContainer1.SplitterDistance = 297;
             this.mySplitContainer1.SplitterWidth = 5;
             this.mySplitContainer1.TabIndex = 2;
             // 
@@ -1966,6 +1966,7 @@
             this.dgvFilter.RowHeadersVisible = false;
             this.dgvFilter.RowHeadersWidth = 62;
             this.dgvFilter.RowTemplate.Height = 29;
+            this.dgvFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvFilter.ShowCellToolTips = false;
             this.dgvFilter.Size = new System.Drawing.Size(1244, 60);
             this.dgvFilter.TabIndex = 8;
@@ -2350,7 +2351,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsTaxVal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsTaxValLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsTaxRate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcEventsTaxEach;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcEventsTaxEach;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsZDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsZU;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsID;

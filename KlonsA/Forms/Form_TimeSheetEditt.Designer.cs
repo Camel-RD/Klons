@@ -1,4 +1,6 @@
-﻿namespace KlonsA.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsA.Forms
 {
     partial class Form_TimeSheetEdit
     {
@@ -38,13 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.chPlanIndividual = new System.Windows.Forms.CheckBox();
-            this.chNight = new System.Windows.Forms.CheckBox();
+            this.chPlanIndividual = new MyCheckBox();
+            this.chNight = new MyCheckBox();
             this.cmDoIt = new System.Windows.Forms.Button();
             this.cmCancel = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tbSnr = new KlonsLIB.Components.MyTextBox();
-            this.chOvertime = new System.Windows.Forms.CheckBox();
+            this.chOvertime = new MyCheckBox();
             this.cmGetPerson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAmati)).BeginInit();
@@ -295,8 +297,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox chPlanIndividual;
-        private System.Windows.Forms.CheckBox chNight;
+        private MyCheckBox chPlanIndividual;
+        private MyCheckBox chNight;
         private System.Windows.Forms.Button cmDoIt;
         private System.Windows.Forms.Button cmCancel;
         private KlonsLIB.Data.MyBindingSource bsPersons;
@@ -304,7 +306,7 @@
         private KlonsLIB.Data.MyBindingSource2 bsAmati;
         private System.Windows.Forms.Label label4;
         private KlonsLIB.Components.MyTextBox tbSnr;
-        private System.Windows.Forms.CheckBox chOvertime;
+        private MyCheckBox chOvertime;
         private System.Windows.Forms.Button cmGetPerson;
     }
 }

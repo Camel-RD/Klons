@@ -37,8 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbPK = new KlonsLIB.Components.MyTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.chMale = new System.Windows.Forms.CheckBox();
-            this.chFemale = new System.Windows.Forms.CheckBox();
+            this.chMale = new KlonsLIB.Components.MyCheckBox();
+            this.chFemale = new KlonsLIB.Components.MyCheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmOK = new System.Windows.Forms.Button();
             this.cmCancel = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             this.tbProfCode = new KlonsLIB.Components.MyTextBox();
             this.tbRepCode = new KlonsLIB.Components.MyTextBox();
             this.tbDate = new KlonsLIB.Components.MyTextBox();
-            this.chMakeEvents = new System.Windows.Forms.CheckBox();
+            this.chMakeEvents = new KlonsLIB.Components.MyCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsDep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -358,8 +358,8 @@
         private System.Windows.Forms.Label label3;
         private KlonsLIB.Components.MyTextBox tbPK;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox chMale;
-        private System.Windows.Forms.CheckBox chFemale;
+        private KlonsLIB.Components.MyCheckBox chMale;
+        private KlonsLIB.Components.MyCheckBox chFemale;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button cmOK;
         private System.Windows.Forms.Button cmCancel;
@@ -374,6 +374,6 @@
         private KlonsLIB.Components.MyTextBox tbProfCode;
         private KlonsLIB.Components.MyTextBox tbRepCode;
         private KlonsLIB.Components.MyTextBox tbDate;
-        private System.Windows.Forms.CheckBox chMakeEvents;
+        private KlonsLIB.Components.MyCheckBox chMakeEvents;
     }
 }

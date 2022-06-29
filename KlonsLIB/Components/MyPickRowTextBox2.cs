@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using KlonsLIB.Data;
+using KlonsLIB.Misc;
 
 namespace KlonsLIB.Components
 {
@@ -160,7 +162,7 @@ namespace KlonsLIB.Components
             if (this.DataSource == null ||
                 base.BindingContext == null)
                 return;
-
+            
             CurrencyManager cm;
             try
             {
@@ -221,13 +223,22 @@ namespace KlonsLIB.Components
             }
         }
 
+        protected virtual bool IsDataSourceSortedByDisplayMember()
+        {
+            if (!((dataSource is BindingSource bs) && bs.IsSorted)) return false;
+            if (bs.SortDescriptions.Count == 0) return false;
+            if (bs.SortDescriptions[0].PropertyDescriptor.Name != displayMember) return false;
+            if (bs.SortDescriptions[0].SortDirection != ListSortDirection.Ascending) return false;
+            return true;
+        }
+
         private int FindString(string s)
         {
             if (dataManager == null || s == null) return -1;
             int k = dataManager.List.Count;
             if (string.Compare(s, GetDisplayText(k - 1), true) == 0)
                 return k - 1;
-            if (dataSource is BindingSource && (dataSource as BindingSource).IsSorted)
+            if (IsDataSourceSortedByDisplayMember())
                 return FindStringSorted(s);
             return FindStringSimple(s);
         }
@@ -353,7 +364,7 @@ namespace KlonsLIB.Components
             }
         }
 
-        private int FindValueSimple(object value)
+        public int FindValueSimple(object value)
         {
             if (dataManager == null) return -1;
             for (int i = 0; i < dataManager.List.Count; i++)
@@ -364,6 +375,48 @@ namespace KlonsLIB.Components
                 }
             }
             return -1;
+        }
+
+        public bool GetDisplayTextX(object value, out string displaytext)
+        {
+            displaytext = null;
+            var rt = GetDisplayValueXa(value, out object displayvalue);
+            if (rt == EFindDisplayValueXaResult.NoMatch) return false;
+            if (rt == EFindDisplayValueXaResult.OK)
+            {
+                if (displayvalue == DBNull.Value || displayvalue == null)
+                    return true;
+                displaytext = displayvalue.ToString();
+                return true;
+            }
+            if (rt == EFindDisplayValueXaResult.NotTable)
+            {
+                int k = FindValueSimple(value);
+                if (k == -1) return false;
+                displaytext = GetDisplayText(k);
+            }
+            return true;
+        }
+
+        public enum EFindDisplayValueXaResult { NotTable, NoMatch, OK}
+        public EFindDisplayValueXaResult GetDisplayValueXa(object value, out object displayvalue)
+        {
+            displayvalue = null;
+            if (DataSource == null || ValueMember.IsNOE() || displayMember.IsNOE()) 
+                return EFindDisplayValueXaResult.NotTable;
+            if (!(DataSource is BindingSource bs)) return EFindDisplayValueXaResult.NotTable;
+            DataTable table = null;
+            if ((bs.DataSource is DataTable dt)) table = dt;
+            else if (bs is MyBindingSource2 bs2) table = bs2.GetTable();
+            else if (bs.DataSource is DataView dv) table = dv.Table;
+            if (table == null) return EFindDisplayValueXaResult.NotTable;
+            if (table.PrimaryKey.Length != 1) return EFindDisplayValueXaResult.NotTable;
+            if (table.PrimaryKey[0].ColumnName != ValueMember) return EFindDisplayValueXaResult.NotTable;
+            if (!table.Columns.Contains(DisplayMember)) return EFindDisplayValueXaResult.NotTable;
+            var dr = table.Rows.Find(value);
+            if (dr == null) return EFindDisplayValueXaResult.NoMatch;
+            displayvalue = dr[displayMember];
+            return EFindDisplayValueXaResult.OK;
         }
 
         private int FindValueAsString(string value)
@@ -380,7 +433,7 @@ namespace KlonsLIB.Components
             return -1;
         }
 
-        private string GetDisplayText(int nr)
+        public string GetDisplayText(int nr)
         {
             try
             {
@@ -455,6 +508,8 @@ namespace KlonsLIB.Components
                 if (value == null)
                 {
                     SelectedIndex = -1;
+                    if(Text != null) 
+                        Text = null;
                     return;
                 }
                 int k = FindValueSimple(value);
@@ -492,6 +547,11 @@ namespace KlonsLIB.Components
 
         protected override void OnPreviewKeyDown(PreviewKeyDownEventArgs e)
         {
+            if (ReadOnly)
+            {
+                base.OnPreviewKeyDown(e);
+                return;
+            }
             if (e.KeyCode == Keys.Escape)
             {
                 Text = "";
@@ -524,6 +584,12 @@ namespace KlonsLIB.Components
                 e.Handled = true;
             }
 
+            if (ReadOnly)
+            {
+                base.OnKeyDown(e);
+                return;
+            }
+
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
             {
                 doOnTextChangedDelBackKey = true;
@@ -546,6 +612,11 @@ namespace KlonsLIB.Components
 
         protected override void OnKeyUp(KeyEventArgs e)
         {
+            if (ReadOnly)
+            {
+                base.OnKeyUp(e);
+                return;
+            }
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
             {
                 doOnTextChangedDelBackKey = false;
@@ -574,7 +645,7 @@ namespace KlonsLIB.Components
                 {
                     iFoundIndex = FindString(sTypedText);
                 }
-                if (iFoundIndex >= 0 && Text != "")
+                if (iFoundIndex >= 0 && !Text.IsNOE())
                 {
                     string sFoundText = GetDisplayText(iFoundIndex);
                     string sAppendText = sFoundText.Substring(sTypedText.Length);

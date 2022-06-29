@@ -42,10 +42,10 @@ namespace KlonsA.Forms
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcKind1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgcKind2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcNight = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcNight = new MyDgvCheckBoxColumn();
             this.dgcHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcHoursNight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new MyDgvCheckBoxColumn();
             this.bsPlanuSar = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bnavPlanuSar = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -444,9 +444,9 @@ namespace KlonsA.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcKind1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcKind2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcNight;
+        private MyDgvCheckBoxColumn dgcNight;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcHours;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcHoursNight;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private MyDgvCheckBoxColumn dgcUsed;
     }
 }

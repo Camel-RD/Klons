@@ -1,4 +1,6 @@
-﻿namespace KlonsA.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsA.Forms
 {
     partial class Form_ReportCodes
     {
@@ -38,7 +40,7 @@
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new MyDgvCheckBoxColumn();
             this.dgcTP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTP2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsZinuKodi = new KlonsLIB.Data.MyBindingSource(this.components);
@@ -405,7 +407,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private MyDgvCheckBoxColumn dgcUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTP1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTP2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;

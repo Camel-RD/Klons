@@ -39,7 +39,7 @@
             this.dgvList = new KlonsLIB.Components.MyDataGridView();
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -316,7 +316,7 @@
         private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcUsed;
         private KlonsLIB.Components.MyMcFlatComboBox cbActive;
     }
 }

@@ -34,6 +34,13 @@ namespace KlonsLIB.Data
                 d.RowState != DataRowState.Detached &&
                 predicate(d));
         }
+
+        public static bool HasChanges(this DataTable table)
+        {
+            DataSetHelper.GetStats(table, out int added, out int modified, out int deleted);
+            return (added + modified + deleted) > 0;
+        }
+
     }
 
     public class FilterBuilder

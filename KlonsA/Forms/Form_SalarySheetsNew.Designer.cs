@@ -1,4 +1,6 @@
-﻿namespace KlonsA.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsA.Forms
 {
     partial class Form_SalarySheetsNew
     {
@@ -54,8 +56,8 @@
             this.cbYr = new KlonsLIB.Components.MyMcFlatComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbMt = new KlonsLIB.Components.MyMcFlatComboBox();
-            this.chFull = new System.Windows.Forms.CheckBox();
-            this.chTemp = new System.Windows.Forms.CheckBox();
+            this.chFull = new MyCheckBox();
+            this.chTemp = new MyCheckBox();
             this.lbCM = new System.Windows.Forms.ListBox();
             this.cmOK = new System.Windows.Forms.Button();
             this.cmCancel = new System.Windows.Forms.Button();
@@ -431,8 +433,8 @@
         private KlonsLIB.Components.MyMcFlatComboBox cbYr;
         private System.Windows.Forms.Label label4;
         private KlonsLIB.Components.MyMcFlatComboBox cbMt;
-        private System.Windows.Forms.CheckBox chFull;
-        private System.Windows.Forms.CheckBox chTemp;
+        private MyCheckBox chFull;
+        private MyCheckBox chTemp;
         private System.Windows.Forms.ListBox lbCM;
         private System.Windows.Forms.Button cmOK;
         private System.Windows.Forms.Button cmCancel;

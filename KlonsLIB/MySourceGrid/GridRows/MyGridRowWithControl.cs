@@ -34,11 +34,10 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         }
 
-        public override void MakeRow(SourceGrid.GridRow gridrow)
+        public override void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
-            GridRow = gridrow;
-            Grid = GridRow.Grid as MyGrid;
-            int i = GridRow.Index;
+            Grid = gridrow.Grid as MyGrid;
+            int i = RowNr = gridrow.Index;
 
             int h = cellControl.Height + 6;
             int k = (int)Math.Ceiling((float)h / (float)gridrow.Height) - 1;
@@ -46,9 +45,18 @@ namespace KlonsLIB.MySourceGrid.GridRows
             cellControl.Location = new Point(0, 0);
 
             //gridrow.Height = mCellControl.Height + 6;
-            Grid[i, 0] = new SourceGrid.Cells.Cell("control cell");
-            Grid[i, 0].SetSpan(k + 1, 3);
-            Grid.LinkedControls.Add(new SourceGrid.LinkedControlValue(cellControl, new SourceGrid.Position(i, CaptionColumnNr)));
+            if (Grid.RowHeadersUsed)
+            {
+                Grid[i, RowHeaderColumnNr] = new SourceGrid.Cells.Cell("control cell");
+                Grid[i, RowHeaderColumnNr].SetSpan(k + 1, 3);
+                Grid.LinkedControls.Add(new SourceGrid.LinkedControlValue(cellControl, new SourceGrid.Position(i, RowHeaderColumnNr)));
+            }
+            else
+            {
+                Grid[i, CaptionColumnNr] = new SourceGrid.Cells.Cell("control cell");
+                Grid[i, CaptionColumnNr].SetSpan(k + 1, 2);
+                Grid.LinkedControls.Add(new SourceGrid.LinkedControlValue(cellControl, new SourceGrid.Position(i, CaptionColumnNr)));
+            }
         }
 
     }

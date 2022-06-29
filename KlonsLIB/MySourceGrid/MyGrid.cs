@@ -69,6 +69,10 @@ namespace KlonsLIB.MySourceGrid
         [Category("My")]
         public bool AllowEdit { get; set; } = true;
 
+        [DefaultValue(true)]
+        [Category("My")]
+        public bool RowHeadersUsed { get; set; } = true;
+
         [Category("Appearance")]
         public virtual Color BackColor2 { get; set; } = SystemColors.Window;
 
@@ -175,9 +179,11 @@ namespace KlonsLIB.MySourceGrid
                     typeof (MyGridRowComboBoxA),
                     typeof (MyGridRowComboBoxB),
                     typeof (MyGridRowComboBoxB2),
+                    typeof (MyGridRowPickRowTextBox),
                     typeof (MyGridRowMultiLineTextBox),
                     typeof (MyGridRowMyEditor),
-                    typeof (MyGridRowWithControl)
+                    typeof (MyGridRowWithControl),
+                    typeof (MyGridRowCommand)
                 };
             }
             else if (propname == "RowTemplateList")
@@ -260,7 +266,7 @@ namespace KlonsLIB.MySourceGrid
             for (int i = 0; i < gridRowList.Count; i++)
             {
                 var rowdef = gridRowList[i];
-                rowdef.MakeRow(Rows[rownr]);
+                rowdef.MakeRow(Rows[rownr], 0);
                 rownr += rowdef.GetRowCount();
             }
             ScaleControlA(scaleFactor);
@@ -268,6 +274,97 @@ namespace KlonsLIB.MySourceGrid
             this.Controller.AddController(MarkCurrentRowController.Default);
 
             makeGridCompleted = true;
+        }
+
+        public void MakeGrid2()
+        {
+            LinkedCells.Clear();
+            LinkedRows.Clear();
+
+            RowHeadersUsed = false;
+
+            int captioncolumnwidth = ColumnWidth2;
+            int datalumnwidth = ColumnWidth3;
+
+            this.ColumnsCount = 2;
+            this.Columns[0].Width = captioncolumnwidth;
+            this.Columns[1].Width = datalumnwidth;
+
+            for (int i = 0; i < gridRowTemplateList.Count; i++)
+            {
+                var rowdef = gridRowTemplateList[i];
+                rowdef.MakeTemplateRow(this);
+            }
+
+            int rowscount = 0;
+            int rowscount2 = 0;
+
+            for (int i = 0; i < gridRowList.Count; i++)
+            {
+                var gridrow = gridRowList[i];
+                if (gridrow is MyGridRowCommand grcm &&
+                    grcm.Command == EMyGridRowCommands.StartNewColumn)
+                {
+                    if (rowscount < rowscount2) rowscount = rowscount2;
+                    rowscount2 = 0;
+                }
+                else
+                {
+                    rowscount2 += gridrow.GetRowCount();
+                }
+            }
+            if (rowscount < rowscount2) rowscount = rowscount2;
+            this.RowsCount = rowscount;
+
+            int rownr = 0;
+            int colnr = 0;
+            for (int i = 0; i < gridRowList.Count; i++)
+            {
+                var rowdef = gridRowList[i];
+                if (rowdef is MyGridRowCommand grcommand)
+                {
+                    if (grcommand.Command == EMyGridRowCommands.StartNewColumn)
+                    {
+                        rownr = 0;
+                        colnr += 3;
+                        if (grcommand.SetColumnWidth)
+                        {
+                            if (grcommand.CaptionColumnWidth != -1)
+                                captioncolumnwidth = grcommand.CaptionColumnWidth;
+                            if (grcommand.DataColumnWidth != -1)
+                                datalumnwidth = grcommand.DataColumnWidth;
+                        }
+                        this.ColumnsCount += 3;
+                        this.Columns[colnr - 1].Width = ColumnWidth1;
+                        this.Columns[colnr].Width = captioncolumnwidth;
+                        this.Columns[colnr + 1].Width = datalumnwidth;
+                    }
+                    rowdef.RowNr = rownr;
+                }
+                else
+                {
+                    rowdef.MakeRow(Rows[rownr], colnr);
+                    rownr += rowdef.GetRowCount();
+                }
+            }
+            ScaleControlA(scaleFactor);
+
+            CheckBorders();
+
+            makeGridCompleted = true;
+        }
+
+        public void CheckBorders()
+        {
+            var g1 = new GridForBordersFX(this);
+            var bi = new BorderInspector(g1)
+            {
+                DesignHeaders = false,
+                ShowGrid = false,
+                UseEmptyCells = false
+            };
+            g1.CheckBordersForAllCells(bi);
+            this.Invalidate();
         }
 
         public void LinkGrid()
@@ -326,7 +423,7 @@ namespace KlonsLIB.MySourceGrid
         {
             for (int i = 0; i < this.RowList.Count; i++)
             {
-                var k = RowList[i].GridRow.Index;
+                var k = RowList[i].RowNr;
                 if (k == realrownr)
                     return RowList[i];
                 if (k > realrownr)
@@ -399,7 +496,7 @@ namespace KlonsLIB.MySourceGrid
             {
                 var r2 = r1 as MyGridRowPropEditorBase;
                 if (r2 == null) continue;
-                int rownr = r2.GridRow.Index;
+                int rownr = r2.RowNr;
                 MarkRowRed(rownr, false);
             }
         }
@@ -413,7 +510,7 @@ namespace KlonsLIB.MySourceGrid
             {
                 var r2 = r1 as MyGridRowPropEditorBase;
                 if (r2 == null) continue;
-                int rownr = r2.GridRow.Index;
+                int rownr = r2.RowNr;
                 red = r2.IsRed(comparewith);
                 if (MarkRowRed(rownr, red))
                     haschanges = true;
@@ -431,7 +528,7 @@ namespace KlonsLIB.MySourceGrid
             {
                 var r2 = r1 as MyGridRowPropEditorBase;
                 if (r2 == null || !r2.CheckRed) continue;
-                int rownr = r2.GridRow.Index;
+                int rownr = r2.RowNr;
                 if (fisred == null)
                     red = r2.IsRed(dataprev, datacur, datasource);
                 else
@@ -534,6 +631,19 @@ namespace KlonsLIB.MySourceGrid
             Refresh();
         }
 
+        protected override void OnBindingContextChanged(EventArgs e)
+        {
+            base.OnBindingContextChanged(e);
+            var bc = this.BindingContext;
+            if (bc == null) return;
+            foreach(var grrow in this.RowList)
+            {
+                if (!(grrow is MyGridRowPropEditorBase grpred)) continue;
+                grpred.SetBindingContext(bc);
+            }
+        }
+        
+
         public event MyGridDataErrorEventHandler DataError;
 
         [Category("DataCell")]
@@ -556,6 +666,9 @@ namespace KlonsLIB.MySourceGrid
 
         [Category("DataCell")]
         public event ConvertingObjectEventHandler ConvertingValueToObject;
+
+        [Category("DataCell")]
+        public event KeyEventHandler KeyDownCell;
 
         public virtual void OnValueChanged(MyGridRowPropEditorBase sender, EventArgs e)
         {
@@ -605,6 +718,11 @@ namespace KlonsLIB.MySourceGrid
 
             if (DataError != null)
                 DataError(this, new MyGridDataErrorEventArgs(e));
+        }
+
+        public virtual void OnKeyDownCell(MyGridRowPropEditorBase sender, KeyEventArgs e)
+        {
+            KeyDownCell?.Invoke(sender, e);
         }
 
     }

@@ -47,6 +47,11 @@ namespace KlonsLIB.Components
             ButtonClicked?.Invoke(this, e);
         }
 
+        private Color Light(Color color, float r)
+        {
+            var c = HslColor.Lighter(color, r);
+            return c;
+        }
 
         protected override void WndProc(ref Message m)
         {
@@ -71,22 +76,38 @@ namespace KlonsLIB.Components
                     IntPtr hWnd = this.Handle;
                     IntPtr hRgn = IntPtr.Zero;
                     IntPtr hdc = NM.GetDCEx(hWnd, hRgn, 1027);
-
+                    Color bc = Light(BackColor, 0.1f);
                     using (var gdc = Graphics.FromHdc(hdc))
                     {
-                        using (var sb = new SolidBrush(BackColor))
-                        {
-                            gdc.FillRectangle(sb, mrect);
-                        }
+                            using (var sb = new SolidBrush(bc))
+                            {
+                                gdc.FillRectangle(sb, mrect);
+                            }
                         using (var pen = new Pen(ForeColor, 1))
                         {
                             gdc.DrawLine(pen, x1, y1, x2, y2);
                             gdc.DrawLine(pen, x2, y2, x3, y1);
                         }
-                        PaintFlatControlBorder(this, gdc);
+                        bool fp = !DrawBorder && BorderStyle != BorderStyle.None;
+                        PaintFlatControlBorder(gdc, fp);
                     }
 
                     NM.ReleaseDC(hWnd, hdc);
+                    break;
+
+                case NM.WM_PAINT:
+                    base.WndProc(ref m);
+                    if (!m_ShowButton) break;
+                    if (!DrawBorder) break;
+                    if (BorderStyle != BorderStyle.FixedSingle) break;
+                    int x = ClientRectangle.Right - 1;
+                    using (var gdc = Graphics.FromHwnd(Handle))
+                    {
+                        using (var pen = new Pen(BackColor, 1))
+                        {
+                            gdc.DrawLine(pen, x, 0, x, Height);
+                        }
+                    }
                     break;
 
                 case NM.WM_NCCALCSIZE:

@@ -16,6 +16,11 @@ namespace KlonsLIB.MySourceGrid.GridRows
     public class MyListItem
     {
         public Int16 Key { get; set; } = 0;
+        public int Key2 
+        { 
+            get => Key; 
+            set => Key = (Int16)value; 
+        }
         public string Val { get; set; } = null;
 
         public MyListItem(Int16 key, string val)
@@ -76,6 +81,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
             mComboBoxEditor = new SourceGrid.Cells.Editors.ComboBox(GetValueType());
             mComboBoxEditor.Control.FlatStyle = FlatStyle.Flat;
+
             cbcell.Editor = mComboBoxEditor;
             cbcell.View = Grid.gridViewModel.dataCellModel;
 
@@ -84,7 +90,11 @@ namespace KlonsLIB.MySourceGrid.GridRows
             {
                 mComboBoxEditor.Control.FormattingEnabled = true;
                 mComboBoxEditor.StandardValues = list;
-                ValueMapping = new ValueMappingA(mComboBoxEditor, list, "Key", "Val", this);
+                var keystr = "Key";
+                if (RowValueType == EMyGridRowValueType.Integer ||
+                    RowValueType == EMyGridRowValueType.IntegerN)
+                    keystr = "Key2";
+                ValueMapping = new ValueMappingA(mComboBoxEditor, list, keystr, "Val", this);
             }
 
             cbcell.Editor.AllowNull = AllowNull;

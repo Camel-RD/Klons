@@ -693,6 +693,7 @@ namespace KlonsLIB.Components
 
     }
 
+    [ToolboxItem(false)]
     public class MyDgvMcCBEditingControl : MyMcComboBox, IDataGridViewEditingControl
     {
         private DataGridView dataGridView;

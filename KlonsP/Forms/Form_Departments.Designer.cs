@@ -35,7 +35,7 @@
             this.dgvDepartments = new KlonsLIB.Components.MyDataGridView();
             this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcGroup = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnDepartments = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -306,7 +306,7 @@
         private KlonsLIB.Data.MyAdapterManager myAdapterManager1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcGroup;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
     }
 }

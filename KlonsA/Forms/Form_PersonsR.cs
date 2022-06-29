@@ -1084,7 +1084,7 @@ namespace KlonsA.Forms
 
             if (e.KeyCode == Keys.F5)
             {
-                if (pos.Row == rwTerCode.GridRow.Index)
+                if (pos.Row == rwTerCode.RowNr)
                 {
                     var new_code = GetTerrCode();
                     if (new_code == null) return;
@@ -1098,7 +1098,7 @@ namespace KlonsA.Forms
             var pos = sgrPersR.Selection.ActivePosition;
             if (pos.Column != 2) return;
 
-            if (pos.Row == rwTerCode.GridRow.Index)
+            if (pos.Row == rwTerCode.RowNr)
             {
                 var new_code = GetTerrCode();
                 if (new_code == null) return;
@@ -1113,7 +1113,7 @@ namespace KlonsA.Forms
 
             if (e.KeyCode == Keys.F5)
             {
-                if (pos.Row == rwAmatiDep.GridRow.Index)
+                if (pos.Row == rwAmatiDep.RowNr)
                 {
                     var new_code = GetDepCode();
                     if (new_code == null) return;
@@ -1127,7 +1127,7 @@ namespace KlonsA.Forms
             var pos = sgrAmati.Selection.ActivePosition;
             if (pos.Column != 2) return;
 
-            if (pos.Row == rwAmatiDep.GridRow.Index)
+            if (pos.Row == rwAmatiDep.RowNr)
             {
                 var new_code = GetDepCode();
                 if (new_code == null) return;

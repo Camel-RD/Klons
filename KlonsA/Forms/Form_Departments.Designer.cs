@@ -58,7 +58,7 @@ namespace KlonsA.Forms
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.dgcDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDepDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcDepUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcDepUsed = new MyDgvCheckBoxColumn();
             this.dgcDepUsedDT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDepUsedDT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDepAcc1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -438,7 +438,7 @@ namespace KlonsA.Forms
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDepId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDepDescr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcDepUsed;
+        private MyDgvCheckBoxColumn dgcDepUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDepUsedDT1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDepUsedDT2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDepAcc1;

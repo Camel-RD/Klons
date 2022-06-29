@@ -94,7 +94,7 @@
             this.dgcEventsTaxValLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsTaxValC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcEventsTaxEach = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcEventsTaxEach = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcEventsZDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsZU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcEventsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -882,7 +882,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsTaxValLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsTaxValC;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsTaxRate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcEventsTaxEach;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcEventsTaxEach;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsZDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsZU;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcEventsID;

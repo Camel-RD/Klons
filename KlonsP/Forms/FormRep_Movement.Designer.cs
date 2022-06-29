@@ -52,7 +52,7 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbPrevMonth = new System.Windows.Forms.ToolStripButton();
             this.tsbNextMonth = new System.Windows.Forms.ToolStripButton();
-            this.chOrderByRegNr = new System.Windows.Forms.CheckBox();
+            this.chOrderByRegNr = new KlonsLIB.Components.MyCheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -923,7 +923,7 @@
         private KlonsLIB.Components.MyMcFlatComboBox cbCatT;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button cmReport;
-        private System.Windows.Forms.CheckBox chOrderByRegNr;
+        private KlonsLIB.Components.MyCheckBox chOrderByRegNr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRegNr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCat1;

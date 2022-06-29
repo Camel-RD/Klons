@@ -18,7 +18,7 @@ namespace KlonsA.Classes
 
         private static string[] dbversions =
             new string[] {"024", "028", "032", "037", "039", "048", "049", "051", 
-                "056", "058" };
+                "056", "058", "065" };
 
         public static bool HasUpgrade(string db_ver, string app_ver)
         {

@@ -51,8 +51,8 @@ namespace KlonsLIB.MySourceGrid
             for (int i = 0; i < Count; i++)
             {
                 var row = this[i];
-                if (row.GridRow.Index < rownr) continue;
-                if (row.GridRow.Index == rownr)
+                if (row.RowNr < rownr) continue;
+                if (row.RowNr == rownr)
                 {
                     return row;
                 }

@@ -600,6 +600,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="SQL\SQLV065.txt" />
     <EmbeddedResource Include="Forms\Form_PayListImport.resx">
       <DependentUpon>Form_PayListImport.cs</DependentUpon>
     </EmbeddedResource>

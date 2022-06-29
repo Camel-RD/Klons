@@ -8,6 +8,7 @@ using KlonsLIB.MySourceGrid.GridRows;
 
 namespace KlonsLIB.MySourceGrid
 {
+    [ToolboxItem(false)]
     public class SharedControlDef : IComponent, IDisposable
     {
         private string name = null;

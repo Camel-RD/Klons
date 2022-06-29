@@ -1,4 +1,6 @@
-﻿namespace KlonsF.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsF.Forms
 {
     partial class Form_Export
     {
@@ -36,7 +38,7 @@
             this.dgcCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmExport = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.chOnlyUsed = new System.Windows.Forms.CheckBox();
+            this.chOnlyUsed = new MyCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCount)).BeginInit();
             this.SuspendLayout();
@@ -136,7 +138,7 @@
         private KlonsLIB.Components.MyDataGridView dgvCount;
         private System.Windows.Forms.Button cmExport;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chOnlyUsed;
+        private MyCheckBox chOnlyUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCaption;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCount;
     }

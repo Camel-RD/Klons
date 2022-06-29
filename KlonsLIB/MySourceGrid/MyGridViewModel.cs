@@ -20,6 +20,7 @@ namespace KlonsLIB.MySourceGrid
         public SourceGrid.Cells.Views.Cell dataCellMultiLineModel = new SourceGrid.Cells.Views.Cell();
         public SourceGrid.Cells.Views.Cell dataCellModelAllignRight = new SourceGrid.Cells.Views.Cell();
         public SourceGrid.Cells.Views.Cell dataCellCheckBox = new SourceGrid.Cells.Views.CheckBox();
+        public Cells.MyCheckBoxView dataCellCheckBox2 = new Cells.MyCheckBoxView();
         public SourceGrid.Cells.Views.Cell rowHeaderModelRed = new SourceGrid.Cells.Views.Cell();
 
         public RectangleBorder DefaultBorder;
@@ -96,6 +97,10 @@ namespace KlonsLIB.MySourceGrid
             dataCellCheckBox.ForeColor = ForeColor;
             dataCellCheckBox.BackColor = WindowColor;
             dataCellCheckBox.Border = DefaultBorder;
+
+            dataCellCheckBox2.ForeColor = ForeColor;
+            dataCellCheckBox2.BackColor = WindowColor;
+            dataCellCheckBox2.Border = DefaultBorder;
         }
 
         public void SetColors(Color forecolr, Color backColor, Color windowColor, Color gridColor)

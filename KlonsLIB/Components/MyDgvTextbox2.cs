@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 using KlonsLIB.Misc;
 
@@ -13,6 +14,7 @@ namespace KlonsLIB.Components
         void OnButtonClicked(MyDgvTextboxEditingControl2 control);
     }
 
+    [ToolboxItem(false)]
     public class MyDgvTextboxEditingControl2 : MyPickRowTextBox2, IDataGridViewEditingControl
     {
         private DataGridView dataGridView;
@@ -34,8 +36,8 @@ namespace KlonsLIB.Components
             get
             {
                 if (LimitToList && SelectedValue == null)
-                    return null;
-                return this.SelectedValue.ToString();
+                    return "";
+                return SelectedValue == null ? "" : SelectedValue.ToString();
                 //return this.Text;
             }
             set
@@ -49,6 +51,17 @@ namespace KlonsLIB.Components
                 {
                     this.SelectedValue = null;
                 }
+                /*
+                string valueStr = value as string;
+                if (valueStr != null)
+                {
+                    this.Text = valueStr;
+                    if (String.Compare(valueStr, Text, true, CultureInfo.CurrentCulture) != 0)
+                    {
+                        SelectedIndex = -1;
+                    }
+                }
+                return;*/
             }
         }
 

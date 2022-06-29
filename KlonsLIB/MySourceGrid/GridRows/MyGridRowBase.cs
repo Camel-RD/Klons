@@ -10,7 +10,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
 {
     public enum EMyGridRowType
     {
-        None, Title, SubTitle, TextBox, ComboBox, Control, CheckBox
+        None, Title, SubTitle, TextBox, ComboBox, Control, CheckBox, Command
     }
     public enum EMyGridRowValueType
     {
@@ -58,9 +58,9 @@ namespace KlonsLIB.MySourceGrid.GridRows
         [DefaultValue(EMyGridRowValueType.None)]
         public virtual EMyGridRowValueType RowValueType { get; set; } = EMyGridRowValueType.None;
 
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public SourceGrid.GridRow GridRow = null;
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public SourceGrid.GridRow GridRow = null;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -70,8 +70,25 @@ namespace KlonsLIB.MySourceGrid.GridRows
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual object Value { get; set; }
 
-        public const int CaptionColumnNr = 1;
-        public const int DataColumnNr = 2;
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int RowNr = -1;
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int ColNr = -1;
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public virtual int RowHeaderColumnNr => Grid.RowHeadersUsed ? ColNr : -1;
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public virtual int CaptionColumnNr => Grid.RowHeadersUsed ? ColNr + 1 : ColNr;
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public virtual int DataColumnNr => Grid.RowHeadersUsed ? ColNr + 2 : ColNr + 1;
 
         public MyGridRowBase()
         {
@@ -150,12 +167,13 @@ namespace KlonsLIB.MySourceGrid.GridRows
             return null;
         }
 
-        public virtual void MakeRow(SourceGrid.GridRow gridrow)
+        public virtual void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
-            this.GridRow = gridrow;
-            if (gridrow != null)
-                this.Grid = gridrow.Grid as MyGrid;
+            RowNr = gridrow.Index;
+            ColNr = colnr;
+            Grid = gridrow.Grid as MyGrid;
         }
+
         public virtual void MakeTemplateRow(MyGrid grid)
         {
             this.Grid = grid;
@@ -173,17 +191,17 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         public virtual void MakeFirstCell(uint addpos = 0)
         {
-            var grid = GridRow.Grid as MyGrid;
-            int i = GridRow.Index + (int)addpos;
-            grid[i, 0] = new SourceGrid.Cells.Cell("");
-            grid[i, 0].View = grid.gridViewModel.rowHeaderModel;
-            grid[i, 0].AddController(RowMarkCellController.Default);
+            var grid = Grid;
+            int i = RowNr + (int)addpos;
+            grid[i, RowHeaderColumnNr] = new SourceGrid.Cells.Cell("");
+            grid[i, RowHeaderColumnNr].View = grid.gridViewModel.rowHeaderModel;
+            grid[i, RowHeaderColumnNr].AddController(RowMarkCellController.Default);
         }
 
         public virtual SourceGrid.Cells.Cell MakeCaptionCell()
         {
-            var grid = GridRow.Grid as MyGrid;
-            int i = GridRow.Index;
+            var grid = Grid;
+            int i = RowNr;
             var newcell = new SourceGrid.Cells.Cell(RowTitle);
             grid[i, CaptionColumnNr] = newcell;
             newcell.View = grid.gridViewModel.captionModel;

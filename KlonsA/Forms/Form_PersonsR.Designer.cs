@@ -1,4 +1,6 @@
-﻿namespace KlonsA.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsA.Forms
 {
     partial class Form_PersonsR
     {
@@ -142,8 +144,8 @@
             this.dgcPSRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPSRateType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgcPSIDNO = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgcPSIsPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgcPSIsInAvpay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcPSIsPaid = new MyDgvCheckBoxColumn();
+            this.dgcPSIsInAvpay = new MyDgvCheckBoxColumn();
             this.dgcPSID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsNotikumuVeidi = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bsAmati2 = new KlonsLIB.Data.MyBindingSource2(this.components);
@@ -2484,8 +2486,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPSRate;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcPSRateType;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcPSIDNO;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcPSIsPaid;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcPSIsInAvpay;
+        private MyDgvCheckBoxColumn dgcPSIsPaid;
+        private MyDgvCheckBoxColumn dgcPSIsInAvpay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPSID;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton tsbPrevPerson;

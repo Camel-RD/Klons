@@ -1,4 +1,6 @@
-﻿namespace KlonsA.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsA.Forms
 {
     partial class Form_FizPersons
     {
@@ -88,7 +90,7 @@
             this.dgcLName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTaxRegNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new MyDgvCheckBoxColumn();
             this.dgcUsedDt1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcUsedDt2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -813,7 +815,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTaxRegNo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private MyDgvCheckBoxColumn dgcUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcUsedDt1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcUsedDt2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;

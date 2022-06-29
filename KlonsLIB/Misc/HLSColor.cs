@@ -20,9 +20,6 @@ namespace KlonsLIB.Misc
 
         private bool isSystemColors_Control;
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.HLSColor"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         public HLSColor(Color color)
         {
             isSystemColors_Control = (color.ToKnownColor() == SystemColors.Control.ToKnownColor());
@@ -73,20 +70,12 @@ namespace KlonsLIB.Misc
             }
         }
 
-        /* Unused
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.Hue"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         public int Hue {
             get {
                 return hue;
             }
         }
-        */
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.Luminosity"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         public int Luminosity
         {
             get
@@ -95,20 +84,12 @@ namespace KlonsLIB.Misc
             }
         }
 
-        /* Unused
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.Saturation"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         public int Saturation {
             get {
                 return saturation;
             }
         }
-        */
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.Darker"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         public Color Darker(float percDarker)
         {
             if (isSystemColors_Control)
@@ -184,9 +165,6 @@ namespace KlonsLIB.Misc
             return hue << 6 | saturation << 2 | luminosity;
         }
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.Lighter"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         public Color Lighter(float percLighter)
         {
             if (isSystemColors_Control)
@@ -235,17 +213,11 @@ namespace KlonsLIB.Misc
             }
         }
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.NewLuma"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         private int NewLuma(int n, bool scale)
         {
             return NewLuma(luminosity, n, scale);
         }
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.NewLuma1"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         private int NewLuma(int luminosity, int n, bool scale)
         {
             if (n == 0)
@@ -274,9 +246,6 @@ namespace KlonsLIB.Misc
             return newLum;
         }
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.ColorFromHLS"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         private Color ColorFromHLS(int hue, int luminosity, int saturation)
         {
             byte r, g, b;                      /* RGB component values */
@@ -307,9 +276,6 @@ namespace KlonsLIB.Misc
             return Color.FromArgb(r, g, b);
         }
 
-        /// <include file='doc\ControlPaint.uex' path='docs/doc[@for="ControlPaint.HLSColor.HueToRGB"]/*' />
-        /// <devdoc>
-        /// </devdoc>
         private int HueToRGB(int n1, int n2, int hue)
         {
             /* range check: note values passed add/subtract thirds of range */

@@ -37,7 +37,7 @@
             this.dgvSar = new KlonsLIB.Components.MyDataGridView();
             this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsSar = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bnavSar = new KlonsLIB.Components.MyBindingNavigator();
@@ -390,7 +390,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private KlonsLIB.Components.MyBindingNavigator bnavSar;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;

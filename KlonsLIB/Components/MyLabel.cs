@@ -76,7 +76,7 @@ namespace KlonsLIB.Components
         }
         public static Color Dark(Color baseColor)
         {
-            return new HLSColor(baseColor).Darker(0.5f);
+            return ControlPaint.Dark(baseColor, 0.5f);
         }
 
         private void PaintFlatControlBorder(Control ctrl, Graphics g)

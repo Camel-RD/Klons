@@ -7,6 +7,7 @@ using SourceGrid;
 using SourceGrid.Cells.Controllers;
 using SourceGrid.Cells.Models;
 using KlonsLIB.MySourceGrid.GridRows;
+using System.Windows.Forms;
 
 namespace KlonsLIB.MySourceGrid
 {
@@ -58,6 +59,55 @@ namespace KlonsLIB.MySourceGrid
             base.OnEditEnded(sender, e);
             if (m_MyGridRow == null || m_MyGridRow.Grid == null) return;
             m_MyGridRow.Grid.OnEditEnded(m_MyGridRow, e);
+        }
+
+        public override void OnKeyDown(CellContext sender, KeyEventArgs e)
+        {
+            base.OnKeyDown(sender, e);
+            if (m_MyGridRow == null || m_MyGridRow.Grid == null) return;
+            if (sender.IsEditing()) return;
+            if (sender.Cell != m_MyGridRow.DataCell) return;
+            if(e.KeyCode == Keys.F4)
+            {
+                if (m_MyGridRow is MyGridRowPickRowTextBox grpick)
+                {
+                    e.Handled = true;
+                    grpick.Control_ButtonClicked(grpick, EventArgs.Empty);
+                    return;
+                }
+                if (m_MyGridRow is MyGridRowComboBoxA grcba)
+                {
+                    sender.StartEdit();
+                    if (sender.IsEditing())
+                    {
+                        e.Handled = true;
+                        grcba.ComboBoxEditor.Control.DroppedDown = true;
+                        return;
+                    }
+                }
+                if (m_MyGridRow is MyGridRowComboBoxB grcbb)
+                {
+                    sender.StartEdit();
+                    if (sender.IsEditing())
+                    {
+                        e.Handled = true;
+                        grcbb.ComboBoxEditor.Control.DroppedDown = true;
+                        return;
+                    }
+                }
+                if (m_MyGridRow is MyGridRowComboBoxB2 grcbb2)
+                {
+                    sender.StartEdit();
+                    if (sender.IsEditing())
+                    {
+                        e.Handled = true;
+                        grcbb2.ComboBoxEditor.Control.DroppedDown = true;
+                        return;
+                    }
+                }
+            }
+
+            m_MyGridRow.Grid.OnKeyDownCell(m_MyGridRow, e);
         }
     }
 }

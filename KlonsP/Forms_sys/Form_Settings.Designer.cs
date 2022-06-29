@@ -57,7 +57,7 @@ namespace KlonsP.Forms
             this.cmFont = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmUseSysFont = new System.Windows.Forms.Button();
-            this.chCheckVersion = new System.Windows.Forms.CheckBox();
+            this.chCheckVersion = new KlonsLIB.Components.MyCheckBox();
             this.cmBrowseForBackUpFolder = new System.Windows.Forms.Button();
             this.tbBackUpFolder = new KlonsLIB.Components.MyTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -244,7 +244,7 @@ namespace KlonsP.Forms
             this.chCheckVersion.AutoSize = true;
             this.chCheckVersion.Location = new System.Drawing.Point(16, 345);
             this.chCheckVersion.Name = "chCheckVersion";
-            this.chCheckVersion.Size = new System.Drawing.Size(504, 29);
+            this.chCheckVersion.Size = new System.Drawing.Size(528, 25);
             this.chCheckVersion.TabIndex = 15;
             this.chCheckVersion.Text = "Pārbaudīt, vai ir pieejama jaunāka programmas versija";
             this.chCheckVersion.UseVisualStyleBackColor = true;
@@ -331,7 +331,7 @@ namespace KlonsP.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 380);
+            this.ClientSize = new System.Drawing.Size(566, 380);
             this.Controls.Add(this.cmBrowseForBackUpFolder);
             this.Controls.Add(this.tbBackUpFolder);
             this.Controls.Add(this.label7);
@@ -373,7 +373,7 @@ namespace KlonsP.Forms
         private System.Windows.Forms.Button cmFont;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button cmUseSysFont;
-        private System.Windows.Forms.CheckBox chCheckVersion;
+        private MyCheckBox chCheckVersion;
         private System.Windows.Forms.Button cmBrowseForBackUpFolder;
         private MyTextBox tbBackUpFolder;
         private System.Windows.Forms.Label label7;

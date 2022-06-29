@@ -141,8 +141,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
         {
             get
             {
-                var grid = this.GridRow.Grid as MyGrid;
-                return grid[this.GridRow.Index, DataColumnNr];
+                return Grid[RowNr, DataColumnNr];
             }
         }
 
@@ -154,9 +153,9 @@ namespace KlonsLIB.MySourceGrid.GridRows
             }
             set
             {
-                var grid = this.GridRow.Grid as MyGrid;
+                var grid = Grid;
                 var datacell = DataCell;
-                var thisCell = new CellContext(grid, new Position(DataCell.Row.Index, DataCell.Column.Index));
+                var thisCell = new CellContext(grid, new Position(datacell.Row.Index, datacell.Column.Index));
 
                 if (!grid.Selection.ActivePosition.IsEmpty())
                 {
@@ -190,12 +189,13 @@ namespace KlonsLIB.MySourceGrid.GridRows
             return RowSpan;
         }
 
-        public override void MakeRow(SourceGrid.GridRow gridrow)
+        public override void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
-            base.MakeRow(gridrow);
-            int i = GridRow.Index;
+            base.MakeRow(gridrow, colnr);
+            int i = RowNr;
 
-            MakeFirstCell();
+            if (Grid.RowHeadersUsed) 
+                MakeFirstCell();
             MakeCaptionCell();
             var datacell = MakeDataCell();
             Grid[i, DataColumnNr] = datacell;
@@ -203,10 +203,11 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
             if (RowSpan > 1)
             {
-                Grid[i, 0].SetSpan(RowSpan, 1);
-                Grid[i, 1].SetSpan(RowSpan, 1);
-                Grid[i, 1].View.WordWrap = true;
-                Grid[i, 2].SetSpan(RowSpan, 1);
+                if (Grid.RowHeadersUsed)
+                    Grid[i, RowHeaderColumnNr].SetSpan(RowSpan, 1);
+                Grid[i, CaptionColumnNr].SetSpan(RowSpan, 1);
+                Grid[i, CaptionColumnNr].View.WordWrap = true;
+                Grid[i, DataColumnNr].SetSpan(RowSpan, 1);
             }
         }
 
@@ -234,13 +235,10 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         public void LinkCell()
         {
-            int i = GridRow.Index;
-            var grid = GridRow.Grid as MyGrid;
-
             if (string.IsNullOrEmpty(GridPropertyName)) return;
 
             //grid.LinkedCells[GridPropertyName] = new CellContext(grid, new Position(i, cellnr), grid[i, cellnr]);
-            grid.LinkedRows.Add(GridPropertyName, this);
+            Grid.LinkedRows.Add(GridPropertyName, this);
 
             var bp = new DataCellController(this);
             DataCell.AddController(bp);
@@ -255,17 +253,23 @@ namespace KlonsLIB.MySourceGrid.GridRows
             {
                 var bd = new Binding(GridPropertyName, DataSource, DataMember, true, DataSourceUpdateMode.OnPropertyChanged);
 
-                (grid.MyData as IBindableComponent).DataBindings.Add(bd);
+                (Grid.MyData as IBindableComponent).DataBindings.Add(bd);
             }
         }
 
         public void UnLinkCell()
         {
-            if (GridRow == null) return;
-            int i = GridRow.Index;
-            var grid = GridRow.Grid as MyGrid;
+            if (Grid == null) return;
+            int i = RowNr;
+            var grid = Grid;
             // todo
         }
+
+        public virtual void SetBindingContext(BindingContext bc)
+        {
+            
+        }
+
 
         public virtual EditorBase GetSharedEditor()
         {
@@ -278,9 +282,8 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         public virtual void UpdateDataSource()
         {
-            var grid = GridRow.Grid as MyGrid;
-            if (string.IsNullOrEmpty(GridPropertyName) || grid == null || grid.MyData == null) return;
-            var mydata = grid.MyData;
+            if (string.IsNullOrEmpty(GridPropertyName) || Grid == null || Grid.MyData == null) return;
+            var mydata = Grid.MyData;
             PropertyInfo prop = Utils.GetProp(mydata.GetType(), GridPropertyName);
             if (prop == null)
             {
@@ -304,10 +307,10 @@ namespace KlonsLIB.MySourceGrid.GridRows
             catch (Exception ex)
             {
                 var ex1 = new MyException("Ievadīta nnekorekta lauka vērtība.", ex);
-                grid.OnDataError(ex1);
+                Grid.OnDataError(ex1);
             }
 
-            var db = grid.MyDataBC.DataBindings[GridPropertyName];
+            var db = Grid.MyDataBC.DataBindings[GridPropertyName];
             if (db != null)
             {
                 db.ReadValue();
@@ -322,7 +325,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         public override void UpdateDataCell()
         {
-            var grid = GridRow.Grid as MyGrid;
+            var grid = Grid;
             if (string.IsNullOrEmpty(GridPropertyName) || grid == null || grid.MyData == null) return;
             var mydata = grid.MyData;
             PropertyInfo prop = Utils.GetProp(mydata.GetType(), GridPropertyName);
@@ -551,7 +554,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
         {
             SourceGrid.Cells.Views.Cell vw;
 
-            var cell = this.Grid[this.GridRow.Index, 0];
+            var cell = this.Grid[RowNr, RowHeaderColumnNr];
             if (cell == null) return false;
             var controller = cell.FindController<RowMarkCellController>();
             if (controller == null) return false;
@@ -568,9 +571,8 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         public bool CheckRedRow(object[] dataprev, object[] datacur, object[] datasource, bool clearreds = false)
         {
-            bool red = false, haschanges = false;
+            bool red, haschanges;
 
-            int rownr = GridRow.Index;
             if (clearreds)
                 red = false;
             else

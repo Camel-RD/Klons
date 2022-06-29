@@ -395,6 +395,7 @@ namespace KlonsLIB.Forms
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            if (IsFormClosing) return;
             IsFormClosing = true;
             try
             {
@@ -414,6 +415,7 @@ namespace KlonsLIB.Forms
                 {
                     var s = String.Format("Logs [{0}] tiks aizvērt, bet\niespējams, ka datos bija kļūda.", this.Text);
                     MyMainForm.ShowWarning(s);
+                    IsFormClosing = false;
                     return;
                 }
 

@@ -11,6 +11,7 @@ namespace KlonsLIB.Components
         void OnButtonClicked(MyDgvTextboxEditingControl control);
     }
 
+    [ToolboxItem(false)]
     public class MyDgvTextboxEditingControl : MyPickRowTextBox2, IDataGridViewEditingControl
     {
         private DataGridView dataGridView;

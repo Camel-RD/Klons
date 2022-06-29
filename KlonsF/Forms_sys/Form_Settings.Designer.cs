@@ -48,10 +48,10 @@ namespace KlonsF.Forms
             KlonsLIB.Components.MyMcComboBox.MyItem myItem16 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             KlonsLIB.Components.MyMcComboBox.MyItem myItem17 = new KlonsLIB.Components.MyMcComboBox.MyItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.chC1 = new System.Windows.Forms.CheckBox();
-            this.chC2 = new System.Windows.Forms.CheckBox();
-            this.chC3 = new System.Windows.Forms.CheckBox();
-            this.chC4 = new System.Windows.Forms.CheckBox();
+            this.chC1 = new MyCheckBox();
+            this.chC2 = new MyCheckBox();
+            this.chC3 = new MyCheckBox();
+            this.chC4 = new MyCheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbFontSize = new KlonsLIB.Components.MyMcFlatComboBox();
@@ -62,9 +62,9 @@ namespace KlonsF.Forms
             this.cmFont = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmUseSysFont = new System.Windows.Forms.Button();
-            this.chUseCurrency = new System.Windows.Forms.CheckBox();
-            this.chCheckVersion = new System.Windows.Forms.CheckBox();
-            this.chInWine = new System.Windows.Forms.CheckBox();
+            this.chUseCurrency = new MyCheckBox();
+            this.chCheckVersion = new MyCheckBox();
+            this.chInWine = new MyCheckBox();
             this.cbBackUpPlan = new KlonsLIB.Components.MyMcFlatComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -465,10 +465,10 @@ namespace KlonsF.Forms
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chC1;
-        private System.Windows.Forms.CheckBox chC2;
-        private System.Windows.Forms.CheckBox chC3;
-        private System.Windows.Forms.CheckBox chC4;
+        private MyCheckBox chC1;
+        private MyCheckBox chC2;
+        private MyCheckBox chC3;
+        private MyCheckBox chC4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private MyMcFlatComboBox cbFontSize;
@@ -479,9 +479,9 @@ namespace KlonsF.Forms
         private System.Windows.Forms.Button cmFont;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button cmUseSysFont;
-        private System.Windows.Forms.CheckBox chUseCurrency;
-        private System.Windows.Forms.CheckBox chCheckVersion;
-        private System.Windows.Forms.CheckBox chInWine;
+        private MyCheckBox chUseCurrency;
+        private MyCheckBox chCheckVersion;
+        private MyCheckBox chInWine;
         private MyMcFlatComboBox cbBackUpPlan;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

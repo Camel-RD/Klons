@@ -1,4 +1,6 @@
-﻿namespace KlonsA.Forms
+﻿using KlonsLIB.Components;
+
+namespace KlonsA.Forms
 {
     partial class Form_SalarySheets
     {
@@ -49,7 +51,7 @@
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDEP = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsDep = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcIsTemp = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcIsTemp = new MyDgvCheckBoxColumn();
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -488,7 +490,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDT2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcDEP;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcIsTemp;
+        private MyDgvCheckBoxColumn dgcIsTemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
     }
 }

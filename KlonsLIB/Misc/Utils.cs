@@ -148,6 +148,11 @@ namespace KlonsLIB.Misc
             return date.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
         }
 
+        public static string DateToLongString(DateTime date)
+        {
+            return $"{date.Year}. gada {date.Day}. {MonthNames[date.Month - 1]}";
+        }
+
         public static string ReformatDateString(string date)
         {
             DateTime dt;
@@ -647,6 +652,12 @@ namespace KlonsLIB.Misc
             else
                 return null;
         }
+
+        public static bool IsNullableType(this Type type)
+        {
+            return !type.IsValueType || Nullable.GetUnderlyingType(type) != null;
+        }
+    
 
         //for small differences
         public static decimal MakeExactSum<T>(decimal sum, IEnumerable<T> list,

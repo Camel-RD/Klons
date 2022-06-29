@@ -47,7 +47,7 @@
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
             this.dgcYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcKind = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcKind = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcValue0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcValueNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -373,7 +373,7 @@
         private KlonsLIB.Data.MyBindingSource bsCatT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcYR;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcKind;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcKind;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcValue0;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcValueNew;

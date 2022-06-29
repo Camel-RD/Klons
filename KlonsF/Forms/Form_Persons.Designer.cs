@@ -47,7 +47,7 @@ namespace KlonsF.Forms
             this.dgcPVNRegNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTP = new KlonsLIB.Components.MyDgvMcCBColumn();
             this.dgcTP2 = new KlonsLIB.Components.MyDgvMcCBColumn();
-            this.dgcTP3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcTP3 = new MyDgvCheckBoxColumn();
             this.dgcAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcAddr2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@ namespace KlonsF.Forms
             this.dgcBank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcBankAcc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcAct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcAct = new MyDgvCheckBoxColumn();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -589,7 +589,7 @@ namespace KlonsF.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPVNRegNr;
         private MyDgvMcCBColumn dgcTP;
         private MyDgvMcCBColumn dgcTP2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcTP3;
+        private MyDgvCheckBoxColumn dgcTP3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAddr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAddr2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcATK;
@@ -597,6 +597,6 @@ namespace KlonsF.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBank;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBankAcc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPhone;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcAct;
+        private MyDgvCheckBoxColumn dgcAct;
     }
 }

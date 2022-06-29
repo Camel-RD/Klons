@@ -51,6 +51,5 @@ namespace KlonsLIB.Components
         public static int SignedHIWORD(int n) => (int)(short)((n >> 16) & 0xffff);
         public static int SignedLOWORD(int n) => (int)(short)(n & 0xFFFF);
 
-
     }
 }

@@ -113,7 +113,12 @@ namespace KlonsLIB.Components
         public new BorderStyle BorderStyle
         {
             get { return base.BorderStyle; }
-            set {  }
+            set 
+            {
+                if (value == BorderStyle.Fixed3D)
+                    value = BorderStyle.FixedSingle;
+                base.BorderStyle = value; 
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -123,9 +128,10 @@ namespace KlonsLIB.Components
                 case NM.WM_PAINT:
                     base.WndProc(ref m);
                     if (!DrawBorder) break;
+                    if (BorderStyle != BorderStyle.FixedSingle) break;
                     using (var gdc = Graphics.FromHwnd(Handle))
                     {
-                        PaintFlatControlBorder(this, gdc);
+                        PaintFlatControlBorder(gdc);
                     }
                     break;
                 /*
@@ -150,21 +156,26 @@ namespace KlonsLIB.Components
                     break;
             }
         }
+
         public static Color Dark(Color baseColor)
         {
-            return new HLSColor(baseColor).Darker(0.5f);
+            return ControlPaint.Dark(baseColor, 0.5f);
         }
 
-        protected void PaintFlatControlBorder(Control ctrl, Graphics g)
+        protected void PaintFlatControlBorder(Graphics g, bool forcepaint = false)
         {
-            if (!DrawBorder) return;
-            if (BorderStyle != BorderStyle.FixedSingle) return;
+            if (!forcepaint)
+            {
+                if (!DrawBorder) return;
+                if (BorderStyle != BorderStyle.FixedSingle) return;
+            }
 
             Rectangle rect;
 
-            rect = new Rectangle(0, 0, ctrl.Width, ctrl.Height);
+            rect = new Rectangle(0, 0, Width, Height);
+            //rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            if (ctrl.Enabled)
+            if (Enabled)
                 ControlPaint.DrawBorder(g, rect, m_BorderColor, ButtonBorderStyle.Solid);
             else
                 ControlPaint.DrawBorder(g, rect, Dark(m_BorderColor), ButtonBorderStyle.Solid);

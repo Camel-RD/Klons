@@ -36,7 +36,7 @@ namespace KlonsA.Forms
             this.dgvProf = new KlonsLIB.Components.MyDataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uSEDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.uSEDDataGridViewTextBoxColumn = new MyDgvCheckBoxColumn();
             this.bsProf = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bnavProf = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -353,6 +353,6 @@ namespace KlonsA.Forms
         private KlonsLIB.Data.MyBindingSource bsProfCat;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn uSEDDataGridViewTextBoxColumn;
+        private MyDgvCheckBoxColumn uSEDDataGridViewTextBoxColumn;
     }
 }

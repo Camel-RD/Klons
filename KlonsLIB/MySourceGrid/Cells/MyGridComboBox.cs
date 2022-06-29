@@ -8,6 +8,7 @@ using KlonsLIB.Components;
 
 namespace KlonsLIB.MySourceGrid.Cells
 {
+    [ToolboxItem(false)]
     public class MyGridComboBox : MyMcFlatComboBox
     {
         protected override void OnValidating(CancelEventArgs e)

@@ -36,7 +36,7 @@
             this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcGroup = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnPlaces = new KlonsLIB.Components.MyBindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -314,7 +314,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDescr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAddr;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcGroup;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
     }
 }

@@ -30,11 +30,12 @@ namespace KlonsLIB.MySourceGrid.GridRows
         }
 
 
-        public override void MakeRow(SourceGrid.GridRow gridrow)
+        public override void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
-            GridRow = gridrow;
-            int i = GridRow.Index;
-            var grid = GridRow.Grid as MyGrid;
+            var grid = Grid = gridrow.Grid as MyGrid;
+            RowNr = gridrow.Index;
+            ColNr = colnr;
+            int i = RowNr;
 
             SourceGrid.Cells.Cell cbcell = null;
 

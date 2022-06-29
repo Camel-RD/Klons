@@ -84,11 +84,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\DataGridViewColorMarkColumn.cs" />
     <Compile Include="Components\FlatRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\ListBoxDragDropHelper.cs" />
     <Compile Include="Components\MyButtonNoSelect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\MyDgvTextbox2.cs">
@@ -100,6 +104,7 @@
     <Compile Include="Components\MyPickRowTextBox2.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\MyDgvCheckBox.cs" />
     <Compile Include="Components\MySplitContainer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -226,6 +231,7 @@
     <Compile Include="Misc\CollectionEditorTypeListProvider.cs" />
     <Compile Include="Misc\HLSColor.cs" />
     <Compile Include="Forms\ReportHelper.cs" />
+    <Compile Include="Misc\HSLColor.cs" />
     <Compile Include="Misc\RelatedDataSourceAttribute.cs" />
     <Compile Include="Misc\SerializableDictionary.cs" />
     <Compile Include="Misc\Utils.cs" />
@@ -236,6 +242,14 @@
     <Compile Include="MultivalueDictionary\Validation\ValidatedNotNullAttribute.cs" />
     <Compile Include="MyData.cs" />
     <Compile Include="MySourceGrid\BindingControllers.cs" />
+    <Compile Include="MySourceGrid\BorderFx\BorderFx.cs" />
+    <Compile Include="MySourceGrid\BorderFx\GridForBordersFX.cs" />
+    <Compile Include="MySourceGrid\Cells\MyCheckBoxView.cs" />
+    <Compile Include="MySourceGrid\Cells\MyCheckBoxVisualElement.cs" />
+    <Compile Include="MySourceGrid\Cells\MyGridPickRowTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MySourceGrid\Cells\MyPickRowTextBoxCell.cs" />
     <Compile Include="MySourceGrid\DataCellController.cs" />
     <Compile Include="MySourceGrid\Cells\MyComboBoxCell.cs" />
     <Compile Include="MySourceGrid\Cells\MyGridComboBox.cs">
@@ -246,8 +260,10 @@
     <Compile Include="MySourceGrid\GridRows\MyGridRowComboBoxB.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowComboBoxA.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowComboBoxB2.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowCommand.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowMultiLineTextBox.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowMyEditor.cs" />
+    <Compile Include="MySourceGrid\GridRows\MyGridRowPickRowTextBox.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowPropEditorBase.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowTextBoxA.cs" />
     <Compile Include="MySourceGrid\GridRows\MyGridRowTitleX.cs" />

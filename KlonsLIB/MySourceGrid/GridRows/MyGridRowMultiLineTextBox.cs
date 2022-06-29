@@ -47,20 +47,34 @@ namespace KlonsLIB.MySourceGrid.GridRows
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override SourceGrid.Cells.ICell DataCell
+        {
+            get
+            {
+                int cnr = Grid.RowHeadersUsed ? RowHeaderColumnNr : CaptionColumnNr;
+                return Grid[RowNr, cnr];
+            }
+        }
+
         [Category("Data")]
         [DefaultValue(false)]
         public bool CustomConversions { get; set; } = false;
         private ValueMappingB ValueMapping = null;
 
-        public override void MakeRow(SourceGrid.GridRow gridrow)
+        public override void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
-            GridRow = gridrow;
-            Grid = GridRow.Grid as MyGrid;
-            int i = GridRow.Index;
+            Grid = gridrow.Grid as MyGrid;
+            RowNr = gridrow.Index;
+            ColNr = colnr;
+            int i = RowNr;
 
             var datacell = MakeDataCell();
-            Grid[i, 0] = datacell;
-            datacell.SetSpan(RowSpan, 3);
+            int cnr = Grid.RowHeadersUsed ? RowHeaderColumnNr : CaptionColumnNr;
+            int csp = Grid.RowHeadersUsed ? 3 : 2;
+            Grid[i, cnr] = datacell;
+            datacell.SetSpan(RowSpan, csp);
             MyEditor = datacell.Editor;
         }
 

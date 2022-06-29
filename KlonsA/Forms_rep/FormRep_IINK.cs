@@ -268,6 +268,23 @@ namespace KlonsA.Forms
             if (ReportData.Rows.Count == 0) return xdoc;
 
             var rows = ReportData.Rows;
+            var rows2 = rows.Where(x => x.Use).ToList();
+            if (rows2.Count > 0 && rows2.Count != rows.Count)
+            {
+                var rt = MyMessageBox.Show(
+                    "Sarakstā ir atzīmētas vairākas rindas.\n" +
+                    "Vai vēlaties xml atskaitē izmantot tikai atzīmētās rindas?",
+                    "",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1);
+                
+                if (rt == DialogResult.Yes)
+                {
+                    rows = rows2;
+                }
+            }
+
             var tab = xdoc.CreateElement("Tab");
             DokPFPISKv3.AppendChild(tab);
 

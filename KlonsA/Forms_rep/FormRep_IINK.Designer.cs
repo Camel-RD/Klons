@@ -67,7 +67,7 @@
             this.cbYear = new KlonsLIB.Components.MyMcFlatComboBox();
             this.cbMonth = new KlonsLIB.Components.MyMcFlatComboBox();
             this.dgvRep = new KlonsLIB.Components.MyDataGridView();
-            this.dgcUse = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUse = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcIncomeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,7 +96,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbPosition = new KlonsLIB.Components.MyTextBox();
             this.tbName = new KlonsLIB.Components.MyTextBox();
-            this.chSimple = new System.Windows.Forms.CheckBox();
+            this.chSimple = new KlonsLIB.Components.MyCheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbGetRows = new System.Windows.Forms.ToolStripButton();
             this.tsbReport = new System.Windows.Forms.ToolStripDropDownButton();
@@ -832,7 +832,7 @@
         private System.Windows.Forms.Label label3;
         private KlonsLIB.Components.MyTextBox tbPosition;
         private KlonsLIB.Components.MyTextBox tbName;
-        private System.Windows.Forms.CheckBox chSimple;
+        private KlonsLIB.Components.MyCheckBox chSimple;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbGetRows;
         private System.Windows.Forms.ToolStripButton tsbXML;
@@ -855,7 +855,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUse;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcUse;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcIncomeType;

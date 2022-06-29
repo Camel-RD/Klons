@@ -41,33 +41,41 @@ namespace KlonsLIB.MySourceGrid.GridRows
         [DefaultValue(false)]
         public bool CustomConversions { get; set; } = false;
 
-        private ValueMappingB ValueMapping = null;
-
         [DefaultValue(true)]
         public bool RowTitleVisible { get; set; } = true;
 
-        public override void MakeRow(SourceGrid.GridRow gridrow)
+        public override int CaptionColumnNr => RowTitleVisible ? base.CaptionColumnNr : -1;
+        public override int DataColumnNr => RowTitleVisible ? base.DataColumnNr : base.CaptionColumnNr;
+
+
+        private ValueMappingB ValueMapping = null;
+
+
+        public override void MakeRow(SourceGrid.GridRow gridrow, int colnr)
         {
             if (RowTitleVisible)
             {
-                base.MakeRow(gridrow);
+                base.MakeRow(gridrow, colnr);
                 return;
             }
 
-            GridRow = gridrow;
-            Grid = GridRow.Grid as MyGrid;
-            int i = GridRow.Index;
+            Grid = gridrow.Grid as MyGrid;
+            RowNr = gridrow.Index;
+            ColNr = colnr;
+            int i = RowNr;
 
-            MakeFirstCell();
+            if (Grid.RowHeadersUsed)
+                MakeFirstCell();
             var datacell = MakeDataCell();
-            Grid[i, 1] = datacell;
+            Grid[i, DataColumnNr] = datacell;
             datacell.ColumnSpan = 2;
             MyEditor = datacell.Editor;
 
             if (RowSpan > 1)
             {
-                Grid[i, 0].SetSpan(RowSpan, 1);
-                Grid[i, 1].SetSpan(RowSpan, 2);
+                if (Grid.RowHeadersUsed)
+                    Grid[i, RowHeaderColumnNr].SetSpan(RowSpan, 1);
+                Grid[i, DataColumnNr].SetSpan(RowSpan, 2);
             }
         }
 

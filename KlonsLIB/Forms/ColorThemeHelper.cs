@@ -391,6 +391,11 @@ namespace KlonsLIB.Forms
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
                 frb.BorderColor = mycolortheme.GetColor(frb.BorderColor, mycolortheme.BorderColor);
             }
+            else if (c is MyCheckBox)
+            {
+                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
+                c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
+            }
             /*
             else
             {

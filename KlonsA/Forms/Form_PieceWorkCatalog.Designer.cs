@@ -49,7 +49,7 @@
             this.dgcTimeUnit = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgcTimeUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTimeHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcUsed = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcKatCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsSar = new KlonsLIB.Data.MyBindingSource(this.components);
             this.bnavSar = new KlonsLIB.Components.MyBindingNavigator();
@@ -540,7 +540,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcTimeUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTimeUse;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcTimeHours;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcUsed;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcKatCode;
     }
 }

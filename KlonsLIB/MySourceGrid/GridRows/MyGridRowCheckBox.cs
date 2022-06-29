@@ -79,7 +79,8 @@ namespace KlonsLIB.MySourceGrid.GridRows
             var checkcell = new SourceGrid.Cells.CheckBox();
             if (ReadOnly)
                 checkcell.Editor.EditableMode = EditableMode.None;
-            checkcell.View = Grid.gridViewModel.dataCellCheckBox;
+            //checkcell.View = Grid.gridViewModel.dataCellCheckBox;
+            checkcell.View = Grid.gridViewModel.dataCellCheckBox2;
             return checkcell;
         }
     }
