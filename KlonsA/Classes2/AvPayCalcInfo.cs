@@ -70,6 +70,10 @@ namespace KlonsA.Classes
         {
             if (sr.SalarySheetRowSet == null)
                 sr.CheckLinkedRows(sr.Row.IDP);
+            if (sr.SalarySheetRowSet.TotalPersonPay._FNAME == null)
+                sr.SalarySheetRowSet.TotalPersonPay._FNAME = sr.DR_Person_r.FNAME;
+            if (sr.SalarySheetRowSet.TotalPersonPay._LNAME == null)
+                sr.SalarySheetRowSet.TotalPersonPay._LNAME = sr.DR_Person_r.LNAME;
             return CalcList(sr.SalarySheet, sr.Row.IDP, sr.SalarySheetRowSet.TotalPersonPay);
         }
 

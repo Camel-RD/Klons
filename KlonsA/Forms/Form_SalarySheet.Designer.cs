@@ -3357,10 +3357,10 @@
             // 
             // dgcSarFactDays
             // 
-            this.dgcSarFactDays.DataPropertyName = "FACT_DAYS";
+            this.dgcSarFactDays.DataPropertyName = "FACT_WORK_DAYS";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.dgcSarFactDays.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcSarFactDays.HeaderText = "dienas";
+            this.dgcSarFactDays.HeaderText = "darba dienas";
             this.dgcSarFactDays.MinimumWidth = 7;
             this.dgcSarFactDays.Name = "dgcSarFactDays";
             this.dgcSarFactDays.ReadOnly = true;
@@ -3372,7 +3372,7 @@
             this.dgcSarFactAvPayFreeDays.DataPropertyName = "FACT_AVPAY_FREE_DAYS";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.dgcSarFactAvPayFreeDays.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcSarFactAvPayFreeDays.HeaderText = "t.sk. svētku d.";
+            this.dgcSarFactAvPayFreeDays.HeaderText = "svētku dienas";
             this.dgcSarFactAvPayFreeDays.MinimumWidth = 8;
             this.dgcSarFactAvPayFreeDays.Name = "dgcSarFactAvPayFreeDays";
             this.dgcSarFactAvPayFreeDays.ReadOnly = true;
@@ -3385,7 +3385,7 @@
             this.dgcSarsFactHours.DataPropertyName = "FACT_HOURS";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.dgcSarsFactHours.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgcSarsFactHours.HeaderText = "stundas";
+            this.dgcSarsFactHours.HeaderText = "darba stundas";
             this.dgcSarsFactHours.MinimumWidth = 7;
             this.dgcSarsFactHours.Name = "dgcSarsFactHours";
             this.dgcSarsFactHours.ReadOnly = true;

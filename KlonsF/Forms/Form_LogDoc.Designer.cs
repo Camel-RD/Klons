@@ -32,18 +32,18 @@ namespace KlonsF.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_LogDoc));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bNav = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.tslActiveGrid = new System.Windows.Forms.ToolStripLabel();
@@ -60,30 +60,6 @@ namespace KlonsF.Forms
             this.tsbSplitView = new System.Windows.Forms.ToolStripMenuItem();
             this.mySplitContainer1 = new KlonsLIB.Components.MySplitContainer();
             this.dgvDocs = new KlonsLIB.Components.MyDataGridView();
-            this.bsDocs = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvRows = new KlonsLIB.Components.MyDataGridView();
-            this.dgcRowsIdl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsDocId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsDtl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsDtld = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsOdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsAC25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsSummC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsCur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsSumm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsQV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcRowsUsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsRows = new System.Windows.Forms.BindingSource(this.components);
             this.dgcDocsIDL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDocsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDocsZnr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,6 +78,30 @@ namespace KlonsF.Forms
             this.dgcDocsPVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDocsUsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcDocsZU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsDocs = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvRows = new KlonsLIB.Components.MyDataGridView();
+            this.bsRows = new System.Windows.Forms.BindingSource(this.components);
+            this.dgcRowsIdl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsDocId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsOdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsDtl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsDtld = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAC25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsSummC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsCur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsSumm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsQV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsUsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).BeginInit();
             this.bNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mySplitContainer1)).BeginInit();
@@ -260,7 +260,7 @@ namespace KlonsF.Forms
             // 
             this.mySplitContainer1.Panel2.Controls.Add(this.dgvRows);
             this.mySplitContainer1.Size = new System.Drawing.Size(1077, 523);
-            this.mySplitContainer1.SplitterDistance = 339;
+            this.mySplitContainer1.SplitterDistance = 335;
             this.mySplitContainer1.SplitterWidth = 8;
             this.mySplitContainer1.TabIndex = 2;
             // 
@@ -307,266 +307,9 @@ namespace KlonsF.Forms
             this.dgvDocs.RowHeadersWidth = 62;
             this.dgvDocs.RowTemplate.Height = 28;
             this.dgvDocs.ShowCellToolTips = false;
-            this.dgvDocs.Size = new System.Drawing.Size(1077, 339);
+            this.dgvDocs.Size = new System.Drawing.Size(1077, 335);
             this.dgvDocs.TabIndex = 0;
             this.dgvDocs.Enter += new System.EventHandler(this.dgvDocs_Enter);
-            // 
-            // bsDocs
-            // 
-            this.bsDocs.CurrentChanged += new System.EventHandler(this.bsDocs_CurrentChanged);
-            // 
-            // dgvRows
-            // 
-            this.dgvRows.AllowUserToAddRows = false;
-            this.dgvRows.AllowUserToDeleteRows = false;
-            this.dgvRows.AutoGenerateColumns = false;
-            this.dgvRows.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRows.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvRows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRows.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgcRowsIdl,
-            this.dgcRowsDocId,
-            this.dgcRowsId,
-            this.dgcRowsDtl,
-            this.dgcRowsDtld,
-            this.dgcRowsOdt,
-            this.dgcRowsAC11,
-            this.dgcRowsAC12,
-            this.dgcRowsAC13,
-            this.dgcRowsAC14,
-            this.dgcRowsAC15,
-            this.dgcRowsAC21,
-            this.dgcRowsAC22,
-            this.dgcRowsAC23,
-            this.dgcRowsAC24,
-            this.dgcRowsAC25,
-            this.dgcRowsSummC,
-            this.dgcRowsCur,
-            this.dgcRowsSumm,
-            this.dgcRowsQV,
-            this.dgcRowsUsl});
-            this.dgvRows.DataSource = this.bsRows;
-            this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRows.Location = new System.Drawing.Point(0, 0);
-            this.dgvRows.Name = "dgvRows";
-            this.dgvRows.ReadOnly = true;
-            this.dgvRows.RowHeadersWidth = 62;
-            this.dgvRows.RowTemplate.Height = 28;
-            this.dgvRows.ShowCellToolTips = false;
-            this.dgvRows.Size = new System.Drawing.Size(1077, 176);
-            this.dgvRows.TabIndex = 0;
-            this.dgvRows.Enter += new System.EventHandler(this.dgvRows_Enter);
-            // 
-            // dgcRowsIdl
-            // 
-            this.dgcRowsIdl.DataPropertyName = "IDL";
-            this.dgcRowsIdl.HeaderText = "idl";
-            this.dgcRowsIdl.MinimumWidth = 8;
-            this.dgcRowsIdl.Name = "dgcRowsIdl";
-            this.dgcRowsIdl.ReadOnly = true;
-            this.dgcRowsIdl.Visible = false;
-            this.dgcRowsIdl.Width = 70;
-            // 
-            // dgcRowsDocId
-            // 
-            this.dgcRowsDocId.DataPropertyName = "DOCID";
-            this.dgcRowsDocId.HeaderText = "docid";
-            this.dgcRowsDocId.MinimumWidth = 8;
-            this.dgcRowsDocId.Name = "dgcRowsDocId";
-            this.dgcRowsDocId.ReadOnly = true;
-            this.dgcRowsDocId.Visible = false;
-            this.dgcRowsDocId.Width = 70;
-            // 
-            // dgcRowsId
-            // 
-            this.dgcRowsId.DataPropertyName = "ID";
-            this.dgcRowsId.HeaderText = "id";
-            this.dgcRowsId.MinimumWidth = 8;
-            this.dgcRowsId.Name = "dgcRowsId";
-            this.dgcRowsId.ReadOnly = true;
-            this.dgcRowsId.Width = 70;
-            // 
-            // dgcRowsDtl
-            // 
-            this.dgcRowsDtl.DataPropertyName = "DTL";
-            dataGridViewCellStyle9.Format = "dd.MM.yyyy HH:mm";
-            this.dgcRowsDtl.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgcRowsDtl.HeaderText = "dat. labots";
-            this.dgcRowsDtl.MinimumWidth = 8;
-            this.dgcRowsDtl.Name = "dgcRowsDtl";
-            this.dgcRowsDtl.ReadOnly = true;
-            this.dgcRowsDtl.Width = 130;
-            // 
-            // dgcRowsDtld
-            // 
-            this.dgcRowsDtld.DataPropertyName = "DTLD";
-            dataGridViewCellStyle10.Format = "dd.MM.yyyy HH:mm";
-            this.dgcRowsDtld.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgcRowsDtld.HeaderText = "dat. dzēsts";
-            this.dgcRowsDtld.MinimumWidth = 8;
-            this.dgcRowsDtld.Name = "dgcRowsDtld";
-            this.dgcRowsDtld.ReadOnly = true;
-            this.dgcRowsDtld.Width = 130;
-            // 
-            // dgcRowsOdt
-            // 
-            this.dgcRowsOdt.DataPropertyName = "ODT";
-            dataGridViewCellStyle11.Format = "dd.MM.yyyy HH:mm";
-            this.dgcRowsOdt.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgcRowsOdt.HeaderText = "dat. no";
-            this.dgcRowsOdt.MinimumWidth = 8;
-            this.dgcRowsOdt.Name = "dgcRowsOdt";
-            this.dgcRowsOdt.ReadOnly = true;
-            this.dgcRowsOdt.Visible = false;
-            this.dgcRowsOdt.Width = 130;
-            // 
-            // dgcRowsAC11
-            // 
-            this.dgcRowsAC11.DataPropertyName = "AC11";
-            this.dgcRowsAC11.HeaderText = "debets";
-            this.dgcRowsAC11.MinimumWidth = 8;
-            this.dgcRowsAC11.Name = "dgcRowsAC11";
-            this.dgcRowsAC11.ReadOnly = true;
-            this.dgcRowsAC11.Width = 70;
-            // 
-            // dgcRowsAC12
-            // 
-            this.dgcRowsAC12.DataPropertyName = "AC12";
-            this.dgcRowsAC12.HeaderText = "d: n.p.";
-            this.dgcRowsAC12.MinimumWidth = 8;
-            this.dgcRowsAC12.Name = "dgcRowsAC12";
-            this.dgcRowsAC12.ReadOnly = true;
-            this.dgcRowsAC12.Width = 70;
-            // 
-            // dgcRowsAC13
-            // 
-            this.dgcRowsAC13.DataPropertyName = "AC13";
-            this.dgcRowsAC13.HeaderText = "d: iin";
-            this.dgcRowsAC13.MinimumWidth = 8;
-            this.dgcRowsAC13.Name = "dgcRowsAC13";
-            this.dgcRowsAC13.ReadOnly = true;
-            this.dgcRowsAC13.Width = 50;
-            // 
-            // dgcRowsAC14
-            // 
-            this.dgcRowsAC14.DataPropertyName = "AC14";
-            this.dgcRowsAC14.HeaderText = "d: kat.";
-            this.dgcRowsAC14.MinimumWidth = 8;
-            this.dgcRowsAC14.Name = "dgcRowsAC14";
-            this.dgcRowsAC14.ReadOnly = true;
-            this.dgcRowsAC14.Width = 70;
-            // 
-            // dgcRowsAC15
-            // 
-            this.dgcRowsAC15.DataPropertyName = "AC15";
-            this.dgcRowsAC15.HeaderText = "d: pvn";
-            this.dgcRowsAC15.MinimumWidth = 8;
-            this.dgcRowsAC15.Name = "dgcRowsAC15";
-            this.dgcRowsAC15.ReadOnly = true;
-            this.dgcRowsAC15.Width = 55;
-            // 
-            // dgcRowsAC21
-            // 
-            this.dgcRowsAC21.DataPropertyName = "AC21";
-            this.dgcRowsAC21.HeaderText = "kredits";
-            this.dgcRowsAC21.MinimumWidth = 8;
-            this.dgcRowsAC21.Name = "dgcRowsAC21";
-            this.dgcRowsAC21.ReadOnly = true;
-            this.dgcRowsAC21.Width = 70;
-            // 
-            // dgcRowsAC22
-            // 
-            this.dgcRowsAC22.DataPropertyName = "AC22";
-            this.dgcRowsAC22.HeaderText = "k: n.p.";
-            this.dgcRowsAC22.MinimumWidth = 8;
-            this.dgcRowsAC22.Name = "dgcRowsAC22";
-            this.dgcRowsAC22.ReadOnly = true;
-            this.dgcRowsAC22.Width = 70;
-            // 
-            // dgcRowsAC23
-            // 
-            this.dgcRowsAC23.DataPropertyName = "AC23";
-            this.dgcRowsAC23.HeaderText = "k: iin";
-            this.dgcRowsAC23.MinimumWidth = 8;
-            this.dgcRowsAC23.Name = "dgcRowsAC23";
-            this.dgcRowsAC23.ReadOnly = true;
-            this.dgcRowsAC23.Width = 50;
-            // 
-            // dgcRowsAC24
-            // 
-            this.dgcRowsAC24.DataPropertyName = "AC24";
-            this.dgcRowsAC24.HeaderText = "k: kat.";
-            this.dgcRowsAC24.MinimumWidth = 8;
-            this.dgcRowsAC24.Name = "dgcRowsAC24";
-            this.dgcRowsAC24.ReadOnly = true;
-            this.dgcRowsAC24.Width = 70;
-            // 
-            // dgcRowsAC25
-            // 
-            this.dgcRowsAC25.DataPropertyName = "AC25";
-            this.dgcRowsAC25.HeaderText = "k: pvn";
-            this.dgcRowsAC25.MinimumWidth = 8;
-            this.dgcRowsAC25.Name = "dgcRowsAC25";
-            this.dgcRowsAC25.ReadOnly = true;
-            this.dgcRowsAC25.Width = 55;
-            // 
-            // dgcRowsSummC
-            // 
-            this.dgcRowsSummC.DataPropertyName = "SUMMC";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            this.dgcRowsSummC.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgcRowsSummC.HeaderText = "summa val";
-            this.dgcRowsSummC.MinimumWidth = 8;
-            this.dgcRowsSummC.Name = "dgcRowsSummC";
-            this.dgcRowsSummC.ReadOnly = true;
-            this.dgcRowsSummC.Width = 90;
-            // 
-            // dgcRowsCur
-            // 
-            this.dgcRowsCur.DataPropertyName = "CUR";
-            this.dgcRowsCur.HeaderText = "valūta";
-            this.dgcRowsCur.MinimumWidth = 8;
-            this.dgcRowsCur.Name = "dgcRowsCur";
-            this.dgcRowsCur.ReadOnly = true;
-            this.dgcRowsCur.Width = 50;
-            // 
-            // dgcRowsSumm
-            // 
-            this.dgcRowsSumm.DataPropertyName = "SUMM";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            this.dgcRowsSumm.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dgcRowsSumm.HeaderText = "summa €";
-            this.dgcRowsSumm.MinimumWidth = 8;
-            this.dgcRowsSumm.Name = "dgcRowsSumm";
-            this.dgcRowsSumm.ReadOnly = true;
-            this.dgcRowsSumm.Width = 90;
-            // 
-            // dgcRowsQV
-            // 
-            this.dgcRowsQV.DataPropertyName = "QV";
-            this.dgcRowsQV.HeaderText = "daudzums";
-            this.dgcRowsQV.MinimumWidth = 8;
-            this.dgcRowsQV.Name = "dgcRowsQV";
-            this.dgcRowsQV.ReadOnly = true;
-            this.dgcRowsQV.Width = 90;
-            // 
-            // dgcRowsUsl
-            // 
-            this.dgcRowsUsl.DataPropertyName = "USL";
-            this.dgcRowsUsl.HeaderText = "usl";
-            this.dgcRowsUsl.MinimumWidth = 8;
-            this.dgcRowsUsl.Name = "dgcRowsUsl";
-            this.dgcRowsUsl.ReadOnly = true;
-            this.dgcRowsUsl.Width = 90;
             // 
             // dgcDocsIDL
             // 
@@ -746,6 +489,263 @@ namespace KlonsF.Forms
             this.dgcDocsZU.ReadOnly = true;
             this.dgcDocsZU.Width = 90;
             // 
+            // bsDocs
+            // 
+            this.bsDocs.CurrentChanged += new System.EventHandler(this.bsDocs_CurrentChanged);
+            // 
+            // dgvRows
+            // 
+            this.dgvRows.AllowUserToAddRows = false;
+            this.dgvRows.AllowUserToDeleteRows = false;
+            this.dgvRows.AutoGenerateColumns = false;
+            this.dgvRows.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRows.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvRows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRows.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgcRowsIdl,
+            this.dgcRowsDocId,
+            this.dgcRowsId,
+            this.dgcRowsOdt,
+            this.dgcRowsDtl,
+            this.dgcRowsDtld,
+            this.dgcRowsAC11,
+            this.dgcRowsAC12,
+            this.dgcRowsAC13,
+            this.dgcRowsAC14,
+            this.dgcRowsAC15,
+            this.dgcRowsAC21,
+            this.dgcRowsAC22,
+            this.dgcRowsAC23,
+            this.dgcRowsAC24,
+            this.dgcRowsAC25,
+            this.dgcRowsSummC,
+            this.dgcRowsCur,
+            this.dgcRowsSumm,
+            this.dgcRowsQV,
+            this.dgcRowsUsl});
+            this.dgvRows.DataSource = this.bsRows;
+            this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRows.Location = new System.Drawing.Point(0, 0);
+            this.dgvRows.Name = "dgvRows";
+            this.dgvRows.ReadOnly = true;
+            this.dgvRows.RowHeadersWidth = 62;
+            this.dgvRows.RowTemplate.Height = 28;
+            this.dgvRows.ShowCellToolTips = false;
+            this.dgvRows.Size = new System.Drawing.Size(1077, 180);
+            this.dgvRows.TabIndex = 0;
+            this.dgvRows.Enter += new System.EventHandler(this.dgvRows_Enter);
+            // 
+            // dgcRowsIdl
+            // 
+            this.dgcRowsIdl.DataPropertyName = "IDL";
+            this.dgcRowsIdl.HeaderText = "idl";
+            this.dgcRowsIdl.MinimumWidth = 8;
+            this.dgcRowsIdl.Name = "dgcRowsIdl";
+            this.dgcRowsIdl.ReadOnly = true;
+            this.dgcRowsIdl.Visible = false;
+            this.dgcRowsIdl.Width = 70;
+            // 
+            // dgcRowsDocId
+            // 
+            this.dgcRowsDocId.DataPropertyName = "DOCID";
+            this.dgcRowsDocId.HeaderText = "docid";
+            this.dgcRowsDocId.MinimumWidth = 8;
+            this.dgcRowsDocId.Name = "dgcRowsDocId";
+            this.dgcRowsDocId.ReadOnly = true;
+            this.dgcRowsDocId.Visible = false;
+            this.dgcRowsDocId.Width = 70;
+            // 
+            // dgcRowsId
+            // 
+            this.dgcRowsId.DataPropertyName = "ID";
+            this.dgcRowsId.HeaderText = "id";
+            this.dgcRowsId.MinimumWidth = 8;
+            this.dgcRowsId.Name = "dgcRowsId";
+            this.dgcRowsId.ReadOnly = true;
+            this.dgcRowsId.Width = 70;
+            // 
+            // dgcRowsOdt
+            // 
+            this.dgcRowsOdt.DataPropertyName = "ODT";
+            dataGridViewCellStyle9.Format = "dd.MM.yyyy HH:mm";
+            this.dgcRowsOdt.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgcRowsOdt.HeaderText = "dat. no";
+            this.dgcRowsOdt.MinimumWidth = 8;
+            this.dgcRowsOdt.Name = "dgcRowsOdt";
+            this.dgcRowsOdt.ReadOnly = true;
+            this.dgcRowsOdt.Width = 130;
+            // 
+            // dgcRowsDtl
+            // 
+            this.dgcRowsDtl.DataPropertyName = "DTL";
+            dataGridViewCellStyle10.Format = "dd.MM.yyyy HH:mm";
+            this.dgcRowsDtl.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgcRowsDtl.HeaderText = "dat. labots";
+            this.dgcRowsDtl.MinimumWidth = 8;
+            this.dgcRowsDtl.Name = "dgcRowsDtl";
+            this.dgcRowsDtl.ReadOnly = true;
+            this.dgcRowsDtl.Visible = false;
+            this.dgcRowsDtl.Width = 130;
+            // 
+            // dgcRowsDtld
+            // 
+            this.dgcRowsDtld.DataPropertyName = "DTLD";
+            dataGridViewCellStyle11.Format = "dd.MM.yyyy HH:mm";
+            this.dgcRowsDtld.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgcRowsDtld.HeaderText = "dat. dzēsts";
+            this.dgcRowsDtld.MinimumWidth = 8;
+            this.dgcRowsDtld.Name = "dgcRowsDtld";
+            this.dgcRowsDtld.ReadOnly = true;
+            this.dgcRowsDtld.Width = 130;
+            // 
+            // dgcRowsAC11
+            // 
+            this.dgcRowsAC11.DataPropertyName = "AC11";
+            this.dgcRowsAC11.HeaderText = "debets";
+            this.dgcRowsAC11.MinimumWidth = 8;
+            this.dgcRowsAC11.Name = "dgcRowsAC11";
+            this.dgcRowsAC11.ReadOnly = true;
+            this.dgcRowsAC11.Width = 70;
+            // 
+            // dgcRowsAC12
+            // 
+            this.dgcRowsAC12.DataPropertyName = "AC12";
+            this.dgcRowsAC12.HeaderText = "d: n.p.";
+            this.dgcRowsAC12.MinimumWidth = 8;
+            this.dgcRowsAC12.Name = "dgcRowsAC12";
+            this.dgcRowsAC12.ReadOnly = true;
+            this.dgcRowsAC12.Width = 70;
+            // 
+            // dgcRowsAC13
+            // 
+            this.dgcRowsAC13.DataPropertyName = "AC13";
+            this.dgcRowsAC13.HeaderText = "d: iin";
+            this.dgcRowsAC13.MinimumWidth = 8;
+            this.dgcRowsAC13.Name = "dgcRowsAC13";
+            this.dgcRowsAC13.ReadOnly = true;
+            this.dgcRowsAC13.Width = 50;
+            // 
+            // dgcRowsAC14
+            // 
+            this.dgcRowsAC14.DataPropertyName = "AC14";
+            this.dgcRowsAC14.HeaderText = "d: kat.";
+            this.dgcRowsAC14.MinimumWidth = 8;
+            this.dgcRowsAC14.Name = "dgcRowsAC14";
+            this.dgcRowsAC14.ReadOnly = true;
+            this.dgcRowsAC14.Width = 70;
+            // 
+            // dgcRowsAC15
+            // 
+            this.dgcRowsAC15.DataPropertyName = "AC15";
+            this.dgcRowsAC15.HeaderText = "d: pvn";
+            this.dgcRowsAC15.MinimumWidth = 8;
+            this.dgcRowsAC15.Name = "dgcRowsAC15";
+            this.dgcRowsAC15.ReadOnly = true;
+            this.dgcRowsAC15.Width = 55;
+            // 
+            // dgcRowsAC21
+            // 
+            this.dgcRowsAC21.DataPropertyName = "AC21";
+            this.dgcRowsAC21.HeaderText = "kredits";
+            this.dgcRowsAC21.MinimumWidth = 8;
+            this.dgcRowsAC21.Name = "dgcRowsAC21";
+            this.dgcRowsAC21.ReadOnly = true;
+            this.dgcRowsAC21.Width = 70;
+            // 
+            // dgcRowsAC22
+            // 
+            this.dgcRowsAC22.DataPropertyName = "AC22";
+            this.dgcRowsAC22.HeaderText = "k: n.p.";
+            this.dgcRowsAC22.MinimumWidth = 8;
+            this.dgcRowsAC22.Name = "dgcRowsAC22";
+            this.dgcRowsAC22.ReadOnly = true;
+            this.dgcRowsAC22.Width = 70;
+            // 
+            // dgcRowsAC23
+            // 
+            this.dgcRowsAC23.DataPropertyName = "AC23";
+            this.dgcRowsAC23.HeaderText = "k: iin";
+            this.dgcRowsAC23.MinimumWidth = 8;
+            this.dgcRowsAC23.Name = "dgcRowsAC23";
+            this.dgcRowsAC23.ReadOnly = true;
+            this.dgcRowsAC23.Width = 50;
+            // 
+            // dgcRowsAC24
+            // 
+            this.dgcRowsAC24.DataPropertyName = "AC24";
+            this.dgcRowsAC24.HeaderText = "k: kat.";
+            this.dgcRowsAC24.MinimumWidth = 8;
+            this.dgcRowsAC24.Name = "dgcRowsAC24";
+            this.dgcRowsAC24.ReadOnly = true;
+            this.dgcRowsAC24.Width = 70;
+            // 
+            // dgcRowsAC25
+            // 
+            this.dgcRowsAC25.DataPropertyName = "AC25";
+            this.dgcRowsAC25.HeaderText = "k: pvn";
+            this.dgcRowsAC25.MinimumWidth = 8;
+            this.dgcRowsAC25.Name = "dgcRowsAC25";
+            this.dgcRowsAC25.ReadOnly = true;
+            this.dgcRowsAC25.Width = 55;
+            // 
+            // dgcRowsSummC
+            // 
+            this.dgcRowsSummC.DataPropertyName = "SUMMC";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            this.dgcRowsSummC.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgcRowsSummC.HeaderText = "summa val";
+            this.dgcRowsSummC.MinimumWidth = 8;
+            this.dgcRowsSummC.Name = "dgcRowsSummC";
+            this.dgcRowsSummC.ReadOnly = true;
+            this.dgcRowsSummC.Width = 90;
+            // 
+            // dgcRowsCur
+            // 
+            this.dgcRowsCur.DataPropertyName = "CUR";
+            this.dgcRowsCur.HeaderText = "valūta";
+            this.dgcRowsCur.MinimumWidth = 8;
+            this.dgcRowsCur.Name = "dgcRowsCur";
+            this.dgcRowsCur.ReadOnly = true;
+            this.dgcRowsCur.Width = 50;
+            // 
+            // dgcRowsSumm
+            // 
+            this.dgcRowsSumm.DataPropertyName = "SUMM";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.dgcRowsSumm.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgcRowsSumm.HeaderText = "summa €";
+            this.dgcRowsSumm.MinimumWidth = 8;
+            this.dgcRowsSumm.Name = "dgcRowsSumm";
+            this.dgcRowsSumm.ReadOnly = true;
+            this.dgcRowsSumm.Width = 90;
+            // 
+            // dgcRowsQV
+            // 
+            this.dgcRowsQV.DataPropertyName = "QV";
+            this.dgcRowsQV.HeaderText = "daudzums";
+            this.dgcRowsQV.MinimumWidth = 8;
+            this.dgcRowsQV.Name = "dgcRowsQV";
+            this.dgcRowsQV.ReadOnly = true;
+            this.dgcRowsQV.Width = 90;
+            // 
+            // dgcRowsUsl
+            // 
+            this.dgcRowsUsl.DataPropertyName = "USL";
+            this.dgcRowsUsl.HeaderText = "usl";
+            this.dgcRowsUsl.MinimumWidth = 8;
+            this.dgcRowsUsl.Name = "dgcRowsUsl";
+            this.dgcRowsUsl.ReadOnly = true;
+            this.dgcRowsUsl.Width = 90;
+            // 
             // Form_LogDoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -792,27 +792,6 @@ namespace KlonsF.Forms
         private System.Windows.Forms.ToolStripDropDownButton tsbViewType;
         private System.Windows.Forms.ToolStripMenuItem tsbSimpleView;
         private System.Windows.Forms.ToolStripMenuItem tsbSplitView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDocId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDtl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDtld;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsOdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsSummC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsCur;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsSumm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsQV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsUsl;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsIDL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsZnr;
@@ -831,5 +810,26 @@ namespace KlonsF.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsPVN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsUsl;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcDocsZU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDocId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsOdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDtl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDtld;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAC25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsSummC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsCur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsSumm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsQV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsUsl;
     }
 }

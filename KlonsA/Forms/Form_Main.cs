@@ -13,6 +13,7 @@ using KlonsLIB.Misc;
 using KlonsA.Classes;
 using KlonsA.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace KlonsA
 {
@@ -248,6 +249,10 @@ namespace KlonsA
         {
             var myfolder = MyData.GetBackUpFolder();
             try { Process.Start(myfolder); } catch (Exception) { }
+        }
+        private void izmestNesaglabātāsIzmaiņasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyData.DataSetKlons.RejectChanges();
         }
         private void aizvērtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -485,7 +490,12 @@ namespace KlonsA
             string s = KlonsData.GetBasePath() + "\\Klons-A.chm";
             Help.ShowHelp(null, s);
         }
-
+        private void aprakstsMSWordDokumentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = KlonsData.GetBasePath();
+            var docfile = Path.Combine(myfolder, "KLONS-A.doc");
+            try { Process.Start(docfile); } catch (Exception) { }
+        }
         private void svarīgākieTaustiņiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string s = KlonsData.GetBasePath() + "\\Klons-A.chm";

@@ -723,6 +723,18 @@ namespace KlonsA.Forms
                 e.FormattingApplied = true;
                 return;
             }
+            if (e.ColumnIndex == dgcSarsFactHours.Index)
+            {
+                var dr = (bsSarR[e.RowIndex] as DataRowView).Row as KlonsADataSet.SALARY_SHEETS_RRow;
+                if (dr == null) return;
+                float val =
+                    dr.FACT_WORK_HOURS +
+                    dr.FACT_WORK_HOURS_NIGHT +
+                    dr.FACT_WORK_HOURS_OVERTIME;
+                e.Value = val.ToString();
+                e.FormattingApplied = true;
+                return;
+            }
         }
 
 

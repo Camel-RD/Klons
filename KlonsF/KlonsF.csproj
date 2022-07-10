@@ -492,6 +492,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="SQL\SQLV101.txt" />
     <EmbeddedResource Include="SQL\SQLV100.txt" />
     <EmbeddedResource Include="SQL\SQLV099.txt" />
     <EmbeddedResource Include="Forms\Form_LogDiff.resx">

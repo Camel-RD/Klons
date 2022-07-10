@@ -100,32 +100,39 @@
             this.dgcNr});
             this.dgvRep.DataSource = this.bsRep;
             this.dgvRep.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRep.Location = new System.Drawing.Point(0, 80);
+            this.dgvRep.Location = new System.Drawing.Point(0, 100);
+            this.dgvRep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRep.Name = "dgvRep";
-            this.dgvRep.RowTemplate.Height = 24;
-            this.dgvRep.Size = new System.Drawing.Size(692, 247);
+            this.dgvRep.RowHeadersWidth = 62;
+            this.dgvRep.RowTemplate.Height = 29;
+            this.dgvRep.ShowCellToolTips = false;
+            this.dgvRep.Size = new System.Drawing.Size(778, 310);
             this.dgvRep.TabIndex = 8;
+            this.dgvRep.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvRep_CellParsing);
             // 
             // dgcPK
             // 
             this.dgcPK.DataPropertyName = "PK";
             this.dgcPK.HeaderText = "Personas kods";
+            this.dgcPK.MinimumWidth = 9;
             this.dgcPK.Name = "dgcPK";
-            this.dgcPK.Width = 110;
+            this.dgcPK.Width = 123;
             // 
             // dgcName
             // 
             this.dgcName.DataPropertyName = "Name";
             this.dgcName.HeaderText = "Vārds, uzvārds";
+            this.dgcName.MinimumWidth = 9;
             this.dgcName.Name = "dgcName";
-            this.dgcName.Width = 140;
+            this.dgcName.Width = 157;
             // 
             // dgcDate
             // 
             this.dgcDate.DataPropertyName = "Date";
             this.dgcDate.HeaderText = "Datums";
+            this.dgcDate.MinimumWidth = 9;
             this.dgcDate.Name = "dgcDate";
-            this.dgcDate.Width = 90;
+            this.dgcDate.Width = 101;
             // 
             // dgcCode
             // 
@@ -133,22 +140,25 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcCode.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgcCode.HeaderText = "Ziņu kods";
+            this.dgcCode.MinimumWidth = 9;
             this.dgcCode.Name = "dgcCode";
-            this.dgcCode.Width = 60;
+            this.dgcCode.Width = 67;
             // 
             // dgcCountry
             // 
             this.dgcCountry.DataPropertyName = "Country";
             this.dgcCountry.HeaderText = "Valsts";
+            this.dgcCountry.MinimumWidth = 9;
             this.dgcCountry.Name = "dgcCountry";
-            this.dgcCountry.Width = 60;
+            this.dgcCountry.Width = 67;
             // 
             // dgcOccCode
             // 
             this.dgcOccCode.DataPropertyName = "ProfessionCode";
             this.dgcOccCode.HeaderText = "Profesijas kods";
+            this.dgcOccCode.MinimumWidth = 9;
             this.dgcOccCode.Name = "dgcOccCode";
-            this.dgcOccCode.Width = 80;
+            this.dgcOccCode.Width = 90;
             // 
             // dgcNr
             // 
@@ -156,25 +166,27 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgcNr.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgcNr.HeaderText = "Npk.";
+            this.dgcNr.MinimumWidth = 9;
             this.dgcNr.Name = "dgcNr";
             this.dgcNr.Visible = false;
-            this.dgcNr.Width = 50;
+            this.dgcNr.Width = 56;
             // 
             // tbDate1
             // 
             this.tbDate1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate1.IsDate = true;
-            this.tbDate1.Location = new System.Drawing.Point(136, 7);
+            this.tbDate1.Location = new System.Drawing.Point(153, 9);
+            this.tbDate1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate1.Name = "tbDate1";
-            this.tbDate1.Size = new System.Drawing.Size(90, 22);
+            this.tbDate1.Size = new System.Drawing.Size(101, 26);
             this.tbDate1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(14, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.Size = new System.Drawing.Size(131, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Datums, no - līdz:";
             // 
@@ -182,26 +194,28 @@
             // 
             this.tbDate2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate2.IsDate = true;
-            this.tbDate2.Location = new System.Drawing.Point(242, 7);
+            this.tbDate2.Location = new System.Drawing.Point(272, 9);
+            this.tbDate2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate2.Name = "tbDate2";
-            this.tbDate2.Size = new System.Drawing.Size(90, 22);
+            this.tbDate2.Size = new System.Drawing.Size(101, 26);
             this.tbDate2.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 9);
+            this.label2.Location = new System.Drawing.Point(258, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 16);
+            this.label2.Size = new System.Drawing.Size(14, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "-";
             // 
             // cmTable
             // 
-            this.cmTable.Location = new System.Drawing.Point(414, 1);
+            this.cmTable.Location = new System.Drawing.Point(466, 1);
+            this.cmTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmTable.Name = "cmTable";
-            this.cmTable.Size = new System.Drawing.Size(67, 30);
+            this.cmTable.Size = new System.Drawing.Size(75, 38);
             this.cmTable.TabIndex = 2;
             this.cmTable.Text = "Atlasīt";
             this.cmTable.UseVisualStyleBackColor = true;
@@ -209,9 +223,10 @@
             // 
             // cmReport
             // 
-            this.cmReport.Location = new System.Drawing.Point(487, 1);
+            this.cmReport.Location = new System.Drawing.Point(548, 1);
+            this.cmReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmReport.Name = "cmReport";
-            this.cmReport.Size = new System.Drawing.Size(67, 30);
+            this.cmReport.Size = new System.Drawing.Size(75, 38);
             this.cmReport.TabIndex = 3;
             this.cmReport.Text = "Atskaite";
             this.cmReport.UseVisualStyleBackColor = true;
@@ -220,52 +235,54 @@
             // tbName
             // 
             this.tbName.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbName.Location = new System.Drawing.Point(136, 31);
+            this.tbName.Location = new System.Drawing.Point(153, 39);
+            this.tbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(126, 22);
+            this.tbName.Size = new System.Drawing.Size(142, 26);
             this.tbName.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 33);
+            this.label3.Location = new System.Drawing.Point(14, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 16);
+            this.label3.Size = new System.Drawing.Size(118, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Vārds, uzvārds:";
             // 
             // tbPosition
             // 
             this.tbPosition.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPosition.Location = new System.Drawing.Point(335, 31);
+            this.tbPosition.Location = new System.Drawing.Point(377, 39);
+            this.tbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPosition.Name = "tbPosition";
-            this.tbPosition.Size = new System.Drawing.Size(126, 22);
+            this.tbPosition.Size = new System.Drawing.Size(142, 26);
             this.tbPosition.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(269, 33);
+            this.label4.Location = new System.Drawing.Point(303, 41);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Amats:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(269, 57);
+            this.label5.Location = new System.Drawing.Point(303, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 16);
+            this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 14;
             this.label5.Text = "Datums:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 57);
+            this.label6.Location = new System.Drawing.Point(14, 71);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 16);
+            this.label6.Size = new System.Drawing.Size(123, 20);
             this.label6.TabIndex = 13;
             this.label6.Text = "Tālruņa numurs:";
             // 
@@ -273,24 +290,27 @@
             // 
             this.tbDate.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbDate.IsDate = true;
-            this.tbDate.Location = new System.Drawing.Point(335, 55);
+            this.tbDate.Location = new System.Drawing.Point(377, 69);
+            this.tbDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(90, 22);
+            this.tbDate.Size = new System.Drawing.Size(101, 26);
             this.tbDate.TabIndex = 7;
             // 
             // tbPhoneNr
             // 
             this.tbPhoneNr.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbPhoneNr.Location = new System.Drawing.Point(136, 55);
+            this.tbPhoneNr.Location = new System.Drawing.Point(153, 69);
+            this.tbPhoneNr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPhoneNr.Name = "tbPhoneNr";
-            this.tbPhoneNr.Size = new System.Drawing.Size(105, 22);
+            this.tbPhoneNr.Size = new System.Drawing.Size(118, 26);
             this.tbPhoneNr.TabIndex = 6;
             // 
             // cmXML
             // 
-            this.cmXML.Location = new System.Drawing.Point(560, 1);
+            this.cmXML.Location = new System.Drawing.Point(630, 1);
+            this.cmXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmXML.Name = "cmXML";
-            this.cmXML.Size = new System.Drawing.Size(67, 30);
+            this.cmXML.Size = new System.Drawing.Size(75, 38);
             this.cmXML.TabIndex = 3;
             this.cmXML.Text = "XML";
             this.cmXML.UseVisualStyleBackColor = true;
@@ -305,7 +325,7 @@
             this.bnRows.DataGrid = this.dgvRep;
             this.bnRows.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bnRows.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bnRows.ImageScalingSize = new System.Drawing.Size(21, 21);
+            this.bnRows.ImageScalingSize = new System.Drawing.Size(23, 26);
             this.bnRows.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -318,7 +338,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bnRows.Location = new System.Drawing.Point(0, 327);
+            this.bnRows.Location = new System.Drawing.Point(0, 410);
             this.bnRows.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnRows.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bnRows.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -326,7 +346,7 @@
             this.bnRows.Name = "bnRows";
             this.bnRows.PositionItem = this.bindingNavigatorPositionItem;
             this.bnRows.SaveItem = null;
-            this.bnRows.Size = new System.Drawing.Size(692, 32);
+            this.bnRows.Size = new System.Drawing.Size(778, 39);
             this.bnRows.TabIndex = 15;
             this.bnRows.Text = "myBindingNavigator1";
             this.bnRows.ItemDeleting += new System.ComponentModel.CancelEventHandler(this.bnRows_ItemDeleting);
@@ -336,13 +356,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(91, 29);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(92, 34);
             this.bindingNavigatorAddNewItem.Text = "Jauns";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(69, 29);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(76, 34);
             this.bindingNavigatorCountItem.Text = " no {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Ierakstu skaits";
             // 
@@ -351,7 +371,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(87, 29);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(93, 34);
             this.bindingNavigatorDeleteItem.Text = "Dzēst";
             // 
             // bindingNavigatorMoveFirstItem
@@ -360,7 +380,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveFirstItem.Text = "Iet uz pirmo";
             // 
             // bindingNavigatorMovePreviousItem
@@ -369,26 +389,26 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMovePreviousItem.Text = "Iet uz iepriekšējo";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 30);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(56, 37);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Pašreizējā pozīcija";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -396,7 +416,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveNextItem.Text = "Iet uz nākošo";
             // 
             // bindingNavigatorMoveLastItem
@@ -405,13 +425,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(25, 29);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 34);
             this.bindingNavigatorMoveLastItem.Text = "Iet uz pēdējo";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // panel1
             // 
@@ -432,18 +452,20 @@
             this.panel1.Controls.Add(this.cmTable);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 80);
+            this.panel1.Size = new System.Drawing.Size(778, 100);
             this.panel1.TabIndex = 16;
             // 
             // FormRep_Zinas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 359);
+            this.ClientSize = new System.Drawing.Size(778, 449);
             this.Controls.Add(this.dgvRep);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bnRows);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormRep_Zinas";
             this.Text = "Ziņas par darba ņēmējiem";
             this.Load += new System.EventHandler(this.FormRep_Zinas_Load);

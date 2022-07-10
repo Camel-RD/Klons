@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -465,6 +466,12 @@ namespace KlonsF
             string s = KlonsData.GetBasePath() + "\\KLONS-F.chm";
             Help.ShowHelp(null, s);
         }
+        private void aprakstsMSWordDokumentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myfolder = KlonsData.GetBasePath();
+            var docfile = Path.Combine(myfolder, "KLONS-F.doc");
+            try { Process.Start(docfile); } catch (Exception) { }
+        }
         private void svarīgākieTaustiņiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string s = KlonsData.GetBasePath() + "\\KLONS-F.chm";
@@ -473,5 +480,6 @@ namespace KlonsF
 
 
         #endregion
+
     }
 }

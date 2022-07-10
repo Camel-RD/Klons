@@ -182,6 +182,10 @@ namespace KlonsA.Forms
             {
                 var r = xdoc.CreateElement("R");
                 tab.AppendChild(r);
+                
+                var dt = Utils.StringToDate(row.Date);
+                if (dt.HasValue) row.RDate = dt.Value;
+
                 xdoc.XE(r, "PersonasKods", row.PK);
                 xdoc.XE(r, "VardsUzvards", row.Name);
                 xdoc.XE(r, "IzmDatums", row.RDate, true);
@@ -234,6 +238,25 @@ namespace KlonsA.Forms
         private void bnRows_ItemDeleting(object sender, CancelEventArgs e)
         {
             e.Cancel = !AskCanDelete();
+        }
+
+        private void dgvRep_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            if(e.ColumnIndex == dgcDate.Index)
+            {
+                string sdt = e.Value as string;
+                var dt = Utils.StringToDate(sdt);
+                if (dt.HasValue)
+                {
+                    e.Value = sdt;
+                    e.ParsingApplied = true;
+                }
+                else
+                {
+                    e.Value = Utils.DateToString(DateTime.Today);
+                    e.ParsingApplied = true;
+                }
+            }
         }
     }
 }
