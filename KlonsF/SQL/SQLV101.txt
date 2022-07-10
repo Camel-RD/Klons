@@ -375,10 +375,9 @@ begin
         join lopsd on T1.idl1 = lopsd.idl and T1.idl2 = null
         join ops on T1.rowid = ops.id
         join opsd on ops.docid = opsd.id
-        join opsd as opsd2 on opsd2.id = T1.docid
         where
             (
-                (:pclid is null or :pclid = opsd2.clid)
+                (:pclid is null or :pclid = lopsd.clid)
             ) or (
                 (:pclid is null or :pclid = opsd.clid) and
                 (:pac1 is null or :pac1 = ops.ac11 or :pac1 = ops.ac21) and
