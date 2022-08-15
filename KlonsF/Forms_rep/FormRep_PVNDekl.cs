@@ -143,7 +143,12 @@ namespace KlonsF.FormsReportParams
                 }
                 else
                 {
-                    return "Nekorekts datums.";
+                    imenesis = endDate.Month;
+                    if (endDate.Month < 10)
+                        smenesis = "0" + endDate.Month;
+                    else
+                        smenesis = endDate.Month.ToString();
+                    //return "Nekorekts datums.";
                 }
             }
             if (k > -1)

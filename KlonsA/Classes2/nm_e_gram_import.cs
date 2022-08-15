@@ -945,10 +945,13 @@ namespace KlonsA.Classes
 
         public bool SameData(EgrData egr)
         {
+            var pensijasveids = egr.PensijasVeids;
+            if (pensijasveids == "Invaliditātes pensija")
+                pensijasveids = null;
             return HasIt == egr.HasIt &&
                 ApgadajamoSkaits == egr.ApgadajamoSkaits &&
                 PapilduAtvieglojumaVeids == egr.PapilduAtvieglojumaVeids &&
-                PensijasVeids == egr.PensijasVeids;
+                PensijasVeids == pensijasveids;
         }
 
         public void SetDataFrom(EgrData egr)
