@@ -15,11 +15,7 @@ namespace KlonsLIB.Components
     [ToolboxBitmap(typeof(System.Windows.Forms.RichTextBox))]
     public class FlatRichTextBox : RichTextBox
     {
-
         private Color m_BorderColor = SystemColors.ControlDarkDark;
-        private const int WM_PAINT = 0xF;
-        private const int WM_NCPAINT = 0x0085;
-        private const int WM_NCCALCSIZE = 0x0083;
 
         public new bool DoubleBuffered
         {
@@ -43,7 +39,7 @@ namespace KlonsLIB.Components
             //SetStyle(ControlStyles.DoubleBuffer, true);
         }
 
-        private void AdjustClientRect(ref RECT rcClient)
+        private void AdjustClientRect(ref NM.RECT rcClient)
         {
             rcClient.Left += 1;
             rcClient.Top += 1;
@@ -51,20 +47,11 @@ namespace KlonsLIB.Components
             rcClient.Bottom -= 1;
         }
 
-        struct RECT { public int Left, Top, Right, Bottom; }
-        struct NCCALCSIZE_PARAMS
-        {
-            public RECT rcNewWindow;
-            public RECT rcOldWindow;
-            public RECT rcClient;
-            IntPtr lppos;
-        }
-
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
             {
-                case WM_NCPAINT:
+                case NM.WM_NCPAINT:
                     base.WndProc(ref m);
                     if (BorderStyle == BorderStyle.None)
                     {
@@ -74,17 +61,18 @@ namespace KlonsLIB.Components
                         }
                     }
                     break;
-                case WM_NCCALCSIZE:
+
+                case NM.WM_NCCALCSIZE:
                     base.WndProc(ref m);
                     if (m.WParam != IntPtr.Zero)
                     {
-                        NCCALCSIZE_PARAMS rcsize = (NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(NCCALCSIZE_PARAMS));
+                        NM.NCCALCSIZE_PARAMS rcsize = (NM.NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(NM.NCCALCSIZE_PARAMS));
                         AdjustClientRect(ref rcsize.rcNewWindow);
                         Marshal.StructureToPtr(rcsize, m.LParam, false);
                     }
                     else
                     {
-                        RECT rcsize = (RECT)Marshal.PtrToStructure(m.LParam, typeof(RECT));
+                        NM.RECT rcsize = (NM.RECT)Marshal.PtrToStructure(m.LParam, typeof(NM.RECT));
                         AdjustClientRect(ref rcsize);
                         Marshal.StructureToPtr(rcsize, m.LParam, false);
                     }

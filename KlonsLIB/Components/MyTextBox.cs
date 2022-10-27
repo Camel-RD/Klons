@@ -80,21 +80,6 @@ namespace KlonsLIB.Components
         }
 
 
-        private const int WM_ERASEBKGND = 0x14;
-        private const int WM_PAINT = 0xF;
-        private const int WM_NC_PAINT = 0x85;
-
-
-        [DllImport("user32.dll", CharSet = CharSet.Ansi, EntryPoint = "SendMessageA", ExactSpelling = true,
-            SetLastError = true)]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32")]
-        public static extern IntPtr GetWindowDC(IntPtr hWnd);
-
-        [DllImport("user32")]
-        public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
-
-
         [Category("Behavior")]
         [DefaultValue(false)]
         public bool IsDate { get; set; } = false;
@@ -133,24 +118,33 @@ namespace KlonsLIB.Components
 
         protected override void WndProc(ref Message m)
         {
-            IntPtr hDC = IntPtr.Zero;
-            Graphics gdc = null;
             switch (m.Msg)
             {
-                case WM_PAINT:
+                case NM.WM_PAINT:
                     base.WndProc(ref m);
                     if (!DrawBorder) break;
-                    // flatten the border area again
-                    //hDC = GetWindowDC(this.Handle);
-                    //gdc = Graphics.FromHdc(hDC);
-                    using (gdc = Graphics.FromHwnd(Handle))
+                    using (var gdc = Graphics.FromHwnd(Handle))
                     {
-                        //Pen p = new Pen((this.Enabled ? BackColor : SystemColors.Control), 2);
-                        //gdc.DrawRectangle(p, new Rectangle(2, 2, this.Width - 3, this.Height - 3));
                         PaintFlatControlBorder(this, gdc);
-                        //ReleaseDC(m.HWnd, hDC);
                     }
                     break;
+                /*
+                case NM.WM_NCPAINT:
+                    base.WndProc(ref m);
+                    if (!DrawBorder) break;
+                    IntPtr hWnd = this.Handle;
+                    IntPtr hRgn = IntPtr.Zero;
+                    IntPtr hdc = NM.GetDCEx(hWnd, hRgn, 1027);
+                    using (var gdc = Graphics.FromHdc(hdc))
+                    {
+                        PaintFlatControlBorder(this, gdc);
+                    }
+                    NM.ReleaseDC(hWnd, hdc);
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
+                */
                 default:
                     base.WndProc(ref m);
                     break;
@@ -161,7 +155,7 @@ namespace KlonsLIB.Components
             return new HLSColor(baseColor).Darker(0.5f);
         }
 
-        private void PaintFlatControlBorder(Control ctrl, Graphics g)
+        protected void PaintFlatControlBorder(Control ctrl, Graphics g)
         {
             if (!DrawBorder) return;
             if (BorderStyle != BorderStyle.FixedSingle) return;

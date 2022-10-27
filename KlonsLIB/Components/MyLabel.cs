@@ -12,22 +12,6 @@ namespace KlonsLIB.Components
         private bool m_DrawBorder = true;
         private Color m_BorderColor = SystemColors.ControlDarkDark;
 
-        private const int WM_ERASEBKGND = 0x14;
-        private const int WM_PAINT = 0xF;
-        private const int WM_NC_PAINT = 0x85;
-
-
-        [DllImport("user32.dll", CharSet = CharSet.Ansi, EntryPoint = "SendMessageA", ExactSpelling = true,
-            SetLastError = true)]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32")]
-        public static extern IntPtr GetWindowDC(IntPtr hWnd);
-
-        [DllImport("user32")]
-        public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
-
-
-
         [Category("Appearance")]
         [DefaultValue(true)]
         public bool DrawBorder
@@ -71,7 +55,7 @@ namespace KlonsLIB.Components
             Graphics gdc = null;
             switch (m.Msg)
             {
-                case WM_PAINT:
+                case NM.WM_PAINT:
                     base.WndProc(ref m);
                     if (FlatStyle != FlatStyle.Flat || !DrawBorder) break;
                     // flatten the border area again

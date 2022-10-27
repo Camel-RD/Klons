@@ -91,12 +91,19 @@
     <Compile Include="Components\MyButtonNoSelect.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\MyDgvTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyPickRowTextBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Components\MySplitContainer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\MyToolTip.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\NM.cs" />
     <Compile Include="Components\SpanCell\DataGridViewCellExHelper.cs" />
     <Compile Include="Components\SpanCell\DataGridViewHelper.cs" />
     <Compile Include="Components\SpanCell\DataGridViewTextBoxCellEx.cs" />
@@ -143,6 +150,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\OrderedPropertyGrid.cs" />
+    <Compile Include="Components\TextBoxWithButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data\DataSetHelper.cs" />
     <Compile Include="Data\DetailedConstraintException.cs" />
     <Compile Include="Data\DetailedConstraintException2.cs" />

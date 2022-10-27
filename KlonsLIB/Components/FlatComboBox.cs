@@ -14,24 +14,7 @@ namespace KlonsLIB.Components
 
         private bool m_DrawBorder = true;
         private Color m_BorderColor = SystemColors.ControlDarkDark;
-
-        private const int WM_ERASEBKGND = 0x14;
-        private const int WM_PAINT = 0xF;
-        private const int WM_NC_PAINT = 0x85;
-        private const int WM_PRINTCLIENT = 0x318;
         private static int m_DropDownButtonWidth = -11;
-
-
-
-        [DllImport("user32.dll", CharSet = CharSet.Ansi, EntryPoint = "SendMessageA", ExactSpelling = true,
-            SetLastError = true)]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32")]
-        public static extern IntPtr GetWindowDC(IntPtr hWnd);
-
-        [DllImport("user32")]
-        public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
-
 
 
         [Category("Appearance")]
@@ -104,7 +87,7 @@ namespace KlonsLIB.Components
 
                     break;
                  */
-                case WM_PAINT:
+                case NM.WM_PAINT:
                     base.WndProc(ref m);
                     if (FlatStyle != FlatStyle.Flat || !DrawBorder) break;
                     // flatten the border area again
@@ -132,7 +115,7 @@ namespace KlonsLIB.Components
             // We send this message for the control to redraw the client area
             Graphics gClient = this.CreateGraphics();
             IntPtr ptrClientDC = gClient.GetHdc();
-            SendMessage(this.Handle, WM_PRINTCLIENT, (int)ptrClientDC, 0);
+            NM.SendMessage(this.Handle, NM.WM_PRINTCLIENT, (int)ptrClientDC, 0);
             gClient.ReleaseHdc(ptrClientDC);
             gClient.Dispose();
         }

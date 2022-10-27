@@ -207,13 +207,13 @@ namespace KlonsF.Forms
             for (int i = 1; i < rows.Count; i++)
             {
                 var crow = rows[i];
-                if (crow.ODT == prow.ODT)
+                if (crow.id == prow.id && crow.ODT == prow.ODT)
                 {
                     lrow.Dt2 = crow.Dt2;
                     lrow.Row = crow.Row;
                     continue;
                 }
-                if (HasDiff(crow.Row, prow.Row))
+                if (crow.id != prow.id || HasDiff(crow.Row, prow.Row))
                 {
                     ret.Add(lrow);
                     prow = crow;
