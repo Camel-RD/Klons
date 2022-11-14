@@ -91,6 +91,9 @@
     <Compile Include="Components\MyButtonNoSelect.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\MyDgvTextbox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Components\MyDgvTextbox.cs">
       <SubType>Component</SubType>
     </Compile>

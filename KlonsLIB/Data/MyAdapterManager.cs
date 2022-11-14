@@ -117,7 +117,8 @@ namespace KlonsLIB.Data
         private void SetAdapterInManager(string classname, object value)
         {
             if (tableAdapterManager == null) return;
-            Utils.SetProperty(tableAdapterManager, classname, value);
+            if (!Utils.SetProperty(tableAdapterManager, classname, value))
+                throw new ArgumentException($"Adapter manager property [{classname}] not found.");
         }
 
         public object GetAdapterManager()

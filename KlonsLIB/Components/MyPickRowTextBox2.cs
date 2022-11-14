@@ -422,6 +422,18 @@ namespace KlonsLIB.Components
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public object SelectedItem
+        {
+            get
+            {
+                if (dataManager == null || SelectedIndex == -1 || SelectedIndex >= dataManager.List.Count) return null;
+                var rv = dataManager.List[SelectedIndex];
+                return rv;
+            }
+        }
+
         [
             DefaultValue(null),
             Browsable(false),

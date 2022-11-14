@@ -1170,7 +1170,7 @@ namespace KlonsF.FormsReportParams
             XmlDeclaration xmldecl = xdoc.CreateXmlDeclaration("1.0", null, null);
             xdoc.AppendChild(xmldecl);
 
-            XmlElement DokPVNv4 = xdoc.CreateElement("DokPVNv6");
+            XmlElement DokPVNv4 = xdoc.CreateElement("DokPVNv7");
             DokPVNv4.SetAttribute("xmlns:xsd", "http://www.w3.org/2001/XMLSchema"); ;
             DokPVNv4.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
             xdoc.AppendChild(DokPVNv4);

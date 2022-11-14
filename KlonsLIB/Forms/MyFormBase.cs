@@ -88,7 +88,7 @@ namespace KlonsLIB.Forms
             }
             if (Modal)
             {
-                DialogResult = value == null ? DialogResult.Cancel : DialogResult.OK;
+                DialogResult = value == null || cancel ? DialogResult.Cancel : DialogResult.OK;
             }
             else if (IsMyDialog)
             {

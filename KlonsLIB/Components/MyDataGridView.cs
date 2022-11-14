@@ -473,10 +473,13 @@ namespace KlonsLIB.Components
             switch (key)
             {
                 case Keys.F3:
+                case Keys.F4:
                 case Keys.F5:
-                    OnMyKeyDown(new KeyEventArgs(keyData));
-                    return true;
-
+                    var kev = new KeyEventArgs(keyData);
+                    OnMyKeyDown(kev);
+                    if (kev.Handled)
+                        return true;
+                    break;
                 case Keys.Enter:
                     /*
                     if (ProcessNextKey(keyData & ~(Keys.Control | Keys.Shift)))

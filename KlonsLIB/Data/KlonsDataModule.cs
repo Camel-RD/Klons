@@ -123,5 +123,13 @@ namespace KlonsLIB.Data
                 throw new Exception("Table not supported");
             return dsh.FillTable(dt.TableName);
         }
+
+        public int FillTable2(DataTable dt, bool clearbefore)
+        {
+            DataSetHelper dsh = GetDataSetHelper(dt.DataSet);
+            if (dsh == null)
+                throw new Exception("Table not supported");
+            return dsh.FillTable2(dt.TableName, clearbefore);
+        }
     }
 }

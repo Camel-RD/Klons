@@ -207,6 +207,44 @@ namespace KlonsLIB.Data
             }
             return -1;
         }
+        public int FillTable2(string tablename, bool clearbefore)
+        {
+            if (String.IsNullOrEmpty(tablename))
+                throw new ArgumentException();
+
+            DataTable dt = DataSet.Tables[tablename];
+
+            if (dt == null)
+                throw new Exception("Table [" + tablename + "] not found.");
+
+            Object adapter = dataAdapters[tablename];
+
+            if (adapter == null)
+                throw new Exception("Adapter for [" + tablename + "] not found.");
+
+            MethodInfo mi = adapter.GetType().GetMethod("Fill", new Type[] { dt.GetType() });
+            bool cb = false;
+            try
+            {
+                cb = (bool)Utils.GetProperty(adapter, "ClearBeforeFill");
+                Utils.SetProperty(adapter, "ClearBeforeFill", clearbefore);
+                return (int)mi.Invoke(adapter, new object[] { dt });
+            }
+            catch (TargetInvocationException ex)
+            {
+                if (ex.InnerException == null)
+                    throw ex;
+
+                if (ex.InnerException is ConstraintException)
+                    throw new DetailedConstraintException("Error filling table", dt, ex.InnerException);
+            }
+            finally
+            {
+                Utils.SetProperty(adapter, "ClearBeforeFill", cb);
+            }
+
+            return -1;
+        }
 
         public string[] GetTableList()
         {
