@@ -27,17 +27,32 @@ namespace KlonsF.FormsReportParams
 
         private DateTime startDate = DateTime.MinValue;
         private DateTime endDate = DateTime.MinValue;
+        private string filterAc1 = null;
+        private string filterAc3 = null;
+        private string kaname = "";
+        private string baname = "";
+        private string cnname = "";
 
         private void FormRepApgr1_Load(object sender, EventArgs e)
         {
             lbCM.SelectedIndex = 0;
             int yr = DateTime.Today.Year;
             cbYear.ItemStrings = new string[]{(yr-1).ToString(), yr.ToString()};
+
+            var table_acp = MyData.DataSetKlons.AcP21;
+            var list_ac = table_acp
+                .Where(x => x.id1 == "KA" || x.id1 == "BA" || x.id1 == "CN")
+                .Select(x => x.AC);
+            var list_ac1 = new[] { "*", "KA", "BA", "CN" };
+            list_ac1 = list_ac1.Concat(list_ac).ToArray();
+            cbFilter.ItemStrings = list_ac1;
+            cbFilter.SelectedIndex = 0;
+
             LoadParams();
             SetControlsUpDownOrder(new Control[][]
             {
                 new Control[] {cbYear, cbMonth},
-                new Control[] {cmDoIt, cmDoIt}
+                new Control[] {cbFilter, cmDoIt}
             });
         }
 
@@ -68,15 +83,53 @@ namespace KlonsF.FormsReportParams
 
             int year, month;
 
-            if (!int.TryParse(syear, out year) || !int.TryParse(smonth, out month))
-                return "Nekorekts gads vai mēnesis";
-            
+            if (!int.TryParse(syear, out year))
+                return "Nekorekts gads";
+
+            if (!int.TryParse(smonth, out month) && smonth != "Gads")
+                return "Nekorekts mēnesis";
+
             if (year < 2000 || year >2100)
                 return "Nekorekts gads.";
 
-            startDate = new DateTime(year, month, 1);
-            endDate = startDate.AddMonths(1).AddDays(-1);
+            if (smonth == "Gads")
+            {
+                startDate = new DateTime(year, 1, 1);
+                endDate = new DateTime(year, 12, 31);
+            }
+            else
+            {
+                startDate = new DateTime(year, month, 1);
+                endDate = startDate.AddMonths(1).AddDays(-1);
+            }
 
+            var filter = cbFilter.Text;
+            filterAc1 = null;
+            filterAc3 = null;
+            kaname = "";
+            baname = "";
+            cnname = "";
+
+            if (filter == "KA" || filter == "BA" || filter == "CN")
+            {
+                filterAc3 = filter;
+                if (filter == "KA") kaname = "KA";
+                if (filter == "BA") baname = "BA";
+                if (filter == "CN") cnname = "CN";
+            }
+            else if (filter != "*")
+            {
+                filterAc1 = filter;
+                var dr_ac = MyData.DataSetKlons.AcP21.FindByAC(filter);
+                if(dr_ac != null)
+                {
+                    var ac3 = dr_ac.id1;
+                    var ac = dr_ac.AC;
+                    if (ac3 == "KA") kaname = ac;
+                    if (ac3 == "BA") baname = ac;
+                    if (ac3 == "CN") cnname = ac;
+                }
+            }
             return "OK";
         }
 
@@ -98,8 +151,17 @@ namespace KlonsF.FormsReportParams
             if (ad2 == null) return;
 
             DateTime startDateOfYear = new DateTime(startDate.Year, 1, 1);
-            string speriod = string.Format("{0}. gada {1}", startDate.Year, Utils.MonthNames[startDate.Month - 1]);
-            
+            DateTime endDateOfYear = new DateTime(startDate.Year, 12, 31);
+            string speriod = "";
+            if(startDate == startDateOfYear && endDateOfYear == endDate)
+            {
+                speriod = $"{startDate.Year}. gads";
+            }
+            else
+            {
+                speriod = $"{startDate.Year}. gada {Utils.MonthNames[startDate.Month - 1]}";
+            }
+
             SaveParams();
 
             ReportViewerData rd = new ReportViewerData();
@@ -107,13 +169,13 @@ namespace KlonsF.FormsReportParams
             switch (selectedReport)
             {
                 case 0:
-                    ad1.FillBy_darz_1(MyData.DataSetKlonsRep.TRepDarz1, startDate, endDate);
-                    ad2.FillBy_darz_2(MyData.DataSetKlonsRep.TRepDarz2, startDateOfYear, startDate.AddDays(-1));
+                    ad1.FillBy_darz_1(MyData.DataSetKlonsRep.TRepDarz1, startDate, endDate, filterAc1, filterAc3);
+                    ad2.FillBy_darz_2(MyData.DataSetKlonsRep.TRepDarz2, startDateOfYear, startDate.AddDays(-1), filterAc1, filterAc3);
                     rd.FileName = "Report_Darz_1";
                     break;
                 case 1:
-                    ad1.FillBy_darz_1(MyData.DataSetKlonsRep.TRepDarz1, startDate, endDate);
-                    ad2.FillBy_darz_2(MyData.DataSetKlonsRep.TRepDarz2, startDateOfYear, startDate.AddDays(-1));
+                    ad1.FillBy_darz_1(MyData.DataSetKlonsRep.TRepDarz1, startDate, endDate, filterAc1, filterAc3);
+                    ad2.FillBy_darz_2(MyData.DataSetKlonsRep.TRepDarz2, startDateOfYear, startDate.AddDays(-1), filterAc1, filterAc3);
                     rd.FileName = "Report_Darz_3";
                     break;
                 case 2:
@@ -123,6 +185,13 @@ namespace KlonsF.FormsReportParams
                     break;
             }
 
+            kaname = kaname.Nz();
+            baname = baname.Nz();
+            cnname = cnname.Nz();
+            if (kaname != "") kaname = " - " + kaname;
+            if (baname != "") baname = " - " + baname;
+            if (cnname != "") cnname = " - " + cnname;
+
             MyData.ReportHelper.PrepareTRepDarz1();
 
             rd.Sources["DataSet1"] = MyData.DataSetKlonsRep.TRepDarz1;
@@ -130,10 +199,19 @@ namespace KlonsF.FormsReportParams
             rd.AddReportParameters(
                 new string[]
                 {
-                    "RPERIOD", speriod,
-                    "CompanyName", MyData.Params.CompNameX
+                        "RPERIOD", speriod,
+                        "CompanyName", MyData.Params.CompNameX
                 });
-
+            if (rd.FileName == "Report_Darz_1")
+            {
+                rd.AddReportParameters(
+                    new string[]
+                    {
+                        "KAName", kaname,
+                        "BAName", baname,
+                        "CNName", cnname
+                    });
+            }
             MyMainForm.ShowReport(rd);
         }
 

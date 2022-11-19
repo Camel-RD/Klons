@@ -19,8 +19,8 @@ namespace KlonsF.Classes
         private DataSetHelper _klonsDataSetHelper = null;
         private DataSetHelper _klonsRepDataSetHelper = null;
 
-        public string Version = "103";
-        public string VersionStr = "2022.11.#1";
+        public string Version = "105";
+        public string VersionStr = "2022.11.#2";
 
         public string SettingsFileName = GetBasePath() + "\\Config\\Settings.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterList.xml";

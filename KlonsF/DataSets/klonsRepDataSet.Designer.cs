@@ -36535,6 +36535,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[1].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC1";
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC3";
+            param.Size = 5;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "\"SP_REP_DARZ_3\"";
@@ -36583,7 +36595,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy_darz_1(klonsRepDataSet.TRepDarz1DataTable dataTable, global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT) {
+        public virtual int FillBy_darz_1(klonsRepDataSet.TRepDarz1DataTable dataTable, global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT, string PAC1, string PAC3) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((SDT.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(SDT.Value));
@@ -36596,6 +36608,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PAC1 == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(PAC1));
+            }
+            if ((PAC3 == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PAC3));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -36608,7 +36632,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual klonsRepDataSet.TRepDarz1DataTable GetDataBy_darz_1(global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT) {
+        public virtual klonsRepDataSet.TRepDarz1DataTable GetDataBy_darz_1(global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT, string PAC1, string PAC3) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((SDT.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(SDT.Value));
@@ -36621,6 +36645,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PAC1 == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(PAC1));
+            }
+            if ((PAC3 == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PAC3));
             }
             klonsRepDataSet.TRepDarz1DataTable dataTable = new klonsRepDataSet.TRepDarz1DataTable();
             this.Adapter.Fill(dataTable);
@@ -39236,6 +39272,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[1].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC1";
+            param.Size = 8;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "PAC3";
+            param.Size = 5;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "\"SP_REP_DARZ_4\"";
@@ -39284,7 +39332,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy_darz_2(klonsRepDataSet.TRepDarz2DataTable dataTable, global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT) {
+        public virtual int FillBy_darz_2(klonsRepDataSet.TRepDarz2DataTable dataTable, global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT, string PAC1, string PAC3) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((SDT.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(SDT.Value));
@@ -39297,6 +39345,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PAC1 == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(PAC1));
+            }
+            if ((PAC3 == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PAC3));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -39309,7 +39369,7 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual klonsRepDataSet.TRepDarz2DataTable GetDataBy_darz_2(global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT) {
+        public virtual klonsRepDataSet.TRepDarz2DataTable GetDataBy_darz_2(global::System.Nullable<global::System.DateTime> SDT, global::System.Nullable<global::System.DateTime> EDT, string PAC1, string PAC3) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((SDT.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(SDT.Value));
@@ -39322,6 +39382,18 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((PAC1 == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(PAC1));
+            }
+            if ((PAC3 == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PAC3));
             }
             klonsRepDataSet.TRepDarz2DataTable dataTable = new klonsRepDataSet.TRepDarz2DataTable();
             this.Adapter.Fill(dataTable);
