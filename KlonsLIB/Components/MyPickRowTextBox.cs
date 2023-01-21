@@ -82,8 +82,9 @@ namespace KlonsLIB.Components
             base.OnBindingContextChanged(e);
         }
 
-        private bool doChangePositionOnSelectedIndex = true;
-        private bool doSelectedIndexOnChangePosition = true;
+        private bool IsInPositionChanged = false;
+        private bool isInSetSelectedIndex = false;
+
         public int SelectedIndex
         {
             get { return selectedIndex; }
@@ -91,36 +92,57 @@ namespace KlonsLIB.Components
             {
                 if (selectedIndex == value) return;
                 selectedIndex = value;
-                if (dataManager != null && doChangePositionOnSelectedIndex)
+
+                if (selectedIndex < 0) selectedIndex = -1;
+                if (selectedIndex >= dataManager.Count)
+                    selectedIndex = dataManager.Count - 1;
+
+                if (dataManager == null || isInSetSelectedIndex || IsInPositionChanged) return;
+
+                isInSetSelectedIndex = true;
+
+                if (SyncPosition)
                 {
-                    doSelectedIndexOnChangePosition = false;
-                    if (SyncPosition)
+                    int k = selectedIndex;
+                    if (k == -1) k = 0;
+                    try
                     {
-                        int k = selectedIndex;
-                        if (k == -1) k = 0;
-                        try
-                        {
-                            dataManager.Position = k;
-                        }
-                        catch (Exception)
-                        {
-                        }
+                        dataManager.Position = k;
                     }
-                    else
+                    catch (Exception)
                     {
-                        if (selectedIndex < 0) selectedIndex = -1;
-                        if (selectedIndex >= dataManager.Count) selectedIndex = dataManager.Count  - 1;
-                        if (selectedIndex == -1)
-                        {
-                            Text = null;
-                        }
-                        else
-                        {
-                            Text = GetText(selectedIndex);
-                        }
                     }
-                    doSelectedIndexOnChangePosition = true;
                 }
+
+                if (selectedIndex == -1 && Text != null)
+                {
+                    // we are skiping this to allow editing of wrong text
+                    //Text = null;
+                }
+                if (selectedIndex > -1)
+                {
+                    var s = GetText(selectedIndex);
+                    if (Text != s) Text = s;
+                }
+
+                isInSetSelectedIndex = false;
+            }
+        }
+
+        private void dataManager_PositionChanged(object sender, EventArgs e)
+        {
+            if (!SyncPosition) return;
+            if (IsInPositionChanged || isInSetSelectedIndex) return;
+            IsInPositionChanged = true;
+            try
+            {
+                Text = GetText(dataManager.Position);
+                if (SelectedIndex != dataManager.Position)
+                    SelectedIndex = dataManager.Position;
+            }
+            finally
+            {
+                IsInPositionChanged = false;
             }
         }
 
@@ -164,24 +186,6 @@ namespace KlonsLIB.Components
             }
         }
 
-        private void dataManager_PositionChanged(object sender, EventArgs e)
-        {
-            if (!SyncPosition) return;
-            try
-            {
-                doChangePositionOnSelectedIndex = false;
-                if (doSelectedIndexOnChangePosition)
-                {
-                    Text = GetText(dataManager.Position);
-                    if (SelectedIndex != dataManager.Position)
-                        SelectedIndex = dataManager.Position;
-                }
-            }
-            finally
-            {
-                doChangePositionOnSelectedIndex = true;
-            }
-        }
         private void dataManager_ListChanged(object sender, ListChangedEventArgs e)
         {
             if (e.ListChangedType == ListChangedType.Reset)
@@ -405,42 +409,47 @@ namespace KlonsLIB.Components
             base.OnKeyUp(e);
         }
 
-        private bool doOnTextChanged = true;
+        private bool isInOnTextChanged = false;
         private bool doOnTextChangedDelBackKey = false;
+
         protected override void OnTextChanged(EventArgs e)
         {
-            if (doOnTextChanged)
+            if (IsInPositionChanged || isInSetSelectedIndex || isInOnTextChanged)
             {
-                doOnTextChanged = false;
-
-                string sTypedText = Text;
-                int iFoundIndex;
-
-                if (doOnTextChangedDelBackKey)
-                {
-                    doOnTextChangedDelBackKey = false;
-                    iFoundIndex = FindStringExact(sTypedText);
-                }
-                else
-                {
-                    iFoundIndex = FindString(sTypedText);
-                }
-                if (iFoundIndex >= 0 && Text != "")
-                {
-                    string sFoundText = GetText(iFoundIndex);
-                    string sAppendText = sFoundText.Substring(sTypedText.Length);
-                    AppendText(sAppendText);
-                    SelectedIndex = iFoundIndex;
-                    SelectionStart = sTypedText.Length;
-                    SelectionLength = sAppendText.Length;
-                }
-                else
-                {
-                    SelectedIndex = -1;
-                }
-
-                doOnTextChanged = true;
+                base.OnTextChanged(e);
+                return;
             }
+
+            isInOnTextChanged = true;
+
+            string sTypedText = Text;
+            int iFoundIndex;
+
+            if (doOnTextChangedDelBackKey)
+            {
+                doOnTextChangedDelBackKey = false;
+                iFoundIndex = FindStringExact(sTypedText);
+            }
+            else
+            {
+                iFoundIndex = FindString(sTypedText);
+            }
+            if (iFoundIndex >= 0 && Text != "")
+            {
+                string sFoundText = GetText(iFoundIndex);
+                string sAppendText = sFoundText.Substring(sTypedText.Length);
+                AppendText(sAppendText);
+                SelectedIndex = iFoundIndex;
+                SelectionStart = sTypedText.Length;
+                SelectionLength = sAppendText.Length;
+            }
+            else
+            {
+                SelectedIndex = -1;
+            }
+
+            isInOnTextChanged = false;
+         
             base.OnTextChanged(e);
         }
 

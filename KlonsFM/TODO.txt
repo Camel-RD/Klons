@@ -1,0 +1,112 @@
+﻿CURRENT TASKS
+- SQL FullRecalc not working for returned purchases
+- refresh poga logos Artikuli, Noliktavas
+- atgriezts_docs
+	- oldprice?
+	- set isgone = 0 in makelinks
+- rows where buyprice is calculated and sale price should be set to buyprice
+	- Atgriezts_piegādātājam, Kredītrēķins_no_piegādātāja, Uz_noliktavu, norakstīts, Izlietots
+	- needed for accounting, printing
+- rows where buyprice is calculated as last buyprice and sale price should be set to buyprice
+	- inner movement, norakstīts
+- rows where buyprice whould be set to price - iepirkums, saražots, ..
+- we need lastbuyprice in item data
+	- not so often - could be done with recalc SP 
+- items need new field IsProduced, and Itemscat	
+- inner movement
+	- do we use prices in docs - no
+	- for reporting we can use average cost of present stock (not linked)
+- services
+	- can we enable counting of services?
+	- doc can have only services and we would use store with type Services
+	- add doc type Services Received
+- SQL for makelinks and recakc ckeck use of trackstore and isservice
+- For accounting
+	- for internal movement
+		- per doc or summed up per month
+		- mark doc Nav PVN
+	- for norakstīts / pierakstīts
+		- store must hold 7xxx accountid in 21xx field
+		- what about VAT
+			- mark doc Nav PVN
+			- is there VAT?
+			- leave it to accountant
+	- when we are not VAT payer
+		- set doc PVNType to Nav PVN
+			- for incomming docs it would look weird
+			- we need this in case we become VAT payer, to do open & re-close doc
+			- or we need extra field WeAreVATPayer for doc
+		- for incoming docs with VAT we have to split total VAT for all rows
+			- we enter prices without VAT and then we have button for spliting VAT
+			- rows can have different VAT rates - we need form for splitting total VATs
+		- or shoud rows have fields for Price and TotalPrice with VAT
+			- rounding error
+		- for accounting we could use simply accout and accin from doc header
+- overview reports
+	- calculated cost of sales aggregated per period
+		- we are not doing cost accounting per each sale doc
+		- accountant uses this report to make/edit entries in OPS
+	- link inspection per item
+		- we could do full calc in code and compare with db
+			- a lot of work
+			- kinda necessary to ensure correct sql
+- tools
+	- Recalc isgone field
+		- auto start on first app start
+		- maybe add isgone update logic to fast makelinks sql's
+			- not critical because when auto recalc used
+- inventarizācija
+	- new tables ...
+	- stages
+		- data entry of counted amounts
+		- add rows and set field with db data
+		- lock data entry field of initially counted amounts
+			- pointless because you can make amount report earlier
+		- filter rows with wrong data
+		- extra recount results entered in extra field
+		- do we do doc closing/opening - with password or ...
+	- make actual docs for norakstīts / pierakstīts
+
+
+BIG UNKNOWNS
+- Revaluation of current item stocks
+	- no clue how its done
+- The same for docs (crredit docs) that change initial doc
+- price and discount catalogs
+	- do we need both, or any
+		- its up to person preparing doc to know correct price or discount
+		- prices and discounts come from managers they have actual lists
+			keeping those in sync with app - extra work
+- cost accumulation for production or construction
+	(per product / project ...)
+	- for that we have to make movement of services trackable
+	  and use smth like - Nākamo periodu izmaksas
+- we are going for one DB for entire company - no local DBs
+	- with multiple DBs we cant track stock movement per supplier
+		- unless items are linked to single supplier
+	- with multiple DBs cost calc with FIFO method is not correct looking at entire company
+		- cost is not attributed to different units locatad in different places with own DBs
+		  but in virtual FIFO queue
+	- or we do separate cost calc for each shop?
+		- what do we do with supplier info?
+- weighted average buyprice, cost
+
+MAYBE
+- doc rows: allow to enter custom item name different from name in Items table
+	- additional table for custom item names
+	- no need to make seperate items for each name
+	- low cost when actually not used
+- allow to add/edit custom PVN Režīms
+	- or leave it and add new ones when requested - no one does requesting
+- extra category list for Stores table
+	- to label partners etc
+- add change tracking field and triggers for relevant/all tables
+	- to allow client to detect changes and load changed rows
+		- how do we detect deleted rows?
+			- row deletion expected to be rare
+	- good for switching to EF
+	- triggers do change tracking field and - designated seq-gen
+	- triggers can slow down long running sql's
+		- does not matter when we go for EF
+	- client requests current value of seq-gen to detect changes
+- doc export to xml

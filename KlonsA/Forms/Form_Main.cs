@@ -70,13 +70,14 @@ namespace KlonsA
                 return;
             }
             DataLoader.LoadSomeData();
-
+            /*
             if (!MyData.Settings.DontShowBetaWarning)
             {
                 ShowInfo("Darbs pie programmas vēl nav pabeigts,\n" +
                     "Šī versija ir paredzēta testēšanai,\n" +
                     "Ja tev ir ieteikumi uzlabojumiem, raksti uz e-pastu.");
             }
+            */
         }
 
         public void LoadData()

@@ -367,17 +367,29 @@ namespace KlonsLIB.Forms
             f.Activate();
         }
 
-        public virtual void ShowInfo(string msg, string title = "Info")
+        public virtual void ShowInfo(string msg, string title = "Info", Form owner = null)
         {
-            MyMessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MyMessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Information, null, owner);
         }
-        public virtual void ShowWarning(string msg, string title = "Brīdinājums!")
+        public virtual void ShowWarning(string msg, string title = "Brīdinājums!", Form owner = null)
         {
-            MyMessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MyMessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Warning, null, owner);
         }
-        public virtual void ShowError(string msg, string title = "Kļūda!")
+        public virtual void ShowError(string msg, string title = "Kļūda!", Form owner = null)
         {
-            MyMessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MyMessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Error, null, owner);
+        }
+        public virtual bool AskSomething(string askwhat, Form owner = null)
+        {
+            if (owner == null) owner = MyMainForm;
+            DialogResult response = MyMessageBox.Show(askwhat,
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2,
+                owner);
+
+            return response == DialogResult.Yes;
         }
 
     }

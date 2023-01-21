@@ -107,7 +107,7 @@ namespace KlonsLIB.MySourceGrid.Cells
                 }
                 else
                 {
-                    e.Value = "?";
+                    e.Value = evalue;
                     //e.ConvertingStatus = ConvertingStatus.Completed;
                     e.ConvertingStatus = ConvertingStatus.Error;
                 }

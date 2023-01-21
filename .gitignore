@@ -17,18 +17,21 @@ LIB/*.xml
 KlonsF/Config/*.xml
 KlonsA/Config/*.xml
 KlonsP/Config/*.xml
+KlonsFM/Config/*.xml
 KlonsF/DB-backup/*.*
 KlonsA/DB-backup/*.*
 KlonsP/DB-backup/*.*
+KlonsFM/DB-backup/*.*
 KlonsF/FBembed25
 KlonsA/FBembed25
 KlonsP/FBembed25
+KlonsFM/FBembed25
 KlonsM/
-DataObjectsM/
 KlonsT/
+KlonsF2/
+DataObjectsM/
 DataObjectsT/
 DataObjectsF2/
-KlonsF2/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

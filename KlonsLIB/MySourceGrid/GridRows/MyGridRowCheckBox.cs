@@ -81,6 +81,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
                 checkcell.Editor.EditableMode = EditableMode.None;
             //checkcell.View = Grid.gridViewModel.dataCellCheckBox;
             checkcell.View = Grid.gridViewModel.dataCellCheckBox2;
+            checkcell.Editor.EnableEdit = !ReadOnly;
             return checkcell;
         }
     }
