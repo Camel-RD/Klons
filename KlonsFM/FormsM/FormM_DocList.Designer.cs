@@ -88,10 +88,6 @@ namespace KlonsFM.FormsM
             this.bsDocFilter = new KlonsLIB.Data.MyBindingSourceToObj(this.components);
             this.docFilterData1 = new DataObjectsFM.DocFilterData();
             this.btFilter = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dokumentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.izveidotKredītrēķinuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).BeginInit();
             this.bNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocs)).BeginInit();
@@ -106,7 +102,6 @@ namespace KlonsFM.FormsM
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocFilter)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bNav
@@ -673,41 +668,6 @@ namespace KlonsFM.FormsM
             this.btFilter.UseVisualStyleBackColor = true;
             this.btFilter.Click += new System.EventHandler(this.btFilter_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dokumentiToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1269, 38);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
-            // 
-            // dokumentiToolStripMenuItem
-            // 
-            this.dokumentiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.izveidotKredītrēķinuToolStripMenuItem,
-            this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem});
-            this.dokumentiToolStripMenuItem.Name = "dokumentiToolStripMenuItem";
-            this.dokumentiToolStripMenuItem.Size = new System.Drawing.Size(135, 34);
-            this.dokumentiToolStripMenuItem.Text = "Dokumenti";
-            // 
-            // izveidotKredītrēķinuToolStripMenuItem
-            // 
-            this.izveidotKredītrēķinuToolStripMenuItem.Name = "izveidotKredītrēķinuToolStripMenuItem";
-            this.izveidotKredītrēķinuToolStripMenuItem.Size = new System.Drawing.Size(495, 38);
-            this.izveidotKredītrēķinuToolStripMenuItem.Text = "Izveidot kredītrēķinu";
-            this.izveidotKredītrēķinuToolStripMenuItem.Click += new System.EventHandler(this.izveidotKredītrēķinuToolStripMenuItem_Click);
-            // 
-            // izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem
-            // 
-            this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem.Name = "izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem";
-            this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem.Size = new System.Drawing.Size(495, 38);
-            this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem.Text = "Izveidot kredītrēķinus preču atgriešanai";
-            this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem.Click += new System.EventHandler(this.izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem_Click);
-            // 
             // FormM_DocList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -716,8 +676,6 @@ namespace KlonsFM.FormsM
             this.Controls.Add(this.dgvDocs);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bNav);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormM_DocList";
             this.Text = "Dokumenti";
             this.Load += new System.EventHandler(this.FormM_DocList_Load);
@@ -736,8 +694,6 @@ namespace KlonsFM.FormsM
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocFilter)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -790,10 +746,6 @@ namespace KlonsFM.FormsM
         private DataObjectsFM.DocFilterData docFilterData1;
         private System.Windows.Forms.Button btFilter;
         private System.Windows.Forms.ToolStripButton tsbOpenDoc;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem dokumentiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem izveidotKredītrēķinuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem izveidotKredītrēķinusPrečuAtgriešanaiToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcFilterDt1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcFilterDt2;
         private KlonsLIB.Components.MyDgvMcCBColumn dgcFilterDocType;

@@ -23,8 +23,8 @@ namespace KlonsFM.Classes
         private DataSetHelper _klonsMDataSetHelper = null;
         private DataSetHelper _klonsMRepDataSetHelper = null;
 
-        public string Version = "001";
-        public string VersionStr = "2023.01.#1";
+        public string Version = "002";
+        public string VersionStr = "2023.01.#2";
 
         public string SettingsFileName = GetBasePath() + "\\Config\\Settings.xml";
         public string MasterListFileName = GetBasePath() + "\\Config\\MasterList.xml";

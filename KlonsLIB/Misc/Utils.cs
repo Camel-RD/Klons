@@ -557,7 +557,49 @@ namespace KlonsLIB.Misc
             }
         }
 
+        public static T LoadDataFromXML<T>(string filename) where T : new()
+        {
+            T data = new T();
+            if (!File.Exists(filename)) return data;
+            XmlSerializer xs = null;
+            FileStream fs = null;
+            try
+            {
+                xs = Utils.CreateDefaultXmlSerializer(typeof(T));
+                fs = new FileStream(filename, FileMode.Open);
+                data = (T)xs.Deserialize(fs);
+                return data;
+            }
+            catch (Exception)
+            {
+                data = new T();
+                return data;
+            }
+            finally
+            {
+                if (fs != null) fs.Close();
+            }
+        }
 
+        public static bool SaveDataToXML<T>(T data, string filename)
+        {
+            XmlSerializer xs = Utils.CreateDefaultXmlSerializer(typeof(T));
+            TextWriter wr = null;
+            try
+            {
+                wr = new StreamWriter(filename);
+                xs.Serialize(wr, data);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (wr != null) wr.Close();
+            }
+            return true;
+        }
 
         public static void SetDGVShowCellToolTipsA(Control c, bool b)
         {
@@ -691,6 +733,24 @@ namespace KlonsLIB.Misc
                 }
             }
         }
+		
+        public static void SetLabelColumnWidth(PropertyGrid grid, int width)
+        {
+            if (grid == null)
+                throw new ArgumentNullException("grid");
+            Control view = (Control)grid.GetType().GetField("gridView", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(grid);
+            FieldInfo fi = view.GetType().GetField("labelWidth", BindingFlags.Instance | BindingFlags.NonPublic);
+            fi.SetValue(view, width);
+            view.Invalidate();
+        }
 
+        public static void SetLabelColumnWidth2(this PropertyGrid grid, int width)
+        {
+            FieldInfo fi = grid?.GetType().GetField("gridView", BindingFlags.Instance | BindingFlags.NonPublic);
+            Control view = fi?.GetValue(grid) as Control;
+            MethodInfo mi = view?.GetType().GetMethod("MoveSplitterTo", BindingFlags.Instance | BindingFlags.NonPublic);
+            mi?.Invoke(view, new object[] { width });		
+		}
+		
     }
 }

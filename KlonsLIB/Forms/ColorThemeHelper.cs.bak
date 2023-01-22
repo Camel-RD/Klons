@@ -173,22 +173,6 @@ namespace KlonsLIB.Forms
             }
         }
 
-        public static MyColorTheme GetColorThemeById(string id)
-        {
-            switch (id)
-            {
-                case "system":
-                    return ColorTheme_System;
-                case "dark1":
-                    return ColorTheme_Dark1;
-                case "green":
-                    return ColorTheme_Green;
-                case "blackonwhite":
-                    return ColorTheme_BlackOnWhite;
-            }
-            return ColorTheme_System;
-        }
-
         public static void ApplyToForm(Form f, MyColorTheme mycolortheme)
         {
             ApplyToControlA(f, mycolortheme);
@@ -350,17 +334,7 @@ namespace KlonsLIB.Forms
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
                 (c as FlatComboBox).BorderColor = mycolortheme.GetColor((c as FlatComboBox).BorderColor, mycolortheme.BorderColor);
             }
-            else if (c is ComboBox)
-            {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
-                c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
-            }
             else if (c is ListBox)
-            {
-                c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
-                c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
-            }
-            else if (c is ListView)
             {
                 c.ForeColor = mycolortheme.GetColor(c.ForeColor, mycolortheme.WindowTextColor);
                 c.BackColor = mycolortheme.GetColor(c.BackColor, mycolortheme.WindowColor);
@@ -373,8 +347,6 @@ namespace KlonsLIB.Forms
                 prgr.ViewForeColor = mycolortheme.GetColor(prgr.ViewForeColor, mycolortheme.ControlTextColor);
                 prgr.LineColor = mycolortheme.GetColor(prgr.LineColor, mycolortheme.ControlColorDark);
                 prgr.CategoryForeColor = prgr.BackColor;
-                prgr.HelpBackColor = prgr.BackColor;
-                prgr.HelpForeColor = prgr.ViewForeColor;
                 //prgr.CategorySplitterColor = prgr.ViewForeColor;
                 //prgr.CategoryForeColor = mycolortheme.GetColor(prgr.CategoryForeColor, mycolortheme.ForeColor);
                 //prgr.CategorySplitterColor = mycolortheme.GetColor(prgr.CategorySplitterColor, mycolortheme.ControlColor);

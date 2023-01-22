@@ -110,3 +110,5 @@ MAYBE
 		- does not matter when we go for EF
 	- client requests current value of seq-gen to detect changes
 - doc export to xml
+- doc nr generator
+
