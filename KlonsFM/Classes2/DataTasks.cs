@@ -1716,8 +1716,7 @@ namespace KlonsFM.Classes
             {
                 if (tablename == null) continue;
                 var list_item = SetNewIds_List.Find(x => x.Name == tablename);
-                if (list_item == null)
-                    throw new ArgumentException($"Wrong table name {tablename}.");
+                if (list_item == null) continue;
                 SetNewIDs(list_item.func_gettable, list_item.func_getidfunc, list_item.idcolumnname);
             }
         }
