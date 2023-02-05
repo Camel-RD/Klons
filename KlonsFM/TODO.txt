@@ -1,5 +1,4 @@
 ﻿CURRENT TASKS
-- SQL FullRecalc not working for returned purchases
 - refresh poga logos Artikuli, Noliktavas
 - atgriezts_docs
 	- oldprice?
@@ -12,6 +11,7 @@
 - rows where buyprice whould be set to price - iepirkums, saražots, ..
 - we need lastbuyprice in item data
 	- not so often - could be done with recalc SP 
+	- lastbuyprice used in pierakstīts
 - items need new field IsProduced, and Itemscat	
 - inner movement
 	- do we use prices in docs - no
@@ -46,6 +46,8 @@
 	- calculated cost of sales aggregated per period
 		- we are not doing cost accounting per each sale doc
 		- accountant uses this report to make/edit entries in OPS
+			- or we make fin doc per store doc as configurable option
+	- aggregated overview of innre movement, produced good, goods used in production
 	- link inspection per item
 		- we could do full calc in code and compare with db
 			- a lot of work
@@ -55,18 +57,6 @@
 		- auto start on first app start
 		- maybe add isgone update logic to fast makelinks sql's
 			- not critical because when auto recalc used
-- inventarizācija
-	- new tables ...
-	- stages
-		- data entry of counted amounts
-		- add rows and set field with db data
-		- lock data entry field of initially counted amounts
-			- pointless because you can make amount report earlier
-		- filter rows with wrong data
-		- extra recount results entered in extra field
-		- do we do doc closing/opening - with password or ...
-	- make actual docs for norakstīts / pierakstīts
-
 
 BIG UNKNOWNS
 - Revaluation of current item stocks

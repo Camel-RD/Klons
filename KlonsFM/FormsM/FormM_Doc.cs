@@ -14,7 +14,6 @@ using KlonsLIB.Data;
 using KlonsLIB.Misc;
 using KlonsFM.UI;
 using KlonsLIB.Components;
-using ReflectionMagic;
 
 namespace KlonsFM.FormsM
 {
@@ -27,17 +26,6 @@ namespace KlonsFM.FormsM
             CheckMyFontAndColors();
 
             MakeGrid();
-        }
-
-        private void LoadParams()
-        {
-
-        }
-
-        public override void SaveParams()
-        {
-
-
         }
 
         private void MakeGrid()
@@ -251,6 +239,12 @@ namespace KlonsFM.FormsM
                 {
                     dr.PRICE0 = dr_item.SELLPRICE;
                     dr.PRICE = dr_item.SELLPRICE;
+                    dr.DISCOUNT = 0f;
+                }
+                else if (dr.M_DOCSRow.XDocType == EDocType.Saražots)
+                {
+                    dr.PRICE0 = dr_item.PRODCOST;
+                    dr.PRICE = dr_item.PRODCOST;
                     dr.DISCOUNT = 0f;
                 }
                 else
@@ -1168,6 +1162,13 @@ namespace KlonsFM.FormsM
             MyMainForm.ShowFormDialog(typeof(FormM_Invoice), dr_doc.ID, 0);
         }
 
+        public void DoCostRep()
+        {
+            var dr_doc = GetCurrentDocRow();
+            if (dr_doc == null) return;
+            FormM_DocCosts.ShowRep(dr_doc);
+        }
+
         private void sgrDocA_EditStarting(object sender, CancelEventArgs e)
         {
             if (!CanEditCurrentDoc())
@@ -1219,6 +1220,10 @@ namespace KlonsFM.FormsM
         private void kontējumsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DoAccounting(false);
+        }
+        private void miIzmaksuKopsavilkums_Click(object sender, EventArgs e)
+        {
+            DoCostRep();
         }
         private void pavadzīmeToolStripMenuItem_Click(object sender, EventArgs e)
         {

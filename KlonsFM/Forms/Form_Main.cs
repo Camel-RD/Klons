@@ -508,39 +508,39 @@ namespace KlonsFM
 
         #endregion
 
-        private void kontiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dokumentiToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            ShowFormM<FormsM.FormM_Accounts>();
+            ShowFormM<FormsM.FormM_DocList>();
         }
-
         private void noliktavasPartneriToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_Stores>();
         }
-
         private void produktuKategorijasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_ItemsCat>();
         }
-
         private void artikuliToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_Items>();
         }
-
-        private void dokumentiToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void miInventarizācijasDokumenti_Click(object sender, EventArgs e)
         {
-            ShowFormM<FormsM.FormM_Docs>();
+            ShowFormM<FormsM.FormM_InvDocList>();
         }
-
+        private void miParamsM_Click(object sender, EventArgs e)
+        {
+            DataMLoader.CheckLoad();
+            var fm = new FormsM.FormM_Params();
+            fm.ShowDialog();
+        }
+        private void kontiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormM<FormsM.FormM_Accounts>();
+        }
         private void artikulaKustībasPārskatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_ItemMovement>();
-        }
-
-        private void dokumentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowFormM<FormsM.FormM_Doc>();
         }
 
         private void valstuKodiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -565,46 +565,28 @@ namespace KlonsFM
         {
             ShowFormM<FormsM.FormM_Banks>();
         }
-
         private void darijumuVeidiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_TransactionType>();
         }
-
         private void norēķinuVeidiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_PaymentTypes>();
         }
-
         private void valstisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_Countries>();
         }
-
-        private void dokumentiToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            ShowFormM<FormsM.FormM_DocList>();
-        }
-
         private void kontēšanasShēmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormM<FormsM.FormM_PvnRates2>();
         }
-
         private void pVNAprēķinaAtsaucesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataMLoader.CheckLoad();
             var fm = new FormsM.FormM_PVNTexts();
             fm.ShowDialog();
         }
-
-        private void miParamsM_Click(object sender, EventArgs e)
-        {
-            DataMLoader.CheckLoad();
-            var fm = new FormsM.FormM_Params();
-            fm.ShowDialog();
-        }
-
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var test = new Classes2.TDMain();
@@ -630,25 +612,21 @@ namespace KlonsFM
             DataMLoader.CheckLoad();
             DataTasks.FullRecalc();
         }
-
         private void miAtlikumuPārrēķins_Click(object sender, EventArgs e)
         {
             DataMLoader.CheckLoad();
             DataTasks.RecalcAmounts();
         }
-
         private void miIsGonePārrēķins_Click(object sender, EventArgs e)
         {
             DataMLoader.CheckLoad();
             DataTasks.RecalcIsGone();
         }
-
         private void miIzlietojumaPārskats_Click(object sender, EventArgs e)
         {
             DataMLoader.CheckLoad();
             ShowFormM<FormsM.FormM_RepItemLinks>();
         }
-
         private void miKustībaPaArtikuliem_Click(object sender, EventArgs e)
         {
             DataMLoader.CheckLoad();
@@ -669,7 +647,6 @@ namespace KlonsFM
             DataMLoader.CheckLoad();
             ShowFormM<FormsM.FormM_RepAccCosts>();
         }
-
         private void miRealizācijasPašizmaksaPaDokumentiem_Click(object sender, EventArgs e)
         {
             DataMLoader.CheckLoad();
@@ -687,5 +664,6 @@ namespace KlonsFM
             if (ActiveMdiChild == null) return;
             ActiveMdiChild.Close();
         }
+
     }
 }

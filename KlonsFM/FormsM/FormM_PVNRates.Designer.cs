@@ -36,7 +36,7 @@ namespace KlonsFM.FormsM
             this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcIsReverse = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgcIsReverse = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsPVNRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRows)).BeginInit();
@@ -151,7 +151,7 @@ namespace KlonsFM.FormsM
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgcIsReverse;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcIsReverse;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcId;
     }
 }

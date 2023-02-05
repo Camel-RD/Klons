@@ -61,7 +61,10 @@ namespace KlonsFM.FormsM
             this.panel1 = new System.Windows.Forms.Panel();
             this.chShowEmptyColumns = new KlonsLIB.Components.MyCheckBox();
             this.cmGetData = new System.Windows.Forms.Button();
-            this.tbCode = new KlonsLIB.Components.MyPickRowTextBox2();
+            this.tbStoreCode = new KlonsLIB.Components.MyPickRowTextBox2();
+            this.bsStore = new KlonsLIB.Data.MyBindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbCatCode = new KlonsLIB.Components.MyPickRowTextBox2();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbDT2 = new KlonsLIB.Components.MyTextBox();
@@ -98,6 +101,7 @@ namespace KlonsFM.FormsM
             this.dgcIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsItemsCat)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRows)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,7 +115,9 @@ namespace KlonsFM.FormsM
             // 
             this.panel1.Controls.Add(this.chShowEmptyColumns);
             this.panel1.Controls.Add(this.cmGetData);
-            this.panel1.Controls.Add(this.tbCode);
+            this.panel1.Controls.Add(this.tbStoreCode);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.tbCatCode);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tbDT2);
@@ -119,46 +125,78 @@ namespace KlonsFM.FormsM
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1032, 40);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(1032, 70);
+            this.panel1.TabIndex = 0;
             // 
             // chShowEmptyColumns
             // 
             this.chShowEmptyColumns.AutoSize = true;
-            this.chShowEmptyColumns.Location = new System.Drawing.Point(743, 9);
+            this.chShowEmptyColumns.Location = new System.Drawing.Point(757, 9);
             this.chShowEmptyColumns.Name = "chShowEmptyColumns";
             this.chShowEmptyColumns.Size = new System.Drawing.Size(181, 21);
-            this.chShowEmptyColumns.TabIndex = 6;
+            this.chShowEmptyColumns.TabIndex = 5;
             this.chShowEmptyColumns.Text = "rādīt tukšās kolonnas";
             this.chShowEmptyColumns.UseVisualStyleBackColor = false;
             this.chShowEmptyColumns.Click += new System.EventHandler(this.chShowEmptyColumns_Click);
             // 
             // cmGetData
             // 
-            this.cmGetData.Location = new System.Drawing.Point(612, 4);
+            this.cmGetData.Location = new System.Drawing.Point(626, 4);
             this.cmGetData.Name = "cmGetData";
             this.cmGetData.Size = new System.Drawing.Size(111, 31);
-            this.cmGetData.TabIndex = 3;
+            this.cmGetData.TabIndex = 4;
             this.cmGetData.Text = "Atlasīt";
             this.cmGetData.UseVisualStyleBackColor = true;
             this.cmGetData.Click += new System.EventHandler(this.cmGetData_Click);
             // 
-            // tbCode
+            // tbStoreCode
             // 
-            this.tbCode.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbCode.DataMember = null;
-            this.tbCode.DataSource = this.bsItemsCat;
-            this.tbCode.DisplayMember = "CODE";
-            this.tbCode.Location = new System.Drawing.Point(439, 6);
-            this.tbCode.Name = "tbCode";
-            this.tbCode.SelectedIndex = -1;
-            this.tbCode.ShowButton = true;
-            this.tbCode.Size = new System.Drawing.Size(158, 26);
-            this.tbCode.SyncPosition = false;
-            this.tbCode.TabIndex = 2;
-            this.tbCode.ValueMember = "ID";
-            this.tbCode.Click += new System.EventHandler(this.tbCode_ButtonClicked);
-            this.tbCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbCode_KeyDown);
+            this.tbStoreCode.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbStoreCode.DataMember = null;
+            this.tbStoreCode.DataSource = this.bsStore;
+            this.tbStoreCode.DisplayMember = "CODE";
+            this.tbStoreCode.Location = new System.Drawing.Point(453, 38);
+            this.tbStoreCode.Name = "tbStoreCode";
+            this.tbStoreCode.SelectedIndex = -1;
+            this.tbStoreCode.ShowButton = true;
+            this.tbStoreCode.Size = new System.Drawing.Size(158, 26);
+            this.tbStoreCode.SyncPosition = false;
+            this.tbStoreCode.TabIndex = 3;
+            this.tbStoreCode.ValueMember = "ID";
+            this.tbStoreCode.ButtonClicked += new System.EventHandler(this.tbStoreCode_ButtonClicked);
+            this.tbStoreCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbCode_KeyDown);
+            // 
+            // bsStore
+            // 
+            this.bsStore.DataMember = "M_STORES";
+            this.bsStore.MyDataSource = "KlonsMData";
+            this.bsStore.Sort = "CODE";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(348, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "piegādātajs:";
+            // 
+            // tbCatCode
+            // 
+            this.tbCatCode.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbCatCode.DataMember = null;
+            this.tbCatCode.DataSource = this.bsItemsCat;
+            this.tbCatCode.DisplayMember = "CODE";
+            this.tbCatCode.Location = new System.Drawing.Point(453, 6);
+            this.tbCatCode.Name = "tbCatCode";
+            this.tbCatCode.SelectedIndex = -1;
+            this.tbCatCode.ShowButton = true;
+            this.tbCatCode.Size = new System.Drawing.Size(158, 26);
+            this.tbCatCode.SyncPosition = false;
+            this.tbCatCode.TabIndex = 2;
+            this.tbCatCode.ValueMember = "ID";
+            this.tbCatCode.Click += new System.EventHandler(this.tbCatCode_ButtonClicked);
+            this.tbCatCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbCode_KeyDown);
             // 
             // label2
             // 
@@ -166,7 +204,7 @@ namespace KlonsFM.FormsM
             this.label2.Location = new System.Drawing.Point(348, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 7;
             this.label2.Text = "kategorija:";
             // 
             // label1
@@ -175,7 +213,7 @@ namespace KlonsFM.FormsM
             this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Datums no - līdz:";
             // 
             // tbDT2
@@ -241,14 +279,14 @@ namespace KlonsFM.FormsM
             this.dgcValBeigās,
             this.dgcIncome});
             this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRows.Location = new System.Drawing.Point(0, 40);
+            this.dgvRows.Location = new System.Drawing.Point(0, 70);
             this.dgvRows.Name = "dgvRows";
             this.dgvRows.ReadOnly = true;
             this.dgvRows.RowHeadersWidth = 30;
             this.dgvRows.RowTemplate.Height = 28;
             this.dgvRows.ShowCellToolTips = false;
-            this.dgvRows.Size = new System.Drawing.Size(1032, 410);
-            this.dgvRows.TabIndex = 3;
+            this.dgvRows.Size = new System.Drawing.Size(1032, 380);
+            this.dgvRows.TabIndex = 1;
             this.dgvRows.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRows_CellFormatting);
             // 
             // dgcItemCode
@@ -592,6 +630,7 @@ namespace KlonsFM.FormsM
             ((System.ComponentModel.ISupportInitialize)(this.bsItemsCat)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRows)).EndInit();
             this.ResumeLayout(false);
 
@@ -602,7 +641,7 @@ namespace KlonsFM.FormsM
         private KlonsLIB.Data.MyBindingSource bsItemsCat;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cmGetData;
-        private KlonsLIB.Components.MyPickRowTextBox2 tbCode;
+        private KlonsLIB.Components.MyPickRowTextBox2 tbCatCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private KlonsLIB.Components.MyTextBox tbDT2;
@@ -638,5 +677,8 @@ namespace KlonsFM.FormsM
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcValSaražots;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcValBeigās;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcIncome;
+        private KlonsLIB.Components.MyPickRowTextBox2 tbStoreCode;
+        private System.Windows.Forms.Label label3;
+        private KlonsLIB.Data.MyBindingSource bsStore;
     }
 }

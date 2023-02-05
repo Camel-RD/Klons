@@ -26,6 +26,7 @@ namespace KlonsA.Classes
             var rows2 = MakeReport2(reporttype, dt1, dt2);
             rows1 = new List<IINReportRow>(rows1.OrderBy(r => r.Name));
             rows2 = new List<IINReportRow>(rows2.OrderBy(r => r.Name));
+            rows1 = rows1.Where(x => x.HasData()).ToList();
             Rows.AddRange(rows1);
             Rows.AddRange(rows2);
         }
@@ -231,6 +232,14 @@ namespace KlonsA.Classes
         public decimal iin_amount { get; set; } = 0.0M;
 
         private static string[] ex2str = { "", "090", "091", "092", "093", "094", "095" };
+
+
+        public bool HasData()
+        {
+            return income != 0M || income_nottaxed != 0M || authors_fee != 0M ||
+                dnsn_amount != 0M || plus_pf_nottaxed != 0M || plus_li_nottaxed != 0M ||
+                plus_hi_nottaxed != 0M || before_iin != 0M || iin_amount != 0;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -17,9 +17,9 @@ using KlonsLIB.Components;
 
 namespace KlonsFM.FormsM
 {
-    public partial class FormM_DocList : MyFormBaseF, IMyDgvTextboxEditingControlEvents2
+    public partial class FormM_InvDocList : MyFormBaseF, IMyDgvTextboxEditingControlEvents2
     {
-        public FormM_DocList()
+        public FormM_InvDocList()
         {
             InitializeComponent();
             CheckMyFontAndColors();
@@ -27,14 +27,14 @@ namespace KlonsFM.FormsM
 
             dgcDocsState.ColorMarkNeeded += DgcDocsState_ColorMarkNeeded;
 
-            dgcFilterDocState.DataSource = SomeDataDefs.DocStates;
-            dgcFilterDocState.ValueMember = "Key";
-            dgcFilterDocState.DisplayMember = "Val";
-            dgcFilterDocState.ColumnNames = new[] { "Key", "Val" };
-            dgcFilterDocState.ColumnWidths = "0;150";
+            dgcFilterState.DataSource = SomeDataDefs.DocStates;
+            dgcFilterState.ValueMember = "Key";
+            dgcFilterState.DisplayMember = "Val";
+            dgcFilterState.ColumnNames = new[] { "Key", "Val" };
+            dgcFilterState.ColumnWidths = "0;150";
         }
 
-        private void FormM_DocList_Load(object sender, EventArgs e)
+        private void FormM_InvDocList_Load(object sender, EventArgs e)
         {
             LoadParams();
             LoadDataOnOpen();
@@ -44,78 +44,62 @@ namespace KlonsFM.FormsM
         {
             docFilterData1.Dt1 = MyData.Params.MFILTERDOCSDT1;
             docFilterData1.Dt2 = MyData.Params.MFILTERDOCSDT2;
-            docFilterData1.DocType = MyData.Params.MFILTERDOCSTP;
-            docFilterData1.DocState = MyData.Params.MFILTERDOCSSTATE;
-            docFilterData1.IdStoreOut = MyData.Params.MFILTERDOCSOUT;
-            docFilterData1.IdStoreIn = MyData.Params.MFILTERDOCSIN;
-            docFilterData1.IdStoreOutOrIn = MyData.Params.MFILTERDOCSINOROUT;
         }
 
         public override void SaveParams()
         {
             MyData.Params.MFILTERDOCSDT1 = docFilterData1.Dt1;
             MyData.Params.MFILTERDOCSDT2 = docFilterData1.Dt2;
-            MyData.Params.MFILTERDOCSTP = docFilterData1.DocType;
-            MyData.Params.MFILTERDOCSSTATE = docFilterData1.DocState;
-            MyData.Params.MFILTERDOCSOUT = docFilterData1.IdStoreOut;
-            MyData.Params.MFILTERDOCSIN = docFilterData1.IdStoreIn;
-            MyData.Params.MFILTERDOCSINOROUT = docFilterData1.IdStoreOutOrIn;
         }
-
 
         public void LoadData()
         {
             if (!dgvFilter.EndEdit()) return;
             if (!SaveData()) return;
-            DataMLoader.LoadDocsByFilter(
-                docFilterData1.Dt1, 
+            DataMLoader.LoadInvDocsByFilter(
+                docFilterData1.Dt1,
                 docFilterData1.Dt2,
-                docFilterData1.DocType, 
                 docFilterData1.DocState,
-                docFilterData1.IdStoreOut, 
-                docFilterData1.IdStoreIn,
-                docFilterData1.IdStoreOutOrIn);
+                docFilterData1.IdStoreIn);
         }
 
         public void LoadDataOnOpen()
         {
             if (!HasParamsSet()) return;
-            if (MyData.DataSetKlonsM.M_DOCS.Rows.Count > 0) return;
-            if (MyData.DataSetKlonsM.M_DOCS.HasChanges()) return;
-            if (MyData.DataSetKlonsM.M_ROWS.HasChanges()) return;
+            if (MyData.DataSetKlonsM.M_INV_DOCS.Rows.Count > 0) return;
+            if (MyData.DataSetKlonsM.M_INV_DOCS.HasChanges()) return;
+            if (MyData.DataSetKlonsM.M_INV_ROWS.HasChanges()) return;
             LoadData();
         }
 
         public bool HasParamsSet()
         {
             return docFilterData1.Dt1 != null || docFilterData1.Dt2 != null ||
-                docFilterData1.DocType != null || docFilterData1.DocState != null ||
-                docFilterData1.IdStoreOut != null || docFilterData1.IdStoreIn != null ||
-                docFilterData1.IdStoreOutOrIn != null;
+                docFilterData1.DocState != null || docFilterData1.IdStoreIn != null;
         }
-
 
         private void DgcDocsState_ColorMarkNeeded(object sender, DataGridViewColorMarkColumnEventArgs e)
         {
             e.MarkColor = myConfigA1.DocStatusColor1;
             if (e.RowNr == dgvDocs.NewRowIndex) return;
-            var dr_doc = (bsDocs[e.RowNr] as DataRowView)?.Row as KlonsMDataSet.M_DOCSRow;
+            var dr_doc = (bsDocs[e.RowNr] as DataRowView)?.Row as KlonsMDataSet.M_INV_DOCSRow;
             if (dr_doc == null) return;
-            if (dr_doc.XState == EDocState.Iegrāmatots)
-                e.MarkColor = myConfigA1.DocStatusColor2;
-            else if (dr_doc.XState == EDocState.Iekontēts)
+            if (dr_doc.XState == EInventoryDocState.Iegrāmatots)
                 e.MarkColor = myConfigA1.DocStatusColor3;
+            else if (dr_doc.XState == EInventoryDocState.Apstiprināts ||
+                dr_doc.XState == EInventoryDocState.Salīdzināts)
+                e.MarkColor = myConfigA1.DocStatusColor2;
         }
 
-        private KlonsMDataSet.M_DOCSRow GetCurrentDocRow()
+        private KlonsMDataSet.M_INV_DOCSRow GetCurrentDocRow()
         {
             if (bsDocs.Count == 0 || bsDocs.Current == null ||
                 dgvDocs.CurrentRow.Index == dgvDocs.NewRowIndex) return null;
-            var dr_doc = bsDocs.CurrentDataRow as KlonsMDataSet.M_DOCSRow;
+            var dr_doc = bsDocs.CurrentDataRow as KlonsMDataSet.M_INV_DOCSRow;
             return dr_doc;
         }
 
-        private KlonsMDataSet.M_DOCSRow GetGoodCurrentDocRow()
+        private KlonsMDataSet.M_INV_DOCSRow GetGoodCurrentDocRow()
         {
             var dr_doc = GetCurrentDocRow();
             if (dr_doc == null) return null;
@@ -166,15 +150,6 @@ namespace KlonsFM.FormsM
             bNav.SetSaveButtonRed(red);
         }
 
-        public bool CanEditCurrentDoc()
-        {
-            if (dgvDocs.CurrentRow.Index == dgvDocs.NewRowIndex) return true;
-            if (bsDocs.Count == 0 || bsDocs.Current == null) return false;
-            var dr_doc = bsDocs.CurrentDataRow as KlonsMDataSet.M_DOCSRow;
-            if (dr_doc == null) return false;
-            return dr_doc.IsOpenForChanges;
-        }
-
         public int? GetStoreId(string code, EStoreType storefilter = EStoreType.Nenoteikts)
         {
             return FormM_Stores.GetStoreId(code, storefilter);
@@ -192,7 +167,6 @@ namespace KlonsFM.FormsM
             if (rt == null) return;
             SetCurrentDocEditorValue(rt.Value);
         }
-
 
         private void SetCurrentDocEditorValue(int value)
         {
@@ -217,7 +191,7 @@ namespace KlonsFM.FormsM
         {
             for (int i = 0; i < bsDocs.Count; i++)
             {
-                var dr = (bsDocs[i] as DataRowView).Row as KlonsMDataSet.M_DOCSRow;
+                var dr = (bsDocs[i] as DataRowView).Row as KlonsMDataSet.M_INV_DOCSRow;
                 if (dr == null) continue;
                 if (dr.ID != id) continue;
                 bsDocs.Position = i;
@@ -244,7 +218,7 @@ namespace KlonsFM.FormsM
             text = text.ToLower();
             for (int i = startindex; i >= 0 && i < bsDocs.Count; i += di)
             {
-                var dr = (bsDocs[i] as DataRowView).Row as KlonsMDataSet.M_DOCSRow;
+                var dr = (bsDocs[i] as DataRowView).Row as KlonsMDataSet.M_INV_DOCSRow;
                 if (dr == null) continue;
                 string columnname = dr.Table.Columns[colnr].ColumnName;
                 val = null;
@@ -256,11 +230,8 @@ namespace KlonsFM.FormsM
                     case "NR":
                         val = dr.NR;
                         break;
-                    case "IDSTOREOUT":
-                        val = dr.M_STORESRowByFK_M_DOCS_IDSTOREOUT1.CODE;
-                        break;
-                    case "IDSTOREIN":
-                        val = dr.M_STORESRowByFK_M_DOCS_IDSTOREIN1.CODE;
+                    case "IDSTORE":
+                        val = MyData.DataSetKlonsM.M_STORES.FindByID(dr.IDSTORE)?.CODE;
                         break;
                 }
                 if (val == null) continue;
@@ -294,22 +265,13 @@ namespace KlonsFM.FormsM
         {
             if (e.Value == null || e.Value == DBNull.Value) return;
 
-            if (e.ColumnIndex == dgcDocsPVNType.Index)
+            if (e.ColumnIndex == dgcDocsState.Index)
             {
-                int id = (int)e.Value;
-                var table_pvntype = MyData.DataSetKlonsM.M_PVNTYPE;
-                var dr = table_pvntype.FindByID(id);
-                if (dr == null) return;
-                e.Value = dr.CODE;
+                var xstate = (EInventoryDocState)((int)e.Value);
+                e.Value = SomeDataDefs.GetInventoryDocStateText(xstate);
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == dgcDocsState.Index)
-            {
-                var xstate = (EDocState)((int)e.Value);
-                e.Value = SomeDataDefs.GetDocStateText(xstate);
-                e.FormattingApplied = true;
-            }
         }
 
         private void bniSave_Click(object sender, EventArgs e)
@@ -319,25 +281,12 @@ namespace KlonsFM.FormsM
 
         private void dgvDocs_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            if (!CanEditCurrentDoc()) return;
             if (e.Row.IsNewRow || !AskCanDelete()) e.Cancel = true;
         }
 
         private void bNav_ItemDeleting(object sender, CancelEventArgs e)
         {
-            if (!CanEditCurrentDoc()) return;
             e.Cancel = !AskCanDelete();
-        }
-
-        private void dgvDocs_MyKeyDown(object sender, KeyEventArgs e)
-        {
-            if (dgvDocs.CurrentCell == null) return;
-            /*if (e.KeyCode == Keys.Insert && e.Shift)
-            {
-                e.Handled = true;
-                return;
-            }*/
-
         }
 
         private void dgvDocs_MyCheckForChanges(object sender, EventArgs e)
@@ -351,7 +300,6 @@ namespace KlonsFM.FormsM
             if (IsLoading) return;
             CheckSave();
         }
-
 
         private void tsbFind_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -391,23 +339,17 @@ namespace KlonsFM.FormsM
         {
             if (e.Value == null || e.Value == DBNull.Value) return;
 
-            if (e.ColumnIndex == dgcFilterDocState.Index)
+            if (e.ColumnIndex == dgcFilterState.Index)
             {
-                var xstate = (EDocState)((int)e.Value);
-                e.Value = SomeDataDefs.GetDocStateText(xstate);
-                e.FormattingApplied = true;
-            }
-            if (e.ColumnIndex == dgcFilterDocType.Index)
-            {
-                var xstate = (EDocType)((int)e.Value);
-                e.Value = MyData.DataSetKlonsM.M_DOCTYPES.FindByID((int)xstate).CODE;
+                var xstate = (EInventoryDocState)((int)e.Value);
+                e.Value = SomeDataDefs.GetInventoryDocStateText(xstate);
                 e.FormattingApplied = true;
             }
         }
 
         private void dgvFilter_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
-            if(e.ColumnIndex == dgcFilterDt1.Index ||
+            if (e.ColumnIndex == dgcFilterDt1.Index ||
                 e.ColumnIndex == dgcFilterDt2.Index)
             {
                 Utils.DGVParseDateCell(e);
@@ -417,22 +359,22 @@ namespace KlonsFM.FormsM
 
         void IMyDgvTextboxEditingControlEvents2.OnButtonClicked(MyDgvTextboxEditingControl2 control)
         {
-            if (control.DataSource == bsStoreIn || control.DataSource == bsStoreOut)
+            if (control.DataSource == bsStore)
             {
                 GetDocStoreId();
                 return;
             }
         }
 
+
         public void DoNewDoc()
         {
-            var table_docs = MyData.DataSetKlonsM.M_DOCS;
-            var dr = table_docs.NewM_DOCSRow();
+            var table_docs = MyData.DataSetKlonsM.M_INV_DOCS;
+            var dr = table_docs.NewM_INV_DOCSRow();
             dr.DT = DateTime.Today;
-            dr.XDocType = EDocType.Nenoteikts;
-            dr.XState = EDocState.Melnraksts;
+            dr.XState = EInventoryDocState.Melnraksts;
             table_docs.Rows.Add(dr);
-            var form = MyMainForm.ShowFormMDialog<FormM_Doc>((Action<int>)null);
+            var form = MyMainForm.ShowFormMDialog<FormM_InvDoc>((Action<int>)null);
             bool rt = form.FindDoc(dr.ID);
             if (!rt)
             {
@@ -447,14 +389,13 @@ namespace KlonsFM.FormsM
             if (!SaveData()) return;
             var dr = GetCurrentDocRow();
             if (dr == null) return;
-            DataMLoader.LoadRowsByFilter(dr.ID, true);
-            FormM_Doc.ShowDocMyDialog(dr.ID);
+            DataMLoader.LoadInvRowsByFilter(dr.ID, true);
+            FormM_InvDoc.ShowDocMyDialog(dr.ID);
         }
 
         private void dgvDocs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgcDocsDT.Index ||
-               e.ColumnIndex == dgcDocsSR.Index ||
                e.ColumnIndex == dgcDocsNr.Index)
             {
                 DoOpenDoc();
@@ -466,7 +407,7 @@ namespace KlonsFM.FormsM
             LoadData();
         }
 
-        private void bniNew_Click(object sender, EventArgs e)
+        private void bniAdd_Click(object sender, EventArgs e)
         {
             DoNewDoc();
         }
@@ -475,13 +416,5 @@ namespace KlonsFM.FormsM
         {
             DoOpenDoc();
         }
-
-    }
-
-    public class MyConfigA : Component
-    {
-        public Color DocStatusColor1 { get; set; } = Color.LightYellow;
-        public Color DocStatusColor2 { get; set; } = Color.LightBlue;
-        public Color DocStatusColor3 { get; set; } = Color.LightGreen;
     }
 }

@@ -61,6 +61,7 @@ namespace KlonsFM.FormsM
             this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcIsGroup = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcIsService = new KlonsLIB.Components.MyDgvCheckBoxColumn();
+            this.dhcIsProduced = new KlonsLIB.Components.MyDgvCheckBoxColumn();
             this.dgcMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgcAcc6 = new KlonsLIB.Components.MyDgvMcCBColumn();
             this.dgcAcc7 = new KlonsLIB.Components.MyDgvMcCBColumn();
@@ -141,6 +142,7 @@ namespace KlonsFM.FormsM
             this.dgcName,
             this.dgcIsGroup,
             this.dgcIsService,
+            this.dhcIsProduced,
             this.dgcMethod,
             this.dgcAcc6,
             this.dgcAcc7});
@@ -384,6 +386,16 @@ namespace KlonsFM.FormsM
             this.dgcIsService.TrueValue = "1";
             this.dgcIsService.Width = 60;
             // 
+            // dhcIsProduced
+            // 
+            this.dhcIsProduced.DataPropertyName = "ISPRODUCED";
+            this.dhcIsProduced.FalseValue = "0";
+            this.dhcIsProduced.HeaderText = "ražots";
+            this.dhcIsProduced.MinimumWidth = 8;
+            this.dhcIsProduced.Name = "dhcIsProduced";
+            this.dhcIsProduced.TrueValue = "1";
+            this.dhcIsProduced.Width = 60;
+            // 
             // dgcMethod
             // 
             this.dgcMethod.DataPropertyName = "METHOD";
@@ -490,6 +502,7 @@ namespace KlonsFM.FormsM
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
         private KlonsLIB.Components.MyDgvCheckBoxColumn dgcIsGroup;
         private KlonsLIB.Components.MyDgvCheckBoxColumn dgcIsService;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dhcIsProduced;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgcMethod;
         private KlonsLIB.Components.MyDgvMcCBColumn dgcAcc6;
         private KlonsLIB.Components.MyDgvMcCBColumn dgcAcc7;

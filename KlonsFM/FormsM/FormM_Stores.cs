@@ -37,6 +37,8 @@ namespace KlonsFM.FormsM
                 int k = bsStoreTypeFilter.Find("ID", FilterStoreType);
                 cbType.SelectedIndex = k;
             }
+            if (SelectedCode != null)
+                tbCode.Text = SelectedCode;
         }
 
         public string SelectedCode = null;
@@ -47,7 +49,8 @@ namespace KlonsFM.FormsM
         public static string GetStoreCode(string code, EStoreType storetypefilter = EStoreType.Nenoteikts)
         {
             var fm = new FormM_Stores();
-            fm.tbCode.Text = code;
+            //fm.tbCode.Text = code;
+            fm.SelectedCode = code;
             if (storetypefilter != EStoreType.Nenoteikts)
             {
                 fm.FilterStoreType = (int)storetypefilter;
@@ -61,7 +64,8 @@ namespace KlonsFM.FormsM
         public static int? GetStoreId(string code, EStoreType storetypefilter = EStoreType.Nenoteikts)
         {
             var fm = new FormM_Stores();
-            fm.tbCode.Text = code;
+            //fm.tbCode.Text = code;
+            fm.SelectedCode = code;
             if (storetypefilter != EStoreType.Nenoteikts)
             {
                 fm.FilterStoreType = (int)storetypefilter;

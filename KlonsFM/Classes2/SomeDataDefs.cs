@@ -93,6 +93,15 @@ namespace KlonsFM.Classes
         Atvērts = 4
     }
 
+    public enum EInventoryDocState
+    {
+        Melnraksts = 0,
+        Salīdzināts = 1,
+        Apstiprināts = 2,
+        Iegrāmatots = 3
+    }
+
+
     public enum EAccountsForTemplates
     {
         Nav = 0,
@@ -110,6 +119,7 @@ namespace KlonsFM.Classes
         public static List<MyListItemInt> StoreCalcMethods { private set; get; } = null;
         public static List<MyListItemInt16> AccountinType { private set; get; } = null;
         public static List<MyListItemInt> DocStates { private set; get; } = null;
+        public static List<MyListItemInt> InventoryDocStates { private set; get; } = null;
         public static List<MyListItemInt> AccTemplatesBase { private set; get; } = null;
         public static List<MyListItemInt> AccTemplatesPVN { private set; get; } = null;
 
@@ -128,10 +138,15 @@ namespace KlonsFM.Classes
                 "0", "Melnraksts",
                 "1", "Apstiprināts",
                 "2", "Iegrāmatots",
-                "1", "Iekontēts",
-                "1", "Atvērts"
+                "3", "Iekontēts",
+                "4", "Atvērts"
                 );
-
+            InventoryDocStates = MakeListB(
+                "0", "Melnraksts",
+                "1", "Salīdzināts",
+                "2", "Apstiprināts",
+                "3", "Iegrāmatots"
+                );
             AccTemplatesBase = MakeListB(
                 "0", "Nav",
                 "2", "21--",
@@ -169,6 +184,18 @@ namespace KlonsFM.Classes
                 case EDocState.Iegrāmatots: return "Iegrāmatots";
                 case EDocState.Apstiprināts: return "Apstiprināts";
                 case EDocState.Iekontēts: return "Iekontēts";
+            }
+            return "?";
+        }
+
+        public static string GetInventoryDocStateText(EInventoryDocState state)
+        {
+            switch (state)
+            {
+                case EInventoryDocState.Melnraksts: return "Melnraksts";
+                case EInventoryDocState.Salīdzināts: return "Salīdzināts";
+                case EInventoryDocState.Apstiprināts: return "Apstiprināts";
+                case EInventoryDocState.Iegrāmatots: return "Iegrāmatots";
             }
             return "?";
         }

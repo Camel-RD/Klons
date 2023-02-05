@@ -27,7 +27,7 @@ namespace KlonsFM.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=localhost;initial catalog=D:\\A1-docs\\c_net\\Klons\\K" +
-            "lonsF2\\DB\\klons_p.fdb;user id=aivars;password=parole")]
+            "lonsFM\\DB\\klonsfm_p.fdb;user id=aivars;password=parole")]
         public string ConnectionString1 {
             get {
                 return ((string)(this["ConnectionString1"]));

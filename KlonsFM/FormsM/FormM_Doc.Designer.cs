@@ -117,6 +117,8 @@ namespace KlonsFM.FormsM
             this.dgcRowsIdPVNRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowTBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAcc6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRowsAcc7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsIdDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcRowsIdSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,6 +142,7 @@ namespace KlonsFM.FormsM
             this.tsbFindPrev = new System.Windows.Forms.ToolStripButton();
             this.tsbFind = new System.Windows.Forms.ToolStripTextBox();
             this.tsbFindNext = new System.Windows.Forms.ToolStripButton();
+            this.miIzmaksuKopsavilkums = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mySplitContainer1)).BeginInit();
             this.mySplitContainer1.Panel1.SuspendLayout();
             this.mySplitContainer1.Panel2.SuspendLayout();
@@ -194,7 +197,7 @@ namespace KlonsFM.FormsM
             this.dokumentsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(35, 38);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(147, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(327, 38);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -216,6 +219,7 @@ namespace KlonsFM.FormsM
             this.prečuAtgriešanaIzveidotKredītrēķinusToolStripMenuItem,
             this.toolStripSeparator4,
             this.kontējumsToolStripMenuItem,
+            this.miIzmaksuKopsavilkums,
             this.izdrukaiToolStripMenuItem});
             this.dokumentsToolStripMenuItem.Name = "dokumentsToolStripMenuItem";
             this.dokumentsToolStripMenuItem.Size = new System.Drawing.Size(139, 34);
@@ -335,7 +339,7 @@ namespace KlonsFM.FormsM
             this.sgrDocA.ColumnWidth3 = 180;
             this.sgrDocA.DefaultHeight = 25;
             this.sgrDocA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sgrDocA.EnableSort = true;
+            this.sgrDocA.EnableSort = false;
             this.sgrDocA.Location = new System.Drawing.Point(0, 0);
             this.sgrDocA.MyDataBC = this.docData1;
             this.sgrDocA.Name = "sgrDocA";
@@ -839,6 +843,8 @@ namespace KlonsFM.FormsM
             this.dgcRowsIdPVNRate,
             this.dgcRowsBuyPrice,
             this.dgcRowTBuyPrice,
+            this.dgcRowsAcc6,
+            this.dgcRowsAcc7,
             this.dgcRowsId,
             this.dgcRowsIdDoc,
             this.dgcRowsIdSeq});
@@ -989,12 +995,31 @@ namespace KlonsFM.FormsM
             this.dgcRowTBuyPrice.ReadOnly = true;
             this.dgcRowTBuyPrice.Width = 90;
             // 
+            // dgcRowsAcc6
+            // 
+            this.dgcRowsAcc6.DataPropertyName = "ACC6";
+            this.dgcRowsAcc6.HeaderText = "konts 6";
+            this.dgcRowsAcc6.MinimumWidth = 8;
+            this.dgcRowsAcc6.Name = "dgcRowsAcc6";
+            this.dgcRowsAcc6.ReadOnly = true;
+            this.dgcRowsAcc6.Width = 80;
+            // 
+            // dgcRowsAcc7
+            // 
+            this.dgcRowsAcc7.DataPropertyName = "ACC7";
+            this.dgcRowsAcc7.HeaderText = "konts 7";
+            this.dgcRowsAcc7.MinimumWidth = 8;
+            this.dgcRowsAcc7.Name = "dgcRowsAcc7";
+            this.dgcRowsAcc7.ReadOnly = true;
+            this.dgcRowsAcc7.Width = 80;
+            // 
             // dgcRowsId
             // 
             this.dgcRowsId.DataPropertyName = "ID";
             this.dgcRowsId.HeaderText = "ID";
             this.dgcRowsId.MinimumWidth = 8;
             this.dgcRowsId.Name = "dgcRowsId";
+            this.dgcRowsId.ReadOnly = true;
             this.dgcRowsId.Width = 60;
             // 
             // dgcRowsIdDoc
@@ -1003,6 +1028,7 @@ namespace KlonsFM.FormsM
             this.dgcRowsIdDoc.HeaderText = "IDDOC";
             this.dgcRowsIdDoc.MinimumWidth = 8;
             this.dgcRowsIdDoc.Name = "dgcRowsIdDoc";
+            this.dgcRowsIdDoc.ReadOnly = true;
             this.dgcRowsIdDoc.Width = 60;
             // 
             // dgcRowsIdSeq
@@ -1011,6 +1037,7 @@ namespace KlonsFM.FormsM
             this.dgcRowsIdSeq.HeaderText = "IDSEQ";
             this.dgcRowsIdSeq.MinimumWidth = 8;
             this.dgcRowsIdSeq.Name = "dgcRowsIdSeq";
+            this.dgcRowsIdSeq.ReadOnly = true;
             this.dgcRowsIdSeq.Visible = false;
             this.dgcRowsIdSeq.Width = 80;
             // 
@@ -1205,6 +1232,13 @@ namespace KlonsFM.FormsM
             this.tsbFindNext.Text = "Iet uz nākošo";
             this.tsbFindNext.Click += new System.EventHandler(this.tsbFindNext_Click);
             // 
+            // miIzmaksuKopsavilkums
+            // 
+            this.miIzmaksuKopsavilkums.Name = "miIzmaksuKopsavilkums";
+            this.miIzmaksuKopsavilkums.Size = new System.Drawing.Size(507, 38);
+            this.miIzmaksuKopsavilkums.Text = "Izmaksu kopsavilkums";
+            this.miIzmaksuKopsavilkums.Click += new System.EventHandler(this.miIzmaksuKopsavilkums_Click);
+            // 
             // FormM_Doc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1323,20 +1357,6 @@ namespace KlonsFM.FormsM
         private System.Windows.Forms.ToolStripMenuItem prečuAtgriešanaCenasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prečuAtgriešanaIzveidotKredītrēķinusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kontējumsToolStripMenuItem;
-        private KlonsLIB.Components.MyDgvTextboxColumn2 dgcRowsIdItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsUnits;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsPrice0;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDiscount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsTPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdPVNRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsBuyPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowTBuyPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdDoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdSeq;
         private System.Windows.Forms.ToolStripMenuItem izdrukaiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pavadzīmeToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton tsbFindPrev;
@@ -1351,5 +1371,22 @@ namespace KlonsFM.FormsM
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowCheckBox grDocIncludeInCostCalc;
         private KlonsLIB.MySourceGrid.GridRows.MyGridRowPickRowTextBox grDocTransType;
         private System.Windows.Forms.ToolStripMenuItem kopētDokumentuToolStripMenuItem;
+        private KlonsLIB.Components.MyDgvTextboxColumn2 dgcRowsIdItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsUnits;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsPrice0;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsTPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdPVNRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsBuyPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowTBuyPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAcc6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsAcc7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdDoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRowsIdSeq;
+        private System.Windows.Forms.ToolStripMenuItem miIzmaksuKopsavilkums;
     }
 }

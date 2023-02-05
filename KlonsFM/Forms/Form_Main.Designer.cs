@@ -131,6 +131,7 @@ namespace KlonsFM
             this.miCloseWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.myToolStrip = new System.Windows.Forms.ToolStrip();
             this.aDownloader1 = new KlonsLIB.Components.ADownloader();
+            this.miInventarizācijasDokumenti = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -610,6 +611,7 @@ namespace KlonsFM
             this.noliktavasPartneriToolStripMenuItem,
             this.artikuliToolStripMenuItem,
             this.produktuKategorijasToolStripMenuItem,
+            this.miInventarizācijasDokumenti,
             this.toolStripSeparator13,
             this.pārskatiToolStripMenuItem,
             this.rīkiToolStripMenuItem,
@@ -623,35 +625,35 @@ namespace KlonsFM
             // dokumentiToolStripMenuItem2
             // 
             this.dokumentiToolStripMenuItem2.Name = "dokumentiToolStripMenuItem2";
-            this.dokumentiToolStripMenuItem2.Size = new System.Drawing.Size(322, 38);
+            this.dokumentiToolStripMenuItem2.Size = new System.Drawing.Size(371, 38);
             this.dokumentiToolStripMenuItem2.Text = "Dokumenti";
             this.dokumentiToolStripMenuItem2.Click += new System.EventHandler(this.dokumentiToolStripMenuItem2_Click);
             // 
             // noliktavasPartneriToolStripMenuItem
             // 
             this.noliktavasPartneriToolStripMenuItem.Name = "noliktavasPartneriToolStripMenuItem";
-            this.noliktavasPartneriToolStripMenuItem.Size = new System.Drawing.Size(322, 38);
+            this.noliktavasPartneriToolStripMenuItem.Size = new System.Drawing.Size(371, 38);
             this.noliktavasPartneriToolStripMenuItem.Text = "Noliktavas / partneri";
             this.noliktavasPartneriToolStripMenuItem.Click += new System.EventHandler(this.noliktavasPartneriToolStripMenuItem_Click);
             // 
             // artikuliToolStripMenuItem
             // 
             this.artikuliToolStripMenuItem.Name = "artikuliToolStripMenuItem";
-            this.artikuliToolStripMenuItem.Size = new System.Drawing.Size(322, 38);
+            this.artikuliToolStripMenuItem.Size = new System.Drawing.Size(371, 38);
             this.artikuliToolStripMenuItem.Text = "Artikuli";
             this.artikuliToolStripMenuItem.Click += new System.EventHandler(this.artikuliToolStripMenuItem_Click);
             // 
             // produktuKategorijasToolStripMenuItem
             // 
             this.produktuKategorijasToolStripMenuItem.Name = "produktuKategorijasToolStripMenuItem";
-            this.produktuKategorijasToolStripMenuItem.Size = new System.Drawing.Size(322, 38);
+            this.produktuKategorijasToolStripMenuItem.Size = new System.Drawing.Size(371, 38);
             this.produktuKategorijasToolStripMenuItem.Text = "Artikulu kategorijas";
             this.produktuKategorijasToolStripMenuItem.Click += new System.EventHandler(this.produktuKategorijasToolStripMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(319, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(368, 6);
             // 
             // pārskatiToolStripMenuItem
             // 
@@ -666,7 +668,7 @@ namespace KlonsFM
             this.miRealizācijasPašizmaksa,
             this.miRealizācijasPašizmaksaPaDokumentiem});
             this.pārskatiToolStripMenuItem.Name = "pārskatiToolStripMenuItem";
-            this.pārskatiToolStripMenuItem.Size = new System.Drawing.Size(322, 38);
+            this.pārskatiToolStripMenuItem.Size = new System.Drawing.Size(371, 38);
             this.pārskatiToolStripMenuItem.Text = "Pārskati";
             // 
             // miArtikulaKustībasPārskats
@@ -735,7 +737,7 @@ namespace KlonsFM
             this.miAtlikumuPārrēķins,
             this.miIsGonePārrēķins});
             this.rīkiToolStripMenuItem.Name = "rīkiToolStripMenuItem";
-            this.rīkiToolStripMenuItem.Size = new System.Drawing.Size(322, 38);
+            this.rīkiToolStripMenuItem.Size = new System.Drawing.Size(371, 38);
             this.rīkiToolStripMenuItem.Text = "Rīki";
             // 
             // miPilnsPārrēķins
@@ -762,7 +764,7 @@ namespace KlonsFM
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(319, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(368, 6);
             // 
             // dažādiSarakstiToolStripMenuItem
             // 
@@ -775,7 +777,7 @@ namespace KlonsFM
             this.kontēšanasShēmaToolStripMenuItem,
             this.pVNAprēķinaAtsaucesToolStripMenuItem});
             this.dažādiSarakstiToolStripMenuItem.Name = "dažādiSarakstiToolStripMenuItem";
-            this.dažādiSarakstiToolStripMenuItem.Size = new System.Drawing.Size(322, 38);
+            this.dažādiSarakstiToolStripMenuItem.Size = new System.Drawing.Size(371, 38);
             this.dažādiSarakstiToolStripMenuItem.Text = "Dažādi saraksti";
             // 
             // kontuPlānsToolStripMenuItem1
@@ -830,7 +832,7 @@ namespace KlonsFM
             // miParamsM
             // 
             this.miParamsM.Name = "miParamsM";
-            this.miParamsM.Size = new System.Drawing.Size(322, 38);
+            this.miParamsM.Size = new System.Drawing.Size(371, 38);
             this.miParamsM.Text = "Ļoti svarīgi iestatijumi";
             this.miParamsM.Click += new System.EventHandler(this.miParamsM_Click);
             // 
@@ -909,6 +911,13 @@ namespace KlonsFM
             this.aDownloader1.URL = "http://kastanis.biz/klonsver.txt";
             this.aDownloader1.DataReceived += new System.EventHandler(this.aDownloader1_DataReceived);
             this.aDownloader1.DownloadFailed += new System.EventHandler(this.aDownloader1_DownloadFailed);
+            // 
+            // miInventarizācijasDokumenti
+            // 
+            this.miInventarizācijasDokumenti.Name = "miInventarizācijasDokumenti";
+            this.miInventarizācijasDokumenti.Size = new System.Drawing.Size(371, 38);
+            this.miInventarizācijasDokumenti.Text = "Inventarizācijas dokumenti";
+            this.miInventarizācijasDokumenti.Click += new System.EventHandler(this.miInventarizācijasDokumenti_Click);
             // 
             // Form_Main
             // 
@@ -1038,5 +1047,6 @@ namespace KlonsFM
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem miKustībaPaArtikuluKategorijām;
         private System.Windows.Forms.ToolStripMenuItem miCloseWindow;
+        private System.Windows.Forms.ToolStripMenuItem miInventarizācijasDokumenti;
     }
 }

@@ -77,7 +77,8 @@ namespace KlonsFM.FormsM
             this.lbInvoiceForm.ItemHeight = 20;
             this.lbInvoiceForm.Items.AddRange(new object[] {
             "Veidlapa 1 - ar atlaidi un PVN kodu",
-            "Veidlapa 1 - bez atlaides un PVN koda"});
+            "Veidlapa 1 - bez atlaides un PVN koda",
+            "Veidlapa 2 - vienkāršāks rēķins"});
             this.lbInvoiceForm.Location = new System.Drawing.Point(12, 198);
             this.lbInvoiceForm.Name = "lbInvoiceForm";
             this.lbInvoiceForm.Size = new System.Drawing.Size(397, 102);

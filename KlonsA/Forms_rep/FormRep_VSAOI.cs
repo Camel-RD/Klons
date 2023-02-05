@@ -39,17 +39,16 @@ namespace KlonsA.Forms
 
         private void FormRep_VSAOI_Load(object sender, EventArgs e)
         {
-            int yr = DateTime.Today.Year;
-            cbYear.Items.Clear();
-            for (int i = yr - 2; i <= yr + 1; i++)
-                cbYear.Items.Add(i.ToString());
-            cbYear.Text = yr.ToString();
             cbTp.SelectedIndex = 0;
             WindowState = FormWindowState.Maximized;
         }
 
         public void LoadParams()
         {
+            int yr = DateTime.Today.Year;
+            cbYear.Items.Clear();
+            for (int i = yr - 2; i <= yr + 1; i++)
+                cbYear.Items.Add(i.ToString());
             var sdt = MyData.Params.RSD;
             if (!Utils.StringToDate(sdt, out Date1))
                 Date1 = DateTime.Today.FirstDayOfMonth().AddMonths(-1);

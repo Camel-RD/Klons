@@ -53,6 +53,9 @@
     <Compile Include="DocFilterData.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="InventoryDocData.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ParamsMData.cs">
       <SubType>Component</SubType>
     </Compile>

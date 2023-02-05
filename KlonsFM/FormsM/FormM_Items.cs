@@ -45,8 +45,11 @@ namespace KlonsFM.FormsM
             if (e.Column == table.CATColumn)
             {
                 int isservice = dr.M_ITEMS_CATRow.ISSERVICES;
+                int isproduced = dr.M_ITEMS_CATRow.ISPRODUCED;
                 if (dr.ISSERVICE != isservice)
                     dr.ISSERVICE = isservice;
+                if (dr.ISPRODUCED != isproduced)
+                    dr.ISPRODUCED = isproduced;
             }
         }
 

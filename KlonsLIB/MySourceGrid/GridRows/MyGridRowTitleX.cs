@@ -72,6 +72,10 @@ namespace KlonsLIB.MySourceGrid.GridRows
                     grid[i, RowHeaderColumnNr].AddController(buttonController);
                     grid[i, RowHeaderColumnNr].View = grid.gridViewModel.titleModel;
                 }
+                else if (TitleRowType == ETitleRowType.SubTitle)
+                {
+                    MakeFirstCell();
+                }
             }
             else
             {
@@ -97,7 +101,6 @@ namespace KlonsLIB.MySourceGrid.GridRows
             }
             else if (TitleRowType == ETitleRowType.SubTitle)
             {
-                MakeFirstCell();
                 grid[i, CaptionColumnNr] = new SourceGrid.Cells.Cell(RowTitle);
                 grid[i, CaptionColumnNr].View = grid.gridViewModel.titleModel2;
                 grid[i, CaptionColumnNr].ColumnSpan = 2;

@@ -144,7 +144,26 @@ namespace KlonsFM.Classes
             return ret;
         }
 
-        public static ErrorList CheckDocForIncomminGoods(KlonsMDataSet.M_DOCSRow dr_doc)
+        public static ErrorList CheckRowsForRepeatingItems(KlonsMDataSet.M_DOCSRow dr_doc)
+        {
+            var ret = new ErrorList();
+            var drs_rows = dr_doc.GetM_ROWSRows().ToList();
+            if (drs_rows.Count == 0) return ret;
+
+            var ids_items_morethanone = drs_rows
+                .GroupBy(x => x.IDITEM)
+                .Where(x => x.Count() > 1)
+                .Select(x => x.Key)
+                .ToList();
+
+            foreach (int id_items_morethanone in ids_items_morethanone)
+            {
+                ret.AddItemError(id_items_morethanone, "Artikuls ievadīts vairāk kā vienu reizi.");
+            }
+            return ret;
+        }
+
+        public static ErrorList CheckDocForIepirkums(KlonsMDataSet.M_DOCSRow dr_doc)
         {
             var ret = new ErrorList();
             var drs_rows = dr_doc.GetM_ROWSRows().ToList();
@@ -154,20 +173,16 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            var err = CheckDocHeader(dr_doc);
-            if (err.HasErrors) return err;
-
+            ret += CheckDocHeader(dr_doc);
             ret += CheckRowsForBadAcc(dr_doc);
 
             foreach (var dr_rows in drs_rows)
-            {
-                err = CheckRowForIncommingGoods(dr_rows);
-                if (err.HasErrors) ret += err;
-            }
+                ret += CheckRowForIepirkums(dr_rows);
+
             return ret;
         }
 
-        public static ErrorList CheckRowForIncommingGoods(KlonsMDataSet.M_ROWSRow dr_row)
+        public static ErrorList CheckRowForIepirkums(KlonsMDataSet.M_ROWSRow dr_row)
         {
             var ret = new ErrorList();
             var dr_doc = dr_row.M_DOCSRow;
@@ -178,13 +193,6 @@ namespace KlonsFM.Classes
             {
                 ret.AddItemError(id_item, "Nekorekts daudzums.");
             }
-
-            if (dr_item.XIsServices) return ret;
-
-            /*if (!dr_item.IsLASTBUYDATENull() && dr_item.LASTBUYDATE > dr_doc.DT)
-            {
-                ret.AddItemError(id_item, "Dokumenta datums vecāks par pēdējo iegādes dekumentu.");
-            }*/
 
             return ret;
         }
@@ -199,38 +207,13 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            var err = CheckDocHeader(dr_doc);
-            if (err.HasErrors) return err;
-
+            ret += CheckDocHeader(dr_doc);
             ret += CheckRowsForBadAcc(dr_doc);
+            ret += CheckRowsForRepeatingItems(dr_doc);
 
-            var ids_items_morethanone = drs_rows
-                .GroupBy(x => x.IDITEM)
-                .Where(x => x.Count() > 1)
-                .Select(x => x.Key)
-                .ToList();
+            foreach (var dr_rows in drs_rows)
+                ret += CheckRowForRealizacija(dr_rows);
 
-            if (ids_items_morethanone.Count > 0)
-            {
-                foreach (int id_items_morethanone in ids_items_morethanone)
-                {
-                    ret.AddItemError(id_items_morethanone, "Artikuls ievadīts vairāk kā vienu reizi.");
-                }
-                return ret;
-            }
-
-            var items_withallamount = drs_rows
-                .GroupBy(x => x.IDITEM)
-                .Select(x => (key: x.Key, amount: x.Sum(y => y.AMOUNT)));
-
-            var drs_rows_withallamount = drs_rows
-                .Join(items_withallamount, x => x.IDITEM, x => x.key, (dr, y) => (dr, y.amount));
-
-            foreach (var dr_row_withallamount in drs_rows_withallamount)
-            {
-                err = CheckRowForRealizacija(dr_row_withallamount.dr, dr_row_withallamount.amount);
-                ret += err;
-            }
             if (ret.HasErrors) return ret;
 
             var ad = new DataSets.KlonsMRepDataSetTableAdapters.SP_M_MAKELINKS_02BTableAdapter();
@@ -239,14 +222,13 @@ namespace KlonsFM.Classes
             foreach (var dr_checkrows in table_checkrows)
             {
                 if (dr_checkrows.RESULT == "OK") continue;
-                err = GetErrorListFromMessage(dr_checkrows.RESULT);
-                if (err.HasErrors) ret += err;
+                ret += GetErrorListFromMessage(dr_checkrows.RESULT);
             }
 
             return ret;
         }
 
-        public static ErrorList CheckRowForRealizacija(KlonsMDataSet.M_ROWSRow dr_row, decimal allamount)
+        public static ErrorList CheckRowForRealizacija(KlonsMDataSet.M_ROWSRow dr_row)
         {
             var ret = new ErrorList();
             var dr_doc = dr_row.M_DOCSRow;
@@ -256,7 +238,7 @@ namespace KlonsFM.Classes
             var table_itemsperstore = MyData.DataSetKlonsM.M_ITEMS_PER_STORE;
             var dr_amount = table_itemsperstore.FindByIDITEMIDSTORE(id_item, id_storeout);
 
-            if (dr_row.AMOUNT <= 0)
+            if (dr_amount == null || dr_row.AMOUNT <= 0)
             {
                 ret.AddItemError(id_item, "Nekorekts daudzums.");
                 return ret;
@@ -264,12 +246,7 @@ namespace KlonsFM.Classes
             
             if (dr_item.XIsServices) return ret;
 
-            /*if (!dr_item.IsLASTSALEDATENull() && dr_doc.DT < dr_item.LASTSALEDATE)
-            {
-                ret.AddItemError(id_item, "Dokumenta datums vecāks par pēdējo reģistrēto.");
-                return ret;
-            }*/
-            if (dr_amount == null || dr_amount.AMOUNT < dr_row.AMOUNT || allamount < dr_row.AMOUNT)
+            if (dr_amount == null || dr_amount.AMOUNT < dr_row.AMOUNT)
             {
                 ret.AddItemError(id_item, "Nepietiekams atlikums.");
                 return ret;
@@ -289,38 +266,14 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            var err = CheckDocHeader(dr_doc);
-            if (err.HasErrors) return err;
-
+            ret += CheckDocHeader(dr_doc);
             ret += CheckRowsForBadAcc(dr_doc);
+            ret += CheckRowsForRepeatingItems(dr_doc);
 
-            var ids_items_morethanone = drs_rows
-                .GroupBy(x => x.IDITEM)
-                .Where(x => x.Count() > 1)
-                .Select(x => x.Key)
-                .ToList();
+            foreach (var dr_rows in drs_rows)
+                ret += CheckRowForRealizacijasKreditrekins(dr_rows);
 
-            if (ids_items_morethanone.Count > 0)
-            {
-                foreach (int id_items_morethanone in ids_items_morethanone)
-                {
-                    ret.AddItemError(id_items_morethanone, "Artikuls ievadīts vairāk kā vienu reizi.");
-                }
-                return ret;
-            }
-
-            var items_withallamount = drs_rows
-                .GroupBy(x => x.IDITEM)
-                .Select(x => (key: x.Key, amount: x.Sum(y => y.AMOUNT)));
-
-            var drs_rows_withallamount = drs_rows
-                .Join(items_withallamount, x => x.IDITEM, x => x.key, (dr, y) => (dr, y.amount));
-
-            foreach (var dr_row_withallamount in drs_rows_withallamount)
-            {
-                err = CheckRowForRealizacijasKreditrekins(dr_row_withallamount.dr, dr_row_withallamount.amount);
-                if (err.HasErrors) ret += err;
-            }
+            if (ret.HasErrors) return ret;
 
             var ad = new DataSets.KlonsMRepDataSetTableAdapters.MAKELINKS_CHECK_1TableAdapter();
             var table_checkrows = ad.GetDataBy_SP_M_MAKELINKS_52(dr_doc.ID);
@@ -328,22 +281,17 @@ namespace KlonsFM.Classes
             foreach(var dr_checkrows in table_checkrows)
             {
                 if (dr_checkrows.RESULT == "OK") continue;
-                err = GetErrorListFromMessage(dr_checkrows.RESULT);
-                if (err.HasErrors) ret += err;
+                ret += GetErrorListFromMessage(dr_checkrows.RESULT);
             }
 
             return ret;
         }
 
-        public static ErrorList CheckRowForRealizacijasKreditrekins(KlonsMDataSet.M_ROWSRow dr_row, decimal allamount)
+        public static ErrorList CheckRowForRealizacijasKreditrekins(KlonsMDataSet.M_ROWSRow dr_row)
         {
             var ret = new ErrorList();
-            var dr_doc = dr_row.M_DOCSRow;
             var dr_item = dr_row.M_ITEMSRow;
-            int id_storeout = dr_doc.IDSTOREOUT;
             int id_item = dr_item.ID;
-            var table_itemsperstore = MyData.DataSetKlonsM.M_ITEMS_PER_STORE;
-            var dr_amount = table_itemsperstore.FindByIDITEMIDSTORE(id_item, id_storeout);
 
             if (dr_row.AMOUNT >= 0)
             {
@@ -351,18 +299,8 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            if (dr_item.XIsServices) return ret;
-
-            /*if (!dr_item.IsLASTSALEDATENull() && dr_doc.DT < dr_item.LASTSALEDATE)
-            {
-                ret.AddItemError(id_item, "Dokumenta datums vecāks par pēdējo reģistrēto.");
-                return ret;
-            }*/
-
-
             return ret;
         }
-
 
         public static ErrorList CheckDocForPiegadatajaKreditrekins(KlonsMDataSet.M_DOCSRow dr_doc)
         {
@@ -374,38 +312,14 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            var err = CheckDocHeader(dr_doc);
-            if (err.HasErrors) return err;
-
+            ret += CheckDocHeader(dr_doc);
             ret += CheckRowsForBadAcc(dr_doc);
+            ret += CheckRowsForRepeatingItems(dr_doc);
 
-            var ids_items_morethanone = drs_rows
-                .GroupBy(x => x.IDITEM)
-                .Where(x => x.Count() > 1)
-                .Select(x => x.Key)
-                .ToList();
+            foreach (var dr_rows in drs_rows)
+                ret += CheckRowForPiegadatajaKreditrekins(dr_rows);
 
-            if (ids_items_morethanone.Count > 0)
-            {
-                foreach (int id_items_morethanone in ids_items_morethanone)
-                {
-                    ret.AddItemError(id_items_morethanone, "Artikuls ievadīts vairāk kā vienu reizi.");
-                }
-                return ret;
-            }
-
-            var items_withallamount = drs_rows
-                .GroupBy(x => x.IDITEM)
-                .Select(x => (key: x.Key, amount: x.Sum(y => y.AMOUNT)));
-
-            var drs_rows_withallamount = drs_rows
-                .Join(items_withallamount, x => x.IDITEM, x => x.key, (dr, y) => (dr, y.amount));
-
-            foreach (var dr_row_withallamount in drs_rows_withallamount)
-            {
-                err = CheckRowForPiegadatajaKreditrekins(dr_row_withallamount.dr, dr_row_withallamount.amount);
-                if (err.HasErrors) ret += err;
-            }
+            if (ret.HasErrors) return ret;
 
             var ad = new DataSets.KlonsMRepDataSetTableAdapters.MAKELINKS_CHECK_1TableAdapter();
             var table_checkrows = ad.GetDataBy_SP_M_MAKELINKS_62(dr_doc.ID);
@@ -413,15 +327,13 @@ namespace KlonsFM.Classes
             foreach (var dr_checkrows in table_checkrows)
             {
                 if (dr_checkrows.RESULT == "OK") continue;
-                err = GetErrorListFromMessage(dr_checkrows.RESULT);
-                if (err.HasErrors) ret += err;
+                ret += GetErrorListFromMessage(dr_checkrows.RESULT);
             }
 
             return ret;
         }
 
-
-        public static ErrorList CheckRowForPiegadatajaKreditrekins(KlonsMDataSet.M_ROWSRow dr_row, decimal allamount)
+        public static ErrorList CheckRowForPiegadatajaKreditrekins(KlonsMDataSet.M_ROWSRow dr_row)
         {
             var ret = new ErrorList();
             var dr_doc = dr_row.M_DOCSRow;
@@ -431,7 +343,7 @@ namespace KlonsFM.Classes
             var table_itemsperstore = MyData.DataSetKlonsM.M_ITEMS_PER_STORE;
             var dr_amount = table_itemsperstore.FindByIDITEMIDSTORE(id_item, id_storeout);
 
-            if (dr_row.AMOUNT <= 0)
+            if (dr_amount == null || dr_row.AMOUNT <= 0)
             {
                 ret.AddItemError(id_item, "Nekorekts daudzums.");
                 return ret;
@@ -439,17 +351,11 @@ namespace KlonsFM.Classes
 
             if (dr_item.XIsServices) return ret;
 
-            /*if (!dr_item.IsLASTSALEDATENull() && dr_doc.DT < dr_item.LASTSALEDATE)
-            {
-                ret.AddItemError(id_item, "Dokumenta datums vecāks par pēdējo reģistrēto.");
-                return ret;
-            }*/
-            if (dr_amount == null || dr_amount.AMOUNT < dr_row.AMOUNT || allamount < dr_row.AMOUNT)
+            if (dr_amount == null || dr_amount.AMOUNT < dr_row.AMOUNT)
             {
                 ret.AddItemError(id_item, "Nepietiekams atlikums.");
                 return ret;
             }
-
 
             return ret;
         }
@@ -466,10 +372,9 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            var err = CheckDocHeader(dr_doc);
-            if (err.HasErrors) return err;
-
+            ret += CheckDocHeader(dr_doc);
             ret += CheckRowsForBadAcc(dr_doc);
+            if (ret.HasErrors) return ret;
 
             var ids_items_morethanone = drs_rows
                 .GroupBy(x => x.IDITEM)
@@ -496,9 +401,10 @@ namespace KlonsFM.Classes
 
             foreach (var dr_row_withallamount in drs_rows_withallamount)
             {
-                err = CheckRowForAtgrieztsPiegadatajam(dr_row_withallamount.dr, dr_row_withallamount.amount);
-                if (err.HasErrors) ret += err;
+                ret += CheckRowForAtgrieztsPiegadatajam(dr_row_withallamount.dr, dr_row_withallamount.amount);
             }
+
+            if (ret.HasErrors) return ret;
 
             var ad = new DataSets.KlonsMRepDataSetTableAdapters.SP_M_MAKELINKS_02BTableAdapter();
             var table_rowchecks = ad.GetDataBy_SP_M_MAKELINKS_22B(dr_doc.ID);
@@ -542,7 +448,7 @@ namespace KlonsFM.Classes
             var table_itemsperstore = MyData.DataSetKlonsM.M_ITEMS_PER_STORE;
             var dr_amount = table_itemsperstore.FindByIDITEMIDSTORE(id_item, id_storeout);
 
-            if (dr_row.AMOUNT <= 0)
+            if (dr_amount == null || dr_row.AMOUNT <= 0)
             {
                 ret.AddItemError(id_item, "Nekorekts daudzums.");
                 return ret;
@@ -550,17 +456,11 @@ namespace KlonsFM.Classes
 
             if (dr_item.XIsServices) return ret;
 
-            /*if (!dr_item.IsLASTSALEDATENull() && dr_doc.DT < dr_item.LASTSALEDATE)
-            {
-                ret.AddItemError(id_item, "Dokumenta datums vecāks par pēdējo reģistrēto.");
-                return ret;
-            }*/
             if (dr_amount == null || dr_amount.AMOUNT < dr_row.AMOUNT || allamount < dr_row.AMOUNT)
             {
                 ret.AddItemError(id_item, "Nepietiekams atlikums.");
                 return ret;
             }
-
 
             return ret;
         }
@@ -577,10 +477,9 @@ namespace KlonsFM.Classes
                 return ret;
             }
 
-            var err = CheckDocHeader(dr_doc);
-            if (err.HasErrors) return err;
-
+            ret += CheckDocHeader(dr_doc);
             ret += CheckRowsForBadAcc(dr_doc);
+            if (ret.HasErrors) return ret;
 
             var ids_items_morethanone = drs_rows
                 .GroupBy(x => x.IDITEM)
@@ -607,9 +506,9 @@ namespace KlonsFM.Classes
 
             foreach (var dr_row_withallamount in drs_rows_withallamount)
             {
-                err = CheckRowForAtgrieztsNoPircēja(dr_row_withallamount.dr, dr_row_withallamount.amount);
-                ret += err;
+                ret += CheckRowForAtgrieztsNoPircēja(dr_row_withallamount.dr, dr_row_withallamount.amount);
             }
+            if (ret.HasErrors) return ret;
 
             var ad = new DataSets.KlonsMRepDataSetTableAdapters.SP_M_MAKELINKS_33BTableAdapter();
             var table_rowchecks = ad.GetDataBy_SP_M_MAKELINKS_33B(dr_doc.ID);
@@ -623,8 +522,7 @@ namespace KlonsFM.Classes
             foreach (var row_checks in table_rowchecks)
             {
                 if (row_checks.RESULT == "OK") continue;
-                err = GetErrorListFromMessage(row_checks.RESULT);
-                ret += err;
+                ret += GetErrorListFromMessage(row_checks.RESULT);
             }
 
             if (ret.HasErrors) return ret;
@@ -657,17 +555,180 @@ namespace KlonsFM.Classes
 
             if (dr_row.AMOUNT >= 0)
             {
-                ret.AddItemError(id_item, "Atgriežot preci pircējam dokumentā uzrāda negatīvus daudzumus.");
+                ret.AddItemError(id_item, "No pircēja atgrieztas preces dokumentā uzrāda negatīvus daudzumus.");
                 return ret;
             }
 
-            if (dr_item.XIsServices) return ret;
+            //if (dr_item.XIsServices) return ret;
 
-            /*if (!dr_item.IsLASTSALEDATENull() && dr_doc.DT < dr_item.LASTSALEDATE)
+            return ret;
+        }
+
+
+        public static ErrorList CheckDocForPierakstīts(
+            KlonsMDataSet.M_DOCSRow dr_doc, bool setprice)
+        {
+            var ret = new ErrorList();
+            var drs_rows = dr_doc.GetM_ROWSRows().ToList();
+            if (drs_rows.Count == 0)
             {
-                ret.AddItemError(id_item, "Dokumenta datums vecāks par pēdējo reģistrēto.");
+                ret.AddError("dokuments", "Dokuments nesatur rindas.");
                 return ret;
-            }*/
+            }
+
+            ret += CheckDocHeader(dr_doc);
+            ret += CheckRowsForBadAcc(dr_doc);
+            ret += CheckRowsForRepeatingItems(dr_doc);
+            if (ret.HasErrors) return ret;
+
+
+            foreach (var dr_row in drs_rows)
+                ret += CheckRowForPierakstīts(dr_row);
+            if (ret.HasErrors) return ret;
+
+            var ad = new DataSets.KlonsMRepDataSetTableAdapters.SP_M_MAKELINKS_12TableAdapter();
+            var table_lastprices = ad.GetDataBy_SP_M_MAKELINKS_12(dr_doc.ID);
+
+            var drs_missinglastprice = drs_rows
+                .Where(x => !table_lastprices.Where(y => y.IDITEM == x.IDITEM).Any())
+                .ToList();
+
+            foreach (var dr in drs_missinglastprice)
+                ret.AddItemError(dr.IDITEM, "Nav atrasta pēdējā iepirkuma cena.");
+
+
+            if (ret.HasErrors) return ret;
+
+            if (!setprice) return ret;
+
+            foreach (var dr_row in drs_rows)
+            {
+                if (dr_row.XIsServices) continue;
+                var dr_lastprice = table_lastprices.Where(x => x.IDITEM == dr_row.IDITEM).FirstOrDefault();
+                if(dr_lastprice == null)
+                {
+                    dr_row.PRICE0 = 0M;
+                    dr_row.DISCOUNT = 0f;
+                    dr_row.PRICE = 0M;
+                    dr_row.TPRICE = 0M;
+                    dr_row.BUYPRICE = 0M;
+                    dr_row.TBUYPRICE = 0M;
+                }
+                else
+                {
+                    var price = dr_lastprice.LASTBUYPRICE;
+                    var tprice = Math.Round(price * dr_row.AMOUNT, 2);
+                    dr_row.PRICE0 = price;
+                    dr_row.DISCOUNT = 0f;
+                    dr_row.PRICE = price;
+                    dr_row.TPRICE = tprice;
+                    dr_row.BUYPRICE = price;
+                    dr_row.TBUYPRICE = tprice;
+                }
+            }
+
+            return ret;
+        }
+
+        public static ErrorList CheckRowForPierakstīts(KlonsMDataSet.M_ROWSRow dr_row)
+        {
+            var ret = new ErrorList();
+            var dr_item = dr_row.M_ITEMSRow;
+            int id_item = dr_item.ID;
+
+            if (dr_row.AMOUNT <= 0)
+            {
+                ret.AddItemError(id_item, "Daudzumam jābūt lielākam par 0.");
+                return ret;
+            }
+
+            return ret;
+        }
+
+
+        public static ErrorList CheckDocForSaražots(
+            KlonsMDataSet.M_DOCSRow dr_doc, bool setprice)
+        {
+            var ret = new ErrorList();
+            var drs_rows = dr_doc.GetM_ROWSRows().ToList();
+            if (drs_rows.Count == 0)
+            {
+                ret.AddError("dokuments", "Dokuments nesatur rindas.");
+                return ret;
+            }
+
+            ret += CheckDocHeader(dr_doc);
+            ret += CheckRowsForBadAcc(dr_doc);
+            ret += CheckRowsForRepeatingItems(dr_doc);
+            if (ret.HasErrors) return ret;
+
+
+            foreach (var dr_row in drs_rows)
+                ret += CheckRowForSaražots(dr_row);
+            if (ret.HasErrors) return ret;
+
+            var ad = new DataSets.KlonsMRepDataSetTableAdapters.SP_M_MAKELINKS_14ATableAdapter();
+            var table_prodcosts = ad.GetDataBy_SP_M_MAKELINKS_14A(dr_doc.ID);
+
+            var drs_missinglastprice = drs_rows
+                .Where(x => !table_prodcosts.Where(y => y.IDITEM == x.IDITEM).Any())
+                .ToList();
+
+            foreach (var dr in drs_missinglastprice)
+                ret.AddItemError(dr.IDITEM, "Nav atrasta pašizmaksa.");
+
+            var iditems_zerocost = table_prodcosts
+                .Where(x => x.PRODCOST == 0M)
+                .Select(x => x.IDITEM)
+                .ToList();
+
+            foreach (var iditem in iditems_zerocost)
+                ret.AddItemError(iditem, "Nav norādīta pašizmaksa.");
+
+            if (ret.HasErrors) return ret;
+
+            if (!setprice) return ret;
+
+            foreach (var dr_row in drs_rows)
+            {
+                if (dr_row.XIsServices) continue;
+                var dr_costs = table_prodcosts.Where(x => x.IDITEM == dr_row.IDITEM).FirstOrDefault();
+                if (dr_costs == null)
+                {
+                    dr_row.PRICE0 = 0M;
+                    dr_row.DISCOUNT = 0f;
+                    dr_row.PRICE = 0M;
+                    dr_row.TPRICE = 0M;
+                    dr_row.BUYPRICE = 0M;
+                    dr_row.TBUYPRICE = 0M;
+                }
+                else
+                {
+                    var price = dr_costs.PRODCOST;
+                    var tprice = Math.Round(price * dr_row.AMOUNT, 2);
+                    dr_row.PRICE0 = price;
+                    dr_row.DISCOUNT = 0f;
+                    dr_row.PRICE = price;
+                    dr_row.TPRICE = tprice;
+                    dr_row.BUYPRICE = price;
+                    dr_row.TBUYPRICE = tprice;
+                }
+            }
+
+            return ret;
+        }
+
+        public static ErrorList CheckRowForSaražots(KlonsMDataSet.M_ROWSRow dr_row)
+        {
+            var ret = new ErrorList();
+            var dr_item = dr_row.M_ITEMSRow;
+            int id_item = dr_item.ID;
+
+            if (dr_row.AMOUNT <= 0)
+            {
+                ret.AddItemError(id_item, "Daudzumam jābūt lielākam par 0.");
+                return ret;
+            }
 
             return ret;
         }
@@ -737,6 +798,20 @@ namespace KlonsFM.Classes
         {
             var ret = ProcessDocXXX(dr_doc,
                 () => MyData.KlonsMQueriesTableAdapter.SP_M_MAKELINKS_41(dr_doc.ID, docstate_iegrāmatots));
+            return ret;
+        }
+
+        public static ErrorList ProcessDocPierakstīts(KlonsMDataSet.M_DOCSRow dr_doc)
+        {
+            var ret = ProcessDocXXX(dr_doc,
+                () => MyData.KlonsMQueriesTableAdapter.SP_M_MAKELINKS_13(dr_doc.ID, docstate_iegrāmatots));
+            return ret;
+        }
+
+        public static ErrorList ProcessDocSaražots(KlonsMDataSet.M_DOCSRow dr_doc)
+        {
+            var ret = ProcessDocXXX(dr_doc,
+                () => MyData.KlonsMQueriesTableAdapter.SP_M_MAKELINKS_11(dr_doc.ID, docstate_iegrāmatots));
             return ret;
         }
 
@@ -926,11 +1001,9 @@ namespace KlonsFM.Classes
             }
             if (dr_doc.XDocType == EDocType.Iepirkums ||
                 dr_doc.XDocType == EDocType.Sākuma_atlikums ||
-                dr_doc.XDocType == EDocType.Pierakstīts ||
-                dr_doc.XDocType == EDocType.Saražots ||
                 dr_doc.XDocType == EDocType.No_noliktavas)
             {
-                err = CheckDocForIncomminGoods(dr_doc);
+                err = CheckDocForIepirkums(dr_doc);
                 if (err.HasErrors) return err;
                 err += ProcessDocIepirkums(dr_doc);
                 return err;
@@ -976,6 +1049,20 @@ namespace KlonsFM.Classes
             if (dr_doc.XDocType == EDocType.Pārvietots)
             {
                 err = ProcessDocAtgrieztsNoPirceja(dr_doc);
+                return err;
+            }
+            if (dr_doc.XDocType == EDocType.Pierakstīts)
+            {
+                err = CheckDocForPierakstīts(dr_doc, false);
+                if (err.HasErrors) return err;
+                err += ProcessDocPierakstīts(dr_doc);
+                return err;
+            }
+            if (dr_doc.XDocType == EDocType.Saražots)
+            {
+                err = CheckDocForSaražots(dr_doc, false);
+                if (err.HasErrors) return err;
+                err += ProcessDocSaražots(dr_doc);
                 return err;
             }
 
@@ -1389,7 +1476,7 @@ namespace KlonsFM.Classes
 
             return ret;
         }
-        
+
         public static void DeleteLocalFinDocByIdDocM(int iddocm)
         {
             var table_fdocs = MyData.DataSetKlons.OPSd;
@@ -1624,71 +1711,56 @@ namespace KlonsFM.Classes
 
         public static void SetNewIDs(params string[] tablenames)
         {
+            if (SetNewIds_List == null || SetNewIds_List.Count == 0) Make_SetNewIDs_List();
             foreach (var tablename in tablenames)
             {
-                switch (tablename)
-                {
-                    case "M_DOCS":
-                        SetNewIDs(x => x.M_DOCS, x => x.SP_GEN_M_DOCS_ID);
-                        break;
-                    case "M_ROWS":
-                        SetNewIDs(x => x.M_ROWS, x => x.SP_GEN_M_ROWS_ID);
-                        break;
-                    case "M_ITEMS":
-                        SetNewIDs(x => x.M_ITEMS, x => x.SP_GEN_M_ITEMS_ID);
-                        break;
-                    case "M_ITEMS_CAT":
-                        SetNewIDs(x => x.M_ITEMS_CAT, x => x.SP_GEN_M_ITEMS_CAT_ID);
-                        break;
-                    case "M_STORES":
-                        SetNewIDs(x => x.M_STORES, x => x.SP_GEN_M_STORES_ID);
-                        break;
-                    case "M_CONTACTS":
-                        SetNewIDs(x => x.M_CONTACTS, x => x.SP_GEN_M_CONTACTS_ID);
-                        break;
-                    case "M_ADDRESSSES":
-                        SetNewIDs(x => x.M_ADDRESSSES, x => x.SP_GEN_M_ADDRESSSES_ID);
-                        break;
-                    case "M_VEHICLES":
-                        SetNewIDs(x => x.M_VEHICLES, x => x.SP_GEN_M_VEHICLES_ID);
-                        break;
-                    case "M_BANKACCOUNTS":
-                        SetNewIDs(x => x.M_BANKACCOUNTS, x => x.SP_GEN_M_BANKACCOUNTS_ID);
-                        break;
-                    case "M_BANKS":
-                        SetNewIDs(x => x.M_BANKS, x => x.SP_GEN_M_BANKS_ID);
-                        break;
-                    case "M_COUNTRIES":
-                        SetNewIDs(x => x.M_COUNTRIES, x => x.SP_GEN_M_COUNTRIES_ID);
-                        break;
-                    case "M_STORETYPE":
-                        SetNewIDs(x => x.M_STORETYPE, x => x.SP_GEN_M_STORETYPE_ID);
-                        break;
-                    case "M_DOCTYPES":
-                        SetNewIDs(x => x.M_DOCTYPES, x => x.SP_GEN_M_DOCTYPES_ID);
-                        break;
-                    case "M_UNITS":
-                        SetNewIDs(x => x.M_UNITS, x => x.SP_GEN_M_UNITS_ID);
-                        break;
-                    case "M_PAYMENTTYPE":
-                        SetNewIDs(x => x.M_PAYMENTTYPE, x => x.SP_GEN_M_PAYMENTTYPE_ID);
-                        break;
-                    case "M_TRANSACTIONTYPE":
-                        SetNewIDs(x => x.M_TRANSACTIONTYPE, x => x.SP_GEN_M_TRANSACTIONTYPE_ID);
-                        break;
-                    case "M_PVNRATES":
-                        SetNewIDs(x => x.M_PVNRATES, x => x.SP_GEN_M_PVNRATES_ID);
-                        break;
-                    case "M_PVNRATES2":
-                        SetNewIDs(x => x.M_PVNRATES2, x => x.SP_GEN_M_PVNRATES2_ID);
-                        break;
-                    case "M_PVNTEXTS":
-                        SetNewIDs(x => x.M_PVNTEXTS, x => x.SP_GEN_M_PVNTEXTS_ID);
-                        break;
-                }
+                if (tablename == null) continue;
+                var list_item = SetNewIds_List.Find(x => x.Name == tablename);
+                if (list_item == null)
+                    throw new ArgumentException($"Wrong table name {tablename}.");
+                SetNewIDs(list_item.func_gettable, list_item.func_getidfunc, list_item.idcolumnname);
+            }
+        }
 
+        public static void Make_SetNewIDs_List()
+        {
+            void Add_SetNewIDsItem(
+                string name,
+                Func<KlonsMDataSet, DataTable> func_gettable,
+                Func<DataSets.KlonsMDataSetTableAdapters.QueriesTableAdapter, Func<object>> func_getidfunc,
+                string idcolumnname = "ID")
+            {
+                var new_item = new SetNewIds_ListItem()
+                {
+                    Name = name,
+                    func_gettable = func_gettable,
+                    func_getidfunc = func_getidfunc,
+                    idcolumnname = idcolumnname
+                };
+                SetNewIds_List.Add(new_item);
             }
 
+            Add_SetNewIDsItem("M_DOCS", x => x.M_DOCS, x => x.SP_GEN_M_DOCS_ID);
+            Add_SetNewIDsItem("M_ROWS", x => x.M_ROWS, x => x.SP_GEN_M_ROWS_ID);
+            Add_SetNewIDsItem("M_ITEMS", x => x.M_ITEMS, x => x.SP_GEN_M_ITEMS_ID);
+            Add_SetNewIDsItem("M_ITEMS_CAT", x => x.M_ITEMS_CAT, x => x.SP_GEN_M_ITEMS_CAT_ID);
+            Add_SetNewIDsItem("M_STORES", x => x.M_STORES, x => x.SP_GEN_M_STORES_ID);
+            Add_SetNewIDsItem("M_CONTACTS", x => x.M_CONTACTS, x => x.SP_GEN_M_CONTACTS_ID);
+            Add_SetNewIDsItem("M_ADDRESSSES", x => x.M_ADDRESSSES, x => x.SP_GEN_M_ADDRESSSES_ID);
+            Add_SetNewIDsItem("M_VEHICLES", x => x.M_VEHICLES, x => x.SP_GEN_M_VEHICLES_ID);
+            Add_SetNewIDsItem("M_BANKACCOUNTS", x => x.M_BANKACCOUNTS, x => x.SP_GEN_M_BANKACCOUNTS_ID);
+            Add_SetNewIDsItem("M_INV_DOCS", x => x.M_INV_DOCS, x => x.SP_GEN_M_INV_DOCS_ID);
+            Add_SetNewIDsItem("M_INV_ROWS", x => x.M_INV_ROWS, x => x.SP_GEN_M_INV_ROWS_ID);
+            Add_SetNewIDsItem("M_BANKS", x => x.M_BANKS, x => x.SP_GEN_M_BANKS_ID);
+            Add_SetNewIDsItem("M_COUNTRIES", x => x.M_COUNTRIES, x => x.SP_GEN_M_COUNTRIES_ID);
+            Add_SetNewIDsItem("M_STORETYPE", x => x.M_STORETYPE, x => x.SP_GEN_M_STORETYPE_ID);
+            Add_SetNewIDsItem("M_DOCTYPES", x => x.M_DOCTYPES, x => x.SP_GEN_M_DOCTYPES_ID);
+            Add_SetNewIDsItem("M_UNITS", x => x.M_UNITS, x => x.SP_GEN_M_UNITS_ID);
+            Add_SetNewIDsItem("M_PAYMENTTYPE", x => x.M_PAYMENTTYPE, x => x.SP_GEN_M_PAYMENTTYPE_ID);
+            Add_SetNewIDsItem("M_TRANSACTIONTYPE", x => x.M_TRANSACTIONTYPE, x => x.SP_GEN_M_TRANSACTIONTYPE_ID);
+            Add_SetNewIDsItem("M_PVNRATES", x => x.M_PVNRATES, x => x.SP_GEN_M_PVNRATES_ID);
+            Add_SetNewIDsItem("M_PVNRATES2", x => x.M_PVNRATES2, x => x.SP_GEN_M_PVNRATES2_ID);
+            Add_SetNewIDsItem("M_PVNTEXTS", x => x.M_PVNTEXTS, x => x.SP_GEN_M_PVNTEXTS_ID);
         }
 
         private static void SetNewIDs(
@@ -1704,6 +1776,17 @@ namespace KlonsFM.Classes
                 dr[idcolumnname] = new_id;
             }
         }
+
+        class SetNewIds_ListItem
+        {
+            public string Name;
+            public Func<KlonsMDataSet, DataTable> func_gettable;
+            public Func<DataSets.KlonsMDataSetTableAdapters.QueriesTableAdapter, Func<object>> func_getidfunc;
+            public string idcolumnname = "ID";
+        }
+
+        static List<SetNewIds_ListItem> SetNewIds_List = new List<SetNewIds_ListItem>();
+
 
         private static void SetNewIDs(
             Func<KlonsMDataSet, DataTable> func_gettable,

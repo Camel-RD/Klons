@@ -1170,6 +1170,7 @@ namespace KlonsP.Forms
                     bsItems.Position = pos;
                     return;
                 }
+                pos += step;
             }
         }
 

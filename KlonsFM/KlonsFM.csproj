@@ -208,6 +208,12 @@
     <Compile Include="FormsM\FormM_Doc.Designer.cs">
       <DependentUpon>FormM_Doc.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsM\FormM_DocCosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsM\FormM_DocCosts.Designer.cs">
+      <DependentUpon>FormM_DocCosts.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsM\FormM_DocFin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,11 +226,17 @@
     <Compile Include="FormsM\FormM_DocList.Designer.cs">
       <DependentUpon>FormM_DocList.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsM\FormM_Docs.cs">
+    <Compile Include="FormsM\FormM_InvDoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsM\FormM_Docs.Designer.cs">
-      <DependentUpon>FormM_Docs.cs</DependentUpon>
+    <Compile Include="FormsM\FormM_InvDoc.Designer.cs">
+      <DependentUpon>FormM_InvDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsM\FormM_InvDocList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsM\FormM_InvDocList.Designer.cs">
+      <DependentUpon>FormM_InvDocList.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsM\FormM_PVNTypes.cs">
       <SubType>Form</SubType>
@@ -767,14 +779,20 @@
     <EmbeddedResource Include="FormsM\FormM_Doc.resx">
       <DependentUpon>FormM_Doc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormsM\FormM_DocCosts.resx">
+      <DependentUpon>FormM_DocCosts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsM\FormM_DocFin.resx">
       <DependentUpon>FormM_DocFin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsM\FormM_DocList.resx">
       <DependentUpon>FormM_DocList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsM\FormM_Docs.resx">
-      <DependentUpon>FormM_Docs.cs</DependentUpon>
+    <EmbeddedResource Include="FormsM\FormM_InvDoc.resx">
+      <DependentUpon>FormM_InvDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsM\FormM_InvDocList.resx">
+      <DependentUpon>FormM_InvDocList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsM\FormM_PVNTypes.resx">
       <DependentUpon>FormM_PVNTypes.cs</DependentUpon>
@@ -1124,6 +1142,7 @@
     <Content Include="Reports\Report_PVN_kops.rdlc" />
     <Content Include="Reports\Report_CurrDiff.rdlc" />
     <Content Include="Reports\Report_Ieraksti_1.rdlc" />
+    <Content Include="Reports\ReportM_Rekins_1.rdlc" />
     <EmbeddedResource Include="Reports\Report_KasesGr_2.rdlc" />
     <EmbeddedResource Include="Reports\Report_KasesGr_1.rdlc" />
     <Content Include="Reports\Report_PVN_piel2_1.rdlc" />

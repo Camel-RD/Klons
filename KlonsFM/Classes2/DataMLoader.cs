@@ -199,6 +199,43 @@ namespace KlonsFM.Classes
             ad.FillBy_sp_mfilter_row_01(table_rows, iddoc);
         }
 
+        public static bool LoadInvDocsByFilter(DateTime? dt1, DateTime? dt2, 
+            int? state, int? idstore)
+        {
+            return DoLoadCheckErrors(() =>
+            {
+                LoadInvDocsByFilterA(dt1, dt2, state, idstore);
+            });
+        }
+
+        public static void LoadInvDocsByFilterA(DateTime? dt1, DateTime? dt2,
+            int? state, int? idstore)
+        {
+            var table_invdocs = MyData.DataSetKlonsM.M_INV_DOCS;
+            var table_invrows = MyData.DataSetKlonsM.M_INV_ROWS;
+            table_invrows.Clear();
+            table_invdocs.Clear();
+            var ad = new DataSets.KlonsMDataSetTableAdapters.M_INV_DOCSTableAdapter();
+            ad.FillBy_SP_M_INVDOCS_1(table_invdocs, dt1, dt2, state, idstore);
+        }
+
+        public static bool LoadInvRowsByFilter(int iddoc, bool clearbefore)
+        {
+            return DoLoadCheckErrors(() =>
+            {
+                LoadInvRowsByFilterA(iddoc, clearbefore);
+            });
+        }
+
+        public static void LoadInvRowsByFilterA(int iddoc, bool clearbefore)
+        {
+            var table_invrows = MyData.DataSetKlonsM.M_INV_ROWS;
+            var ad = new DataSets.KlonsMDataSetTableAdapters.M_INV_ROWSTableAdapter();
+            ad.ClearBeforeFill = clearbefore;
+            ad.FillBy_SP_M_INVROWS_1(table_invrows, iddoc);
+        }
+
+
         public static bool LoadLatestAmountsByDoc(int iddoc)
         {
             return DoLoadCheckErrors(() =>

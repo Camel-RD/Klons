@@ -109,6 +109,9 @@ namespace KlonsFM.FormsM
                 case 1:
                     rd.FileName = "ReportM_Rekins_PZ_2";
                     break;
+                case 2:
+                    rd.FileName = "ReportM_Rekins_1";
+                    break;
                 default:
                     return;
             }

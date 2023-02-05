@@ -131,6 +131,7 @@ namespace KlonsFM.FormsM
             this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRows.Location = new System.Drawing.Point(0, 0);
             this.dgvRows.Name = "dgvRows";
+            this.dgvRows.RowHeadersVisible = false;
             this.dgvRows.RowHeadersWidth = 62;
             this.dgvRows.RowTemplate.Height = 28;
             this.dgvRows.ShowCellToolTips = false;

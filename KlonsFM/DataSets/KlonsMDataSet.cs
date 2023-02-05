@@ -104,7 +104,7 @@ namespace KlonsFM.DataSets
         public partial class M_ITEMSRow
         {
             public bool XIsServices => this.M_ITEMS_CATRow.XIsServices;
-
+            public bool XIsProduced => this.M_ITEMS_CATRow.XIsProduced;
         }
 
         public partial class M_ITEMS_CATRow
@@ -119,6 +119,12 @@ namespace KlonsFM.DataSets
             {
                 get => ISSERVICES == 1;
                 set => ISSERVICES = value ? 1 : 0;
+            }
+
+            public bool XIsProduced
+            {
+                get => ISPRODUCED == 1;
+                set => ISPRODUCED = value ? 1 : 0;
             }
         }
 
@@ -172,6 +178,16 @@ namespace KlonsFM.DataSets
                 set => CHANGESIGN = value ? 1 : 0;
             }
         }
+
+        partial class M_INV_DOCSRow
+        {
+            public Classes.EInventoryDocState XState
+            {
+                get => (Classes.EInventoryDocState)STATE;
+                set => STATE = (int)value;
+            }
+        }
+
     }
 }
 

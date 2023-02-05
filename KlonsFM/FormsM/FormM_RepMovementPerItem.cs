@@ -60,18 +60,27 @@ namespace KlonsFM.FormsM
                 return "Nekorekts datuma formāts.";
             if (Date1 > Date2)
                 return "Sākuma datums lielāks par beigu datumu.";
-            if (tbCode.SelectedIndex == -1)
+            if (tbCatCode.SelectedIndex == -1)
                 IdCat = null;
             else
-                IdCat = (int)tbCode.SelectedValue;
+                IdCat = (int)tbCatCode.SelectedValue;
             return "OK";
         }
 
         public void MakeReport()
         {
             dgvRows.DataSource = new List<RepRowMovementOfAmounts>();
+            KlonsMRepDataSet.SP_M_REP_ITEMSAMOUNTS_3DataTable table;
             var ad = new DataSets.KlonsMRepDataSetTableAdapters.SP_M_REP_ITEMSAMOUNTS_3TableAdapter();
-            var table = ad.GetDataBy_SP_M_REP_ITEMSAMOUNTS_3(Date1, Date2, IdCat);
+            if (tbStoreCode.SelectedValue == null)
+            {
+                table = ad.GetDataBy_SP_M_REP_ITEMSAMOUNTS_3(Date1, Date2, IdCat);
+            }
+            else
+            {
+                int idstore = (int)tbStoreCode.SelectedValue;
+                table = ad.GetDataBy_SP_M_REP_ITEMSMOVEMENT_6(Date1, Date2, IdCat, idstore);
+            }
             if (table.Count == 0)
             {
                 MyMainForm.ShowWarning("Pārkskats ir tukšs.", null, this);
@@ -146,11 +155,18 @@ namespace KlonsFM.FormsM
             MakeReport();
         }
 
-        private void tbCode_ButtonClicked(object sender, EventArgs e)
+        private void tbCatCode_ButtonClicked(object sender, EventArgs e)
         {
-            var iditem = FormM_ItemsCat.GetItemsCatId(null);
+            var iditem = FormM_ItemsCat.GetItemsCatId(tbCatCode.Text);
             if (!iditem.HasValue) return;
-            tbCode.SelectedValue = iditem.Value;
+            tbCatCode.SelectedValue = iditem.Value;
+        }
+
+        private void tbStoreCode_ButtonClicked(object sender, EventArgs e)
+        {
+            var idstore = FormM_Stores.GetStoreId(tbStoreCode.Text, EStoreType.Partneris);
+            if (!idstore.HasValue) return;
+            tbStoreCode.SelectedValue = idstore.Value;
         }
 
 
@@ -158,7 +174,7 @@ namespace KlonsFM.FormsM
         {
             if (e.KeyCode == Keys.Escape)
             {
-                tbCode.SelectedIndex = -1;
+                tbCatCode.SelectedIndex = -1;
                 return;
             }
         }

@@ -41,24 +41,10 @@ namespace KlonsFM.FormsM
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bsItems = new KlonsLIB.Data.MyBindingSource(this.components);
             this.dgvRows = new KlonsLIB.Components.MyDataGridView();
-            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcCat = new KlonsLIB.Components.MyDgvTextboxColumn2();
             this.bsItemsCat = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcStore1 = new KlonsLIB.Components.MyDgvTextboxColumn2();
             this.bsStore = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcPVNRate = new KlonsLIB.Components.MyDgvTextboxColumn2();
             this.bsPVNRate = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcIsService = new KlonsLIB.Components.MyDgvCheckBoxColumn();
-            this.dgcUints = new KlonsLIB.Components.MyDgvTextboxColumn2();
             this.bsUnits = new KlonsLIB.Data.MyBindingSource(this.components);
-            this.dgcSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcAmountInStore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcBBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcLastBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcLastSaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcLastInLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -83,6 +69,21 @@ namespace KlonsFM.FormsM
             this.tbFilter = new KlonsLIB.Components.MyTextBox();
             this.tbCode = new KlonsLIB.Components.MyPickRowTextBox2();
             this.myAdapterManager1 = new KlonsLIB.Data.MyAdapterManager();
+            this.dgcID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcCat = new KlonsLIB.Components.MyDgvTextboxColumn2();
+            this.dgcStore1 = new KlonsLIB.Components.MyDgvTextboxColumn2();
+            this.dgcPVNRate = new KlonsLIB.Components.MyDgvTextboxColumn2();
+            this.dgcIsService = new KlonsLIB.Components.MyDgvCheckBoxColumn();
+            this.dgcIsProduced = new KlonsLIB.Components.MyDgvCheckBoxColumn();
+            this.dgcUints = new KlonsLIB.Components.MyDgvTextboxColumn2();
+            this.dgcSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcAmountInStore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcBBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLastBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcProdCosts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLastSaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bNav)).BeginInit();
             this.bNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsItems)).BeginInit();
@@ -167,13 +168,14 @@ namespace KlonsFM.FormsM
             this.dgcStore1,
             this.dgcPVNRate,
             this.dgcIsService,
+            this.dgcIsProduced,
             this.dgcUints,
             this.dgcSellPrice,
             this.dgcAmountInStore,
             this.dgcBBuyPrice,
             this.dgcLastBuyPrice,
-            this.dgcLastSaleDate,
-            this.dgcLastInLeft});
+            this.dgcProdCosts,
+            this.dgcLastSaleDate});
             this.dgvRows.DataSource = this.bsItems;
             this.dgvRows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRows.Location = new System.Drawing.Point(0, 36);
@@ -190,62 +192,11 @@ namespace KlonsFM.FormsM
             this.dgvRows.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvRows_UserDeletingRow);
             this.dgvRows.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvRows_KeyPress);
             // 
-            // dgcID
-            // 
-            this.dgcID.DataPropertyName = "ID";
-            this.dgcID.HeaderText = "ID";
-            this.dgcID.MinimumWidth = 8;
-            this.dgcID.Name = "dgcID";
-            this.dgcID.Visible = false;
-            this.dgcID.Width = 60;
-            // 
-            // dgcCode
-            // 
-            this.dgcCode.DataPropertyName = "BARCODE";
-            this.dgcCode.HeaderText = "kods";
-            this.dgcCode.MinimumWidth = 8;
-            this.dgcCode.Name = "dgcCode";
-            this.dgcCode.Width = 160;
-            // 
-            // dgcName
-            // 
-            this.dgcName.DataPropertyName = "NAME";
-            this.dgcName.HeaderText = "nosaukums";
-            this.dgcName.MinimumWidth = 8;
-            this.dgcName.Name = "dgcName";
-            this.dgcName.Width = 300;
-            // 
-            // dgcCat
-            // 
-            this.dgcCat.DataPropertyName = "CAT";
-            this.dgcCat.DataSource = this.bsItemsCat;
-            this.dgcCat.DisplayMember = "CODE";
-            this.dgcCat.HeaderText = "kategorija";
-            this.dgcCat.MinimumWidth = 8;
-            this.dgcCat.Name = "dgcCat";
-            this.dgcCat.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcCat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcCat.ValueMember = "ID";
-            this.dgcCat.Width = 140;
-            // 
             // bsItemsCat
             // 
             this.bsItemsCat.DataMember = "M_ITEMS_CAT";
             this.bsItemsCat.MyDataSource = "KlonsMData";
             this.bsItemsCat.Sort = "CODE";
-            // 
-            // dgcStore1
-            // 
-            this.dgcStore1.DataPropertyName = "STORE1";
-            this.dgcStore1.DataSource = this.bsStore;
-            this.dgcStore1.DisplayMember = "CODE";
-            this.dgcStore1.HeaderText = "pamatnoliktava";
-            this.dgcStore1.MinimumWidth = 8;
-            this.dgcStore1.Name = "dgcStore1";
-            this.dgcStore1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcStore1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcStore1.ValueMember = "ID";
-            this.dgcStore1.Width = 160;
             // 
             // bsStore
             // 
@@ -254,117 +205,17 @@ namespace KlonsFM.FormsM
             this.bsStore.MyDataSource = "KlonsMData";
             this.bsStore.Sort = "CODE";
             // 
-            // dgcPVNRate
-            // 
-            this.dgcPVNRate.DataPropertyName = "PVNRATE";
-            this.dgcPVNRate.DataSource = this.bsPVNRate;
-            this.dgcPVNRate.DisplayMember = "CODE";
-            this.dgcPVNRate.HeaderText = "PVN likme";
-            this.dgcPVNRate.MinimumWidth = 8;
-            this.dgcPVNRate.Name = "dgcPVNRate";
-            this.dgcPVNRate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcPVNRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcPVNRate.ValueMember = "ID";
-            this.dgcPVNRate.Width = 160;
-            // 
             // bsPVNRate
             // 
             this.bsPVNRate.DataMember = "M_PVNRATES";
             this.bsPVNRate.MyDataSource = "KlonsMData";
             this.bsPVNRate.Sort = "CODE";
             // 
-            // dgcIsService
-            // 
-            this.dgcIsService.DataPropertyName = "ISSERVICE";
-            this.dgcIsService.FalseValue = "0";
-            this.dgcIsService.HeaderText = "pakalp.";
-            this.dgcIsService.MinimumWidth = 8;
-            this.dgcIsService.Name = "dgcIsService";
-            this.dgcIsService.TrueValue = "1";
-            this.dgcIsService.Width = 70;
-            // 
-            // dgcUints
-            // 
-            this.dgcUints.DataPropertyName = "UNITS";
-            this.dgcUints.DataSource = this.bsUnits;
-            this.dgcUints.DisplayMember = "CODE";
-            this.dgcUints.HeaderText = "mērv.";
-            this.dgcUints.MinimumWidth = 8;
-            this.dgcUints.Name = "dgcUints";
-            this.dgcUints.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgcUints.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgcUints.ValueMember = "ID";
-            this.dgcUints.Width = 80;
-            // 
             // bsUnits
             // 
             this.bsUnits.DataMember = "M_UNITS";
             this.bsUnits.MyDataSource = "KlonsMData";
             this.bsUnits.Sort = "ID";
-            // 
-            // dgcSellPrice
-            // 
-            this.dgcSellPrice.DataPropertyName = "SELLPRICE";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N4";
-            this.dgcSellPrice.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgcSellPrice.HeaderText = "cena";
-            this.dgcSellPrice.MinimumWidth = 8;
-            this.dgcSellPrice.Name = "dgcSellPrice";
-            this.dgcSellPrice.Width = 90;
-            // 
-            // dgcAmountInStore
-            // 
-            this.dgcAmountInStore.DataPropertyName = "AMOUNTINSTORE";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcAmountInStore.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgcAmountInStore.HeaderText = "daudzums";
-            this.dgcAmountInStore.MinimumWidth = 8;
-            this.dgcAmountInStore.Name = "dgcAmountInStore";
-            this.dgcAmountInStore.Width = 90;
-            // 
-            // dgcBBuyPrice
-            // 
-            this.dgcBBuyPrice.DataPropertyName = "BUYPRICE";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N4";
-            this.dgcBBuyPrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgcBBuyPrice.HeaderText = "iep. cena";
-            this.dgcBBuyPrice.MinimumWidth = 8;
-            this.dgcBBuyPrice.Name = "dgcBBuyPrice";
-            this.dgcBBuyPrice.Width = 90;
-            // 
-            // dgcLastBuyPrice
-            // 
-            this.dgcLastBuyPrice.DataPropertyName = "LASTBUYPRICE";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N4";
-            this.dgcLastBuyPrice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgcLastBuyPrice.HeaderText = "pēdējā iep. cena";
-            this.dgcLastBuyPrice.MinimumWidth = 8;
-            this.dgcLastBuyPrice.Name = "dgcLastBuyPrice";
-            this.dgcLastBuyPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgcLastBuyPrice.Width = 90;
-            // 
-            // dgcLastSaleDate
-            // 
-            this.dgcLastSaleDate.DataPropertyName = "LASTSALEDATE";
-            dataGridViewCellStyle5.Format = "dd.MM.yyyy";
-            this.dgcLastSaleDate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgcLastSaleDate.HeaderText = "datums2";
-            this.dgcLastSaleDate.MinimumWidth = 8;
-            this.dgcLastSaleDate.Name = "dgcLastSaleDate";
-            this.dgcLastSaleDate.Width = 110;
-            // 
-            // dgcLastInLeft
-            // 
-            this.dgcLastInLeft.DataPropertyName = "LASTINLEFT";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgcLastInLeft.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgcLastInLeft.HeaderText = "LASTINLEFT";
-            this.dgcLastInLeft.MinimumWidth = 8;
-            this.dgcLastInLeft.Name = "dgcLastInLeft";
-            this.dgcLastInLeft.Width = 90;
             // 
             // bindingNavigatorCountItem
             // 
@@ -581,6 +432,170 @@ namespace KlonsFM.FormsM
         "M_ITEMS_CAT",
         null};
             // 
+            // dgcID
+            // 
+            this.dgcID.DataPropertyName = "ID";
+            this.dgcID.HeaderText = "ID";
+            this.dgcID.MinimumWidth = 8;
+            this.dgcID.Name = "dgcID";
+            this.dgcID.Visible = false;
+            this.dgcID.Width = 60;
+            // 
+            // dgcCode
+            // 
+            this.dgcCode.DataPropertyName = "BARCODE";
+            this.dgcCode.HeaderText = "kods";
+            this.dgcCode.MinimumWidth = 8;
+            this.dgcCode.Name = "dgcCode";
+            this.dgcCode.Width = 160;
+            // 
+            // dgcName
+            // 
+            this.dgcName.DataPropertyName = "NAME";
+            this.dgcName.HeaderText = "nosaukums";
+            this.dgcName.MinimumWidth = 8;
+            this.dgcName.Name = "dgcName";
+            this.dgcName.Width = 300;
+            // 
+            // dgcCat
+            // 
+            this.dgcCat.DataPropertyName = "CAT";
+            this.dgcCat.DataSource = this.bsItemsCat;
+            this.dgcCat.DisplayMember = "CODE";
+            this.dgcCat.HeaderText = "kategorija";
+            this.dgcCat.MinimumWidth = 8;
+            this.dgcCat.Name = "dgcCat";
+            this.dgcCat.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcCat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcCat.ValueMember = "ID";
+            this.dgcCat.Width = 140;
+            // 
+            // dgcStore1
+            // 
+            this.dgcStore1.DataPropertyName = "STORE1";
+            this.dgcStore1.DataSource = this.bsStore;
+            this.dgcStore1.DisplayMember = "CODE";
+            this.dgcStore1.HeaderText = "pamatnoliktava";
+            this.dgcStore1.MinimumWidth = 8;
+            this.dgcStore1.Name = "dgcStore1";
+            this.dgcStore1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcStore1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcStore1.ValueMember = "ID";
+            this.dgcStore1.Width = 160;
+            // 
+            // dgcPVNRate
+            // 
+            this.dgcPVNRate.DataPropertyName = "PVNRATE";
+            this.dgcPVNRate.DataSource = this.bsPVNRate;
+            this.dgcPVNRate.DisplayMember = "CODE";
+            this.dgcPVNRate.HeaderText = "PVN likme";
+            this.dgcPVNRate.MinimumWidth = 8;
+            this.dgcPVNRate.Name = "dgcPVNRate";
+            this.dgcPVNRate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcPVNRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcPVNRate.ValueMember = "ID";
+            this.dgcPVNRate.Width = 160;
+            // 
+            // dgcIsService
+            // 
+            this.dgcIsService.DataPropertyName = "ISSERVICE";
+            this.dgcIsService.FalseValue = "0";
+            this.dgcIsService.HeaderText = "pakalp.";
+            this.dgcIsService.MinimumWidth = 8;
+            this.dgcIsService.Name = "dgcIsService";
+            this.dgcIsService.ReadOnly = true;
+            this.dgcIsService.TrueValue = "1";
+            this.dgcIsService.Width = 70;
+            // 
+            // dgcIsProduced
+            // 
+            this.dgcIsProduced.DataPropertyName = "ISPRODUCED";
+            this.dgcIsProduced.FalseValue = "0";
+            this.dgcIsProduced.HeaderText = "ražots";
+            this.dgcIsProduced.MinimumWidth = 8;
+            this.dgcIsProduced.Name = "dgcIsProduced";
+            this.dgcIsProduced.ReadOnly = true;
+            this.dgcIsProduced.TrueValue = "1";
+            this.dgcIsProduced.Width = 60;
+            // 
+            // dgcUints
+            // 
+            this.dgcUints.DataPropertyName = "UNITS";
+            this.dgcUints.DataSource = this.bsUnits;
+            this.dgcUints.DisplayMember = "CODE";
+            this.dgcUints.HeaderText = "mērv.";
+            this.dgcUints.MinimumWidth = 8;
+            this.dgcUints.Name = "dgcUints";
+            this.dgcUints.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgcUints.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgcUints.ValueMember = "ID";
+            this.dgcUints.Width = 80;
+            // 
+            // dgcSellPrice
+            // 
+            this.dgcSellPrice.DataPropertyName = "SELLPRICE";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N4";
+            this.dgcSellPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgcSellPrice.HeaderText = "cena";
+            this.dgcSellPrice.MinimumWidth = 8;
+            this.dgcSellPrice.Name = "dgcSellPrice";
+            this.dgcSellPrice.Width = 90;
+            // 
+            // dgcAmountInStore
+            // 
+            this.dgcAmountInStore.DataPropertyName = "AMOUNTINSTORE";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgcAmountInStore.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgcAmountInStore.HeaderText = "daudzums";
+            this.dgcAmountInStore.MinimumWidth = 8;
+            this.dgcAmountInStore.Name = "dgcAmountInStore";
+            this.dgcAmountInStore.Width = 90;
+            // 
+            // dgcBBuyPrice
+            // 
+            this.dgcBBuyPrice.DataPropertyName = "BUYPRICE";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N4";
+            this.dgcBBuyPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgcBBuyPrice.HeaderText = "iep. cena";
+            this.dgcBBuyPrice.MinimumWidth = 8;
+            this.dgcBBuyPrice.Name = "dgcBBuyPrice";
+            this.dgcBBuyPrice.Width = 90;
+            // 
+            // dgcLastBuyPrice
+            // 
+            this.dgcLastBuyPrice.DataPropertyName = "LASTBUYPRICE";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N4";
+            this.dgcLastBuyPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgcLastBuyPrice.HeaderText = "pēdējā iep. cena";
+            this.dgcLastBuyPrice.MinimumWidth = 8;
+            this.dgcLastBuyPrice.Name = "dgcLastBuyPrice";
+            this.dgcLastBuyPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcLastBuyPrice.Width = 90;
+            // 
+            // dgcProdCosts
+            // 
+            this.dgcProdCosts.DataPropertyName = "PRODCOST";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N4";
+            this.dgcProdCosts.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgcProdCosts.HeaderText = "raž. izm.";
+            this.dgcProdCosts.MinimumWidth = 8;
+            this.dgcProdCosts.Name = "dgcProdCosts";
+            this.dgcProdCosts.Width = 90;
+            // 
+            // dgcLastSaleDate
+            // 
+            this.dgcLastSaleDate.DataPropertyName = "LASTSALEDATE";
+            dataGridViewCellStyle6.Format = "dd.MM.yyyy";
+            this.dgcLastSaleDate.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgcLastSaleDate.HeaderText = "datums2";
+            this.dgcLastSaleDate.MinimumWidth = 8;
+            this.dgcLastSaleDate.Name = "dgcLastSaleDate";
+            this.dgcLastSaleDate.Width = 110;
+            // 
             // FormM_Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -647,6 +662,7 @@ namespace KlonsFM.FormsM
         private System.Windows.Forms.ToolStripMenuItem aktuālieArtikulaAtlikumiToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcLastInLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
@@ -654,12 +670,13 @@ namespace KlonsFM.FormsM
         private KlonsLIB.Components.MyDgvTextboxColumn2 dgcStore1;
         private KlonsLIB.Components.MyDgvTextboxColumn2 dgcPVNRate;
         private KlonsLIB.Components.MyDgvCheckBoxColumn dgcIsService;
+        private KlonsLIB.Components.MyDgvCheckBoxColumn dgcIsProduced;
         private KlonsLIB.Components.MyDgvTextboxColumn2 dgcUints;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcSellPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcAmountInStore;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcBBuyPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLastBuyPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcProdCosts;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLastSaleDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcLastInLeft;
     }
 }
