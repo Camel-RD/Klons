@@ -64,8 +64,8 @@ namespace KlonsFM.Classes
             }
             if (dr_doc.XDocType == EDocType.Pārvietots)
             {
-                AccBase.DebFin = dr_doc.M_STORESRowByFK_M_DOCS_IDSTOREIN1.ACC21;
-                AccBase.CredFin = dr_doc.M_STORESRowByFK_M_DOCS_IDSTOREOUT1.ACC21;
+                //AccBase.DebFin = dr_doc.M_STORESRowByFK_M_DOCS_IDSTOREIN1.ACC21;
+                //AccBase.CredFin = dr_doc.M_STORESRowByFK_M_DOCS_IDSTOREOUT1.ACC21;
             }
             else if (dr_doc.XDocType == EDocType.Norakstīts ||
                 dr_doc.XDocType == EDocType.Pierakstīts)
@@ -112,7 +112,7 @@ namespace KlonsFM.Classes
 
                 ChangeSign = dr_pvnrate2.XChangeSign;
 
-                bool are_we_vat_payer = !KlonsData.St.Params.CompRegNrPVN.IsNOE();
+                bool are_we_vat_payer = dr_doc.XWeVATPayer;
 
                 AccBase.DebFin = SomeDataDefs.GetAccT(dr_row, dr_pvnrate2.XBaseDebFin);
                 AccBase.CredFin = SomeDataDefs.GetAccT(dr_row, dr_pvnrate2.XBaseCredFin);

@@ -78,33 +78,33 @@ namespace KlonsFM.DataSets {
         
         private global::System.Data.DataRelation relationFK_M_STORES_TP;
         
-        private global::System.Data.DataRelation relationFK_M_ITEMS_PVNRATE;
-        
-        private global::System.Data.DataRelation relationFK_M_ITEMS_CAT;
+        private global::System.Data.DataRelation relationFK_M_ITEMS_UNITS;
         
         private global::System.Data.DataRelation relationFK_M_ITEMS_STORE1;
         
-        private global::System.Data.DataRelation relationFK_M_ITEMS_UNITS;
+        private global::System.Data.DataRelation relationFK_M_ITEMS_CAT;
         
-        private global::System.Data.DataRelation relationFK_M_ITEMS_PER_STORE_IDITEM;
+        private global::System.Data.DataRelation relationFK_M_ITEMS_PVNRATE;
         
         private global::System.Data.DataRelation relationFK_M_ITEMS_PER_STORE_IDSTORE;
         
-        private global::System.Data.DataRelation relationFK_M_DOCS_IDDRIVER;
-        
-        private global::System.Data.DataRelation relationFK_M_DOCS_TP;
-        
-        private global::System.Data.DataRelation relationFK_M_DOCS_IDSTOREOUT;
+        private global::System.Data.DataRelation relationFK_M_ITEMS_PER_STORE_IDITEM;
         
         private global::System.Data.DataRelation relationFK_M_DOCS_IDSTOREIN;
         
-        private global::System.Data.DataRelation relationFK_M_ROWS_UNITS1;
+        private global::System.Data.DataRelation relationFK_M_DOCS_IDSTOREOUT;
         
-        private global::System.Data.DataRelation relationFK_M_ROWS_IDPVNRATE;
+        private global::System.Data.DataRelation relationFK_M_DOCS_TP;
+        
+        private global::System.Data.DataRelation relationFK_M_DOCS_IDDRIVER;
+        
+        private global::System.Data.DataRelation relationFK_M_ROWS_IDITEM;
         
         private global::System.Data.DataRelation relationFK_M_ROWS_IDDOC;
         
-        private global::System.Data.DataRelation relationFK_M_ROWS_IDITEM;
+        private global::System.Data.DataRelation relationFK_M_ROWS_IDPVNRATE;
+        
+        private global::System.Data.DataRelation relationFK_M_ROWS_UNITS1;
         
         private global::System.Data.DataRelation relationFK_M_BANKACCOUNTS_IDSTORE;
         
@@ -114,9 +114,9 @@ namespace KlonsFM.DataSets {
         
         private global::System.Data.DataRelation relationFK_M_VEHICLES_IDSTORE;
         
-        private global::System.Data.DataRelation relationFK_M_PVNRATES2_IDRATE;
-        
         private global::System.Data.DataRelation relationFK_M_PVNRATES2_IDTP;
+        
+        private global::System.Data.DataRelation relationFK_M_PVNRATES2_IDRATE;
         
         private global::System.Data.DataRelation relationFK_M_INV_ROWS_IDDOC;
         
@@ -832,26 +832,26 @@ namespace KlonsFM.DataSets {
             }
             this.relationFK_M_ACCOUNTS_TP = this.Relations["FK_M_ACCOUNTS_TP"];
             this.relationFK_M_STORES_TP = this.Relations["FK_M_STORES_TP"];
-            this.relationFK_M_ITEMS_PVNRATE = this.Relations["FK_M_ITEMS_PVNRATE"];
-            this.relationFK_M_ITEMS_CAT = this.Relations["FK_M_ITEMS_CAT"];
-            this.relationFK_M_ITEMS_STORE1 = this.Relations["FK_M_ITEMS_STORE1"];
             this.relationFK_M_ITEMS_UNITS = this.Relations["FK_M_ITEMS_UNITS"];
-            this.relationFK_M_ITEMS_PER_STORE_IDITEM = this.Relations["FK_M_ITEMS_PER_STORE_IDITEM"];
+            this.relationFK_M_ITEMS_STORE1 = this.Relations["FK_M_ITEMS_STORE1"];
+            this.relationFK_M_ITEMS_CAT = this.Relations["FK_M_ITEMS_CAT"];
+            this.relationFK_M_ITEMS_PVNRATE = this.Relations["FK_M_ITEMS_PVNRATE"];
             this.relationFK_M_ITEMS_PER_STORE_IDSTORE = this.Relations["FK_M_ITEMS_PER_STORE_IDSTORE"];
-            this.relationFK_M_DOCS_IDDRIVER = this.Relations["FK_M_DOCS_IDDRIVER"];
-            this.relationFK_M_DOCS_TP = this.Relations["FK_M_DOCS_TP"];
-            this.relationFK_M_DOCS_IDSTOREOUT = this.Relations["FK_M_DOCS_IDSTOREOUT"];
+            this.relationFK_M_ITEMS_PER_STORE_IDITEM = this.Relations["FK_M_ITEMS_PER_STORE_IDITEM"];
             this.relationFK_M_DOCS_IDSTOREIN = this.Relations["FK_M_DOCS_IDSTOREIN"];
-            this.relationFK_M_ROWS_UNITS1 = this.Relations["FK_M_ROWS_UNITS1"];
-            this.relationFK_M_ROWS_IDPVNRATE = this.Relations["FK_M_ROWS_IDPVNRATE"];
-            this.relationFK_M_ROWS_IDDOC = this.Relations["FK_M_ROWS_IDDOC"];
+            this.relationFK_M_DOCS_IDSTOREOUT = this.Relations["FK_M_DOCS_IDSTOREOUT"];
+            this.relationFK_M_DOCS_TP = this.Relations["FK_M_DOCS_TP"];
+            this.relationFK_M_DOCS_IDDRIVER = this.Relations["FK_M_DOCS_IDDRIVER"];
             this.relationFK_M_ROWS_IDITEM = this.Relations["FK_M_ROWS_IDITEM"];
+            this.relationFK_M_ROWS_IDDOC = this.Relations["FK_M_ROWS_IDDOC"];
+            this.relationFK_M_ROWS_IDPVNRATE = this.Relations["FK_M_ROWS_IDPVNRATE"];
+            this.relationFK_M_ROWS_UNITS1 = this.Relations["FK_M_ROWS_UNITS1"];
             this.relationFK_M_BANKACCOUNTS_IDSTORE = this.Relations["FK_M_BANKACCOUNTS_IDSTORE"];
             this.relationFK_M_CONTACTS_IDSTORE = this.Relations["FK_M_CONTACTS_IDSTORE"];
             this.relationFK_M_ADDRESSSES_IDSTORE = this.Relations["FK_M_ADDRESSSES_IDSTORE"];
             this.relationFK_M_VEHICLES_IDSTORE = this.Relations["FK_M_VEHICLES_IDSTORE"];
-            this.relationFK_M_PVNRATES2_IDRATE = this.Relations["FK_M_PVNRATES2_IDRATE"];
             this.relationFK_M_PVNRATES2_IDTP = this.Relations["FK_M_PVNRATES2_IDTP"];
+            this.relationFK_M_PVNRATES2_IDRATE = this.Relations["FK_M_PVNRATES2_IDRATE"];
             this.relationFK_M_INV_ROWS_IDDOC = this.Relations["FK_M_INV_ROWS_IDDOC"];
             this.relationFK_M_DOCS_IDADDRESSIN = this.Relations["FK_M_DOCS_IDADDRESSIN"];
             this.relationFK_M_DOCS_IDADDRESSOUT = this.Relations["FK_M_DOCS_IDADDRESSOUT"];
@@ -928,13 +928,6 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_STORES_PVNTP", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNTYPE.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_STORES.PVNTPColumn});
-            this.tableM_STORES.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_M_STORES_TP", new global::System.Data.DataColumn[] {
                         this.tableM_STORETYPE.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_STORES.TPColumn});
@@ -942,16 +935,16 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_PVNRATE", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.PVNRATEColumn});
-            this.tableM_ITEMS.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_STORES_PVNTP", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNTYPE.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_STORES.PVNTPColumn});
+            this.tableM_STORES.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_CAT", new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS_CAT.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.CATColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_UNITS", new global::System.Data.DataColumn[] {
+                        this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.UNITSColumn});
             this.tableM_ITEMS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -963,17 +956,17 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_UNITS", new global::System.Data.DataColumn[] {
-                        this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.UNITSColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_CAT", new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS_CAT.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.CATColumn});
             this.tableM_ITEMS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_PER_STORE_IDITEM", new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS_PER_STORE.IDITEMColumn});
-            this.tableM_ITEMS_PER_STORE.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_PVNRATE", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.PVNRATEColumn});
+            this.tableM_ITEMS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
@@ -984,9 +977,23 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_DOCS_IDDRIVER", new global::System.Data.DataColumn[] {
-                        this.tableM_CONTACTS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDDRIVERColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ITEMS_PER_STORE_IDITEM", new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS_PER_STORE.IDITEMColumn});
+            this.tableM_ITEMS_PER_STORE.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_DOCS_IDSTOREIN", new global::System.Data.DataColumn[] {
+                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDSTOREINColumn});
+            this.tableM_DOCS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_DOCS_IDSTOREOUT", new global::System.Data.DataColumn[] {
+                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDSTOREOUTColumn});
             this.tableM_DOCS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -998,40 +1005,12 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_DOCS_IDSTOREOUT", new global::System.Data.DataColumn[] {
-                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDSTOREOUTColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_DOCS_IDDRIVER", new global::System.Data.DataColumn[] {
+                        this.tableM_CONTACTS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDDRIVERColumn});
             this.tableM_DOCS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_DOCS_IDSTOREIN", new global::System.Data.DataColumn[] {
-                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDSTOREINColumn});
-            this.tableM_DOCS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_UNITS", new global::System.Data.DataColumn[] {
-                        this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ROWS.UNITSColumn});
-            this.tableM_ROWS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_IDPVNRATE", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ROWS.IDPVNRATEColumn});
-            this.tableM_ROWS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_IDDOC", new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ROWS.IDDOCColumn});
-            this.tableM_ROWS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_IDITEM", new global::System.Data.DataColumn[] {
                         this.tableM_ITEMS.IDColumn}, new global::System.Data.DataColumn[] {
@@ -1040,16 +1019,37 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_BANKACCOUNTS_IDBANK", new global::System.Data.DataColumn[] {
-                        this.tableM_BANKS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_BANKACCOUNTS.IDBANKColumn});
-            this.tableM_BANKACCOUNTS.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_IDDOC", new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ROWS.IDDOCColumn});
+            this.tableM_ROWS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_IDPVNRATE", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ROWS.IDPVNRATEColumn});
+            this.tableM_ROWS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ROWS_UNITS", new global::System.Data.DataColumn[] {
+                        this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ROWS.UNITSColumn});
+            this.tableM_ROWS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_M_BANKACCOUNTS_IDSTORE", new global::System.Data.DataColumn[] {
                         this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_BANKACCOUNTS.IDSTOREColumn});
+            this.tableM_BANKACCOUNTS.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_BANKACCOUNTS_IDBANK", new global::System.Data.DataColumn[] {
+                        this.tableM_BANKS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_BANKACCOUNTS.IDBANKColumn});
             this.tableM_BANKACCOUNTS.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1061,16 +1061,16 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ADDRESSSES_IDSTORE", new global::System.Data.DataColumn[] {
-                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ADDRESSSES.IDSTOREColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ADDRESSSES_IDCOUNTRY", new global::System.Data.DataColumn[] {
+                        this.tableM_COUNTRIES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ADDRESSSES.IDCOUNTRYColumn});
             this.tableM_ADDRESSSES.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ADDRESSSES_IDCOUNTRY", new global::System.Data.DataColumn[] {
-                        this.tableM_COUNTRIES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ADDRESSSES.IDCOUNTRYColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_ADDRESSSES_IDSTORE", new global::System.Data.DataColumn[] {
+                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ADDRESSSES.IDSTOREColumn});
             this.tableM_ADDRESSSES.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1082,16 +1082,16 @@ namespace KlonsFM.DataSets {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_PVNRATES2_IDRATE", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES2.IDRATEColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_PVNRATES2_IDTP", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNTYPE.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES2.IDTPColumn});
             this.tableM_PVNRATES2.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_PVNRATES2_IDTP", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNTYPE.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES2.IDTPColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_M_PVNRATES2_IDRATE", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES2.IDRATEColumn});
             this.tableM_PVNRATES2.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -1118,62 +1118,62 @@ namespace KlonsFM.DataSets {
                         this.tableM_STORETYPE.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_STORES.TPColumn}, false);
             this.Relations.Add(this.relationFK_M_STORES_TP);
-            this.relationFK_M_ITEMS_PVNRATE = new global::System.Data.DataRelation("FK_M_ITEMS_PVNRATE", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.PVNRATEColumn}, false);
-            this.Relations.Add(this.relationFK_M_ITEMS_PVNRATE);
-            this.relationFK_M_ITEMS_CAT = new global::System.Data.DataRelation("FK_M_ITEMS_CAT", new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS_CAT.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.CATColumn}, false);
-            this.Relations.Add(this.relationFK_M_ITEMS_CAT);
-            this.relationFK_M_ITEMS_STORE1 = new global::System.Data.DataRelation("FK_M_ITEMS_STORE1", new global::System.Data.DataColumn[] {
-                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.STORE1Column}, false);
-            this.Relations.Add(this.relationFK_M_ITEMS_STORE1);
             this.relationFK_M_ITEMS_UNITS = new global::System.Data.DataRelation("FK_M_ITEMS_UNITS", new global::System.Data.DataColumn[] {
                         this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_ITEMS.UNITSColumn}, false);
             this.Relations.Add(this.relationFK_M_ITEMS_UNITS);
-            this.relationFK_M_ITEMS_PER_STORE_IDITEM = new global::System.Data.DataRelation("FK_M_ITEMS_PER_STORE_IDITEM", new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ITEMS_PER_STORE.IDITEMColumn}, false);
-            this.Relations.Add(this.relationFK_M_ITEMS_PER_STORE_IDITEM);
+            this.relationFK_M_ITEMS_STORE1 = new global::System.Data.DataRelation("FK_M_ITEMS_STORE1", new global::System.Data.DataColumn[] {
+                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.STORE1Column}, false);
+            this.Relations.Add(this.relationFK_M_ITEMS_STORE1);
+            this.relationFK_M_ITEMS_CAT = new global::System.Data.DataRelation("FK_M_ITEMS_CAT", new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS_CAT.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.CATColumn}, false);
+            this.Relations.Add(this.relationFK_M_ITEMS_CAT);
+            this.relationFK_M_ITEMS_PVNRATE = new global::System.Data.DataRelation("FK_M_ITEMS_PVNRATE", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.PVNRATEColumn}, false);
+            this.Relations.Add(this.relationFK_M_ITEMS_PVNRATE);
             this.relationFK_M_ITEMS_PER_STORE_IDSTORE = new global::System.Data.DataRelation("FK_M_ITEMS_PER_STORE_IDSTORE", new global::System.Data.DataColumn[] {
                         this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_ITEMS_PER_STORE.IDSTOREColumn}, false);
             this.Relations.Add(this.relationFK_M_ITEMS_PER_STORE_IDSTORE);
-            this.relationFK_M_DOCS_IDDRIVER = new global::System.Data.DataRelation("FK_M_DOCS_IDDRIVER", new global::System.Data.DataColumn[] {
-                        this.tableM_CONTACTS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDDRIVERColumn}, false);
-            this.Relations.Add(this.relationFK_M_DOCS_IDDRIVER);
-            this.relationFK_M_DOCS_TP = new global::System.Data.DataRelation("FK_M_DOCS_TP", new global::System.Data.DataColumn[] {
-                        this.tableM_DOCTYPES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.TPColumn}, false);
-            this.Relations.Add(this.relationFK_M_DOCS_TP);
-            this.relationFK_M_DOCS_IDSTOREOUT = new global::System.Data.DataRelation("FK_M_DOCS_IDSTOREOUT", new global::System.Data.DataColumn[] {
-                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDSTOREOUTColumn}, false);
-            this.Relations.Add(this.relationFK_M_DOCS_IDSTOREOUT);
+            this.relationFK_M_ITEMS_PER_STORE_IDITEM = new global::System.Data.DataRelation("FK_M_ITEMS_PER_STORE_IDITEM", new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ITEMS_PER_STORE.IDITEMColumn}, false);
+            this.Relations.Add(this.relationFK_M_ITEMS_PER_STORE_IDITEM);
             this.relationFK_M_DOCS_IDSTOREIN = new global::System.Data.DataRelation("FK_M_DOCS_IDSTOREIN", new global::System.Data.DataColumn[] {
                         this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_DOCS.IDSTOREINColumn}, false);
             this.Relations.Add(this.relationFK_M_DOCS_IDSTOREIN);
-            this.relationFK_M_ROWS_UNITS1 = new global::System.Data.DataRelation("FK_M_ROWS_UNITS1", new global::System.Data.DataColumn[] {
-                        this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ROWS.UNITSColumn}, false);
-            this.Relations.Add(this.relationFK_M_ROWS_UNITS1);
-            this.relationFK_M_ROWS_IDPVNRATE = new global::System.Data.DataRelation("FK_M_ROWS_IDPVNRATE", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ROWS.IDPVNRATEColumn}, false);
-            this.Relations.Add(this.relationFK_M_ROWS_IDPVNRATE);
-            this.relationFK_M_ROWS_IDDOC = new global::System.Data.DataRelation("FK_M_ROWS_IDDOC", new global::System.Data.DataColumn[] {
-                        this.tableM_DOCS.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_ROWS.IDDOCColumn}, false);
-            this.Relations.Add(this.relationFK_M_ROWS_IDDOC);
+            this.relationFK_M_DOCS_IDSTOREOUT = new global::System.Data.DataRelation("FK_M_DOCS_IDSTOREOUT", new global::System.Data.DataColumn[] {
+                        this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDSTOREOUTColumn}, false);
+            this.Relations.Add(this.relationFK_M_DOCS_IDSTOREOUT);
+            this.relationFK_M_DOCS_TP = new global::System.Data.DataRelation("FK_M_DOCS_TP", new global::System.Data.DataColumn[] {
+                        this.tableM_DOCTYPES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.TPColumn}, false);
+            this.Relations.Add(this.relationFK_M_DOCS_TP);
+            this.relationFK_M_DOCS_IDDRIVER = new global::System.Data.DataRelation("FK_M_DOCS_IDDRIVER", new global::System.Data.DataColumn[] {
+                        this.tableM_CONTACTS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDDRIVERColumn}, false);
+            this.Relations.Add(this.relationFK_M_DOCS_IDDRIVER);
             this.relationFK_M_ROWS_IDITEM = new global::System.Data.DataRelation("FK_M_ROWS_IDITEM", new global::System.Data.DataColumn[] {
                         this.tableM_ITEMS.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_ROWS.IDITEMColumn}, false);
             this.Relations.Add(this.relationFK_M_ROWS_IDITEM);
+            this.relationFK_M_ROWS_IDDOC = new global::System.Data.DataRelation("FK_M_ROWS_IDDOC", new global::System.Data.DataColumn[] {
+                        this.tableM_DOCS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ROWS.IDDOCColumn}, false);
+            this.Relations.Add(this.relationFK_M_ROWS_IDDOC);
+            this.relationFK_M_ROWS_IDPVNRATE = new global::System.Data.DataRelation("FK_M_ROWS_IDPVNRATE", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ROWS.IDPVNRATEColumn}, false);
+            this.Relations.Add(this.relationFK_M_ROWS_IDPVNRATE);
+            this.relationFK_M_ROWS_UNITS1 = new global::System.Data.DataRelation("FK_M_ROWS_UNITS1", new global::System.Data.DataColumn[] {
+                        this.tableM_UNITS.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_ROWS.UNITSColumn}, false);
+            this.Relations.Add(this.relationFK_M_ROWS_UNITS1);
             this.relationFK_M_BANKACCOUNTS_IDSTORE = new global::System.Data.DataRelation("FK_M_BANKACCOUNTS_IDSTORE", new global::System.Data.DataColumn[] {
                         this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_BANKACCOUNTS.IDSTOREColumn}, false);
@@ -1190,14 +1190,14 @@ namespace KlonsFM.DataSets {
                         this.tableM_STORES.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_VEHICLES.IDSTOREColumn}, false);
             this.Relations.Add(this.relationFK_M_VEHICLES_IDSTORE);
-            this.relationFK_M_PVNRATES2_IDRATE = new global::System.Data.DataRelation("FK_M_PVNRATES2_IDRATE", new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableM_PVNRATES2.IDRATEColumn}, false);
-            this.Relations.Add(this.relationFK_M_PVNRATES2_IDRATE);
             this.relationFK_M_PVNRATES2_IDTP = new global::System.Data.DataRelation("FK_M_PVNRATES2_IDTP", new global::System.Data.DataColumn[] {
                         this.tableM_PVNTYPE.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_PVNRATES2.IDTPColumn}, false);
             this.Relations.Add(this.relationFK_M_PVNRATES2_IDTP);
+            this.relationFK_M_PVNRATES2_IDRATE = new global::System.Data.DataRelation("FK_M_PVNRATES2_IDRATE", new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableM_PVNRATES2.IDRATEColumn}, false);
+            this.Relations.Add(this.relationFK_M_PVNRATES2_IDRATE);
             this.relationFK_M_INV_ROWS_IDDOC = new global::System.Data.DataRelation("FK_M_INV_ROWS_IDDOC", new global::System.Data.DataColumn[] {
                         this.tableM_INV_DOCS.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableM_INV_ROWS.IDDOCColumn}, false);
@@ -4942,6 +4942,8 @@ namespace KlonsFM.DataSets {
             
             private global::System.Data.DataColumn columnACCTP2;
             
+            private global::System.Data.DataColumn columnWEVATPAYER;
+            
             private global::System.Data.DataColumn columnCREDDOCDT;
             
             private global::System.Data.DataColumn columnCREDDOCSR;
@@ -5135,6 +5137,14 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn WEVATPAYERColumn {
+                get {
+                    return this.columnWEVATPAYER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn CREDDOCDTColumn {
                 get {
                     return this.columnCREDDOCDT;
@@ -5275,6 +5285,7 @@ namespace KlonsFM.DataSets {
                         short ACCOUNTINGTP, 
                         short ACCTP1, 
                         short ACCTP2, 
+                        short WEVATPAYER, 
                         System.DateTime CREDDOCDT, 
                         string CREDDOCSR, 
                         string CREDDOCNR, 
@@ -5305,6 +5316,7 @@ namespace KlonsFM.DataSets {
                         ACCOUNTINGTP,
                         ACCTP1,
                         ACCTP2,
+                        WEVATPAYER,
                         CREDDOCDT,
                         CREDDOCSR,
                         CREDDOCNR,
@@ -5326,25 +5338,25 @@ namespace KlonsFM.DataSets {
                     columnValuesArray[8] = parentM_STORESRowByFK_M_DOCS_IDSTOREOUT[0];
                 }
                 if ((parentM_STORESRowByFK_M_DOCS_IDCARRIER != null)) {
-                    columnValuesArray[20] = parentM_STORESRowByFK_M_DOCS_IDCARRIER[0];
+                    columnValuesArray[21] = parentM_STORESRowByFK_M_DOCS_IDCARRIER[0];
                 }
                 if ((parentM_ADDRESSSESRowByFK_M_DOCS_IDADDRESSOUT != null)) {
-                    columnValuesArray[21] = parentM_ADDRESSSESRowByFK_M_DOCS_IDADDRESSOUT[0];
+                    columnValuesArray[22] = parentM_ADDRESSSESRowByFK_M_DOCS_IDADDRESSOUT[0];
                 }
                 if ((parentM_ADDRESSSESRowByFK_M_DOCS_IDADDRESSIN != null)) {
-                    columnValuesArray[22] = parentM_ADDRESSSESRowByFK_M_DOCS_IDADDRESSIN[0];
+                    columnValuesArray[23] = parentM_ADDRESSSESRowByFK_M_DOCS_IDADDRESSIN[0];
                 }
                 if ((parentM_VEHICLESRowByFK_M_DOCS_IDVEHICLE != null)) {
-                    columnValuesArray[23] = parentM_VEHICLESRowByFK_M_DOCS_IDVEHICLE[0];
+                    columnValuesArray[24] = parentM_VEHICLESRowByFK_M_DOCS_IDVEHICLE[0];
                 }
                 if ((parentM_TRANSACTIONTYPERowByFK_M_DOCS_IDTRANSACTIONTYPE != null)) {
-                    columnValuesArray[24] = parentM_TRANSACTIONTYPERowByFK_M_DOCS_IDTRANSACTIONTYPE[0];
+                    columnValuesArray[25] = parentM_TRANSACTIONTYPERowByFK_M_DOCS_IDTRANSACTIONTYPE[0];
                 }
                 if ((parentM_PAYMENTTYPERowByFK_M_DOCS_IDPAYMENTTYPE != null)) {
-                    columnValuesArray[25] = parentM_PAYMENTTYPERowByFK_M_DOCS_IDPAYMENTTYPE[0];
+                    columnValuesArray[26] = parentM_PAYMENTTYPERowByFK_M_DOCS_IDPAYMENTTYPE[0];
                 }
                 if ((parentM_CONTACTSRowByFK_M_DOCS_IDDRIVER != null)) {
-                    columnValuesArray[27] = parentM_CONTACTSRowByFK_M_DOCS_IDDRIVER[0];
+                    columnValuesArray[28] = parentM_CONTACTSRowByFK_M_DOCS_IDDRIVER[0];
                 }
                 rowM_DOCSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowM_DOCSRow);
@@ -5392,6 +5404,7 @@ namespace KlonsFM.DataSets {
                 this.columnACCOUNTINGTP = base.Columns["ACCOUNTINGTP"];
                 this.columnACCTP1 = base.Columns["ACCTP1"];
                 this.columnACCTP2 = base.Columns["ACCTP2"];
+                this.columnWEVATPAYER = base.Columns["WEVATPAYER"];
                 this.columnCREDDOCDT = base.Columns["CREDDOCDT"];
                 this.columnCREDDOCSR = base.Columns["CREDDOCSR"];
                 this.columnCREDDOCNR = base.Columns["CREDDOCNR"];
@@ -5442,6 +5455,8 @@ namespace KlonsFM.DataSets {
                 base.Columns.Add(this.columnACCTP1);
                 this.columnACCTP2 = new global::System.Data.DataColumn("ACCTP2", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnACCTP2);
+                this.columnWEVATPAYER = new global::System.Data.DataColumn("WEVATPAYER", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWEVATPAYER);
                 this.columnCREDDOCDT = new global::System.Data.DataColumn("CREDDOCDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCREDDOCDT);
                 this.columnCREDDOCSR = new global::System.Data.DataColumn("CREDDOCSR", typeof(string), null, global::System.Data.MappingType.Element);
@@ -5500,6 +5515,8 @@ namespace KlonsFM.DataSets {
                 this.columnACCTP1.DefaultValue = ((short)(1));
                 this.columnACCTP2.AllowDBNull = false;
                 this.columnACCTP2.DefaultValue = ((short)(1));
+                this.columnWEVATPAYER.AllowDBNull = false;
+                this.columnWEVATPAYER.DefaultValue = ((short)(1));
                 this.columnCREDDOCSR.MaxLength = 10;
                 this.columnCREDDOCNR.MaxLength = 20;
                 this.columnIDTRANSACTIONTYPE.AllowDBNull = false;
@@ -10992,23 +11009,23 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_DOCSRow[] GetM_DOCSRowsByFK_M_DOCS_IDSTOREOUT() {
-                if ((this.Table.ChildRelations["FK_M_DOCS_IDSTOREOUT"] == null)) {
-                    return new M_DOCSRow[0];
-                }
-                else {
-                    return ((M_DOCSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_M_DOCS_IDSTOREOUT"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public M_DOCSRow[] GetM_DOCSRowsByFK_M_DOCS_IDSTOREIN() {
                 if ((this.Table.ChildRelations["FK_M_DOCS_IDSTOREIN"] == null)) {
                     return new M_DOCSRow[0];
                 }
                 else {
                     return ((M_DOCSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_M_DOCS_IDSTOREIN"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public M_DOCSRow[] GetM_DOCSRowsByFK_M_DOCS_IDSTOREOUT() {
+                if ((this.Table.ChildRelations["FK_M_DOCS_IDSTOREOUT"] == null)) {
+                    return new M_DOCSRow[0];
+                }
+                else {
+                    return ((M_DOCSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_M_DOCS_IDSTOREOUT"])));
                 }
             }
             
@@ -11493,23 +11510,12 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_PVNRATESRow M_PVNRATESRow {
+            public M_UNITSRow M_UNITSRow {
                 get {
-                    return ((M_PVNRATESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_PVNRATE"])));
+                    return ((M_UNITSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_UNITS"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_PVNRATE"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_ITEMS_CATRow M_ITEMS_CATRow {
-                get {
-                    return ((M_ITEMS_CATRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_CAT"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_CAT"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_UNITS"]);
                 }
             }
             
@@ -11526,12 +11532,23 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_UNITSRow M_UNITSRow {
+            public M_ITEMS_CATRow M_ITEMS_CATRow {
                 get {
-                    return ((M_UNITSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_UNITS"])));
+                    return ((M_ITEMS_CATRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_CAT"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_UNITS"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_CAT"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public M_PVNRATESRow M_PVNRATESRow {
+                get {
+                    return ((M_PVNRATESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_PVNRATE"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_PVNRATE"]);
                 }
             }
             
@@ -11642,23 +11659,23 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_ITEMSRow M_ITEMSRow {
-                get {
-                    return ((M_ITEMSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_PER_STORE_IDITEM"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_PER_STORE_IDITEM"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public M_STORESRow M_STORESRow {
                 get {
                     return ((M_STORESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_PER_STORE_IDSTORE"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_PER_STORE_IDSTORE"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public M_ITEMSRow M_ITEMSRow {
+                get {
+                    return ((M_ITEMSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ITEMS_PER_STORE_IDITEM"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ITEMS_PER_STORE_IDITEM"]);
                 }
             }
         }
@@ -11974,6 +11991,17 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short WEVATPAYER {
+                get {
+                    return ((short)(this[this.tableM_DOCS.WEVATPAYERColumn]));
+                }
+                set {
+                    this[this.tableM_DOCS.WEVATPAYERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime CREDDOCDT {
                 get {
                     try {
@@ -12145,23 +12173,12 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_CONTACTSRow M_CONTACTSRow {
+            public M_STORESRow M_STORESRowByFK_M_DOCS_IDSTOREIN1 {
                 get {
-                    return ((M_CONTACTSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_DOCS_IDDRIVER"])));
+                    return ((M_STORESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_DOCS_IDSTOREIN"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_DOCS_IDDRIVER"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_DOCTYPESRow M_DOCTYPESRow {
-                get {
-                    return ((M_DOCTYPESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_DOCS_TP"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_DOCS_TP"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_DOCS_IDSTOREIN"]);
                 }
             }
             
@@ -12178,12 +12195,23 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_STORESRow M_STORESRowByFK_M_DOCS_IDSTOREIN1 {
+            public M_DOCTYPESRow M_DOCTYPESRow {
                 get {
-                    return ((M_STORESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_DOCS_IDSTOREIN"])));
+                    return ((M_DOCTYPESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_DOCS_TP"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_DOCS_IDSTOREIN"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_DOCS_TP"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public M_CONTACTSRow M_CONTACTSRow {
+                get {
+                    return ((M_CONTACTSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_DOCS_IDDRIVER"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_DOCS_IDDRIVER"]);
                 }
             }
             
@@ -12645,23 +12673,12 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_UNITSRow M_UNITSRow {
+            public M_ITEMSRow M_ITEMSRow {
                 get {
-                    return ((M_UNITSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ROWS_UNITS1"])));
+                    return ((M_ITEMSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ROWS_IDITEM"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ROWS_UNITS1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_PVNRATESRow M_PVNRATESRow {
-                get {
-                    return ((M_PVNRATESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ROWS_IDPVNRATE"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ROWS_IDPVNRATE"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ROWS_IDITEM"]);
                 }
             }
             
@@ -12678,12 +12695,23 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_ITEMSRow M_ITEMSRow {
+            public M_PVNRATESRow M_PVNRATESRow {
                 get {
-                    return ((M_ITEMSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ROWS_IDITEM"])));
+                    return ((M_PVNRATESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ROWS_IDPVNRATE"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ROWS_IDITEM"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ROWS_IDPVNRATE"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public M_UNITSRow M_UNITSRow {
+                get {
+                    return ((M_UNITSRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_ROWS_UNITS1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_ROWS_UNITS1"]);
                 }
             }
             
@@ -13803,23 +13831,23 @@ namespace KlonsFM.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public M_PVNRATESRow M_PVNRATESRow {
-                get {
-                    return ((M_PVNRATESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_PVNRATES2_IDRATE"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_PVNRATES2_IDRATE"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public M_PVNTYPERow M_PVNTYPERow {
                 get {
                     return ((M_PVNTYPERow)(this.GetParentRow(this.Table.ParentRelations["FK_M_PVNRATES2_IDTP"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_M_PVNRATES2_IDTP"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public M_PVNRATESRow M_PVNRATESRow {
+                get {
+                    return ((M_PVNRATESRow)(this.GetParentRow(this.Table.ParentRelations["FK_M_PVNRATES2_IDRATE"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_M_PVNRATES2_IDRATE"]);
                 }
             }
             
@@ -21067,6 +21095,7 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ACCOUNTINGTP", "ACCOUNTINGTP");
             tableMapping.ColumnMappings.Add("ACCTP1", "ACCTP1");
             tableMapping.ColumnMappings.Add("ACCTP2", "ACCTP2");
+            tableMapping.ColumnMappings.Add("WEVATPAYER", "WEVATPAYER");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -21079,19 +21108,20 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
                 "SUMM\" = @Original_SUMM) AND (\"IDSEQ\" = @Original_IDSEQ) AND (\"ACCIN\" = @Original" +
                 "_ACCIN) AND (\"ACCOUT\" = @Original_ACCOUT) AND (\"ACCOUNTINGTP\" = @Original_ACCOUN" +
                 "TINGTP) AND (\"ACCTP1\" = @Original_ACCTP1) AND (\"ACCTP2\" = @Original_ACCTP2) AND " +
-                "((@IsNull_CREDDOCDT = 1 AND \"CREDDOCDT\" IS NULL) OR (\"CREDDOCDT\" = @Original_CRE" +
-                "DDOCDT)) AND ((@IsNull_CREDDOCSR = 1 AND \"CREDDOCSR\" IS NULL) OR (\"CREDDOCSR\" = " +
-                "@Original_CREDDOCSR)) AND ((@IsNull_CREDDOCNR = 1 AND \"CREDDOCNR\" IS NULL) OR (\"" +
-                "CREDDOCNR\" = @Original_CREDDOCNR)) AND ((@IsNull_IDCARRIER = 1 AND \"IDCARRIER\" I" +
-                "S NULL) OR (\"IDCARRIER\" = @Original_IDCARRIER)) AND ((@IsNull_IDADDRESSOUT = 1 A" +
-                "ND \"IDADDRESSOUT\" IS NULL) OR (\"IDADDRESSOUT\" = @Original_IDADDRESSOUT)) AND ((@" +
-                "IsNull_IDADDRESSIN = 1 AND \"IDADDRESSIN\" IS NULL) OR (\"IDADDRESSIN\" = @Original_" +
-                "IDADDRESSIN)) AND ((@IsNull_IDVEHICLE = 1 AND \"IDVEHICLE\" IS NULL) OR (\"IDVEHICL" +
-                "E\" = @Original_IDVEHICLE)) AND (\"IDTRANSACTIONTYPE\" = @Original_IDTRANSACTIONTYP" +
-                "E) AND ((@IsNull_IDPAYMENTTYPE = 1 AND \"IDPAYMENTTYPE\" IS NULL) OR (\"IDPAYMENTTY" +
-                "PE\" = @Original_IDPAYMENTTYPE)) AND ((@IsNull_DUEDATE = 1 AND \"DUEDATE\" IS NULL)" +
-                " OR (\"DUEDATE\" = @Original_DUEDATE)) AND ((@IsNull_IDDRIVER = 1 AND \"IDDRIVER\" I" +
-                "S NULL) OR (\"IDDRIVER\" = @Original_IDDRIVER)))";
+                "(\"WEVATPAYER\" = @Original_WEVATPAYER) AND ((@IsNull_CREDDOCDT = 1 AND \"CREDDOCDT" +
+                "\" IS NULL) OR (\"CREDDOCDT\" = @Original_CREDDOCDT)) AND ((@IsNull_CREDDOCSR = 1 A" +
+                "ND \"CREDDOCSR\" IS NULL) OR (\"CREDDOCSR\" = @Original_CREDDOCSR)) AND ((@IsNull_CR" +
+                "EDDOCNR = 1 AND \"CREDDOCNR\" IS NULL) OR (\"CREDDOCNR\" = @Original_CREDDOCNR)) AND" +
+                " ((@IsNull_IDCARRIER = 1 AND \"IDCARRIER\" IS NULL) OR (\"IDCARRIER\" = @Original_ID" +
+                "CARRIER)) AND ((@IsNull_IDADDRESSOUT = 1 AND \"IDADDRESSOUT\" IS NULL) OR (\"IDADDR" +
+                "ESSOUT\" = @Original_IDADDRESSOUT)) AND ((@IsNull_IDADDRESSIN = 1 AND \"IDADDRESSI" +
+                "N\" IS NULL) OR (\"IDADDRESSIN\" = @Original_IDADDRESSIN)) AND ((@IsNull_IDVEHICLE " +
+                "= 1 AND \"IDVEHICLE\" IS NULL) OR (\"IDVEHICLE\" = @Original_IDVEHICLE)) AND (\"IDTRA" +
+                "NSACTIONTYPE\" = @Original_IDTRANSACTIONTYPE) AND ((@IsNull_IDPAYMENTTYPE = 1 AND" +
+                " \"IDPAYMENTTYPE\" IS NULL) OR (\"IDPAYMENTTYPE\" = @Original_IDPAYMENTTYPE)) AND ((" +
+                "@IsNull_DUEDATE = 1 AND \"DUEDATE\" IS NULL) OR (\"DUEDATE\" = @Original_DUEDATE)) A" +
+                "ND ((@IsNull_IDDRIVER = 1 AND \"IDDRIVER\" IS NULL) OR (\"IDDRIVER\" = @Original_IDD" +
+                "RIVER)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::FirebirdSql.Data.FirebirdClient.FbParameter param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@Original_ID";
@@ -21250,6 +21280,14 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "ACCTP2";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_WEVATPAYER";
+            param.DbType = global::System.Data.DbType.Int16;
+            param.Size = 2;
+            param.IsNullable = true;
+            param.SourceColumn = "WEVATPAYER";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -21430,7 +21468,7 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""M_DOCS"" (""ID"", ""DT"", ""SR"", ""NR"", ""TP"", ""PVNTYPE"", ""STATE"", ""IDSTOREIN"", ""IDSTOREOUT"", ""IDCREDDOC"", ""SUMM"", ""IDSEQ"", ""ACCIN"", ""ACCOUT"", ""ACCOUNTINGTP"", ""ACCTP1"", ""ACCTP2"", ""CREDDOCDT"", ""CREDDOCSR"", ""CREDDOCNR"", ""IDCARRIER"", ""IDADDRESSOUT"", ""IDADDRESSIN"", ""IDVEHICLE"", ""IDTRANSACTIONTYPE"", ""IDPAYMENTTYPE"", ""DUEDATE"", ""IDDRIVER"") VALUES (@ID, @DT, @SR, @NR, @TP, @PVNTYPE, @STATE, @IDSTOREIN, @IDSTOREOUT, @IDCREDDOC, @SUMM, @IDSEQ, @ACCIN, @ACCOUT, @ACCOUNTINGTP, @ACCTP1, @ACCTP2, @CREDDOCDT, @CREDDOCSR, @CREDDOCNR, @IDCARRIER, @IDADDRESSOUT, @IDADDRESSIN, @IDVEHICLE, @IDTRANSACTIONTYPE, @IDPAYMENTTYPE, @DUEDATE, @IDDRIVER)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""M_DOCS"" (""ID"", ""DT"", ""SR"", ""NR"", ""TP"", ""PVNTYPE"", ""STATE"", ""IDSTOREIN"", ""IDSTOREOUT"", ""IDCREDDOC"", ""SUMM"", ""IDSEQ"", ""ACCIN"", ""ACCOUT"", ""ACCOUNTINGTP"", ""ACCTP1"", ""ACCTP2"", ""WEVATPAYER"", ""CREDDOCDT"", ""CREDDOCSR"", ""CREDDOCNR"", ""IDCARRIER"", ""IDADDRESSOUT"", ""IDADDRESSIN"", ""IDVEHICLE"", ""IDTRANSACTIONTYPE"", ""IDPAYMENTTYPE"", ""DUEDATE"", ""IDDRIVER"") VALUES (@ID, @DT, @SR, @NR, @TP, @PVNTYPE, @STATE, @IDSTOREIN, @IDSTOREOUT, @IDCREDDOC, @SUMM, @IDSEQ, @ACCIN, @ACCOUT, @ACCOUNTINGTP, @ACCTP1, @ACCTP2, @WEVATPAYER, @CREDDOCDT, @CREDDOCSR, @CREDDOCNR, @IDCARRIER, @IDADDRESSOUT, @IDADDRESSIN, @IDVEHICLE, @IDTRANSACTIONTYPE, @IDPAYMENTTYPE, @DUEDATE, @IDDRIVER)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ID";
@@ -21548,6 +21586,13 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             param.SourceColumn = "ACCTP2";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@WEVATPAYER";
+            param.DbType = global::System.Data.DbType.Int16;
+            param.Size = 2;
+            param.IsNullable = true;
+            param.SourceColumn = "WEVATPAYER";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CREDDOCDT";
             param.DbType = global::System.Data.DbType.Date;
             param.Size = 4;
@@ -21628,32 +21673,33 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
                 "PVNTYPE\" = @PVNTYPE, \"STATE\" = @STATE, \"IDSTOREIN\" = @IDSTOREIN, \"IDSTOREOUT\" = " +
                 "@IDSTOREOUT, \"IDCREDDOC\" = @IDCREDDOC, \"SUMM\" = @SUMM, \"IDSEQ\" = @IDSEQ, \"ACCIN\"" +
                 " = @ACCIN, \"ACCOUT\" = @ACCOUT, \"ACCOUNTINGTP\" = @ACCOUNTINGTP, \"ACCTP1\" = @ACCTP" +
-                "1, \"ACCTP2\" = @ACCTP2, \"CREDDOCDT\" = @CREDDOCDT, \"CREDDOCSR\" = @CREDDOCSR, \"CRED" +
-                "DOCNR\" = @CREDDOCNR, \"IDCARRIER\" = @IDCARRIER, \"IDADDRESSOUT\" = @IDADDRESSOUT, \"" +
-                "IDADDRESSIN\" = @IDADDRESSIN, \"IDVEHICLE\" = @IDVEHICLE, \"IDTRANSACTIONTYPE\" = @ID" +
-                "TRANSACTIONTYPE, \"IDPAYMENTTYPE\" = @IDPAYMENTTYPE, \"DUEDATE\" = @DUEDATE, \"IDDRIV" +
-                "ER\" = @IDDRIVER WHERE ((\"ID\" = @Original_ID) AND (\"DT\" = @Original_DT) AND ((@Is" +
-                "Null_SR = 1 AND \"SR\" IS NULL) OR (\"SR\" = @Original_SR)) AND ((@IsNull_NR = 1 AND" +
-                " \"NR\" IS NULL) OR (\"NR\" = @Original_NR)) AND (\"TP\" = @Original_TP) AND (\"PVNTYPE" +
-                "\" = @Original_PVNTYPE) AND (\"STATE\" = @Original_STATE) AND (\"IDSTOREIN\" = @Origi" +
-                "nal_IDSTOREIN) AND (\"IDSTOREOUT\" = @Original_IDSTOREOUT) AND ((@IsNull_IDCREDDOC" +
-                " = 1 AND \"IDCREDDOC\" IS NULL) OR (\"IDCREDDOC\" = @Original_IDCREDDOC)) AND (\"SUMM" +
-                "\" = @Original_SUMM) AND (\"IDSEQ\" = @Original_IDSEQ) AND (\"ACCIN\" = @Original_ACC" +
-                "IN) AND (\"ACCOUT\" = @Original_ACCOUT) AND (\"ACCOUNTINGTP\" = @Original_ACCOUNTING" +
-                "TP) AND (\"ACCTP1\" = @Original_ACCTP1) AND (\"ACCTP2\" = @Original_ACCTP2) AND ((@I" +
-                "sNull_CREDDOCDT = 1 AND \"CREDDOCDT\" IS NULL) OR (\"CREDDOCDT\" = @Original_CREDDOC" +
-                "DT)) AND ((@IsNull_CREDDOCSR = 1 AND \"CREDDOCSR\" IS NULL) OR (\"CREDDOCSR\" = @Ori" +
-                "ginal_CREDDOCSR)) AND ((@IsNull_CREDDOCNR = 1 AND \"CREDDOCNR\" IS NULL) OR (\"CRED" +
-                "DOCNR\" = @Original_CREDDOCNR)) AND ((@IsNull_IDCARRIER = 1 AND \"IDCARRIER\" IS NU" +
-                "LL) OR (\"IDCARRIER\" = @Original_IDCARRIER)) AND ((@IsNull_IDADDRESSOUT = 1 AND \"" +
-                "IDADDRESSOUT\" IS NULL) OR (\"IDADDRESSOUT\" = @Original_IDADDRESSOUT)) AND ((@IsNu" +
-                "ll_IDADDRESSIN = 1 AND \"IDADDRESSIN\" IS NULL) OR (\"IDADDRESSIN\" = @Original_IDAD" +
-                "DRESSIN)) AND ((@IsNull_IDVEHICLE = 1 AND \"IDVEHICLE\" IS NULL) OR (\"IDVEHICLE\" =" +
-                " @Original_IDVEHICLE)) AND (\"IDTRANSACTIONTYPE\" = @Original_IDTRANSACTIONTYPE) A" +
-                "ND ((@IsNull_IDPAYMENTTYPE = 1 AND \"IDPAYMENTTYPE\" IS NULL) OR (\"IDPAYMENTTYPE\" " +
-                "= @Original_IDPAYMENTTYPE)) AND ((@IsNull_DUEDATE = 1 AND \"DUEDATE\" IS NULL) OR " +
-                "(\"DUEDATE\" = @Original_DUEDATE)) AND ((@IsNull_IDDRIVER = 1 AND \"IDDRIVER\" IS NU" +
-                "LL) OR (\"IDDRIVER\" = @Original_IDDRIVER)))";
+                "1, \"ACCTP2\" = @ACCTP2, \"WEVATPAYER\" = @WEVATPAYER, \"CREDDOCDT\" = @CREDDOCDT, \"CR" +
+                "EDDOCSR\" = @CREDDOCSR, \"CREDDOCNR\" = @CREDDOCNR, \"IDCARRIER\" = @IDCARRIER, \"IDAD" +
+                "DRESSOUT\" = @IDADDRESSOUT, \"IDADDRESSIN\" = @IDADDRESSIN, \"IDVEHICLE\" = @IDVEHICL" +
+                "E, \"IDTRANSACTIONTYPE\" = @IDTRANSACTIONTYPE, \"IDPAYMENTTYPE\" = @IDPAYMENTTYPE, \"" +
+                "DUEDATE\" = @DUEDATE, \"IDDRIVER\" = @IDDRIVER WHERE ((\"ID\" = @Original_ID) AND (\"D" +
+                "T\" = @Original_DT) AND ((@IsNull_SR = 1 AND \"SR\" IS NULL) OR (\"SR\" = @Original_S" +
+                "R)) AND ((@IsNull_NR = 1 AND \"NR\" IS NULL) OR (\"NR\" = @Original_NR)) AND (\"TP\" =" +
+                " @Original_TP) AND (\"PVNTYPE\" = @Original_PVNTYPE) AND (\"STATE\" = @Original_STAT" +
+                "E) AND (\"IDSTOREIN\" = @Original_IDSTOREIN) AND (\"IDSTOREOUT\" = @Original_IDSTORE" +
+                "OUT) AND ((@IsNull_IDCREDDOC = 1 AND \"IDCREDDOC\" IS NULL) OR (\"IDCREDDOC\" = @Ori" +
+                "ginal_IDCREDDOC)) AND (\"SUMM\" = @Original_SUMM) AND (\"IDSEQ\" = @Original_IDSEQ) " +
+                "AND (\"ACCIN\" = @Original_ACCIN) AND (\"ACCOUT\" = @Original_ACCOUT) AND (\"ACCOUNTI" +
+                "NGTP\" = @Original_ACCOUNTINGTP) AND (\"ACCTP1\" = @Original_ACCTP1) AND (\"ACCTP2\" " +
+                "= @Original_ACCTP2) AND (\"WEVATPAYER\" = @Original_WEVATPAYER) AND ((@IsNull_CRED" +
+                "DOCDT = 1 AND \"CREDDOCDT\" IS NULL) OR (\"CREDDOCDT\" = @Original_CREDDOCDT)) AND (" +
+                "(@IsNull_CREDDOCSR = 1 AND \"CREDDOCSR\" IS NULL) OR (\"CREDDOCSR\" = @Original_CRED" +
+                "DOCSR)) AND ((@IsNull_CREDDOCNR = 1 AND \"CREDDOCNR\" IS NULL) OR (\"CREDDOCNR\" = @" +
+                "Original_CREDDOCNR)) AND ((@IsNull_IDCARRIER = 1 AND \"IDCARRIER\" IS NULL) OR (\"I" +
+                "DCARRIER\" = @Original_IDCARRIER)) AND ((@IsNull_IDADDRESSOUT = 1 AND \"IDADDRESSO" +
+                "UT\" IS NULL) OR (\"IDADDRESSOUT\" = @Original_IDADDRESSOUT)) AND ((@IsNull_IDADDRE" +
+                "SSIN = 1 AND \"IDADDRESSIN\" IS NULL) OR (\"IDADDRESSIN\" = @Original_IDADDRESSIN)) " +
+                "AND ((@IsNull_IDVEHICLE = 1 AND \"IDVEHICLE\" IS NULL) OR (\"IDVEHICLE\" = @Original" +
+                "_IDVEHICLE)) AND (\"IDTRANSACTIONTYPE\" = @Original_IDTRANSACTIONTYPE) AND ((@IsNu" +
+                "ll_IDPAYMENTTYPE = 1 AND \"IDPAYMENTTYPE\" IS NULL) OR (\"IDPAYMENTTYPE\" = @Origina" +
+                "l_IDPAYMENTTYPE)) AND ((@IsNull_DUEDATE = 1 AND \"DUEDATE\" IS NULL) OR (\"DUEDATE\"" +
+                " = @Original_DUEDATE)) AND ((@IsNull_IDDRIVER = 1 AND \"IDDRIVER\" IS NULL) OR (\"I" +
+                "DDRIVER\" = @Original_IDDRIVER)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@ID";
@@ -21769,6 +21815,13 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "ACCTP2";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@WEVATPAYER";
+            param.DbType = global::System.Data.DbType.Int16;
+            param.Size = 2;
+            param.IsNullable = true;
+            param.SourceColumn = "WEVATPAYER";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
             param.ParameterName = "@CREDDOCDT";
@@ -22002,6 +22055,14 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "ACCTP2";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
+            param.ParameterName = "@Original_WEVATPAYER";
+            param.DbType = global::System.Data.DbType.Int16;
+            param.Size = 2;
+            param.IsNullable = true;
+            param.SourceColumn = "WEVATPAYER";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::FirebirdSql.Data.FirebirdClient.FbParameter();
@@ -22195,7 +22256,7 @@ namespace KlonsFM.DataSets.KlonsMDataSetTableAdapters {
             this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[3];
             this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, DT, SR, NR, TP, PVNTYPE, STATE, IDSTOREIN, IDSTOREOUT, IDCREDDOC, SUMM, IDSEQ, ACCIN, ACCOUT,ACCOUNTINGTP,ACCTP1,ACCTP2, CREDDOCDT, CREDDOCSR, CREDDOCNR, IDCARRIER, IDADDRESSOUT, IDADDRESSIN, IDVEHICLE, IDTRANSACTIONTYPE, IDPAYMENTTYPE, DUEDATE, IDDRIVER
+            this._commandCollection[0].CommandText = @"SELECT ID, DT, SR, NR, TP, PVNTYPE, STATE, IDSTOREIN, IDSTOREOUT, IDCREDDOC, SUMM, IDSEQ, ACCIN, ACCOUT,ACCOUNTINGTP,ACCTP1,ACCTP2,WEVATPAYER, CREDDOCDT, CREDDOCSR, CREDDOCNR, IDCARRIER, IDADDRESSOUT, IDADDRESSIN, IDVEHICLE, IDTRANSACTIONTYPE, IDPAYMENTTYPE, DUEDATE, IDDRIVER
 FROM   M_DOCS
 ORDER BY IDSEQ, ID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -22484,6 +22545,7 @@ ORDER BY IDSEQ, ID";
                     short Original_ACCOUNTINGTP, 
                     short Original_ACCTP1, 
                     short Original_ACCTP2, 
+                    short Original_WEVATPAYER, 
                     global::System.Nullable<global::System.DateTime> Original_CREDDOCDT, 
                     string Original_CREDDOCSR, 
                     string Original_CREDDOCNR, 
@@ -22543,86 +22605,87 @@ ORDER BY IDSEQ, ID";
             this.Adapter.DeleteCommand.Parameters[17].Value = ((short)(Original_ACCOUNTINGTP));
             this.Adapter.DeleteCommand.Parameters[18].Value = ((short)(Original_ACCTP1));
             this.Adapter.DeleteCommand.Parameters[19].Value = ((short)(Original_ACCTP2));
+            this.Adapter.DeleteCommand.Parameters[20].Value = ((short)(Original_WEVATPAYER));
             if ((Original_CREDDOCDT.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((System.DateTime)(Original_CREDDOCDT.Value));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((System.DateTime)(Original_CREDDOCDT.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_CREDDOCSR == null)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_CREDDOCSR));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_CREDDOCSR));
             }
             if ((Original_CREDDOCNR == null)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_CREDDOCNR));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_CREDDOCNR));
             }
             if ((Original_IDCARRIER.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((int)(Original_IDCARRIER.Value));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_IDCARRIER.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_IDADDRESSOUT.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((int)(Original_IDADDRESSOUT.Value));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_IDADDRESSOUT.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             if ((Original_IDADDRESSIN.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((int)(Original_IDADDRESSIN.Value));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((int)(Original_IDADDRESSIN.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             if ((Original_IDVEHICLE.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((int)(Original_IDVEHICLE.Value));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_IDVEHICLE.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_IDTRANSACTIONTYPE));
+            this.Adapter.DeleteCommand.Parameters[35].Value = ((int)(Original_IDTRANSACTIONTYPE));
             if ((Original_IDPAYMENTTYPE.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((int)(Original_IDPAYMENTTYPE.Value));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((int)(Original_IDPAYMENTTYPE.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             if ((Original_DUEDATE.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((System.DateTime)(Original_DUEDATE.Value));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((System.DateTime)(Original_DUEDATE.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             if ((Original_IDDRIVER.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[40].Value = ((int)(Original_IDDRIVER.Value));
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((int)(Original_IDDRIVER.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -22662,6 +22725,7 @@ ORDER BY IDSEQ, ID";
                     short ACCOUNTINGTP, 
                     short ACCTP1, 
                     short ACCTP2, 
+                    short WEVATPAYER, 
                     global::System.Nullable<global::System.DateTime> CREDDOCDT, 
                     string CREDDOCSR, 
                     string CREDDOCNR, 
@@ -22715,66 +22779,67 @@ ORDER BY IDSEQ, ID";
             this.Adapter.InsertCommand.Parameters[14].Value = ((short)(ACCOUNTINGTP));
             this.Adapter.InsertCommand.Parameters[15].Value = ((short)(ACCTP1));
             this.Adapter.InsertCommand.Parameters[16].Value = ((short)(ACCTP2));
+            this.Adapter.InsertCommand.Parameters[17].Value = ((short)(WEVATPAYER));
             if ((CREDDOCDT.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((System.DateTime)(CREDDOCDT.Value));
+                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(CREDDOCDT.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((CREDDOCSR == null)) {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(CREDDOCSR));
-            }
-            if ((CREDDOCNR == null)) {
+            if ((CREDDOCSR == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(CREDDOCNR));
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(CREDDOCSR));
             }
-            if ((IDCARRIER.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(IDCARRIER.Value));
-            }
-            else {
+            if ((CREDDOCNR == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((IDADDRESSOUT.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(IDADDRESSOUT.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(CREDDOCNR));
+            }
+            if ((IDCARRIER.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(IDCARRIER.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((IDADDRESSIN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((int)(IDADDRESSIN.Value));
+            if ((IDADDRESSOUT.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((int)(IDADDRESSOUT.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((IDVEHICLE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(IDVEHICLE.Value));
+            if ((IDADDRESSIN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(IDADDRESSIN.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[24].Value = ((int)(IDTRANSACTIONTYPE));
-            if ((IDPAYMENTTYPE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((int)(IDPAYMENTTYPE.Value));
+            if ((IDVEHICLE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((int)(IDVEHICLE.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((DUEDATE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((System.DateTime)(DUEDATE.Value));
+            this.Adapter.InsertCommand.Parameters[25].Value = ((int)(IDTRANSACTIONTYPE));
+            if ((IDPAYMENTTYPE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((int)(IDPAYMENTTYPE.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((IDDRIVER.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((int)(IDDRIVER.Value));
+            if ((DUEDATE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((System.DateTime)(DUEDATE.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((IDDRIVER.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((int)(IDDRIVER.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -22814,6 +22879,7 @@ ORDER BY IDSEQ, ID";
                     short ACCOUNTINGTP, 
                     short ACCTP1, 
                     short ACCTP2, 
+                    short WEVATPAYER, 
                     global::System.Nullable<global::System.DateTime> CREDDOCDT, 
                     string CREDDOCSR, 
                     string CREDDOCNR, 
@@ -22842,6 +22908,7 @@ ORDER BY IDSEQ, ID";
                     short Original_ACCOUNTINGTP, 
                     short Original_ACCTP1, 
                     short Original_ACCTP2, 
+                    short Original_WEVATPAYER, 
                     global::System.Nullable<global::System.DateTime> Original_CREDDOCDT, 
                     string Original_CREDDOCSR, 
                     string Original_CREDDOCNR, 
@@ -22895,195 +22962,197 @@ ORDER BY IDSEQ, ID";
             this.Adapter.UpdateCommand.Parameters[14].Value = ((short)(ACCOUNTINGTP));
             this.Adapter.UpdateCommand.Parameters[15].Value = ((short)(ACCTP1));
             this.Adapter.UpdateCommand.Parameters[16].Value = ((short)(ACCTP2));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((short)(WEVATPAYER));
             if ((CREDDOCDT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(CREDDOCDT.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(CREDDOCDT.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((CREDDOCSR == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(CREDDOCSR));
-            }
-            if ((CREDDOCNR == null)) {
+            if ((CREDDOCSR == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(CREDDOCNR));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(CREDDOCSR));
             }
-            if ((IDCARRIER.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(IDCARRIER.Value));
-            }
-            else {
+            if ((CREDDOCNR == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((IDADDRESSOUT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(IDADDRESSOUT.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(CREDDOCNR));
+            }
+            if ((IDCARRIER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(IDCARRIER.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((IDADDRESSIN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(IDADDRESSIN.Value));
+            if ((IDADDRESSOUT.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(IDADDRESSOUT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((IDVEHICLE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(IDVEHICLE.Value));
+            if ((IDADDRESSIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(IDADDRESSIN.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(IDTRANSACTIONTYPE));
-            if ((IDPAYMENTTYPE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(IDPAYMENTTYPE.Value));
+            if ((IDVEHICLE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(IDVEHICLE.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((DUEDATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(DUEDATE.Value));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(IDTRANSACTIONTYPE));
+            if ((IDPAYMENTTYPE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(IDPAYMENTTYPE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((IDDRIVER.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(IDDRIVER.Value));
+            if ((DUEDATE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(DUEDATE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_DT));
-            if ((Original_SR == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            if ((IDDRIVER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(IDDRIVER.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_SR));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_DT));
+            if ((Original_SR == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_SR));
             }
             if ((Original_NR == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_NR));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_NR));
             }
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_TP));
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_PVNTYPE));
-            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_STATE));
-            this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_IDSTOREIN));
-            this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_IDSTOREOUT));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_TP));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_PVNTYPE));
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_STATE));
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_IDSTOREIN));
+            this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_IDSTOREOUT));
             if ((Original_IDCREDDOC.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_IDCREDDOC.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_IDCREDDOC.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_SUMM));
-            this.Adapter.UpdateCommand.Parameters[42].Value = ((long)(Original_IDSEQ));
+            this.Adapter.UpdateCommand.Parameters[42].Value = ((decimal)(Original_SUMM));
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((long)(Original_IDSEQ));
             if ((Original_ACCIN == null)) {
                 throw new global::System.ArgumentNullException("Original_ACCIN");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_ACCIN));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_ACCIN));
             }
             if ((Original_ACCOUT == null)) {
                 throw new global::System.ArgumentNullException("Original_ACCOUT");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_ACCOUT));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_ACCOUT));
             }
-            this.Adapter.UpdateCommand.Parameters[45].Value = ((short)(Original_ACCOUNTINGTP));
-            this.Adapter.UpdateCommand.Parameters[46].Value = ((short)(Original_ACCTP1));
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((short)(Original_ACCTP2));
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((short)(Original_ACCOUNTINGTP));
+            this.Adapter.UpdateCommand.Parameters[47].Value = ((short)(Original_ACCTP1));
+            this.Adapter.UpdateCommand.Parameters[48].Value = ((short)(Original_ACCTP2));
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((short)(Original_WEVATPAYER));
             if ((Original_CREDDOCDT.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((System.DateTime)(Original_CREDDOCDT.Value));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((System.DateTime)(Original_CREDDOCDT.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CREDDOCSR == null)) {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_CREDDOCSR));
-            }
-            if ((Original_CREDDOCNR == null)) {
+            if ((Original_CREDDOCSR == null)) {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_CREDDOCNR));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_CREDDOCSR));
             }
-            if ((Original_IDCARRIER.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_IDCARRIER.Value));
-            }
-            else {
+            if ((Original_CREDDOCNR == null)) {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
-            if ((Original_IDADDRESSOUT.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_CREDDOCNR));
+            }
+            if ((Original_IDCARRIER.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Original_IDADDRESSOUT.Value));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Original_IDCARRIER.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
-            if ((Original_IDADDRESSIN.HasValue == true)) {
+            if ((Original_IDADDRESSOUT.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_IDADDRESSIN.Value));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_IDADDRESSOUT.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
-            if ((Original_IDVEHICLE.HasValue == true)) {
+            if ((Original_IDADDRESSIN.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((int)(Original_IDVEHICLE.Value));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((int)(Original_IDADDRESSIN.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(Original_IDTRANSACTIONTYPE));
-            if ((Original_IDPAYMENTTYPE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_IDPAYMENTTYPE.Value));
+            if ((Original_IDVEHICLE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((int)(Original_IDVEHICLE.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
             }
-            if ((Original_DUEDATE.HasValue == true)) {
+            this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_IDTRANSACTIONTYPE));
+            if ((Original_IDPAYMENTTYPE.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((System.DateTime)(Original_DUEDATE.Value));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((int)(Original_IDPAYMENTTYPE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
-            if ((Original_IDDRIVER.HasValue == true)) {
+            if ((Original_DUEDATE.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((int)(Original_IDDRIVER.Value));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((System.DateTime)(Original_DUEDATE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
+            if ((Original_IDDRIVER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((int)(Original_IDDRIVER.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -23122,6 +23191,7 @@ ORDER BY IDSEQ, ID";
                     short ACCOUNTINGTP, 
                     short ACCTP1, 
                     short ACCTP2, 
+                    short WEVATPAYER, 
                     global::System.Nullable<global::System.DateTime> CREDDOCDT, 
                     string CREDDOCSR, 
                     string CREDDOCNR, 
@@ -23150,6 +23220,7 @@ ORDER BY IDSEQ, ID";
                     short Original_ACCOUNTINGTP, 
                     short Original_ACCTP1, 
                     short Original_ACCTP2, 
+                    short Original_WEVATPAYER, 
                     global::System.Nullable<global::System.DateTime> Original_CREDDOCDT, 
                     string Original_CREDDOCSR, 
                     string Original_CREDDOCNR, 
@@ -23161,7 +23232,7 @@ ORDER BY IDSEQ, ID";
                     global::System.Nullable<int> Original_IDPAYMENTTYPE, 
                     global::System.Nullable<global::System.DateTime> Original_DUEDATE, 
                     global::System.Nullable<int> Original_IDDRIVER) {
-            return this.Update(Original_ID, DT, SR, NR, TP, PVNTYPE, STATE, IDSTOREIN, IDSTOREOUT, IDCREDDOC, SUMM, IDSEQ, ACCIN, ACCOUT, ACCOUNTINGTP, ACCTP1, ACCTP2, CREDDOCDT, CREDDOCSR, CREDDOCNR, IDCARRIER, IDADDRESSOUT, IDADDRESSIN, IDVEHICLE, IDTRANSACTIONTYPE, IDPAYMENTTYPE, DUEDATE, IDDRIVER, Original_ID, Original_DT, Original_SR, Original_NR, Original_TP, Original_PVNTYPE, Original_STATE, Original_IDSTOREIN, Original_IDSTOREOUT, Original_IDCREDDOC, Original_SUMM, Original_IDSEQ, Original_ACCIN, Original_ACCOUT, Original_ACCOUNTINGTP, Original_ACCTP1, Original_ACCTP2, Original_CREDDOCDT, Original_CREDDOCSR, Original_CREDDOCNR, Original_IDCARRIER, Original_IDADDRESSOUT, Original_IDADDRESSIN, Original_IDVEHICLE, Original_IDTRANSACTIONTYPE, Original_IDPAYMENTTYPE, Original_DUEDATE, Original_IDDRIVER);
+            return this.Update(Original_ID, DT, SR, NR, TP, PVNTYPE, STATE, IDSTOREIN, IDSTOREOUT, IDCREDDOC, SUMM, IDSEQ, ACCIN, ACCOUT, ACCOUNTINGTP, ACCTP1, ACCTP2, WEVATPAYER, CREDDOCDT, CREDDOCSR, CREDDOCNR, IDCARRIER, IDADDRESSOUT, IDADDRESSIN, IDVEHICLE, IDTRANSACTIONTYPE, IDPAYMENTTYPE, DUEDATE, IDDRIVER, Original_ID, Original_DT, Original_SR, Original_NR, Original_TP, Original_PVNTYPE, Original_STATE, Original_IDSTOREIN, Original_IDSTOREOUT, Original_IDCREDDOC, Original_SUMM, Original_IDSEQ, Original_ACCIN, Original_ACCOUT, Original_ACCOUNTINGTP, Original_ACCTP1, Original_ACCTP2, Original_WEVATPAYER, Original_CREDDOCDT, Original_CREDDOCSR, Original_CREDDOCNR, Original_IDCARRIER, Original_IDADDRESSOUT, Original_IDADDRESSIN, Original_IDVEHICLE, Original_IDTRANSACTIONTYPE, Original_IDPAYMENTTYPE, Original_DUEDATE, Original_IDDRIVER);
         }
     }
     

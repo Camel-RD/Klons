@@ -142,7 +142,7 @@ namespace KlonsFM.FormsM
             public void UpdateSGtp()
             {
                 if (Gtp == 0) SGtp = "sākumā";
-                else if (Gtp == 1) SGtp = "";
+                else if (Gtp == 1) SGtp = SDocType;
                 else if (Gtp == 2) SGtp = "beigās";
             }
 

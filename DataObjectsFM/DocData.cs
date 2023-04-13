@@ -34,6 +34,7 @@ namespace DataObjectsFM
         public short _ACCOUNTINGTP { get; set; }
         public short _ACCTP1 { get; set; }
         public short _ACCTP2 { get; set; }
+        public short _WEVATPAYER { get; set; }
         public DateTime? _DUEDATE { get; set; }
         public decimal _SUMM { get; set; }
     }

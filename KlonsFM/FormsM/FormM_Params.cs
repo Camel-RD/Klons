@@ -40,12 +40,26 @@ namespace KlonsFM.FormsM
         public void LoadParams()
         {
             paramsMData1._MainnStoreCode = MyData.Params.MAINSTORE;
+            paramsMData1._DecimalsInPrices = MyData.Params.DECIMALSINPRICES;
         }
 
         public void SaveParamsA()
         {
             MyData.Params.MAINSTORE = paramsMData1._MainnStoreCode;
+            MyData.Params.DECIMALSINPRICES = paramsMData1._DecimalsInPrices;
             MyData.Params.Save();
+        }
+
+        private void paramsMData1_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "_DecimalsInPrices")
+            {
+                int k = paramsMData1._DecimalsInPrices;
+                k = k > 4 ? 4 : k;
+                k = k < 2 ? 2 : k;
+                if (k == paramsMData1._DecimalsInPrices) return;
+                paramsMData1._DecimalsInPrices = k;
+            }
         }
 
         private void GrMainStore_ButtonClicked(object sender, EventArgs e)
@@ -61,5 +75,6 @@ namespace KlonsFM.FormsM
             SaveParamsA();
             DialogResult = DialogResult.OK;
         }
+
     }
 }

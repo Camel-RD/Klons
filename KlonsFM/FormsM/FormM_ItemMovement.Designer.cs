@@ -174,7 +174,7 @@ namespace KlonsFM.FormsM
             this.dgcSGtp.MinimumWidth = 8;
             this.dgcSGtp.Name = "dgcSGtp";
             this.dgcSGtp.ReadOnly = true;
-            this.dgcSGtp.Width = 90;
+            this.dgcSGtp.Width = 140;
             // 
             // dgcDt
             // 

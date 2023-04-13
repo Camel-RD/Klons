@@ -25,6 +25,14 @@ namespace KlonsFM.FormsM
             InitializeComponent();
             CheckMyFontAndColors();
 
+            DecimalsInPrices = MyData.Params.DECIMALSINPRICES;
+            string price_format = "N" + DecimalsInPrices;
+            dgcRowsPrice0.DefaultCellStyle.Format = price_format;
+            dgcRowsPrice.DefaultCellStyle.Format = price_format;
+            dgcRowsBuyPrice.DefaultCellStyle.Format = price_format;
+
+            miSplitPVN.Visible = !AreWeVATPayer;
+
             MakeGrid();
         }
 
@@ -63,11 +71,13 @@ namespace KlonsFM.FormsM
         }
 
         public int? ActiveDocId = null;
+        private int DecimalsInPrices = 2;
 
         private void FormM_Doc_Load(object sender, EventArgs e)
         {
             CheckSave();
             CheckEnableRows();
+            CheckEnableDocsCheckBoxes();
 
             MyData.DataSetKlonsM.M_DOCS.ColumnChanged += M_DOCS_ColumnChanged;
             MyData.DataSetKlonsM.M_ROWS.ColumnChanged += M_ROWS_ColumnChanged;
@@ -123,6 +133,8 @@ namespace KlonsFM.FormsM
 
         private void M_ROWS_M_ROWSRowChanged(object sender, KlonsMDataSet.M_ROWSRowChangeEvent e)
         {
+            if (e.Action == DataRowAction.Commit) return;
+
             KlonsMDataSet.M_DOCSRow dr = null;
 
             if(e.Row.RowState == DataRowState.Deleted ||
@@ -223,6 +235,11 @@ namespace KlonsFM.FormsM
             }
         }
 
+        private decimal RoundPrice(decimal price)
+        {
+            return Math.Round(price, DecimalsInPrices);
+        }
+
         private void M_ROWS_ColumnChangedA(DataColumnChangeEventArgs e)
         {
             var table = MyData.DataSetKlonsM.M_ROWS;
@@ -235,16 +252,17 @@ namespace KlonsFM.FormsM
                 if (dr_item == null) return;
                 dr.BeginEdit();
                 if(dr.M_DOCSRow.XDocType == EDocType.Realizācija ||
-                    dr.M_DOCSRow.XDocType == EDocType.Sniegti_pakalpojumi)
+                    dr.M_DOCSRow.XDocType == EDocType.Sniegti_pakalpojumi ||
+                    dr.M_DOCSRow.XDocType == EDocType.Pārvietots)
                 {
-                    dr.PRICE0 = dr_item.SELLPRICE;
-                    dr.PRICE = dr_item.SELLPRICE;
+                    dr.PRICE0 = RoundPrice(dr_item.SELLPRICE);
+                    dr.PRICE = RoundPrice(dr_item.SELLPRICE);
                     dr.DISCOUNT = 0f;
                 }
                 else if (dr.M_DOCSRow.XDocType == EDocType.Saražots)
                 {
-                    dr.PRICE0 = dr_item.PRODCOST;
-                    dr.PRICE = dr_item.PRODCOST;
+                    dr.PRICE0 = RoundPrice(dr_item.PRODCOST);
+                    dr.PRICE = RoundPrice(dr_item.PRODCOST);
                     dr.DISCOUNT = 0f;
                 }
                 else
@@ -267,7 +285,7 @@ namespace KlonsFM.FormsM
                 e.Column == table.AMOUNTColumn)
             {
                 var dr = e.Row as KlonsMDataSet.M_ROWSRow;
-                var price = Math.Round((((decimal)dr.DISCOUNT) / 100M + 1M) * dr.PRICE0, 2);
+                var price = RoundPrice(dr.PRICE0 + (decimal)dr.DISCOUNT / 100M * dr.PRICE0);
                 var tprice = Math.Round(dr.AMOUNT * price, 2);
                 if (dr.PRICE != price) dr.PRICE = price;
                 if (dr.TPRICE != tprice) dr.TPRICE = tprice;
@@ -443,6 +461,12 @@ namespace KlonsFM.FormsM
         {
             sgrDocA.Visible = bsDocs.Count > 0 && bsDocs.Current != null;
             dgvRows.Enabled = bsDocs.Count > 0 && bsDocs.Current != null;
+        }
+
+        private void CheckEnableDocsCheckBoxes()
+        {
+            var b = CanEditCurrentDoc();
+            grDocWeVATPayer.ReadOnly = !b;
         }
 
         public override bool SaveData()
@@ -701,6 +725,29 @@ namespace KlonsFM.FormsM
 
         }
 
+        private void dgvRows_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            if (e.Value == null || e.Value == DBNull.Value) return;
+            if (e.ColumnIndex == dgcRowsPrice0.Index)
+            {
+                decimal price;
+                if (e.Value is string sval)
+                {
+                    if (!decimal.TryParse(sval, out price)) return;
+                }
+                else if (e.Value is decimal)
+                {
+                    price = (decimal)e.Value;
+                }
+                else
+                    return;
+                decimal rprice = RoundPrice(price);
+                if (price == rprice) return;
+                e.Value = rprice;
+                e.ParsingApplied = true;
+            }
+        }
+
         private void bniSave_Click(object sender, EventArgs e)
         {
             SaveData();
@@ -788,12 +835,14 @@ namespace KlonsFM.FormsM
         {
             if (IsLoading) return;
             CheckEnableRows();
+            CheckEnableDocsCheckBoxes();
             CheckSave();
         }
 
         private void bsDocs_CurrentChanged(object sender, EventArgs e)
         {
             CheckEnableRows();
+            CheckEnableDocsCheckBoxes();
         }
 
         private void bsRows_ListChanged(object sender, ListChangedEventArgs e)
@@ -1169,6 +1218,31 @@ namespace KlonsFM.FormsM
             FormM_DocCosts.ShowRep(dr_doc);
         }
 
+        public bool AreWeVATPayer => !MyData.Params.CompRegNrPVN.IsNOE();
+
+        public void DoSplitPVN()
+        {
+            var dr_doc = GetCurrentDocRow();
+            if (dr_doc == null) return;
+            if (!dr_doc.IsOpenForChanges)
+            {
+                MyMainForm.ShowWarning("Dokuments nav atvērts rediģēšnai.");
+                return;
+            }
+            if (dr_doc.XWeVATPayer)
+            {
+                MyMainForm.ShowWarning("Dokumenta ir atzīme, ka esam PVN maksātājs.\n" +
+                    "Cenas pārrēķins pieskaitot PVN nav jāveic.");
+                return;
+            }
+            if(dr_doc.XDocType != EDocType.Iepirkums)
+            {
+                MyMainForm.ShowWarning("Cenas pārrēķins pieskaitot PVN būtu jāveic tikai iepirkuma reķīniem.");
+                return;
+            }
+            FormM_DocSplitPVN.ShowRep(dr_doc);
+        }
+
         private void sgrDocA_EditStarting(object sender, CancelEventArgs e)
         {
             if (!CanEditCurrentDoc())
@@ -1228,6 +1302,10 @@ namespace KlonsFM.FormsM
         private void pavadzīmeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DoPrint();
+        }
+        private void miSplitPVN_Click(object sender, EventArgs e)
+        {
+            DoSplitPVN();
         }
 
     }

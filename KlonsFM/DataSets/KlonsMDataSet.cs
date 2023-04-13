@@ -87,6 +87,12 @@ namespace KlonsFM.DataSets
                 set => ACCTP2 = (short)(value ? 1 : 0);
             }
 
+            public bool XWeVATPayer
+            {
+                get => WEVATPAYER == 1;
+                set => WEVATPAYER = (short)(value ? 1 : 0);
+            }
+
             public string DocSrNr => $"{SR.Nz()} {NR.Nz()}".Trim();
 
             public bool IsOpenForChanges =>

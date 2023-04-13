@@ -548,6 +548,11 @@ namespace KlonsFM.Classes
             get { return GetParamStr("MAINSTORE"); }
             set { SetParamStr("MAINSTORE", value); }
         }
+        public int DECIMALSINPRICES
+        {
+            get { return GetParamInt("DECIMALSINPRICES") ?? 2; }
+            set { SetParamInt("DECIMALSINPRICES", value); }
+        }
 
 
         public string GetParamStr(string paramkey)

@@ -10,6 +10,6 @@ namespace DataObjectsFM
     public class ParamsMData : BindableComponent
     {
         public string _MainnStoreCode { get; set; }
-
+        public int _DecimalsInPrices { get; set; }
     }
 }

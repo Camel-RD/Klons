@@ -310,6 +310,14 @@ namespace KlonsFM.FormsM
                 e.Value = SomeDataDefs.GetDocStateText(xstate);
                 e.FormattingApplied = true;
             }
+
+            if (e.ColumnIndex == dgcDocsTP.Index)
+            {
+                int tp = (int)e.Value;
+                var name = MyData.DataSetKlonsM.M_DOCTYPES.FindByID(tp).NAME;
+                e.Value = name;
+                e.FormattingApplied = true;
+            }
         }
 
         private void bniSave_Click(object sender, EventArgs e)
@@ -431,6 +439,7 @@ namespace KlonsFM.FormsM
             dr.DT = DateTime.Today;
             dr.XDocType = EDocType.Nenoteikts;
             dr.XState = EDocState.Melnraksts;
+            dr.XWeVATPayer = !MyData.Params.CompRegNrPVN.IsNOE();
             table_docs.Rows.Add(dr);
             var form = MyMainForm.ShowFormMDialog<FormM_Doc>((Action<int>)null);
             bool rt = form.FindDoc(dr.ID);
@@ -453,9 +462,7 @@ namespace KlonsFM.FormsM
 
         private void dgvDocs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgcDocsDT.Index ||
-               e.ColumnIndex == dgcDocsSR.Index ||
-               e.ColumnIndex == dgcDocsNr.Index)
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 DoOpenDoc();
             }

@@ -17,6 +17,18 @@ namespace KlonsLIB.MySourceGrid.GridRows
         [DefaultValue(null)]
         public string FalseValue { get; set; } = null;
 
+        private bool readOnly = false;
+        public override bool ReadOnly 
+        { 
+            get => readOnly;
+            set
+            {
+                readOnly = value;
+                if(MyEditor != null)
+                    MyEditor.EnableEdit = !readOnly;
+            }
+        }
+
         public MyGridRowCheckBox(string name, string title, string propname, string gridpropname, EMyGridRowValueType valtyp)
             : base(name, title, gridpropname, EMyGridRowType.CheckBox, valtyp)
         {

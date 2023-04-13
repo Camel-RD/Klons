@@ -494,7 +494,7 @@ namespace KlonsFM.FormsM
             this.dgcPVNRate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgcPVNRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgcPVNRate.ValueMember = "ID";
-            this.dgcPVNRate.Width = 160;
+            this.dgcPVNRate.Width = 120;
             // 
             // dgcIsService
             // 

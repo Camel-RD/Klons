@@ -22831,7 +22831,9 @@ namespace KlonsF.DataSets.klonsRepDataSetTableAdapters {
             this._commandCollection = new global::FirebirdSql.Data.FirebirdClient.FbCommand[20];
             this._commandCollection[0] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ""ID"", ""SPID"", ""DID"", ""DETE"", ""NRX"", ""DOCTYP"", ""DOCTYP1"", ""DOCTYP2"", ""DOCST"", ""DOCNR"", ""CLID"", ""CLID2"", ""NAME"", ""NAME2"", ""REGNR"", ""REGNR2"", ""B0"", ""DESCR"", ""DESCR2"", ""AC1"", ""AC2"", ""SAC1"", ""SAC2"", ""SUMMC"", ""CUR"", ""SUMM"", ""PVN"", ""RAC"", ""SDB"", ""SCR"", ""RAC2"", ""RAC3"", ""RAC4"", ""RAC5"", ""QV"", ""ZNR"" FROM ""ROPS1A""";
+            this._commandCollection[0].CommandText = "SELECT ID, SPID, DID, DETE, NRX, DOCTYP, DOCTYP1, DOCTYP2, DOCST, DOCNR, CLID, CL" +
+                "ID2, NAME, NAME2, REGNR, REGNR2, B0, DESCR, DESCR2, AC1, AC2, SAC1, SAC2, SUMMC," +
+                " CUR, SUMM, PVN, RAC, SDB, SCR, RAC2, RAC3, RAC4, RAC5, QV, ZNR FROM ROPS1A";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::FirebirdSql.Data.FirebirdClient.FbCommand();
             this._commandCollection[1].Connection = this.Connection;

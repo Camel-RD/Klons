@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="Classes\BackupHelper.cs" />
     <Compile Include="Classes\Data2XLS.cs" />
+    <Compile Include="Classes\RepKasesGr.cs" />
     <Compile Include="Classes\ReportHelper.cs" />
     <Compile Include="Classes\MyFormBaseF.cs">
       <SubType>Form</SubType>

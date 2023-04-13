@@ -3,19 +3,13 @@
 namespace KlonsF.DataSets
 {
 
-
-    public partial class klonsRepDataSet
-    {
-    }
 }
 
-namespace KlonsF.DataSets.klonsRepDataSetTableAdapters
+namespace KlonsF.DataSets
 {
-    partial class ROps2aTableAdapter
+
+
+    partial class klonsRepDataSet
     {
-    }
-    
-    
-    public partial class OPSdTableAdapter {
     }
 }

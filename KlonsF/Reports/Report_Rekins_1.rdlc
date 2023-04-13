@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="klonsRepDataSet">
@@ -25,39 +25,43 @@
       </Query>
       <Fields>
         <Field Name="id">
-          <DataField>id</DataField>
+          <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Dete">
+          <DataField>DETE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
         <Field Name="NrX">
-          <DataField>NrX</DataField>
+          <DataField>NRX</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DocTyp">
-          <DataField>DocTyp</DataField>
+          <DataField>DOCTYP</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DocSt">
-          <DataField>DocSt</DataField>
+          <DataField>DOCST</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DocNr">
-          <DataField>DocNr</DataField>
+          <DataField>DOCNR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ClId">
-          <DataField>ClId</DataField>
+          <DataField>CLID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ClId2">
-          <DataField>ClId2</DataField>
+          <DataField>CLID2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Descr">
-          <DataField>Descr</DataField>
+          <DataField>DESCR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Summ">
-          <DataField>Summ</DataField>
+          <DataField>SUMM</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PVN">
@@ -65,19 +69,19 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Opt">
-          <DataField>Opt</DataField>
+          <DataField>OPT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ZNR">
+          <DataField>ZNR</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ZU">
           <DataField>ZU</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ZNR">
-          <DataField>ZNR</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="ZDt">
-          <DataField>ZDt</DataField>
+          <DataField>ZDT</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="DT2">
@@ -89,17 +93,13 @@
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
         <Field Name="yr">
-          <DataField>yr</DataField>
+          <DataField>YR</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Dete">
-          <DataField>Dete</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>klonsRepDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\A1-docs\c_net\KlonsM\DataSets\klonsRepDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\A1-docs\c_net\Klons\KlonsF\DataSets\klonsRepDataSet.xsd</rd:SchemaPath>
         <rd:TableName>TRepOPSd</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -113,15 +113,19 @@
       </Query>
       <Fields>
         <Field Name="ClId">
-          <DataField>ClId</DataField>
+          <DataField>CLID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Name">
-          <DataField>Name</DataField>
+          <DataField>NAME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="RegNr">
-          <DataField>RegNr</DataField>
+          <DataField>REGNR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PVNRegNr">
+          <DataField>PVNREGNR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TP">
@@ -137,45 +141,41 @@
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Addr">
-          <DataField>Addr</DataField>
+          <DataField>ADDR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Addr2">
+          <DataField>ADDR2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BankId">
+          <DataField>BANKID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Bank">
+          <DataField>BANK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BankAcc">
+          <DataField>BANKACC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Phone">
+          <DataField>PHONE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ATK">
           <DataField>ATK</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PVNRegNr">
-          <DataField>PVNRegNr</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Addr2">
-          <DataField>Addr2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Bank">
-          <DataField>Bank</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="BankAcc">
-          <DataField>BankAcc</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Phone">
-          <DataField>Phone</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Act">
-          <DataField>Act</DataField>
+          <DataField>ACT</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="BankId">
-          <DataField>BankId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>klonsDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\A1-docs\c_net\KlonsF\DataSets\klonsDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\A1-docs\c_net\Klons\KlonsF\DataSets\klonsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Persons</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -2425,6 +2425,59 @@ First(Fields!DocNr.Value, "DataSet1"))</Value>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>2</NumberOfColumns>
+      <NumberOfRows>5</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>RCOMPNAME</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>RREGNR</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>RPVNREGNR</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>RADRESE</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>RBANKA</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>RBANKASKODS</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>RKONTS</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>RDESCR</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>RSIGNER</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <CodeModules>
     <CodeModule>MyReportLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</CodeModule>
   </CodeModules>

@@ -92,7 +92,7 @@ namespace KlonsLIB.MySourceGrid.GridRows
 
         [DefaultValue(false)]
         [Category("Data")]
-        public bool ReadOnly { get; set; } = false;
+        public virtual bool ReadOnly { get; set; } = false;
 
         [DefaultValue(true)]
         public bool CheckRed { get; set; } = true;

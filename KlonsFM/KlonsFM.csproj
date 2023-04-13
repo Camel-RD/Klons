@@ -226,6 +226,12 @@
     <Compile Include="FormsM\FormM_DocList.Designer.cs">
       <DependentUpon>FormM_DocList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsM\FormM_DocSplitPVN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsM\FormM_DocSplitPVN.Designer.cs">
+      <DependentUpon>FormM_DocSplitPVN.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsM\FormM_InvDoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -787,6 +793,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsM\FormM_DocList.resx">
       <DependentUpon>FormM_DocList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsM\FormM_DocSplitPVN.resx">
+      <DependentUpon>FormM_DocSplitPVN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsM\FormM_InvDoc.resx">
       <DependentUpon>FormM_InvDoc.cs</DependentUpon>

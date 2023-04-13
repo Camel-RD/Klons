@@ -1022,7 +1022,7 @@ namespace KlonsP.Forms
                 SetDate(filterData1.fDATE1.Value);
 
             string fs = "";
-            if (filterData1.fSTATE != null)
+            if (filterData1.fSTATE != null && filterData1.fSTATE.Value > 0)
             {
                 var fs1 = "";
                 if (filterData1.fSTATE.Value == 1)
